@@ -1,3 +1,5 @@
+import json
+
 from enum import Enum
 from PIL import ImageTk, Image
 
@@ -167,10 +169,10 @@ class PalSkills(Enum):
 
     PAL_conceited = "Conceited"
 
-    PAL_Masochist = "Masochist"
-    PAL_Sadist = "Sadist"
+    PAL_masochist = "Masochist"
+    PAL_sadist = "Sadist"
     
-    Lucky = "Lucky"
+    Rare = "Lucky"
     Legend = "Legend"
 
 
@@ -251,7 +253,7 @@ class PalType(Enum):
     RaijinDaughter = PalObject("Dazzi", Elements.ELECTRICITY)#
     SharkKid = PalObject("Gobfin", Elements.WATER)#
     SharkKid_Fire = PalObject("Gobfin Ignis", Elements.FIRE)#
-    SheepBall = PalObject("Lamball", Elements.NORMAL)#
+    Sheepball = PalObject("Lamball", Elements.NORMAL)#
     Umihebi = PalObject("Jormuntide", Elements.DRAGON, Elements.WATER)#
     Umihebi_Fire = PalObject("Jormuntide Ignis", Elements.DRAGON, Elements.FIRE)#
     Werewolf = PalObject("Loupmoon", Elements.DARK)#
@@ -369,17 +371,42 @@ class PalEntity:
     def __init__(self, data):
         self._data = data
         self._obj = data['value']['Struct']['Struct']['RawData']['Parsed']['object']['SaveParameter']['value']
+
+        if "IsPlayer" in self._obj:
+            raise Exception("This is a player character")
+
+        self.isLucky = ("IsRarePal" in self._obj)
         
         typename = self._obj['CharacterID']['value']
+        self.isBoss = False
+        if typename.startswith("BOSS_"):
+            typename = typename.replace("BOSS_", "")
+            if typename == "SheepBall":
+                typename = "Sheepball"
+                # Strangely, Boss and Lucky Lamballs have camelcasing
+                # Regular ones... don't
+            self.isBoss = True if not self.isLucky else False
+            
         self._type = PalType[typename]
         print(f"Created Entity of type {typename}: {self._type.value}")
+
 
         self._gender = "Male ♂" if self._obj['Gender']['value']['value'] == "EPalGenderType::Male" else "Female ♀"
 
         self._workspeed = self._obj['CraftSpeed']['value']
-        self._melee = self._obj['Talent_Melee']['value']
-        self._ranged = self._obj['Talent_Shot']['value']
-        self._defence = self._obj['Talent_Defense']['value']
+
+        self._melee = 0
+        if "Talent_Melee" in self._obj:
+            self._melee = self._obj['Talent_Melee']['value']
+
+        self._ranged = 0
+        if "Talent_Ranged" in self._obj:
+            self._ranged = self._obj['Talent_Shot']['value']
+
+        self._defence = 0
+        if "Talent_Defense" in self._obj:
+            self._defence = self._obj['Talent_Defense']['value']
+            
 
         try:
             self._skills = self._obj['PassiveSkillList']['value']['values']
@@ -388,7 +415,10 @@ class PalEntity:
 
         self._owner = self._obj['OwnerPlayerUId']['value']
 
-        self._level = self._obj['Level']['value']
+        if "Level" in self._obj:
+            self._level = self._obj['Level']['value']
+        else:        
+            self._level = -1
 
     def GetType(self):
         return self._type

@@ -37,7 +37,7 @@ def onselect(evt):
     g = pal.GetGender()
     palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
 
-    title.config(text=f"Data - Lv. {pal.GetLevel()}")
+    title.config(text=f"Data - Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
 
     ptype.config(text=pal.GetPrimary().GetName(), bg=pal.GetPrimary().GetColour())
@@ -64,6 +64,9 @@ def changetext(num):
     if len(palbox) == 0:
         return
 
+    if len(listdisplay.curselection()) == 0:
+        return
+    
     pal = palbox[int(listdisplay.curselection()[0])]
 
     if type(num) == str:
@@ -118,10 +121,20 @@ def loadfile():
         try:
             p = PalEntity(i)
             palbox.append(p)
-            listdisplay.insert(END, p.GetObject().GetName())
+
+            n = p.GetObject().GetName() + (" 💀" if p.isBoss else "") + (" ✨" if p.isLucky else "")
+                   
+            listdisplay.insert(END, n)
+
+            if p.isBoss:
+                listdisplay.itemconfig(END, {'fg': 'red'})
+            elif p.isLucky:
+                listdisplay.itemconfig(END, {'fg': 'blue'})
+
+
         except Exception as e:
             unknown.append(i)
-            print(f"Error occured: {e}")        
+            print(f"Error occured: {str(e)}")        
     print(f"Unknown list contains {len(unknown)} entries")
     #for i in unknown:
         #print (i)
