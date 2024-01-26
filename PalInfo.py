@@ -388,6 +388,8 @@ class PalEntity:
 
         self._owner = self._obj['OwnerPlayerUId']['value']
 
+        self._level = self._obj['Level']['value']
+
     def GetType(self):
         return self._type
 
@@ -403,8 +405,14 @@ class PalEntity:
     def GetAttackMelee(self):
         return self._melee
 
+    def SetAttackMelee(self, value):
+        self._obj['Talent_Melee']['value'] = self._melee = value
+
     def GetAttackRanged(self):
         return self._ranged
+
+    def SetAttackRanged(self, value):
+        self._obj['Talent_Shot']['value'] = self._ranged = value
 
     def GetDefence(self):
         return self._defence
@@ -436,6 +444,13 @@ class PalEntity:
 
     def GetOwner(self):
         return self._owner
+
+    def GetLevel(self):
+        return self._level
+
+    def SetLevel(self, value):
+        self._obj['Level']['value'] = self._level = value
+        self._obj['Exp']['value'] = 0
 
 
 if __name__ == "__main__":

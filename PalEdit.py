@@ -26,6 +26,9 @@ def changeskill(num):
 def onselect(evt):
     global palbox
     w = evt.widget
+    if (len(w.curselection())== 0):
+        return
+    
     index = int(w.curselection()[0])
 
     pal = palbox[index]
@@ -34,6 +37,7 @@ def onselect(evt):
     g = pal.GetGender()
     palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
 
+    title.config(text=f"Data - Lv. {pal.GetLevel()}")
     portrait.config(image=pal.GetImage())
 
     ptype.config(text=pal.GetPrimary().GetName(), bg=pal.GetPrimary().GetColour())
@@ -79,6 +83,7 @@ def loadfile():
     global palbox
     global data
     palbox = []
+    listdisplay.delete(0,END)
     skilllabel.config(text="Loading save, please be patient...")
     
     file = askopenfilename(filetype=[("All files", "*.sav *.sav.json *.pson"),("Palworld Saves", "*.sav *.sav.json"),("Palworld Box", "*.pson")])
@@ -170,6 +175,74 @@ def savejson(filename):
 def generateguid():
     print(uuid.uuid4())
 
+def changeivs():
+    if len(listdisplay.curselection()) == 0:
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i]
+    
+    def change():
+        global palbox
+        if len(palbox) == 0:
+            return
+        
+        pal.SetAttackMelee(mval.get())
+        pal.SetAttackRanged(rval.get())
+
+        listdisplay.select_set(i)
+        listdisplay.event_generate("<<ListboxSelect>>")
+
+        win.destroy()
+
+    win = Toplevel(root)
+
+    mval = IntVar()
+    rval = IntVar()
+    mval.set(pal.GetAttackMelee())
+    rval.set(pal.GetAttackRanged())
+
+    fr = Frame(win)
+    fr.pack()
+    melee = Entry(fr, textvariable=mval)
+    melee.pack(side=LEFT)
+    ranged = Entry(fr, textvariable=rval)
+    ranged.pack(side=RIGHT)
+    update = Button(win, text="OK", command=change)
+    update.pack()
+
+    win.mainloop()
+
+
+def changelevel():
+    if len(listdisplay.curselection()) == 0:
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i]
+    
+    def change():
+        global palbox
+        if len(palbox) == 0:
+            return
+
+        pal.SetLevel(value.get())
+
+        listdisplay.select_set(i)
+        listdisplay.event_generate("<<ListboxSelect>>")
+
+        win.destroy()
+
+    win = Toplevel(root)
+
+    value = IntVar()
+    value.set(pal.GetLevel())
+    
+    entry = Entry(win, textvariable=value)
+    entry.pack()
+    update = Button(win, text="OK", command=change)
+    update.pack()
+
+    win.mainloop()
+
 root = Tk()
 root.iconphoto(True, PalType.GrassPanda.value.GetImage())
 root.title("PalEdit v0.1")
@@ -187,6 +260,8 @@ tools.add_cascade(label="File", menu=filemenu, underline=0)
 
 toolmenu = Menu(tools, tearoff=0)
 toolmenu.add_command(label="Generate GUID", command=generateguid)
+toolmenu.add_command(label="Change IVs", command=changeivs)
+toolmenu.add_command(label="Change Level", command=changelevel)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
@@ -210,7 +285,7 @@ portrait.pack(side=LEFT)
 deckview = Frame(dataview, width=320, relief="sunken", borderwidth=2)
 deckview.pack(side=RIGHT, fill=BOTH, expand=True)
 
-title = Label(deckview, text="Base Data", bg="darkgrey", font=("Arial", 24))
+title = Label(deckview, text="Data - Lv. 0", bg="darkgrey", font=("Arial", 24))
 title.bind("<Enter>", lambda evt, num="owner": changetext(num))
 title.bind("<Leave>", lambda evt, num=-1: changetext(num))
 title.pack(fill=X)
