@@ -19,8 +19,9 @@ def changeskill(num):
     if len(palbox) == 0:
         return
 
-    pal = palbox[int(listdisplay.curselection()[0])]
-    pal.SetSkill(num, skills[num].get())
+    if not skills[num].get() in ["Unknown", "UNKNOWN"]:
+        pal = palbox[int(listdisplay.curselection()[0])]
+        pal.SetSkill(num, skills[num].get())
 
 def onselect(evt):
     global palbox

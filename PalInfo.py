@@ -403,6 +403,7 @@ class PalEntity:
         return self.GetObject().GetSecondary().value
 
     def GetSkills(self):
+        print(self._skills)
         return self._skills
 
     def SkillCount(self):
