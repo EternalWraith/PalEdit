@@ -19,9 +19,18 @@ def changeskill(num):
     if len(palbox) == 0:
         return
 
+    if len(listdisplay.curselection()) == 0:
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i]
+
     if not skills[num].get() in ["Unknown", "UNKNOWN"]:
-        pal = palbox[int(listdisplay.curselection()[0])]
-        pal.SetSkill(num, skills[num].get())
+        if skills[num].get() in ["None", "NONE"]:
+            pal.RemoveSkill(num)
+        else:
+            pal.SetSkill(num, skills[num].get())
+
+    refresh(i)
 
 def onselect(evt):
     global palbox
@@ -138,8 +147,8 @@ def loadfile():
     print(f"Unknown list contains {len(unknown)} entries")
     #for i in unknown:
         #print (i)
-    listdisplay.select_set(0)
-    listdisplay.event_generate("<<ListboxSelect>>")
+    
+    refresh()
 
     changetext(-1)
 
@@ -202,8 +211,7 @@ def changeivs():
         pal.SetAttackMelee(mval.get())
         pal.SetAttackRanged(rval.get())
 
-        listdisplay.select_set(i)
-        listdisplay.event_generate("<<ListboxSelect>>")
+        refresh(i)
 
         win.destroy()
 
@@ -239,8 +247,7 @@ def changelevel():
 
         pal.SetLevel(value.get())
 
-        listdisplay.select_set(i)
-        listdisplay.event_generate("<<ListboxSelect>>")
+        refresh(i)
 
         win.destroy()
 
@@ -255,6 +262,10 @@ def changelevel():
     update.pack()
 
     win.mainloop()
+
+def refresh(num=0):
+    listdisplay.select_set(num)
+    listdisplay.event_generate("<<ListboxSelect>>")
 
 root = Tk()
 root.iconphoto(True, PalType.GrassPanda.value.GetImage())

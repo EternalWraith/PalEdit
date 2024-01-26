@@ -460,6 +460,12 @@ class PalEntity:
         return self.GetObject().GetSecondary().value
 
     def GetSkills(self):
+        i = 0
+        while i < len(self._skills):
+            if self._skills[i] == "NONE":
+                self._skills.pop(i)
+            else:
+                i+=1
         print(self._skills)
         return self._skills
 
@@ -481,6 +487,10 @@ class PalEntity:
     def SetLevel(self, value):
         self._obj['Level']['value'] = self._level = value
         self._obj['Exp']['value'] = 0
+
+    def RemoveSkill(self, slot):
+        if slot < len(self._skills):
+            self._skills.pop(slot)
 
 
 if __name__ == "__main__":
