@@ -39,6 +39,7 @@ SkillDesc = {
         "Ferocious": "+20% to Attack stat",
         "Coward": "-10% to Attack stat",
         "Pacifist": "-20% to Attack stat",
+        
         "Hard Skin": "+10% to Defence stat",
         "Burly Body": "+20% to Defence stat",
         "Downtrodden": "-10% to Defence stat",
@@ -47,6 +48,8 @@ SkillDesc = {
         "Mine Foreman": "+25% to Player mining efficiency",
         "Logging Foreman": "+25% to Player logging efficiency",
         "Vanguard": "+10% to Player attack stat",
+        "Motivational Leader": "+25% to Player move speed",
+        "Stronghold Strategist": "+10% to Player defence stat",
 
         "Positive Thinker": "Sanity drops 10% slower",
         "Workaholic": "Sanity drops 15% slower",
@@ -61,7 +64,7 @@ SkillDesc = {
         "Serious": "+20% work speed",
         "Artisan": "+50% work speed",
         "Clumsy": "-10% work speed",
-        "Runner": "-30% work speed",
+        "Slacker": "-30% work speed",
 
         "Nimble": "+10% movement speed",
         "Runner": "+20% movement speed",
@@ -71,6 +74,13 @@ SkillDesc = {
 
         "Hooligan": "+15% attack, -10% work speed",
         "Musclehead": "+30% attack, -50% work speed",
+
+        "Aggressive": "+10% attack, -20% defence",
+
+        "Conceited": "+10% work speed, -20% defence",
+
+        "Masochist": "+15% defence, -15% attack",
+        "Sadist": "+15% attack, +15% defence",
 
         "Lucky": "+15% attack, +15% work speed",
         "Legend": "+20% attack, +20% defence, +15% move speed",
@@ -116,6 +126,7 @@ class PalSkills(Enum):
     PAL_ALLAttack_up2 = "Ferocious"
     PAL_ALLAttack_down1 = "Coward"
     PAL_ALLAttack_down2 = "Pacifist"
+    
     Deffence_up1 = "Hard Skin"
     Deffence_up2 = "Burly Body"
     Deffence_down1 = "Downtrodden"
@@ -124,6 +135,8 @@ class PalSkills(Enum):
     TrainerMining_up1 = "Mine Foreman"
     TrainerLogging_up1 = "Logging Foreman"
     TrainerATK_UP_1 = "Vanguard"
+    TrainerWorkSpeed_UP_1 = "Motivational Leader"
+    TrainerDEF_UP_1 = "Stronghold Strategist"
 
     PAL_Sanity_Up_1 = "Positive Thinker"
     PAL_Sanity_Up_2 = "Workaholic"
@@ -147,9 +160,15 @@ class PalSkills(Enum):
 
     PAL_CorporateSlave = "Work Slave"
 
-    # Hooligan
+    PAL_rude = "Hooligan"
     Noukin = "Musclehead"
 
+    PAL_oraora = "Aggressive"
+
+    PAL_conceited = "Conceited"
+
+    PAL_Masochist = "Masochist"
+    PAL_Sadist = "Sadist"
     
     Lucky = "Lucky"
     Legend = "Legend"

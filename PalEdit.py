@@ -1,4 +1,4 @@
-import os, webbrowser, json, time
+import os, webbrowser, json, time, uuid
 
 from PalInfo import *
 
@@ -166,7 +166,9 @@ def savejson(filename):
     f.close()
 
     changetext(-1)
-    
+
+def generateguid():
+    print(uuid.uuid4())
 
 root = Tk()
 root.iconphoto(True, PalType.GrassPanda.value.GetImage())
@@ -182,6 +184,11 @@ filemenu.add_command(label="Load Save", command=loadfile)
 filemenu.add_command(label="Save Changes", command=savefile)
 
 tools.add_cascade(label="File", menu=filemenu, underline=0)
+
+toolmenu = Menu(tools, tearoff=0)
+toolmenu.add_command(label="Generate GUID", command=generateguid)
+
+tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
 
 scrollbar = Scrollbar(root)
