@@ -140,10 +140,10 @@ class PalSkills(Enum):
     TrainerWorkSpeed_UP_1 = "Motivational Leader"
     TrainerDEF_UP_1 = "Stronghold Strategist"
 
-    PAL_Sanity_Up_1 = "Positive Thinker"
-    PAL_Sanity_Up_2 = "Workaholic"
-    PAL_Sanity_Down_1 = "Unstable"
-    PAL_Sanity_Down_2 = "Destructive"
+    PAL_Sanity_Down_1 = "Positive Thinker"
+    PAL_Sanity_Down_2 = "Workaholic"
+    PAL_Sanity_Up_1 = "Unstable"
+    PAL_Sanity_Up_2 = "Destructive"
 
     PAL_FullStomach_Up_1 = "Dainty Eater"
     PAL_FullStomach_Up_2 = "Diet Lover"
@@ -370,7 +370,7 @@ class PalEntity:
 
     def __init__(self, data):
         self._data = data
-        self._obj = data['value']['Struct']['Struct']['RawData']['Parsed']['object']['SaveParameter']['value']
+        self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
 
         if "IsPlayer" in self._obj:
             raise Exception("This is a player character")

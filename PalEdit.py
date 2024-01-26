@@ -117,10 +117,8 @@ def loadfile():
 
     if file.endswith(".pson"):
         paldata = data
-        print(paldata)
-        print(len(paldata))
     else:
-        paldata = data['root']['properties']['worldSaveData']['Struct']['value']['Struct']['CharacterSaveParameterMap']['Map']['value']
+        paldata = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
 
         f = open("current.pson", "w", encoding="utf8")
         json.dump(paldata, f, indent=4)
@@ -172,8 +170,8 @@ def savefile():
 
 def savepson(filename):
     f = open(filename, "w", encoding="utf8")
-    if 'root' in data:
-        json.dump(data['root']['properties']['worldSaveData']['Struct']['value']['Struct']['CharacterSaveParameterMap']['Map']['value'], f, indent=4)
+    if 'properties' in data:
+        json.dump(data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'], f, indent=4)
     else:
         json.dump(data, f, indent=4)
     f.close()
@@ -183,10 +181,10 @@ def savejson(filename):
     svdata = json.loads(f.read())
     f.close()
 
-    if 'root' in data:
-        svdata['root']['properties']['worldSaveData']['Struct']['value']['Struct']['CharacterSaveParameterMap']['Map']['value'] = data['root']['properties']['worldSaveData']['Struct']['value']['Struct']['CharacterSaveParameterMap']['Map']['value']
+    if 'properties' in data:
+        svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
     else:
-        svdata['root']['properties']['worldSaveData']['Struct']['value']['Struct']['CharacterSaveParameterMap']['Map']['value'] = data
+        svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data
 
     f = open(filename, "w", encoding="utf8")
     json.dump(svdata, f)
@@ -269,7 +267,7 @@ def refresh(num=0):
 
 root = Tk()
 root.iconphoto(True, PalType.GrassPanda.value.GetImage())
-root.title("PalEdit v0.1")
+root.title("PalEdit v0.2")
 root.geometry("640x400")
 root.resizable(width=False, height=False)
 
