@@ -1,23 +1,12 @@
 # PalEdit
-A simple tool for Editing and Generating Pals within PalWorld Saves
+A simple tool for Editing and Generating Pals within PalWorld Saves.
 
-# Manual Installation (Github Source Code)
-First things first you'll need to download the ['palworld-save-tools' created by cheahjs](https://github.com/cheahjs/palworld-save-tools); make sure to download v0.12 so the `*.json` files are formatted correctly.
-Both my program and their one require Python to run, ideally Python 3, [which can be downloaded here](https://www.python.org/downloads/).
-For best results, make sure to add Python 3 to your PATH variable.
+You no longer need to download anything separately; only the release zip.
 
-When this is installed, you will need to add PIL to your python installation. Simply open a Command Prompt and type the following
-```
-python -m pip install pillow
-```
+# Installation
+Download the compiled executable from [Nexus Mods](https://www.nexusmods.com/palworld/mods/104) or over on the [Releases Page](https://github.com/EternalWraith/PalEdit/releases).
 
-~~You will also need 'uesave.exe' for the Deserializer to work, [which is available here](https://github.com/trumank/uesave-rs/releases/download/v0.3.0/uesave-x86_64-pc-windows-msvc.zip).~~
-You no longer need uesave.
-
-Use 'run.bat' (faster results) or open the PalEdit.py using your Python IDE.
-
-# Automatic Installation (Nexus Mods)
-Download the compiled executable from [Nexus Mods](https://www.nexusmods.com/palworld/mods/104). You will still need to download palworld-save-tools. 
+You can convert your save to a `*.sav.json` using the Convert menu at the top; then edit what you'd like and save the changes to that same `*.sav.json` file. Finally, convert it back to a `*.sav`
 
 # A word of warning
 When in the app, simply load a _deserialized_ save file using the file menu. Wait patiently for it to load the `*.json` and gather the data.
