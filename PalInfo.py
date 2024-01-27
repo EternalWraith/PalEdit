@@ -412,7 +412,10 @@ class PalEntity:
         self._defence = 0
         if "Talent_Defense" in self._obj:
             self._defence = self._obj['Talent_Defense']['value']
-            
+
+        self._rank = 1
+        if "Rank" in self._obj:
+            self._rank = self._obj['Rank']['value']         
 
         try:
             self._skills = self._obj['PassiveSkillList']['value']['values']
@@ -426,9 +429,9 @@ class PalEntity:
         else:        
             self._level = -1
 
-        self.nickname = ""
+        self._nickname = ""
         if "NickName" in self._obj:
-            self.nickname = self._obj['NickName']['value']
+            self._nickname = self._obj['NickName']['value']
 
          
 
@@ -503,12 +506,22 @@ class PalEntity:
         self._obj['Level']['value'] = self._level = value
         self._obj['Exp']['value'] = 0
 
+    def GetRank(self):
+        return self._rank
+
+    def SetRank(self, value):
+        print(f"Changed rank of {self._nickname} from: {self._rank} to: {value}")
+        if "Rank" in self._obj:
+            self._obj['Rank']['value'] = self._rank = value
+            print(f"Success to set rank \n '{self._obj}'")
+        else:
+            print(f"failed to set rank \n '{self._obj}'")
     def RemoveSkill(self, slot):
         if slot < len(self._skills):
             self._skills.pop(slot)
 
     def GetFullName(self):
-        return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ✨" if self.isLucky else "") + (f" - '{self.nickname}'" if not self.nickname == "" else "")
+        return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ✨" if self.isLucky else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
 
 if __name__ == "__main__":
     import os
