@@ -503,8 +503,12 @@ class PalEntity:
         return self._level
 
     def SetLevel(self, value):
-        self._obj['Level']['value'] = self._level = value
-        self._obj['Exp']['value'] = 0
+        # We need this check until we fix adding missing nodes
+        if "Level" in self._obj and "Exp" in self._obj:
+            self._obj['Level']['value'] = self._level = value
+            self._obj['Exp']['value'] = 0
+        else:
+            print(f"[ERROR:] Failed to update level for \n '{self.GetName()}'")
 
     def GetRank(self):
         return self._rank
