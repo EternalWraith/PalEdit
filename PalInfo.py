@@ -145,10 +145,10 @@ class PalSkills(Enum):
     PAL_Sanity_Up_1 = "Unstable"
     PAL_Sanity_Up_2 = "Destructive"
 
-    PAL_FullStomach_Up_1 = "Dainty Eater"
-    PAL_FullStomach_Up_2 = "Diet Lover"
-    PAL_FullStomach_Down_1 = "Glutton"
-    PAL_FullStomach_Down_2 = "Bottomless Stomach"
+    PAL_FullStomach_Down_1 = "Dainty Eater"
+    PAL_FullStomach_Down_2 = "Diet Lover"
+    PAL_FullStomach_Up_1 = "Glutton"
+    PAL_FullStomach_Up_2 = "Bottomless Stomach"
     
 
     CraftSpeed_up1 = "Serious"
