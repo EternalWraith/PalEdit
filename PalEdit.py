@@ -43,7 +43,7 @@ def onselect(evt):
     index = int(w.curselection()[0])
 
     pal = palbox[index]
-    palname.config(text=pal.GetName() if pal.nickname == "" else pal.nickname)
+    palname.config(text=pal.GetName() if pal._nickname == "" else pal._nickname)
 
     g = pal.GetGender()
     palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
