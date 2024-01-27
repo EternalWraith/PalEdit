@@ -1,5 +1,7 @@
 import os, webbrowser, json, time, uuid
 
+import SaveConverter
+
 from PalInfo import *
 
 from tkinter import *
@@ -41,7 +43,7 @@ def onselect(evt):
     index = int(w.curselection()[0])
 
     pal = palbox[index]
-    palname.config(text=pal.GetName())
+    palname.config(text=pal.GetName() if pal.nickname == "" else pal.nickname)
 
     g = pal.GetGender()
     palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
@@ -68,6 +70,10 @@ def onselect(evt):
     
 
 def changetext(num):
+    if num == -1:
+        skilllabel.config(text="Hover a skill to see it's description")
+        return
+    
     global palbox
     global unknown
     if len(palbox) == 0:
@@ -82,9 +88,7 @@ def changetext(num):
         skilllabel.config(text=pal.GetOwner())
         return
 
-    if num == -1:
-        skilllabel.config(text="Hover a skill to see it's description")
-        return
+
     if skills[num].get() == "Unknown":
         skilllabel.config(text=f"{pal.GetSkills()[num]}{SkillDesc['Unknown']}")
         return
@@ -93,11 +97,10 @@ def changetext(num):
     
 def loadfile():
     global palbox
-    global data
     palbox = []
     listdisplay.delete(0,END)
     skilllabel.config(text="Loading save, please be patient...")
-    
+
     file = askopenfilename(filetype=[("All files", "*.sav *.sav.json *.pson"),("Palworld Saves", "*.sav *.sav.json"),("Palworld Box", "*.pson")])
     print(f"Opening file {file}")
 
@@ -110,6 +113,12 @@ def loadfile():
             messagebox.showerror("Incorrect file", "This is not the right file. Please select the Level.sav file.")
         changetext(-1)
         return
+    load(file)
+
+def load(file):
+    global data
+    global palbox
+    palbox = []
 
     f = open(file, "r", encoding="utf8")
     data = json.loads(f.read())
@@ -129,7 +138,7 @@ def loadfile():
             p = PalEntity(i)
             palbox.append(p)
 
-            n = p.GetObject().GetName() + (" 💀" if p.isBoss else "") + (" ✨" if p.isLucky else "")
+            n = p.GetObject().GetName() + (" 💀" if p.isBoss else "") + (" ✨" if p.isLucky else "") + (f" - '{p.nickname}'" if not p.nickname == "" else "")
                    
             listdisplay.insert(END, n)
 
@@ -265,9 +274,40 @@ def refresh(num=0):
     listdisplay.select_set(num)
     listdisplay.event_generate("<<ListboxSelect>>")
 
+def converttojson():
+
+    skilllabel.config(text="Converting... this may take a while.")
+    
+    file = askopenfilename(filetype=[("All files", "*.sav")])
+    print(f"Opening file {file}")
+
+    doconvertjson(file)
+
+def doconvertjson(file, compress=False):
+    SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), compress)
+
+    load(file.replace(".sav", ".sav.json"))
+
+    changetext(-1)
+
+def converttosave():
+    skilllabel.config(text="Converting... this may take a while.")
+    
+    file = askopenfilename(filetype=[("All files", "*.sav.json")])
+    print(f"Opening file {file}")
+
+    doconvertsave(file)
+
+
+def doconvertsave(file):
+    SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"))
+
+    changetext(-1)
+
+
 root = Tk()
 root.iconphoto(True, PalType.GrassPanda.value.GetImage())
-root.title("PalEdit v0.2")
+root.title("PalEdit v0.3")
 root.geometry("640x400")
 root.resizable(width=False, height=False)
 
@@ -286,6 +326,12 @@ toolmenu.add_command(label="Change IVs", command=changeivs)
 toolmenu.add_command(label="Change Level", command=changelevel)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
+
+convmenu = Menu(tools, tearoff=0)
+convmenu.add_command(label="Convert Save to Json", command=converttojson)
+convmenu.add_command(label="Convert Json to Save", command=converttosave)
+
+tools.add_cascade(label="Converter", menu=convmenu, underline=0)
 
 
 scrollbar = Scrollbar(root)

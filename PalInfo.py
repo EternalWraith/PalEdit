@@ -400,7 +400,7 @@ class PalEntity:
             self._melee = self._obj['Talent_Melee']['value']
 
         self._ranged = 0
-        if "Talent_Ranged" in self._obj:
+        if "Talent_Shot" in self._obj:
             self._ranged = self._obj['Talent_Shot']['value']
 
         self._defence = 0
@@ -419,6 +419,12 @@ class PalEntity:
             self._level = self._obj['Level']['value']
         else:        
             self._level = -1
+
+        self.nickname = ""
+        if "NickName" in self._obj:
+            self.nickname = self._obj['NickName']['value']
+
+         
 
     def GetType(self):
         return self._type
@@ -466,7 +472,6 @@ class PalEntity:
                 self._skills.pop(i)
             else:
                 i+=1
-        print(self._skills)
         return self._skills
 
     def SkillCount(self):
