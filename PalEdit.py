@@ -16,15 +16,19 @@ global unknown
 unknown = []
 global data
 
-def changeskill(num):
+def isPalSelected():
     global palbox
     if len(palbox) == 0:
         return
-
     if len(listdisplay.curselection()) == 0:
         return
+    return 1
+
+def changeskill(num):
+    if not isPalSelected():
+        return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[i] # seems global palbox is not necessary
 
     if not skills[num].get() in ["Unknown", "UNKNOWN"]:
         if skills[num].get() in ["None", "NONE"]:
@@ -74,16 +78,12 @@ def changetext(num):
         skilllabel.config(text="Hover a skill to see it's description")
         return
     
-    global palbox
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i] # seems global palbox is not necessary
+
     global unknown
-    if len(palbox) == 0:
-        return
-
-    if len(listdisplay.curselection()) == 0:
-        return
-    
-    pal = palbox[int(listdisplay.curselection()[0])]
-
     if type(num) == str:
         skilllabel.config(text=pal.GetOwner())
         return
@@ -205,10 +205,10 @@ def generateguid():
     print(uuid.uuid4())
 
 def changeivs():
-    if len(listdisplay.curselection()) == 0:
+    if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[i] # seems global palbox is not necessary
     
     def change():
         global palbox
@@ -242,10 +242,10 @@ def changeivs():
 
 
 def changelevel():
-    if len(listdisplay.curselection()) == 0:
+    if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[i] # seems global palbox is not necessary
     
     def change():
         global palbox
@@ -271,10 +271,10 @@ def changelevel():
     win.mainloop()
 
 def changespecies():
-    if len(listdisplay.curselection()) == 0:
+    if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[i] # seems global palbox is not necessary
     
     def change():
         global palbox
