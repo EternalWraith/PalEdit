@@ -366,6 +366,12 @@ class PalType(Enum):
     LavaGirl = PalObject("Flambelle", Elements.FIRE)#
     FlameBambi = PalObject("Rooby", Elements.FIRE)#
 
+    @classmethod
+    def find(self, value):
+        for i in PalType:
+            if i.value.GetName() == value:
+                return i
+
 class PalEntity:
 
     def __init__(self, data):
@@ -428,6 +434,10 @@ class PalEntity:
 
     def GetType(self):
         return self._type
+
+    def SetType(self, value):
+        self._obj['CharacterID']['value'] = PalType.find(value).name
+        self._type = PalType.find(value)
 
     def GetObject(self):
         return self._type.value
@@ -497,6 +507,8 @@ class PalEntity:
         if slot < len(self._skills):
             self._skills.pop(slot)
 
+    def GetFullName(self):
+        return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ✨" if self.isLucky else "") + (f" - '{self.nickname}'" if not self.nickname == "" else "")
 
 if __name__ == "__main__":
     import os

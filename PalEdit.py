@@ -138,7 +138,7 @@ def load(file):
             p = PalEntity(i)
             palbox.append(p)
 
-            n = p.GetObject().GetName() + (" 💀" if p.isBoss else "") + (" ✨" if p.isLucky else "") + (f" - '{p.nickname}'" if not p.nickname == "" else "")
+            n = p.GetFullName()
                    
             listdisplay.insert(END, n)
 
@@ -270,6 +270,45 @@ def changelevel():
 
     win.mainloop()
 
+def changespecies():
+    if len(listdisplay.curselection()) == 0:
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i]
+    
+    def change():
+        global palbox
+        if len(palbox) == 0:
+            return
+
+        pal.SetType(value.get())
+
+        refresh(i)
+        n = pal.GetFullName()
+        listdisplay.delete(i)
+        listdisplay.insert(i, n)
+
+        if pal.isBoss:
+            listdisplay.itemconfig(i, {'fg': 'red'})
+        elif pal.isLucky:
+            listdisplay.itemconfig(i, {'fg': 'blue'})
+
+        win.destroy()
+
+    win = Toplevel(root)
+
+    value = StringVar()
+    value.set(pal.GetName())
+
+    op = [e.value.GetName() for e in PalType]
+    ops = OptionMenu(win, value, *op)
+    ops.pack()
+    
+    update = Button(win, text="OK", command=change)
+    update.pack()
+
+    win.mainloop()
+
 def refresh(num=0):
     listdisplay.select_set(num)
     listdisplay.event_generate("<<ListboxSelect>>")
@@ -324,6 +363,7 @@ toolmenu = Menu(tools, tearoff=0)
 toolmenu.add_command(label="Generate GUID", command=generateguid)
 toolmenu.add_command(label="Change IVs", command=changeivs)
 toolmenu.add_command(label="Change Level", command=changelevel)
+toolmenu.add_command(label="Change Species", command=changespecies)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
