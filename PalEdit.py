@@ -347,7 +347,8 @@ def doconvertsave(file):
 root = Tk()
 root.iconphoto(True, PalType.GrassPanda.value.GetImage())
 root.title("PalEdit v0.3")
-root.geometry("640x400")
+root.geometry("") # auto window size
+root.minsize("800", "500") # minwidth for better view
 root.resizable(width=False, height=False)
 
 tools = Menu(root)
@@ -376,7 +377,7 @@ tools.add_cascade(label="Converter", menu=convmenu, underline=0)
 
 scrollbar = Scrollbar(root)
 scrollbar.pack(side=LEFT, fill=Y)
-listdisplay = Listbox(root, yscrollcommand=scrollbar.set)
+listdisplay = Listbox(root, width=30, yscrollcommand=scrollbar.set)
 listdisplay.pack(side=LEFT, fill=BOTH)
 listdisplay.bind("<<ListboxSelect>>", onselect)
 scrollbar.config(command=listdisplay.yview)
