@@ -15,6 +15,18 @@ palbox = []
 global unknown
 unknown = []
 global data
+global debug
+debug = "false"
+
+def toggleDebug():
+    global debug
+    if debug == "false":
+        debug = "true"
+        frameDebug.pack(fill=BOTH, expand=False)
+    else:
+        debug = "false"
+        frameDebug.pack_forget()
+
 
 def isPalSelected():
     global palbox
@@ -28,17 +40,22 @@ def getSelectedPalInfo():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
-
-    # print(f"Selected Pal: {pal.GetName() if pal.nickname == "" else pal.nickname}")    
-    print(f"Get Info:")    
-    print(f"  - Pal: {palname['text']}")    
-    print(f"  - Pal: {pal.GetName() if pal._nickname == "" else pal._nickname}")    
+    pal = palbox[i]
+    print(f"Get Info: {pal.GetName() if pal._nickname == "" else pal._nickname}")     
     print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")    
+    print(f"  - Rank: {pal.GetRank()}")    
     print(f"  - Skill 1:  {skills[0].get()}")
     print(f"  - Skill 2:  {skills[1].get()}")
     print(f"  - Skill 3:  {skills[2].get()}")
     print(f"  - Skill 4:  {skills[3].get()}")
+
+def getSelectedPalData():
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i]
+    print(f"Get Data: {pal.GetName() if pal._nickname == "" else pal._nickname}")    
+    print(f"{pal._obj}")  
 
 def setpreset(preset):
     if not isPalSelected():
@@ -125,17 +142,11 @@ def changerank(configvalue):
     refresh(i)
 
 def changerankchoice(choice):
-    match ranksvar.get():
-        case 4:
-            changerank(5)
-        case 3:
-            changerank(4)
-        case 2:
-            changerank(3)
-        case 1:
-            changerank(2)
-        case _:
-            changerank(1)
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i] # seems global palbox is not necessary
+    pal.SetRank(ranksvar.get())
 
 def changeskill(num):
     if not isPalSelected():
@@ -491,6 +502,7 @@ toolmenu.add_command(label="Generate GUID", command=generateguid)
 toolmenu.add_command(label="Change IVs", command=changeivs)
 toolmenu.add_command(label="Change Level", command=changelevel)
 toolmenu.add_command(label="Change Species", command=changespecies)
+toolmenu.add_command(label="Debug", command=toggleDebug)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
@@ -515,7 +527,7 @@ dataview = Frame(infoview, relief="raised")
 dataview.pack(side=TOP, fill=BOTH)
 
 portrait = Label(dataview, image=PalType.GrassPanda.value.GetImage(), relief="sunken")
-portrait.pack(side=LEFT)
+portrait.pack(side=LEFT, fill=Y)
 
 deckview = Frame(dataview, width=320, relief="sunken", borderwidth=2)
 deckview.pack(side=RIGHT, fill=BOTH, expand=True)
@@ -575,22 +587,10 @@ rankspeed = Label(rankview, text="Rank", font=("Arial", ftsize), bg="lightgrey",
 rankspeed.pack(side=LEFT, expand=True, fill=X)
 ranks = ('0', '1', '2', '3', '4')
 ranksvar = IntVar()
-# palwsp = Label(rankview, text="0", font=("Arial", ftsize), width=6)
-# palwsp.pack(side=RIGHT, expand=True, fill=X)
 palrank = OptionMenu(deckview, ranksvar, *ranks, command=changerankchoice)
 palrank. config(font=("Arial", 11),  justify='center', width=6)
 ranksvar.set(ranks[0])
 palrank.pack(side=RIGHT, expand=True, fill=X)
-
-
-# rank = Label(rankview, text="Rank", font=("Arial", ftsize), bg="lightgrey", width=6)
-# rank.pack(side=LEFT, expand=True, fill=X)
-# ranks = ('0', '1', '2', '3', '4')
-# ranksvar = IntVar()
-# palrank = OptionMenu(rankview, ranksvar, *ranks, command=changerank)
-# ranksvar.trace("w", lambda *args: changerank(ranksvar))
-# ranksvar.set(ranks[0])
-# palrank.pack(side=RIGHT, expand=True, fill=X)
 
 # PASSIVE ABILITIES
 skillview = Frame(infoview, relief="sunken", borderwidth=2)
@@ -646,10 +646,6 @@ framePresetsButtons.pack(fill=BOTH, expand=True)
 
 framePresetsButtons1 = Frame(framePresetsButtons)
 framePresetsButtons1.pack(fill=BOTH, expand=True)
-# debug
-makeworkerBtn = Button(framePresetsButtons1, text="Get Info", command=getSelectedPalInfo)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
 makeworkerBtn = Button(framePresetsButtons1, text="Worker", command=makeworker)
 makeworkerBtn.config(font=("Arial", 12))
 makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
@@ -699,11 +695,23 @@ optionMenuRank.config(font=("Arial", 10), width=5, justify='center')
 optionMenuRank.pack(side=LEFT, expand=True, fill=Y)
 
 framePresetsAttributes = Frame(framePresetsExtras)
-framePresetsAttributes.pack(fill=BOTH, expand=True)
+framePresetsAttributes.pack(fill=BOTH, expand=False)
 presetTitleAttributes = Label(framePresetsAttributes, text='Set Attributes:', anchor='center', bg="lightgrey", font=("Arial", 13), width=20, height=1).pack(side=LEFT, expand=False, fill=Y)
 checkboxAttributesVar = IntVar()
 checkboxAttributes = Checkbutton(framePresetsAttributes, text='Preset changes attributes', variable=checkboxAttributesVar, onvalue='1', offvalue='0').pack(side=LEFT,expand=False, fill=BOTH)
 presetTitleAttributesTodo = Label(framePresetsAttributes, text='Not Yet', font=("Arial", 10), width=10, justify='center').pack(side=LEFT, expand=True, fill=Y)
+
+# DEBUG
+frameDebug = Frame(infoview, relief="flat")
+frameDebug.pack()
+frameDebug.pack_forget()
+presetTitle = Label(frameDebug, text='Debug:', anchor='w', bg="darkgrey", font=("Arial", ftsize), width=6, height=1).pack(fill=BOTH)
+button = Button(frameDebug, text="Get Info", command=getSelectedPalInfo)
+button.config(font=("Arial", 12))
+button.pack(side=LEFT, expand=True, fill=BOTH)
+button = Button(frameDebug, text="Get Data", command=getSelectedPalData)
+button.config(font=("Arial", 12))
+button.pack(side=LEFT, expand=True, fill=BOTH)
 
 # FOOTER
 frameFooter = Frame(infoview, relief="flat")
