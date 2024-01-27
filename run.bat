@@ -25,4 +25,4 @@ cd /D "%~dp0"
 
 ECHO "%~dp0"
 %PYTHON_BIN% PalEdit.py
-if errorlevel GTR 1 pause
+IF %ERRORLEVEL% NEQ 0 pause

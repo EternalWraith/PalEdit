@@ -24,6 +24,119 @@ def isPalSelected():
         return
     return 1
 
+def getSelectedPalInfo():
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i] # seems global palbox is not necessary
+
+    # print(f"Selected Pal: {pal.GetName() if pal.nickname == "" else pal.nickname}")    
+    print(f"Get Info:")    
+    print(f"  - Pal: {palname['text']}")    
+    print(f"  - Pal: {pal.GetName() if pal._nickname == "" else pal._nickname}")    
+    print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")    
+    print(f"  - Skill 1:  {skills[0].get()}")
+    print(f"  - Skill 2:  {skills[1].get()}")
+    print(f"  - Skill 3:  {skills[2].get()}")
+    print(f"  - Skill 4:  {skills[3].get()}")
+
+def setpreset(preset):
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i] # seems global palbox is not necessary
+
+    match preset:
+        case "worker":
+            skills[0].set("Artisan")
+            skills[1].set("Serious")
+            skills[2].set("Lucky")
+            skills[3].set("Work Slave")
+        case "runner":
+            skills[0].set("Swift")
+            skills[1].set("Legend")
+            skills[2].set("Runner")
+            skills[3].set("Nimble")
+        case "dmg_max":
+            skills[0].set("Musclehead")
+            skills[1].set("Legend")
+            skills[2].set("Ferocious")
+            skills[3].set("Lucky")
+        case "dmg_balanced":
+            skills[0].set("Musclehead")
+            skills[1].set("Legend")
+            skills[2].set("Ferocious")
+            skills[3].set("Burly Body")
+        case "dmg_dragon":
+            skills[0].set("Musclehead")
+            skills[1].set("Legend")
+            skills[2].set("Ferocious")
+            skills[3].set("Divine Dragon")
+        case "tank":
+            skills[0].set("Burly Body")
+            skills[1].set("Legend")
+            skills[2].set("Masochist")
+            skills[3].set("Hard Skin")
+        case _:
+            print(f"Preset {preset} not found - nothing changed")
+            return
+
+    # exp (if level selected)
+    if checkboxLevelVar.get() == 1:
+        pal.SetLevel(textboxLevelVar.get())
+    # rank (if rank selected)
+    if checkboxRankVar.get() == 1:
+        changerank(optionMenuRankVar.get())
+    # attributes (if attributes selected)
+    # TODO: change attributes
+
+    refresh(i)
+
+def makeworker():
+    setpreset("worker")
+def makerunner():
+    setpreset("runner")
+def makedmgmax():
+    setpreset("dmg_max")
+def makedmgbalanced():
+    setpreset("dmg_balanced")
+def makedmgdragon():
+    setpreset("dmg_dragon")
+def maketank():
+    setpreset("tank")
+
+def changerank(configvalue):
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i] # seems global palbox is not necessary
+
+    match configvalue:
+        case 4:
+            pal.SetRank(5)
+        case 3:
+            pal.SetRank(4)
+        case 2:
+            pal.SetRank(3)
+        case 1:
+            pal.SetRank(2)
+        case _:
+            pal.SetRank(1)
+    refresh(i)
+
+def changerankchoice(choice):
+    match ranksvar.get():
+        case 4:
+            changerank(5)
+        case 3:
+            changerank(4)
+        case 2:
+            changerank(3)
+        case 1:
+            changerank(2)
+        case _:
+            changerank(1)
+
 def changeskill(num):
     if not isPalSelected():
         return
@@ -61,6 +174,19 @@ def onselect(evt):
     palatk.config(text=f"{pal.GetAttackMelee()}⚔/{pal.GetAttackRanged()}🏹")
     paldef.config(text=pal.GetDefence())
     palwsp.config(text=pal.GetWorkSpeed())
+
+    # rank
+    match pal.GetRank():
+        case 5:
+            ranksvar.set(ranks[4])
+        case 4:
+            ranksvar.set(ranks[3])
+        case 3:
+            ranksvar.set(ranks[2])
+        case 2:
+            ranksvar.set(ranks[1])
+        case _:
+            ranksvar.set(ranks[0])
 
     s = pal.GetSkills()[:]
     while len(s) < 4:
@@ -346,7 +472,7 @@ def doconvertsave(file):
 
 root = Tk()
 root.iconphoto(True, PalType.GrassPanda.value.GetImage())
-root.title("PalEdit v0.3")
+root.title("PalEdit v0.31")
 root.geometry("") # auto window size
 root.minsize("800", "500") # minwidth for better view
 root.resizable(width=False, height=False)
@@ -377,7 +503,7 @@ tools.add_cascade(label="Converter", menu=convmenu, underline=0)
 
 scrollbar = Scrollbar(root)
 scrollbar.pack(side=LEFT, fill=Y)
-listdisplay = Listbox(root, width=30, yscrollcommand=scrollbar.set)
+listdisplay = Listbox(root, width=30, yscrollcommand=scrollbar.set, exportselection=0)
 listdisplay.pack(side=LEFT, fill=BOTH)
 listdisplay.bind("<<ListboxSelect>>", onselect)
 scrollbar.config(command=listdisplay.yview)
@@ -443,6 +569,30 @@ workspeed.pack(side=LEFT, expand=True, fill=X)
 palwsp = Label(workview, text="0", font=("Arial", ftsize), width=6)
 palwsp.pack(side=RIGHT, expand=True, fill=X)
 
+rankview = Frame(deckview)
+rankview.pack(side=LEFT, expand=True, fill=X)
+rankspeed = Label(rankview, text="Rank", font=("Arial", ftsize), bg="lightgrey", width=6)
+rankspeed.pack(side=LEFT, expand=True, fill=X)
+ranks = ('0', '1', '2', '3', '4')
+ranksvar = IntVar()
+# palwsp = Label(rankview, text="0", font=("Arial", ftsize), width=6)
+# palwsp.pack(side=RIGHT, expand=True, fill=X)
+palrank = OptionMenu(deckview, ranksvar, *ranks, command=changerankchoice)
+palrank. config(font=("Arial", 11),  justify='center', width=6)
+ranksvar.set(ranks[0])
+palrank.pack(side=RIGHT, expand=True, fill=X)
+
+
+# rank = Label(rankview, text="Rank", font=("Arial", ftsize), bg="lightgrey", width=6)
+# rank.pack(side=LEFT, expand=True, fill=X)
+# ranks = ('0', '1', '2', '3', '4')
+# ranksvar = IntVar()
+# palrank = OptionMenu(rankview, ranksvar, *ranks, command=changerank)
+# ranksvar.trace("w", lambda *args: changerank(ranksvar))
+# ranksvar.set(ranks[0])
+# palrank.pack(side=RIGHT, expand=True, fill=X)
+
+# PASSIVE ABILITIES
 skillview = Frame(infoview, relief="sunken", borderwidth=2)
 skillview.pack(fill=BOTH, expand=True)
 
@@ -474,9 +624,6 @@ skilldrops[2].config(font=("Arial", ftsize), width=6)
 skilldrops[3].pack(side=RIGHT, expand=True, fill=BOTH)
 skilldrops[3].config(font=("Arial", ftsize), width=6)
 
-skilllabel = Label(skillview, text="Hover a skill to see it's description")
-skilllabel.pack()
-
 skilldrops[0].bind("<Enter>", lambda evt, num=0: changetext(num))
 skilldrops[1].bind("<Enter>", lambda evt, num=1: changetext(num))
 skilldrops[2].bind("<Enter>", lambda evt, num=2: changetext(num))
@@ -485,5 +632,85 @@ skilldrops[0].bind("<Leave>", lambda evt, num=-1: changetext(num))
 skilldrops[1].bind("<Leave>", lambda evt, num=-1: changetext(num))
 skilldrops[2].bind("<Leave>", lambda evt, num=-1: changetext(num))
 skilldrops[3].bind("<Leave>", lambda evt, num=-1: changetext(num))
+
+# PRESETS
+framePresets = Frame(infoview, relief="groove", borderwidth=0)
+framePresets.pack(fill=BOTH, expand=True)
+
+framePresetsTitle = Frame(framePresets)
+framePresetsTitle.pack(fill=BOTH)
+presetTitle = Label(framePresetsTitle, text='Presets:', anchor='w', bg="darkgrey", font=("Arial", ftsize), width=6, height=1).pack(fill=BOTH)
+
+framePresetsButtons = Frame(framePresets, relief="groove", borderwidth=4)
+framePresetsButtons.pack(fill=BOTH, expand=True)
+
+framePresetsButtons1 = Frame(framePresetsButtons)
+framePresetsButtons1.pack(fill=BOTH, expand=True)
+# debug
+makeworkerBtn = Button(framePresetsButtons1, text="Get Info", command=getSelectedPalInfo)
+makeworkerBtn.config(font=("Arial", 12))
+makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+makeworkerBtn = Button(framePresetsButtons1, text="Worker", command=makeworker)
+makeworkerBtn.config(font=("Arial", 12))
+makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+makeworkerBtn = Button(framePresetsButtons1, text="Runner", command=makerunner)
+makeworkerBtn.config(font=("Arial", 12))
+makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+makeworkerBtn = Button(framePresetsButtons1, text="Tank", command=maketank)
+makeworkerBtn.config(font=("Arial", 12))
+makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+
+framePresetsButtons2 = Frame(framePresetsButtons)
+framePresetsButtons2.pack(fill=BOTH, expand=True)
+makeworkerBtn = Button(framePresetsButtons2, text="DMG: Max", command=makedmgmax)
+makeworkerBtn.config(font=("Arial", 12))
+makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+makeworkerBtn = Button(framePresetsButtons2, text="DMG: Balanced", command=makedmgbalanced)
+makeworkerBtn.config(font=("Arial", 12))
+makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+makeworkerBtn = Button(framePresetsButtons2, text="DMG: Dragon", command=makedmgdragon)
+makeworkerBtn.config(font=("Arial", 12))
+makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+
+# PRESETS OPTIONS
+framePresetsExtras = Frame(framePresets, relief="groove", borderwidth=4)
+framePresetsExtras.pack(fill=BOTH, expand=True)
+
+framePresetsLevel = Frame(framePresetsExtras)
+framePresetsLevel.pack(fill=BOTH, expand=True)
+presetTitleLevel = Label(framePresetsLevel, text='Set Level:', anchor='center', bg="lightgrey", font=("Arial", 13), width=20, height=1).pack(side=LEFT, expand=False, fill=Y)
+checkboxLevelVar = IntVar()
+checkboxLevel = Checkbutton(framePresetsLevel, text='Preset changes level', variable=checkboxLevelVar, onvalue='1', offvalue='0').pack(side=LEFT,expand=False, fill=BOTH)
+textboxLevelVar = IntVar(value=1)
+textboxLevel = Entry(framePresetsLevel, textvariable=textboxLevelVar, justify='center', width=10)
+textboxLevel.config(font=("Arial", 10), width=10)
+textboxLevel.pack(side=LEFT,expand=True, fill=Y)
+
+framePresetsRank = Frame(framePresetsExtras)
+framePresetsRank.pack(fill=BOTH, expand=True)
+presetTitleRank = Label(framePresetsRank, text='Set Rank:', anchor='center', bg="lightgrey", font=("Arial", 13), width=20, height=1).pack(side=LEFT, expand=False, fill=Y)
+checkboxRankVar = IntVar()
+checkboxRank = Checkbutton(framePresetsRank, text='Preset changes rank', variable=checkboxRankVar, onvalue='1', offvalue='0').pack(side=LEFT,expand=False, fill=BOTH)
+optionMenuRankVar = IntVar(value=1)
+ranks = ('0', '1', '2', '3', '4')
+optionMenuRank = OptionMenu(framePresetsRank, optionMenuRankVar, *ranks)
+optionMenuRankVar.set(ranks[0])
+optionMenuRank.config(font=("Arial", 10), width=5, justify='center')
+optionMenuRank.pack(side=LEFT, expand=True, fill=Y)
+
+framePresetsAttributes = Frame(framePresetsExtras)
+framePresetsAttributes.pack(fill=BOTH, expand=True)
+presetTitleAttributes = Label(framePresetsAttributes, text='Set Attributes:', anchor='center', bg="lightgrey", font=("Arial", 13), width=20, height=1).pack(side=LEFT, expand=False, fill=Y)
+checkboxAttributesVar = IntVar()
+checkboxAttributes = Checkbutton(framePresetsAttributes, text='Preset changes attributes', variable=checkboxAttributesVar, onvalue='1', offvalue='0').pack(side=LEFT,expand=False, fill=BOTH)
+presetTitleAttributesTodo = Label(framePresetsAttributes, text='Not Yet', font=("Arial", 10), width=10, justify='center').pack(side=LEFT, expand=True, fill=Y)
+
+# FOOTER
+frameFooter = Frame(infoview, relief="flat")
+frameFooter.pack(fill=BOTH, expand=False)
+skilllabel = Label(frameFooter, text="Hover a skill to see it's description")
+skilllabel.pack()
+
+
 
 root.mainloop()

@@ -508,18 +508,19 @@ class PalEntity:
             self._obj['Level']['value'] = self._level = value
             self._obj['Exp']['value'] = 0
         else:
-            print(f"[ERROR:] Failed to update level for \n '{self.GetName()}'")
+            print(f"[ERROR:] Failed to update level for: '{self.GetName()}'")
 
     def GetRank(self):
         return self._rank
 
     def SetRank(self, value):
-        print(f"Changed rank of {self._nickname} from: {self._rank} to: {value}")
+        # print(f"DEBUG: Changed rank of {self._nickname} from: {self._rank} to: {value}")
         if "Rank" in self._obj:
             self._obj['Rank']['value'] = self._rank = value
-            print(f"Success to set rank \n '{self._obj}'")
+            # print(f"DEBUG: \n '{self._obj}'")
         else:
-            print(f"failed to set rank \n '{self._obj}'")
+            print(f"[ERROR:] Failed to update rank for: '{self.GetName()}'")
+            # print(f"DEBUG: \n '{self._obj}'")
     def RemoveSkill(self, slot):
         if slot < len(self._skills):
             self._skills.pop(slot)
