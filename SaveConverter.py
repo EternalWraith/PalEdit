@@ -8,6 +8,9 @@ from lib.noindent import CustomEncoder
 from lib.palsav import compress_gvas_to_sav, decompress_sav_to_gvas
 from lib.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TYPE_HINTS
 
+### Credit for this file and all those within "lib" belong to "cheahjs" on Github
+### https://github.com/cheahjs/palworld-save-tools
+
 
 def main():
     parser = argparse.ArgumentParser(
