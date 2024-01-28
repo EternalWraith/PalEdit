@@ -19,6 +19,10 @@ global debug
 debug = "false"
 global editindex
 editindex = -1
+global translations
+translations=[]
+global lang
+lang = "English"
 
 def toggleDebug():
     global debug
@@ -224,7 +228,7 @@ def onselect(evt):
 
 def changetext(num):
     if num == -1:
-        skilllabel.config(text="Hover a skill to see it's description")
+        skilllabel.config(text=TryGetTranslations("Hover a skill to see it's description"))
         return
     
     if not isPalSelected():
@@ -266,7 +270,6 @@ def loadfile():
 
 def sortPals(e):
     return e.GetName()
-
 
 def load(file):
     global data
@@ -320,7 +323,6 @@ def updateDisplay():
         elif p.isLucky:
             listdisplay.itemconfig(END, {'fg': 'blue'})
     
-
 def savefile():
     global palbox
     global data
@@ -456,6 +458,78 @@ def swapgender():
     pal.SwapGender()
     refresh(i)
 
+def LoadTranslationsFile():
+    global translations
+    if(os.path.exists('translations.json')):
+        with open('translations.json', 'r',encoding='utf-8') as f:
+            translations = json.load(f)
+        return True
+    else:
+        return False
+
+def SaveTranslationsFile():
+    global translations
+    with open('translations.json', 'w+') as f:
+        json.dump(translations, f)
+
+def TryGetTranslations(tag):
+    global translations
+    global lang
+    if(len(translations) == 0):
+        if(not(LoadTranslationsFile())):
+            return tag
+    try:
+        return translations[lang][tag]
+    except:
+        return tag
+    
+
+
+def translateedit(t):
+    global lang
+    if(lang == t):
+        return
+    lang = t
+    tools.entryconfig(1, label=TryGetTranslations("File"))
+    tools.entryconfig(2, label=TryGetTranslations("Tools"))
+    tools.entryconfig(3, label=TryGetTranslations("Converter"))
+    tools.entryconfig(4, label=TryGetTranslations("Translate"))
+    filemenu.entryconfig(0, label=TryGetTranslations("Load Save"))
+    filemenu.entryconfig(1, label=TryGetTranslations("Save Changes"))
+    toolmenu.entryconfig(0, label=TryGetTranslations("Generate GUID"))
+    toolmenu.entryconfig(1, label=TryGetTranslations("Debug"))
+    convmenu.entryconfig(0, label=TryGetTranslations("Convert Save to Json"))
+    convmenu.entryconfig(1, label=TryGetTranslations("Convert Json to Save"))
+    name.config(text = TryGetTranslations("Species"))
+    gender.config(text = TryGetTranslations("Gender"))
+    attack.config(text = TryGetTranslations("Attack"))
+    defence.config(text = TryGetTranslations("Defence"))
+    workspeed.config(text = TryGetTranslations("Workspeed"))
+    rankspeed.config(text = TryGetTranslations("Rank"))
+
+
+    framePresetsButtons1.winfo_children()[0]['text']= TryGetTranslations("Worker")
+    framePresetsButtons1.winfo_children()[1]['text']= TryGetTranslations("Runner")
+    framePresetsButtons1.winfo_children()[2]['text']= TryGetTranslations("Tank")
+
+    framePresetsButtons2.winfo_children()[0]['text']= TryGetTranslations("DMG: Max")
+    framePresetsButtons2.winfo_children()[1]['text']= TryGetTranslations("DMG: Balanced")
+    framePresetsButtons2.winfo_children()[2]['text']= TryGetTranslations("DMG: Dragon")
+
+    framePresetsTitle.winfo_children()[0].config(text = TryGetTranslations("Presets:"))
+
+    framePresetsLevel.winfo_children()[0].config(text = TryGetTranslations("Set Level:"))
+    framePresetsLevel.winfo_children()[1].config(text = TryGetTranslations("Preset changes level"))
+
+    framePresetsRank.winfo_children()[0].config(text = TryGetTranslations("Set Rank:"))
+    framePresetsRank.winfo_children()[1].config(text = TryGetTranslations("Preset changes rank"))
+
+    framePresetsAttributes.winfo_children()[0].config(text = TryGetTranslations("Set Attributes:"))
+    framePresetsAttributes.winfo_children()[1].config(text = TryGetTranslations("Preset changes attributes"))
+
+
+
+
 root = Tk()
 purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
 root.iconphoto(True, purplepanda)
@@ -484,6 +558,12 @@ convmenu.add_command(label="Convert Save to Json", command=converttojson)
 convmenu.add_command(label="Convert Json to Save", command=converttosave)
 
 tools.add_cascade(label="Converter", menu=convmenu, underline=0)
+
+if(LoadTranslationsFile()):
+    translatemenu = Menu(tools, tearoff=0)
+    for language in translations:
+        translatemenu.add_command(label=language, command=(lambda lang=language: translateedit(lang)))
+    tools.add_cascade(label="Translate", menu=translatemenu, underline=0)
 
 
 scrollbar = Scrollbar(root)
@@ -777,6 +857,7 @@ frameFooter = Frame(infoview, relief="flat")
 frameFooter.pack(fill=BOTH, expand=False)
 skilllabel = Label(frameFooter, text="Hover a skill to see it's description")
 skilllabel.pack()
+
 
 
 

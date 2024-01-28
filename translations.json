@@ -1,0 +1,47 @@
+{
+    "English": 
+    {
+
+    }, 
+    
+    "简体中文": 
+    { 
+        "Species": "种类", 
+        "Gender": "性别", 
+        "Attack": "攻击", 
+        "Defence": "防御", 
+        "Workspeed": "工作速度", 
+        "Rank": "等级", 
+        "Unknown": "未知", 
+        "Presets:": "预设:", 
+        "Worker": "打工人", 
+        "Runner": "动力小子",
+        "Tank": "肉盾", 
+        "DMG: Max": "伤害：最大", 
+        "DMG: Balanced": "伤害：均衡", 
+        "DMG: Dragon": "伤害：龙属性", 
+        "Set Level:": "设置等级:", 
+        "Preset changes level": "预设更改等级", 
+        "Set Rank:": "设置星级:", 
+        "Preset changes rank" : "预设更改星级",
+        "Set Attributes:": "设置特性:", 
+        "Preset changes attributes" : "预设更改属性",
+        "Not Yet": "没完成", 
+        "Debug:": "测试:", 
+        "Get Info": "获取信息", 
+        "Get Data": "获取数据", 
+        "Hover a skill to see it's description": "悬停在技能上查看描述",
+        "File" : "文件",
+        "Load Save" : "加载存档",
+        "Save Changes" : "保存修改",
+        "Tools" : "工具",
+        "Debug" : "测试",
+        "Generate GUID" : "生成GUID",
+        "Converter" : "转换",
+        "Convert Save to Json" : "存档转Json",
+        "Convert Json to Save" : "Json转存档",
+        "Translate" : "语言",
+        "Electric": "雷属性", 
+        "Dark": "暗属性"
+    }
+}
