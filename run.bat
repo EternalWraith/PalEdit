@@ -25,4 +25,4 @@ cd /D "%~dp0"
 
 ECHO "%~dp0"
 %PYTHON_BIN% PalEdit.py
-PAUSE
+IF %ERRORLEVEL% NEQ 0 pause
