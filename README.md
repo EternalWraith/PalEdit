@@ -71,17 +71,24 @@ If you’ve installed Palworld via Steam, you can also access your save files by
   - [x] Integrate SaveTools into PalEdit natively.
   - [x] Nickname Compatibility
   - [x] Ability to Change Species
+ 
+- **v0.4 Release:**
+  - [x] Defence Editing
+  - [x] Gender Swapping
+  - [x] Sorted lists so that everything is alphabetical
+  - [x] Rank editing (Pal Essence Condenser)
+  - [x] Workspeed Editing
+  - [x] Pal presets to speed up creation of workers, fighters and tanks
+  - [x] Compatiblity for Tower Boss and Human captures
+  - [x] Overhauled Attack IV and Level Editing to make it easier
+  - [x] Moved species editing to main app instead of tucked away in the Tools menu
 
 - **Future Releases:**
-  - [ ] Defence Editing
-  - [ ] Gender Swapping
   - [ ] Converting Pal to Lucky
   - [ ] Converting Pal to Alpha (Boss)
   - [ ] Generating new Pals
   - [ ] Player Filtered Pals so you know who belongs to who
-  - [ ] Sorted lists so that everything is alphabetical
   - [ ] Database system to make things easier to update
   - [ ] Localisation support for Chinese, Japanese, Spanish, French, German, and English (for starters)
-  - [ ] Rank editing (Pal Essence Condenser)
   - [ ] Stat Editing (Hero Statue)
   - [ ] Pal Deletion
