@@ -43,7 +43,7 @@ It is recommended to save your edited pals as a `*.pson` file for easier access.
 2. Choose to save as a `*.pson` file.
 3. To inject the changes into your save, save over your `Level.sav.json`.
 4. The program will splice it in at the correct location.
-5. Serialize the save again using 'palworld-save-tools'.
+5. Serialize the save again using the Convert menu.
 6. Put the resulting `Level.sav` into your save folder where the original one was.
 7. Load up PalWorld and enjoy.
 
