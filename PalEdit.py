@@ -569,26 +569,43 @@ palgender.pack(side=LEFT, expand=True, fill=X)
 swapbtn = Button(genderframe, text="↺", borderwidth=1, font=("Arial", ftsize-2), command=swapgender)
 swapbtn.pack(side=RIGHT)
 
+def clamp(var):
+    try:
+        int(var.get())
+    except TclError as e:
+        return
 
-def ivvalidate(value):
-    if len(value) > 3:
+    if var.get() > 100:
+        var.set(100)
+        return
+
+    if var.get() < 0:
+        var.set(0)
+        return
+
+def ivvalidate(p):
+    if len(p) > 3:
         return False
     
-    if value.isdigit():
-        if int(value) >= 0 and int(value) <= 100:
-            return True
-        else:
-            return False
-    elif value == "":
-        return False
-    else:
-        return False
+    if p.isdigit() or p == "":
+        return True
+
+    return False
+
+def fillifempty(var):
+    try:
+        int(var.get())
+    except TclError as e:
+        var.set(0)
+
 valreg = root.register(ivvalidate)
 
 attackframe = Frame(editview, width=6)
 attackframe.pack(fill=X)
 meleevar = IntVar()
 shotvar = IntVar()
+meleevar.trace("w", lambda name, index, mode, sv=meleevar: clamp(sv))
+shotvar.trace("w", lambda name, index, mode, sv=shotvar: clamp(sv))
 meleevar.set(100)
 shotvar.set(0)
 meleeicon = Label(attackframe, text="⚔", font=("Arial", ftsize))
@@ -597,23 +614,29 @@ shoticon = Label(attackframe, text="🏹", font=("Arial", ftsize))
 shoticon.pack(side=RIGHT)
 palmelee = Entry(attackframe, textvariable=meleevar, font=("Arial", ftsize), width=6)
 palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palmelee.bind("<FocusOut>", lambda evt, sv=meleevar: fillifempty(sv))
 palmelee.pack(side=LEFT)
 palshot = Entry(attackframe, textvariable=shotvar, font=("Arial", ftsize), width=6)
 palshot.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palshot.bind("<FocusOut>", lambda evt, sv=shotvar: fillifempty(sv))
 palshot.pack(side=RIGHT)
 
 
 defvar = IntVar()
+defvar.trace("w", lambda name, index, mode, sv=defvar: clamp(sv))
 defvar.set(100)
 paldef = Entry(editview, textvariable=defvar, font=("Arial", ftsize), width=6)
 paldef.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+paldef.bind("<FocusOut>", lambda evt, sv=defvar: fillifempty(sv))
 paldef.pack(expand=True, fill=X)
 
 
 wspvar = IntVar()
+wspvar.trace("w", lambda name, index, mode, sv=wspvar: clamp(sv))
 wspvar.set(70)
 palwsp = Entry(editview, textvariable=wspvar, font=("Arial", ftsize), width=6)
 palwsp.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palwsp.bind("<FocusOut>", lambda evt, sv=wspvar: fillifempty(sv))
 palwsp.pack(expand=True, fill=X)
 
 ranks = ('0', '1', '2', '3', '4')
