@@ -19,6 +19,8 @@ global debug
 debug = "false"
 global editindex
 editindex = -1
+global version
+version = "0.43"
 
 def toggleDebug():
     global debug
@@ -458,7 +460,7 @@ def swapgender():
 root = Tk()
 purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
 root.iconphoto(True, purplepanda)
-root.title("PalEdit v0.43")
+root.title(f"PalEdit v{version}")
 root.geometry("") # auto window size
 root.minsize("800", "500") # minwidth for better view
 #root.resizable(width=False, height=False)
@@ -522,7 +524,7 @@ headerframe.grid_rowconfigure(0, weight=1)
 headerframe.grid_columnconfigure((0,2), uniform="equal")
 headerframe.grid_columnconfigure(1, weight=1)
 
-title = Label(headerframe, text="PalEdit - v0.4", bg="darkgrey", font=("Arial", 24), width=17)
+title = Label(headerframe, text=f"PalEdit - v{version}", bg="darkgrey", font=("Arial", 24), width=17)
 title.bind("<Enter>", lambda evt, num="owner": changetext(num))
 title.bind("<Leave>", lambda evt, num=-1: changetext(num))
 title.grid(row=0, column=1, sticky="nsew")
