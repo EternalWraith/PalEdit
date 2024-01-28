@@ -465,6 +465,7 @@ class PalEntity:
         if not "PassiveSkillList" in self._obj:
             self._obj['PassiveSkillList'] = EmptySkillObject.copy()
         self._skills = self._obj['PassiveSkillList']['value']['values']
+        self.CleanseSkills()
 
         self._owner = self._obj['OwnerPlayerUId']['value']
 
@@ -490,6 +491,14 @@ class PalEntity:
             self._obj['Gender']['value']['value'] = "EPalGenderType::Male"
             self._gender = "Male ♂"
                
+
+    def CleanseSkills(self):
+        i = 0
+        while i < len(self._skills):
+            if self._skills[i].lower() == "none":
+                self._skills.pop(i)
+            else:
+                i+=1
         
     def GetType(self):
         return self._type
@@ -545,12 +554,7 @@ class PalEntity:
         return self.GetObject().GetSecondary().value
 
     def GetSkills(self):
-        i = 0
-        while i < len(self._skills):
-            if self._skills[i].lower() == "none":
-                self._skills.pop(i)
-            else:
-                i+=1
+        self.CleanseSkills()
         return self._skills
 
     def SkillCount(self):
