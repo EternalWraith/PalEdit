@@ -17,6 +17,8 @@ unknown = []
 global data
 global debug
 debug = "false"
+global editindex
+editindex = -1
 
 def toggleDebug():
     global debug
@@ -31,30 +33,32 @@ def toggleDebug():
 def isPalSelected():
     global palbox
     if len(palbox) == 0:
-        return
+        return False
     if len(listdisplay.curselection()) == 0:
-        return
-    return 1
+        return False
+    return True
 
 def getSelectedPalInfo():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[i]
-    print(f"Get Info: {pal.GetName() if pal._nickname == "" else pal._nickname}")     
+    print(f"Get Info: {pal.GetNickname()}")     
     print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")    
     print(f"  - Rank: {pal.GetRank()}")    
     print(f"  - Skill 1:  {skills[0].get()}")
     print(f"  - Skill 2:  {skills[1].get()}")
     print(f"  - Skill 3:  {skills[2].get()}")
     print(f"  - Skill 4:  {skills[3].get()}")
+    print(f"  - Melee IV:  {pal.GetAttackMelee()}")
+    print(f"  - Range IV:  {pal.GetAttackRanged()}")
 
 def getSelectedPalData():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[i]
-    print(f"Get Data: {pal.GetName() if pal._nickname == "" else pal._nickname}")    
+    print(f"Get Data: {pal.GetNickname()}")    
     print(f"{pal._obj}")  
 
 def setpreset(preset):
@@ -164,27 +168,35 @@ def changeskill(num):
 
 def onselect(evt):
     global palbox
+    global editindex
     w = evt.widget
-    if (len(w.curselection())== 0):
+    if not isPalSelected():
         return
-    
+
+    if editindex > -1:
+        updatestats(editindex)
+        
     index = int(w.curselection()[0])
+    editindex = index
 
     pal = palbox[index]
-    palname.config(text=pal.GetName() if pal._nickname == "" else pal._nickname)
+    #palname.config(text=pal.GetName())
+    speciesvar.set(pal.GetName())
 
     g = pal.GetGender()
     palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
 
-    title.config(text=f"Data - Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
+    title.config(text=f"{pal.GetNickname()} - Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
 
     ptype.config(text=pal.GetPrimary().GetName(), bg=pal.GetPrimary().GetColour())
     stype.config(text=pal.GetSecondary().GetName(), bg=pal.GetSecondary().GetColour())
 
-    palatk.config(text=f"{pal.GetAttackMelee()}⚔/{pal.GetAttackRanged()}🏹")
-    paldef.config(text=pal.GetDefence())
-    palwsp.config(text=pal.GetWorkSpeed())
+    # ⚔🏹
+    meleevar.set(pal.GetAttackMelee())
+    shotvar.set(pal.GetAttackRanged())
+    defvar.set(pal.GetDefence())
+    wspvar.set(pal.GetWorkSpeed())
 
     # rank
     match pal.GetRank():
@@ -235,7 +247,6 @@ def changetext(num):
 def loadfile():
     global palbox
     palbox = []
-    listdisplay.delete(0,END)
     skilllabel.config(text="Loading save, please be patient...")
 
     file = askopenfilename(filetype=[("All files", "*.sav *.sav.json *.pson"),("Palworld Saves", "*.sav *.sav.json"),("Palworld Box", "*.pson")])
@@ -243,14 +254,19 @@ def loadfile():
 
     if not file.endswith(".pson") and not file.endswith("Level.sav.json"):
         if file.endswith("Level.sav"):
-            answer = messagebox.askquestion("Incorrect file", "This save hasn't been decompiled. Would you like to download the decompiler?\n\nCredit for Decompiler goes to 'cheahjs'\nhttps://github.com/cheahjs/palworld-save-tools")
+            answer = messagebox.askquestion("Incorrect file", "This save hasn't been decompiled. Would you like to decompile it now?")
             if answer == "yes":
-                webbrowser.open_new("https://github.com/cheahjs/palworld-save-tools")
+                skilllabel.config(text="Decompiling save, please be patient...")
+                doconvertjson(file)
         else:
             messagebox.showerror("Incorrect file", "This is not the right file. Please select the Level.sav file.")
         changetext(-1)
         return
     load(file)
+
+def sortPals(e):
+    return e.GetName()
+
 
 def load(file):
     global data
@@ -270,24 +286,20 @@ def load(file):
         json.dump(paldata, f, indent=4)
         f.close()
 
+
     for i in paldata:
         try:
             p = PalEntity(i)
             palbox.append(p)
 
             n = p.GetFullName()
-                   
-            listdisplay.insert(END, n)
-
-            if p.isBoss:
-                listdisplay.itemconfig(END, {'fg': 'red'})
-            elif p.isLucky:
-                listdisplay.itemconfig(END, {'fg': 'blue'})
-
 
         except Exception as e:
             unknown.append(i)
-            print(f"Error occured: {str(e)}")        
+            print(f"Error occured: {str(e)}")
+
+    updateDisplay()
+
     print(f"Unknown list contains {len(unknown)} entries")
     #for i in unknown:
         #print (i)
@@ -296,10 +308,27 @@ def load(file):
 
     changetext(-1)
 
+def updateDisplay():
+    listdisplay.delete(0,END)
+    palbox.sort(key=sortPals)
+
+    for p in palbox:
+        listdisplay.insert(END, p.GetFullName())
+
+        if p.isBoss:
+            listdisplay.itemconfig(END, {'fg': 'red'})
+        elif p.isLucky:
+            listdisplay.itemconfig(END, {'fg': 'blue'})
+    
+
 def savefile():
     global palbox
     global data
     skilllabel.config(text="Saving, please be patient... (it can take up to 5 minutes in large files)")
+
+    if isPalSelected():
+        i = int(listdisplay.curselection()[0])
+        refresh(i)
     
     file = asksaveasfilename(filetype=[("All files", "*.sav.json *.pson"),("Palworld Saves", "*.sav.json"),("Palworld Box", "*.pson")])
     print(f"Opening file {file}")
@@ -341,110 +370,48 @@ def savejson(filename):
 def generateguid():
     print(uuid.uuid4())
 
-def changeivs():
+def updatestats(e):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
-    
-    def change():
-        global palbox
-        if len(palbox) == 0:
-            return
-        
-        pal.SetAttackMelee(mval.get())
-        pal.SetAttackRanged(rval.get())
+    pal = palbox[e]
 
-        refresh(i)
+    pal.SetAttackMelee(meleevar.get())
+    pal.SetAttackRanged(shotvar.get())
+    pal.SetDefence(defvar.get())
+    pal.SetWorkSpeed(wspvar.get())
 
-        win.destroy()
-
-    win = Toplevel(root)
-
-    mval = IntVar()
-    rval = IntVar()
-    mval.set(pal.GetAttackMelee())
-    rval.set(pal.GetAttackRanged())
-
-    fr = Frame(win)
-    fr.pack()
-    melee = Entry(fr, textvariable=mval)
-    melee.pack(side=LEFT)
-    ranged = Entry(fr, textvariable=rval)
-    ranged.pack(side=RIGHT)
-    update = Button(win, text="OK", command=change)
-    update.pack()
-
-    win.mainloop()
-
-
-def changelevel():
+def takelevel():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
-    
-    def change():
-        global palbox
-        if len(palbox) == 0:
-            return
+    pal = palbox[i]
 
-        pal.SetLevel(value.get())
+    if pal.GetLevel() == 1:
+        return
+    pal.SetLevel(pal.GetLevel()-1)
+    refresh(i)
 
-        refresh(i)
-
-        win.destroy()
-
-    win = Toplevel(root)
-
-    value = IntVar()
-    value.set(pal.GetLevel())
-    
-    entry = Entry(win, textvariable=value)
-    entry.pack()
-    update = Button(win, text="OK", command=change)
-    update.pack()
-
-    win.mainloop()
-
-def changespecies():
+def givelevel():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
+    pal = palbox[i]
+
+    if pal.GetLevel() == 50:
+        return
+    pal.SetLevel(pal.GetLevel()+1)
+    refresh(i)
+
+def changespeciestype(evt):
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i]
     
-    def change():
-        global palbox
-        if len(palbox) == 0:
-            return
-
-        pal.SetType(value.get())
-
-        refresh(i)
-        n = pal.GetFullName()
-        listdisplay.delete(i)
-        listdisplay.insert(i, n)
-
-        if pal.isBoss:
-            listdisplay.itemconfig(i, {'fg': 'red'})
-        elif pal.isLucky:
-            listdisplay.itemconfig(i, {'fg': 'blue'})
-
-        win.destroy()
-
-    win = Toplevel(root)
-
-    value = StringVar()
-    value.set(pal.GetName())
-
-    op = [e.value.GetName() for e in PalType]
-    ops = OptionMenu(win, value, *op)
-    ops.pack()
-    
-    update = Button(win, text="OK", command=change)
-    update.pack()
-
-    win.mainloop()
+    pal.SetType(speciesvar.get())
+    updateDisplay()
+    refresh(palbox.index(pal))
 
 def refresh(num=0):
     listdisplay.select_set(num)
@@ -480,13 +447,22 @@ def doconvertsave(file):
 
     changetext(-1)
 
+def swapgender():
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[i]
+
+    pal.SwapGender()
+    refresh(i)
 
 root = Tk()
-root.iconphoto(True, PalType.GrassPanda.value.GetImage())
-root.title("PalEdit v0.31")
+purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
+root.iconphoto(True, purplepanda)
+root.title("PalEdit v0.4")
 root.geometry("") # auto window size
 root.minsize("800", "500") # minwidth for better view
-root.resizable(width=False, height=False)
+#root.resizable(width=False, height=False)
 
 tools = Menu(root)
 root.config(menu=tools)
@@ -499,9 +475,6 @@ tools.add_cascade(label="File", menu=filemenu, underline=0)
 
 toolmenu = Menu(tools, tearoff=0)
 toolmenu.add_command(label="Generate GUID", command=generateguid)
-toolmenu.add_command(label="Change IVs", command=changeivs)
-toolmenu.add_command(label="Change Level", command=changelevel)
-toolmenu.add_command(label="Change Species", command=changespecies)
 toolmenu.add_command(label="Debug", command=toggleDebug)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
@@ -523,74 +496,132 @@ scrollbar.config(command=listdisplay.yview)
 infoview = Frame(root, relief="groove", borderwidth=2, width=480, height=480)
 infoview.pack(side=RIGHT, fill=BOTH, expand=True)
 
-dataview = Frame(infoview, relief="raised")
+dataview = Frame(infoview)
 dataview.pack(side=TOP, fill=BOTH)
 
-portrait = Label(dataview, image=PalType.GrassPanda.value.GetImage(), relief="sunken")
-portrait.pack(side=LEFT, fill=Y)
+resourceview = Frame(dataview)
+resourceview.pack(side=LEFT, fill=BOTH, expand=True)
 
-deckview = Frame(dataview, width=320, relief="sunken", borderwidth=2)
-deckview.pack(side=RIGHT, fill=BOTH, expand=True)
-
-title = Label(deckview, text="Data - Lv. 0", bg="darkgrey", font=("Arial", 24))
-title.bind("<Enter>", lambda evt, num="owner": changetext(num))
-title.bind("<Leave>", lambda evt, num=-1: changetext(num))
-title.pack(fill=X)
+portrait = Label(resourceview, image=purplepanda, relief="sunken", borderwidth=2)
+portrait.pack()
 
 ftsize = 18
 
-typeview = Frame(deckview)
-typeview.pack(fill=X)
-ptype = Label(typeview, text="Grass", font=("Arial", ftsize), bg=Elements.LEAF.value.GetColour(), width=6)
+typeframe = Frame(resourceview)
+typeframe.pack(expand=True, fill=X)
+ptype = Label(typeframe, text="Electric", font=("Arial", ftsize), bg=Elements.ELECTRICITY.value.GetColour(), width=6)
 ptype.pack(side=LEFT, expand=True, fill=X)
-stype = Label(typeview, text="None", font=("Arial", ftsize), bg=Elements.NONE.value.GetColour(), width=6)
+stype = Label(typeframe, text="Dark", font=("Arial", ftsize), bg=Elements.DARK.value.GetColour(), width=6)
 stype.pack(side=RIGHT, expand=True, fill=X)
 
-nameview = Frame(deckview)
-nameview.pack(fill=X)
-name = Label(nameview, text="Name", font=("Arial", ftsize), bg="lightgrey", width=6)
-name.pack(side=LEFT, expand=True, fill=X)
-palname = Label(nameview, text="Mossanda", font=("Arial", ftsize), width=6)
-palname.pack(side=RIGHT, expand=True, fill=X)
+deckview = Frame(dataview, width=320, relief="sunken", borderwidth=2, pady=0)
+deckview.pack(side=RIGHT, fill=BOTH, expand=True)
 
-genderview = Frame(deckview)
-genderview.pack(fill=X)
-gender = Label(genderview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6)
-gender.pack(side=LEFT, expand=True, fill=X)
-palgender = Label(genderview, text="Male ♂", font=("Arial", ftsize), fg=PalGender.MALE.value, width=6)
-palgender.pack(side=RIGHT, expand=True, fill=X)
+headerframe = Frame(deckview, padx=0, pady=0, bg="darkgrey")
+headerframe.pack(fill=X)
+headerframe.grid_rowconfigure(0, weight=1)
+headerframe.grid_columnconfigure((0,2), uniform="equal")
+headerframe.grid_columnconfigure(1, weight=1)
 
-attackview = Frame(deckview)
-attackview.pack(fill=X)
-attack = Label(attackview, text="Attack", font=("Arial", ftsize), bg="lightgrey", width=6)
-attack.pack(side=LEFT, expand=True, fill=X)
-palatk = Label(attackview, text="0", font=("Arial", ftsize), width=6)
-palatk.pack(side=RIGHT, expand=True, fill=X)
+title = Label(headerframe, text="PalEdit - v0.4", bg="darkgrey", font=("Arial", 24), width=17)
+title.bind("<Enter>", lambda evt, num="owner": changetext(num))
+title.bind("<Leave>", lambda evt, num=-1: changetext(num))
+title.grid(row=0, column=1, sticky="nsew")
 
-defenceview = Frame(deckview)
-defenceview.pack(fill=X)
-defence = Label(defenceview, text="Defence", font=("Arial", ftsize), bg="lightgrey", width=6)
-defence.pack(side=LEFT, expand=True, fill=X)
-paldef = Label(defenceview, text="0", font=("Arial", ftsize), width=6)
-paldef.pack(side=RIGHT, expand=True, fill=X)
+minlvlbtn = Button(headerframe, text="➖", borderwidth=1, font=("Arial", ftsize-2), command=takelevel, bg="darkgrey")
+minlvlbtn.grid(row=0, column=0, sticky="nsew")
 
-workview = Frame(deckview)
-workview.pack(fill=X)
-workspeed = Label(workview, text="Workspeed", font=("Arial", ftsize), bg="lightgrey", width=6)
-workspeed.pack(side=LEFT, expand=True, fill=X)
-palwsp = Label(workview, text="0", font=("Arial", ftsize), width=6)
-palwsp.pack(side=RIGHT, expand=True, fill=X)
+addlvlbtn = Button(headerframe, text="➕", borderwidth=1, font=("Arial", ftsize-2), command=givelevel, bg="darkgrey")
+addlvlbtn.grid(row=0, column=2, sticky="nsew")
 
-rankview = Frame(deckview)
-rankview.pack(side=LEFT, expand=True, fill=X)
-rankspeed = Label(rankview, text="Rank", font=("Arial", ftsize), bg="lightgrey", width=6)
-rankspeed.pack(side=LEFT, expand=True, fill=X)
+
+labelview = Frame(deckview, bg="lightgrey", pady=0, padx=16)
+labelview.pack(side=LEFT, expand=True, fill=BOTH)
+
+name = Label(labelview, text="Species", font=("Arial", ftsize), bg="lightgrey")
+name.pack(expand=True, fill=X)
+gender = Label(labelview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6)
+gender.pack(expand=True, fill=X)
+attack = Label(labelview, text="Attack", font=("Arial", ftsize), bg="lightgrey", width=6)
+attack.pack(expand=True, fill=X)
+defence = Label(labelview, text="Defence", font=("Arial", ftsize), bg="lightgrey", width=6)
+defence.pack(expand=True, fill=X)
+workspeed = Label(labelview, text="Workspeed", font=("Arial", ftsize), bg="lightgrey", width=10)
+workspeed.pack(expand=True, fill=X)
+rankspeed = Label(labelview, text="Rank", font=("Arial", ftsize), bg="lightgrey")
+rankspeed.pack(expand=True, fill=X)
+
+editview = Frame(deckview)
+editview.pack(side=RIGHT, expand=True, fill=BOTH)
+
+species = [e.value.GetName() for e in PalType]
+species.sort()
+speciesvar = StringVar()
+speciesvar.set("PalEdit")
+palname = OptionMenu(editview, speciesvar, *species, command=changespeciestype)
+palname.config(font=("Arial", ftsize), padx=0, pady=0, borderwidth=1, width=5, direction='right')
+palname.pack(expand=True, fill=X)
+
+genderframe = Frame(editview, pady=0)
+genderframe.pack()
+palgender = Label(genderframe, text="Unknown", font=("Arial", ftsize), fg=PalGender.UNKNOWN.value, width=10)
+palgender.pack(side=LEFT, expand=True, fill=X)
+swapbtn = Button(genderframe, text="↺", borderwidth=1, font=("Arial", ftsize-2), command=swapgender)
+swapbtn.pack(side=RIGHT)
+
+
+def ivvalidate(value):
+    if len(value) > 3:
+        return False
+    
+    if value.isdigit():
+        if int(value) >= 0 and int(value) <= 100:
+            return True
+        else:
+            return False
+    elif value == "":
+        return False
+    else:
+        return False
+valreg = root.register(ivvalidate)
+
+attackframe = Frame(editview, width=6)
+attackframe.pack(fill=X)
+meleevar = IntVar()
+shotvar = IntVar()
+meleevar.set(100)
+shotvar.set(0)
+meleeicon = Label(attackframe, text="⚔", font=("Arial", ftsize))
+meleeicon.pack(side=LEFT)
+shoticon = Label(attackframe, text="🏹", font=("Arial", ftsize))
+shoticon.pack(side=RIGHT)
+palmelee = Entry(attackframe, textvariable=meleevar, font=("Arial", ftsize), width=6)
+palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palmelee.pack(side=LEFT)
+palshot = Entry(attackframe, textvariable=shotvar, font=("Arial", ftsize), width=6)
+palshot.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palshot.pack(side=RIGHT)
+
+
+defvar = IntVar()
+defvar.set(100)
+paldef = Entry(editview, textvariable=defvar, font=("Arial", ftsize), width=6)
+paldef.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+paldef.pack(expand=True, fill=X)
+
+
+wspvar = IntVar()
+wspvar.set(70)
+palwsp = Entry(editview, textvariable=wspvar, font=("Arial", ftsize), width=6)
+palwsp.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palwsp.pack(expand=True, fill=X)
+
 ranks = ('0', '1', '2', '3', '4')
 ranksvar = IntVar()
-palrank = OptionMenu(deckview, ranksvar, *ranks, command=changerankchoice)
-palrank. config(font=("Arial", 11),  justify='center', width=6)
-ranksvar.set(ranks[0])
-palrank.pack(side=RIGHT, expand=True, fill=X)
+palrank = OptionMenu(editview, ranksvar, *ranks, command=changerankchoice)
+palrank.config(font=("Arial", ftsize),  justify='center', padx=0, pady=0, borderwidth=1, width=5)
+ranksvar.set(ranks[4])
+palrank.pack(expand=True, fill=X)
 
 # PASSIVE ABILITIES
 skillview = Frame(infoview, relief="sunken", borderwidth=2)
@@ -605,8 +636,13 @@ skills = [StringVar(), StringVar(), StringVar(), StringVar()]
 for i in range(0, 4):
     skills[i].set("Unknown")
     skills[i].trace("w", lambda *args, num=i: changeskill(num))
+skills[0].set("Legend")
+skills[1].set("Workaholic")
+skills[2].set("Ferocious")
+skills[3].set("Lucky")
 
 op = [e.value for e in PalSkills]
+op.sort()
 op.pop(0)
 skilldrops = [
     OptionMenu(topview, skills[0], *op),
@@ -616,13 +652,13 @@ skilldrops = [
     ]
 
 skilldrops[0].pack(side=LEFT, expand=True, fill=BOTH)
-skilldrops[0].config(font=("Arial", ftsize), width=6)
+skilldrops[0].config(font=("Arial", ftsize), width=6, direction="right")
 skilldrops[1].pack(side=RIGHT, expand=True, fill=BOTH)
-skilldrops[1].config(font=("Arial", ftsize), width=6)
+skilldrops[1].config(font=("Arial", ftsize), width=6, direction="right")
 skilldrops[2].pack(side=LEFT, expand=True, fill=BOTH)
-skilldrops[2].config(font=("Arial", ftsize), width=6)
+skilldrops[2].config(font=("Arial", ftsize), width=6, direction="right")
 skilldrops[3].pack(side=RIGHT, expand=True, fill=BOTH)
-skilldrops[3].config(font=("Arial", ftsize), width=6)
+skilldrops[3].config(font=("Arial", ftsize), width=6, direction="right")
 
 skilldrops[0].bind("<Enter>", lambda evt, num=0: changetext(num))
 skilldrops[1].bind("<Enter>", lambda evt, num=1: changetext(num))
