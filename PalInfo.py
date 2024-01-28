@@ -584,13 +584,10 @@ class PalEntity:
         return self._rank
 
     def SetRank(self, value):
-        # print(f"DEBUG: Changed rank of {self._nickname} from: {self._rank} to: {value}")
         if "Rank" in self._obj:
-            self._obj['Rank']['value'] = self._rank = value + 1
-            # print(f"DEBUG: \n '{self._obj}'")
+            self._obj['Rank']['value'] = self._rank = value # we dont +1 here, since we have methods to patch rank in PalEdit.py
         else:
-            print(f"[ERROR:] Failed to update rank for: '{self.GetName()}'")
-            # print(f"DEBUG: \n '{self._obj}'")
+            print(f"[ERROR:] Failed to update rank for: '{self.GetName()}'") # we probably could get rid of this line, since you add rank if missing - same with level
 
     def RemoveSkill(self, slot):
         if slot < len(self._skills):

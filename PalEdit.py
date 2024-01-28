@@ -131,7 +131,6 @@ def changerank(configvalue):
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[i] # seems global palbox is not necessary
-
     match configvalue:
         case 4:
             pal.SetRank(5)
@@ -459,7 +458,7 @@ def swapgender():
 root = Tk()
 purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
 root.iconphoto(True, purplepanda)
-root.title("PalEdit v0.4")
+root.title("PalEdit v0.43")
 root.geometry("") # auto window size
 root.minsize("800", "500") # minwidth for better view
 #root.resizable(width=False, height=False)
