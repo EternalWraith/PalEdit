@@ -190,7 +190,7 @@ def onselect(evt):
     g = pal.GetGender()
     palgender.config(text=TryGetTranslations(g), fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
 
-    title.config(text=f"{pal.GetNickname()}")
+    title.config(text=f"{pal.GetNickname().replace(pal.GetName(), TryGetTranslations(pal.GetName()))}")
     level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
 
@@ -324,7 +324,7 @@ def updateDisplay():
     palbox.sort(key=sortPals)
 
     for p in palbox:
-        listdisplay.insert(END, p.GetFullName())
+        listdisplay.insert(END, p.GetFullName().replace(p.GetName(), TryGetTranslations(p.GetName())))
 
         if p.isBoss:
             listdisplay.itemconfig(END, {'fg': 'red'})
@@ -610,6 +610,7 @@ def translateedit(t):
     skilldrops[2].bind("<Leave>", lambda evt, num=-1: changetext(num))
     skilldrops[3].bind("<Leave>", lambda evt, num=-1: changetext(num))
 
+    updateDisplay()
     
 
 root = Tk()
