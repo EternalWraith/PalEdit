@@ -78,11 +78,17 @@ If you’ve installed Palworld via Steam, you can also access your save files by
 
 - **Future Releases:**
   - [ ] Generating new Pals
+  - [ ] Cloning Pals
+  - [ ] Pal Deletion
   - [ ] Database system to make things easier to update
   - [ ] Localisation support for Chinese, Japanese, Spanish, French, German, and English (for starters)
-  - [ ] Move Editing
   - [ ] Stat Editing (Hero Statue)
-  - [ ] Pal Deletion
+  - [ ] Move Editing
+  - [ ] Menu displaying Pal moves/attacks
+  - [ ] Pal Info Database Overhaul
+  - [ ] Simplify Loading/Converting/Saving process
+  - [ ] Edit Pals Nickname
+  - [ ] Improve Pal ListBox UI to mimic ingame PalBox
 
 - **v0.3 Release:**
   - [x] Integrate SaveTools into PalEdit natively.
