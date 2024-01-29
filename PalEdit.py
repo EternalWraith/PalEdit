@@ -161,11 +161,11 @@ def changeskill(num):
     i = int(listdisplay.curselection()[0])
     pal = palbox[i] # seems global palbox is not necessary
 
-    if not skills[num].get() in ["Unknown", "UNKNOWN"]:
-        if skills[num].get() in ["None", "NONE"]:
+    if not TryGetSkillsvar(num) in ["Unknown", "UNKNOWN"]:
+        if TryGetSkillsvar(num) in ["None", "NONE"]:
             pal.RemoveSkill(num)
         else:
-            pal.SetSkill(num, skills[num].get())
+            pal.SetSkill(num, TryGetSkillsvar(num))
 
     refresh(i)
 
@@ -192,8 +192,8 @@ def onselect(evt):
     title.config(text=f"{pal.GetNickname()} - Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
 
-    ptype.config(text=pal.GetPrimary().GetName(), bg=pal.GetPrimary().GetColour())
-    stype.config(text=pal.GetSecondary().GetName(), bg=pal.GetSecondary().GetColour())
+    ptype.config(text=TryGetTranslations(pal.GetPrimary().GetName()), bg=pal.GetPrimary().GetColour())
+    stype.config(text=TryGetTranslations(pal.GetSecondary().GetName()), bg=pal.GetSecondary().GetColour())
 
     # ⚔🏹
     meleevar.set(pal.GetAttackMelee())
@@ -240,12 +240,18 @@ def changetext(num):
         skilllabel.config(text=pal.GetOwner())
         return
 
+    UnknowDes = "Unknown_Des"
+    if(TryGetTranslations("Unknown_Des") == "Unknown_Des"):
+        UnknowDes = SkillDesc['Unknown']
 
-    if TryGetSkillsvar() == "Unknown":
-        skilllabel.config(text=f"{pal.GetSkills()[num]}{SkillDesc['Unknown']}")
+    if TryGetSkillsvar(num) == "Unknown":
+        skilllabel.config(text=f"{pal.GetSkills()[num]}{UnknowDes}")
         return
-    skilllabel.config(text=SkillDesc[skills[num].get()])
-
+    
+    if(TryGetTranslations(TryGetSkillsvar(num) + "_Des") == TryGetSkillsvar(num) + "_Des"):
+        skilllabel.config(text=SkillDesc[TryGetSkillsvar(num)])
+    else:
+        skilllabel.config(text=TryGetTranslations(TryGetSkillsvar(num) + "_Des"))
     
 def loadfile():
     global palbox
@@ -522,7 +528,7 @@ def translateedit(t):
 
 
     framePresetsButtons1.winfo_children()[0]['text']= TryGetTranslations("Worker")
-    framePresetsButtons1.winfo_children()[1]['text']= TryGetTranslations("Runner")
+    framePresetsButtons1.winfo_children()[1]['text']= TryGetTranslations("Preset_Runner")
     framePresetsButtons1.winfo_children()[2]['text']= TryGetTranslations("Tank")
 
     framePresetsButtons2.winfo_children()[0]['text']= TryGetTranslations("DMG: Max")
@@ -930,5 +936,6 @@ frameFooter = Frame(infoview, relief="flat")
 frameFooter.pack(fill=BOTH, expand=False)
 skilllabel = Label(frameFooter, text="Hover a skill to see it's description")
 skilllabel.pack()
+
 
 root.mainloop()
