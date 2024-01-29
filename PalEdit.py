@@ -298,7 +298,7 @@ def load(file):
         except Exception as e:
             unknown.append(i)
             print(f"Error occured: {str(e)}")
-            print(f"Debug: Data {i}")
+            # print(f"Debug: Data {i}")
 
     updateDisplay()
 
