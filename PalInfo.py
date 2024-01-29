@@ -420,20 +420,26 @@ class PalEntity:
         self.isLucky = ("IsRarePal" in self._obj)
         
         typename = self._obj['CharacterID']['value']
-        self.isBoss = False
-        
-        if typename[:5].lower() == "boss_":
-            typename = typename.replace("BOSS_", "")
-            
-            self.isBoss = True if not self.isLucky else False
+        # print(f"Debug: typename1 - {typename}")
 
+        self.isBoss = False
+        if typename[:5].lower() == "boss_":
+            typename = typename[5:] # if first 5 characters match boss_ then cut the first 5 characters off
+            # typename = typename.replace("BOSS_", "") # this causes bugs
+            self.isBoss = True if not self.isLucky else False
+            if typename == "LazyCatFish": # BOSS_LazyCatFish and LazyCatfish
+                typename = "LazyCatfish"
+
+        # print(f"Debug: typename2 - '{typename}'")
         if typename.lower() == "sheepball":
             typename = "Sheepball"
+
             # Strangely, Boss and Lucky Lamballs have camelcasing
             # Regular ones... don't
+        # print(f"Debug: typename3 - '{typename}'")
         
         self._type = PalType[typename]
-        print(f"Created Entity of type {typename}: {self._type.value}")
+        print(f"Created Entity of type {typename}: {self._type.value} - Lucky: {self.isLucky} Boss: {self.isBoss}")
 
         if "Gender" in self._obj:
             if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
@@ -460,7 +466,10 @@ class PalEntity:
         if not "Rank" in self._obj:
             self._obj['Rank'] = EmptyRankObject.copy()
         self._rank = self._obj['Rank']['value']
-            
+
+        # Fix broken ranks
+        if self.GetRank() == 0:
+            self.SetRank(1)
 
         if not "PassiveSkillList" in self._obj:
             self._obj['PassiveSkillList'] = EmptySkillObject.copy()
@@ -584,13 +593,10 @@ class PalEntity:
         return self._rank
 
     def SetRank(self, value):
-        # print(f"DEBUG: Changed rank of {self._nickname} from: {self._rank} to: {value}")
         if "Rank" in self._obj:
-            self._obj['Rank']['value'] = self._rank = value + 1
-            # print(f"DEBUG: \n '{self._obj}'")
+            self._obj['Rank']['value'] = self._rank = value # we dont +1 here, since we have methods to patch rank in PalEdit.py
         else:
-            print(f"[ERROR:] Failed to update rank for: '{self.GetName()}'")
-            # print(f"DEBUG: \n '{self._obj}'")
+            print(f"[ERROR:] Failed to update rank for: '{self.GetName()}'") # we probably could get rid of this line, since you add rank if missing - same with level
 
     def RemoveSkill(self, slot):
         if slot < len(self._skills):
