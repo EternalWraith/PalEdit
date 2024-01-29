@@ -42,4 +42,10 @@ EmptyExpObject = {
     "value": 0,
     "type": "IntProperty"
 }
+
+EmptyRarePalObject = {
+    "value": False,
+    "id": None,
+    "type": "BoolProperty"
+}
     

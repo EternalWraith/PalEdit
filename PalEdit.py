@@ -11,7 +11,11 @@ from tkinter import messagebox
 from PIL import ImageTk, Image
 
 global palbox
-palbox = []
+palbox = {}
+global players
+players = {}
+
+
 global unknown
 unknown = []
 global data
@@ -20,7 +24,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.4.6"
+version = "0.4.8"
 
 def toggleDebug():
     global debug
@@ -34,7 +38,9 @@ def toggleDebug():
 
 def isPalSelected():
     global palbox
-    if len(palbox) == 0:
+    if current.get() == "":
+        return False
+    if len(palbox[players[current.get()]]) == 0:
         return False
     if len(listdisplay.curselection()) == 0:
         return False
@@ -44,7 +50,7 @@ def getSelectedPalInfo():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
     print(f"Get Info: {pal.GetNickname()}")     
     print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")    
     print(f"  - Rank: {pal.GetRank()}")    
@@ -59,7 +65,7 @@ def getSelectedPalData():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
     print(f"Get Data: {pal.GetNickname()}")    
     print(f"{pal._obj}")  
 
@@ -67,7 +73,7 @@ def setpreset(preset):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
+    pal = palbox[players[current.get()]][i] # seems global palbox is not necessary
 
     match preset:
         case "worker":
@@ -132,7 +138,7 @@ def changerank(configvalue):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
     match configvalue:
         case 4:
             pal.SetRank(5)
@@ -150,14 +156,14 @@ def changerankchoice(choice):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
     changerank(ranksvar.get())
 
 def changeskill(num):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
 
     if not skills[num].get() in ["Unknown", "UNKNOWN"]:
         if skills[num].get() in ["None", "NONE"]:
@@ -180,7 +186,7 @@ def onselect(evt):
     index = int(w.curselection()[0])
     editindex = index
 
-    pal = palbox[index]
+    pal = palbox[players[current.get()]][index]
     #palname.config(text=pal.GetName())
     speciesvar.set(pal.GetName())
 
@@ -199,6 +205,9 @@ def onselect(evt):
     shotvar.set(pal.GetAttackRanged())
     defvar.set(pal.GetDefence())
     wspvar.set(pal.GetWorkSpeed())
+
+    luckyvar.set(pal.isLucky)
+    alphavar.set(pal.isBoss)
 
     # rank
     match pal.GetRank():
@@ -232,7 +241,7 @@ def changetext(num):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
+    pal = palbox[players[current.get()]][i] # seems global palbox is not necessary
 
     global unknown
     if type(num) == str:
@@ -247,8 +256,6 @@ def changetext(num):
 
     
 def loadfile():
-    global palbox
-    palbox = []
     skilllabel.config(text="Loading save, please be patient...")
 
     file = askopenfilename(filetype=[("All files", "*.sav *.sav.json *.pson"),("Palworld Saves", "*.sav *.sav.json"),("Palworld Box", "*.pson")])
@@ -273,7 +280,11 @@ def sortPals(e):
 def load(file):
     global data
     global palbox
-    palbox = []
+    global players
+    global current
+    current.set("")
+    palbox = {}
+    players = {}
 
     f = open(file, "r", encoding="utf8")
     data = json.loads(f.read())
@@ -292,14 +303,27 @@ def load(file):
     for i in paldata:
         try:
             p = PalEntity(i)
-            palbox.append(p)
+            if not p.owner in palbox:
+                palbox[p.owner] = []
+            palbox[p.owner].append(p)
 
             n = p.GetFullName()
 
         except Exception as e:
-            unknown.append(i)
-            print(f"Error occured: {str(e)}")
+
+            if str(e) == "This is a player character":
+                print("Found Player Character")
+                pl = i['value']['RawData']['value']['object']['SaveParameter']['value']['NickName']['value']
+                plguid = i['key']['PlayerUId']['value']
+                print(f"{pl} - {plguid}")
+                players[pl] = plguid
+            else:
+                unknown.append(i)
+                print(f"Error occured: {str(e)}")
             # print(f"Debug: Data {i}")
+
+    current.set(next(iter(players)))
+    print(f"Defaulted selection to {current.get()}")
 
     updateDisplay()
 
@@ -307,15 +331,30 @@ def load(file):
     #for i in unknown:
         #print (i)
     
+    print(f"{len(players)} players found:")
+    for i in players:
+        print(f"{i} = {players[i]}")
+    playerdrop['values'] = list(players.keys())
+    playerdrop.current(0)
+    
+
     refresh()
 
     changetext(-1)
+    jump()
+    messagebox.showinfo("Done", "Done loading!")
+
+def jump():
+    root.attributes('-topmost', 1)
+    root.attributes('-topmost', 0)
+    root.focus_force()
+    root.bell()
 
 def updateDisplay():
     listdisplay.delete(0,END)
-    palbox.sort(key=sortPals)
+    palbox[players[current.get()]].sort(key=sortPals)
 
-    for p in palbox:
+    for p in palbox[players[current.get()]]:
         listdisplay.insert(END, p.GetFullName())
 
         if p.isBoss:
@@ -345,6 +384,8 @@ def savefile():
         savejson(file)
 
     changetext(-1)
+    jump()
+    messagebox.showinfo("Done", "Done saving!")
 
 def savepson(filename):
     f = open(filename, "w", encoding="utf8")
@@ -377,7 +418,7 @@ def updatestats(e):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[e]
+    pal = palbox[players[current.get()]][e]
 
     pal.SetAttackMelee(meleevar.get())
     pal.SetAttackRanged(shotvar.get())
@@ -388,7 +429,7 @@ def takelevel():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
 
     if pal.GetLevel() == 1:
         return
@@ -399,7 +440,7 @@ def givelevel():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
 
     if pal.GetLevel() == 50:
         return
@@ -410,11 +451,11 @@ def changespeciestype(evt):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
     
     pal.SetType(speciesvar.get())
     updateDisplay()
-    refresh(palbox.index(pal))
+    refresh(palbox[players[current.get()]].index(pal))
 
 def refresh(num=0):
     listdisplay.select_set(num)
@@ -435,6 +476,8 @@ def doconvertjson(file, compress=False):
     load(file.replace(".sav", ".sav.json"))
 
     changetext(-1)
+    jump()
+    messagebox.showinfo("Done", "Done decompiling!")
 
 def converttosave():
     skilllabel.config(text="Converting... this may take a while.")
@@ -449,14 +492,51 @@ def doconvertsave(file):
     SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"))
 
     changetext(-1)
+    jump()
+    messagebox.showinfo("Done", "Done compiling!")
 
 def swapgender():
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i]
+    pal = palbox[players[current.get()]][i]
 
     pal.SwapGender()
+    refresh(i)
+
+def replaceitem(i, pal):
+    listdisplay.delete(i)
+    listdisplay.insert(i, pal.GetFullName())
+
+    if pal.isBoss:
+        listdisplay.itemconfig(i, {'fg': 'red'})
+    elif pal.isLucky:
+        listdisplay.itemconfig(i, {'fg': 'blue'})
+
+def togglelucky():
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+
+    if luckyvar.get() == 1 and alphavar.get() == 1:
+        alphavar.set(0)
+
+    pal.SetLucky(True if luckyvar.get() == 1 else False)
+    replaceitem(i, pal)
+    refresh(i)
+
+def togglealpha():
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+
+    if luckyvar.get() == 1 and alphavar.get() == 1:
+        luckyvar.set(0)
+
+    pal.SetBoss(True if alphavar.get() == 1 else False)
+    replaceitem(i, pal)
     refresh(i)
 
 root = Tk()
@@ -466,6 +546,10 @@ root.title(f"PalEdit v{version}")
 root.geometry("") # auto window size
 root.minsize("800", "500") # minwidth for better view
 #root.resizable(width=False, height=False)
+
+global current
+current = StringVar()
+current.set("")
 
 tools = Menu(root)
 root.config(menu=tools)
@@ -488,10 +572,25 @@ convmenu.add_command(label="Convert Json to Save", command=converttosave)
 
 tools.add_cascade(label="Converter", menu=convmenu, underline=0)
 
+scrollview = Frame(root)
+scrollview.pack(side=LEFT, fill=Y)
 
-scrollbar = Scrollbar(root)
+def changeplayer(evt):
+    print(current.get())
+    updateDisplay()
+
+playerframe = Frame(scrollview)
+playerframe.pack(fill=X)
+playerlbl = Label(playerframe, text="Player:")
+playerlbl.config(justify='center')
+playerlbl.pack(side=LEFT, fill=X, expand=True)
+playerdrop = ttk.Combobox(playerframe, textvariable=current)
+playerdrop.pack(side=RIGHT, fill=X)
+playerdrop.bind("<<ComboboxSelected>>", changeplayer)
+
+scrollbar = Scrollbar(scrollview)
 scrollbar.pack(side=LEFT, fill=Y)
-listdisplay = Listbox(root, width=30, yscrollcommand=scrollbar.set, exportselection=0)
+listdisplay = Listbox(scrollview, width=30, yscrollcommand=scrollbar.set, exportselection=0)
 listdisplay.pack(side=LEFT, fill=BOTH)
 listdisplay.bind("<<ListboxSelect>>", onselect)
 scrollbar.config(command=listdisplay.yview)
@@ -517,11 +616,20 @@ ptype.pack(side=LEFT, expand=True, fill=X)
 stype = Label(typeframe, text="Dark", font=("Arial", ftsize), bg=Elements.DARK.value.GetColour(), width=6)
 stype.pack(side=RIGHT, expand=True, fill=X)
 
+formframe = Frame(resourceview)
+formframe.pack(expand=True, fill=X)
+luckyvar = IntVar()
+alphavar = IntVar()
+luckybox = Checkbutton(formframe, text='Lucky', variable=luckyvar, onvalue='1', offvalue='0', command=togglelucky)
+luckybox.pack(side=LEFT, expand=True)
+alphabox = Checkbutton(formframe, text='Alpha', variable=alphavar, onvalue='1', offvalue='0', command=togglealpha)
+alphabox.pack(side=RIGHT, expand=True)
+
 deckview = Frame(dataview, width=320, relief="sunken", borderwidth=2, pady=0)
 deckview.pack(side=RIGHT, fill=BOTH, expand=True)
 
 title = Label(deckview, text=f"PalEdit", bg="darkgrey", font=("Arial", 24), width=17)
-title.pack(expand=True, fill=X)
+title.pack(expand=True, fill=BOTH)
 
 headerframe = Frame(deckview, padx=0, pady=0, bg="darkgrey")
 headerframe.pack(fill=X)
@@ -672,7 +780,7 @@ skills[3].set("Lucky")
 
 op = [e.value for e in PalSkills]
 op.pop(0)
-op.pop(1)
+op.pop(0)
 op.sort()
 op.insert(0, "None")
 skilldrops = [
