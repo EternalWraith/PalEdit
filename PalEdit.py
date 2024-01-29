@@ -20,7 +20,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.44"
+version = "0.45"
 
 def toggleDebug():
     global debug
@@ -298,6 +298,7 @@ def load(file):
         except Exception as e:
             unknown.append(i)
             print(f"Error occured: {str(e)}")
+            print(f"Debug: Data {i}")
 
     updateDisplay()
 

@@ -420,20 +420,26 @@ class PalEntity:
         self.isLucky = ("IsRarePal" in self._obj)
         
         typename = self._obj['CharacterID']['value']
-        self.isBoss = False
-        
-        if typename[:5].lower() == "boss_":
-            typename = typename.replace("BOSS_", "")
-            
-            self.isBoss = True if not self.isLucky else False
+        # print(f"Debug: typename1 - {typename}")
 
+        self.isBoss = False
+        if typename[:5].lower() == "boss_":
+            typename = typename[5:] # if first 5 characters match boss_ then cut the first 5 characters off
+            # typename = typename.replace("BOSS_", "") # this causes bugs
+            self.isBoss = True if not self.isLucky else False
+            if typename == "LazyCatFish": # BOSS_LazyCatFish and LazyCatfish
+                typename = "LazyCatfish"
+
+        # print(f"Debug: typename2 - '{typename}'")
         if typename.lower() == "sheepball":
             typename = "Sheepball"
+
             # Strangely, Boss and Lucky Lamballs have camelcasing
             # Regular ones... don't
+        # print(f"Debug: typename3 - '{typename}'")
         
         self._type = PalType[typename]
-        print(f"Created Entity of type {typename}: {self._type.value}")
+        print(f"Created Entity of type {typename}: {self._type.value} - Lucky: {self.isLucky} Boss: {self.isBoss}")
 
         if "Gender" in self._obj:
             if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
