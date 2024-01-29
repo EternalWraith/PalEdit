@@ -468,7 +468,7 @@ class PalEntity:
         self._rank = self._obj['Rank']['value']
 
         # Fix broken ranks
-        if self.GetRank() == 0:
+        if self.GetRank() < 1 or self.GetRank() > 5:
             self.SetRank(1)
 
         if not "PassiveSkillList" in self._obj:

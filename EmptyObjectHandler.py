@@ -15,7 +15,7 @@ EmptyLevelObject = {
 
 EmptyRankObject = {
     "id": None,
-    "value": 0,
+    "value": 1,
     "type": "IntProperty"
 }
 
