@@ -22,6 +22,8 @@ editindex = -1
 translations=[]
 lang = "English"
 SkillTransDesc = {}
+global version
+version = "0.4.6"
 
 def toggleDebug():
     global debug
@@ -133,8 +135,7 @@ def changerank(configvalue):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
-
+    pal = palbox[i]
     match configvalue:
         case 4:
             pal.SetRank(5)
@@ -152,14 +153,14 @@ def changerankchoice(choice):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
-    pal.SetRank(ranksvar.get())
+    pal = palbox[i]
+    changerank(ranksvar.get())
 
 def changeskill(num):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
+    pal = palbox[i]
 
     if not TryGetSkillsvar(num) in ["Unknown", "UNKNOWN"]:
         if TryGetSkillsvar(num) in ["None", "NONE"]:
@@ -189,7 +190,8 @@ def onselect(evt):
     g = pal.GetGender()
     palgender.config(text=TryGetTranslations(g), fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
 
-    title.config(text=f"{pal.GetNickname()} - Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
+    title.config(text=f"{pal.GetNickname()}")
+    level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
 
     ptype.config(text=TryGetTranslations(pal.GetPrimary().GetName()), bg=pal.GetPrimary().GetColour())
@@ -305,6 +307,7 @@ def load(file):
         except Exception as e:
             unknown.append(i)
             print(f"Error occured: {str(e)}")
+            # print(f"Debug: Data {i}")
 
     updateDisplay()
 
@@ -612,7 +615,7 @@ def translateedit(t):
 root = Tk()
 purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
 root.iconphoto(True, purplepanda)
-root.title("PalEdit v0.4")
+root.title(f"PalEdit v{version}")
 root.geometry("") # auto window size
 root.minsize("800", "500") # minwidth for better view
 #root.resizable(width=False, height=False)
@@ -676,16 +679,19 @@ stype.pack(side=RIGHT, expand=True, fill=X)
 deckview = Frame(dataview, width=320, relief="sunken", borderwidth=2, pady=0)
 deckview.pack(side=RIGHT, fill=BOTH, expand=True)
 
+title = Label(deckview, text=f"PalEdit", bg="darkgrey", font=("Arial", 24), width=17)
+title.pack(expand=True, fill=X)
+
 headerframe = Frame(deckview, padx=0, pady=0, bg="darkgrey")
 headerframe.pack(fill=X)
 headerframe.grid_rowconfigure(0, weight=1)
 headerframe.grid_columnconfigure((0,2), uniform="equal")
 headerframe.grid_columnconfigure(1, weight=1)
 
-title = Label(headerframe, text="PalEdit - v0.4", bg="darkgrey", font=("Arial", 24), width=17)
-title.bind("<Enter>", lambda evt, num="owner": changetext(num))
-title.bind("<Leave>", lambda evt, num=-1: changetext(num))
-title.grid(row=0, column=1, sticky="nsew")
+level = Label(headerframe, text=f"v{version}", bg="darkgrey", font=("Arial", 24), width=17)
+level.bind("<Enter>", lambda evt, num="owner": changetext(num))
+level.bind("<Leave>", lambda evt, num=-1: changetext(num))
+level.grid(row=0, column=1, sticky="nsew")
 
 minlvlbtn = Button(headerframe, text="➖", borderwidth=1, font=("Arial", ftsize-2), command=takelevel, bg="darkgrey")
 minlvlbtn.grid(row=0, column=0, sticky="nsew")
@@ -824,8 +830,10 @@ skills[2].set("Ferocious")
 skills[3].set("Lucky")
 
 op = [e.value for e in PalSkills]
-op.sort()
 op.pop(0)
+op.pop(1)
+op.sort()
+op.insert(0, "None")
 skilldrops = [
     OptionMenu(topview, skills[0], *op),
     OptionMenu(topview, skills[1], *op),
