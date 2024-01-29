@@ -20,7 +20,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.45"
+version = "0.46"
 
 def toggleDebug():
     global debug
@@ -132,7 +132,7 @@ def changerank(configvalue):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
+    pal = palbox[i]
     match configvalue:
         case 4:
             pal.SetRank(5)
@@ -150,14 +150,14 @@ def changerankchoice(choice):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
-    pal.SetRank(ranksvar.get())
+    pal = palbox[i]
+    changerank(ranksvar.get())
 
 def changeskill(num):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[i] # seems global palbox is not necessary
+    pal = palbox[i]
 
     if not skills[num].get() in ["Unknown", "UNKNOWN"]:
         if skills[num].get() in ["None", "NONE"]:
