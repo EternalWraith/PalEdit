@@ -77,12 +77,10 @@ If you’ve installed Palworld via Steam, you can also access your save files by
 ## **🚧 Project roadmap**
 
 - **Future Releases:**
-  - [ ] Converting Pal to Lucky
-  - [ ] Converting Pal to Alpha (Boss)
   - [ ] Generating new Pals
-  - [ ] Player Filtered Pals so you know who belongs to who
   - [ ] Database system to make things easier to update
   - [ ] Localisation support for Chinese, Japanese, Spanish, French, German, and English (for starters)
+  - [ ] Move Editing
   - [ ] Stat Editing (Hero Statue)
   - [ ] Pal Deletion
 
@@ -101,3 +99,8 @@ If you’ve installed Palworld via Steam, you can also access your save files by
   - [x] Compatibility for Tower Boss and Human captures
   - [x] Overhauled Attack IV and Level Editing to make it easier
   - [x] Moved species editing to main app instead of tucked away in the Tools menu
+
+- **v0.4.8 Release:**
+  - [x] Converting Pal to Lucky
+  - [x] Converting Pal to Alpha (Boss)
+  - [x] Player Filtered Pals so you know who belongs to who
