@@ -19,10 +19,9 @@ global debug
 debug = "false"
 global editindex
 editindex = -1
-global translations
 translations=[]
-global lang
 lang = "English"
+SkillTransDesc = {}
 
 def toggleDebug():
     global debug
@@ -185,10 +184,10 @@ def onselect(evt):
 
     pal = palbox[index]
     #palname.config(text=pal.GetName())
-    speciesvar.set(pal.GetName())
+    speciesvar.set(TryGetTranslations(pal.GetName()))
 
     g = pal.GetGender()
-    palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
+    palgender.config(text=TryGetTranslations(g), fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
 
     title.config(text=f"{pal.GetNickname()} - Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
@@ -221,9 +220,9 @@ def onselect(evt):
 
     for i in range(0, 4):
         if not s[i] in [s.name for s in PalSkills]:
-            skills[i].set("Unknown")
+            skills[i].set(TryGetTranslations("Unknown"))
         else:
-            skills[i].set(PalSkills[s[i]].value)
+            skills[i].set(TryGetTranslations(PalSkills[s[i]].value))
     
 
 def changetext(num):
@@ -242,7 +241,7 @@ def changetext(num):
         return
 
 
-    if skills[num].get() == "Unknown":
+    if TryGetSkillsvar() == "Unknown":
         skilllabel.config(text=f"{pal.GetSkills()[num]}{SkillDesc['Unknown']}")
         return
     skilllabel.config(text=SkillDesc[skills[num].get()])
@@ -411,7 +410,7 @@ def changespeciestype(evt):
     i = int(listdisplay.curselection()[0])
     pal = palbox[i]
     
-    pal.SetType(speciesvar.get())
+    pal.SetType(TryGetSpeciesvar())
     updateDisplay()
     refresh(palbox.index(pal))
 
@@ -469,8 +468,8 @@ def LoadTranslationsFile():
 
 def SaveTranslationsFile():
     global translations
-    with open('translations.json', 'w+') as f:
-        json.dump(translations, f)
+    with open('translations.json', 'w+', encoding='utf-8') as f:
+        json.dump(translations, f,indent=1,ensure_ascii=False)
 
 def TryGetTranslations(tag):
     global translations
@@ -483,7 +482,21 @@ def TryGetTranslations(tag):
     except:
         return tag
     
+def TryGetSpeciesvar():
+    if(len(SkillTransDesc) > 0):
+        try:
+            return SkillTransDesc[speciesvar.get()]
+        except:
+            return speciesvar.get()
+    return speciesvar.get()
 
+def TryGetSkillsvar(i):
+    if(len(SkillTransDesc) > 0):
+        try:
+            return SkillTransDesc[skills[i].get()]
+        except:
+            return skills[i].get()
+    return skills[i].get()
 
 def translateedit(t):
     global lang
@@ -527,8 +540,68 @@ def translateedit(t):
     framePresetsAttributes.winfo_children()[0].config(text = TryGetTranslations("Set Attributes:"))
     framePresetsAttributes.winfo_children()[1].config(text = TryGetTranslations("Preset changes attributes"))
 
+    global SkillTransDesc
+    global species
+    global palname
+    global editview
 
 
+    species = []
+    for e in PalType:
+        species.append(TryGetTranslations(e.value.GetName()))
+        SkillTransDesc[TryGetTranslations(e.value.GetName())] = e.value.GetName()
+    species.sort()
+
+    palname.destroy()
+    palname = OptionMenu(editview, speciesvar, *species, command=changespeciestype)
+    palname.config(font=("Arial", ftsize), padx=0, pady=0, borderwidth=1, width=5, direction='right')
+    palname.pack(before=editview.pack_slaves()[0],expand=True, fill=X)
+
+    global skilldrops
+    global op
+    global topview
+    global skills
+    global botview
+    for e in skilldrops:
+        e.destroy()
+    op = []
+    for e in PalSkills:
+        op.append(TryGetTranslations(e.value))
+        SkillTransDesc[TryGetTranslations(e.value)] = e.value
+    op.sort()
+    op.pop(0)
+
+    skills[0].set(TryGetTranslations(TryGetSkillsvar(0)))
+    skills[1].set(TryGetTranslations(TryGetSkillsvar(1)))
+    skills[2].set(TryGetTranslations(TryGetSkillsvar(2)))
+    skills[3].set(TryGetTranslations(TryGetSkillsvar(3)))
+
+    skilldrops = [
+        OptionMenu(topview, skills[0], *op),
+        OptionMenu(topview, skills[1], *op),
+        OptionMenu(botview, skills[2], *op),
+        OptionMenu(botview, skills[3], *op)
+        ]
+
+    skilldrops[0].pack(side=LEFT, expand=True, fill=BOTH)
+    skilldrops[0].config(font=("Arial", ftsize), width=6, direction="right")
+    skilldrops[1].pack(side=RIGHT, expand=True, fill=BOTH)
+    skilldrops[1].config(font=("Arial", ftsize), width=6, direction="right")
+    skilldrops[2].pack(side=LEFT, expand=True, fill=BOTH)
+    skilldrops[2].config(font=("Arial", ftsize), width=6, direction="right")
+    skilldrops[3].pack(side=RIGHT, expand=True, fill=BOTH)
+    skilldrops[3].config(font=("Arial", ftsize), width=6, direction="right")
+
+    skilldrops[0].bind("<Enter>", lambda evt, num=0: changetext(num))
+    skilldrops[1].bind("<Enter>", lambda evt, num=1: changetext(num))
+    skilldrops[2].bind("<Enter>", lambda evt, num=2: changetext(num))
+    skilldrops[3].bind("<Enter>", lambda evt, num=3: changetext(num))
+    skilldrops[0].bind("<Leave>", lambda evt, num=-1: changetext(num))
+    skilldrops[1].bind("<Leave>", lambda evt, num=-1: changetext(num))
+    skilldrops[2].bind("<Leave>", lambda evt, num=-1: changetext(num))
+    skilldrops[3].bind("<Leave>", lambda evt, num=-1: changetext(num))
+
+    
 
 root = Tk()
 purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
@@ -857,8 +930,5 @@ frameFooter = Frame(infoview, relief="flat")
 frameFooter.pack(fill=BOTH, expand=False)
 skilllabel = Label(frameFooter, text="Hover a skill to see it's description")
 skilllabel.pack()
-
-
-
 
 root.mainloop()
