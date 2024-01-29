@@ -1,3 +1,5 @@
+> Because apparently it needs to be stated here as well as in the NexusMods; the application is __unsigned__ and therefore can flag up a __False Positive__ with some anti-virus software. If you are really scared about it being a virus, download the application and compile it yourself. Look through the source code. [You can see a virus report here](https://www.virustotal.com/gui/file/d20dcab42b8ba55442c27c16235c27fb80d16f7494ee32a790767a2eb38ceefb)
+
 <h1 align="center">PalEdit</h1>
 
 <div align="center">
