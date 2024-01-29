@@ -187,7 +187,8 @@ def onselect(evt):
     g = pal.GetGender()
     palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
 
-    title.config(text=f"{pal.GetNickname()} - Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
+    title.config(text=f"{pal.GetNickname()}")
+    level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
 
     ptype.config(text=pal.GetPrimary().GetName(), bg=pal.GetPrimary().GetColour())
@@ -519,16 +520,19 @@ stype.pack(side=RIGHT, expand=True, fill=X)
 deckview = Frame(dataview, width=320, relief="sunken", borderwidth=2, pady=0)
 deckview.pack(side=RIGHT, fill=BOTH, expand=True)
 
+title = Label(deckview, text=f"PalEdit", bg="darkgrey", font=("Arial", 24), width=17)
+title.pack(expand=True, fill=X)
+
 headerframe = Frame(deckview, padx=0, pady=0, bg="darkgrey")
 headerframe.pack(fill=X)
 headerframe.grid_rowconfigure(0, weight=1)
 headerframe.grid_columnconfigure((0,2), uniform="equal")
 headerframe.grid_columnconfigure(1, weight=1)
 
-title = Label(headerframe, text=f"PalEdit - v{version}", bg="darkgrey", font=("Arial", 24), width=17)
-title.bind("<Enter>", lambda evt, num="owner": changetext(num))
-title.bind("<Leave>", lambda evt, num=-1: changetext(num))
-title.grid(row=0, column=1, sticky="nsew")
+level = Label(headerframe, text=f"v{version}", bg="darkgrey", font=("Arial", 24), width=17)
+level.bind("<Enter>", lambda evt, num="owner": changetext(num))
+level.bind("<Leave>", lambda evt, num=-1: changetext(num))
+level.grid(row=0, column=1, sticky="nsew")
 
 minlvlbtn = Button(headerframe, text="➖", borderwidth=1, font=("Arial", ftsize-2), command=takelevel, bg="darkgrey")
 minlvlbtn.grid(row=0, column=0, sticky="nsew")
@@ -667,8 +671,10 @@ skills[2].set("Ferocious")
 skills[3].set("Lucky")
 
 op = [e.value for e in PalSkills]
-op.sort()
 op.pop(0)
+op.pop(1)
+op.sort()
+op.insert(0, "None")
 skilldrops = [
     OptionMenu(topview, skills[0], *op),
     OptionMenu(topview, skills[1], *op),
