@@ -98,6 +98,6 @@ If you’ve installed Palworld via Steam, you can also access your save files by
   - [x] Rank editing (Pal Essence Condenser)
   - [x] Workspeed Editing
   - [x] Pal presets to speed up creation of workers, fighters and tanks
-  - [x] Compatiblity for Tower Boss and Human captures
+  - [x] Compatibility for Tower Boss and Human captures
   - [x] Overhauled Attack IV and Level Editing to make it easier
   - [x] Moved species editing to main app instead of tucked away in the Tools menu
