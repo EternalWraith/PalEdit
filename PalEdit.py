@@ -20,7 +20,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.431"
+version = "0.44"
 
 def toggleDebug():
     global debug

@@ -459,8 +459,11 @@ class PalEntity:
 
         if not "Rank" in self._obj:
             self._obj['Rank'] = EmptyRankObject.copy()
-            self.SetRank(1)
         self._rank = self._obj['Rank']['value']
+
+        # Fix broken ranks
+        if self.GetRank() == 0:
+            self.SetRank(1)
 
         if not "PassiveSkillList" in self._obj:
             self._obj['PassiveSkillList'] = EmptySkillObject.copy()
