@@ -15,16 +15,16 @@ palbox = {}
 global players
 players = {}
 
-
 global unknown
 unknown = []
+
 global data
 global debug
 debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.4.8"
+version = "0.4.8.1"
 
 def toggleDebug():
     global debug
@@ -34,7 +34,6 @@ def toggleDebug():
     else:
         debug = "false"
         frameDebug.pack_forget()
-
 
 def isPalSelected():
     global palbox
@@ -76,16 +75,26 @@ def setpreset(preset):
     pal = palbox[players[current.get()]][i] # seems global palbox is not necessary
 
     match preset:
-        case "worker":
+        case "base":
+            skills[0].set("Artisan")
+            skills[1].set("Workaholic")
+            skills[2].set("Lucky")
+            skills[3].set("Diet Lover")
+        case "workspeed":
             skills[0].set("Artisan")
             skills[1].set("Serious")
             skills[2].set("Lucky")
             skills[3].set("Work Slave")
-        case "runner":
+        case "movement":
             skills[0].set("Swift")
             skills[1].set("Legend")
             skills[2].set("Runner")
             skills[3].set("Nimble")
+        case "tank":
+            skills[0].set("Burly Body")
+            skills[1].set("Legend")
+            skills[2].set("Masochist")
+            skills[3].set("Hard Skin")
         case "dmg_max":
             skills[0].set("Musclehead")
             skills[1].set("Legend")
@@ -96,16 +105,45 @@ def setpreset(preset):
             skills[1].set("Legend")
             skills[2].set("Ferocious")
             skills[3].set("Burly Body")
-        case "dmg_dragon":
+        case "dmg_mount":
             skills[0].set("Musclehead")
             skills[1].set("Legend")
             skills[2].set("Ferocious")
-            skills[3].set("Divine Dragon")
-        case "tank":
-            skills[0].set("Burly Body")
+            skills[3].set("Swift")
+        case "dmg_element":
+            primary = pal.GetPrimary().GetName().lower()
+            secondary = pal.GetSecondary().GetName().lower()
+            if primary == "none":
+                messagebox.showerror("Preset: Dmg: Element", "This pal has no elements! Preset skipped")
+                return
+            skills[0].set("Musclehead")
             skills[1].set("Legend")
-            skills[2].set("Masochist")
-            skills[3].set("Hard Skin")
+            skills[2].set("Ferocious")
+            match primary:
+                case "neutral":
+                    skills[3].set("Celestial Emperor")
+                case "dark":
+                    skills[3].set("Lord of the Underworld")
+                case "dragon":
+                    skills[3].set("Divine Dragon")
+                case "ice":
+                    skills[3].set("Ice Emperor")
+                case "fire":
+                    skills[3].set("Flame Emperor")
+                case "grass":
+                    skills[3].set("Spirit Emperor")
+                case "ground":
+                    skills[3].set("Earth Emperor")
+                case "electric":
+                    skills[3].set("Lord of Lightning")
+                case "water":
+                    skills[3].set("Lord of the Sea")
+                case _:
+                    messagebox.showerror(f"Error: elemental was not found for preset: {primary}-{secondary}")
+
+            # uncecessary msg
+            # if not secondary == "none":
+            #     messagebox.showerror(f"You pal has a second elemental - its probably better to use Dmg: Max preset")
         case _:
             print(f"Preset {preset} not found - nothing changed")
             return
@@ -121,18 +159,22 @@ def setpreset(preset):
 
     refresh(i)
 
-def makeworker():
-    setpreset("worker")
-def makerunner():
-    setpreset("runner")
-def makedmgmax():
-    setpreset("dmg_max")
-def makedmgbalanced():
-    setpreset("dmg_balanced")
-def makedmgdragon():
-    setpreset("dmg_dragon")
-def maketank():
+def preset_base():
+    setpreset("base")
+def preset_workspeed():
+    setpreset("workspeed")
+def preset_movement():
+    setpreset("movement")
+def preset_tank():
     setpreset("tank")
+def preset_dmg_max():
+    setpreset("dmg_max")
+def preset_dmg_balanced():
+    setpreset("dmg_balanced")
+def preset_dmg_mount():
+    setpreset("dmg_mount")
+def preset_dmg_element():
+    setpreset("dmg_element")
 
 def changerank(configvalue):
     if not isPalSelected():
@@ -821,27 +863,35 @@ framePresetsButtons.pack(fill=BOTH, expand=True)
 
 framePresetsButtons1 = Frame(framePresetsButtons)
 framePresetsButtons1.pack(fill=BOTH, expand=True)
-makeworkerBtn = Button(framePresetsButtons1, text="Worker", command=makeworker)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons1, text="Runner", command=makerunner)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons1, text="Tank", command=maketank)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+preset_title1 = Label(framePresetsButtons1, text='Utility:', anchor='e', bg="darkgrey", font=("Arial", 13), width=9).pack(side=LEFT, fill=X)
+preset_button = Button(framePresetsButtons1, text="Base", command=preset_base)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons1, text="Speed Worker", command=preset_workspeed)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons1, text="Speed Runner", command=preset_movement)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons1, text="Tank", command=preset_tank)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
 
 framePresetsButtons2 = Frame(framePresetsButtons)
 framePresetsButtons2.pack(fill=BOTH, expand=True)
-makeworkerBtn = Button(framePresetsButtons2, text="DMG: Max", command=makedmgmax)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons2, text="DMG: Balanced", command=makedmgbalanced)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons2, text="DMG: Dragon", command=makedmgdragon)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+preset_title2 = Label(framePresetsButtons2, text='Damage:', anchor='e', bg="darkgrey", font=("Arial", 13), width=9).pack(side=LEFT, fill=X)
+preset_button = Button(framePresetsButtons2, text="Max", command=preset_dmg_max)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons2, text="Balanced", command=preset_dmg_balanced)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons2, text="Mount", command=preset_dmg_mount)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons2, text="Element", command=preset_dmg_element)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
 
 # PRESETS OPTIONS
 framePresetsExtras = Frame(framePresets, relief="groove", borderwidth=4)
