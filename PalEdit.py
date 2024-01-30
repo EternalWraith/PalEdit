@@ -26,7 +26,8 @@ editindex = -1
 global version
 version = "0.4.8"
 
-def toggleDebug():
+
+def toggleDebug() -> None:
     global debug
     if debug == "false":
         debug = "true"
@@ -36,7 +37,7 @@ def toggleDebug():
         frameDebug.pack_forget()
 
 
-def isPalSelected():
+def isPalSelected() -> bool:
     global palbox
     if current.get() == "":
         return False
@@ -46,14 +47,15 @@ def isPalSelected():
         return False
     return True
 
-def getSelectedPalInfo():
+
+def getSelectedPalInfo() -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][i]
-    print(f"Get Info: {pal.GetNickname()}")     
-    print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")    
-    print(f"  - Rank: {pal.GetRank()}")    
+    print(f"Get Info: {pal.GetNickname()}")
+    print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
+    print(f"  - Rank: {pal.GetRank()}")
     print(f"  - Skill 1:  {skills[0].get()}")
     print(f"  - Skill 2:  {skills[1].get()}")
     print(f"  - Skill 3:  {skills[2].get()}")
@@ -61,19 +63,21 @@ def getSelectedPalInfo():
     print(f"  - Melee IV:  {pal.GetAttackMelee()}")
     print(f"  - Range IV:  {pal.GetAttackRanged()}")
 
-def getSelectedPalData():
+
+def getSelectedPalData() -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][i]
-    print(f"Get Data: {pal.GetNickname()}")    
-    print(f"{pal._obj}")  
+    print(f"Get Data: {pal.GetNickname()}")
+    print(f"{pal._obj}")
 
-def setpreset(preset):
+
+def setpreset(preset: str) -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[players[current.get()]][i] # seems global palbox is not necessary
+    pal = palbox[players[current.get()]][i]  # seems global palbox is not necessary
 
     match preset:
         case "worker":
@@ -121,20 +125,32 @@ def setpreset(preset):
 
     refresh(i)
 
-def makeworker():
+
+def makeworker() -> None:
     setpreset("worker")
-def makerunner():
+
+
+def makerunner() -> None:
     setpreset("runner")
-def makedmgmax():
+
+
+def makedmgmax() -> None:
     setpreset("dmg_max")
-def makedmgbalanced():
+
+
+def makedmgbalanced() -> None:
     setpreset("dmg_balanced")
-def makedmgdragon():
+
+
+def makedmgdragon() -> None:
     setpreset("dmg_dragon")
-def maketank():
+
+
+def maketank() -> None:
     setpreset("tank")
 
-def changerank(configvalue):
+
+def changerank(configvalue) -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -152,14 +168,16 @@ def changerank(configvalue):
             pal.SetRank(1)
     refresh(i)
 
-def changerankchoice(choice):
+
+def changerankchoice(choice) -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][i]
     changerank(ranksvar.get())
 
-def changeskill(num):
+
+def changeskill(num: int) -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -173,7 +191,8 @@ def changeskill(num):
 
     refresh(i)
 
-def onselect(evt):
+
+def onselect(evt) -> None:
     global palbox
     global editindex
     w = evt.widget
@@ -182,16 +201,18 @@ def onselect(evt):
 
     if editindex > -1:
         updatestats(editindex)
-        
+
     index = int(w.curselection()[0])
     editindex = index
 
     pal = palbox[players[current.get()]][index]
-    #palname.config(text=pal.GetName())
+    # palname.config(text=pal.GetName())
     speciesvar.set(pal.GetName())
 
     g = pal.GetGender()
-    palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
+    palgender.config(
+        text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value
+    )
 
     title.config(text=f"{pal.GetNickname()}")
     level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
@@ -231,53 +252,65 @@ def onselect(evt):
             skills[i].set("Unknown")
         else:
             skills[i].set(PalSkills[s[i]].value)
-    
 
-def changetext(num):
+
+def changetext(num) -> None:
     if num == -1:
         skilllabel.config(text="Hover a skill to see it's description")
         return
-    
+
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
-    pal = palbox[players[current.get()]][i] # seems global palbox is not necessary
+    pal = palbox[players[current.get()]][i]  # seems global palbox is not necessary
 
     global unknown
     if type(num) == str:
         skilllabel.config(text=pal.GetOwner())
         return
 
-
     if skills[num].get() == "Unknown":
         skilllabel.config(text=f"{pal.GetSkills()[num]}{SkillDesc['Unknown']}")
         return
     skilllabel.config(text=SkillDesc[skills[num].get()])
 
-    
-def loadfile():
+
+def loadfile() -> None:
     skilllabel.config(text="Loading save, please be patient...")
 
-    file = askopenfilename(filetype=[("All files", "*.sav *.sav.json *.pson"),("Palworld Saves", "*.sav *.sav.json"),("Palworld Box", "*.pson")])
+    file = askopenfilename(
+        filetype=[
+            ("All files", "*.sav *.sav.json *.pson"),
+            ("Palworld Saves", "*.sav *.sav.json"),
+            ("Palworld Box", "*.pson"),
+        ]
+    )
     print(f"Opening file {file}")
 
     if not file.endswith(".pson") and not file.endswith("Level.sav.json"):
         if file.endswith("Level.sav"):
-            answer = messagebox.askquestion("Incorrect file", "This save hasn't been decompiled. Would you like to decompile it now?")
+            answer = messagebox.askquestion(
+                "Incorrect file",
+                "This save hasn't been decompiled. Would you like to decompile it now?",
+            )
             if answer == "yes":
                 skilllabel.config(text="Decompiling save, please be patient...")
                 doconvertjson(file)
         else:
-            messagebox.showerror("Incorrect file", "This is not the right file. Please select the Level.sav file.")
+            messagebox.showerror(
+                "Incorrect file",
+                "This is not the right file. Please select the Level.sav file.",
+            )
         changetext(-1)
         return
     load(file)
 
-def sortPals(e):
+
+def sortPals(e) -> str:
     return e.GetName()
 
 
-def load(file):
+def load(file) -> None:
     global data
     global palbox
     global players
@@ -293,12 +326,13 @@ def load(file):
     if file.endswith(".pson"):
         paldata = data
     else:
-        paldata = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
+        paldata = data["properties"]["worldSaveData"]["value"][
+            "CharacterSaveParameterMap"
+        ]["value"]
 
         f = open("current.pson", "w", encoding="utf8")
         json.dump(paldata, f, indent=4)
         f.close()
-
 
     for i in paldata:
         try:
@@ -310,11 +344,12 @@ def load(file):
             n = p.GetFullName()
 
         except Exception as e:
-
             if str(e) == "This is a player character":
                 print("Found Player Character")
-                pl = i['value']['RawData']['value']['object']['SaveParameter']['value']['NickName']['value']
-                plguid = i['key']['PlayerUId']['value']
+                pl = i["value"]["RawData"]["value"]["object"]["SaveParameter"]["value"][
+                    "NickName"
+                ]["value"]
+                plguid = i["key"]["PlayerUId"]["value"]
                 print(f"{pl} - {plguid}")
                 players[pl] = plguid
             else:
@@ -328,15 +363,14 @@ def load(file):
     updateDisplay()
 
     print(f"Unknown list contains {len(unknown)} entries")
-    #for i in unknown:
-        #print (i)
-    
+    # for i in unknown:
+    # print (i)
+
     print(f"{len(players)} players found:")
     for i in players:
         print(f"{i} = {players[i]}")
-    playerdrop['values'] = list(players.keys())
+    playerdrop["values"] = list(players.keys())
     playerdrop.current(0)
-    
 
     refresh()
 
@@ -344,39 +378,52 @@ def load(file):
     jump()
     messagebox.showinfo("Done", "Done loading!")
 
-def jump():
-    root.attributes('-topmost', 1)
-    root.attributes('-topmost', 0)
+
+def jump() -> None:
+    root.attributes("-topmost", 1)
+    root.attributes("-topmost", 0)
     root.focus_force()
     root.bell()
 
-def updateDisplay():
-    listdisplay.delete(0,END)
+
+def updateDisplay() -> None:
+    listdisplay.delete(0, END)
     palbox[players[current.get()]].sort(key=sortPals)
 
     for p in palbox[players[current.get()]]:
         listdisplay.insert(END, p.GetFullName())
 
         if p.isBoss:
-            listdisplay.itemconfig(END, {'fg': 'red'})
+            listdisplay.itemconfig(END, {"fg": "red"})
         elif p.isLucky:
-            listdisplay.itemconfig(END, {'fg': 'blue'})
-    
+            listdisplay.itemconfig(END, {"fg": "blue"})
 
-def savefile():
+
+def savefile() -> None:
     global palbox
     global data
-    skilllabel.config(text="Saving, please be patient... (it can take up to 5 minutes in large files)")
+    skilllabel.config(
+        text="Saving, please be patient... (it can take up to 5 minutes in large files)"
+    )
 
     if isPalSelected():
         i = int(listdisplay.curselection()[0])
         refresh(i)
-    
-    file = asksaveasfilename(filetype=[("All files", "*.sav.json *.pson"),("Palworld Saves", "*.sav.json"),("Palworld Box", "*.pson")])
+
+    file = asksaveasfilename(
+        filetype=[
+            ("All files", "*.sav.json *.pson"),
+            ("Palworld Saves", "*.sav.json"),
+            ("Palworld Box", "*.pson"),
+        ]
+    )
     print(f"Opening file {file}")
 
     if not file.endswith(".pson") and not file.endswith("Level.sav.json"):
-        messagebox.showerror("Incorrect file", "You can only save to an existing Level.sav.json or a new .pson file")
+        messagebox.showerror(
+            "Incorrect file",
+            "You can only save to an existing Level.sav.json or a new .pson file",
+        )
 
     if file.endswith(".pson"):
         savepson(file)
@@ -387,23 +434,37 @@ def savefile():
     jump()
     messagebox.showinfo("Done", "Done saving!")
 
-def savepson(filename):
+
+def savepson(filename: str) -> None:
     f = open(filename, "w", encoding="utf8")
-    if 'properties' in data:
-        json.dump(data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'], f, indent=4)
+    if "properties" in data:
+        json.dump(
+            data["properties"]["worldSaveData"]["value"]["CharacterSaveParameterMap"][
+                "value"
+            ],
+            f,
+            indent=4,
+        )
     else:
         json.dump(data, f, indent=4)
     f.close()
 
-def savejson(filename):
+
+def savejson(filename: str) -> None:
     f = open(filename, "r", encoding="utf8")
     svdata = json.loads(f.read())
     f.close()
 
-    if 'properties' in data:
-        svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
+    if "properties" in data:
+        svdata["properties"]["worldSaveData"]["value"]["CharacterSaveParameterMap"][
+            "value"
+        ] = data["properties"]["worldSaveData"]["value"]["CharacterSaveParameterMap"][
+            "value"
+        ]
     else:
-        svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data
+        svdata["properties"]["worldSaveData"]["value"]["CharacterSaveParameterMap"][
+            "value"
+        ] = data
 
     f = open(filename, "w", encoding="utf8")
     json.dump(svdata, f)
@@ -411,10 +472,12 @@ def savejson(filename):
 
     changetext(-1)
 
-def generateguid():
+
+def generateguid() -> None:
     print(uuid.uuid4())
 
-def updatestats(e):
+
+def updatestats(e: int) -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -425,7 +488,8 @@ def updatestats(e):
     pal.SetDefence(defvar.get())
     pal.SetWorkSpeed(wspvar.get())
 
-def takelevel():
+
+def takelevel() -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -433,10 +497,11 @@ def takelevel():
 
     if pal.GetLevel() == 1:
         return
-    pal.SetLevel(pal.GetLevel()-1)
+    pal.SetLevel(pal.GetLevel() - 1)
     refresh(i)
 
-def givelevel():
+
+def givelevel() -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -444,33 +509,36 @@ def givelevel():
 
     if pal.GetLevel() == 50:
         return
-    pal.SetLevel(pal.GetLevel()+1)
+    pal.SetLevel(pal.GetLevel() + 1)
     refresh(i)
 
-def changespeciestype(evt):
+
+def changespeciestype(evt) -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][i]
-    
+
     pal.SetType(speciesvar.get())
     updateDisplay()
     refresh(palbox[players[current.get()]].index(pal))
 
-def refresh(num=0):
+
+def refresh(num=0) -> None:
     listdisplay.select_set(num)
     listdisplay.event_generate("<<ListboxSelect>>")
 
-def converttojson():
 
+def converttojson() -> None:
     skilllabel.config(text="Converting... this may take a while.")
-    
+
     file = askopenfilename(filetype=[("All files", "*.sav")])
     print(f"Opening file {file}")
 
     doconvertjson(file)
 
-def doconvertjson(file, compress=False):
+
+def doconvertjson(file, compress=False) -> None:
     SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), compress)
 
     load(file.replace(".sav", ".sav.json"))
@@ -479,23 +547,25 @@ def doconvertjson(file, compress=False):
     jump()
     messagebox.showinfo("Done", "Done decompiling!")
 
-def converttosave():
+
+def converttosave() -> None:
     skilllabel.config(text="Converting... this may take a while.")
-    
+
     file = askopenfilename(filetype=[("All files", "*.sav.json")])
     print(f"Opening file {file}")
 
     doconvertsave(file)
 
 
-def doconvertsave(file):
+def doconvertsave(file) -> None:
     SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"))
 
     changetext(-1)
     jump()
     messagebox.showinfo("Done", "Done compiling!")
 
-def swapgender():
+
+def swapgender() -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -504,16 +574,18 @@ def swapgender():
     pal.SwapGender()
     refresh(i)
 
-def replaceitem(i, pal):
+
+def replaceitem(i: int, pal) -> None:
     listdisplay.delete(i)
     listdisplay.insert(i, pal.GetFullName())
 
     if pal.isBoss:
-        listdisplay.itemconfig(i, {'fg': 'red'})
+        listdisplay.itemconfig(i, {"fg": "red"})
     elif pal.isLucky:
-        listdisplay.itemconfig(i, {'fg': 'blue'})
+        listdisplay.itemconfig(i, {"fg": "blue"})
 
-def togglelucky():
+
+def togglelucky() -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -526,7 +598,8 @@ def togglelucky():
     replaceitem(i, pal)
     refresh(i)
 
-def togglealpha():
+
+def togglealpha() -> None:
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -539,13 +612,16 @@ def togglealpha():
     replaceitem(i, pal)
     refresh(i)
 
+
 root = Tk()
-purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
+purplepanda = ImageTk.PhotoImage(
+    Image.open(f"resources/MossandaIcon.png").resize((240, 240))
+)
 root.iconphoto(True, purplepanda)
 root.title(f"PalEdit v{version}")
-root.geometry("") # auto window size
-root.minsize("800", "500") # minwidth for better view
-#root.resizable(width=False, height=False)
+root.geometry("")  # auto window size
+root.minsize("800", "500")  # minwidth for better view
+# root.resizable(width=False, height=False)
 
 global current
 current = StringVar()
@@ -575,14 +651,16 @@ tools.add_cascade(label="Converter", menu=convmenu, underline=0)
 scrollview = Frame(root)
 scrollview.pack(side=LEFT, fill=Y)
 
-def changeplayer(evt):
+
+def changeplayer(evt) -> None:
     print(current.get())
     updateDisplay()
+
 
 playerframe = Frame(scrollview)
 playerframe.pack(fill=X)
 playerlbl = Label(playerframe, text="Player:")
-playerlbl.config(justify='center')
+playerlbl.config(justify="center")
 playerlbl.pack(side=LEFT, fill=X, expand=True)
 playerdrop = ttk.Combobox(playerframe, textvariable=current)
 playerdrop.pack(side=RIGHT, fill=X)
@@ -590,7 +668,9 @@ playerdrop.bind("<<ComboboxSelected>>", changeplayer)
 
 scrollbar = Scrollbar(scrollview)
 scrollbar.pack(side=LEFT, fill=Y)
-listdisplay = Listbox(scrollview, width=30, yscrollcommand=scrollbar.set, exportselection=0)
+listdisplay = Listbox(
+    scrollview, width=30, yscrollcommand=scrollbar.set, exportselection=0
+)
 listdisplay.pack(side=LEFT, fill=BOTH)
 listdisplay.bind("<<ListboxSelect>>", onselect)
 scrollbar.config(command=listdisplay.yview)
@@ -611,18 +691,44 @@ ftsize = 18
 
 typeframe = Frame(resourceview)
 typeframe.pack(expand=True, fill=X)
-ptype = Label(typeframe, text="Electric", font=("Arial", ftsize), bg=Elements.ELECTRICITY.value.GetColour(), width=6)
+ptype = Label(
+    typeframe,
+    text="Electric",
+    font=("Arial", ftsize),
+    bg=Elements.ELECTRICITY.value.GetColour(),
+    width=6,
+)
 ptype.pack(side=LEFT, expand=True, fill=X)
-stype = Label(typeframe, text="Dark", font=("Arial", ftsize), bg=Elements.DARK.value.GetColour(), width=6)
+stype = Label(
+    typeframe,
+    text="Dark",
+    font=("Arial", ftsize),
+    bg=Elements.DARK.value.GetColour(),
+    width=6,
+)
 stype.pack(side=RIGHT, expand=True, fill=X)
 
 formframe = Frame(resourceview)
 formframe.pack(expand=True, fill=X)
 luckyvar = IntVar()
 alphavar = IntVar()
-luckybox = Checkbutton(formframe, text='Lucky', variable=luckyvar, onvalue='1', offvalue='0', command=togglelucky)
+luckybox = Checkbutton(
+    formframe,
+    text="Lucky",
+    variable=luckyvar,
+    onvalue="1",
+    offvalue="0",
+    command=togglelucky,
+)
 luckybox.pack(side=LEFT, expand=True)
-alphabox = Checkbutton(formframe, text='Alpha', variable=alphavar, onvalue='1', offvalue='0', command=togglealpha)
+alphabox = Checkbutton(
+    formframe,
+    text="Alpha",
+    variable=alphavar,
+    onvalue="1",
+    offvalue="0",
+    command=togglealpha,
+)
 alphabox.pack(side=RIGHT, expand=True)
 
 deckview = Frame(dataview, width=320, relief="sunken", borderwidth=2, pady=0)
@@ -634,18 +740,34 @@ title.pack(expand=True, fill=BOTH)
 headerframe = Frame(deckview, padx=0, pady=0, bg="darkgrey")
 headerframe.pack(fill=X)
 headerframe.grid_rowconfigure(0, weight=1)
-headerframe.grid_columnconfigure((0,2), uniform="equal")
+headerframe.grid_columnconfigure((0, 2), uniform="equal")
 headerframe.grid_columnconfigure(1, weight=1)
 
-level = Label(headerframe, text=f"v{version}", bg="darkgrey", font=("Arial", 24), width=17)
+level = Label(
+    headerframe, text=f"v{version}", bg="darkgrey", font=("Arial", 24), width=17
+)
 level.bind("<Enter>", lambda evt, num="owner": changetext(num))
 level.bind("<Leave>", lambda evt, num=-1: changetext(num))
 level.grid(row=0, column=1, sticky="nsew")
 
-minlvlbtn = Button(headerframe, text="➖", borderwidth=1, font=("Arial", ftsize-2), command=takelevel, bg="darkgrey")
+minlvlbtn = Button(
+    headerframe,
+    text="➖",
+    borderwidth=1,
+    font=("Arial", ftsize - 2),
+    command=takelevel,
+    bg="darkgrey",
+)
 minlvlbtn.grid(row=0, column=0, sticky="nsew")
 
-addlvlbtn = Button(headerframe, text="➕", borderwidth=1, font=("Arial", ftsize-2), command=givelevel, bg="darkgrey")
+addlvlbtn = Button(
+    headerframe,
+    text="➕",
+    borderwidth=1,
+    font=("Arial", ftsize - 2),
+    command=givelevel,
+    bg="darkgrey",
+)
 addlvlbtn.grid(row=0, column=2, sticky="nsew")
 
 
@@ -654,13 +776,21 @@ labelview.pack(side=LEFT, expand=True, fill=BOTH)
 
 name = Label(labelview, text="Species", font=("Arial", ftsize), bg="lightgrey")
 name.pack(expand=True, fill=X)
-gender = Label(labelview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6)
+gender = Label(
+    labelview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6
+)
 gender.pack(expand=True, fill=X)
-attack = Label(labelview, text="Attack", font=("Arial", ftsize), bg="lightgrey", width=6)
+attack = Label(
+    labelview, text="Attack", font=("Arial", ftsize), bg="lightgrey", width=6
+)
 attack.pack(expand=True, fill=X)
-defence = Label(labelview, text="Defence", font=("Arial", ftsize), bg="lightgrey", width=6)
+defence = Label(
+    labelview, text="Defence", font=("Arial", ftsize), bg="lightgrey", width=6
+)
 defence.pack(expand=True, fill=X)
-workspeed = Label(labelview, text="Workspeed", font=("Arial", ftsize), bg="lightgrey", width=10)
+workspeed = Label(
+    labelview, text="Workspeed", font=("Arial", ftsize), bg="lightgrey", width=10
+)
 workspeed.pack(expand=True, fill=X)
 rankspeed = Label(labelview, text="Rank", font=("Arial", ftsize), bg="lightgrey")
 rankspeed.pack(expand=True, fill=X)
@@ -673,17 +803,28 @@ species.sort()
 speciesvar = StringVar()
 speciesvar.set("PalEdit")
 palname = OptionMenu(editview, speciesvar, *species, command=changespeciestype)
-palname.config(font=("Arial", ftsize), padx=0, pady=0, borderwidth=1, width=5, direction='right')
+palname.config(
+    font=("Arial", ftsize), padx=0, pady=0, borderwidth=1, width=5, direction="right"
+)
 palname.pack(expand=True, fill=X)
 
 genderframe = Frame(editview, pady=0)
 genderframe.pack()
-palgender = Label(genderframe, text="Unknown", font=("Arial", ftsize), fg=PalGender.UNKNOWN.value, width=10)
+palgender = Label(
+    genderframe,
+    text="Unknown",
+    font=("Arial", ftsize),
+    fg=PalGender.UNKNOWN.value,
+    width=10,
+)
 palgender.pack(side=LEFT, expand=True, fill=X)
-swapbtn = Button(genderframe, text="↺", borderwidth=1, font=("Arial", ftsize-2), command=swapgender)
+swapbtn = Button(
+    genderframe, text="↺", borderwidth=1, font=("Arial", ftsize - 2), command=swapgender
+)
 swapbtn.pack(side=RIGHT)
 
-def clamp(var):
+
+def clamp(var) -> None:
     try:
         int(var.get())
     except TclError as e:
@@ -697,20 +838,23 @@ def clamp(var):
         var.set(0)
         return
 
-def ivvalidate(p):
+
+def ivvalidate(p) -> bool:
     if len(p) > 3:
         return False
-    
+
     if p.isdigit() or p == "":
         return True
 
     return False
 
-def fillifempty(var):
+
+def fillifempty(var) -> None:
     try:
         int(var.get())
     except TclError as e:
         var.set(0)
+
 
 valreg = root.register(ivvalidate)
 
@@ -727,11 +871,11 @@ meleeicon.pack(side=LEFT)
 shoticon = Label(attackframe, text="🏹", font=("Arial", ftsize))
 shoticon.pack(side=RIGHT)
 palmelee = Entry(attackframe, textvariable=meleevar, font=("Arial", ftsize), width=6)
-palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palmelee.config(justify="center", validate="all", validatecommand=(valreg, "%P"))
 palmelee.bind("<FocusOut>", lambda evt, sv=meleevar: fillifempty(sv))
 palmelee.pack(side=LEFT)
 palshot = Entry(attackframe, textvariable=shotvar, font=("Arial", ftsize), width=6)
-palshot.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palshot.config(justify="center", validate="all", validatecommand=(valreg, "%P"))
 palshot.bind("<FocusOut>", lambda evt, sv=shotvar: fillifempty(sv))
 palshot.pack(side=RIGHT)
 
@@ -740,7 +884,7 @@ defvar = IntVar()
 defvar.trace("w", lambda name, index, mode, sv=defvar: clamp(sv))
 defvar.set(100)
 paldef = Entry(editview, textvariable=defvar, font=("Arial", ftsize), width=6)
-paldef.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+paldef.config(justify="center", validate="all", validatecommand=(valreg, "%P"))
 paldef.bind("<FocusOut>", lambda evt, sv=defvar: fillifempty(sv))
 paldef.pack(expand=True, fill=X)
 
@@ -749,14 +893,16 @@ wspvar = IntVar()
 wspvar.trace("w", lambda name, index, mode, sv=wspvar: clamp(sv))
 wspvar.set(70)
 palwsp = Entry(editview, textvariable=wspvar, font=("Arial", ftsize), width=6)
-palwsp.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palwsp.config(justify="center", validate="all", validatecommand=(valreg, "%P"))
 palwsp.bind("<FocusOut>", lambda evt, sv=wspvar: fillifempty(sv))
 palwsp.pack(expand=True, fill=X)
 
-ranks = ('0', '1', '2', '3', '4')
+ranks = ("0", "1", "2", "3", "4")
 ranksvar = IntVar()
 palrank = OptionMenu(editview, ranksvar, *ranks, command=changerankchoice)
-palrank.config(font=("Arial", ftsize),  justify='center', padx=0, pady=0, borderwidth=1, width=5)
+palrank.config(
+    font=("Arial", ftsize), justify="center", padx=0, pady=0, borderwidth=1, width=5
+)
 ranksvar.set(ranks[4])
 palrank.pack(expand=True, fill=X)
 
@@ -787,8 +933,8 @@ skilldrops = [
     OptionMenu(topview, skills[0], *op),
     OptionMenu(topview, skills[1], *op),
     OptionMenu(botview, skills[2], *op),
-    OptionMenu(botview, skills[3], *op)
-    ]
+    OptionMenu(botview, skills[3], *op),
+]
 
 skilldrops[0].pack(side=LEFT, expand=True, fill=BOTH)
 skilldrops[0].config(font=("Arial", ftsize), width=6, direction="right")
@@ -814,7 +960,15 @@ framePresets.pack(fill=BOTH, expand=True)
 
 framePresetsTitle = Frame(framePresets)
 framePresetsTitle.pack(fill=BOTH)
-presetTitle = Label(framePresetsTitle, text='Presets:', anchor='w', bg="darkgrey", font=("Arial", ftsize), width=6, height=1).pack(fill=BOTH)
+presetTitle = Label(
+    framePresetsTitle,
+    text="Presets:",
+    anchor="w",
+    bg="darkgrey",
+    font=("Arial", ftsize),
+    width=6,
+    height=1,
+).pack(fill=BOTH)
 
 framePresetsButtons = Frame(framePresets, relief="groove", borderwidth=4)
 framePresetsButtons.pack(fill=BOTH, expand=True)
@@ -836,7 +990,9 @@ framePresetsButtons2.pack(fill=BOTH, expand=True)
 makeworkerBtn = Button(framePresetsButtons2, text="DMG: Max", command=makedmgmax)
 makeworkerBtn.config(font=("Arial", 12))
 makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons2, text="DMG: Balanced", command=makedmgbalanced)
+makeworkerBtn = Button(
+    framePresetsButtons2, text="DMG: Balanced", command=makedmgbalanced
+)
 makeworkerBtn.config(font=("Arial", 12))
 makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
 makeworkerBtn = Button(framePresetsButtons2, text="DMG: Dragon", command=makedmgdragon)
@@ -849,38 +1005,96 @@ framePresetsExtras.pack(fill=BOTH, expand=True)
 
 framePresetsLevel = Frame(framePresetsExtras)
 framePresetsLevel.pack(fill=BOTH, expand=True)
-presetTitleLevel = Label(framePresetsLevel, text='Set Level:', anchor='center', bg="lightgrey", font=("Arial", 13), width=20, height=1).pack(side=LEFT, expand=False, fill=Y)
+presetTitleLevel = Label(
+    framePresetsLevel,
+    text="Set Level:",
+    anchor="center",
+    bg="lightgrey",
+    font=("Arial", 13),
+    width=20,
+    height=1,
+).pack(side=LEFT, expand=False, fill=Y)
 checkboxLevelVar = IntVar()
-checkboxLevel = Checkbutton(framePresetsLevel, text='Preset changes level', variable=checkboxLevelVar, onvalue='1', offvalue='0').pack(side=LEFT,expand=False, fill=BOTH)
+checkboxLevel = Checkbutton(
+    framePresetsLevel,
+    text="Preset changes level",
+    variable=checkboxLevelVar,
+    onvalue="1",
+    offvalue="0",
+).pack(side=LEFT, expand=False, fill=BOTH)
 textboxLevelVar = IntVar(value=1)
-textboxLevel = Entry(framePresetsLevel, textvariable=textboxLevelVar, justify='center', width=10)
+textboxLevel = Entry(
+    framePresetsLevel, textvariable=textboxLevelVar, justify="center", width=10
+)
 textboxLevel.config(font=("Arial", 10), width=10)
-textboxLevel.pack(side=LEFT,expand=True, fill=Y)
+textboxLevel.pack(side=LEFT, expand=True, fill=Y)
 
 framePresetsRank = Frame(framePresetsExtras)
 framePresetsRank.pack(fill=BOTH, expand=True)
-presetTitleRank = Label(framePresetsRank, text='Set Rank:', anchor='center', bg="lightgrey", font=("Arial", 13), width=20, height=1).pack(side=LEFT, expand=False, fill=Y)
+presetTitleRank = Label(
+    framePresetsRank,
+    text="Set Rank:",
+    anchor="center",
+    bg="lightgrey",
+    font=("Arial", 13),
+    width=20,
+    height=1,
+).pack(side=LEFT, expand=False, fill=Y)
 checkboxRankVar = IntVar()
-checkboxRank = Checkbutton(framePresetsRank, text='Preset changes rank', variable=checkboxRankVar, onvalue='1', offvalue='0').pack(side=LEFT,expand=False, fill=BOTH)
+checkboxRank = Checkbutton(
+    framePresetsRank,
+    text="Preset changes rank",
+    variable=checkboxRankVar,
+    onvalue="1",
+    offvalue="0",
+).pack(side=LEFT, expand=False, fill=BOTH)
 optionMenuRankVar = IntVar(value=1)
-ranks = ('0', '1', '2', '3', '4')
+ranks = ("0", "1", "2", "3", "4")
 optionMenuRank = OptionMenu(framePresetsRank, optionMenuRankVar, *ranks)
 optionMenuRankVar.set(ranks[0])
-optionMenuRank.config(font=("Arial", 10), width=5, justify='center')
+optionMenuRank.config(font=("Arial", 10), width=5, justify="center")
 optionMenuRank.pack(side=LEFT, expand=True, fill=Y)
 
 framePresetsAttributes = Frame(framePresetsExtras)
 framePresetsAttributes.pack(fill=BOTH, expand=False)
-presetTitleAttributes = Label(framePresetsAttributes, text='Set Attributes:', anchor='center', bg="lightgrey", font=("Arial", 13), width=20, height=1).pack(side=LEFT, expand=False, fill=Y)
+presetTitleAttributes = Label(
+    framePresetsAttributes,
+    text="Set Attributes:",
+    anchor="center",
+    bg="lightgrey",
+    font=("Arial", 13),
+    width=20,
+    height=1,
+).pack(side=LEFT, expand=False, fill=Y)
 checkboxAttributesVar = IntVar()
-checkboxAttributes = Checkbutton(framePresetsAttributes, text='Preset changes attributes', variable=checkboxAttributesVar, onvalue='1', offvalue='0').pack(side=LEFT,expand=False, fill=BOTH)
-presetTitleAttributesTodo = Label(framePresetsAttributes, text='Not Yet', font=("Arial", 10), width=10, justify='center').pack(side=LEFT, expand=True, fill=Y)
+checkboxAttributes = Checkbutton(
+    framePresetsAttributes,
+    text="Preset changes attributes",
+    variable=checkboxAttributesVar,
+    onvalue="1",
+    offvalue="0",
+).pack(side=LEFT, expand=False, fill=BOTH)
+presetTitleAttributesTodo = Label(
+    framePresetsAttributes,
+    text="Not Yet",
+    font=("Arial", 10),
+    width=10,
+    justify="center",
+).pack(side=LEFT, expand=True, fill=Y)
 
 # DEBUG
 frameDebug = Frame(infoview, relief="flat")
 frameDebug.pack()
 frameDebug.pack_forget()
-presetTitle = Label(frameDebug, text='Debug:', anchor='w', bg="darkgrey", font=("Arial", ftsize), width=6, height=1).pack(fill=BOTH)
+presetTitle = Label(
+    frameDebug,
+    text="Debug:",
+    anchor="w",
+    bg="darkgrey",
+    font=("Arial", ftsize),
+    width=6,
+    height=1,
+).pack(fill=BOTH)
 button = Button(frameDebug, text="Get Info", command=getSelectedPalInfo)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
@@ -893,7 +1107,6 @@ frameFooter = Frame(infoview, relief="flat")
 frameFooter.pack(fill=BOTH, expand=False)
 skilllabel = Label(frameFooter, text="Hover a skill to see it's description")
 skilllabel.pack()
-
 
 
 root.mainloop()

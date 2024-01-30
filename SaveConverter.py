@@ -12,7 +12,7 @@ from lib.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TYPE_HINTS
 ### https://github.com/cheahjs/palworld-save-tools
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(
         prog="palworld-save-tools",
         description="Converts Palworld save files to and from JSON",
@@ -66,7 +66,7 @@ def main():
         convert_json_to_sav(args.filename, output_path)
 
 
-def convert_sav_to_json(filename, output_path, minify):
+def convert_sav_to_json(filename: str, output_path: str, minify) -> None:
     print(f"Converting {filename} to JSON, saving to {output_path}")
     if os.path.exists(output_path):
         print(f"{output_path} already exists, this will overwrite the file")
@@ -82,7 +82,7 @@ def convert_sav_to_json(filename, output_path, minify):
         json.dump(gvas_file.dump(), f, indent=indent, cls=CustomEncoder)
 
 
-def convert_json_to_sav(filename, output_path):
+def convert_json_to_sav(filename: str, output_path: str):
     print(f"Converting {filename} to SAV, saving to {output_path}")
     if os.path.exists(output_path):
         print(f"{output_path} already exists, this will overwrite the file")
