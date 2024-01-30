@@ -30,7 +30,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.4.8.2"
+version = "0.4.8.3"
 
 def toggleDebug():
     global debug
@@ -40,6 +40,7 @@ def toggleDebug():
     else:
         debug = "false"
         frameDebug.pack_forget()
+    updateWindowSize()
 
 def isPalSelected():
     global palbox
@@ -600,9 +601,6 @@ root = Tk()
 purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
 root.iconphoto(True, purplepanda)
 root.title(f"PalEdit v{version}")
-root.geometry("") # auto window size
-root.minsize("800", "500") # minwidth for better view
-#root.resizable(width=False, height=False)
 
 global current
 current = StringVar()
@@ -964,4 +962,23 @@ skilllabel.pack()
 
 
 
+# center & window size
+def updateWindowSize(doCenter=""):
+    root.update()
+    window_height = root.winfo_reqheight()
+    window_width = root.winfo_reqwidth()
+    root.minsize(window_width, window_height) # minwidth for better view
+    if doCenter:
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x_cordinate = int((screen_width/2) - (window_width/2))
+        y_cordinate = int((screen_height/2) - (window_height/2))
+        root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
+    else:
+        root.geometry("{}x{}".format(window_width, window_height))
+
+
+# root.resizable(width=False, height=True)
+root.geometry("") # auto window size
+updateWindowSize("true")
 root.mainloop()
