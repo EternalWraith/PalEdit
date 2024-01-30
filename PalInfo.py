@@ -4,6 +4,61 @@ from enum import Enum
 from PIL import ImageTk, Image
 from EmptyObjectHandler import *
 
+xpthresholds = [
+    0,
+    25,
+    56,
+    93,
+    138,
+    207,
+    306,
+    440,
+    616,
+    843,
+    1131,
+    1492,
+    1941,
+    2495,
+    3175,
+    4007,
+    5021,
+    6253,
+    7747,
+    9555,
+    11740,
+    14378,
+    17559,
+    21392,
+    26007,
+    31561,
+    38241,
+    46272,
+    55925,
+    67524,
+    81458,
+    98195,
+    118294,
+    142429,
+    171406,
+    206194,
+    247955,
+    298134,
+    358305,
+    430525,
+    517205,
+    621236,
+    746089,
+    895928,
+    1075751,
+    1291554,
+    1550533,
+    1861323,
+    2234286,
+    2681857
+]
+if len(xpthresholds) < 50:
+    print("Something is wrong with the thresholds")
+
 
 SkillDesc = {
         "Unknown": " does not exist or is not in our database yet",
@@ -414,10 +469,17 @@ class PalEntity:
         self._data = data
         self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
 
+        self.owner = ""
+        if "OwnerPlayerUId" in self._obj:
+            self.owner = self._obj["OwnerPlayerUId"]['value']
+
         if "IsPlayer" in self._obj:
             raise Exception("This is a player character")
 
-        self.isLucky = ("IsRarePal" in self._obj)
+        if not "IsRarePal" in self._obj:
+            self._obj["IsRarePal"] = EmptyRarePalObject.copy()
+        self.isLucky = self._obj["IsRarePal"]['value']
+
         
         typename = self._obj['CharacterID']['value']
         # print(f"Debug: typename1 - {typename}")
@@ -476,8 +538,6 @@ class PalEntity:
         self._skills = self._obj['PassiveSkillList']['value']['values']
         self.CleanseSkills()
 
-        self._owner = self._obj['OwnerPlayerUId']['value']
-
         if not "Level" in self._obj:
             self._obj['Level'] = EmptyLevelObject.copy()
         self._level = self._obj['Level']['value']
@@ -513,7 +573,7 @@ class PalEntity:
         return self._type
 
     def SetType(self, value):
-        self._obj['CharacterID']['value'] = PalType.find(value).name
+        self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) else "") + PalType.find(value).name
         self._type = PalType.find(value)
 
     def GetObject(self):
@@ -576,7 +636,7 @@ class PalEntity:
             self._skills[slot] = PalSkills(skill).name
 
     def GetOwner(self):
-        return self._owner
+        return self.owner
 
     def GetLevel(self):
         return self._level
@@ -585,7 +645,7 @@ class PalEntity:
         # We need this check until we fix adding missing nodes
         if "Level" in self._obj and "Exp" in self._obj:
             self._obj['Level']['value'] = self._level = value
-            self._obj['Exp']['value'] = 0
+            self._obj['Exp']['value'] = xpthresholds[value-1]
         else:
             print(f"[ERROR:] Failed to update level for: '{self.GetName()}'")
 
@@ -607,6 +667,22 @@ class PalEntity:
 
     def GetFullName(self):
         return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ♖" if self.isTower else "" ) + (" ✨" if self.isLucky else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
+    
+    def SetLucky(self, v=True):
+        self._obj["IsRarePal"]['value'] = self.isLucky = v
+        self.SetType(self._type.value.GetName())
+        if v:
+            if self.isBoss:
+                self.isBoss = False
+                
+    def SetBoss(self, v=True):
+        self.isBoss = v
+        self.SetType(self._type.value.GetName())
+        if v:
+            if self.isLucky:
+                self.SetLucky(False)
+
+        
 
 if __name__ == "__main__":
     import os
