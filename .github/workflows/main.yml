@@ -1,0 +1,76 @@
+name: Build and Release Executable
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_release:
+    if: "startsWith(github.event.head_commit.message, 'Release') || startsWith(github.event.head_commit.message, 'release')"
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Extract version from PalEdit.py
+      id: extract_version
+      run: |
+        $version = Select-String -Path PalEdit.py -Pattern 'version\s*=\s*"([^"]+)"' | ForEach-Object { $_.Matches.Groups[1].Value }
+        Write-Host "Version found: $version"
+        echo "VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.12.1
+
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller pillow
+
+    - name: Build executable
+      run: |
+        pyinstaller --noconfirm --onefile --windowed --icon "resources/MossandaIcon.ico" --hidden-import=PIL "PalEdit.py"
+
+    - name: Create zip file
+      run: |
+        mkdir -p zip_contents
+        cp dist/PalEdit.exe zip_contents/
+        cp -r resources zip_contents/
+        Compress-Archive -Path zip_contents\* -DestinationPath PalEdit.zip
+
+    - name: List Contents of dist directory
+      run: dir dist
+
+    - name: List Contents of root directory
+      run: dir
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: PalEdit
+        path: PalEdit.zip
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: "v${{ env.VERSION }}"
+        release_name: "v${{ env.VERSION }}"
+        draft: false
+        prerelease: false
+
+    - name: Upload Executable
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: PalEdit.zip
+        asset_name: PalEdit.zip
+        asset_content_type: application/zip
