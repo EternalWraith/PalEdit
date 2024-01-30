@@ -30,7 +30,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.4.8.4"
+version = "0.5-pre"
 
 def toggleDebug():
     global debug
@@ -253,7 +253,8 @@ def onselect(evt):
     stype.config(text=pal.GetSecondary().GetName(), bg=pal.GetSecondary().GetColour())
 
     # ⚔🏹
-    talent_hp_var.set(pal.GetTalentHP())
+    #talent_hp_var.set(pal.GetTalentHP())
+    phpvar.set(pal.GetTalentHP())
     meleevar.set(pal.GetAttackMelee())
     shotvar.set(pal.GetAttackRanged())
     defvar.set(pal.GetDefence())
@@ -480,7 +481,8 @@ def updatestats(e):
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][e]
 
-    pal.SetTalentHP(talent_hp_var.get())
+    #pal.SetTalentHP(talent_hp_var.get())
+    pal.SetTalentHP(phpvar.get())
     pal.SetAttackMelee(meleevar.get())
     pal.SetAttackRanged(shotvar.get())
     pal.SetDefence(defvar.get())
@@ -712,7 +714,7 @@ labelview.pack(side=LEFT, expand=True, fill=BOTH)
 
 name = Label(labelview, text="Species", font=("Arial", ftsize), bg="lightgrey")
 name.pack(expand=True, fill=X)
-gender = Label(labelview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6)
+gender = Label(labelview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6, pady=6)
 gender.pack(expand=True, fill=X)
 attack = Label(labelview, text="Attack", font=("Arial", ftsize), bg="lightgrey", width=6)
 attack.pack(expand=True, fill=X)
@@ -821,12 +823,22 @@ def talent_hp_changed(*args):
         talent_hp_var.set(1)
     # change value of pal
 
+phpvar = IntVar()
+phpvar.trace("w", lambda name, index, mode, sv=phpvar: clamp(sv))
+phpvar.set(50)
+palhps = Entry(editview, textvariable=phpvar, font=("Arial", ftsize), width=6)
+palhps.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palhps.bind("<FocusOut>", lambda evt, sv=phpvar: fillifempty(sv))
+palhps.pack(expand=True, fill=X)
+
+"""
 talent_hp_var = IntVar(value=50)
 talent_hp_var.trace_add("write", lambda name, index, mode, sv=talent_hp_var: talent_hp_changed(clamp(sv)))
 # hpslider = Scale(editview, from_=0, to=100, tickinterval=50, orient='horizontal', variable=talent_hp_var)
 hpslider = Scale(editview, from_=0, to=100, orient='horizontal', variable=talent_hp_var)
 hpslider.config(width=9)
 hpslider.pack(pady=(0,10), expand=True, fill=X, anchor="center")
+"""
 
 ranks = ('0', '1', '2', '3', '4')
 ranksvar = IntVar()
