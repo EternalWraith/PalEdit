@@ -618,8 +618,8 @@ filemenu.add_command(label="Save Changes", command=savefile)
 tools.add_cascade(label="File", menu=filemenu, underline=0)
 
 toolmenu = Menu(tools, tearoff=0)
-toolmenu.add_command(label="Generate GUID", command=generateguid)
 toolmenu.add_command(label="Debug", command=toggleDebug)
+# toolmenu.add_command(label="Generate GUID", command=generateguid)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
@@ -949,10 +949,10 @@ presetTitle = Label(frameDebug, text='Debug:', anchor='w', bg="darkgrey", font=(
 button = Button(frameDebug, text="Get Info", command=getSelectedPalInfo)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
-button = Button(frameDebug, text="Get Data to clipboard", command=getSelectedPalData)
+button = Button(frameDebug, text="Copy Pal Data", command=getSelectedPalData)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
-button = Button(frameDebug, text="Generate GUID to clipboard", command=createGUIDtoClipboard)
+button = Button(frameDebug, text="Generate & Copy GUID", command=createGUIDtoClipboard)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
 
