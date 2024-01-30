@@ -513,6 +513,11 @@ class PalEntity:
 
         self._workspeed = self._obj['CraftSpeed']['value']
 
+        if not "Talent_HP" in self._obj:
+            self._obj['Talent_HP'] = EmptyMeleeObject.copy()
+            self._talent_hp = 0 # we set 0, so if its not changed it should be removed by the game again.
+        self._talent_hp = self._obj['Talent_HP']['value']
+
         if not "Talent_Melee" in self._obj:
             self._obj['Talent_Melee'] = EmptyMeleeObject.copy()
         self._melee = self._obj['Talent_Melee']['value']
@@ -591,6 +596,12 @@ class PalEntity:
     def SetAttack(self, mval, rval):
         self._obj['Talent_Melee']['value'] = self._melee = mval
         self._obj['Talent_Shot']['value'] = self._ranged = rval
+
+    def GetTalentHP(self):
+        return self._talent_hp
+
+    def SetTalentHP(self, value):
+        self._obj['Talent_HP']['value'] = self._talent_hp = value
 
     def GetAttackMelee(self):
         return self._melee

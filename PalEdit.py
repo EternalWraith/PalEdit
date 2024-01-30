@@ -30,7 +30,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.4.8.3"
+version = "0.4.8.4"
 
 def toggleDebug():
     global debug
@@ -64,6 +64,7 @@ def getSelectedPalInfo():
     print(f"  - Skill 2:  {skills[1].get()}")
     print(f"  - Skill 3:  {skills[2].get()}")
     print(f"  - Skill 4:  {skills[3].get()}")
+    print(f"  - HP IV:  {pal.GetTalentHP()}")
     print(f"  - Melee IV:  {pal.GetAttackMelee()}")
     print(f"  - Range IV:  {pal.GetAttackRanged()}")
 
@@ -252,6 +253,7 @@ def onselect(evt):
     stype.config(text=pal.GetSecondary().GetName(), bg=pal.GetSecondary().GetColour())
 
     # ⚔🏹
+    talent_hp_var.set(pal.GetTalentHP())
     meleevar.set(pal.GetAttackMelee())
     shotvar.set(pal.GetAttackRanged())
     defvar.set(pal.GetDefence())
@@ -478,6 +480,7 @@ def updatestats(e):
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][e]
 
+    pal.SetTalentHP(talent_hp_var.get())
     pal.SetAttackMelee(meleevar.get())
     pal.SetAttackRanged(shotvar.get())
     pal.SetDefence(defvar.get())
@@ -717,6 +720,8 @@ defence = Label(labelview, text="Defence", font=("Arial", ftsize), bg="lightgrey
 defence.pack(expand=True, fill=X)
 workspeed = Label(labelview, text="Workspeed", font=("Arial", ftsize), bg="lightgrey", width=10)
 workspeed.pack(expand=True, fill=X)
+hp = Label(labelview, text="HP", font=("Arial", ftsize), bg="lightgrey", width=10)
+hp.pack(expand=True, fill=X)
 rankspeed = Label(labelview, text="Rank", font=("Arial", ftsize), bg="lightgrey")
 rankspeed.pack(expand=True, fill=X)
 
@@ -799,7 +804,6 @@ paldef.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
 paldef.bind("<FocusOut>", lambda evt, sv=defvar: fillifempty(sv))
 paldef.pack(expand=True, fill=X)
 
-
 wspvar = IntVar()
 wspvar.trace("w", lambda name, index, mode, sv=wspvar: clamp(sv))
 wspvar.set(70)
@@ -807,6 +811,22 @@ palwsp = Entry(editview, textvariable=wspvar, font=("Arial", ftsize), width=6)
 palwsp.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
 palwsp.bind("<FocusOut>", lambda evt, sv=wspvar: fillifempty(sv))
 palwsp.pack(expand=True, fill=X)
+
+def talent_hp_changed(*args):
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+    if talent_hp_var.get() == 0:
+        talent_hp_var.set(1)
+    # change value of pal
+
+talent_hp_var = IntVar(value=50)
+talent_hp_var.trace_add("write", lambda name, index, mode, sv=talent_hp_var: talent_hp_changed(clamp(sv)))
+# hpslider = Scale(editview, from_=0, to=100, tickinterval=50, orient='horizontal', variable=talent_hp_var)
+hpslider = Scale(editview, from_=0, to=100, orient='horizontal', variable=talent_hp_var)
+hpslider.config(width=9)
+hpslider.pack(pady=(0,10), expand=True, fill=X, anchor="center")
 
 ranks = ('0', '1', '2', '3', '4')
 ranksvar = IntVar()
