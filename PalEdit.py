@@ -1,5 +1,10 @@
 import os, webbrowser, json, time, uuid
 
+# pyperclip
+# docs: https://pypi.org/project/pyperclip/#description
+# install: pip install pyperclip
+import pyperclip
+
 import SaveConverter
 
 from PalInfo import *
@@ -9,6 +14,7 @@ from tkinter import ttk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import messagebox
 from PIL import ImageTk, Image
+
 
 global palbox
 palbox = {}
@@ -24,7 +30,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.4.8.1"
+version = "0.4.8.2"
 
 def toggleDebug():
     global debug
@@ -65,8 +71,10 @@ def getSelectedPalData():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][i]
-    print(f"Get Data: {pal.GetNickname()}")    
-    print(f"{pal._obj}")  
+    # print(f"Get Data: {pal.GetNickname()}")    
+    # print(f"{pal._obj}")  
+    pyperclip.copy(f"{pal._obj}")
+    webbrowser.open('https://jsonformatter.curiousconcept.com/#')
 
 def setpreset(preset):
     if not isPalSelected():
@@ -355,6 +363,7 @@ def load(file):
 
             if str(e) == "This is a player character":
                 print("Found Player Character")
+                # print(f"\nDebug: Data \n{i}\n\n")
                 pl = i['value']['RawData']['value']['object']['SaveParameter']['value']['NickName']['value']
                 plguid = i['key']['PlayerUId']['value']
                 print(f"{pl} - {plguid}")
@@ -452,9 +461,15 @@ def savejson(filename):
     f.close()
 
     changetext(-1)
+    
+def createGUIDtoClipboard():
+    newguid = uuid.uuid4()
+    print(newguid)
+    pyperclip.copy(f"{newguid}")
 
 def generateguid():
-    print(uuid.uuid4())
+    newguid = uuid.uuid4()
+    print(newguid)
 
 def updatestats(e):
     if not isPalSelected():
@@ -934,7 +949,10 @@ presetTitle = Label(frameDebug, text='Debug:', anchor='w', bg="darkgrey", font=(
 button = Button(frameDebug, text="Get Info", command=getSelectedPalInfo)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
-button = Button(frameDebug, text="Get Data", command=getSelectedPalData)
+button = Button(frameDebug, text="Get Data to clipboard", command=getSelectedPalData)
+button.config(font=("Arial", 12))
+button.pack(side=LEFT, expand=True, fill=BOTH)
+button = Button(frameDebug, text="Generate GUID to clipboard", command=createGUIDtoClipboard)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
 
