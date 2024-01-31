@@ -1,4 +1,4 @@
-import os, webbrowser, json, time, uuid
+import os, webbrowser, json, time, uuid, orjson
 
 import SaveConverter
 
@@ -449,9 +449,11 @@ def savepson(filename):
     f.close()
 
 def savejson(filename):
-    f = open(filename, "r", encoding="utf8")
-    svdata = json.loads(f.read())
-    f.close()
+
+    with open(filename, "r", encoding="utf8") as f:
+        start_time = time.time()
+        svdata = orjson.loads(f.read())
+        print('orjson Loading time: ', time.time() - start_time)
 
     if 'properties' in data:
         svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
@@ -459,10 +461,10 @@ def savejson(filename):
         svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data
 
     svdata = palguidmanager.Save(svdata)
-    f = open(filename, "w", encoding="utf8")
-    json.dump(svdata, f)
-    f.close()
 
+    with open(filename, "wb") as f:
+        f.write(orjson.dumps(svdata))
+        print('orjson Saving time: ', time.time() - start_time)
     changetext(-1)
 
 def generateguid():

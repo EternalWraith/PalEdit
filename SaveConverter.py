@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
-import json
+import json, orjson
 import os
 from lib.gvas import GvasFile
 from lib.noindent import CustomEncoder
@@ -77,9 +77,10 @@ def convert_sav_to_json(filename, output_path, minify):
     print(f"Loading GVAS file")
     gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
     print(f"Writing JSON to {output_path}")
-    with open(output_path, "w", encoding="utf8") as f:
-        indent = None if minify else "\t"
-        json.dump(gvas_file.dump(), f, indent=indent, cls=CustomEncoder)
+    with open(output_path, "wb", encoding="utf8") as f:
+        f.write(orjson.dumps(gvas_file.dump()))
+        #indent = None if minify else "\t"
+        #json.dump(gvas_file.dump(), f, indent=indent, cls=CustomEncoder)
 
 
 def convert_json_to_sav(filename, output_path):
@@ -88,7 +89,8 @@ def convert_json_to_sav(filename, output_path):
         print(f"{output_path} already exists, this will overwrite the file")
     print(f"Loading JSON from {filename}")
     with open(filename, "r", encoding="utf8") as f:
-        data = json.load(f)
+        #data = json.load(f)
+        data = orjson.loads(f.read())
     gvas_file = GvasFile.load(data)
     print(f"Compressing SAV file")
     if (
