@@ -251,18 +251,11 @@ def changetext(num):
         skilllabel.config(text=pal.GetOwner())
         return
 
-    UnknowDes = "Unknown_Des"
-    if(TryGetTranslations("Unknown_Des") == "Unknown_Des"):
-        UnknowDes = SkillDesc['Unknown']
-
     if TryGetSkillsvar(num) == "Unknown":
-        skilllabel.config(text=f"{pal.GetSkills()[num]}{UnknowDes}")
+        skilllabel.config(text=f"{pal.GetSkills()[num]}{TryGetTranslationsWithID('Unknown_Des',SkillDesc['Unknown'])}")
         return
-    
-    if(TryGetTranslations(TryGetSkillsvar(num) + "_Des") == TryGetSkillsvar(num) + "_Des"):
-        skilllabel.config(text=SkillDesc[TryGetSkillsvar(num)])
-    else:
-        skilllabel.config(text=TryGetTranslations(TryGetSkillsvar(num) + "_Des"))
+
+    skilllabel.config(text=TryGetTranslationsWithID(TryGetSkillsvar(num) + "_Des",SkillDesc[TryGetSkillsvar(num)]))
     
 def loadfile():
     skilllabel.config(text="Loading save, please be patient...")
