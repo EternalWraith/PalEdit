@@ -89,18 +89,35 @@ def DebugAddPal():
         with open('NewPal.json', 'r',encoding='utf-8') as f:
             pal = PalEntity(json.load(f))
         newpalguid = str(uuid.uuid4())
-        pal.SetPalInstanceGuid(newpalguid)
-        eslot = palguidmanager.GetEmptySoltIndex(pal.GetSoltGuid())
+        pal.InitializationPal(newpalguid, palguidmanager.GetAdminGuid(), palguidmanager.GetAdminGroupGuid(),palguidmanager.GetAdminSlotGuid())
+        eslot = palguidmanager.GetEmptySlotIndex(pal.GetSlotGuid())
         if(eslot != -1):
             pal.SetSoltIndex(eslot)
+            
             if 'properties' in data:
                 data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
-            else:
-                data.append(pal._data)
-            palbox[players[current.get()]].append(pal)
-            palguidmanager.AddGroupSaveData(pal.GetGroupGuid(),newpalguid)
-            palguidmanager.SetContainerSave(pal.GetSoltGuid(),eslot,newpalguid)
-            updateDisplay()
+                palguidmanager.AddGroupSaveData(pal.GetGroupGuid(),newpalguid)
+                palguidmanager.SetContainerSave(pal.GetSlotGuid(),eslot,newpalguid)
+                palbox.clear()
+                for i in data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']:
+                    try:
+                        p = PalEntity(i)
+                        if not p.owner in palbox:
+                            palbox[p.owner] = []
+                        palbox[p.owner].append(p)
+                    except Exception as e:
+                        if str(e) == "This is a player character":
+                            print("Found Player Character")
+                            pl = i['value']['RawData']['value']['object']['SaveParameter']['value']['NickName']['value']
+                            plguid = i['key']['PlayerUId']['value']
+                            print(f"{pl} - {plguid}")
+                            players[pl] = plguid
+                        else:
+                            unknown.append(i)
+                            print(f"Error occured: {str(e)}")
+                updateDisplay()
+        else:
+            print("Can't Find Empty Slot!")
     
     
 

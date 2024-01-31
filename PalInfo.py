@@ -684,11 +684,23 @@ class PalEntity:
             if self.isLucky:
                 self.SetLucky(False)
 
+    def InitializationPal(self, newpal, admin, group, slot):
+        self._data['key']['PlayerUId']['value'] = admin
+        self._obj["OwnerPlayerUId"]['value'] = admin
+        self._obj["OldOwnerPlayerUIds"]['value']['values'] = [admin]
+        self.SetPalInstanceGuid(newpal)
+        self.SetSlotGuid(slot)
+        self.SetGroupGuid(group)
+
     def GetGroupGuid(self):
         return self._data['value']['RawData']['value']['group_id']
-    def GetSoltGuid(self):
+    def SetGroupGuid(self, v : str):
+        self._data['value']['RawData']['value']['group_id'] = v
+    def GetSlotGuid(self):
         return self._obj['SlotID']['value']['ContainerId']['value']['ID']['value']
-    def GetSoltIndex(self):
+    def SetSlotGuid(self, v : str):
+        self._obj['SlotID']['value']['ContainerId']['value']['ID']['value'] = v
+    def GetSlotIndex(self):
         return self._obj['SlotID']['value']['SlotIndex']['value']
     def SetSoltIndex(self, v : int):
         self._obj['SlotID']['value']['SlotIndex']['value'] = v
@@ -746,7 +758,7 @@ class PalGuid:
         for e in self._CharacterContainerSaveData:
             if(e['key']['ID']['value'] == SoltGuid):
                 return len(e['value']['Slots']['value']['values'])
-    def GetEmptySoltIndex(self, SoltGuid : str):
+    def GetEmptySlotIndex(self, SoltGuid : str):
         if SoltGuid == "00000000-0000-0000-0000-000000000000":
             return -1
         for e in self._CharacterContainerSaveData:
@@ -756,7 +768,19 @@ class PalGuid:
                     if Solt[i]['RawData']['value']['values'][12] != 1:
                         return i
         return -1
-        
+    def GetAdminSlotGuid(self):
+        for e in self._CharacterContainerSaveData:
+            if(e['value']['Slots']['value']['values'][0]['PermissionTribeID']['value']['value'] == "EPalTribeID::RobinHood"):
+                if(len(e['value']['Slots']['value']['values']) > 5):
+                    return e['key']['ID']['value']
+    def GetAdminGuid(self):
+        for e in self._GroupSaveDataMap:
+            if "admin_player_uid" in e['value']['RawData']['value']:
+                return  e['value']['RawData']['value']['admin_player_uid']
+    def GetAdminGroupGuid(self):
+        for e in self._GroupSaveDataMap:
+            if "admin_player_uid" in e['value']['RawData']['value']:
+                return  e['key']
     def Save(self, svdata):
         if 'properties' in svdata:
             svdata['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value'] = self._CharacterContainerSaveData
