@@ -73,6 +73,31 @@ def getSelectedPalData():
     print(f"Get Data: {pal.GetNickname()}")    
     print(f"{pal._obj}")  
 
+def DebugAddPal():
+    if not isPalSelected():
+        return
+    global palguidmanager
+    global palbox
+    global data
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+    newpalguid = str(uuid.uuid4())
+    pal.SetPalInstanceGuid(newpalguid)
+
+    eslot = palguidmanager.GetEmptySoltIndex(pal.GetSoltGuid())
+    if(eslot != -1):
+        pal.SetSoltIndex(eslot)
+        if 'properties' in data:
+            data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
+        else:
+            data.append(pal._data)
+        palbox[players[current.get()]].append(pal)
+        palguidmanager.AddGroupSaveData(pal.GetGroupGuid(),newpalguid)
+        palguidmanager.SetContainerSave(pal.GetSoltGuid(),eslot,newpalguid)
+        updateDisplay()
+
+
+
 def setpreset(preset):
     if not isPalSelected():
         return
@@ -1067,7 +1092,9 @@ button.pack(side=LEFT, expand=True, fill=BOTH)
 button = Button(frameDebug, text="Get Data", command=getSelectedPalData)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
-
+button = Button(frameDebug, text="Add Pal Test", command=DebugAddPal)
+button.config(font=("Arial", 12))
+button.pack(side=LEFT, expand=True, fill=BOTH)
 # FOOTER
 frameFooter = Frame(infoview, relief="flat")
 frameFooter.pack(fill=BOTH, expand=False)

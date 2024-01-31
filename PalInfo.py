@@ -722,7 +722,7 @@ class PalGuid:
             if(e['key']['ID']['value'] == SoltGuid):
                 print(e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value']['values'])
     
-    def SetContainerSave(self, SoltGuid : str ,SlotIndex : int, PalGuid : str):
+    def SetContainerSave(self, SoltGuid : str, SlotIndex : int, PalGuid : str):
         if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
             return
         for e in self._CharacterContainerSaveData:
@@ -740,6 +740,23 @@ class PalGuid:
                 tmp = {"guid":"00000000-0000-0000-0000-000000000001","instance_id":PalGuid}
                 e['value']['RawData']['value']['individual_character_handle_ids'].append(tmp)
 
+    def GetSoltMaxCount(self, SoltGuid : str):
+        if SoltGuid == "00000000-0000-0000-0000-000000000000":
+            return 0
+        for e in self._CharacterContainerSaveData:
+            if(e['key']['ID']['value'] == SoltGuid):
+                return len(e['value']['Slots']['value']['values'])
+    def GetEmptySoltIndex(self, SoltGuid : str):
+        if SoltGuid == "00000000-0000-0000-0000-000000000000":
+            return -1
+        for e in self._CharacterContainerSaveData:
+            if(e['key']['ID']['value'] == SoltGuid):
+                Solt = e['value']['Slots']['value']['values']
+                for i in range(len(Solt)):
+                    if Solt[i]['RawData']['value']['values'][12] != 1:
+                        return i
+        return -1
+        
     def Save(self, svdata):
         if 'properties' in svdata:
             svdata['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value'] = self._CharacterContainerSaveData
