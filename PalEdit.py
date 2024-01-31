@@ -79,22 +79,30 @@ def DebugAddPal():
     global palguidmanager
     global palbox
     global data
-    i = int(listdisplay.curselection()[0])
-    pal = palbox[players[current.get()]][i]
-    newpalguid = str(uuid.uuid4())
-    pal.SetPalInstanceGuid(newpalguid)
+    #i = int(listdisplay.curselection()[0])
+    #pal = palbox[players[current.get()]][i]
 
-    eslot = palguidmanager.GetEmptySoltIndex(pal.GetSoltGuid())
-    if(eslot != -1):
-        pal.SetSoltIndex(eslot)
-        if 'properties' in data:
-            data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
-        else:
-            data.append(pal._data)
-        palbox[players[current.get()]].append(pal)
-        palguidmanager.AddGroupSaveData(pal.GetGroupGuid(),newpalguid)
-        palguidmanager.SetContainerSave(pal.GetSoltGuid(),eslot,newpalguid)
-        updateDisplay()
+    #with open('NewPal.json', 'w+', encoding='utf-8') as f:
+    #    json.dump(pal._data, f,indent=1,ensure_ascii=False)
+    #return
+    if(os.path.exists('NewPal.json')):
+        with open('NewPal.json', 'r',encoding='utf-8') as f:
+            pal = PalEntity(json.load(f))
+        newpalguid = str(uuid.uuid4())
+        pal.SetPalInstanceGuid(newpalguid)
+        eslot = palguidmanager.GetEmptySoltIndex(pal.GetSoltGuid())
+        if(eslot != -1):
+            pal.SetSoltIndex(eslot)
+            if 'properties' in data:
+                data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
+            else:
+                data.append(pal._data)
+            palbox[players[current.get()]].append(pal)
+            palguidmanager.AddGroupSaveData(pal.GetGroupGuid(),newpalguid)
+            palguidmanager.SetContainerSave(pal.GetSoltGuid(),eslot,newpalguid)
+            updateDisplay()
+    
+    
 
 
 
