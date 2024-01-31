@@ -1,0 +1,676 @@
+{
+    "values": [
+        {
+            "CodeName": "EPalWazaID::AcidRain",
+            "Name": "Acid Rain",
+            "Type": "Water",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::AirCanon",
+            "Name": "Air Cannon",
+            "Type": "Neutral",
+            "Power": 25
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Deer_PushupHorn",
+            "Name": "Antler Uppercut",
+            "Type": "Neutral",
+            "Power": 50
+        },
+        {
+            "CodeName": "EPalWazaID::WaterBall",
+            "Name": "Aqua Burst",
+            "Type": "Water",
+            "Power": 100
+        },
+        {
+            "CodeName": "EPalWazaID::WaterGun",
+            "Name": "Aqua Gun",
+            "Type": "Water",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_JetDragon_JumpBeam",
+            "Name": "Beam Comet",
+            "Type": "Dragon",
+            "Power": 140
+        },
+        {
+            "CodeName": "EPalWazaID::SelfDestruct_Bee",
+            "Name": "Bee Quiet",
+            "Type": "Neutral",
+            "Power": 200
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_GrassPanda_Electric_ElectricPunch",
+            "Name": "Blast Punch",
+            "Type": "Electric",
+            "Power": 85
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FlameBuffalo_FlameHorn",
+            "Name": "Blazing Horn",
+            "Type": "Fire",
+            "Power": 50
+        },
+        {
+            "CodeName": "EPalWazaID::IcicleThrow",
+            "Name": "Blizzard Spike",
+            "Type": "Ice",
+            "Power": 130
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FlowerDinosaur_Whip",
+            "Name": "Botanical Smash",
+            "Type": "Grass",
+            "Power": 60
+        },
+        {
+            "CodeName": "EPalWazaID::BubbleShot",
+            "Name": "Bubble Blast",
+            "Type": "Water",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_NaughtyCat_CatPress",
+            "Name": "Cat Press",
+            "Type": "Neutral",
+            "Power": 60
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_ChickenPal_ChickenPeck",
+            "Name": "Chicken Rush",
+            "Type": "Neutral",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_GrassPanda_MusclePunch",
+            "Name": "Crushing Punch",
+            "Type": "Grass",
+            "Power": 85
+        },
+        {
+            "CodeName": "EPalWazaID::FrostBreath",
+            "Name": "Cryst Breath",
+            "Type": "Ice",
+            "Power": 90
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_IceHorse_IceBladeAttack",
+            "Name": "Crystal Wing",
+            "Type": "Ice",
+            "Power": 110
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_AmaterasuWolf_FireCharge",
+            "Name": "Daring Flames",
+            "Type": "Fire",
+            "Power": 75
+        },
+        {
+            "CodeName": "EPalWazaID::DarkBall",
+            "Name": "Dark Ball",
+            "Type": "Dark",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FireKirin_Dark_DarkTossin",
+            "Name": "Dark Charge",
+            "Type": "Dark",
+            "Power": 85
+        },
+        {
+            "CodeName": "EPalWazaID::DarkLaser",
+            "Name": "Dark Laser",
+            "Type": "Dark",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_BlackGriffon_TackleLaser",
+            "Name": "Divine Disaster",
+            "Type": "Dark",
+            "Power": 160
+        },
+        {
+            "CodeName": "EPalWazaID::DragonBreath",
+            "Name": "Draconic Breath",
+            "Type": "Dragon",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::DragonWave",
+            "Name": "Dragon Burst",
+            "Type": "Dragon",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::DragonCanon",
+            "Name": "Dragon Cannon",
+            "Type": "Dragon",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::DragonMeteor",
+            "Name": "Dragon Meteor",
+            "Type": "Dragon",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Grassmammoth_Earthquake",
+            "Name": "Earth Impact",
+            "Type": "Ground",
+            "Power": 100
+        },
+        {
+            "CodeName": "EPalWazaID::ThunderBall",
+            "Name": "Electric Ball",
+            "Type": "Electric",
+            "Power": 50
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_CaptainPenguin_BodySlide",
+            "Name": "Emperor Slide",
+            "Type": "Ice",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Garm_Bite",
+            "Name": "Fierce Fang",
+            "Type": "Neutral",
+            "Power": 45
+        },
+        {
+            "CodeName": "EPalWazaID::FireBall",
+            "Name": "Fire Ball",
+            "Type": "Fire",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::FlareArrow",
+            "Name": "Flare Arrow",
+            "Type": "Fire",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::FlareTornado",
+            "Name": "Flare Storm",
+            "Type": "Fire",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Alpaca_Tackle",
+            "Name": "Fluffy Tackle",
+            "Type": "Neutral",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_RobinHood_BowSnipe",
+            "Name": "Focus Shot",
+            "Type": "Grass",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Anubis_Tackle",
+            "Name": "Forceful Charge",
+            "Type": "Ground",
+            "Power": 120
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_IceDeer_IceHorn",
+            "Name": "Freezing Charge",
+            "Type": "Ice",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack",
+            "Name": "Frost Burst",
+            "Type": "Ice",
+            "Power": 100
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Eagle_GlidingNail",
+            "Name": "Gale Claw",
+            "Type": "Neutral",
+            "Power": 60
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_HerculesBeetle_BeetleTackle",
+            "Name": "Giga Horn",
+            "Type": "Ground",
+            "Power": 75
+        },
+        {
+            "CodeName": "EPalWazaID::GrassTornado",
+            "Name": "Grass Tornado",
+            "Type": "Grass",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Gorilla_GroundPunch",
+            "Name": "Ground Pound",
+            "Type": "Neutral",
+            "Power": 85
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Anubis_GroundPunch",
+            "Name": "Ground Smash",
+            "Type": "Ground",
+            "Power": 140
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Baphomet_SwallowKite",
+            "Name": "Hellfire Claw",
+            "Type": "Fire",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::AquaJet",
+            "Name": "Hydro Jet",
+            "Type": "Water",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::HydroPump",
+            "Name": "Hydro Laser",
+            "Type": "Water",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Ronin_Iai",
+            "Name": "Iaigiri",
+            "Type": "Fire",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::IceMissile",
+            "Name": "Ice Missile",
+            "Type": "Ice",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::BlizzardLance",
+            "Name": "Iceberg",
+            "Type": "Ice",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::IceBlade",
+            "Name": "Icicle Cutter",
+            "Type": "Ice",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::FireBlast",
+            "Name": "Ignis Blast",
+            "Type": "Fire",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::Flamethrower",
+            "Name": "Ignis Breath",
+            "Type": "Fire",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::Inferno",
+            "Name": "Ignis Rage",
+            "Type": "Fire",
+            "Power": 120
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FireKirin_Tackle",
+            "Name": "Ignis Slam",
+            "Type": "Fire",
+            "Power": 85
+        },
+        {
+            "CodeName": "EPalWazaID::SelfDestruct",
+            "Name": "Implode",
+            "Type": "Neutral",
+            "Power": 180
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Werewolf_Scratch",
+            "Name": "Jumping Claw",
+            "Type": "Dark",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_ThunderDragonMan_ThunderSwordAttack",
+            "Name": "Kerauno",
+            "Type": "Electric",
+            "Power": 100
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_KingAlpaca_BodyPress",
+            "Name": "Kingly Slam",
+            "Type": "Neutral",
+            "Power": 100
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_ElecPanda_ElecScratch",
+            "Name": "Lightning Claw",
+            "Type": "Electric",
+            "Power": 90
+        },
+        {
+            "CodeName": "EPalWazaID::LineThunder",
+            "Name": "Lightning Streak",
+            "Type": "Electric",
+            "Power": 75
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_SakuraSaurus_SideTackle",
+            "Name": "Muscle Slam",
+            "Type": "Neutral",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FairyDragon_FairyTornado",
+            "Name": "Mystic Whirlwind",
+            "Type": "Dragon",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::ShadowBall",
+            "Name": "Nightmare Ball",
+            "Type": "Dark",
+            "Power": 100
+        },
+        {
+            "CodeName": "None",
+            "Name": "None",
+            "Type": "None",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::HyperBeam",
+            "Name": "Pal Blast",
+            "Type": "Neutral",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_DarkCrow_TelePoke",
+            "Name": "Phantom Peck",
+            "Type": "Dark",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Horus_FlareBird",
+            "Name": "Phoenix Flare",
+            "Type": "Fire",
+            "Power": 135
+        },
+        {
+            "CodeName": "EPalWazaID::ThunderFunnel",
+            "Name": "Plasma Tornado",
+            "Type": "Electric",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::PoisonShot",
+            "Name": "Poison Blast",
+            "Type": "Dark",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::PoisonFog",
+            "Name": "Poison Fog",
+            "Type": "Dark",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::PowerBall",
+            "Name": "Power Bomb",
+            "Type": "Neutral",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::PowerShot",
+            "Name": "Power Shot",
+            "Type": "Neutral",
+            "Power": 35
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_PinkCat_CatPunch",
+            "Name": "Punch Flurry",
+            "Type": "Neutral",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Boar_Tackle",
+            "Name": "Reckless Charge",
+            "Type": "Neutral",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::RockLance",
+            "Name": "Rock Lance",
+            "Type": "Ground",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_SheepBall_Roll",
+            "Name": "Roly Poly",
+            "Type": "Neutral",
+            "Power": 35
+        },
+        {
+            "CodeName": "EPalWazaID::MudShot",
+            "Name": "Sand Blast",
+            "Type": "Ground",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::SandTornado",
+            "Name": "Sand Tornado",
+            "Type": "Ground",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::SeedMachinegun",
+            "Name": "Seed Machine Gun",
+            "Type": "Grass",
+            "Power": 50
+        },
+        {
+            "CodeName": "EPalWazaID::SeedMine",
+            "Name": "Seed Mine",
+            "Type": "Grass",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::DarkWave",
+            "Name": "Shadow Burst",
+            "Type": "Dark",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_DrillGame_ShellAttack",
+            "Name": "Shell Spin",
+            "Type": "Ground",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::ElecWave",
+            "Name": "Shockwave",
+            "Type": "Electric",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::SolarBeam",
+            "Name": "Solar Blast",
+            "Type": "Electric",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::SpreadPulse",
+            "Name": "Spark Blast",
+            "Type": "Electric",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_SaintCentaur_OneSpearRushes",
+            "Name": "Spear Thrust",
+            "Type": "Neutral",
+            "Power": 120
+        },
+        {
+            "CodeName": "EPalWazaID::RootAttack",
+            "Name": "Spine Vine",
+            "Type": "Grass",
+            "Power": 95
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_QueenBee_SpinLance",
+            "Name": "Spinning Lance",
+            "Type": "Grass",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Anubis_LowRoundKick",
+            "Name": "Spinning Roundhouse",
+            "Type": "Ground",
+            "Power": 100
+        },
+        {
+            "CodeName": "EPalWazaID::FireSeed",
+            "Name": "Spirit Fire",
+            "Type": "Fire",
+            "Power": 45
+        },
+        {
+            "CodeName": "EPalWazaID::GhostFlame",
+            "Name": "Spirit Flame",
+            "Type": "Dark",
+            "Power": 75
+        },
+        {
+            "CodeName": "EPalWazaID::StoneShotgun",
+            "Name": "Stone Blast",
+            "Type": "Ground",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::ThrowRock",
+            "Name": "Stone Cannon",
+            "Type": "Ground",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_HawkBird_Storm",
+            "Name": "Tornado Attack",
+            "Type": "Neutral",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::ThreeThunder",
+            "Name": "Tri-Lightning",
+            "Type": "Electric",
+            "Power": 90
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes",
+            "Name": "Twin Spears",
+            "Type": "Dark",
+            "Power": 120
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_VolcanicMonster_MagmaAttack",
+            "Name": "Volcanic Burst",
+            "Type": "Fire",
+            "Power": 100
+        },
+        {
+            "CodeName": "EPalWazaID::WindCutter",
+            "Name": "Wind Cutter",
+            "Type": "Grass",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::CrossThunder",
+            "Name": "Cross Lightning",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::DarkLegion",
+            "Name": "Dark Whisp",
+            "Type": "Dark",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Human_Punch",
+            "Name": "Punch",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Intimidate",
+            "Name": "Intimidate",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::LightningStrike",
+            "Name": "Lightning Strike",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::LockonLaser",
+            "Name": "Lock-on Laser",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Psychokinesis",
+            "Name": "Psycho Gravity",
+            "Type": "Dark",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::SelfExplosion",
+            "Name": "Megaton Implode",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::SpecialCutter",
+            "Name": "Multicutter",
+            "Type": "Grass",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Thunderbolt",
+            "Name": "Lightning Bolt",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::ThunderRain",
+            "Name": "Lightning Rain",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_BluePlatypus_Toboggan",
+            "Name": "Surfing Slam",
+            "Type": "Water",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FengyunDeeper_CloudTempest",
+            "Name": "Cloud Tempest",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Kirin_LightningTackle",
+            "Name": "Lightning Tackle",
+            "Type": "Electric",
+            "Power": 0
+        }
+    ]
+}

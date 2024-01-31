@@ -1,0 +1,2119 @@
+{
+    "values": [
+        {
+            "CodeName": "Alpaca",
+            "Name": "Melpaca",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "AmaterasuWolf",
+            "Name": "Kitsun",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Anubis",
+            "Name": "Anubis",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Baphomet",
+            "Name": "Incineram",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Baphomet_Dark",
+            "Name": "Incineram Noct",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Bastet",
+            "Name": "Mau",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Bastet_Ice",
+            "Name": "Mau Cryst",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "BerryGoat",
+            "Name": "Caprity",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "BirdDragon",
+            "Name": "Vanwyrm",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "BirdDragon_Ice",
+            "Name": "Vanwyrm Cryst",
+            "Type": [
+                "Ice",
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "BlackCentaur",
+            "Name": "Necromus",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "BlackGriffon",
+            "Name": "Shadowbeak",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "BlackMetalDragon",
+            "Name": "Astegon",
+            "Type": [
+                "Dragon",
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "BlueDragon",
+            "Name": "Azurobe",
+            "Type": [
+                "Water",
+                "Dragon"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "BluePlatypus",
+            "Name": "Fuack",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Boar",
+            "Name": "Rushoar",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "CaptainPenguin",
+            "Name": "Penking",
+            "Type": [
+                "Water",
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Carbunclo",
+            "Name": "Lifmunk",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "CatBat",
+            "Name": "Tombat",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "CatMage",
+            "Name": "Katress",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "CatVampire",
+            "Name": "Felbat",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "ChickenPal",
+            "Name": "Chikipi",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "ColorfulBird",
+            "Name": "Tocotoco",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "CowPal",
+            "Name": "Mozzarina",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "CuteButterfly",
+            "Name": "Cinnamoth",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "CuteFox",
+            "Name": "Vixy",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "CuteMole",
+            "Name": "Fuddler",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "DarkCrow",
+            "Name": "Cawgnito",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "DarkScorpion",
+            "Name": "Menasting",
+            "Type": [
+                "Dark",
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Deer",
+            "Name": "Eikthyrdeer",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Deer_Ground",
+            "Name": "Eikthyrdeer Terra",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "DreamDemon",
+            "Name": "Daedream",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "DrillGame",
+            "Name": "Digtoise",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Eagle",
+            "Name": "Galeclaw",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "ElecCat",
+            "Name": "Sparkit",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "ElecPanda",
+            "Name": "Grizzbolt",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FairyDragon",
+            "Name": "Elphidran",
+            "Type": [
+                "Dragon"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FairyDragon_Water",
+            "Name": "Elphidran Aqua",
+            "Type": [
+                "Dragon",
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FengyunDeeper",
+            "Name": "Fenglope",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FireKirin",
+            "Name": "Pyrin",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FireKirin_Dark",
+            "Name": "Pyrin Noct",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FlameBambi",
+            "Name": "Rooby",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FlameBuffalo",
+            "Name": "Arsox",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FlowerDinosaur",
+            "Name": "Dinossom",
+            "Type": [
+                "Grass",
+                "Dragon"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FlowerDinosaur_Electric",
+            "Name": "Dinossom Lux",
+            "Type": [
+                "Electric",
+                "Dragon"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FlowerDoll",
+            "Name": "Petallia",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FlowerRabbit",
+            "Name": "Flopie",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FlyingManta",
+            "Name": "Celaray",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "FoxMage",
+            "Name": "Wixen",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Ganesha",
+            "Name": "Teafant",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Garm",
+            "Name": "Direhowl",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "GhostBeast",
+            "Name": "Maraith",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Gorilla",
+            "Name": "Gorirat",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "GrassMammoth",
+            "Name": "Mammorest",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "GrassMammoth_Ice",
+            "Name": "Mammorest Cryst",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "GrassPanda",
+            "Name": "Mossanda",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "GrassPanda_Electric",
+            "Name": "Mossanda Lux",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "GrassRabbitMan",
+            "Name": "Verdash",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "HadesBird",
+            "Name": "Helzephyr",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "HawkBird",
+            "Name": "Nitewing",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Hedgehog",
+            "Name": "Jolthog",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Hedgehog_Ice",
+            "Name": "Jolthog Cryst",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "HerculesBeetle",
+            "Name": "Warsect",
+            "Type": [
+                "Ground",
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Horus",
+            "Name": "Faleris",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "IceDeer",
+            "Name": "Reindrix",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "IceFox",
+            "Name": "Foxcicle",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "IceHorse",
+            "Name": "Frostallion",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "IceHorse_Dark",
+            "Name": "Frostallion Noct",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "JetDragon",
+            "Name": "Jetragon",
+            "Type": [
+                "Dragon"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Kelpie",
+            "Name": "Kelpsea",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Kelpie_Fire",
+            "Name": "Kelpsea Ignis",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "KingAlpaca",
+            "Name": "Kingpaca",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "KingAlpaca_Ice",
+            "Name": "Ice Kingpaca",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "KingBahamut",
+            "Name": "Blazamut",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Kirin",
+            "Name": "Univolt",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Kitsunebi",
+            "Name": "Foxparks",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LavaGirl",
+            "Name": "Flambelle",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LazyCatfish",
+            "Name": "Dumud",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LazyDragon",
+            "Name": "Relaxaurus",
+            "Type": [
+                "Dragon",
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LazyDragon_Electric",
+            "Name": "Relaxaurus Lux",
+            "Type": [
+                "Dragon",
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LilyQueen",
+            "Name": "Lyleen",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LilyQueen_Dark",
+            "Name": "Lyleen Noct",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LittleBriarRose",
+            "Name": "Bristla",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LizardMan",
+            "Name": "Leezpunk",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "LizardMan_Fire",
+            "Name": "Leezpunk Ignis",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Manticore",
+            "Name": "Blazehowl",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Manticore_Dark",
+            "Name": "Blazehowl Noct",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Monkey",
+            "Name": "Tanzee",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "MopBaby",
+            "Name": "Swee",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "MopKing",
+            "Name": "Sweepa",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Mutant",
+            "Name": "Lunaris",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "NaughtyCat",
+            "Name": "Grintale",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "NegativeKoala",
+            "Name": "Depresso",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "NegativeOctopus",
+            "Name": "Killamari",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "NightFox",
+            "Name": "Nox",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Penguin",
+            "Name": "Pengullet",
+            "Type": [
+                "Water",
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "PinkCat",
+            "Name": "Cattiva",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "PinkLizard",
+            "Name": "Lovander",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "PinkRabbit",
+            "Name": "Ribbuny",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "PlantSlime",
+            "Name": "Gumoss",
+            "Type": [
+                "Grass",
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "QueenBee",
+            "Name": "Elizabee",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "RaijinDaughter",
+            "Name": "Dazzi",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "RedArmorBird",
+            "Name": "Ragnahawk",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "RobinHood",
+            "Name": "Robinquill",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "RobinHood_Ground",
+            "Name": "Robinquill Terra",
+            "Type": [
+                "Grass",
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Ronin",
+            "Name": "Bushi",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "SaintCentaur",
+            "Name": "Paladius",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "SakuraSaurus",
+            "Name": "Broncherry",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "SakuraSaurus_Water",
+            "Name": "Broncherry Aqua",
+            "Type": [
+                "Grass",
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Serpent",
+            "Name": "Surfent",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Serpent_Ground",
+            "Name": "Surfent Terra",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "SharkKid",
+            "Name": "Gobfin",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "SharkKid_Fire",
+            "Name": "Gobfin Ignis",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Sheepball",
+            "Name": "Lamball",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "SkyDragon",
+            "Name": "Quivern",
+            "Type": [
+                "Dragon"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "SoldierBee",
+            "Name": "Beegarde",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Suzaku",
+            "Name": "Suzaku",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Suzaku_Water",
+            "Name": "Suzaku Aqua",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "SweetsSheep",
+            "Name": "Woolipop",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "ThunderBird",
+            "Name": "Beakon",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "ThunderDog",
+            "Name": "Rayhound",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "ThunderDragonMan",
+            "Name": "Orserk",
+            "Type": [
+                "Dragon",
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Umihebi",
+            "Name": "Jormuntide",
+            "Type": [
+                "Dragon",
+                "Water"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Umihebi_Fire",
+            "Name": "Jormuntide Ignis",
+            "Type": [
+                "Dragon",
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "VioletFairy",
+            "Name": "Vaelet",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "VolcanicMonster",
+            "Name": "Reptyro",
+            "Type": [
+                "Fire",
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "VolcanicMonster_Ice",
+            "Name": "Reptyro Cryst",
+            "Type": [
+                "Ice",
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "WeaselDragon",
+            "Name": "Chillet",
+            "Type": [
+                "Ice",
+                "Dragon"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Werewolf",
+            "Name": "Loupmoon",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "WhiteMoth",
+            "Name": "Sibelyx",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "WhiteTiger",
+            "Name": "Cryolinx",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "WindChimes",
+            "Name": "Hangyu",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "WindChimes_Ice",
+            "Name": "Hangyu Cryst",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "WizardOwl",
+            "Name": "Hoocrates",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "WoolFox",
+            "Name": "Cremis",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Yeti",
+            "Name": "Wumpo",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "Yeti_Grass",
+            "Name": "Wumpo Botan",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ]
+        },
+        {
+            "CodeName": "GYM_ThunderDragonMan",
+            "Name": "Axel & Orserk",
+            "Type": [
+                "Dragon",
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Tower": true
+        },
+        {
+            "CodeName": "GYM_LilyQueen",
+            "Name": "Lily & Lyleen",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Tower": true
+        },
+        {
+            "CodeName": "GYM_Horus",
+            "Name": "Marus & Faleris",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Tower": true
+        },
+        {
+            "CodeName": "GYM_BlackGriffon",
+            "Name": "Victor & Shadowbeak",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Tower": true
+        },
+        {
+            "CodeName": "GYM_ElecPanda",
+            "Name": "Zoe & Grizzbolt",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Tower": true
+        },
+        {
+            "CodeName": "Male_DarkTrader01",
+            "Name": "Black Marketeer",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "FireCult_FlameThrower",
+            "Name": "Brothers of the Eternal Pyre Martyr",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Soldier01",
+            "Name": "Burly Merc",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Female_Soldier01",
+            "Name": "Expedition Survivor",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Believer_CrossBow",
+            "Name": "Free Pal Alliance Devout",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Scientist01_LaserRifle",
+            "Name": "PAL Genetic Research Unit Executioner",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "PalDealer",
+            "Name": "Pal Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Police_Handgun",
+            "Name": "PIDF Guard",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Bat",
+            "Name": "Syndicate Thug (Bat)",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_FlameThrower",
+            "Name": "Syndicate Cleaner",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Fat_GatlingGun",
+            "Name": "Syndicate Crusher",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_RocketLauncher",
+            "Name": "Syndicate Elite",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Grenade",
+            "Name": "Syndicate Grenadier",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Rifle",
+            "Name": "Syndicate Gunner",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Shotgun",
+            "Name": "Syndicate Hunter",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Handgun",
+            "Name": "Syndicate Thug (Handgun)",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson",
+            "Name": "Wandering Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": [
+                {
+                    "Name": "MoveName",
+                    "Level": 0
+                }
+            ],
+            "Human": true
+        }
+    ]
+}
