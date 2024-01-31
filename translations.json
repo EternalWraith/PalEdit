@@ -31,6 +31,8 @@
   "Save Changes": "保存修改",
   "Tools": "工具",
   "Debug": "测试",
+  "Alpha": "首领",
+  "Player:": "玩家：",
   "Generate GUID": "生成GUID",
   "Converter": "转换",
   "Convert Save to Json": "存档转Json",

@@ -196,7 +196,7 @@ def onselect(evt):
     g = pal.GetGender()
     palgender.config(text=TryGetTranslations(g), fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
 
-    title.config(text=f"{pal.GetNickname().replace(pal.GetName(), TryGetTranslations(pal.GetName()))}")
+    title.config(text=f"{TryGetNickname(pal)}")
     level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
 
@@ -363,7 +363,7 @@ def updateDisplay():
     palbox[players[current.get()]].sort(key=sortPals)
   
     for p in palbox[players[current.get()]]:
-        listdisplay.insert(END, p.GetFullName().replace(p.GetName(), TryGetTranslations(p.GetName())))
+        listdisplay.insert(END, TryGetPalFullName(p))
 
         if p.isBoss:
             listdisplay.itemconfig(END, {'fg': 'red'})
@@ -511,6 +511,8 @@ def swapgender():
     pal.SwapGender()
     refresh(i)
 
+#region[Translate Functions]
+
 def LoadTranslationsFile():
     global translations
     if(os.path.exists('translations.json')):
@@ -524,18 +526,30 @@ def SaveTranslationsFile():
     global translations
     with open('translations.json', 'w+', encoding='utf-8') as f:
         json.dump(translations, f,indent=1,ensure_ascii=False)
-
-def TryGetTranslations(tag):
+#Get Translation with Default
+def TryGetTranslations(default : str):
     global translations
     global lang
     if(len(translations) == 0):
         if(not(LoadTranslationsFile())):
-            return tag
+            return default
     try:
-        return translations[lang][tag]
+        return translations[lang][default]
     except:
-        return tag
-    
+        return default
+def TryGetTranslationsWithID(id : str, default : str):
+    global translations
+    global lang
+    if(len(translations) == 0):
+        if(not(LoadTranslationsFile())):
+            return default
+    try:
+        if(translations[lang][id] == id):
+            return default
+        return translations[lang][id]
+    except:
+        return default
+#Get Original Pal Name
 def TryGetSpeciesvar():
     if(len(SkillTransDesc) > 0):
         try:
@@ -543,7 +557,7 @@ def TryGetSpeciesvar():
         except:
             return speciesvar.get()
     return speciesvar.get()
-
+#Get Original Skill Name
 def TryGetSkillsvar(i):
     if(len(SkillTransDesc) > 0):
         try:
@@ -551,12 +565,19 @@ def TryGetSkillsvar(i):
         except:
             return skills[i].get()
     return skills[i].get()
-
+#Get PalFullName with Default
+def TryGetPalFullName(pal : PalEntity):
+    return pal.GetFullName().replace(pal.GetName(), TryGetTranslations(pal.GetName()))
+#Get PalNickName with Default
+def TryGetNickname(pal : PalEntity):
+    return pal.GetNickname().replace(pal.GetName(), TryGetTranslations(pal.GetName()))
+#Change Language
 def translateedit(t):
     global lang
     if(lang == t):
         return
     lang = t
+
     tools.entryconfig(1, label=TryGetTranslations("File"))
     tools.entryconfig(2, label=TryGetTranslations("Tools"))
     tools.entryconfig(3, label=TryGetTranslations("Converter"))
@@ -567,38 +588,37 @@ def translateedit(t):
     toolmenu.entryconfig(1, label=TryGetTranslations("Debug"))
     convmenu.entryconfig(0, label=TryGetTranslations("Convert Save to Json"))
     convmenu.entryconfig(1, label=TryGetTranslations("Convert Json to Save"))
-    name.config(text = TryGetTranslations("Species"))
-    gender.config(text = TryGetTranslations("Gender"))
-    attack.config(text = TryGetTranslations("Attack"))
-    defence.config(text = TryGetTranslations("Defence"))
-    workspeed.config(text = TryGetTranslations("Workspeed"))
-    rankspeed.config(text = TryGetTranslations("Rank"))
-
+    name['text'] = TryGetTranslations("Species")
+    gender['text'] = TryGetTranslations("Gender")
+    attack['text'] = TryGetTranslations("Attack")
+    defence['text'] = TryGetTranslations("Defence")
+    workspeed['text'] = TryGetTranslations("Workspeed")
+    rankspeed['text'] = TryGetTranslations("Rank")
 
     framePresetsButtons1.winfo_children()[0]['text']= TryGetTranslations("Worker")
-    framePresetsButtons1.winfo_children()[1]['text']= TryGetTranslations("Preset_Runner")
+    framePresetsButtons1.winfo_children()[1]['text']= TryGetTranslationsWithID("Preset_Runner","Runner")
     framePresetsButtons1.winfo_children()[2]['text']= TryGetTranslations("Tank")
 
     framePresetsButtons2.winfo_children()[0]['text']= TryGetTranslations("DMG: Max")
     framePresetsButtons2.winfo_children()[1]['text']= TryGetTranslations("DMG: Balanced")
     framePresetsButtons2.winfo_children()[2]['text']= TryGetTranslations("DMG: Dragon")
 
-    framePresetsTitle.winfo_children()[0].config(text = TryGetTranslations("Presets:"))
+    framePresetsTitle.winfo_children()[0]['text'] = TryGetTranslations("Presets:")
+    framePresetsLevel.winfo_children()[0]['text'] = TryGetTranslations("Set Level:")
+    framePresetsLevel.winfo_children()[1]['text'] = TryGetTranslations("Preset changes level")
+    framePresetsRank.winfo_children()[0]['text'] = TryGetTranslations("Set Rank:")
+    framePresetsRank.winfo_children()[1]['text'] = TryGetTranslations("Preset changes rank")
+    framePresetsAttributes.winfo_children()[0]['text'] = TryGetTranslations("Set Attributes:")
+    framePresetsAttributes.winfo_children()[1]['text'] = TryGetTranslations("Preset changes attributes")
 
-    framePresetsLevel.winfo_children()[0].config(text = TryGetTranslations("Set Level:"))
-    framePresetsLevel.winfo_children()[1].config(text = TryGetTranslations("Preset changes level"))
-
-    framePresetsRank.winfo_children()[0].config(text = TryGetTranslations("Set Rank:"))
-    framePresetsRank.winfo_children()[1].config(text = TryGetTranslations("Preset changes rank"))
-
-    framePresetsAttributes.winfo_children()[0].config(text = TryGetTranslations("Set Attributes:"))
-    framePresetsAttributes.winfo_children()[1].config(text = TryGetTranslations("Preset changes attributes"))
-
+    luckybox['text'] = TryGetTranslations("Lucky")
+    alphabox['text'] = TryGetTranslations("Alpha")
+    playerlbl['text'] = TryGetTranslations("Player:")
+    #region [palname translate]
     global SkillTransDesc
     global species
     global palname
     global editview
-
 
     species = []
     for e in PalType:
@@ -610,7 +630,9 @@ def translateedit(t):
     palname = OptionMenu(editview, speciesvar, *species, command=changespeciestype)
     palname.config(font=("Arial", ftsize), padx=0, pady=0, borderwidth=1, width=5, direction='right')
     palname.pack(before=editview.pack_slaves()[0],expand=True, fill=X)
+    #endregion
 
+    #region [skilldrops translate]
     global skilldrops
     global op
     global topview
@@ -654,12 +676,14 @@ def translateedit(t):
     skilldrops[1].bind("<Leave>", lambda evt, num=-1: changetext(num))
     skilldrops[2].bind("<Leave>", lambda evt, num=-1: changetext(num))
     skilldrops[3].bind("<Leave>", lambda evt, num=-1: changetext(num))
+    #endregion
 
     updateDisplay()
-    
+#endregion
+
 def replaceitem(i, pal):
     listdisplay.delete(i)
-    listdisplay.insert(i, pal.GetFullName().replace(pal.GetName(), TryGetTranslations(pal.GetName())))
+    listdisplay.insert(i, TryGetPalFullName(pal))
 
     if pal.isBoss:
         listdisplay.itemconfig(i, {'fg': 'red'})
