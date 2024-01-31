@@ -14,7 +14,7 @@ global palbox
 palbox = {}
 global players
 players = {}
-
+global palguidmanager
 
 global unknown
 unknown = []
@@ -26,6 +26,7 @@ editindex = -1
 translations=[]
 lang = "English"
 SkillTransDesc = {}
+
 global version
 version = "0.4.8"
 
@@ -280,6 +281,7 @@ def sortPals(e):
 
 def load(file):
     global data
+    global palguidmanager
     global palbox
     global players
     global current
@@ -295,7 +297,7 @@ def load(file):
         paldata = data
     else:
         paldata = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
-
+        palguidmanager = PalGuid(data)
         f = open("current.pson", "w", encoding="utf8")
         json.dump(paldata, f, indent=4)
         f.close()
@@ -366,6 +368,7 @@ def updateDisplay():
 def savefile():
     global palbox
     global data
+    global palguidmanager
     skilllabel.config(text="Saving, please be patient... (it can take up to 5 minutes in large files)")
 
     if isPalSelected():
@@ -405,6 +408,7 @@ def savejson(filename):
     else:
         svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data
 
+    svdata = palguidmanager.Save(svdata)
     f = open(filename, "w", encoding="utf8")
     json.dump(svdata, f)
     f.close()

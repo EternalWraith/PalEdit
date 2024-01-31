@@ -1,6 +1,7 @@
 import json
 
 from enum import Enum
+import uuid
 from PIL import ImageTk, Image
 from EmptyObjectHandler import *
 
@@ -469,6 +470,7 @@ class PalEntity:
         self._data = data
         self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
 
+
         self.owner = ""
         if "OwnerPlayerUId" in self._obj:
             self.owner = self._obj["OwnerPlayerUId"]['value']
@@ -682,7 +684,68 @@ class PalEntity:
             if self.isLucky:
                 self.SetLucky(False)
 
+    def GetGroupGuid(self):
+        return self._data['value']['RawData']['value']['group_id']
+    def GetSoltGuid(self):
+        return self._obj['SlotID']['value']['ContainerId']['value']['ID']['value']
+    def GetSoltIndex(self):
+        return self._obj['SlotID']['value']['SlotIndex']['value']
+    def SetSoltIndex(self, v : int):
+        self._obj['SlotID']['value']['SlotIndex']['value'] = v
+    def GetPalInstanceGuid(self):
+        return self._data['key']['InstanceId']['value']
+    def SetPalInstanceGuid(self, v : str):
+        self._data['key']['InstanceId']['value'] = v
         
+class PalGuid:
+    def __init__(self, data):
+        self._data = data
+        self._CharacterContainerSaveData = data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
+        self._GroupSaveDataMap = data['properties']['worldSaveData']['value']['GroupSaveDataMap']['value']
+
+    def ConvertGuid(self, guid_str):
+        guid_str = guid_str
+        guid = uuid.UUID(guid_str)
+        guid_bytes = guid.bytes
+        guid_list = [b for b in guid_bytes]
+        result_list = [0]*16 
+        for n in range(0, len(guid_list), 4):
+            result_list.extend(guid_list[n:n+4][::-1])
+        result_list.append(0)
+        result_list[12] = 1
+        return result_list
+
+    def DebugContainerSave(self, SoltGuid : str ,SlotIndex : int):
+        if SoltGuid == "00000000-0000-0000-0000-000000000000":
+            return
+        for e in self._CharacterContainerSaveData:
+            if(e['key']['ID']['value'] == SoltGuid):
+                print(e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value']['values'])
+    
+    def SetContainerSave(self, SoltGuid : str ,SlotIndex : int, PalGuid : str):
+        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
+            return
+        for e in self._CharacterContainerSaveData:
+            if(e['key']['ID']['value'] == SoltGuid):
+                e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value']['values'] = self.ConvertGuid(PalGuid)
+    
+    def AddGroupSaveData(self, GroupGuid : str, PalGuid : str ):
+        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
+            return
+        for e in self._GroupSaveDataMap:
+            if(e['key'] == GroupGuid):
+                for ee in e['value']['RawData']['value']['individual_character_handle_ids']:
+                    if(ee['instance_id'] == PalGuid):
+                        return
+                tmp = {"guid":"00000000-0000-0000-0000-000000000001","instance_id":PalGuid}
+                e['value']['RawData']['value']['individual_character_handle_ids'].append(tmp)
+
+    def Save(self, svdata):
+        if 'properties' in svdata:
+            svdata['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value'] = self._CharacterContainerSaveData
+            svdata['properties']['worldSaveData']['value']['GroupSaveDataMap']['value'] = self._GroupSaveDataMap
+        return svdata
+
 
 if __name__ == "__main__":
     import os
