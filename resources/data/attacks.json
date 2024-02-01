@@ -1,6 +1,12 @@
 {
     "values": [
         {
+            "CodeName": "",
+            "Name": "",
+            "Type": "",
+            "Power": 0
+        },
+        {
             "CodeName": "EPalWazaID::AcidRain",
             "Name": "Acid Rain",
             "Type": "Water",
@@ -85,6 +91,18 @@
             "Power": 30
         },
         {
+            "CodeName": "EPalWazaID::Unique_FengyunDeeper_CloudTempest",
+            "Name": "Cloud Tempest",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::CrossThunder",
+            "Name": "Cross Lightning",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
             "CodeName": "EPalWazaID::Unique_GrassPanda_MusclePunch",
             "Name": "Crushing Punch",
             "Type": "Grass",
@@ -125,6 +143,12 @@
             "Name": "Dark Laser",
             "Type": "Dark",
             "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::DarkLegion",
+            "Name": "Dark Whisp",
+            "Type": "Dark",
+            "Power": 0
         },
         {
             "CodeName": "EPalWazaID::Unique_BlackGriffon_TackleLaser",
@@ -331,6 +355,12 @@
             "Power": 180
         },
         {
+            "CodeName": "EPalWazaID::Intimidate",
+            "Name": "Intimidate",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
             "CodeName": "EPalWazaID::Unique_Werewolf_Scratch",
             "Name": "Jumping Claw",
             "Type": "Dark",
@@ -349,16 +379,58 @@
             "Power": 100
         },
         {
+            "CodeName": "EPalWazaID::Thunderbolt",
+            "Name": "Lightning Bolt",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
             "CodeName": "EPalWazaID::Unique_ElecPanda_ElecScratch",
             "Name": "Lightning Claw",
             "Type": "Electric",
             "Power": 90
         },
         {
+            "CodeName": "EPalWazaID::ThunderRain",
+            "Name": "Lightning Rain",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
             "CodeName": "EPalWazaID::LineThunder",
             "Name": "Lightning Streak",
             "Type": "Electric",
             "Power": 75
+        },
+        {
+            "CodeName": "EPalWazaID::LightningStrike",
+            "Name": "Lightning Strike",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Kirin_LightningTackle",
+            "Name": "Lightning Tackle",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::LockonLaser",
+            "Name": "Lock-on Laser",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::SelfExplosion",
+            "Name": "Megaton Implode",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::SpecialCutter",
+            "Name": "Multicutter",
+            "Type": "Grass",
+            "Power": 0
         },
         {
             "CodeName": "EPalWazaID::Unique_SakuraSaurus_SideTackle",
@@ -431,6 +503,18 @@
             "Name": "Power Shot",
             "Type": "Neutral",
             "Power": 35
+        },
+        {
+            "CodeName": "EPalWazaID::Psychokinesis",
+            "Name": "Psycho Gravity",
+            "Type": "Dark",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Human_Punch",
+            "Name": "Punch",
+            "Type": "Neutral",
+            "Power": 0
         },
         {
             "CodeName": "EPalWazaID::Unique_PinkCat_CatPunch",
@@ -559,6 +643,12 @@
             "Power": 70
         },
         {
+            "CodeName": "EPalWazaID::Unique_BluePlatypus_Toboggan",
+            "Name": "Surfing Slam",
+            "Type": "Water",
+            "Power": 0
+        },
+        {
             "CodeName": "EPalWazaID::Unique_HawkBird_Storm",
             "Name": "Tornado Attack",
             "Type": "Neutral",
@@ -589,87 +679,9 @@
             "Power": 30
         },
         {
-            "CodeName": "EPalWazaID::CrossThunder",
-            "Name": "Cross Lightning",
-            "Type": "Electric",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::DarkLegion",
-            "Name": "Dark Whisp",
-            "Type": "Dark",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::Human_Punch",
-            "Name": "Punch",
-            "Type": "Neutral",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::Intimidate",
-            "Name": "Intimidate",
-            "Type": "Neutral",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::LightningStrike",
-            "Name": "Lightning Strike",
-            "Type": "Electric",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::LockonLaser",
-            "Name": "Lock-on Laser",
-            "Type": "Electric",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::Psychokinesis",
-            "Name": "Psycho Gravity",
-            "Type": "Dark",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::SelfExplosion",
-            "Name": "Megaton Implode",
-            "Type": "Neutral",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::SpecialCutter",
-            "Name": "Multicutter",
-            "Type": "Grass",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::Thunderbolt",
-            "Name": "Lightning Bolt",
-            "Type": "Electric",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::ThunderRain",
-            "Name": "Lightning Rain",
-            "Type": "Electric",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::Unique_BluePlatypus_Toboggan",
-            "Name": "Surfing Slam",
-            "Type": "Water",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::Unique_FengyunDeeper_CloudTempest",
-            "Name": "Cloud Tempest",
-            "Type": "Neutral",
-            "Power": 0
-        },
-        {
-            "CodeName": "EPalWazaID::Unique_Kirin_LightningTackle",
-            "Name": "Lightning Tackle",
-            "Type": "Electric",
+            "CodeName": "EPalWazaID::WaterWave",
+            "Name": "en Text",
+            "Type": "",
             "Power": 0
         }
     ]

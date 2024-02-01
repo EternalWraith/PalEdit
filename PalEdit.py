@@ -6,6 +6,7 @@ import os, webbrowser, json, time, uuid
 import pyperclip
 
 import SaveConverter
+import tkinter as tk
 
 from PalInfo import *
 
@@ -118,11 +119,14 @@ def updateAttacks():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][i]
-    for i in range(0,3):
-        if i > len(pal.GetEquippedMoves())-1:
-            attacks[i].set("None")
+    attackops = [PalAttacks[e] for e in PalAttacks]
+    
+          
+    for a in range(0,3):
+        if a > len(pal.GetEquippedMoves())-1:
+            attacks[a].set("None")
         else:
-            attacks[i].set(PalAttacks[pal.GetEquippedMoves()[i]])
+            attacks[a].set(PalAttacks[pal.GetEquippedMoves()[a]])
     setAttackCols()
 
 def setAttackCols():
@@ -283,6 +287,20 @@ def changeskill(num):
     
     refresh(i)
 
+def changeattack(num):
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+    
+    if not attacks[num].get() in ["Unknown", "UNKNOWN"]:
+        if attacks[num].get() in ["None", "NONE"]:
+            pal.RemoveAttack(num)
+        else:
+            pal.SetAttack(num, attacks[num].get())
+    
+    refresh(i)
+
 def onselect(evt):
     global palbox
     global editindex
@@ -328,6 +346,7 @@ def onselect(evt):
 
     updateAttacks()
 
+
     # rank
     match pal.GetRank():
         case 5:
@@ -350,6 +369,8 @@ def onselect(evt):
             skills[i].set("Unknown")
         else:
             skills[i].set(PalPassives[s[i]])
+
+    setskillcolours()
     
 
 def changetext(num):
@@ -610,12 +631,16 @@ def changespeciestype(evt):
     updateDisplay()
     refresh(palbox[players[current.get()]].index(pal))
 
-def refresh(num=0):
+def setskillcolours():
     for snum in range(0,4):
         rating = PassiveRating[skills[snum].get()]
         col = goodskill if rating == "Good" else okayskill if rating == "Okay" else badskill
 
         skilldrops[snum].config(highlightbackground=col, bg=mean_color(col, "ffffff"), activebackground=mean_color(col, "ffffff"))
+
+def refresh(num=0):
+    setskillcolours()
+    setAttackCols()
     
     listdisplay.select_set(num)
     listdisplay.event_generate("<<ListboxSelect>>")
@@ -627,10 +652,11 @@ def converttojson():
     file = askopenfilename(filetype=[("All files", "*.sav")])
     print(f"Opening file {file}")
 
-    doconvertjson(file, True)
+    doconvertjson(file)
 
 def doconvertjson(file, compress=False):
-    SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), compress)
+    print(compress)
+    SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
 
     load(file.replace(".sav", ".sav.json"))
 
@@ -648,7 +674,7 @@ def converttosave():
 
 
 def doconvertsave(file):
-    SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"))
+    SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"), True)
 
     changetext(-1)
     jump()
@@ -758,9 +784,6 @@ atkLabel = Label(atkskill, bg="darkgrey", width=12, text="Equipped", font=("Aria
 atkLabel.pack(fill=X)
 
 attacks = [StringVar(), StringVar(), StringVar()]
-for i in range(0, 3):
-    attacks[i].set("Unknown")
-    #attacks[i].trace("w", lambda *args, num=i: changeskill(num))
 attacks[0].set("Blast Punch")
 attacks[1].set("Tri-Lightning")
 attacks[2].set("Dark Laser")
@@ -769,10 +792,13 @@ equipFrame = Frame(atkskill, borderwidth=2, relief="raised")
 equipFrame.pack(fill=X)
 
 attackops = [PalAttacks[e] for e in PalAttacks]
+attackops.remove("None")
+attackops.sort()
+attackops.insert(0,"None")
 attackdrops = [
-    OptionMenu(equipFrame, attacks[0], *attackops),
-    OptionMenu(equipFrame, attacks[1], *attackops),
-    OptionMenu(equipFrame, attacks[2], *attackops),
+    OptionMenu(equipFrame, attacks[0], *attackops, command=lambda evt: changeattack(0)),
+    OptionMenu(equipFrame, attacks[1], *attackops, command=lambda evt: changeattack(1)),
+    OptionMenu(equipFrame, attacks[2], *attackops, command=lambda evt: changeattack(2))
     ]
 
 attackdrops[0].pack(fill=X)
@@ -987,9 +1013,9 @@ botview = Frame(skillview)
 botview.pack(fill=BOTH, expand=True)
 
 skills = [StringVar(), StringVar(), StringVar(), StringVar()]
-for i in range(0, 4):
-    skills[i].set("Unknown")
-    skills[i].trace("w", lambda *args, num=i: changeskill(num))
+#for i in range(0, 4):
+    #skills[i].set("Unknown")
+    #skills[i].trace("w", lambda *args, num=i: changeskill(num))
 skills[0].set("Legend")
 skills[1].set("Workaholic")
 skills[2].set("Ferocious")
@@ -1001,10 +1027,10 @@ op.pop(0)
 op.sort()
 op.insert(0, "None")
 skilldrops = [
-    OptionMenu(topview, skills[0], *op),
-    OptionMenu(topview, skills[1], *op),
-    OptionMenu(botview, skills[2], *op),
-    OptionMenu(botview, skills[3], *op)
+    OptionMenu(topview, skills[0], *op, command=lambda evt: changeskill(0)),
+    OptionMenu(topview, skills[1], *op, command=lambda evt: changeskill(1)),
+    OptionMenu(botview, skills[2], *op, command=lambda evt: changeskill(2)),
+    OptionMenu(botview, skills[3], *op, command=lambda evt: changeskill(3))
     ]
 
 skilldrops[0].pack(side=LEFT, expand=True, fill=BOTH)

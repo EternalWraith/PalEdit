@@ -194,9 +194,17 @@ class PalEntity:
         self.storageId = self._storedLocation["value"]["ContainerId"]["value"]["ID"]["value"]
         self.storageSlot = self._storedLocation["value"]["SlotIndex"]["value"]
 
+        
+        for i in self._obj["MasteredWaza"]["value"]["values"]:
+            if not matches(typename, i) or PalAttacks[i] in PalLearnSet[self._type.GetName()]:
+                self._obj["MasteredWaza"]["value"]["values"].remove(i)
+        for i in self._obj["EquipWaza"]["value"]["values"]:
+            if not matches(typename, i):
+                self._obj["EquipWaza"]["value"]["values"].remove(i)
+                
         self._learntMoves = self._obj["MasteredWaza"]["value"]["values"]
         self._equipMoves = self._obj["EquipWaza"]["value"]["values"]
-    
+        self._learntBackup = self._learntMoves[:]
 
     def SwapGender(self):
         if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
@@ -288,6 +296,13 @@ class PalEntity:
         else:
             self._skills[slot] = find(skill)
 
+    def SetAttack(self, slot, attack):
+        if slot > len(self._equipMoves)-1:
+            self._equipMoves.append(find(attack))
+        else:
+            self._equipMoves[slot] = find(attack)
+        self.SetLevelMoves()
+
     def GetOwner(self):
         return self.owner
 
@@ -299,8 +314,32 @@ class PalEntity:
         if "Level" in self._obj and "Exp" in self._obj:
             self._obj['Level']['value'] = self._level = value
             self._obj['Exp']['value'] = xpthresholds[value-1]
+            self.SetLevelMoves()
         else:
             print(f"[ERROR:] Failed to update level for: '{self.GetName()}'")
+
+    def SetLevelMoves(self):
+        value = self._level
+        self._obj["MasteredWaza"]["value"]["values"] = self._learntMoves = self._learntBackup[:]
+        for i in PalLearnSet[self._type.GetName()]:
+            if value >= PalLearnSet[self._type.GetName()][i]:
+                if not find(i) in self._obj["MasteredWaza"]["value"]["values"]:
+                    self._obj["MasteredWaza"]["value"]["values"].append(find(i))
+            elif find(i) in self._obj["MasteredWaza"]["value"]["values"]:
+                self._obj["MasteredWaza"]["value"]["values"].remove(find(i))
+
+        for i in self._equipMoves:
+            if not matches(find(self._type.GetName()), i):
+                self._equipMoves.remove(i)
+                self._obj["EquipWaza"]["value"]["values"] = self._equipMoves
+            elif not i in self._obj["MasteredWaza"]["value"]["values"]:
+                self._obj["MasteredWaza"]["value"]["values"].append(i)
+                
+        self._learntMoves = self._obj["MasteredWaza"]["value"]["values"]
+        print("------")
+        for i in self._learntMoves:
+            print(i)
+
 
     def GetRank(self):
         return self._rank
@@ -314,6 +353,11 @@ class PalEntity:
     def RemoveSkill(self, slot):
         if slot < len(self._skills):
             self._skills.pop(slot)
+
+    def RemoveAttack(self, slot):
+        if slot < len(self._equipMoves):
+            self._equipMoves.pop(slot)
+        self.SetLevelMoves()
 
     def GetNickname(self):
         return self.GetName() if self._nickname == "" else self._nickname
@@ -341,6 +385,19 @@ class PalEntity:
     def GetLearntMoves(self):
         return self._learntMoves
 
+def matches(pal, move):
+    if move.startswith("EPalWazaID::Unique_"):
+        o = move.split("_")
+        n = o[1]
+        if len(o) > 3:
+            t = o.pop(1)
+            v = o.pop(1)
+            n = f"{t}_{v}"
+        if not pal == n:
+            return False
+    return True
+                    
+
 with open("resources/data/elements.json", "r", encoding="utf8") as elementfile:
     PalElements = {}
     for i in json.loads(elementfile.read())["values"]:
@@ -348,6 +405,7 @@ with open("resources/data/elements.json", "r", encoding="utf8") as elementfile:
 
 with open("resources/data/pals.json", "r", encoding="utf8") as palfile:
     PalSpecies = {}
+    PalLearnSet = {}
     for i in json.loads(palfile.read())["values"]:
         h = "Human" in i
         t = "Tower" in i
@@ -356,6 +414,7 @@ with open("resources/data/pals.json", "r", encoding="utf8") as palfile:
         if len(i["Type"]) == 2:
             s = i["Type"][1]
         PalSpecies[i["CodeName"]] = PalObject(i["Name"], p, s, h, t)
+        PalLearnSet[i["Name"]] = i["Moveset"]
 
 with open("resources/data/passives.json", "r", encoding="utf8") as passivefile:
     PalPassives = {}
@@ -365,6 +424,7 @@ with open("resources/data/passives.json", "r", encoding="utf8") as passivefile:
         PalPassives[i["CodeName"]] = i["Name"]
         PassiveDescriptions[i["Name"]] = i["Description"]
         PassiveRating[i["Name"]] = i["Rating"]
+    PalPassives = dict(sorted(PalPassives.items()))
 
 with open("resources/data/attacks.json", "r", encoding="utf8") as attackfile:
     PalAttacks = {}
@@ -379,6 +439,8 @@ with open("resources/data/attacks.json", "r", encoding="utf8") as attackfile:
         PalAttacks[i["CodeName"]] = i["Name"]
         AttackPower[i["Name"]] = i["Power"]
         AttackTypes[i["Name"]] = i["Type"]
+
+    PalAttacks = dict(sorted(PalAttacks.items()))
 
 def find(name):
     for i in PalSpecies:
@@ -397,7 +459,39 @@ def find(name):
 if __name__ == "__main__":
     PalObject("Mossanda Noct", "Electric", "Dark")
 
-    if False:
+
+    if True:
+        import bs4 as bsoup
+        import urllib.request as ureq
+
+        
+        
+        with open("resources/data/pals.json", "r+", encoding="utf8") as palfile:
+            p = json.loads(palfile.read())
+            palfile.seek(0)
+            for pal in p['values']:
+                pal["Moveset"] = {}
+                if not "Human" in pal and not "Tower" in pal:
+                    n = pal["Name"].lower().replace(" ", "-")
+                    headers = {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'}
+                    req = ureq.Request(f"http://palworld.gg/pal/{n}", None, headers)
+                    src = ureq.urlopen(req)
+                    soup = bsoup.BeautifulSoup(src, "lxml")
+
+                    con = soup.find_all("div", {"class": "active skills"})
+                    if len(con) > 0:
+                        for item in con[0].find_all("div", {"class": "item"}):
+                            
+                            name = item.find("div", {"class": "name"}).text
+                            level = item.find("div", {"class": "level"})
+
+                            if not level == None:
+                                level = int(level.text.replace("- Lv ", ""))
+                                pal["Moveset"][name] = level
+            json.dump(p, palfile, indent=4)
+            
+
+    if True:
 
         codes = {}
         with open("data.txt", "r") as file:

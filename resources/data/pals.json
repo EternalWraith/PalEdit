@@ -6,12 +6,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Fluffy Tackle": 7,
+                "Sand Blast": 15,
+                "Power Shot": 22,
+                "Shockwave": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "AmaterasuWolf",
@@ -19,12 +22,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Spirit Fire": 7,
+                "Spirit Flame": 15,
+                "Daring Flames": 22,
+                "Flare Storm": 30,
+                "Ignis Rage": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "Anubis",
@@ -32,12 +38,15 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Stone Blast": 1,
+                "Power Bomb": 7,
+                "Sand Tornado": 15,
+                "Spinning Roundhouse": 22,
+                "Forceful Charge": 30,
+                "Ground Smash": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "Baphomet",
@@ -46,12 +55,15 @@
                 "Fire",
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Spirit Fire": 7,
+                "Flare Arrow": 15,
+                "Hellfire Claw": 22,
+                "Shadow Burst": 30,
+                "Fire Ball": 40,
+                "Ignis Rage": 50
+            }
         },
         {
             "CodeName": "Baphomet_Dark",
@@ -59,12 +71,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Spirit Fire": 7,
+                "Flare Arrow": 15,
+                "Hellfire Claw": 22,
+                "Shadow Burst": 30,
+                "Fire Ball": 40,
+                "Ignis Rage": 50
+            }
         },
         {
             "CodeName": "Bastet",
@@ -72,12 +87,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Dark Ball": 7,
+                "Shadow Burst": 15,
+                "Sand Tornado": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "Bastet_Ice",
@@ -85,12 +103,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ice Missile": 1,
+                "Air Cannon": 7,
+                "Sand Blast": 15,
+                "Icicle Cutter": 22,
+                "Iceberg": 30,
+                "Cryst Breath": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "BerryGoat",
@@ -98,12 +119,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Air Cannon": 7,
+                "Sand Blast": 15,
+                "Power Shot": 22,
+                "Grass Tornado": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "BirdDragon",
@@ -112,12 +136,15 @@
                 "Fire",
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Ignis Blast": 7,
+                "Spirit Fire": 15,
+                "Ignis Breath": 22,
+                "Nightmare Ball": 30,
+                "Fire Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "BirdDragon_Ice",
@@ -126,12 +153,15 @@
                 "Ice",
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Ice Missile": 7,
+                "Icicle Cutter": 15,
+                "Cryst Breath": 22,
+                "Nightmare Ball": 30,
+                "Blizzard Spike": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "BlackCentaur",
@@ -139,12 +169,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Shadow Burst": 1,
+                "Spirit Fire": 7,
+                "Spirit Flame": 15,
+                "Nightmare Ball": 22,
+                "Rock Lance": 30,
+                "Twin Spears": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "BlackGriffon",
@@ -152,12 +185,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Dark Ball": 7,
+                "Shadow Burst": 15,
+                "Spirit Flame": 22,
+                "Nightmare Ball": 30,
+                "Divine Disaster": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "BlackMetalDragon",
@@ -166,12 +202,15 @@
                 "Dragon",
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Dragon Cannon": 1,
+                "Spirit Flame": 7,
+                "Dragon Burst": 15,
+                "Nightmare Ball": 22,
+                "Draconic Breath": 30,
+                "Dark Laser": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "BlueDragon",
@@ -180,12 +219,15 @@
                 "Water",
                 "Dragon"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Aqua Gun": 1,
+                "Dragon Cannon": 7,
+                "Bubble Blast": 15,
+                "Dragon Burst": 22,
+                "Draconic Breath": 30,
+                "Hydro Laser": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "BluePlatypus",
@@ -193,12 +235,15 @@
             "Type": [
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Aqua Gun": 1,
+                "Power Shot": 7,
+                "Hydro Jet": 15,
+                "Ice Missile": 22,
+                "Bubble Blast": 30,
+                "Aqua Burst": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "Boar",
@@ -206,12 +251,15 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Reckless Charge": 1,
+                "Sand Blast": 7,
+                "Power Shot": 15,
+                "Stone Blast": 22,
+                "Power Bomb": 30,
+                "Rock Lance": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "CaptainPenguin",
@@ -220,12 +268,15 @@
                 "Water",
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Aqua Gun": 1,
+                "Iceberg": 7,
+                "Emperor Slide": 15,
+                "Cryst Breath": 22,
+                "Aqua Burst": 30,
+                "Blizzard Spike": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "Carbunclo",
@@ -233,12 +284,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Air Cannon": 7,
+                "Power Shot": 15,
+                "Seed Machine Gun": 22,
+                "Power Bomb": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "CatBat",
@@ -246,12 +300,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Poison Blast": 7,
+                "Dark Ball": 15,
+                "Shadow Burst": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "CatMage",
@@ -259,12 +316,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Dark Ball": 7,
+                "Flare Arrow": 15,
+                "Shadow Burst": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "CatVampire",
@@ -272,12 +332,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Poison Blast": 1,
+                "Dark Ball": 7,
+                "Shadow Burst": 15,
+                "Spirit Flame": 22,
+                "Nightmare Ball": 30,
+                "Ignis Rage": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "ChickenPal",
@@ -285,12 +348,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Chicken Rush": 1,
+                "Air Cannon": 7,
+                "Power Shot": 15,
+                "Implode": 22,
+                "Grass Tornado": 30,
+                "Sand Tornado": 40,
+                "Flare Storm": 50
+            }
         },
         {
             "CodeName": "ColorfulBird",
@@ -298,12 +364,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Implode": 1,
+                "Air Cannon": 7,
+                "Power Shot": 15,
+                "Megaton Implode": 22,
+                "Sand Tornado": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "CowPal",
@@ -311,12 +380,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Sand Blast": 7,
+                "Air Cannon": 15,
+                "Stone Blast": 22,
+                "Stone Cannon": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "CuteButterfly",
@@ -324,12 +396,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Wind Cutter": 7,
+                "Poison Fog": 15,
+                "Sand Tornado": 22,
+                "Seed Mine": 30,
+                "Grass Tornado": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "CuteFox",
@@ -337,12 +412,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Sand Blast": 7,
+                "Power Shot": 15,
+                "Wind Cutter": 22,
+                "Seed Machine Gun": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "CuteMole",
@@ -350,12 +428,15 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Power Shot": 7,
+                "Stone Blast": 15,
+                "Stone Cannon": 22,
+                "Power Bomb": 30,
+                "Sand Tornado": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "DarkCrow",
@@ -363,12 +444,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Dark Ball": 7,
+                "Phantom Peck": 15,
+                "Shadow Burst": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "DarkScorpion",
@@ -377,12 +461,15 @@
                 "Dark",
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Poison Blast": 7,
+                "Shadow Burst": 15,
+                "Stone Cannon": 22,
+                "Nightmare Ball": 30,
+                "Rock Lance": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "Deer",
@@ -390,12 +477,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Antler Uppercut": 7,
+                "Stone Blast": 15,
+                "Stone Cannon": 22,
+                "Power Bomb": 30,
+                "Rock Lance": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "Deer_Ground",
@@ -403,12 +493,15 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Antler Uppercut": 7,
+                "Stone Blast": 15,
+                "Stone Cannon": 22,
+                "Power Bomb": 30,
+                "Sand Tornado": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "DreamDemon",
@@ -416,12 +509,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Dark Ball": 1,
+                "Poison Blast": 7,
+                "Shadow Burst": 15,
+                "Cryst Breath": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "DrillGame",
@@ -429,12 +525,15 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Aqua Gun": 1,
+                "Stone Blast": 7,
+                "Shell Spin": 15,
+                "Stone Cannon": 22,
+                "Sand Tornado": 30,
+                "Aqua Burst": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "Eagle",
@@ -442,12 +541,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Gale Claw": 1,
+                "Air Cannon": 7,
+                "Sand Blast": 15,
+                "Wind Cutter": 22,
+                "Sand Tornado": 30,
+                "Grass Tornado": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "ElecCat",
@@ -455,12 +557,15 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Spark Blast": 1,
+                "Sand Blast": 7,
+                "Shockwave": 15,
+                "Electric Ball": 22,
+                "Tri-Lightning": 30,
+                "Lightning Streak": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "ElecPanda",
@@ -468,12 +573,15 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Spark Blast": 1,
+                "Shockwave": 7,
+                "Lightning Claw": 15,
+                "Lightning Streak": 22,
+                "Tri-Lightning": 30,
+                "Lightning Strike": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "FairyDragon",
@@ -481,12 +589,15 @@
             "Type": [
                 "Dragon"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Dragon Cannon": 1,
+                "Dragon Burst": 7,
+                "Flare Arrow": 15,
+                "Mystic Whirlwind": 22,
+                "Draconic Breath": 30,
+                "Pal Blast": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "FairyDragon_Water",
@@ -495,12 +606,15 @@
                 "Dragon",
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Aqua Gun": 1,
+                "Dragon Cannon": 7,
+                "Dragon Burst": 15,
+                "Mystic Whirlwind": 22,
+                "Acid Rain": 30,
+                "Hydro Laser": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "FengyunDeeper",
@@ -508,12 +622,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Aqua Gun": 7,
+                "Cloud Tempest": 15,
+                "Acid Rain": 22,
+                "Aqua Burst": 30,
+                "Blizzard Spike": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "FireKirin",
@@ -521,12 +638,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Ignis Blast": 7,
+                "Spirit Fire": 15,
+                "Flare Arrow": 22,
+                "Ignis Slam": 30,
+                "Ignis Rage": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "FireKirin_Dark",
@@ -535,12 +655,15 @@
                 "Fire",
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Shadow Burst": 7,
+                "Ignis Breath": 15,
+                "Spirit Flame": 22,
+                "Dark Charge": 30,
+                "Ignis Rage": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "FlameBambi",
@@ -548,12 +671,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Power Shot": 7,
+                "Spirit Fire": 15,
+                "Flare Arrow": 22,
+                "Flare Storm": 30,
+                "Ignis Rage": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "FlameBuffalo",
@@ -561,12 +687,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Blazing Horn": 7,
+                "Spirit Fire": 15,
+                "Flare Arrow": 22,
+                "Ignis Breath": 30,
+                "Ignis Rage": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "FlowerDinosaur",
@@ -575,12 +704,15 @@
                 "Grass",
                 "Dragon"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Botanical Smash": 7,
+                "Dragon Burst": 15,
+                "Seed Mine": 22,
+                "Draconic Breath": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "FlowerDinosaur_Electric",
@@ -589,12 +721,15 @@
                 "Electric",
                 "Dragon"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Shockwave": 1,
+                "Plasma Tornado": 7,
+                "Botanical Smash": 15,
+                "Draconic Breath": 22,
+                "Tri-Lightning": 30,
+                "Lightning Strike": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "FlowerDoll",
@@ -602,12 +737,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Aqua Gun": 7,
+                "Seed Machine Gun": 15,
+                "Bubble Blast": 22,
+                "Grass Tornado": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "FlowerRabbit",
@@ -615,12 +753,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Air Cannon": 7,
+                "Hydro Jet": 15,
+                "Seed Machine Gun": 22,
+                "Bubble Blast": 30,
+                "Grass Tornado": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "FlyingManta",
@@ -628,12 +769,15 @@
             "Type": [
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Hydro Jet": 1,
+                "Aqua Gun": 7,
+                "Power Shot": 15,
+                "Bubble Blast": 22,
+                "Seed Machine Gun": 30,
+                "Aqua Burst": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "FoxMage",
@@ -641,12 +785,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Spirit Fire": 7,
+                "Flare Arrow": 15,
+                "Spirit Flame": 22,
+                "Flare Storm": 30,
+                "Fire Ball": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "Ganesha",
@@ -654,12 +801,15 @@
             "Type": [
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Aqua Gun": 1,
+                "Hydro Jet": 7,
+                "Sand Blast": 15,
+                "Bubble Blast": 22,
+                "Acid Rain": 30,
+                "Aqua Burst": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "Garm",
@@ -667,12 +817,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Fierce Fang": 1,
+                "Sand Blast": 7,
+                "Air Cannon": 15,
+                "Power Shot": 22,
+                "Ignis Blast": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "GhostBeast",
@@ -680,12 +833,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Dark Ball": 7,
+                "Flare Arrow": 15,
+                "Shadow Burst": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "Gorilla",
@@ -693,12 +849,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Power Shot": 7,
+                "Ground Pound": 15,
+                "Stone Blast": 22,
+                "Seed Machine Gun": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "GrassMammoth",
@@ -706,12 +865,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Seed Machine Gun": 7,
+                "Power Bomb": 15,
+                "Grass Tornado": 22,
+                "Earth Impact": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "GrassMammoth_Ice",
@@ -719,12 +881,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Stone Cannon": 1,
+                "Icicle Cutter": 7,
+                "Power Bomb": 15,
+                "Iceberg": 22,
+                "Earth Impact": 30,
+                "Cryst Breath": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "GrassPanda",
@@ -732,12 +897,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Seed Machine Gun": 7,
+                "Stone Cannon": 15,
+                "Crushing Punch": 22,
+                "Seed Mine": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "GrassPanda_Electric",
@@ -745,12 +913,15 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Spark Blast": 1,
+                "Shockwave": 7,
+                "Lightning Streak": 15,
+                "Blast Punch": 22,
+                "Tri-Lightning": 30,
+                "Lightning Strike": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "GrassRabbitMan",
@@ -758,12 +929,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Stone Cannon": 7,
+                "Seed Machine Gun": 15,
+                "Stone Blast": 22,
+                "Grass Tornado": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "HadesBird",
@@ -771,12 +945,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Spirit Fire": 1,
+                "Dark Ball": 7,
+                "Shadow Burst": 15,
+                "Flare Storm": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "HawkBird",
@@ -784,12 +961,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Tornado Attack": 7,
+                "Wind Cutter": 15,
+                "Power Bomb": 22,
+                "Sand Tornado": 30,
+                "Grass Tornado": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "Hedgehog",
@@ -797,12 +977,15 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Shockwave": 1,
+                "Power Shot": 7,
+                "Electric Ball": 15,
+                "Power Bomb": 22,
+                "Tri-Lightning": 30,
+                "Lightning Streak": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "Hedgehog_Ice",
@@ -810,12 +993,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ice Missile": 1,
+                "Power Shot": 7,
+                "Iceberg": 15,
+                "Power Bomb": 22,
+                "Icicle Cutter": 30,
+                "Cryst Breath": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "HerculesBeetle",
@@ -824,12 +1010,15 @@
                 "Ground",
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Seed Machine Gun": 7,
+                "Stone Blast": 15,
+                "Stone Cannon": 22,
+                "Giga Horn": 30,
+                "Rock Lance": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "Horus",
@@ -837,12 +1026,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Flare Arrow": 7,
+                "Spirit Fire": 15,
+                "Ignis Breath": 22,
+                "Phoenix Flare": 30,
+                "Ignis Rage": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "IceDeer",
@@ -850,12 +1042,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Ice Missile": 7,
+                "Icicle Cutter": 15,
+                "Freezing Charge": 22,
+                "Iceberg": 30,
+                "Cryst Breath": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "IceFox",
@@ -863,12 +1058,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Ice Missile": 7,
+                "Icicle Cutter": 15,
+                "Spirit Flame": 22,
+                "Iceberg": 30,
+                "Cryst Breath": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "IceHorse",
@@ -876,12 +1074,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Ice Missile": 7,
+                "Icicle Cutter": 15,
+                "Iceberg": 22,
+                "Crystal Wing": 30,
+                "Cryst Breath": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "IceHorse_Dark",
@@ -889,12 +1090,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Dark Ball": 7,
+                "Shadow Burst": 15,
+                "Spirit Flame": 22,
+                "Crystal Wing": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "JetDragon",
@@ -902,12 +1106,15 @@
             "Type": [
                 "Dragon"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Spirit Fire": 1,
+                "Dragon Burst": 7,
+                "Flare Storm": 15,
+                "Draconic Breath": 22,
+                "Beam Comet": 30,
+                "Fire Ball": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "Kelpie",
@@ -915,12 +1122,15 @@
             "Type": [
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Hydro Jet": 1,
+                "Dragon Cannon": 7,
+                "Aqua Gun": 15,
+                "Bubble Blast": 22,
+                "Power Bomb": 30,
+                "Aqua Burst": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "Kelpie_Fire",
@@ -928,12 +1138,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Dragon Cannon": 7,
+                "Spirit Fire": 15,
+                "Flare Arrow": 22,
+                "Dragon Burst": 30,
+                "Ignis Breath": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "KingAlpaca",
@@ -941,12 +1154,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Power Shot": 7,
+                "Power Bomb": 15,
+                "Kingly Slam": 22,
+                "Tri-Lightning": 30,
+                "Rock Lance": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "KingAlpaca_Ice",
@@ -954,12 +1170,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ice Missile": 1,
+                "Icicle Cutter": 7,
+                "Iceberg": 15,
+                "Kingly Slam": 22,
+                "Cryst Breath": 30,
+                "Aqua Burst": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "KingBahamut",
@@ -967,12 +1186,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Ignis Blast": 7,
+                "Stone Blast": 15,
+                "Ignis Breath": 22,
+                "Ignis Rage": 30,
+                "Fire Ball": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "Kirin",
@@ -980,12 +1202,15 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Spark Blast": 1,
+                "Shockwave": 7,
+                "Lock-on Laser": 15,
+                "Lightning Streak": 22,
+                "Tri-Lightning": 30,
+                "Lightning Strike": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "Kitsunebi",
@@ -993,12 +1218,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Sand Blast": 7,
+                "Spirit Fire": 15,
+                "Flare Arrow": 22,
+                "Ignis Breath": 30,
+                "Spirit Flame": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "LavaGirl",
@@ -1006,12 +1234,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Spirit Fire": 7,
+                "Flare Arrow": 15,
+                "Spirit Flame": 22,
+                "Flare Storm": 30,
+                "Ignis Rage": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "LazyCatfish",
@@ -1019,12 +1250,7 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {}
         },
         {
             "CodeName": "LazyDragon",
@@ -1033,12 +1259,15 @@
                 "Dragon",
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Dragon Cannon": 1,
+                "Aqua Gun": 7,
+                "Dragon Burst": 15,
+                "Bubble Blast": 22,
+                "Draconic Breath": 30,
+                "Aqua Burst": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "LazyDragon_Electric",
@@ -1047,12 +1276,15 @@
                 "Dragon",
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Spark Blast": 1,
+                "Dragon Cannon": 7,
+                "Shockwave": 15,
+                "Lightning Streak": 22,
+                "Draconic Breath": 30,
+                "Lightning Strike": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "LilyQueen",
@@ -1060,12 +1292,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Seed Machine Gun": 7,
+                "Seed Mine": 15,
+                "Aqua Burst": 22,
+                "Grass Tornado": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "LilyQueen_Dark",
@@ -1073,12 +1308,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Dark Ball": 1,
+                "Icicle Cutter": 7,
+                "Shadow Burst": 15,
+                "Cryst Breath": 22,
+                "Nightmare Ball": 30,
+                "Blizzard Spike": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "LittleBriarRose",
@@ -1086,12 +1324,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Seed Machine Gun": 7,
+                "Ice Missile": 15,
+                "Grass Tornado": 22,
+                "Iceberg": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "LizardMan",
@@ -1099,12 +1340,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Poison Blast": 1,
+                "Dark Ball": 7,
+                "Shadow Burst": 15,
+                "Spirit Flame": 22,
+                "Nightmare Ball": 30,
+                "Ignis Breath": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "LizardMan_Fire",
@@ -1112,12 +1356,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Poison Blast": 7,
+                "Spirit Fire": 15,
+                "Ignis Breath": 22,
+                "Flare Storm": 30,
+                "Ignis Rage": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "Manticore",
@@ -1125,12 +1372,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Power Shot": 7,
+                "Flare Arrow": 15,
+                "Ignis Breath": 22,
+                "Ignis Rage": 30,
+                "Fire Ball": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "Manticore_Dark",
@@ -1139,12 +1389,15 @@
                 "Fire",
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Shadow Burst": 1,
+                "Flare Arrow": 7,
+                "Ignis Breath": 15,
+                "Spirit Flame": 22,
+                "Ignis Rage": 30,
+                "Fire Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "Monkey",
@@ -1152,12 +1405,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Sand Blast": 7,
+                "Seed Machine Gun": 15,
+                "Seed Mine": 22,
+                "Stone Cannon": 30,
+                "Grass Tornado": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "MopBaby",
@@ -1165,12 +1421,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Ice Missile": 7,
+                "Icicle Cutter": 15,
+                "Power Bomb": 22,
+                "Iceberg": 30,
+                "Cryst Breath": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "MopKing",
@@ -1178,12 +1437,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Ice Missile": 7,
+                "Icicle Cutter": 15,
+                "Iceberg": 22,
+                "Cryst Breath": 30,
+                "Pal Blast": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "Mutant",
@@ -1191,12 +1453,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Power Shot": 7,
+                "Icicle Cutter": 15,
+                "Plasma Tornado": 22,
+                "Power Bomb": 30,
+                "Blizzard Spike": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "NaughtyCat",
@@ -1204,12 +1469,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Power Shot": 7,
+                "Cat Press": 15,
+                "Stone Blast": 22,
+                "Stone Cannon": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "NegativeKoala",
@@ -1217,12 +1485,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Poison Blast": 1,
+                "Sand Blast": 7,
+                "Dark Ball": 15,
+                "Ice Missile": 22,
+                "Shadow Burst": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "NegativeOctopus",
@@ -1230,12 +1501,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Hydro Jet": 1,
+                "Poison Blast": 7,
+                "Dark Ball": 15,
+                "Shadow Burst": 22,
+                "Acid Rain": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "NightFox",
@@ -1243,12 +1517,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Dark Ball": 7,
+                "Shadow Burst": 15,
+                "Power Bomb": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "Penguin",
@@ -1257,12 +1534,15 @@
                 "Water",
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ice Missile": 1,
+                "Hydro Jet": 7,
+                "Aqua Gun": 15,
+                "Icicle Cutter": 22,
+                "Iceberg": 30,
+                "Blizzard Spike": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "PinkCat",
@@ -1270,12 +1550,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Punch Flurry": 1,
+                "Air Cannon": 7,
+                "Sand Blast": 15,
+                "Power Shot": 22,
+                "Wind Cutter": 30,
+                "Seed Machine Gun": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "PinkLizard",
@@ -1283,12 +1566,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Poison Blast": 7,
+                "Shadow Burst": 15,
+                "Acid Rain": 22,
+                "Power Bomb": 30,
+                "Implode": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "PinkRabbit",
@@ -1296,12 +1582,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Power Shot": 7,
+                "Ice Missile": 15,
+                "Blizzard Spike": 22,
+                "Power Bomb": 30,
+                "Iceberg": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "PlantSlime",
@@ -1310,12 +1599,15 @@
                 "Grass",
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Wind Cutter": 7,
+                "Stone Blast": 15,
+                "Seed Machine Gun": 22,
+                "Seed Mine": 30,
+                "Sand Tornado": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "QueenBee",
@@ -1323,12 +1615,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Wind Cutter": 7,
+                "Poison Blast": 15,
+                "Spinning Lance": 22,
+                "Grass Tornado": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "RaijinDaughter",
@@ -1336,12 +1631,15 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Shockwave": 7,
+                "Acid Rain": 15,
+                "Lightning Streak": 22,
+                "Tri-Lightning": 30,
+                "Lightning Strike": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "RedArmorBird",
@@ -1349,12 +1647,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Spirit Fire": 7,
+                "Flare Arrow": 15,
+                "Sand Tornado": 22,
+                "Flare Storm": 30,
+                "Ignis Breath": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "RobinHood",
@@ -1362,12 +1663,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Power Shot": 7,
+                "Focus Shot": 15,
+                "Seed Mine": 22,
+                "Grass Tornado": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "RobinHood_Ground",
@@ -1376,12 +1680,15 @@
                 "Grass",
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Wind Cutter": 7,
+                "Focus Shot": 15,
+                "Stone Blast": 22,
+                "Sand Tornado": 30,
+                "Solar Blast": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "Ronin",
@@ -1389,12 +1696,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Wind Cutter": 7,
+                "Icicle Cutter": 15,
+                "Iaigiri": 22,
+                "Ignis Breath": 30,
+                "Lightning Strike": 40,
+                "Ignis Rage": 50
+            }
         },
         {
             "CodeName": "SaintCentaur",
@@ -1402,12 +1712,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Ice Missile": 7,
+                "Iceberg": 15,
+                "Power Bomb": 22,
+                "Blizzard Spike": 30,
+                "Spear Thrust": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "SakuraSaurus",
@@ -1415,12 +1728,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Sand Blast": 7,
+                "Muscle Slam": 15,
+                "Seed Mine": 22,
+                "Grass Tornado": 30,
+                "Spine Vine": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "SakuraSaurus_Water",
@@ -1429,12 +1745,15 @@
                 "Grass",
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Aqua Gun": 1,
+                "Bubble Blast": 7,
+                "Muscle Slam": 15,
+                "Seed Mine": 22,
+                "Spine Vine": 30,
+                "Aqua Burst": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "Serpent",
@@ -1442,12 +1761,15 @@
             "Type": [
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Hydro Jet": 1,
+                "Dragon Cannon": 7,
+                "Aqua Gun": 15,
+                "Bubble Blast": 22,
+                "Dragon Burst": 30,
+                "Draconic Breath": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "Serpent_Ground",
@@ -1455,12 +1777,15 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Dragon Cannon": 7,
+                "Stone Blast": 15,
+                "Stone Cannon": 22,
+                "Sand Tornado": 30,
+                "Draconic Breath": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "SharkKid",
@@ -1468,12 +1793,15 @@
             "Type": [
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Hydro Jet": 1,
+                "Power Shot": 7,
+                "Aqua Gun": 15,
+                "Bubble Blast": 22,
+                "Icicle Cutter": 30,
+                "Aqua Burst": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "SharkKid_Fire",
@@ -1481,12 +1809,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Power Shot": 7,
+                "Spirit Fire": 15,
+                "Flare Arrow": 22,
+                "Lightning Streak": 30,
+                "Fire Ball": 40,
+                "Ignis Rage": 50
+            }
         },
         {
             "CodeName": "Sheepball",
@@ -1494,12 +1825,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Roly Poly": 1,
+                "Air Cannon": 7,
+                "Power Shot": 15,
+                "Implode": 22,
+                "Electric Ball": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "SkyDragon",
@@ -1507,12 +1841,15 @@
             "Type": [
                 "Dragon"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Dragon Cannon": 1,
+                "Spirit Fire": 7,
+                "Acid Rain": 15,
+                "Draconic Breath": 22,
+                "Grass Tornado": 30,
+                "Aqua Burst": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "SoldierBee",
@@ -1520,12 +1857,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Wind Cutter": 7,
+                "Bee Quiet": 15,
+                "Poison Blast": 22,
+                "Acid Rain": 30,
+                "Grass Tornado": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "Suzaku",
@@ -1533,12 +1873,15 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Ignis Blast": 7,
+                "Spirit Fire": 15,
+                "Flare Arrow": 22,
+                "Ignis Breath": 30,
+                "Flare Storm": 40,
+                "Fire Ball": 50
+            }
         },
         {
             "CodeName": "Suzaku_Water",
@@ -1546,12 +1889,15 @@
             "Type": [
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Hydro Jet": 1,
+                "Ice Missile": 7,
+                "Aqua Gun": 15,
+                "Cryst Breath": 22,
+                "Aqua Burst": 30,
+                "Blizzard Spike": 40,
+                "Hydro Laser": 50
+            }
         },
         {
             "CodeName": "SweetsSheep",
@@ -1559,12 +1905,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Sand Blast": 7,
+                "Power Shot": 15,
+                "Wind Cutter": 22,
+                "Bubble Blast": 30,
+                "Power Bomb": 40,
+                "Pal Blast": 50
+            }
         },
         {
             "CodeName": "ThunderBird",
@@ -1572,12 +1921,15 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Spark Blast": 7,
+                "Shockwave": 15,
+                "Lightning Streak": 22,
+                "Tri-Lightning": 30,
+                "Sand Tornado": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "ThunderDog",
@@ -1585,12 +1937,15 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Sand Blast": 1,
+                "Shockwave": 7,
+                "Spark Blast": 15,
+                "Stone Blast": 22,
+                "Electric Ball": 30,
+                "Lightning Streak": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "ThunderDragonMan",
@@ -1599,12 +1954,15 @@
                 "Dragon",
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Kerauno": 1,
+                "Lightning Strike": 7,
+                "Spark Blast": 15,
+                "Draconic Breath": 22,
+                "Lightning Streak": 30,
+                "Tri-Lightning": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "Umihebi",
@@ -1613,12 +1971,15 @@
                 "Dragon",
                 "Water"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Aqua Gun": 1,
+                "Dragon Cannon": 7,
+                "Draconic Breath": 15,
+                "Aqua Burst": 22,
+                "Tri-Lightning": 30,
+                "Hydro Laser": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "Umihebi_Fire",
@@ -1627,12 +1988,15 @@
                 "Dragon",
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Dragon Cannon": 7,
+                "Flare Storm": 15,
+                "Ignis Breath": 22,
+                "Tri-Lightning": 30,
+                "Fire Ball": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "VioletFairy",
@@ -1640,12 +2004,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Poison Fog": 1,
+                "Wind Cutter": 7,
+                "Poison Blast": 15,
+                "Seed Mine": 22,
+                "Grass Tornado": 30,
+                "Nightmare Ball": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "VolcanicMonster",
@@ -1654,26 +2021,32 @@
                 "Fire",
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ignis Blast": 1,
+                "Stone Blast": 7,
+                "Stone Cannon": 15,
+                "Ignis Breath": 22,
+                "Volcanic Burst": 30,
+                "Ignis Rage": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "VolcanicMonster_Ice",
-            "Name": "Reptyro Cryst",
+            "Name": "Ice Reptyro",
             "Type": [
                 "Ice",
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ice Missile": 1,
+                "Stone Blast": 7,
+                "Iceberg": 15,
+                "Cryst Breath": 22,
+                "Frost Burst": 30,
+                "Blizzard Spike": 40,
+                "Rock Lance": 50
+            }
         },
         {
             "CodeName": "WeaselDragon",
@@ -1682,12 +2055,15 @@
                 "Ice",
                 "Dragon"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ice Missile": 1,
+                "Dragon Cannon": 7,
+                "Dragon Burst": 15,
+                "Icicle Cutter": 22,
+                "Draconic Breath": 30,
+                "Cryst Breath": 40,
+                "Dragon Meteor": 50
+            }
         },
         {
             "CodeName": "Werewolf",
@@ -1695,12 +2071,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Dark Ball": 1,
+                "Jumping Claw": 7,
+                "Shadow Burst": 15,
+                "Icicle Cutter": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "WhiteMoth",
@@ -1708,12 +2087,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ice Missile": 1,
+                "Icicle Cutter": 7,
+                "Iceberg": 15,
+                "Cryst Breath": 22,
+                "Spirit Flame": 30,
+                "Aqua Burst": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "WhiteTiger",
@@ -1721,12 +2103,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Power Shot": 1,
+                "Ice Missile": 7,
+                "Stone Cannon": 15,
+                "Icicle Cutter": 22,
+                "Iceberg": 30,
+                "Cryst Breath": 40,
+                "Blizzard Spike": 50
+            }
         },
         {
             "CodeName": "WindChimes",
@@ -1734,12 +2119,7 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {}
         },
         {
             "CodeName": "WindChimes_Ice",
@@ -1747,12 +2127,7 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {}
         },
         {
             "CodeName": "WizardOwl",
@@ -1760,12 +2135,15 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Dark Ball": 7,
+                "Shadow Burst": 15,
+                "Sand Tornado": 22,
+                "Spirit Flame": 30,
+                "Nightmare Ball": 40,
+                "Dark Laser": 50
+            }
         },
         {
             "CodeName": "WoolFox",
@@ -1773,12 +2151,15 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Air Cannon": 1,
+                "Sand Blast": 7,
+                "Spark Blast": 15,
+                "Power Shot": 22,
+                "Shockwave": 30,
+                "Power Bomb": 40,
+                "Lightning Bolt": 50
+            }
         },
         {
             "CodeName": "Yeti",
@@ -1786,12 +2167,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Ice Missile": 1,
+                "Wind Cutter": 7,
+                "Icicle Cutter": 15,
+                "Iceberg": 22,
+                "Cryst Breath": 30,
+                "Blizzard Spike": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "Yeti_Grass",
@@ -1799,12 +2183,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ]
+            "Moveset": {
+                "Wind Cutter": 1,
+                "Aqua Gun": 7,
+                "Seed Mine": 15,
+                "Grass Tornado": 22,
+                "Spine Vine": 30,
+                "Aqua Burst": 40,
+                "Solar Blast": 50
+            }
         },
         {
             "CodeName": "GYM_ThunderDragonMan",
@@ -1813,12 +2200,7 @@
                 "Dragon",
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Tower": true
         },
         {
@@ -1827,12 +2209,7 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Tower": true
         },
         {
@@ -1841,12 +2218,7 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Tower": true
         },
         {
@@ -1855,12 +2227,7 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Tower": true
         },
         {
@@ -1869,12 +2236,7 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Tower": true
         },
         {
@@ -1883,12 +2245,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -1897,12 +2254,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -1911,12 +2263,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -1925,12 +2272,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -1939,12 +2281,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -1953,12 +2290,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -1967,12 +2299,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -1981,12 +2308,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -1995,12 +2317,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -2009,12 +2326,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -2023,12 +2335,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -2037,12 +2344,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -2051,12 +2353,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -2065,12 +2362,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -2079,12 +2371,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -2093,12 +2380,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         },
         {
@@ -2107,12 +2389,7 @@
             "Type": [
                 "None"
             ],
-            "Moveset": [
-                {
-                    "Name": "MoveName",
-                    "Level": 0
-                }
-            ],
+            "Moveset": {},
             "Human": true
         }
     ]
