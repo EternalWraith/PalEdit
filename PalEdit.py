@@ -74,17 +74,40 @@ def getSelectedPalData():
     print(f"{pal._obj}")  
 
 def DebugAddPal():
+    
+    #region[Debug Player Relic Edit]
+    '''
+    file = askopenfilename(filetype=[("All files", "*.sav")])
+    print(f"Opening file {file}")
+
+    player = PalPlayerEntity(SaveConverter.convert_open_sav(file))
+    player.SetRelicCount(666)
+
+    SaveConverter.convert_save_sav(file,player.dump())
+
+    return
+    '''
+    #endregion
+    
     if not isPalSelected():
         return
     global palguidmanager
     global palbox
     global data
-    #i = int(listdisplay.curselection()[0])
-    #pal = palbox[players[current.get()]][i]
 
-    #with open('NewPal.json', 'w+', encoding='utf-8') as f:
-    #    json.dump(pal._data, f,indent=1,ensure_ascii=False)
-    #return
+    #region[Save Current Pal]
+    '''
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+
+    with open('NewPal.json', 'w+', encoding='utf-8') as f:
+        json.dump(pal._data, f,indent=1,ensure_ascii=False)
+    return
+    '''
+    #endregion
+    
+    #region[Append New Pal]
+    
     if(os.path.exists('NewPal.json')):
         with open('NewPal.json', 'r',encoding='utf-8') as f:
             pal = PalEntity(json.load(f))
@@ -118,7 +141,7 @@ def DebugAddPal():
                 updateDisplay()
         else:
             print("Can't Find Empty Slot!")
-    
+    #endregion
     
 
 

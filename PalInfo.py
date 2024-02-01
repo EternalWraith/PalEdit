@@ -708,7 +708,35 @@ class PalEntity:
         return self._data['key']['InstanceId']['value']
     def SetPalInstanceGuid(self, v : str):
         self._data['key']['InstanceId']['value'] = v
-        
+    def SetPalEquipWaza(self, i : int, v : str):
+        if(i > 2):
+            return
+        equip = self._obj['EquipWaza']['value']['values']
+        if(v in equip):
+            return
+        if(len(equip) <= i):
+            equip.append(v)
+            self.AddPalWaze(v)
+        else:
+            self.DelPalWaze(equip[i])
+            equip[i] = v
+    def DelPalWaze(self, v : str):
+        if v in self._obj['MasteredWaza']['value']['values']:
+            self._obj['MasteredWaza']['value']['values'].remove(v)
+    def AddPalWaze(self, v : str):
+        if v in self._obj['MasteredWaza']['value']['values']:
+            return
+        self._obj['MasteredWaza']['value']['values'].append(v)
+    def SetPlayerSkillPoint(self, v : int):
+        if "IsPlayer" not in self._obj:
+            return
+        self._obj['UnusedStatusPoint']['value'] = v   
+    def SetPlayerStat(self, i, v):#i=0 MaxHp,i=1 MaxSp,i=2 Attack,i=3 Weight,i=4 Capture Power,i=5 Work Speed
+        if "IsPlayer" not in self._obj:
+            return
+        self._obj['GotStatusPointList']['value']['values'][i]['StatusPoint']['value'] = v
+
+
 class PalGuid:
     def __init__(self, data):
         self._data = data
@@ -791,6 +819,52 @@ class PalGuid:
             svdata['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value'] = self._CharacterContainerSaveData
             svdata['properties']['worldSaveData']['value']['GroupSaveDataMap']['value'] = self._GroupSaveDataMap
         return svdata
+
+class PalPlayerEntity:
+    def __init__(self, data):
+        self._data = data
+        self._obj = self._data['properties']['SaveData']['value']
+        self._record = self._obj['RecordData']['value']
+        self._inventoryinfo = self._obj['inventoryInfo']['value']
+
+    def GetPlayerGuid(self):
+        return self._obj['PlayerUId']['value']
+    
+    def GetPlayerIndividualId(self):
+        return self._obj['IndividualId']['value']['InstanceId']['value']
+    
+    def GetTravelPalInventoryGuid(self):
+        return self._obj['OtomoCharacterContainerId']['value']['ID']['value']
+    
+    def GetPalStorageGuid(self):
+        return self._obj['PalStorageContainerId']['value']['ID']['value']
+    
+    def GetCommonItemInventoryGuid(self):
+        self._inventoryinfo['CommonContainerId']['value']['ID']['value']
+    
+    def GetKeyItemInventoryGuid(self):
+        self._inventoryinfo['EssentialContainerId']['value']['ID']['value']
+    
+    def GetWeaponLoadOutInventoryGuid(self):
+        self._inventoryinfo['WeaponLoadOutContainerId']['value']['ID']['value']
+    
+    def GetFoodInventoryGuid(self):
+        self._inventoryinfo['FoodEquipContainerId']['value']['ID']['value']
+    
+    def GetPlayerEquipArmorGuid(self):
+        self._inventoryinfo['PlayerEquipArmorContainerId']['value']['ID']['value']
+    
+    def SetLifmunkEffigyCount(self, v : int):
+        self._record['RelicPossessNum']['value'] = v
+    
+    def SetTechnologyPoint(self, v : int):
+        self._obj['TechnologyPoint']['value'] = v
+    
+    def SetAncientTechnologyPoint(self, v : int):
+        self._obj['bossTechnologyPoint']['value'] = v
+    
+    def dump(self):
+        return self._data
 
 
 if __name__ == "__main__":
