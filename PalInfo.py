@@ -666,6 +666,11 @@ class PalEntity:
 
     def GetNickname(self):
         return self.GetName() if self._nickname == "" else self._nickname
+    def SetNickname(self, NewName : str):
+        if "NickName" in self._obj:
+            self._obj['NickName']['value'] = NewName
+        else:
+            self._obj['NickName'] = {"id": None, "value" : NewName, "type":"StrProperty"}
 
     def GetFullName(self):
         return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ♖" if self.isTower else "" ) + (" ✨" if self.isLucky else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
@@ -814,6 +819,13 @@ class PalGuid:
             if "admin_player_uid" in e['value']['RawData']['value']:
                 return  e['key']
     
+    def RemanePlayer(self, PlayerGuid : str, NewName : str):
+        for e in self._GroupSaveDataMap:
+            if "players" in e['value']['RawData']['value']:
+                for p in e['value']['RawData']['value']['players']:
+                    if p['player_uid'] == PlayerGuid:
+                        p['player_info']['player_name'] = NewName
+                
     def Save(self, svdata):
         if 'properties' in svdata:
             svdata['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value'] = self._CharacterContainerSaveData
