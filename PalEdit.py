@@ -79,7 +79,8 @@ def DebugAddPal():
     '''
     file = askopenfilename(filetype=[("All files", "*.sav")])
     print(f"Opening file {file}")
-
+    SaveConverter.convert_to_gvas(file)
+    return
     player = PalPlayerEntity(SaveConverter.convert_open_sav(file))
     player.SetRelicCount(666)
 
@@ -107,7 +108,7 @@ def DebugAddPal():
     #endregion
     
     #region[Append New Pal]
-    
+
     if(os.path.exists('NewPal.json')):
         with open('NewPal.json', 'r',encoding='utf-8') as f:
             pal = PalEntity(json.load(f))
@@ -389,7 +390,10 @@ def load(file):
 
             if str(e) == "This is a player character":
                 print("Found Player Character")
-                pl = i['value']['RawData']['value']['object']['SaveParameter']['value']['NickName']['value']
+                if("NickName" in i['value']['RawData']['value']['object']['SaveParameter']['value']):
+                    pl = i['value']['RawData']['value']['object']['SaveParameter']['value']['NickName']['value']
+                else:
+                    pl = "UnknowPlayer"
                 plguid = i['key']['PlayerUId']['value']
                 print(f"{pl} - {plguid}")
                 players[pl] = plguid

@@ -91,6 +91,14 @@ def convert_open_sav(filename):
     gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
     return gvas_file.dump()
 
+def convert_to_gvas(filename):
+    print(f"Decompressing sav file")
+    with open(filename, "rb") as f:
+        data = f.read()
+        raw_gvas, _ = decompress_sav_to_gvas(data)
+    with open(filename.replace('.sav','.gvas'),"wb") as f:
+        f.write(raw_gvas)
+
 def convert_save_sav(output_path, data):
     if os.path.exists(output_path):
         print(f"{output_path} already exists, this will overwrite the file")
