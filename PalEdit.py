@@ -1,6 +1,12 @@
 import os, webbrowser, json, time, uuid
 
+# pyperclip
+# docs: https://pypi.org/project/pyperclip/#description
+# install: pip install pyperclip
+import pyperclip
+
 import SaveConverter
+import tkinter as tk
 
 from PalInfo import *
 
@@ -10,21 +16,55 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import messagebox
 from PIL import ImageTk, Image
 
+
 global palbox
 palbox = {}
 global players
 players = {}
 
+global containers
+containers = {}
 
 global unknown
 unknown = []
+
 global data
 global debug
 debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.4.8"
+version = "0.5"
+
+
+ftsize = 18
+badskill = "#DE3C3A"
+okayskill = "#DFE8E7"
+goodskill = "#FEDE00"
+
+
+def hex_to_rgb(value):
+   value = value.lstrip('#')
+   lv = len(value)
+   return tuple(int(value[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
+
+
+def rgb_to_hex(rgb):
+   return '%02x%02x%02x' % rgb
+
+
+def mean_color(color1, color2):
+   rgb1 = hex_to_rgb(color1.replace("#", ""))
+   rgb2 = hex_to_rgb(color2.replace("#", ""))
+
+   avg = lambda x, y: round((x+y) / 2)
+
+   new_rgb = ()
+
+   for i in range(len(rgb1)):
+      new_rgb += (avg(rgb1[i], rgb2[i]),)
+       
+   return "#"+rgb_to_hex(new_rgb)
 
 def toggleDebug():
     global debug
@@ -34,6 +74,8 @@ def toggleDebug():
     else:
         debug = "false"
         frameDebug.pack_forget()
+    updateWindowSize()
+
 
 
 def isPalSelected():
@@ -58,6 +100,7 @@ def getSelectedPalInfo():
     print(f"  - Skill 2:  {skills[1].get()}")
     print(f"  - Skill 3:  {skills[2].get()}")
     print(f"  - Skill 4:  {skills[3].get()}")
+    print(f"  - HP IV:  {pal.GetTalentHP()}")
     print(f"  - Melee IV:  {pal.GetAttackMelee()}")
     print(f"  - Range IV:  {pal.GetAttackRanged()}")
 
@@ -66,8 +109,35 @@ def getSelectedPalData():
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][i]
-    print(f"Get Data: {pal.GetNickname()}")    
-    print(f"{pal._obj}")  
+    # print(f"Get Data: {pal.GetNickname()}")    
+    # print(f"{pal._obj}")  
+    pyperclip.copy(f"{pal._obj}")
+    webbrowser.open('https://jsonformatter.curiousconcept.com/#')
+
+def updateAttacks():
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+    attackops = [PalAttacks[e] for e in PalAttacks]
+    
+          
+    for a in range(0,3):
+        if a > len(pal.GetEquippedMoves())-1:
+            attacks[a].set("None")
+        else:
+            attacks[a].set(PalAttacks[pal.GetEquippedMoves()[a]])
+    setAttackCols()
+
+def setAttackCols():
+    for i in range(0,3):
+        if attacks[i].get() == "None":
+            attackdrops[i].config(highlightbackground="lightgrey", bg="lightgrey", activebackground="lightgrey")
+        else:
+            v = attacks[i].get()
+            basecol = PalElements[AttackTypes[v]]
+            halfcol = mean_color(basecol, "ffffff")
+            attackdrops[i].config(highlightbackground=basecol, bg=halfcol, activebackground=halfcol)
 
 def setpreset(preset):
     if not isPalSelected():
@@ -76,16 +146,26 @@ def setpreset(preset):
     pal = palbox[players[current.get()]][i] # seems global palbox is not necessary
 
     match preset:
-        case "worker":
+        case "base":
+            skills[0].set("Artisan")
+            skills[1].set("Workaholic")
+            skills[2].set("Lucky")
+            skills[3].set("Diet Lover")
+        case "workspeed":
             skills[0].set("Artisan")
             skills[1].set("Serious")
             skills[2].set("Lucky")
             skills[3].set("Work Slave")
-        case "runner":
+        case "movement":
             skills[0].set("Swift")
             skills[1].set("Legend")
             skills[2].set("Runner")
             skills[3].set("Nimble")
+        case "tank":
+            skills[0].set("Burly Body")
+            skills[1].set("Legend")
+            skills[2].set("Masochist")
+            skills[3].set("Hard Skin")
         case "dmg_max":
             skills[0].set("Musclehead")
             skills[1].set("Legend")
@@ -96,16 +176,45 @@ def setpreset(preset):
             skills[1].set("Legend")
             skills[2].set("Ferocious")
             skills[3].set("Burly Body")
-        case "dmg_dragon":
+        case "dmg_mount":
             skills[0].set("Musclehead")
             skills[1].set("Legend")
             skills[2].set("Ferocious")
-            skills[3].set("Divine Dragon")
-        case "tank":
-            skills[0].set("Burly Body")
+            skills[3].set("Swift")
+        case "dmg_element":
+            primary = pal.GetPrimary().GetName().lower()
+            secondary = pal.GetSecondary().GetName().lower()
+            if primary == "none":
+                messagebox.showerror("Preset: Dmg: Element", "This pal has no elements! Preset skipped")
+                return
+            skills[0].set("Musclehead")
             skills[1].set("Legend")
-            skills[2].set("Masochist")
-            skills[3].set("Hard Skin")
+            skills[2].set("Ferocious")
+            match primary:
+                case "neutral":
+                    skills[3].set("Celestial Emperor")
+                case "dark":
+                    skills[3].set("Lord of the Underworld")
+                case "dragon":
+                    skills[3].set("Divine Dragon")
+                case "ice":
+                    skills[3].set("Ice Emperor")
+                case "fire":
+                    skills[3].set("Flame Emperor")
+                case "grass":
+                    skills[3].set("Spirit Emperor")
+                case "ground":
+                    skills[3].set("Earth Emperor")
+                case "electric":
+                    skills[3].set("Lord of Lightning")
+                case "water":
+                    skills[3].set("Lord of the Sea")
+                case _:
+                    messagebox.showerror(f"Error: elemental was not found for preset: {primary}-{secondary}")
+
+            # uncecessary msg
+            # if not secondary == "none":
+            #     messagebox.showerror(f"You pal has a second elemental - its probably better to use Dmg: Max preset")
         case _:
             print(f"Preset {preset} not found - nothing changed")
             return
@@ -121,18 +230,22 @@ def setpreset(preset):
 
     refresh(i)
 
-def makeworker():
-    setpreset("worker")
-def makerunner():
-    setpreset("runner")
-def makedmgmax():
-    setpreset("dmg_max")
-def makedmgbalanced():
-    setpreset("dmg_balanced")
-def makedmgdragon():
-    setpreset("dmg_dragon")
-def maketank():
+def preset_base():
+    setpreset("base")
+def preset_workspeed():
+    setpreset("workspeed")
+def preset_movement():
+    setpreset("movement")
+def preset_tank():
     setpreset("tank")
+def preset_dmg_max():
+    setpreset("dmg_max")
+def preset_dmg_balanced():
+    setpreset("dmg_balanced")
+def preset_dmg_mount():
+    setpreset("dmg_mount")
+def preset_dmg_element():
+    setpreset("dmg_element")
 
 def changerank(configvalue):
     if not isPalSelected():
@@ -169,13 +282,29 @@ def changeskill(num):
         if skills[num].get() in ["None", "NONE"]:
             pal.RemoveSkill(num)
         else:
+            
             pal.SetSkill(num, skills[num].get())
+    
+    refresh(i)
 
+def changeattack(num):
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+    
+    if not attacks[num].get() in ["Unknown", "UNKNOWN"]:
+        if attacks[num].get() in ["None", "NONE"]:
+            pal.RemoveAttack(num)
+        else:
+            pal.SetAttack(num, attacks[num].get())
+    
     refresh(i)
 
 def onselect(evt):
     global palbox
     global editindex
+    global debug
     w = evt.widget
     if not isPalSelected():
         return
@@ -186,9 +315,13 @@ def onselect(evt):
     index = int(w.curselection()[0])
     editindex = index
 
+
     pal = palbox[players[current.get()]][index]
     #palname.config(text=pal.GetName())
     speciesvar.set(pal.GetName())
+
+    storageId.config(text=f"StorageID: {pal.storageId}")
+    storageSlot.config(text=f"StorageSlot: {pal.storageSlot}")
 
     g = pal.GetGender()
     palgender.config(text=g, fg=PalGender.MALE.value if g == "Male ♂" else PalGender.FEMALE.value)
@@ -197,10 +330,12 @@ def onselect(evt):
     level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
     portrait.config(image=pal.GetImage())
 
-    ptype.config(text=pal.GetPrimary().GetName(), bg=pal.GetPrimary().GetColour())
-    stype.config(text=pal.GetSecondary().GetName(), bg=pal.GetSecondary().GetColour())
+    ptype.config(text=pal.GetPrimary(), bg=PalElements[pal.GetPrimary()])
+    stype.config(text=pal.GetSecondary(), bg=PalElements[pal.GetSecondary()])
 
     # ⚔🏹
+    #talent_hp_var.set(pal.GetTalentHP())
+    phpvar.set(pal.GetTalentHP())
     meleevar.set(pal.GetAttackMelee())
     shotvar.set(pal.GetAttackRanged())
     defvar.set(pal.GetDefence())
@@ -208,6 +343,9 @@ def onselect(evt):
 
     luckyvar.set(pal.isLucky)
     alphavar.set(pal.isBoss)
+
+    updateAttacks()
+
 
     # rank
     match pal.GetRank():
@@ -227,10 +365,12 @@ def onselect(evt):
         s.append("NONE")
 
     for i in range(0, 4):
-        if not s[i] in [s.name for s in PalSkills]:
+        if not s[i] in [p for p in PalPassives]:
             skills[i].set("Unknown")
         else:
-            skills[i].set(PalSkills[s[i]].value)
+            skills[i].set(PalPassives[s[i]])
+
+    setskillcolours()
     
 
 def changetext(num):
@@ -250,9 +390,9 @@ def changetext(num):
 
 
     if skills[num].get() == "Unknown":
-        skilllabel.config(text=f"{pal.GetSkills()[num]}{SkillDesc['Unknown']}")
+        skilllabel.config(text=f"{pal.GetSkills()[num]}{PassiveDescriptions['Unknown']}")
         return
-    skilllabel.config(text=SkillDesc[skills[num].get()])
+    skilllabel.config(text=PassiveDescriptions[skills[num].get()])
 
     
 def loadfile():
@@ -282,9 +422,11 @@ def load(file):
     global palbox
     global players
     global current
+    global containers
     current.set("")
     palbox = {}
     players = {}
+    containers = {}
 
     f = open(file, "r", encoding="utf8")
     data = json.loads(f.read())
@@ -300,6 +442,7 @@ def load(file):
         f.close()
 
 
+    nullmoves = []
     for i in paldata:
         try:
             p = PalEntity(i)
@@ -309,10 +452,16 @@ def load(file):
 
             n = p.GetFullName()
 
+            for m in p.GetLearntMoves():
+                if not m in nullmoves:
+                    if not m in PalAttacks:
+                        nullmoves.append(mp)
+
         except Exception as e:
 
             if str(e) == "This is a player character":
                 print("Found Player Character")
+                # print(f"\nDebug: Data \n{i}\n\n")
                 pl = i['value']['RawData']['value']['object']['SaveParameter']['value']['NickName']['value']
                 plguid = i['key']['PlayerUId']['value']
                 print(f"{pl} - {plguid}")
@@ -336,7 +485,24 @@ def load(file):
         print(f"{i} = {players[i]}")
     playerdrop['values'] = list(players.keys())
     playerdrop.current(0)
+
+    if False: # change to true to enable testing of containers
+        if not file.endswith(".pson"):
+            condata = data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
+            for c in condata:
+                conguid = c["key"]["ID"]["value"]
+                if not conguid in containers:
+                    containers[conguid] = 0
+                else:
+                    containers[conguid] += 1
+
+            print(f"{len(containers)} containers were found")
+            for c in containers:
+                print(f"{c} : {containers[c]}")
     
+    nullmoves.sort()    
+    for i in nullmoves:
+        print(f"{i} was not found in Attack Database")
 
     refresh()
 
@@ -410,9 +576,15 @@ def savejson(filename):
     f.close()
 
     changetext(-1)
+    
+def createGUIDtoClipboard():
+    newguid = uuid.uuid4()
+    print(newguid)
+    pyperclip.copy(f"{newguid}")
 
 def generateguid():
-    print(uuid.uuid4())
+    newguid = uuid.uuid4()
+    print(newguid)
 
 def updatestats(e):
     if not isPalSelected():
@@ -420,6 +592,8 @@ def updatestats(e):
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][e]
 
+    #pal.SetTalentHP(talent_hp_var.get())
+    pal.SetTalentHP(phpvar.get())
     pal.SetAttackMelee(meleevar.get())
     pal.SetAttackRanged(shotvar.get())
     pal.SetDefence(defvar.get())
@@ -457,7 +631,17 @@ def changespeciestype(evt):
     updateDisplay()
     refresh(palbox[players[current.get()]].index(pal))
 
+def setskillcolours():
+    for snum in range(0,4):
+        rating = PassiveRating[skills[snum].get()]
+        col = goodskill if rating == "Good" else okayskill if rating == "Okay" else badskill
+
+        skilldrops[snum].config(highlightbackground=col, bg=mean_color(col, "ffffff"), activebackground=mean_color(col, "ffffff"))
+
 def refresh(num=0):
+    setskillcolours()
+    setAttackCols()
+    
     listdisplay.select_set(num)
     listdisplay.event_generate("<<ListboxSelect>>")
 
@@ -471,7 +655,8 @@ def converttojson():
     doconvertjson(file)
 
 def doconvertjson(file, compress=False):
-    SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), compress)
+    print(compress)
+    SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
 
     load(file.replace(".sav", ".sav.json"))
 
@@ -489,7 +674,7 @@ def converttosave():
 
 
 def doconvertsave(file):
-    SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"))
+    SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"), True)
 
     changetext(-1)
     jump()
@@ -543,9 +728,6 @@ root = Tk()
 purplepanda = ImageTk.PhotoImage(Image.open(f'resources/MossandaIcon.png').resize((240,240)))
 root.iconphoto(True, purplepanda)
 root.title(f"PalEdit v{version}")
-root.geometry("") # auto window size
-root.minsize("800", "500") # minwidth for better view
-#root.resizable(width=False, height=False)
 
 global current
 current = StringVar()
@@ -561,8 +743,8 @@ filemenu.add_command(label="Save Changes", command=savefile)
 tools.add_cascade(label="File", menu=filemenu, underline=0)
 
 toolmenu = Menu(tools, tearoff=0)
-toolmenu.add_command(label="Generate GUID", command=generateguid)
 toolmenu.add_command(label="Debug", command=toggleDebug)
+# toolmenu.add_command(label="Generate GUID", command=generateguid)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
@@ -595,6 +777,42 @@ listdisplay.pack(side=LEFT, fill=BOTH)
 listdisplay.bind("<<ListboxSelect>>", onselect)
 scrollbar.config(command=listdisplay.yview)
 
+# Attack Skills
+atkskill = Frame(root, width=120, relief="groove", borderwidth=2)
+atkskill.pack(side=RIGHT, fill=Y)
+atkLabel = Label(atkskill, bg="darkgrey", width=12, text="Equipped", font=("Arial", ftsize), justify="center")
+atkLabel.pack(fill=X)
+
+attacks = [StringVar(), StringVar(), StringVar()]
+attacks[0].set("Blast Punch")
+attacks[1].set("Tri-Lightning")
+attacks[2].set("Dark Laser")
+
+equipFrame = Frame(atkskill, borderwidth=2, relief="raised")
+equipFrame.pack(fill=X)
+
+attackops = [PalAttacks[e] for e in PalAttacks]
+attackops.remove("None")
+attackops.sort()
+attackops.insert(0,"None")
+attackdrops = [
+    OptionMenu(equipFrame, attacks[0], *attackops, command=lambda evt: changeattack(0)),
+    OptionMenu(equipFrame, attacks[1], *attackops, command=lambda evt: changeattack(1)),
+    OptionMenu(equipFrame, attacks[2], *attackops, command=lambda evt: changeattack(2))
+    ]
+
+attackdrops[0].pack(fill=X)
+attackdrops[0].config(font=("Arial", ftsize), width=12, direction="right")
+attackdrops[1].pack(fill=X)
+attackdrops[1].config(font=("Arial", ftsize), width=12, direction="right")
+attackdrops[2].pack(fill=X)
+attackdrops[2].config(font=("Arial", ftsize), width=12, direction="right")
+
+attackdrops[0].config(highlightbackground=PalElements["Electric"], bg=mean_color(PalElements["Electric"], "ffffff"), activebackground=mean_color(PalElements["Electric"], "ffffff"))
+attackdrops[1].config(highlightbackground=PalElements["Electric"], bg=mean_color(PalElements["Electric"], "ffffff"), activebackground=mean_color(PalElements["Electric"], "ffffff"))
+attackdrops[2].config(highlightbackground=PalElements["Dark"], bg=mean_color(PalElements["Dark"], "ffffff"), activebackground=mean_color(PalElements["Dark"], "ffffff"))
+
+# Individual Info
 infoview = Frame(root, relief="groove", borderwidth=2, width=480, height=480)
 infoview.pack(side=RIGHT, fill=BOTH, expand=True)
 
@@ -607,13 +825,11 @@ resourceview.pack(side=LEFT, fill=BOTH, expand=True)
 portrait = Label(resourceview, image=purplepanda, relief="sunken", borderwidth=2)
 portrait.pack()
 
-ftsize = 18
-
 typeframe = Frame(resourceview)
 typeframe.pack(expand=True, fill=X)
-ptype = Label(typeframe, text="Electric", font=("Arial", ftsize), bg=Elements.ELECTRICITY.value.GetColour(), width=6)
+ptype = Label(typeframe, text="Electric", font=("Arial", ftsize), bg=PalElements["Electric"], width=6)
 ptype.pack(side=LEFT, expand=True, fill=X)
-stype = Label(typeframe, text="Dark", font=("Arial", ftsize), bg=Elements.DARK.value.GetColour(), width=6)
+stype = Label(typeframe, text="Dark", font=("Arial", ftsize), bg=PalElements["Dark"], width=6)
 stype.pack(side=RIGHT, expand=True, fill=X)
 
 formframe = Frame(resourceview)
@@ -654,7 +870,7 @@ labelview.pack(side=LEFT, expand=True, fill=BOTH)
 
 name = Label(labelview, text="Species", font=("Arial", ftsize), bg="lightgrey")
 name.pack(expand=True, fill=X)
-gender = Label(labelview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6)
+gender = Label(labelview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6, pady=6)
 gender.pack(expand=True, fill=X)
 attack = Label(labelview, text="Attack", font=("Arial", ftsize), bg="lightgrey", width=6)
 attack.pack(expand=True, fill=X)
@@ -662,13 +878,15 @@ defence = Label(labelview, text="Defence", font=("Arial", ftsize), bg="lightgrey
 defence.pack(expand=True, fill=X)
 workspeed = Label(labelview, text="Workspeed", font=("Arial", ftsize), bg="lightgrey", width=10)
 workspeed.pack(expand=True, fill=X)
+hp = Label(labelview, text="HP", font=("Arial", ftsize), bg="lightgrey", width=10)
+hp.pack(expand=True, fill=X)
 rankspeed = Label(labelview, text="Rank", font=("Arial", ftsize), bg="lightgrey")
 rankspeed.pack(expand=True, fill=X)
 
 editview = Frame(deckview)
 editview.pack(side=RIGHT, expand=True, fill=BOTH)
 
-species = [e.value.GetName() for e in PalType]
+species = [PalSpecies[e].GetName() for e in PalSpecies]
 species.sort()
 speciesvar = StringVar()
 speciesvar.set("PalEdit")
@@ -744,7 +962,6 @@ paldef.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
 paldef.bind("<FocusOut>", lambda evt, sv=defvar: fillifempty(sv))
 paldef.pack(expand=True, fill=X)
 
-
 wspvar = IntVar()
 wspvar.trace("w", lambda name, index, mode, sv=wspvar: clamp(sv))
 wspvar.set(70)
@@ -752,6 +969,32 @@ palwsp = Entry(editview, textvariable=wspvar, font=("Arial", ftsize), width=6)
 palwsp.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
 palwsp.bind("<FocusOut>", lambda evt, sv=wspvar: fillifempty(sv))
 palwsp.pack(expand=True, fill=X)
+
+def talent_hp_changed(*args):
+    if not isPalSelected():
+        return
+    i = int(listdisplay.curselection()[0])
+    pal = palbox[players[current.get()]][i]
+    if talent_hp_var.get() == 0:
+        talent_hp_var.set(1)
+    # change value of pal
+
+phpvar = IntVar()
+phpvar.trace("w", lambda name, index, mode, sv=phpvar: clamp(sv))
+phpvar.set(50)
+palhps = Entry(editview, textvariable=phpvar, font=("Arial", ftsize), width=6)
+palhps.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+palhps.bind("<FocusOut>", lambda evt, sv=phpvar: fillifempty(sv))
+palhps.pack(expand=True, fill=X)
+
+"""
+talent_hp_var = IntVar(value=50)
+talent_hp_var.trace_add("write", lambda name, index, mode, sv=talent_hp_var: talent_hp_changed(clamp(sv)))
+# hpslider = Scale(editview, from_=0, to=100, tickinterval=50, orient='horizontal', variable=talent_hp_var)
+hpslider = Scale(editview, from_=0, to=100, orient='horizontal', variable=talent_hp_var)
+hpslider.config(width=9)
+hpslider.pack(pady=(0,10), expand=True, fill=X, anchor="center")
+"""
 
 ranks = ('0', '1', '2', '3', '4')
 ranksvar = IntVar()
@@ -770,24 +1013,24 @@ botview = Frame(skillview)
 botview.pack(fill=BOTH, expand=True)
 
 skills = [StringVar(), StringVar(), StringVar(), StringVar()]
-for i in range(0, 4):
-    skills[i].set("Unknown")
-    skills[i].trace("w", lambda *args, num=i: changeskill(num))
+#for i in range(0, 4):
+    #skills[i].set("Unknown")
+    #skills[i].trace("w", lambda *args, num=i: changeskill(num))
 skills[0].set("Legend")
 skills[1].set("Workaholic")
 skills[2].set("Ferocious")
 skills[3].set("Lucky")
 
-op = [e.value for e in PalSkills]
+op = [PalPassives[e] for e in PalPassives]
 op.pop(0)
 op.pop(0)
 op.sort()
 op.insert(0, "None")
 skilldrops = [
-    OptionMenu(topview, skills[0], *op),
-    OptionMenu(topview, skills[1], *op),
-    OptionMenu(botview, skills[2], *op),
-    OptionMenu(botview, skills[3], *op)
+    OptionMenu(topview, skills[0], *op, command=lambda evt: changeskill(0)),
+    OptionMenu(topview, skills[1], *op, command=lambda evt: changeskill(1)),
+    OptionMenu(botview, skills[2], *op, command=lambda evt: changeskill(2)),
+    OptionMenu(botview, skills[3], *op, command=lambda evt: changeskill(3))
     ]
 
 skilldrops[0].pack(side=LEFT, expand=True, fill=BOTH)
@@ -798,6 +1041,11 @@ skilldrops[2].pack(side=LEFT, expand=True, fill=BOTH)
 skilldrops[2].config(font=("Arial", ftsize), width=6, direction="right")
 skilldrops[3].pack(side=RIGHT, expand=True, fill=BOTH)
 skilldrops[3].config(font=("Arial", ftsize), width=6, direction="right")
+
+skilldrops[0].config(highlightbackground=goodskill, bg=mean_color(goodskill, "ffffff"), activebackground=mean_color(goodskill, "ffffff"))
+skilldrops[1].config(highlightbackground=goodskill, bg=mean_color(goodskill, "ffffff"), activebackground=mean_color(goodskill, "ffffff"))
+skilldrops[2].config(highlightbackground=goodskill, bg=mean_color(goodskill, "ffffff"), activebackground=mean_color(goodskill, "ffffff"))
+skilldrops[3].config(highlightbackground=goodskill, bg=mean_color(goodskill, "ffffff"), activebackground=mean_color(goodskill, "ffffff"))
 
 skilldrops[0].bind("<Enter>", lambda evt, num=0: changetext(num))
 skilldrops[1].bind("<Enter>", lambda evt, num=1: changetext(num))
@@ -821,27 +1069,35 @@ framePresetsButtons.pack(fill=BOTH, expand=True)
 
 framePresetsButtons1 = Frame(framePresetsButtons)
 framePresetsButtons1.pack(fill=BOTH, expand=True)
-makeworkerBtn = Button(framePresetsButtons1, text="Worker", command=makeworker)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons1, text="Runner", command=makerunner)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons1, text="Tank", command=maketank)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+preset_title1 = Label(framePresetsButtons1, text='Utility:', anchor='e', bg="darkgrey", font=("Arial", 13), width=9).pack(side=LEFT, fill=X)
+preset_button = Button(framePresetsButtons1, text="Base", command=preset_base)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons1, text="Speed Worker", command=preset_workspeed)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons1, text="Speed Runner", command=preset_movement)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons1, text="Tank", command=preset_tank)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
 
 framePresetsButtons2 = Frame(framePresetsButtons)
 framePresetsButtons2.pack(fill=BOTH, expand=True)
-makeworkerBtn = Button(framePresetsButtons2, text="DMG: Max", command=makedmgmax)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons2, text="DMG: Balanced", command=makedmgbalanced)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
-makeworkerBtn = Button(framePresetsButtons2, text="DMG: Dragon", command=makedmgdragon)
-makeworkerBtn.config(font=("Arial", 12))
-makeworkerBtn.pack(side=LEFT, expand=True, fill=BOTH)
+preset_title2 = Label(framePresetsButtons2, text='Damage:', anchor='e', bg="darkgrey", font=("Arial", 13), width=9).pack(side=LEFT, fill=X)
+preset_button = Button(framePresetsButtons2, text="Max", command=preset_dmg_max)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons2, text="Balanced", command=preset_dmg_balanced)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons2, text="Mount", command=preset_dmg_mount)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
+preset_button = Button(framePresetsButtons2, text="Element", command=preset_dmg_element)
+preset_button.config(font=("Arial", 12))
+preset_button.pack(side=LEFT, expand=True, fill=BOTH)
 
 # PRESETS OPTIONS
 framePresetsExtras = Frame(framePresets, relief="groove", borderwidth=4)
@@ -880,13 +1136,22 @@ presetTitleAttributesTodo = Label(framePresetsAttributes, text='Not Yet', font=(
 frameDebug = Frame(infoview, relief="flat")
 frameDebug.pack()
 frameDebug.pack_forget()
-presetTitle = Label(frameDebug, text='Debug:', anchor='w', bg="darkgrey", font=("Arial", ftsize), width=6, height=1).pack(fill=BOTH)
+debugTitle = Label(frameDebug, text='Debug:', anchor='w', bg="darkgrey", font=("Arial", ftsize), width=6, height=1)
+debugTitle.pack(fill=BOTH)
+storageId = Label(frameDebug, text='StorageID: NULL', anchor='w', bg="darkgrey", font=("Arial", ftsize), width=6, height=1)
+storageId.pack(fill=BOTH)
+storageSlot = Label(frameDebug, text='StorageSlot: NULL', anchor='w', bg="darkgrey", font=("Arial", ftsize), width=6, height=1)
+storageSlot.pack(fill=BOTH)
 button = Button(frameDebug, text="Get Info", command=getSelectedPalInfo)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
-button = Button(frameDebug, text="Get Data", command=getSelectedPalData)
+button = Button(frameDebug, text="Copy Pal Data", command=getSelectedPalData)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
+button = Button(frameDebug, text="Generate & Copy GUID", command=createGUIDtoClipboard)
+button.config(font=("Arial", 12))
+button.pack(side=LEFT, expand=True, fill=BOTH)
+
 
 # FOOTER
 frameFooter = Frame(infoview, relief="flat")
@@ -896,4 +1161,23 @@ skilllabel.pack()
 
 
 
+# center & window size
+def updateWindowSize(doCenter=""):
+    root.update()
+    window_height = root.winfo_reqheight()
+    window_width = root.winfo_reqwidth()
+    root.minsize(window_width, window_height) # minwidth for better view
+    if doCenter:
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x_cordinate = int((screen_width/2) - (window_width/2))
+        y_cordinate = int((screen_height/2) - (window_height/2))
+        root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
+    else:
+        root.geometry("{}x{}".format(window_width, window_height))
+
+
+# root.resizable(width=False, height=True)
+root.geometry("") # auto window size
+updateWindowSize("true")
 root.mainloop()

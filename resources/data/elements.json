@@ -1,0 +1,44 @@
+{
+    "values": [
+        {
+            "Name": "None",
+            "Color": "#d9d9d9"
+        },
+        {
+            "Name": "Neutral",
+            "Color": "#d8a796"
+        },
+        {
+            "Name": "Dark",
+            "Color": "#ad0035"
+        },
+        {
+            "Name": "Dragon",
+            "Color": "#c22df9"
+        },
+        {
+            "Name": "Ice",
+            "Color": "#00f2ff"
+        },
+        {
+            "Name": "Fire",
+            "Color": "#ff4208"
+        },
+        {
+            "Name": "Grass",
+            "Color": "#83f001"
+        },
+        {
+            "Name": "Ground",
+            "Color": "#ba5608"
+        },
+        {
+            "Name": "Electric",
+            "Color": "#feed01"
+        },
+        {
+            "Name": "Water",
+            "Color": "#0074ff"
+        }
+    ]
+}

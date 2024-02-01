@@ -1,0 +1,400 @@
+{
+    "values": [
+        {
+            "CodeName": "UNKNOWN",
+            "Name": "Unknown",
+            "Description": " does not exist or is not in our database yet",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "NONE",
+            "Name": "None",
+            "Description": "The pal has no skill in this slot",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Normal_1_PAL",
+            "Name": "Abnormal",
+            "Description": "-10% damage received from Neutral attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Dark_1_PAL",
+            "Name": "Cheery",
+            "Description": "-10% damage received from Dark attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Dragon_1_PAL",
+            "Name": "Dragonkiller",
+            "Description": "-10% damage received from Dragon attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Ice_1_PAL",
+            "Name": "Heated Body",
+            "Description": "-10% damage received from Ice attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Fire_1_PAL",
+            "Name": "Suntan Lover",
+            "Description": "-10% damage received from Fire attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Leaf_1_PAL",
+            "Name": "Botanical Barrier",
+            "Description": "-10% damage received from Grass attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Earth_1_PAL",
+            "Name": "Earthquake Resistant",
+            "Description": "-10% damage received from Ground attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Thunder_1_PAL",
+            "Name": "Insulated Body",
+            "Description": "-10% damage received from Electric attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Aqua_1_PAL",
+            "Name": "Waterproof",
+            "Description": "-10% damage received from Water attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Normal_1_PAL",
+            "Name": "Zen Mind",
+            "Description": "+10% damage dealt with Neutral attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Dark_1_PAL",
+            "Name": "Veil of Darkness",
+            "Description": "+10% damage dealt with Dark attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Dragon_1_PAL",
+            "Name": "Blood of the Dragon",
+            "Description": "+10% damage dealt with Dragon attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Ice_1_PAL",
+            "Name": "Coldblooded",
+            "Description": "+10% damage dealt with Ice attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Fire_1_PAL",
+            "Name": "Pyromaniac",
+            "Description": "+10% damage dealt with Fire attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Leaf_1_PAL",
+            "Name": "Fragrant Foliage",
+            "Description": "+10% damage dealt with Grass attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Earth_1_PAL",
+            "Name": "Power of Gaia",
+            "Description": "+10% damage dealt with Ground attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Thunder_1_PAL",
+            "Name": "Capacitor",
+            "Description": "+10% damage dealt with Electric attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Aqua_1_PAL",
+            "Name": "Hydromaniac",
+            "Description": "+10% damage dealt with Water attacks",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Normal_2_PAL",
+            "Name": "Celestial Emperor",
+            "Description": "+20% damage dealt with Neutral attacks; Paladius' signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Dark_2_PAL",
+            "Name": "Lord of the Underworld",
+            "Description": "+20% damage dealt with Dark attacks; Necromus' signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Dragon_2_PAL",
+            "Name": "Divine Dragon",
+            "Description": "+20% damage dealt with Dragon attacks; Jetragon's signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Ice_2_PAL",
+            "Name": "Ice Emperor",
+            "Description": "+20% damage dealt with Ice attacks; Frostallion's signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Fire_2_PAL",
+            "Name": "Flame Emperor",
+            "Description": "+20% damage dealt with Fire attacks; Blazamut's signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Leaf_2_PAL",
+            "Name": "Spirit Emperor",
+            "Description": "+20% damage dealt with Grass attacks; Lyleen's signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Earth_2_PAL",
+            "Name": "Earth Emperor",
+            "Description": "+20% damage dealt with Ground attacks; Anubis' signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Thunder_2_PAL",
+            "Name": "Lord of Lightning",
+            "Description": "+20% damage dealt with Electric attacks; Orserk's signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Aqua_2_PAL",
+            "Name": "Lord of the Sea",
+            "Description": "+20% damage dealt with Water attacks; Jormuntide's signature ability",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_up1",
+            "Name": "Brave",
+            "Description": "+10% to Attack stat",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_up2",
+            "Name": "Ferocious",
+            "Description": "+20% to Attack stat",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_down1",
+            "Name": "Coward",
+            "Description": "-10% to Attack stat",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_down2",
+            "Name": "Pacifist",
+            "Description": "-20% to Attack stat",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "Deffence_up1",
+            "Name": "Hard Skin",
+            "Description": "+10% to Defence stat",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Deffence_up2",
+            "Name": "Burly Body",
+            "Description": "+20% to Defence stat",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "Deffence_down1",
+            "Name": "Downtrodden",
+            "Description": "-10% to Defence stat",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Deffence_down2",
+            "Name": "Brittle",
+            "Description": "-20% to Defence stat",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "TrainerMining_up1",
+            "Name": "Mine Foreman",
+            "Description": "+25% to Player mining efficiency",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerLogging_up1",
+            "Name": "Logging Foreman",
+            "Description": "+25% to Player logging efficiency",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerATK_UP_1",
+            "Name": "Vanguard",
+            "Description": "+10% to Player attack stat",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerWorkSpeed_UP_1",
+            "Name": "Motivational Leader",
+            "Description": "+25% to Player move speed",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerDEF_UP_1",
+            "Name": "Stronghold Strategist",
+            "Description": "+10% to Player defence stat",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_Sanity_Down_1",
+            "Name": "Positive Thinker",
+            "Description": "Sanity drops 10% slower",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_Sanity_Down_2",
+            "Name": "Workaholic",
+            "Description": "Sanity drops 15% slower",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_Sanity_Up_1",
+            "Name": "Unstable",
+            "Description": "Sanity drops 10% faster",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_Sanity_Up_2",
+            "Name": "Destructive",
+            "Description": "Sanity drops 15% faster",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Down_1",
+            "Name": "Dainty Eater",
+            "Description": "Hunger drops 10% slower",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Down_2",
+            "Name": "Diet Lover",
+            "Description": "Chance to lose hunger -15%",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Up_1",
+            "Name": "Glutton",
+            "Description": "Hunger drops 10% faster",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Up_2",
+            "Name": "Bottomless Stomach",
+            "Description": "Hunger drops 15% faster",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "CraftSpeed_up1",
+            "Name": "Serious",
+            "Description": "+20% work speed",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "CraftSpeed_up2",
+            "Name": "Artisan",
+            "Description": "+50% work speed",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "CraftSpeed_down1",
+            "Name": "Clumsy",
+            "Description": "-10% work speed",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "CraftSpeed_down2",
+            "Name": "Slacker",
+            "Description": "-30% work speed",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "MoveSpeed_up_1",
+            "Name": "Nimble",
+            "Description": "+10% movement speed",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "MoveSpeed_up_2",
+            "Name": "Runner",
+            "Description": "+20% movement speed",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "MoveSpeed_up_3",
+            "Name": "Swift",
+            "Description": "+30% movement speed",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_CorporateSlave",
+            "Name": "Work Slave",
+            "Description": "+30% work speed, -30% attack",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_rude",
+            "Name": "Hooligan",
+            "Description": "+15% attack, -10% work speed",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Noukin",
+            "Name": "Musclehead",
+            "Description": "+30% attack, -50% work speed",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_oraora",
+            "Name": "Aggressive",
+            "Description": "+10% attack, -20% defence",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_conceited",
+            "Name": "Conceited",
+            "Description": "+10% work speed, -20% defence",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_masochist",
+            "Name": "Masochist",
+            "Description": "+15% defence, -15% attack",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_sadist",
+            "Name": "Sadist",
+            "Description": "+15% attack, +15% defence",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Rare",
+            "Name": "Lucky",
+            "Description": "+15% attack, +15% work speed",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "Legend",
+            "Name": "Legend",
+            "Description": "+20% attack, +20% defence, +15% move speed",
+            "Rating": "Good"
+        }
+    ]
+}
