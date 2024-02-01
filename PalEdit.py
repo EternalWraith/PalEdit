@@ -463,7 +463,7 @@ def savejson(filename):
     svdata = palguidmanager.Save(svdata)
 
     with open(filename, "wb") as f:
-        f.write(orjson.dumps(svdata))
+        f.write(orjson.dumps(svdata, option = orjson.OPT_INDENT_2))
         print('orjson Saving time: ', time.time() - start_time)
     changetext(-1)
 
