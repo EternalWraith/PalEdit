@@ -34,7 +34,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.5-pre"
+version = "0.5"
 
 
 ftsize = 18
