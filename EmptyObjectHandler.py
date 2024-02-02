@@ -49,3 +49,11 @@ EmptyRarePalObject = {
     "type": "BoolProperty"
 }
     
+EmptyMovesObject = {
+    "array_type": "EnumProperty",
+    "id": None,
+    "value": {
+        "values": []
+    },
+    "type": "ArrayProperty"
+}

@@ -34,7 +34,11 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.5"
+version = "0.5.1"
+global status
+status = "idle"
+global filename
+filename = ""
 
 
 ftsize = 18
@@ -145,6 +149,11 @@ def setpreset(preset):
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][i] # seems global palbox is not necessary
 
+    tid = []
+    for i in range(0, 4):
+        t = skills[i].trace_add("write", lambda *args, num=i: changeskill(num))
+        tid.append(t)
+    
     match preset:
         case "base":
             skills[0].set("Artisan")
@@ -182,8 +191,8 @@ def setpreset(preset):
             skills[2].set("Ferocious")
             skills[3].set("Swift")
         case "dmg_element":
-            primary = pal.GetPrimary().GetName().lower()
-            secondary = pal.GetSecondary().GetName().lower()
+            primary = pal.GetPrimary().lower()
+            secondary = pal.GetSecondary().lower()
             if primary == "none":
                 messagebox.showerror("Preset: Dmg: Element", "This pal has no elements! Preset skipped")
                 return
@@ -219,6 +228,9 @@ def setpreset(preset):
             print(f"Preset {preset} not found - nothing changed")
             return
 
+    for i in range(0, 4):
+        skills[i].trace_remove("write", tid[i])
+    
     # exp (if level selected)
     if checkboxLevelVar.get() == 1:
         pal.SetLevel(textboxLevelVar.get())
@@ -396,26 +408,30 @@ def changetext(num):
 
     
 def loadfile():
+    global status
+    global filename
+    if not isIdle():
+        return
+    
     skilllabel.config(text="Loading save, please be patient...")
 
-    file = askopenfilename(filetype=[("All files", "*.sav *.sav.json *.pson"),("Palworld Saves", "*.sav *.sav.json"),("Palworld Box", "*.pson")])
+    file = askopenfilename(initialdir=os.path.expanduser('~')+"\AppData\Local\Pal\Saved\SaveGames", filetype=[("Level.sav", "Level.sav")])
     print(f"Opening file {file}")
 
-    if not file.endswith(".pson") and not file.endswith("Level.sav.json"):
-        if file.endswith("Level.sav"):
-            answer = messagebox.askquestion("Incorrect file", "This save hasn't been decompiled. Would you like to decompile it now?")
-            if answer == "yes":
-                skilllabel.config(text="Decompiling save, please be patient...")
-                doconvertjson(file)
-        else:
-            messagebox.showerror("Incorrect file", "This is not the right file. Please select the Level.sav file.")
-        changetext(-1)
-        return
-    load(file)
+    if file:
+        filename = file
+        root.title(f"PalEdit v0.5 - {file}")
+        skilllabel.config(text="Decompiling save, please be patient...")
+        status = "loading"
+        doconvertjson(file, True)
+    else:
+        messagebox.showerror("Select a file", "Please select a save file.")
 
 def sortPals(e):
     return e.GetName()
 
+def isIdle():
+    return status == "idle"
 
 def load(file):
     global data
@@ -423,6 +439,8 @@ def load(file):
     global players
     global current
     global containers
+
+    
     current.set("")
     palbox = {}
     players = {}
@@ -532,47 +550,47 @@ def updateDisplay():
 def savefile():
     global palbox
     global data
+    global filename
     skilllabel.config(text="Saving, please be patient... (it can take up to 5 minutes in large files)")
-
+    root.update()
+    
     if isPalSelected():
         i = int(listdisplay.curselection()[0])
         refresh(i)
-    
-    file = asksaveasfilename(filetype=[("All files", "*.sav.json *.pson"),("Palworld Saves", "*.sav.json"),("Palworld Box", "*.pson")])
-    print(f"Opening file {file}")
 
-    if not file.endswith(".pson") and not file.endswith("Level.sav.json"):
-        messagebox.showerror("Incorrect file", "You can only save to an existing Level.sav.json or a new .pson file")
+    file = filename
+    print(file, filename)
+    if file:
+        print(f"Opening file {file}")
 
-    if file.endswith(".pson"):
-        savepson(file)
-    else:
         savejson(file)
+        doconvertsave(file)
+        
 
-    changetext(-1)
-    jump()
-    messagebox.showinfo("Done", "Done saving!")
+        changetext(-1)
+        jump()
+        messagebox.showinfo("Done", "Done saving!")
 
 def savepson(filename):
     f = open(filename, "w", encoding="utf8")
     if 'properties' in data:
-        json.dump(data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'], f, indent=4)
+        json.dump(data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'], f)#, indent=4)
     else:
-        json.dump(data, f, indent=4)
+        json.dump(data, f)#, indent=4)
     f.close()
 
 def savejson(filename):
-    f = open(filename, "r", encoding="utf8")
-    svdata = json.loads(f.read())
-    f.close()
+    #f = open(filename, "r", encoding="utf8")
+    #svdata = json.loads(f.read())
+    #f.close()
 
-    if 'properties' in data:
-        svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
-    else:
-        svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data
+    #if 'properties' in data:
+        #svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
+    #else:
+        #svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data
 
     f = open(filename, "w", encoding="utf8")
-    json.dump(svdata, f)
+    json.dump(data, f)#svdata, f)
     f.close()
 
     changetext(-1)
@@ -655,14 +673,13 @@ def converttojson():
     doconvertjson(file)
 
 def doconvertjson(file, compress=False):
-    print(compress)
     SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
 
     load(file.replace(".sav", ".sav.json"))
 
     changetext(-1)
     jump()
-    messagebox.showinfo("Done", "Done decompiling!")
+    #messagebox.showinfo("Done", "Done decompiling!")
 
 def converttosave():
     skilllabel.config(text="Converting... this may take a while.")
@@ -678,7 +695,7 @@ def doconvertsave(file):
 
     changetext(-1)
     jump()
-    messagebox.showinfo("Done", "Done compiling!")
+    #messagebox.showinfo("Done", "Done compiling!")
 
 def swapgender():
     if not isPalSelected():
@@ -737,8 +754,8 @@ tools = Menu(root)
 root.config(menu=tools)
 
 filemenu = Menu(tools, tearoff=0)
-filemenu.add_command(label="Load Save", command=loadfile)
-filemenu.add_command(label="Save Changes", command=savefile)
+filemenu.add_command(label="Load PalWorld Save", command=loadfile)
+filemenu.add_command(label="Save Changes To File", command=savefile)
 
 tools.add_cascade(label="File", menu=filemenu, underline=0)
 
@@ -748,11 +765,11 @@ toolmenu.add_command(label="Debug", command=toggleDebug)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
-convmenu = Menu(tools, tearoff=0)
-convmenu.add_command(label="Convert Save to Json", command=converttojson)
-convmenu.add_command(label="Convert Json to Save", command=converttosave)
+#convmenu = Menu(tools, tearoff=0)
+#convmenu.add_command(label="Convert Save to Json", command=converttojson)
+#convmenu.add_command(label="Convert Json to Save", command=converttosave)
 
-tools.add_cascade(label="Converter", menu=convmenu, underline=0)
+#tools.add_cascade(label="Converter", menu=convmenu, underline=0)
 
 scrollview = Frame(root)
 scrollview.pack(side=LEFT, fill=Y)

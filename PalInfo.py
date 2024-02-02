@@ -194,6 +194,8 @@ class PalEntity:
         self.storageId = self._storedLocation["value"]["ContainerId"]["value"]["ID"]["value"]
         self.storageSlot = self._storedLocation["value"]["SlotIndex"]["value"]
 
+        if not "MasteredWaza" in self._obj:
+            self._obj["MasteredWaza"] = EmptyMovesObject.copy()
         
         for i in self._obj["MasteredWaza"]["value"]["values"]:
             if not matches(typename, i) or PalAttacks[i] in PalLearnSet[self._type.GetName()]:
