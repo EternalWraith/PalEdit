@@ -420,7 +420,7 @@ def loadfile():
 
     if file:
         filename = file
-        root.title(f"PalEdit v0.5 - {file}")
+        root.title(f"PalEdit v{version} - {file}")
         skilllabel.config(text="Decompiling save, please be patient...")
         status = "loading"
         doconvertjson(file, True)
