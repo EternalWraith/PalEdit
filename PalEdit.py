@@ -34,7 +34,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.5.3"
+version = "0.5.5"
 global filename
 filename = ""
 
@@ -487,8 +487,8 @@ def load(file):
     updateDisplay()
 
     print(f"Unknown list contains {len(unknown)} entries")
-    #for i in unknown:
-        #print (i)
+    for i in unknown:
+        print (f"Unknown {i}")
     
     print(f"{len(players)} players found:")
     for i in players:

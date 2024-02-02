@@ -180,6 +180,16 @@
             }
         },
         {
+            "CodeName": "BlackFurDragon",
+            "Name": "Dragostrophe",
+            "Type": [
+                "Dragon",
+                "Dark"
+            ],
+            "Moveset": { 
+            }
+        },
+        {
             "CodeName": "BlackGriffon",
             "Name": "Shadowbeak",
             "Type": [
@@ -455,6 +465,15 @@
             }
         },
         {
+            "CodeName": "DarkMutant",
+            "Name": "Dark Mutant",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": { 
+            }
+        },
+        {
             "CodeName": "DarkScorpion",
             "Name": "Menasting",
             "Type": [
@@ -565,6 +584,15 @@
                 "Tri-Lightning": 30,
                 "Lightning Streak": 40,
                 "Lightning Bolt": 50
+            }
+        },
+        {
+            "CodeName": "ElecLion",
+            "Name": "Boltmane",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": { 
             }
         },
         {

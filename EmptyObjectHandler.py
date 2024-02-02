@@ -57,3 +57,12 @@ EmptyMovesObject = {
     },
     "type": "ArrayProperty"
 }
+
+EmptySkillsObject = {
+    "array_type": "EnumProperty",
+    "id": None,
+    "value": {
+            "values": []
+    },
+    "type": "ArrayProperty"
+}
