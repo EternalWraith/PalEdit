@@ -1,4 +1,4 @@
-import os, webbrowser, json, time, uuid
+import os, webbrowser, json, time, uuid, math
 
 # pyperclip
 # docs: https://pypi.org/project/pyperclip/#description
@@ -34,9 +34,7 @@ debug = "false"
 global editindex
 editindex = -1
 global version
-version = "0.5.1"
-global status
-status = "idle"
+version = "0.5.3"
 global filename
 filename = ""
 
@@ -150,8 +148,8 @@ def setpreset(preset):
     pal = palbox[players[current.get()]][i] # seems global palbox is not necessary
 
     tid = []
-    for i in range(0, 4):
-        t = skills[i].trace_add("write", lambda *args, num=i: changeskill(num))
+    for v in range(0, 4):
+        t = skills[v].trace_add("write", lambda *args, num=v: changeskill(num))
         tid.append(t)
     
     match preset:
@@ -228,8 +226,8 @@ def setpreset(preset):
             print(f"Preset {preset} not found - nothing changed")
             return
 
-    for i in range(0, 4):
-        skills[i].trace_remove("write", tid[i])
+    for v in range(0, 4):
+        skills[v].trace_remove("write", tid[v])
     
     # exp (if level selected)
     if checkboxLevelVar.get() == 1:
@@ -408,11 +406,7 @@ def changetext(num):
 
     
 def loadfile():
-    global status
     global filename
-    if not isIdle():
-        return
-    
     skilllabel.config(text="Loading save, please be patient...")
 
     file = askopenfilename(initialdir=os.path.expanduser('~')+"\AppData\Local\Pal\Saved\SaveGames", filetype=[("Level.sav", "Level.sav")])
@@ -422,16 +416,12 @@ def loadfile():
         filename = file
         root.title(f"PalEdit v{version} - {file}")
         skilllabel.config(text="Decompiling save, please be patient...")
-        status = "loading"
-        doconvertjson(file, True)
+        doconvertjson(file, (not debug))
     else:
         messagebox.showerror("Select a file", "Please select a save file.")
 
 def sortPals(e):
     return e.GetName()
-
-def isIdle():
-    return status == "idle"
 
 def load(file):
     global data
@@ -439,7 +429,6 @@ def load(file):
     global players
     global current
     global containers
-
     
     current.set("")
     palbox = {}
@@ -480,7 +469,10 @@ def load(file):
             if str(e) == "This is a player character":
                 print("Found Player Character")
                 # print(f"\nDebug: Data \n{i}\n\n")
-                pl = i['value']['RawData']['value']['object']['SaveParameter']['value']['NickName']['value']
+                o = i['value']['RawData']['value']['object']['SaveParameter']['value']
+                pl = "No Name"
+                if "NickName" in o:
+                    pl = o['NickName']['value']
                 plguid = i['key']['PlayerUId']['value']
                 print(f"{pl} - {plguid}")
                 players[pl] = plguid
@@ -609,12 +601,24 @@ def updatestats(e):
         return
     i = int(listdisplay.curselection()[0])
     pal = palbox[players[current.get()]][e]
-
+    l = pal.GetLevel()
     #pal.SetTalentHP(talent_hp_var.get())
-    pal.SetTalentHP(phpvar.get())
-    pal.SetAttackMelee(meleevar.get())
+    h = phpvar.get()
+    pal.SetTalentHP(h)
+    hv = 500 + (((70*0.5)*l) * (1+ (h / 100)))
+    hthstatval.config(text=math.floor(hv))
+
+    a = meleevar.get()
+    pal.SetAttackMelee(a)
     pal.SetAttackRanged(shotvar.get())
-    pal.SetDefence(defvar.get())
+    av = 100 + (((70*0.75)*l) * (1+ (a / 100)))
+    atkstatval.config(text=math.floor(av))
+
+    d = defvar.get()
+    pal.SetDefence(d)
+    dv = 50 + (((70*0.75)*l) * (1+ (d / 100)))
+    defstatval.config(text=math.floor(dv))
+    
     pal.SetWorkSpeed(wspvar.get())
 
 def takelevel():
@@ -829,6 +833,37 @@ attackdrops[0].config(highlightbackground=PalElements["Electric"], bg=mean_color
 attackdrops[1].config(highlightbackground=PalElements["Electric"], bg=mean_color(PalElements["Electric"], "ffffff"), activebackground=mean_color(PalElements["Electric"], "ffffff"))
 attackdrops[2].config(highlightbackground=PalElements["Dark"], bg=mean_color(PalElements["Dark"], "ffffff"), activebackground=mean_color(PalElements["Dark"], "ffffff"))
 
+stats = Frame(atkskill)
+#stats.pack(fill=X)
+
+statLabel = Label(stats, bg="darkgrey", width=12, text="Stats", font=("Arial", ftsize), justify="center")
+statLabel.pack(fill=X)
+
+
+statlbls = Frame(stats, width=6, bg="darkgrey")
+statlbls.pack(side=LEFT, expand=True, fill=X)
+
+hthstatlbl = Label(statlbls, bg="darkgrey", text="Health", font=("Arial", ftsize), justify="center")
+hthstatlbl.pack()
+atkstatlbl = Label(statlbls, bg="darkgrey", text="Attack", font=("Arial", ftsize), justify="center")
+atkstatlbl.pack()
+defstatlbl = Label(statlbls, bg="darkgrey", text="Defence", font=("Arial", ftsize), justify="center")
+defstatlbl.pack()
+
+
+statvals = Frame(stats, width=6)
+statvals.pack(side=RIGHT, expand=True, fill=X)
+
+hthstatval = Label(statvals, bg="lightgrey", text="500", font=("Arial", ftsize), justify="center")
+hthstatval.pack(fill=X)
+atkstatval = Label(statvals, text="100", font=("Arial", ftsize), justify="center")
+atkstatval.pack(fill=X)
+defstatval = Label(statvals, bg="lightgrey", text="50", font=("Arial", ftsize), justify="center")
+defstatval.pack(fill=X)
+
+disclaim = Label(atkskill, bg="darkgrey", text="The values above do not include passive skills", font=("Arial", ftsize//2))
+#disclaim.pack(fill=X)
+
 # Individual Info
 infoview = Frame(root, relief="groove", borderwidth=2, width=480, height=480)
 infoview.pack(side=RIGHT, fill=BOTH, expand=True)
@@ -889,13 +924,13 @@ name = Label(labelview, text="Species", font=("Arial", ftsize), bg="lightgrey")
 name.pack(expand=True, fill=X)
 gender = Label(labelview, text="Gender", font=("Arial", ftsize), bg="lightgrey", width=6, pady=6)
 gender.pack(expand=True, fill=X)
-attack = Label(labelview, text="Attack", font=("Arial", ftsize), bg="lightgrey", width=6)
+attack = Label(labelview, text="Attack IV%", font=("Arial", ftsize), bg="lightgrey", width=8)
 attack.pack(expand=True, fill=X)
-defence = Label(labelview, text="Defence", font=("Arial", ftsize), bg="lightgrey", width=6)
+defence = Label(labelview, text="Defence IV%", font=("Arial", ftsize), bg="lightgrey", width=8)
 defence.pack(expand=True, fill=X)
-workspeed = Label(labelview, text="Workspeed", font=("Arial", ftsize), bg="lightgrey", width=10)
+workspeed = Label(labelview, text="Workspeed IV%", font=("Arial", ftsize), bg="lightgrey", width=12)
 workspeed.pack(expand=True, fill=X)
-hp = Label(labelview, text="HP", font=("Arial", ftsize), bg="lightgrey", width=10)
+hp = Label(labelview, text="HP IV%", font=("Arial", ftsize), bg="lightgrey", width=10)
 hp.pack(expand=True, fill=X)
 rankspeed = Label(labelview, text="Rank", font=("Arial", ftsize), bg="lightgrey")
 rankspeed.pack(expand=True, fill=X)

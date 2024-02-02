@@ -232,6 +232,7 @@ class PalEntity:
         f = find(value)
         self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) else "") + f
         self._type = PalSpecies[f]
+        self.SetLevelMoves()
 
     def GetObject(self):
         return self._type
@@ -388,6 +389,13 @@ class PalEntity:
         return self._learntMoves
 
 def matches(pal, move):
+    if SkillExclusivity[move] == None:
+        return True
+    elif pal in SkillExclusivity[move]:
+        return True
+    return False
+    """
+    print(pal, move)
     if move.startswith("EPalWazaID::Unique_"):
         o = move.split("_")
         n = o[1]
@@ -395,9 +403,10 @@ def matches(pal, move):
             t = o.pop(1)
             v = o.pop(1)
             n = f"{t}_{v}"
-        if not pal == n:
+        if not pal == n and n != "Frostallion":
             return False
     return True
+    """
                     
 
 with open("resources/data/elements.json", "r", encoding="utf8") as elementfile:
@@ -432,6 +441,7 @@ with open("resources/data/attacks.json", "r", encoding="utf8") as attackfile:
     PalAttacks = {}
     AttackPower = {}
     AttackTypes = {}
+    SkillExclusivity = {}
 
     l = json.loads(attackfile.read())
 
@@ -441,6 +451,10 @@ with open("resources/data/attacks.json", "r", encoding="utf8") as attackfile:
         PalAttacks[i["CodeName"]] = i["Name"]
         AttackPower[i["Name"]] = i["Power"]
         AttackTypes[i["Name"]] = i["Type"]
+        if "Exclusive" in i:
+            SkillExclusivity[i["CodeName"]] = i["Exclusive"]
+        else:
+            SkillExclusivity[i["CodeName"]] = None
 
     PalAttacks = dict(sorted(PalAttacks.items()))
 
