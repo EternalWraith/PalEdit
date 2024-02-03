@@ -1,4 +1,5 @@
-> Because apparently it needs to be stated here as well as in the NexusMods; the application is __unsigned__ and therefore can flag up a __False Positive__ with some anti-virus software. If you are really scared about it being a virus, download the application and compile it yourself. Look through the source code. [You can see a virus report here](https://www.virustotal.com/gui/file/d20dcab42b8ba55442c27c16235c27fb80d16f7494ee32a790767a2eb38ceefb)
+> [!NOTE]
+> Because apparently it needs to be stated here as well as in the NexusMods; the application is __unsigned__ and therefore can flag up a __False Positive__ with some anti-virus software. If you are really scared about it being a virus, download the application and [compile it yourself](#️-building-from-source-on-windows). Look through the source code. [You can see a virus report here](https://www.virustotal.com/gui/file/d20dcab42b8ba55442c27c16235c27fb80d16f7494ee32a790767a2eb38ceefb)
 
 <h1 align="center">PalEdit</h1>
 
@@ -127,19 +128,22 @@ If you’ve installed Palworld via Steam, you can also access your save files by
 
 ## **🚧 Project roadmap**
 
-- **Future Releases:**
+> [!NOTE]
+> We could really use the help of the community to make this tool better.
+> If you think you can help us deliver any of the features listed below, please feel free to open a pull request.
+
+- **Pending features:**
   - [ ] Generating new Pals
   - [ ] Cloning Pals
   - [ ] Pal Deletion
-  - [ ] Database system to make things easier to update
   - [ ] Localisation support for Chinese, Japanese, Spanish, French, German, and English (for starters)
   - [ ] Stat Editing (Hero Statue)
   - [ ] Move Editing
   - [ ] Menu displaying Pal moves/attacks
-  - [ ] Pal Info Database Overhaul
-  - [ ] Simplify Loading/Converting/Saving process
   - [ ] Edit Pals Nickname
   - [ ] Improve Pal ListBox UI to mimic ingame PalBox
+  - [ ] Add update notification if a newer version is found
+  - [ ] Automatic savefile backup
 
 - **v0.3 Release:**
   - [x] Integrate SaveTools into PalEdit natively.
@@ -161,3 +165,8 @@ If you’ve installed Palworld via Steam, you can also access your save files by
   - [x] Converting Pal to Lucky
   - [x] Converting Pal to Alpha (Boss)
   - [x] Player Filtered Pals so you know who belongs to who
+
+- **v0.5 Release:**
+  - [x] Simplify Loading/Converting/Saving process
+  - [x] Database system to make things easier to update
+  - [x] Pal Info Database Overhaul
