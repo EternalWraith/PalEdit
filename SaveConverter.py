@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
-import json
+import json, orjson
 import os
 
 from lib.gvas import GvasFile
@@ -80,9 +80,11 @@ def convert_sav_to_json(filename, output_path, force=False, minify=False):
     print(f"Loading GVAS file")
     gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
     print(f"Writing JSON to {output_path}")
-    with open(output_path, "w", encoding="utf8") as f:
-        indent = None if minify else "\t"
-        json.dump(gvas_file.dump(), f, indent=indent, cls=CustomEncoder)
+    with open(output_path, "wb") as f:
+        f.write(orjson.dumps(gvas_file.dump(), option = orjson.OPT_INDENT_2, default=CustomEncoder.ordault))
+    #with open(output_path, "w", encoding="utf8") as f:
+    #    indent = None if minify else "\t"
+    #    json.dump(gvas_file.dump(), f, indent=indent, cls=CustomEncoder)
 
 
 def convert_json_to_sav(filename, output_path, force=False):

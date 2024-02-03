@@ -11,3 +11,9 @@ class CustomEncoder(json.JSONEncoder):
         if isinstance(obj, uuid.UUID):
             return str(obj)
         return super(CustomEncoder, self).default(obj)
+    def ordault(obj):  
+        if isinstance(obj, UUID):  
+            return str(obj)  
+        if isinstance(obj, uuid.UUID):  
+            return str(obj)  
+        raise TypeError
