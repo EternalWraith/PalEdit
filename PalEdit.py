@@ -1,4 +1,4 @@
-import os, webbrowser, json, time, uuid, math
+import os, webbrowser, json, time, uuid, math, orjson
 
 # pyperclip
 # docs: https://pypi.org/project/pyperclip/#description
@@ -29,6 +29,8 @@ global unknown
 unknown = []
 
 global data
+global palguidmanager
+palguidmanager : PalGuid = None
 global debug
 debug = "false"
 global editindex
@@ -429,6 +431,7 @@ def load(file):
     global players
     global current
     global containers
+    global palguidmanager
     
     current.set("")
     palbox = {}
@@ -443,7 +446,7 @@ def load(file):
         paldata = data
     else:
         paldata = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
-
+        palguidmanager = PalGuid(data)
         f = open("current.pson", "w", encoding="utf8")
         json.dump(paldata, f, indent=4)
         f.close()
@@ -462,7 +465,7 @@ def load(file):
             for m in p.GetLearntMoves():
                 if not m in nullmoves:
                     if not m in PalAttacks:
-                        nullmoves.append(mp)
+                        nullmoves.append(m)
 
         except Exception as e:
 
@@ -550,7 +553,7 @@ def savefile():
         i = int(listdisplay.curselection()[0])
         refresh(i)
 
-    file = filename
+    file = filename.replace('.sav','.sav.json')
     print(file, filename)
     if file:
         print(f"Opening file {file}")
@@ -580,9 +583,8 @@ def savejson(filename):
         #svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
     #else:
         #svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data
-
-    f = open(filename, "w", encoding="utf8")
-    json.dump(data, f)#svdata, f)
+    f = open(filename, "wb")
+    f.write(orjson.dumps(data))
     f.close()
 
     changetext(-1)
@@ -693,6 +695,46 @@ def converttosave():
 
     doconvertsave(file)
 
+def spawnpal():
+    global filename
+    global palguidmanager
+    global data
+    if not isPalSelected() or palguidmanager is None:
+        return
+    playerguid = players[current.get()]
+    playersav = os.path.dirname(filename)+ f"/players/{playerguid.replace('-','')}.sav"
+    if not os.path.exists(playersav):
+        print("Cannot Load Player Save!")
+        return
+    player = PalPlayerEntity(SaveConverter.convert_sav_to_obj(playersav))
+    SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
+    
+    if not os.path.exists("Pals.json"):
+        return
+    
+    f = open("Pals.json", "r", encoding="utf8")
+    spawnpaldata = json.loads(f.read())
+    f.close()
+
+    slotguid = str(player.GetPalStorageGuid())
+    groupguid = palguidmanager.GetGroupGuid(playerguid)
+    if any(guid == None for guid in [slotguid, groupguid]):
+        return
+    for p in spawnpaldata['Pals']:
+        newguid = str(uuid.uuid4())
+        pal = PalEntity(p)
+        i = palguidmanager.GetEmptySlotIndex(slotguid)
+        if i == -1:
+            print("Player Pal Storage is full!")
+            return
+        pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
+        palguidmanager.AddGroupSaveData(groupguid, newguid)
+        palguidmanager.SetContainerSave(slotguid, i, newguid)
+        data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
+        print(f"Add Pal at slot {i} : {slotguid}")
+
+
+    
 
 def doconvertsave(file):
     SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"), True)
@@ -1203,7 +1245,9 @@ button.pack(side=LEFT, expand=True, fill=BOTH)
 button = Button(frameDebug, text="Generate & Copy GUID", command=createGUIDtoClipboard)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
-
+button = Button(frameDebug, text="Add Pal", command=spawnpal)
+button.config(font=("Arial", 12))
+button.pack(side=LEFT, expand=True, fill=BOTH)
 
 # FOOTER
 frameFooter = Frame(infoview, relief="flat")
