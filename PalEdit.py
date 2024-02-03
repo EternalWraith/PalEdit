@@ -305,7 +305,7 @@ def changeattack(num):
     
     if not attacks[num].get() in ["Unknown", "UNKNOWN"]:
         if attacks[num].get() in ["None", "NONE"]:
-            pal.RemoveAttack(num)
+            pal.RemoveAttackSkill(num)
         else:
             pal.SetAttackSkill(num, attacks[num].get())
     

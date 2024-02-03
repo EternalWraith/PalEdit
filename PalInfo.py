@@ -357,7 +357,7 @@ class PalEntity:
         if slot < len(self._skills):
             self._skills.pop(slot)
 
-    def RemoveAttack(self, slot):
+    def RemoveAttackSkill(self, slot):
         if slot < len(self._equipMoves):
             self._equipMoves.pop(slot)
         self.SetLevelMoves()
