@@ -381,7 +381,7 @@
         {
             "CodeName": "PAL_sadist",
             "Name": "Sadist",
-            "Description": "+15% attack, +15% defence",
+            "Description": "+15% attack, -15% defence",
             "Rating": "Okay"
         },
         {
