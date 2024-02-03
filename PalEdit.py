@@ -1,4 +1,4 @@
-import os, webbrowser, json, time, uuid, math
+import os, webbrowser, json, time, uuid, math, shutil, datetime
 
 # pyperclip
 # docs: https://pypi.org/project/pyperclip/#description
@@ -414,6 +414,24 @@ def loadfile():
 
     if file:
         filename = file
+
+        now = datetime.datetime.now()
+        current_date = ".".join((str(now.date().year),
+                                 "{:02d}".format(now.date().month),
+                                 "{:02d}".format(now.date().day)))
+        current_time = ".".join(("{:02d}".format(now.time().hour),
+                                 "{:02d}".format(now.time().minute),
+                                 "{:02d}".format(now.time().second)))
+        current_datetime = "-".join((current_date, current_time))
+        backup_path = file.replace("Level.sav", os.path.join("backup", "world", current_datetime))
+        if not os.path.exists(backup_path):
+            os.makedirs(backup_path)
+            os.makedirs(os.path.join(backup_path, "Players"))
+        shutil.copy(filename,  os.path.join(backup_path, "Level.sav"))
+        shutil.copy(filename.replace("Level.sav", "LevelMeta.sav"),  os.path.join(backup_path, "LevelMeta.sav"))
+        for player_file in os.scandir(filename.replace("Level.sav", "Players")):
+            shutil.copy(player_file.path, os.path.join(backup_path, "players", player_file.name))
+
         root.title(f"PalEdit v{version} - {file}")
         skilllabel.config(text="Decompiling save, please be patient...")
         doconvertjson(file, (not debug))
@@ -518,7 +536,7 @@ def load(file):
 
     changetext(-1)
     jump()
-    messagebox.showinfo("Done", "Done loading!")
+    messagebox.showinfo("Done", "Done loading!\n(Backup save created)")
 
 def jump():
     root.attributes('-topmost', 1)
