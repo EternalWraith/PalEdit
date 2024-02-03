@@ -1,4 +1,5 @@
-> Because apparently it needs to be stated here as well as in the NexusMods; the application is __unsigned__ and therefore can flag up a __False Positive__ with some anti-virus software. If you are really scared about it being a virus, download the application and compile it yourself. Look through the source code. [You can see a virus report here](https://www.virustotal.com/gui/file/d20dcab42b8ba55442c27c16235c27fb80d16f7494ee32a790767a2eb38ceefb)
+> [!NOTE]
+> Because apparently it needs to be stated here as well as in the NexusMods; the application is __unsigned__ and therefore can flag up a __False Positive__ with some anti-virus software. If you are really scared about it being a virus, download the application and [compile it yourself](#️-building-from-source-on-windows). Look through the source code. [You can see a virus report here](https://www.virustotal.com/gui/file/d20dcab42b8ba55442c27c16235c27fb80d16f7494ee32a790767a2eb38ceefb)
 
 <h1 align="center">PalEdit</h1>
 
@@ -141,7 +142,8 @@ If you’ve installed Palworld via Steam, you can also access your save files by
   - [ ] Menu displaying Pal moves/attacks
   - [ ] Edit Pals Nickname
   - [ ] Improve Pal ListBox UI to mimic ingame PalBox
-  - [ ] Add update notification is a newer version is found
+  - [ ] Add update notification if a newer version is found
+  - [ ] Automatic savefile backup
 
 - **v0.3 Release:**
   - [x] Integrate SaveTools into PalEdit natively.
