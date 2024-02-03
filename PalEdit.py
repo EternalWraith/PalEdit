@@ -307,7 +307,7 @@ def changeattack(num):
         if attacks[num].get() in ["None", "NONE"]:
             pal.RemoveAttack(num)
         else:
-            pal.SetAttack(num, attacks[num].get())
+            pal.SetAttackSkill(num, attacks[num].get())
     
     refresh(i)
 
