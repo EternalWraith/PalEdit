@@ -1,0 +1,400 @@
+{
+    "values": [
+        {
+            "CodeName": "UNKNOWN",
+            "Name": "Unknown",
+            "Description": "不存在或尚未在我们的数据库中",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "NONE",
+            "Name": "None",
+            "Description": "伙伴在此槽位没有技能",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Normal_1_PAL",
+            "Name": "Abnormal",
+            "Description": "-10% 受到来自中性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Dark_1_PAL",
+            "Name": "Cheery",
+            "Description": "-10% 受到来自暗属性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Dragon_1_PAL",
+            "Name": "Dragonkiller",
+            "Description": "-10% 受到来自龙属性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Ice_1_PAL",
+            "Name": "Heated Body",
+            "Description": "-10% 受到来自冰属性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Fire_1_PAL",
+            "Name": "Suntan Lover",
+            "Description": "-10% 受到来自火属性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Leaf_1_PAL",
+            "Name": "Botanical Barrier",
+            "Description": "-10% 受到来自草属性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Earth_1_PAL",
+            "Name": "Earthquake Resistant",
+            "Description": "-10% 受到来自地属性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Thunder_1_PAL",
+            "Name": "Insulated Body",
+            "Description": "-10% 受到来自电属性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Aqua_1_PAL",
+            "Name": "Waterproof",
+            "Description": "-10% 受到来自水属性攻击的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Normal_1_PAL",
+            "Name": "Zen Mind",
+            "Description": "+10% 对中性属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Dark_1_PAL",
+            "Name": "Veil of Darkness",
+            "Description": "+10% 对暗属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Dragon_1_PAL",
+            "Name": "Blood of the Dragon",
+            "Description": "+10% 对龙属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Ice_1_PAL",
+            "Name": "Coldblooded",
+            "Description": "+10% 对冰属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Fire_1_PAL",
+            "Name": "Pyromaniac",
+            "Description": "+10% 对火属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Leaf_1_PAL",
+            "Name": "Fragrant Foliage",
+            "Description": "+10% 对草属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Earth_1_PAL",
+            "Name": "Power of Gaia",
+            "Description": "+10% 对地属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Thunder_1_PAL",
+            "Name": "Capacitor",
+            "Description": "+10% 对电属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Aqua_1_PAL",
+            "Name": "Hydromaniac",
+            "Description": "+10% 对水属性攻击造成的伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Normal_2_PAL",
+            "Name": "Celestial Emperor",
+            "Description": "+20% 对中性属性攻击造成的伤害；Paladius的特有技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Dark_2_PAL",
+            "Name": "Lord of the Underworld",
+            "Description": "+20% 对暗属性攻击造成的伤害；Necromus的特有技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Dragon_2_PAL",
+            "Name": "Divine Dragon",
+            "Description": "+20% 对龙属性攻击造成的伤害；Jetragon的特有技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Ice_2_PAL",
+            "Name": "Ice Emperor",
+            "Description": "+20% 对冰属性攻击造成的伤害；Frostallion的特有技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Fire_2_PAL",
+            "Name": "Flame Emperor",
+            "Description": "+20% 对火属性攻击造成的伤害；Blazamut的特有技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Leaf_2_PAL",
+            "Name": "Spirit Emperor",
+            "Description": "+20%使用草属性攻击造成的伤害; 妖精吕蕾的标志技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Earth_2_PAL",
+            "Name": "Earth Emperor",
+            "Description": "+20%使用土属性攻击造成的伤害; 埃及神阿努比斯的标志技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Thunder_2_PAL",
+            "Name": "Lord of Lightning",
+            "Description": "+20%使用电属性攻击造成的伤害; 闪电魔奥塞尔克的标志技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Aqua_2_PAL",
+            "Name": "Lord of the Sea",
+            "Description": "+20%使用水属性攻击造成的伤害; 海底王尤尔文赛德的标志技能",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_up1",
+            "Name": "Brave",
+            "Description": "+10%提升攻击力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_up2",
+            "Name": "Ferocious",
+            "Description": "+20%提升攻击力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_down1",
+            "Name": "Coward",
+            "Description": "-10%降低攻击力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_down2",
+            "Name": "Pacifist",
+            "Description": "-20%降低攻击力",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "Deffence_up1",
+            "Name": "Hard Skin",
+            "Description": "+10%提升防御力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Deffence_up2",
+            "Name": "Burly Body",
+            "Description": "+20%提升防御力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "Deffence_down1",
+            "Name": "Downtrodden",
+            "Description": "-10%降低防御力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Deffence_down2",
+            "Name": "Brittle",
+            "Description": "-20%降低防御力",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "TrainerMining_up1",
+            "Name": "Mine Foreman",
+            "Description": "+25%提高玩家挖掘效率",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerLogging_up1",
+            "Name": "Logging Foreman",
+            "Description": "+25%提高玩家伐木效率",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerATK_UP_1",
+            "Name": "Vanguard",
+            "Description": "+10%提高玩家攻击力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerWorkSpeed_UP_1",
+            "Name": "Motivational Leader",
+            "Description": "+25%提高玩家移动速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerDEF_UP_1",
+            "Name": "Stronghold Strategist",
+            "Description": "+10%提高玩家防御力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_Sanity_Down_1",
+            "Name": "Positive Thinker",
+            "Description": "精神下降速度减缓10%",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_Sanity_Down_2",
+            "Name": "Workaholic",
+            "Description": "精神下降速度减缓15%",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_Sanity_Up_1",
+            "Name": "Unstable",
+            "Description": "精神下降速度增加10%",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_Sanity_Up_2",
+            "Name": "Destructive",
+            "Description": "精神下降速度增加15%",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Down_1",
+            "Name": "Dainty Eater",
+            "Description": "饥饿下降速度减缓10%",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Down_2",
+            "Name": "Diet Lover",
+            "Description": "减少饥饿几率-15%",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Up_1",
+            "Name": "Glutton",
+            "Description": "饥饿下降速度增加10%",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Up_2",
+            "Name": "Bottomless Stomach",
+            "Description": "饥饿下降速度增加15%",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "CraftSpeed_up1",
+            "Name": "Serious",
+            "Description": "+20%工作速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "CraftSpeed_up2",
+            "Name": "Artisan",
+            "Description": "+50%工作速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "CraftSpeed_down1",
+            "Name": "Clumsy",
+            "Description": "-10%工作速度",
+            "Rating": "Okay"
+        },
+         {
+            "CodeName": "CraftSpeed_down2",
+            "Name": "Slacker",
+            "Description": "-30%工作速度",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "MoveSpeed_up_1",
+            "Name": "Nimble",
+            "Description": "+10%移动速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "MoveSpeed_up_2",
+            "Name": "Runner",
+            "Description": "+20%移动速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "MoveSpeed_up_3",
+            "Name": "Swift",
+            "Description": "+30%移动速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_CorporateSlave",
+            "Name": "Work Slave",
+            "Description": "+30%工作速度, -30%攻击",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_rude",
+            "Name": "Hooligan",
+            "Description": "+15%攻击, -10%工作速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Noukin",
+            "Name": "Musclehead",
+            "Description": "+30%攻击, -50%工作速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_oraora",
+            "Name": "Aggressive",
+            "Description": "+10%攻击, -20%防御",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_conceited",
+            "Name": "Conceited",
+            "Description": "+10%工作速度, -20%防御",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_masochist",
+            "Name": "Masochist",
+            "Description": "+15%防御, -15%攻击",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_sadist",
+            "Name": "Sadist",
+            "Description": "+15%攻击, +15%防御",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Rare",
+            "Name": "Lucky",
+            "Description": "+15%攻击, +15%工作速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "Legend",
+            "Name": "Legend",
+            "Description": "+20%攻击, +20%防御, +15%移动速度",
+            "Rating": "Good"
+        }
+    ]
+}
