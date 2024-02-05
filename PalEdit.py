@@ -394,6 +394,7 @@ class PalEdit():
             f.close()
             
         self.loaddata(paldata)
+        messagebox.showinfo("Done", "Done loading!")
         
     def loaddata(self, paldata):
         self.palbox = {}
@@ -469,7 +470,6 @@ class PalEdit():
 
         self.changetext(-1)
         self.jump()
-        messagebox.showinfo("Done", "Done loading!")
 
     def jump(self):
         self.gui.attributes('-topmost', 1)
