@@ -427,6 +427,13 @@ class PalGuid:
         self._CharacterContainerSaveData = \
         data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
         self._GroupSaveDataMap = data['properties']['worldSaveData']['value']['GroupSaveDataMap']['value']
+    
+    def GetPlayerslist(self):
+        players = list(filter(lambda x: 'IsPlayer' in x['value'], [
+            {'uid':x['key']['PlayerUId'], 
+             'value':x['value']['RawData']['value']['object']['SaveParameter']['value']
+             } for x in self._data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']]))
+        return {x['value']['NickName']['value']: str(x['uid']['value']) for x in players}
 
     def ConvertGuid(guid_str):
         guid_str = guid_str

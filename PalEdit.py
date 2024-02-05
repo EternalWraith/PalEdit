@@ -378,7 +378,7 @@ class PalEdit():
         self.current.set("")
         self.palbox = {}
         self.players = {}
-        self.containers = {}
+        
 
         f = open(file, "r", encoding="utf8")
         self.data = json.loads(f.read())
@@ -388,11 +388,20 @@ class PalEdit():
             paldata = self.data
         else:
             paldata = self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
-
+            self.palguidmanager = PalGuid(self.data)
             f = open("current.pson", "w", encoding="utf8")
             json.dump(paldata, f, indent=4)
             f.close()
-
+            
+        self.loaddata(paldata)
+        
+    def loaddata(self, paldata):
+        self.palbox = {}
+        self.players = self.palguidmanager.GetPlayerslist()
+        print(self.players)
+        for p in self.players:
+            self.palbox[self.players[p]] = []
+        self.containers = {}
         nullmoves = []
         for i in paldata:
             try:
@@ -411,13 +420,13 @@ class PalEdit():
                 if str(e) == "This is a player character":
                     print("Found Player Character")
                     # print(f"\nDebug: Data \n{i}\n\n")
-                    o = i['value']['RawData']['value']['object']['SaveParameter']['value']
-                    pl = "No Name"
-                    if "NickName" in o:
-                        pl = o['NickName']['value']
-                    plguid = i['key']['PlayerUId']['value']
-                    print(f"{pl} - {plguid}")
-                    self.players[pl] = plguid
+                    # o = i['value']['RawData']['value']['object']['SaveParameter']['value']
+                    # pl = "No Name"
+                    # if "NickName" in o:
+                    #     pl = o['NickName']['value']
+                    # plguid = i['key']['PlayerUId']['value']
+                    # print(f"{pl} - {plguid}")
+                    # self.players[pl] = plguid
                 else:
                     self.unknown.append(i)
                     print(f"Error occured: {str(e)}")
@@ -482,7 +491,7 @@ class PalEdit():
 
     def savefile(self):
         self.skilllabel.config(text="Saving, please be patient... (it can take up to 5 minutes in large files)")
-        self.root.update()
+        self.gui.update()
 
         if self.isPalSelected():
             i = int(self.listdisplay.curselection()[0])
@@ -626,7 +635,7 @@ class PalEdit():
         player = PalPlayerEntity(SaveConverter.convert_sav_to_obj(playersav))
         SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
 
-        file = askopenfilename(filetype=[("json files", "*.json")])
+        file = askopenfilename(filetypes=[("json files", "*.json")])
         if file == '':
             messagebox.showerror("Select a file", "Please select a save file.")
             return
@@ -661,7 +670,7 @@ class PalEdit():
         file = asksaveasfilename(filetypes=[("json files", "*.json")], defaultextension=".json")
         if file:
             with open(file, "wb") as f:
-                f.write(json.dumps(pals, indent=4))
+                f.write(json.dumps(pals, indent=4).encode('utf-8'))
         else:
             messagebox.showerror("Select a file", "Please select a save file.")
 
@@ -775,6 +784,7 @@ class PalEdit():
         self.editindex = -1
         self.filename = ""
         self.gui = self.createWindow()
+        self.palguidmanager: PalGuid = None
 
         purplepanda = ImageTk.PhotoImage(
             Image.open(f'{module_dir}/../PalEdit/resources/MossandaIcon.png').resize((240, 240)))
