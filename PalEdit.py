@@ -615,6 +615,56 @@ class PalEdit():
 
         self.doconvertjson(file)
 
+    def spawnpal(self):
+        if not self.isPalSelected() or self.palguidmanager is None:
+            return
+        playerguid = self.players[self.current.get()]
+        playersav = os.path.dirname(self.filename) + f"/players/{playerguid.replace('-', '')}.sav"
+        if not os.path.exists(playersav):
+            print("Cannot Load Player Save!")
+            return
+        player = PalPlayerEntity(SaveConverter.convert_sav_to_obj(playersav))
+        SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
+
+        file = askopenfilename(filetype=[("json files", "*.json")])
+        if file == '':
+            messagebox.showerror("Select a file", "Please select a save file.")
+            return
+
+        f = open(file, "r", encoding="utf8")
+        spawnpaldata = json.loads(f.read())
+        f.close()
+
+        slotguid = str(player.GetPalStorageGuid())
+        groupguid = self.palguidmanager.GetGroupGuid(playerguid)
+        if any(guid == None for guid in [slotguid, groupguid]):
+            return
+        for p in spawnpaldata['Pals']:
+            newguid = str(uuid.uuid4())
+            pal = PalEntity(p)
+            i = self.palguidmanager.GetEmptySlotIndex(slotguid)
+            if i == -1:
+                print("Player Pal Storage is full!")
+                return
+            pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
+            self.palguidmanager.AddGroupSaveData(groupguid, newguid)
+            self.palguidmanager.SetContainerSave(slotguid, i, newguid)
+            self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
+            print(f"Add Pal at slot {i} : {slotguid}")
+        self.loaddata(self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'])
+
+    def dumppals(self):
+        if not self.isPalSelected():
+            return
+        pals = {}
+        pals['Pals'] = [pal._data for pal in self.palbox[self.players[self.current.get()]]]
+        file = asksaveasfilename(filetypes=[("json files", "*.json")], defaultextension=".json")
+        if file:
+            with open(file, "wb") as f:
+                f.write(json.dumps(pals, indent=4))
+        else:
+            messagebox.showerror("Select a file", "Please select a save file.")
+
     def doconvertjson(self, file, compress=False):
         SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
 
@@ -1231,6 +1281,12 @@ class PalEdit():
         button = tk.Button(frameDebug, text="Generate & Copy GUID", command=self.createGUIDtoClipboard)
         button.config(font=(PalEditConfig.font, 12))
         button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
+        button = Button(frameDebug, text="Add Pal", command=self.spawnpal)
+        button.config(font=(PalEditConfig.font, 12))
+        button.pack(side=LEFT, expand=True, fill=BOTH)
+        button = Button(frameDebug, text="Dump Pal", command=self.dumppals)
+        button.config(font=(PalEditConfig.font, 12))
+        button.pack(side=LEFT, expand=True, fill=BOTH)
 
         # FOOTER
         frameFooter = tk.Frame(infoview, relief="flat")
