@@ -427,16 +427,7 @@ def sortPals(e):
 
 def load(file):
     global data
-    global palbox
-    global players
-    global current
-    global containers
     global palguidmanager
-    
-    current.set("")
-    palbox = {}
-    players = {}
-    containers = {}
 
     f = open(file, "r", encoding="utf8")
     data = json.loads(f.read())
@@ -450,8 +441,17 @@ def load(file):
         f = open("current.pson", "w", encoding="utf8")
         json.dump(paldata, f, indent=4)
         f.close()
+    loaddata(paldata)
 
-
+def loaddata(paldata):
+    global palbox
+    global players
+    global current
+    global containers
+    current.set("")
+    palbox = {}
+    players = {}
+    containers = {}
     nullmoves = []
     for i in paldata:
         try:
@@ -498,7 +498,6 @@ def load(file):
         print(f"{i} = {players[i]}")
     playerdrop['values'] = list(players.keys())
     playerdrop.current(0)
-
     if False: # change to true to enable testing of containers
         if not file.endswith(".pson"):
             condata = data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
@@ -709,10 +708,13 @@ def spawnpal():
     player = PalPlayerEntity(SaveConverter.convert_sav_to_obj(playersav))
     SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
     
-    if not os.path.exists("Pals.json"):
+
+    file = askopenfilename(filetype=[("json files", "*.json")])
+    if file == '':
+        messagebox.showerror("Select a file", "Please select a save file.")
         return
-    
-    f = open("Pals.json", "r", encoding="utf8")
+
+    f = open(file, "r", encoding="utf8")
     spawnpaldata = json.loads(f.read())
     f.close()
 
@@ -732,15 +734,20 @@ def spawnpal():
         palguidmanager.SetContainerSave(slotguid, i, newguid)
         data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
         print(f"Add Pal at slot {i} : {slotguid}")
+    loaddata(data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'])
 
-def dumppals:
+def dumppals():
     if not isPalSelected():
         return
     pals = {}
-    pals['Pals'] = palbox[players[current.get()]]
-    file = askopenfilename(filetype=[("json files", "*.json")])
-    with open(file，"wb") as f:
-       f.write(orjson.dumps(pals, option = orjson.OPT_INDENT_2)
+    pals['Pals'] = [pal._data for pal in palbox[players[current.get()]]]
+    file = asksaveasfilename(filetype=[("json files", "*.json")], defaultextension = ".json")
+    if file:
+        with open(file, "wb") as f:
+            f.write(orjson.dumps(pals, option= orjson.OPT_INDENT_2))
+    else:
+        messagebox.showerror("Select a file", "Please select a save file.")
+    
 
 def doconvertsave(file):
     SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"), True)
@@ -1254,7 +1261,9 @@ button.pack(side=LEFT, expand=True, fill=BOTH)
 button = Button(frameDebug, text="Add Pal", command=spawnpal)
 button.config(font=("Arial", 12))
 button.pack(side=LEFT, expand=True, fill=BOTH)
-
+button = Button(frameDebug, text="Dump Pal", command=dumppals)
+button.config(font=("Arial", 12))
+button.pack(side=LEFT, expand=True, fill=BOTH)
 # FOOTER
 frameFooter = Frame(infoview, relief="flat")
 frameFooter.pack(fill=BOTH, expand=False)

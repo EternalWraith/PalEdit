@@ -465,7 +465,7 @@ class PalGuid:
             if(e['key']['ID']['value'] == SoltGuid):
                 Solt = e['value']['Slots']['value']['values']
                 for i in range(len(Solt)):
-                    if Solt[i]['RawData']['value']['player_uid'] == "00000000-0000-0000-0000-000000000000":
+                    if Solt[i]['RawData']['value']['instance_id'] == "00000000-0000-0000-0000-000000000000":
                         return i
         return -1
     
