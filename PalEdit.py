@@ -269,7 +269,7 @@ class PalEdit():
             if self.attacks[num].get() in ["None", "NONE"]:
                 pal.RemoveAttack(num)
             else:
-                pal.SetAttack(num, self.attacks[num].get())
+                pal.SetAttackSkill(num, self.attacks[num].get())
 
         self.refresh(i)
 
