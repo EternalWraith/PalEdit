@@ -733,8 +733,14 @@ def spawnpal():
         data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
         print(f"Add Pal at slot {i} : {slotguid}")
 
-
-    
+def dumppals:
+    if not isPalSelected():
+        return
+    pals = {}
+    pals['Pals'] = palbox[players[current.get()]]
+    file = askopenfilename(filetype=[("json files", "*.json")])
+    with open(file，"wb") as f:
+       f.write(orjson.dumps(pals, option = orjson.OPT_INDENT_2)
 
 def doconvertsave(file):
     SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"), True)
