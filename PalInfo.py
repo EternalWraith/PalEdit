@@ -429,6 +429,7 @@ class PalGuid:
         self._data = data
         self._CharacterContainerSaveData = data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
         self._GroupSaveDataMap = data['properties']['worldSaveData']['value']['GroupSaveDataMap']['value']
+        self._BaseCampSaveData = data['properties']['worldSaveData']['value']['BaseCampSaveData']['value']
 
     def ConvertGuid(guid_str):
         guid_str = guid_str
@@ -489,13 +490,25 @@ class PalGuid:
             if "admin_player_uid" in e['value']['RawData']['value']:
                 return e['key']
 
-    def GetGroupGuid(self, playerguid):
+    def GetGroupGuid(self, playerguid : str):
         for e in self._GroupSaveDataMap:
             if "players" in e['value']['RawData']['value']:
                 for player in e['value']['RawData']['value']['players']:
                     if player['player_uid'] == playerguid:
                         return e['key']
 
+    def GetCampStorageGuid(self, CampGuid : str):
+        for e in self._BaseCampSaveData:
+            if e['key'] == CampGuid:
+                return e['value']['WorkerDirector']['value']['RawData']['value']['container_id']
+
+    def GetGroupCampStorageGuidList(self, GroupGuid : str):
+        guids = []
+        for e in self._GroupSaveDataMap:
+            if e['key'] == GroupGuid:
+                for c in e['value']['RawData']['value']['base_ids']:
+                    guids.append(self.GetCampStorageGuid(c))
+        return guids
 
     def RemanePlayer(self, PlayerGuid : str, NewName : str):
         for e in self._GroupSaveDataMap:
