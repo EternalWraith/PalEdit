@@ -6,7 +6,13 @@ import os, webbrowser, json, time, uuid, math
 import pyperclip
 
 import SaveConverter
+from lib.gvas import GvasFile
+from lib.archive import FArchiveReader, FArchiveWriter
+from lib.json_tools import CustomEncoder
+from lib.palsav import compress_gvas_to_sav, decompress_sav_to_gvas
+from lib.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TYPE_HINTS
 import tkinter as tk
+import copy
 
 from PalInfo import *
 
@@ -17,7 +23,7 @@ from tkinter import messagebox
 from PIL import ImageTk, Image
 
 class PalEditConfig:
-    version = "0.5.3"
+    version = "0.5.4"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
@@ -369,8 +375,14 @@ class PalEdit():
         if file:
             self.filename = file
             self.gui.title(f"PalEdit v{PalEditConfig.version} - {file}")
-            self.skilllabel.config(text="Decompiling save, please be patient...")
-            self.doconvertjson(file, (not self.debug))
+            self.skilllabel.config(text="Decompressing save, please be patient...")
+            with open(file, "rb") as f:
+                data = f.read()
+                raw_gvas, _ = decompress_sav_to_gvas(data)
+            self.skilllabel.config(text=f"Loading GVAS file, please be patient...")
+            gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
+            self.loaddata(gvas_file)
+            # self.doconvertjson(file, (not self.debug))
         else:
             messagebox.showerror("Select a file", "Please select a save file.")
 
@@ -379,25 +391,35 @@ class PalEdit():
         self.palbox = {}
         self.players = {}
         
-
         f = open(file, "r", encoding="utf8")
-        self.data = json.loads(f.read())
+        data = json.loads(f.read())
         f.close()
 
         if file.endswith(".pson"):
-            paldata = self.data
+            self.loadpal(paldata)
         else:
-            paldata = self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
-            self.palguidmanager = PalGuid(self.data)
-            f = open("current.pson", "w", encoding="utf8")
-            json.dump(paldata, f, indent=4)
-            f.close()
-            
-        self.loaddata(paldata)
-        messagebox.showinfo("Done", "Done loading!")
+            self.loaddata(data)
+            # paldata = self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
+            # f = open("current.pson", "w", encoding="utf8")
+            # json.dump(paldata, f, indent=4)
+            # f.close()
         
-    def loaddata(self, paldata):
+        messagebox.showinfo("Done", "Done loading!")
+    
+    def loaddata(self, data):
+        self.data = data
+        if isinstance(data, GvasFile):
+            self.data = {
+                'gvas_file': data,
+                'properties': data.properties
+            }
+        paldata = self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
+        self.palguidmanager = PalGuid(self.data)
+        self.loadpal(paldata)
+        
+    def loadpal(self, paldata):
         self.palbox = {}
+        self.players = {}
         self.players = self.palguidmanager.GetPlayerslist()
         print(self.players)
         for p in self.players:
@@ -465,7 +487,7 @@ class PalEdit():
         nullmoves.sort()
         for i in nullmoves:
             print(f"{i} was not found in Attack Database")
-
+        
         self.refresh()
 
         self.changetext(-1)
@@ -501,9 +523,30 @@ class PalEdit():
         print(file, self.filename)
         if file:
             print(f"Opening file {file}")
-
-            self.savejson(file)
-            self.doconvertsave(file)
+            
+            if 'gvas_file' in self.data:
+                gvas_file = self.data['gvas_file']
+                if (
+                        "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
+                        or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
+                ):
+                    save_type = 0x32
+                else:
+                    save_type = 0x31
+                sav_file = compress_gvas_to_sav(
+                    gvas_file.write(PALWORLD_CUSTOM_PROPERTIES), save_type
+                )
+                self.skilllabel.config(text="Writing SAV file...")
+                with open(file, "wb") as f:
+                    f.write(sav_file)
+                self.data = None
+                self.current.set("")
+                self.palbox = {}
+                self.players = {}
+                self.listdisplay.delete(0, tk.constants.END)
+            else:
+                self.savejson(file)
+                self.doconvertsave(file)
 
             self.changetext(-1)
             self.jump()
@@ -529,7 +572,10 @@ class PalEdit():
         # svdata['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'] = data
 
         f = open(filename, "w", encoding="utf8")
-        json.dump(self.data, f)  # svdata, f)
+        if 'gvas_file' in self.data:
+            json.dump(self.data['gvas_file'].dump(), f, cls=CustomEncoder)
+        else:
+            json.dump(self.data, f)  # svdata, f)
         f.close()
 
         self.changetext(-1)
