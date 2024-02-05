@@ -448,18 +448,24 @@ def loaddata(paldata):
     global players
     global current
     global containers
+    global palguidmanager
     current.set("")
     palbox = {}
-    players = {}
+    players = palguidmanager.GetPlayerslist()
+    for p in players:
+        palbox[players[p]] = []
     containers = {}
     nullmoves = []
     for i in paldata:
         try:
             p = PalEntity(i)
-            if not p.owner in palbox:
-                palbox[p.owner] = []
-            palbox[p.owner].append(p)
-
+            #if not p.owner in palbox:
+            #    palbox[p.owner] = []
+            #palbox[p.owner].append(p)
+            if p.owner in players.values():
+                palbox[p.owner].append(p)
+            else:
+                unknown.append(i)
             n = p.GetFullName()
 
             for m in p.GetLearntMoves():
@@ -472,13 +478,13 @@ def loaddata(paldata):
             if str(e) == "This is a player character":
                 print("Found Player Character")
                 # print(f"\nDebug: Data \n{i}\n\n")
-                o = i['value']['RawData']['value']['object']['SaveParameter']['value']
-                pl = "No Name"
-                if "NickName" in o:
-                    pl = o['NickName']['value']
-                plguid = i['key']['PlayerUId']['value']
-                print(f"{pl} - {plguid}")
-                players[pl] = plguid
+                #o = i['value']['RawData']['value']['object']['SaveParameter']['value']
+                #pl = "No Name"
+                #if "NickName" in o:
+                #    pl = o['NickName']['value']
+                #plguid = i['key']['PlayerUId']['value']
+                #print(f"{pl} - {plguid}")
+                #players[pl] = plguid
             else:
                 unknown.append(i)
                 print(f"Error occured: {str(e)}")
@@ -835,6 +841,7 @@ scrollview.pack(side=LEFT, fill=Y)
 
 def changeplayer(evt):
     print(current.get())
+    print(len(palbox[players[current.get()]]))
     updateDisplay()
 
 playerframe = Frame(scrollview)

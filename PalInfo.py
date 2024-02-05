@@ -1,6 +1,7 @@
 import json
 
 from enum import Enum
+import os
 import uuid
 from PIL import ImageTk, Image
 from EmptyObjectHandler import *
@@ -88,7 +89,10 @@ class PalObject:
     def GetImage(self):
         if self._img == None:
             n = self.GetName() if not self._human else "Human"
-            self._img = ImageTk.PhotoImage(Image.open(f'resources/{n}.png').resize((240,240)))
+            if os.path.exists(f'resources/{n}.png'):
+                self._img = ImageTk.PhotoImage(Image.open(f'resources/{n}.png').resize((240,240)))
+            else:
+                self._img = ImageTk.PhotoImage(Image.open(f'resources/#ERROR.png').resize((240,240)))
         return self._img
 
     def GetPrimary(self):
@@ -104,9 +108,10 @@ class PalEntity:
         self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
 
         self.owner = ""
-        if "OwnerPlayerUId" in self._obj:
-            self.owner = self._obj["OwnerPlayerUId"]['value']
-
+        #if "OwnerPlayerUId" in self._obj:
+        #    self.owner = self._obj["OwnerPlayerUId"]['value']
+        if "OldOwnerPlayerUIds" in self._obj:
+            self.owner = self._obj["OldOwnerPlayerUIds"]['value']['values'][-1]
         if "IsPlayer" in self._obj:
             raise Exception("This is a player character")
 
@@ -133,8 +138,13 @@ class PalEntity:
             # Strangely, Boss and Lucky Lamballs have camelcasing
             # Regular ones... don't
         # print(f"Debug: typename3 - '{typename}'")
-
-        self._type = PalSpecies[typename]
+        if typename in PalSpecies:
+            self._type = PalSpecies[typename]
+        else:
+            PalSpecies[typename] = PalObject(f"Unknow:{self._obj['CharacterID']['value']}", "None", "None", False, False)
+            self._type = PalSpecies[typename]
+            PalLearnSet[self._type.GetName()] = {}
+        
         print(f"Created Entity of type {typename}: {self._type} - Lucky: {self.isLucky} Boss: {self.isBoss}")
 
         if "Gender" in self._obj:
@@ -493,7 +503,22 @@ class PalGuid:
                 for p in e['value']['RawData']['value']['players']:
                     if p['player_uid'] == PlayerGuid:
                         p['player_info']['player_name'] = NewName
-                
+    
+    def GetPlayerslist(self):
+        players = {}
+        for e in self._GroupSaveDataMap:
+            if "players" in e['value']['RawData']['value']:
+                for p in e['value']['RawData']['value']['players']:
+                    nickname = p['player_info']['player_name']
+                    if nickname == "":
+                        players[f"NoName-{p['player_uid']}"] = p['player_uid']
+                    else:
+                        if nickname in players:
+                            players[nickname + p['player_uid']] = p['player_uid']
+                        else:
+                            players[nickname] = p['player_uid']
+        return players
+
     def Save(self, svdata):
         if 'properties' in svdata:
             svdata['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value'] = self._CharacterContainerSaveData
