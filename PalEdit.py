@@ -407,9 +407,9 @@ class PalEdit():
         for i in paldata:
             try:
                 p = PalInfo.PalEntity(i)
-                if not p.owner in self.palbox:
-                    self.palbox[p.owner] = []
-                self.palbox[p.owner].append(p)
+                if not str(p.owner) in self.palbox:
+                    self.palbox[str(p.owner)] = []
+                self.palbox[str(p.owner)].append(p)
 
                 n = p.GetFullName()
 
