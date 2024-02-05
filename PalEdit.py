@@ -1297,7 +1297,9 @@ class PalEdit():
         # root.resizable(width=False, height=True)
         root.geometry("")  # auto window size
         self.updateWindowSize("true")
-        root.mainloop()
+    
+    def mainloop(self):
+        self.gui.mainloop()
 
     def changeplayer(self, evt):
         print(self.current.get())
@@ -1320,7 +1322,8 @@ class PalEdit():
             root.geometry("{}x{}".format(window_width, window_height))
 
 def main():
-    PalEdit()
+    pal = PalEdit()
+    pal.gui.mainloop()
 
 if __name__ == "__main__":
     main()
