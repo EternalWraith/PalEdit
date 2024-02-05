@@ -1,10 +1,10 @@
 import json
-
+import os
 from enum import Enum
 from PIL import ImageTk, Image
 from EmptyObjectHandler import *
 
-
+module_dir = os.path.dirname(os.path.abspath(__file__))
 
 xpthresholds = [
     0,
@@ -87,7 +87,7 @@ class PalObject:
     def GetImage(self):
         if self._img == None:
             n = self.GetName() if not self._human else "Human"
-            self._img = ImageTk.PhotoImage(Image.open(f'resources/{n}.png').resize((240,240)))
+            self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
         return self._img
 
     def GetPrimary(self):
@@ -409,12 +409,12 @@ def matches(pal, move):
     """
                     
 
-with open("resources/data/elements.json", "r", encoding="utf8") as elementfile:
+with open(module_dir+"/resources/data/elements.json", "r", encoding="utf8") as elementfile:
     PalElements = {}
     for i in json.loads(elementfile.read())["values"]:
         PalElements[i['Name']] = i['Color']
 
-with open("resources/data/pals.json", "r", encoding="utf8") as palfile:
+with open(module_dir+"/resources/data/pals.json", "r", encoding="utf8") as palfile:
     PalSpecies = {}
     PalLearnSet = {}
     for i in json.loads(palfile.read())["values"]:
@@ -427,7 +427,7 @@ with open("resources/data/pals.json", "r", encoding="utf8") as palfile:
         PalSpecies[i["CodeName"]] = PalObject(i["Name"], p, s, h, t)
         PalLearnSet[i["Name"]] = i["Moveset"]
 
-with open("resources/data/passives.json", "r", encoding="utf8") as passivefile:
+with open(module_dir+"/resources/data/passives.json", "r", encoding="utf8") as passivefile:
     PalPassives = {}
     PassiveDescriptions = {}
     PassiveRating = {}
@@ -437,7 +437,7 @@ with open("resources/data/passives.json", "r", encoding="utf8") as passivefile:
         PassiveRating[i["Name"]] = i["Rating"]
     PalPassives = dict(sorted(PalPassives.items()))
 
-with open("resources/data/attacks.json", "r", encoding="utf8") as attackfile:
+with open(module_dir+"/resources/data/attacks.json", "r", encoding="utf8") as attackfile:
     PalAttacks = {}
     AttackPower = {}
     AttackTypes = {}
@@ -482,7 +482,7 @@ if __name__ == "__main__":
 
         
         
-        with open("resources/data/pals.json", "r+", encoding="utf8") as palfile:
+        with open(module_dir+"/resources/data/pals.json", "r+", encoding="utf8") as palfile:
             p = json.loads(palfile.read())
             palfile.seek(0)
             for pal in p['values']:
@@ -527,7 +527,7 @@ if __name__ == "__main__":
 
         for i in codes:
             debugOutput.append({"CodeName": codes[i], "Name": i, "Type": "", "Power": 0})
-        with open("resources/data/attacks.json", "w", encoding="utf8") as attackfile:
+        with open(module_dir+"/resources/data/attacks.json", "w", encoding="utf8") as attackfile:
             json.dump({"values": debugOutput}, attackfile, indent=4)
     
         
