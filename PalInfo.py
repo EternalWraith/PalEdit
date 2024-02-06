@@ -209,8 +209,18 @@ class PalEntity:
             self._obj["MasteredWaza"] = EmptyMovesObject.copy()
         
         for i in self._obj["MasteredWaza"]["value"]["values"]:
+            if i not in PalAttacks:
+                uname = f"Unknow:{i}"
+                PalAttacks[i] = uname
+                SkillExclusivity[i] = None
+                AttackPower[uname] = 0
+                AttackTypes[uname] = ""
             if not matches(typename, i) or PalAttacks[i] in PalLearnSet[self._type.GetName()]:
                 self._obj["MasteredWaza"]["value"]["values"].remove(i)
+                
+        if not "EquipWaza" in self._obj:
+            self._obj["EquipWaza"] = EmptyMovesObject.copy()
+        
         for i in self._obj["EquipWaza"]["value"]["values"]:
             if not matches(typename, i):
                 self._obj["EquipWaza"]["value"]["values"].remove(i)
@@ -442,7 +452,15 @@ class PalGuid:
         result_list.append(0)
         result_list[12] = 1
         return result_list
-
+    
+    def GetContainerSave(self, SoltGuid : str, SlotIndex : int):
+        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
+            return "00000000-0000-0000-0000-000000000000"
+        for e in self._CharacterContainerSaveData:
+            if(e['key']['ID']['value'] == SoltGuid):
+                return e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value']['instance_id']
+        return "00000000-0000-0000-0000-000000000000"
+    
     def SetContainerSave(self, SoltGuid : str, SlotIndex : int, PalGuid : str):
         if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
             return

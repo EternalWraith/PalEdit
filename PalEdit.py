@@ -463,8 +463,11 @@ def loaddata(paldata):
             #    palbox[p.owner] = []
             #palbox[p.owner].append(p)
             if p.owner in players.values():
-                palbox[p.owner].append(p)
-            else:
+                if p.GetPalInstanceGuid() == palguidmanager.GetContainerSave(p.storageId, p.storageSlot):
+                    palbox[p.owner].append(p)
+                else:#Storage Conflict
+                    unknown.append(i)
+            else:#Unknow Owner
                 unknown.append(i)
             n = p.GetFullName()
 
