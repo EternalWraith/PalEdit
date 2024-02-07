@@ -535,7 +535,7 @@ class PalGuid:
                     if p['player_uid'] == PlayerGuid:
                         p['player_info']['player_name'] = NewName
     
-    def GetPlayerslist(self):
+    def GetPlayerslist(self) -> dict:
         players = {}
         for e in self._GroupSaveDataMap:
             if "players" in e['value']['RawData']['value']:
@@ -564,31 +564,31 @@ class PalPlayerEntity:
         self._inventoryinfo = self._obj['inventoryInfo']['value']
 
     def GetPlayerGuid(self):
-        return self._obj['PlayerUId']['value']
+        return str(self._obj['PlayerUId']['value'])
     
     def GetPlayerIndividualId(self):
-        return self._obj['IndividualId']['value']['InstanceId']['value']
+        return str(self._obj['IndividualId']['value']['InstanceId']['value'])
     
     def GetTravelPalInventoryGuid(self):
-        return self._obj['OtomoCharacterContainerId']['value']['ID']['value']
+        return str(self._obj['OtomoCharacterContainerId']['value']['ID']['value'])
     
     def GetPalStorageGuid(self):
-        return self._obj['PalStorageContainerId']['value']['ID']['value']
+        return str(self._obj['PalStorageContainerId']['value']['ID']['value'])
     
     def GetCommonItemInventoryGuid(self):
-        self._inventoryinfo['CommonContainerId']['value']['ID']['value']
+        return str(self._inventoryinfo['CommonContainerId']['value']['ID']['value'])
     
     def GetKeyItemInventoryGuid(self):
-        self._inventoryinfo['EssentialContainerId']['value']['ID']['value']
+        return str(self._inventoryinfo['EssentialContainerId']['value']['ID']['value'])
     
     def GetWeaponLoadOutInventoryGuid(self):
-        self._inventoryinfo['WeaponLoadOutContainerId']['value']['ID']['value']
+        return str(self._inventoryinfo['WeaponLoadOutContainerId']['value']['ID']['value'])
     
     def GetFoodInventoryGuid(self):
-        self._inventoryinfo['FoodEquipContainerId']['value']['ID']['value']
+        return str(self._inventoryinfo['FoodEquipContainerId']['value']['ID']['value'])
     
     def GetPlayerEquipArmorGuid(self):
-        self._inventoryinfo['PlayerEquipArmorContainerId']['value']['ID']['value']
+        return str(self._inventoryinfo['PlayerEquipArmorContainerId']['value']['ID']['value'])
     
     def SetLifmunkEffigyCount(self, v : int):
         if 'RelicPossessNum' in self._record:
@@ -604,6 +604,30 @@ class PalPlayerEntity:
     
     def dump(self):
         return self._data
+
+class PalPlayerManager:
+    def __init__(self, levelfile, pguids):
+        import SaveConverter
+        self._playerdic = {}
+        self._playerpath = os.path.dirname(levelfile)+ "/players/"
+        for pg in pguids:
+            playersav = self._playerpath + f"{pg.replace('-','')}.sav"
+            if not os.path.exists(playersav):
+                print(f"Cannot Load Player Save : {pg}!")
+            else:
+                self._playerdic[pg] = PalPlayerEntity(SaveConverter.convert_sav_to_obj(playersav))
+    
+    def TryGetPlayerEntity(self, guid : str) -> PalPlayerEntity:
+        if guid in self._playerdic:
+            return self._playerdic[guid]
+        return None
+    
+    def SavePlayerEntity(self, guid):
+        import SaveConverter
+        if guid in self._playerdic:
+            playersav = self._playerpath+ f"{guid.replace('-','')}.sav"
+            SaveConverter.convert_obj_to_sav(self.TryGetPlayerEntity(guid).dump(), playersav, True)
+    
 
 
 def matches(pal, move):

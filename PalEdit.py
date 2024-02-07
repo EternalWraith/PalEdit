@@ -714,14 +714,13 @@ def spawnpal():
     global data
     if not isPalSelected() or palguidmanager is None:
         return
+
+    playermanager = PalPlayerManager(filename, palguidmanager.GetPlayerslist().values())
     playerguid = players[current.get()]
-    playersav = os.path.dirname(filename)+ f"/players/{playerguid.replace('-','')}.sav"
-    if not os.path.exists(playersav):
-        print("Cannot Load Player Save!")
+    player = playermanager.TryGetPlayerEntity(playerguid)
+    if player is None:
         return
-    player = PalPlayerEntity(SaveConverter.convert_sav_to_obj(playersav))
-    SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
-    
+    #SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
 
     file = askopenfilename(filetype=[("json files", "*.json")])
     if file == '':
@@ -732,7 +731,7 @@ def spawnpal():
     spawnpaldata = json.loads(f.read())
     f.close()
 
-    slotguid = str(player.GetPalStorageGuid())
+    slotguid = player.GetPalStorageGuid()
     groupguid = palguidmanager.GetGroupGuid(playerguid)
     if any(guid == None for guid in [slotguid, groupguid]):
         return
