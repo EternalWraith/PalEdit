@@ -1,3 +1,4 @@
+import copy
 import json
 
 from enum import Enum
@@ -116,7 +117,7 @@ class PalEntity:
             raise Exception("This is a player character")
 
         if not "IsRarePal" in self._obj:
-            self._obj["IsRarePal"] = EmptyRarePalObject.copy()
+            self._obj["IsRarePal"] = copy.deepcopy(EmptyRarePalObject)
         self.isLucky = self._obj["IsRarePal"]['value']
 
         
@@ -158,24 +159,24 @@ class PalEntity:
         self._workspeed = self._obj['CraftSpeed']['value']
 
         if not "Talent_HP" in self._obj:
-            self._obj['Talent_HP'] = EmptyMeleeObject.copy()
+            self._obj['Talent_HP'] = copy.deepcopy(EmptyMeleeObject)
             self._talent_hp = 0 # we set 0, so if its not changed it should be removed by the game again.
         self._talent_hp = self._obj['Talent_HP']['value']
 
         if not "Talent_Melee" in self._obj:
-            self._obj['Talent_Melee'] = EmptyMeleeObject.copy()
+            self._obj['Talent_Melee'] = copy.deepcopy(EmptyMeleeObject)
         self._melee = self._obj['Talent_Melee']['value']
 
         if not "Talent_Shot" in self._obj:
-            self._obj['Talent_Shot'] = EmptyShotObject.copy()
+            self._obj['Talent_Shot'] = copy.deepcopy(EmptyShotObject)
         self._ranged = self._obj['Talent_Shot']['value']
 
         if not "Talent_Defense" in self._obj:
-            self._obj['Talent_Defense'] = EmptyDefenceObject.copy()
+            self._obj['Talent_Defense'] = copy.deepcopy(EmptyDefenceObject)
         self._defence = self._obj['Talent_Defense']['value']
 
         if not "Rank" in self._obj:
-            self._obj['Rank'] = EmptyRankObject.copy()
+            self._obj['Rank'] = copy.deepcopy(EmptyRankObject)
         self._rank = self._obj['Rank']['value']
 
         # Fix broken ranks
@@ -183,16 +184,16 @@ class PalEntity:
             self.SetRank(1)
 
         if not "PassiveSkillList" in self._obj:
-            self._obj['PassiveSkillList'] = EmptySkillObject.copy()
+            self._obj['PassiveSkillList'] = copy.deepcopy(EmptySkillObject)
         self._skills = self._obj['PassiveSkillList']['value']['values']
         self.CleanseSkills()
 
         if not "Level" in self._obj:
-            self._obj['Level'] = EmptyLevelObject.copy()
+            self._obj['Level'] = copy.deepcopy(EmptyLevelObject)
         self._level = self._obj['Level']['value']
 
         if not "Exp" in self._obj:
-            self._obj['Exp'] = EmptyExpObject.copy()
+            self._obj['Exp'] = copy.deepcopy(EmptyExpObject)
         # We don't store Exp yet
 
         self._nickname = ""
@@ -206,7 +207,7 @@ class PalEntity:
         self.storageSlot = self._storedLocation["value"]["SlotIndex"]["value"]
 
         if not "MasteredWaza" in self._obj:
-            self._obj["MasteredWaza"] = EmptyMovesObject.copy()
+            self._obj["MasteredWaza"] = copy.deepcopy(EmptyMovesObject)
         
         for i in self._obj["MasteredWaza"]["value"]["values"]:
             if i not in PalAttacks:
