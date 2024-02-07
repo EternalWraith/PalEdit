@@ -299,7 +299,7 @@ def changeskill(num):
     
     refresh(i)
 
-def changeattack(num):
+def changeequipmoves(num):
     if not isPalSelected():
         return
     i = int(listdisplay.curselection()[0])
@@ -307,9 +307,9 @@ def changeattack(num):
     
     if not attacks[num].get() in ["Unknown", "UNKNOWN"]:
         if attacks[num].get() in ["None", "NONE"]:
-            pal.RemoveAttack(num)
+            pal.RemoveEquipMoves(num)
         else:
-            pal.SetAttack(num, attacks[num].get())
+            pal.SetEquipMoves(num, attacks[num].get())
     
     refresh(i)
 
@@ -495,10 +495,15 @@ def loaddata(paldata):
 
     current.set(next(iter(players)))
     print(f"Defaulted selection to {current.get()}")
-
+    
     updateDisplay()
 
     print(f"Unknown list contains {len(unknown)} entries")
+
+    #if len(unknown) > 0:
+    #    for i in unknown:
+    #        paldata.remove(i)
+
     #for i in unknown:
         #print (i)
     
@@ -882,9 +887,9 @@ attackops.remove("None")
 attackops.sort()
 attackops.insert(0,"None")
 attackdrops = [
-    OptionMenu(equipFrame, attacks[0], *attackops, command=lambda evt: changeattack(0)),
-    OptionMenu(equipFrame, attacks[1], *attackops, command=lambda evt: changeattack(1)),
-    OptionMenu(equipFrame, attacks[2], *attackops, command=lambda evt: changeattack(2))
+    OptionMenu(equipFrame, attacks[0], *attackops, command=lambda evt: changeequipmoves(0)),
+    OptionMenu(equipFrame, attacks[1], *attackops, command=lambda evt: changeequipmoves(1)),
+    OptionMenu(equipFrame, attacks[2], *attackops, command=lambda evt: changeequipmoves(2))
     ]
 
 attackdrops[0].pack(fill=X)

@@ -320,7 +320,7 @@ class PalEntity:
         else:
             self._skills[slot] = find(skill)
 
-    def SetAttack(self, slot, attack):
+    def SetEquipMoves(self, slot, attack):
         if slot > len(self._equipMoves)-1:
             self._equipMoves.append(find(attack))
         else:
@@ -378,7 +378,7 @@ class PalEntity:
         if slot < len(self._skills):
             self._skills.pop(slot)
 
-    def RemoveAttack(self, slot):
+    def RemoveEquipMoves(self, slot):
         if slot < len(self._equipMoves):
             self._equipMoves.pop(slot)
         self.SetLevelMoves()
