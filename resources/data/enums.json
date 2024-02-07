@@ -1,0 +1,94 @@
+{
+    "EPalStatusHungerType": [
+        {
+            "CodeName": "",
+            "Name": ""
+        },
+        {
+            "CodeName": "EPalStatusHungerType::Default",
+            "Name": "Default"
+        },
+        {
+            "CodeName": "EPalStatusHungerType::Hunger",
+            "Name": "Hunger"
+        },
+        {
+            "CodeName": "EPalStatusHungerType::Starvation",
+            "Name": "Starvation"
+        }      
+    ],
+    "EPalBaseCampWorkerSickType": [
+        {
+            "CodeName": "",
+            "Name": "",
+            "Type": "",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::None",
+            "Name": "None"
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::Cold",
+            "Name": "Cold"
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::Sprain",
+            "Name": "Sprain"
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::Bulimia",
+            "Name": "Bulimia"
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::GastricUlcer",
+            "Name": "GastricUlcer"
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::Fracture",
+            "Name": "Fracture"
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::Weakness",
+            "Name": "Weakness"
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::DepressionSprain",
+            "Name": "DepressionSprain"
+        },
+        {
+            "CodeName": "EPalBaseCampWorkerSickType::DisturbingElement",
+            "Name": "DisturbingElement"
+        }
+    ],
+    "EPalStatusPhysicalHealthType": [
+        {
+            "CodeName": "",
+            "Name": ""
+        },
+        {
+            "CodeName": "EPalStatusPhysicalHealthType::Healthful",
+            "Name": "Healthful"
+        },
+        {
+            "CodeName": "EPalStatusPhysicalHealthType::MinorInjury",
+            "Name": "MinorInjury"
+        },
+        {
+            "CodeName": "EPalStatusPhysicalHealthType::Severe",
+            "Name": "Severe"
+        },
+        {
+            "CodeName": "EPalStatusPhysicalHealthType::Dying",
+            "Name": "Dying"
+        },
+        {
+            "CodeName": "EPalStatusPhysicalHealthType::DeadBody",
+            "Name": "DeadBody"
+        },
+        {
+            "CodeName": "EPalStatusPhysicalHealthType::CloudCemetery",
+            "Name": "CloudCemetery"
+        }         
+    ]
+}
