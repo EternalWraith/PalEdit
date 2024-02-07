@@ -220,7 +220,7 @@ class PalEntity:
                 self._obj["MasteredWaza"]["value"]["values"].remove(i)
                 
         if not "EquipWaza" in self._obj:
-            self._obj["EquipWaza"] = EmptyMovesObject.copy()
+            self._obj["EquipWaza"] = copy.deepcopy(EmptyMovesObject)
         
         for i in self._obj["EquipWaza"]["value"]["values"]:
             if not matches(typename, i):
