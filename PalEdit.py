@@ -280,12 +280,12 @@ class PalEdit():
         self.refresh(i)
 
     def onselect(self, evt):
+        self.is_onselect = True
         w = evt.widget
         if not self.isPalSelected():
             return
-
-        if self.editindex > -1:
-            self.updatestats(self.editindex)
+        
+        self.updatestats()
 
         index = int(w.curselection()[0])
         self.editindex = index
@@ -345,6 +345,8 @@ class PalEdit():
                 self.skills[i].set(PalInfo.PalPassives[s[i]])
 
         self.setskillcolours()
+        self.is_onselect = False
+
 
     def changetext(self, num):
         if num == -1:
@@ -589,30 +591,48 @@ class PalEdit():
         newguid = uuid.uuid4()
         print(newguid)
 
-    def updatestats(self, e):
+    def updatestats(self):
         if not self.isPalSelected():
             return
-        i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][e]
+        
+        if self.editindex < 0:
+            return
+
+        pal = self.palbox[self.players[self.current.get()]][self.editindex]
         l = pal.GetLevel()
-        # pal.SetTalentHP(talent_hp_var.get())
-        h = self.phpvar.get()
-        pal.SetTalentHP(h)
-        hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
-        self.hthstatval.config(text=math.floor(hv))
+        
+        if self.phpvar.dirty:
+            h = self.phpvar.get()
+            print(f"{pal.GetFullName()}: TalentHP {pal.GetTalentHP()} -> {h}")
+            pal.SetTalentHP(h)
+            hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
+            self.hthstatval.config(text=math.floor(hv))
+            self.phpvar.dirty = False
+        if self.meleevar.dirty:
+            a = self.meleevar.get()
+            print(f"{pal.GetFullName()}: AttackMelee {pal.GetAttackMelee()} -> {a}")
+            pal.SetAttackMelee(a)
+            av = 100 + (((70 * 0.75) * l) * (1 + (a / 100)))
+            self.atkstatval.config(text=math.floor(av))
+            self.meleevar.dirty = False
+        if self.shotvar.dirty:
+            r = self.shotvar.get()
+            print(f"{pal.GetFullName()}: AttackRanged {pal.GetAttackRanged()} -> {r}")
+            pal.SetAttackRanged(r)
+            self.shotvar.dirty = False
+        if self.defvar.dirty:
+            d = self.defvar.get()
+            print(f"{pal.GetFullName()}: Defence {pal.GetDefence()} -> {d}")
+            pal.SetDefence(d)
+            dv = 50 + (((70 * 0.75) * l) * (1 + (d / 100)))
+            self.defstatval.config(text=math.floor(dv))
+            self.defvar.dirty = False
+        if self.wspvar.dirty:
+            w = self.wspvar.get()
+            print(f"{pal.GetFullName()}: WorkSpeed {pal.GetWorkSpeed()} -> {w}")
+            pal.SetWorkSpeed(w)
+            self.wspvar.dirty = False
 
-        a = self.meleevar.get()
-        pal.SetAttackMelee(a)
-        pal.SetAttackRanged(self.shotvar.get())
-        av = 100 + (((70 * 0.75) * l) * (1 + (a / 100)))
-        self.atkstatval.config(text=math.floor(av))
-
-        d = self.defvar.get()
-        pal.SetDefence(d)
-        dv = 50 + (((70 * 0.75) * l) * (1 + (d / 100)))
-        self.defstatval.config(text=math.floor(dv))
-
-        pal.SetWorkSpeed(self.wspvar.get())
 
     def takelevel(self):
         if not self.isPalSelected():
@@ -831,6 +851,7 @@ class PalEdit():
         self.filename = ""
         self.gui = self.createWindow()
         self.palguidmanager: PalGuid = None
+        self.is_onselect = False
 
         purplepanda = ImageTk.PhotoImage(
             Image.open(f'{module_dir}/resources/MossandaIcon.png').resize((240, 240)))
@@ -1048,12 +1069,21 @@ class PalEdit():
                             command=self.swapgender)
         swapbtn.pack(side=tk.constants.RIGHT)
 
-        def clamp(var):
+        def validate_and_mark_dirty(var, entry: tk.Entry):
+            if self.is_onselect:
+                return
+            if entry.focus_get() != entry:
+                return
             try:
                 int(var.get())
             except TclError as e:
+                var.dirty = False
                 return
+            
+            clamp(var)
+            var.dirty = True
 
+        def clamp(var):
             if var.get() > 100:
                 var.set(100)
                 return
@@ -1071,52 +1101,62 @@ class PalEdit():
 
             return False
 
-        def fillifempty(var):
-            try:
-                int(var.get())
-            except TclError as e:
-                var.set(0)
+        def try_update(var, event=None):
+            if not var.dirty:
+                return
+            if self.editindex < 0:
+                return
+            self.updatestats()
+
 
         valreg = root.register(ivvalidate)
 
         attackframe = tk.Frame(editview, width=6)
         attackframe.pack(fill=tk.constants.X)
+
         self.meleevar = tk.IntVar()
-        self.shotvar = tk.IntVar()
-        self.meleevar.trace("w", lambda name, index, mode, sv=self.meleevar: clamp(sv))
-        self.shotvar.trace("w", lambda name, index, mode, sv=self.shotvar: clamp(sv))
+        self.meleevar.dirty = False
         self.meleevar.set(100)
-        self.shotvar.set(0)
         meleeicon = tk.Label(attackframe, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
         meleeicon.pack(side=tk.constants.LEFT)
+        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
+        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
+        palmelee.pack(side=tk.constants.LEFT)
+        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
+        
+
+        self.shotvar = tk.IntVar()
+        self.shotvar.dirty = False
+        self.shotvar.set(0)
         shoticon = tk.Label(attackframe, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
         shoticon.pack(side=tk.constants.RIGHT)
-        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize),
-                            width=6)
-        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        palmelee.bind("<FocusOut>", lambda evt, sv=self.meleevar: fillifempty(sv))
-        palmelee.pack(side=tk.constants.LEFT)
-        palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize),
-                           width=6)
+        palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         palshot.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        palshot.bind("<FocusOut>", lambda evt, sv=self.shotvar: fillifempty(sv))
+        palshot.bind("<FocusOut>", lambda event, var=self.shotvar: try_update(var))
         palshot.pack(side=tk.constants.RIGHT)
+        self.shotvar.trace_add("write", lambda name, index, mode, sv=self.shotvar, entry=palshot: validate_and_mark_dirty(sv, entry))
+
 
         self.defvar = tk.IntVar()
-        self.defvar.trace("w", lambda name, index, mode, sv=self.defvar: clamp(sv))
+        self.defvar.dirty = False
         self.defvar.set(100)
         paldef = tk.Entry(editview, textvariable=self.defvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         paldef.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        paldef.bind("<FocusOut>", lambda evt, sv=self.defvar: fillifempty(sv))
+        paldef.bind("<FocusOut>", lambda event, var=self.defvar: try_update(var))
         paldef.pack(expand=True, fill=tk.constants.X)
+        self.defvar.trace_add("write", lambda name, index, mode, sv=self.defvar, entry=paldef: validate_and_mark_dirty(sv, entry))
+
 
         self.wspvar = tk.IntVar()
-        self.wspvar.trace("w", lambda name, index, mode, sv=self.wspvar: clamp(sv))
+        self.wspvar.dirty = False
         self.wspvar.set(70)
         palwsp = tk.Entry(editview, textvariable=self.wspvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         palwsp.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        palwsp.bind("<FocusOut>", lambda evt, sv=self.wspvar: fillifempty(sv))
+        palwsp.bind("<FocusOut>", lambda event, var=self.wspvar: try_update(var))
         palwsp.pack(expand=True, fill=tk.constants.X)
+        self.wspvar.trace_add("write", lambda name, index, mode, sv=self.wspvar, entry=palwsp: validate_and_mark_dirty(sv, entry))
+
 
         def talent_hp_changed(*args):
             if not self.isPalSelected():
@@ -1128,12 +1168,14 @@ class PalEdit():
             # change value of pal
 
         self.phpvar = tk.IntVar()
-        self.phpvar.trace("w", lambda name, index, mode, sv=self.phpvar: clamp(sv))
+        self.phpvar.dirty = False
         self.phpvar.set(50)
         palhps = tk.Entry(editview, textvariable=self.phpvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         palhps.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        palhps.bind("<FocusOut>", lambda evt, sv=self.phpvar: fillifempty(sv))
+        palhps.bind("<FocusOut>", lambda event, var=self.phpvar: try_update(var))
         palhps.pack(expand=True, fill=tk.constants.X)
+        self.phpvar.trace_add("write", lambda name, index, mode, sv=self.phpvar, entry=palhps: validate_and_mark_dirty(sv, entry))
+
 
         """
         talent_hp_var = IntVar(value=50)
