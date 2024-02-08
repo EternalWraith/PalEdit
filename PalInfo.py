@@ -3,6 +3,8 @@ import json
 from enum import Enum
 from PIL import ImageTk, Image
 from EmptyObjectHandler import *
+import bs4 as bsoup
+import urllib.request as ureq
 
 
 
