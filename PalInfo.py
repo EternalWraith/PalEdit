@@ -475,36 +475,39 @@ def find(name):
 if __name__ == "__main__":
     PalObject("Mossanda Noct", "Electric", "Dark")
 
+    with open("resources/data/pals.json", "r+", encoding="utf8") as palfile:
+        p = json.loads(palfile.read())
+        palfile.seek(0)
 
-    if True:
-        import bs4 as bsoup
-        import urllib.request as ureq
-
-        
-        
-        with open("resources/data/pals.json", "r+", encoding="utf8") as palfile:
-            p = json.loads(palfile.read())
-            palfile.seek(0)
-            for pal in p['values']:
-                pal["Moveset"] = {}
+        for pal in p['values']:
+            # Check if the Pal has an existing moveset
+            if "Moveset" in pal and isinstance(pal["Moveset"], dict) and pal["Moveset"]:
+                # If the moveset exists, use it directly
+                continue
+            else:
+                # If the moveset does not exist, fetch it from the website
                 if not "Human" in pal and not "Tower" in pal:
                     n = pal["Name"].lower().replace(" ", "-")
-                    headers = {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'}
+                    headers = {
+                        'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'}
                     req = ureq.Request(f"http://palworld.gg/pal/{n}", None, headers)
                     src = ureq.urlopen(req)
                     soup = bsoup.BeautifulSoup(src, "lxml")
 
                     con = soup.find_all("div", {"class": "active skills"})
                     if len(con) > 0:
+                        new_moveset = {}
                         for item in con[0].find_all("div", {"class": "item"}):
-                            
                             name = item.find("div", {"class": "name"}).text
                             level = item.find("div", {"class": "level"})
 
-                            if not level == None:
+                            if level is not None:
                                 level = int(level.text.replace("- Lv ", ""))
-                                pal["Moveset"][name] = level
-            json.dump(p, palfile, indent=4)
+                                new_moveset[name] = level
+                        pal["Moveset"] = new_moveset
+
+        # Dump the updated data back into the JSON file
+        json.dump(p, palfile, indent=4)
             
 
     if True:
