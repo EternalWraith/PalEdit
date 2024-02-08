@@ -833,7 +833,7 @@ class PalEdit():
         self.palguidmanager: PalGuid = None
 
         purplepanda = ImageTk.PhotoImage(
-            Image.open(f'{module_dir}/../PalEdit/resources/MossandaIcon.png').resize((240, 240)))
+            Image.open(f'{module_dir}/resources/MossandaIcon.png').resize((240, 240)))
         self.gui.iconphoto(True, purplepanda)
 
         root = self.gui
