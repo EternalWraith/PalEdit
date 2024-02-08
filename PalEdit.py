@@ -1395,6 +1395,11 @@ class PalEdit():
         # root.resizable(width=False, height=True)
         root.geometry("")  # auto window size
         self.updateWindowSize("true")
+
+        def save_before_close():
+            self.updatestats()
+            root.destroy()
+        root.protocol("WM_DELETE_WINDOW", save_before_close)
     
     def mainloop(self):
         self.gui.mainloop()
