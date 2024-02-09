@@ -674,6 +674,26 @@ class PalEdit():
         newguid = uuid.uuid4()
         print(newguid)
 
+
+    def handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
+        retval = pal.UpdateMaxHP(changes)
+        if retval is not None:
+            answer = messagebox.askquestion(
+                title="Choose HP Scaling", 
+                message="""
+Warning:
+- It is rare but some bosses may have a different scaling value.
+- The HP scaling derived from pal's previous MaxHealth is different from the Non-Boss scaling:
+    - Derived: %s
+    - Non-BOSS HP Scaling: %s
+
+This might also caused by older version of PalEdit messed up the MaxHealth.
+
+Do you want to use %s's DEFAULT Scaling (%s)? (You don't need to be too worry, leveling your pal in game can also fix this!)
+""" % (retval[0], retval[1], pal.GetName(), retval[1]))
+            pal.UpdateMaxHP(changes, hp_scaling=retval[1] if answer == 'yes' else retval[0])
+
+
     def updatestats(self):
         if not self.isPalSelected():
             return
@@ -687,26 +707,11 @@ class PalEdit():
         if self.phpvar.dirty:
             self.phpvar.dirty = False
             h = self.phpvar.get()
+            self.handleMaxHealthUpdates(pal, changes={
+                'hp_iv': h
+            })
             print(f"{pal.GetFullName()}: TalentHP {pal.GetTalentHP()} -> {h}")
-            old_iv = pal.GetTalentHP()
             pal.SetTalentHP(h)
-            retval = pal.UpdateMaxHP(old_iv=old_iv)
-            if retval is not None:
-                answer = messagebox.askquestion(
-                    title="Choose HP Scaling", 
-                    message="""
-Warning:
-    - It is rare but some bosses may have a different scaling value.
-    - The HP scaling derived from pal's previous MaxHealth is different from the Non-Boss scaling:
-        - Derived: %s
-        - Non-BOSS HP Scaling: %s
-
-    This might also caused by older version of PalEdit messed up the MaxHealth.
-
-    Do you want to use %s's DEFAULT Scaling (%s)? (You don't need to be too worry, leveling your pal in game can also fix this!)
-""" % (retval[0], retval[1], pal.GetName(), retval[1]))
-                pal.UpdateMaxHP(old_iv=old_iv, hp_scaling=retval[1] if answer == 'yes' else retval[0])
-
             # hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
             # self.hthstatval.config(text=math.floor(hv))
         if self.meleevar.dirty:
@@ -743,7 +748,11 @@ Warning:
 
         if pal.GetLevel() == 1:
             return
-        pal.SetLevel(pal.GetLevel() - 1)
+        lv = pal.GetLevel() - 1
+        self.handleMaxHealthUpdates(pal, changes={
+            'level': lv
+        })
+        pal.SetLevel(lv)
         self.refresh(i)
 
     def givelevel(self):
@@ -754,7 +763,11 @@ Warning:
 
         if pal.GetLevel() == 50:
             return
-        pal.SetLevel(pal.GetLevel() + 1)
+        lv = pal.GetLevel() + 1
+        self.handleMaxHealthUpdates(pal, changes={
+            'level': lv
+        })
+        pal.SetLevel(lv)
         self.refresh(i)
 
     def changespeciestype(self, evt):

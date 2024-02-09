@@ -247,7 +247,7 @@ class PalEntity:
         self._type = PalSpecies[value]
         self.SetLevelMoves()
 
-    def GetObject(self):
+    def GetObject(self) -> PalObject:
         return self._type
 
     def GetGender(self):
@@ -297,18 +297,21 @@ class PalEntity:
     def GetMaxHP(self):
         return self._obj['MaxHP']['value']['Value']['value']
 
-    def UpdateMaxHP(self, old_iv, hp_scaling=None) -> bool:
+    def UpdateMaxHP(self, changes: dict, hp_scaling=None) -> bool:
         # do not manually pass in hp_scaling unless you are 100% sure that the value is correct!
-        level = self.GetLevel()
-        rank = self.GetRank() - 1
-        hp_rank = self.GetRankHP()
-        hp_iv = self.GetTalentHP()
+        factors = {
+            'level': self.GetLevel(),
+            'rank': self.GetRank(),
+            'hp_rank': self.GetRankHP(),
+            'hp_iv': self.GetTalentHP()
+        }
 
+        old_hp = self.GetMaxHP()
         if hp_scaling is None:
             # assume old MaxHP is valid
-            old_hp = self.GetMaxHP()
-            possible_hp_scaling = (old_hp / 1000 - 500 - 5 * level) / (0.5 * level * (1 + old_iv * 0.3 / 100) * (1 + hp_rank * 3 / 100) * (1 + rank * 5 / 100))
-
+            possible_hp_scaling = (old_hp / 1000 - 500 - 5 * factors['level']) / (0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))
+            print("--------")
+            print("Derived Specie HP Scaling (from og MaxHP): %s" % possible_hp_scaling)
             hp_scaling = possible_hp_scaling
             specie_scaling = self.GetObject().GetScaling()
             if specie_scaling:
@@ -320,19 +323,21 @@ class PalEntity:
                     hp_scaling = specie_scaling[key]
                     if self.isBoss and abs(possible_hp_scaling - hp_scaling) > 1:
                         return (possible_hp_scaling, hp_scaling)
-
-        print(
-            """\tCalculating HP using following stats:
-\t\tLevel: %s
-\t\tRank: %s
-\t\tHP_Rank: %s
-\t\tHP_IV: %s
-\t\tSpecie_HP_Scaling: %s""" % (level, rank, hp_rank, hp_iv, hp_scaling))
-        new_hp = int((500 + 5 * level + hp_scaling * 0.5 * level * (1 + hp_iv * 0.3 / 100) * (1 + hp_rank * 3 / 100) * (1 + rank * 5 / 100))) * 1000
+                print("%s HP Scaling: %s" % (self.GetName(), hp_scaling))
+            else:
+                print("HP scaling data missing, using derived value.")
+        print("Calculating MaxHP using the following stats:")      
+        for valkey in factors:
+            if valkey in changes:
+                factors[valkey] = changes[valkey]
+            print("- %s: %s" % (valkey, factors[valkey]))
+        print("- hp_scaling: %s" % hp_scaling)
+            
+        new_hp = int((500 + 5 * factors['level'] + hp_scaling * 0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))) * 1000
         self._obj['MaxHP']['value']['Value']['value'] = new_hp
-        print("\t%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
-        return
-    
+        print("%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
+
+
     def GetAttackMelee(self):
         return self._melee
 
