@@ -1610,6 +1610,23 @@
             }
         },
         {
+            "CodeName": "PlantSlime_Flower",
+            "Name": "Gumoss (Special)",
+            "Type": [
+                "Grass",
+                "Ground"
+            ],
+            "Moveset": {
+                "Sand Blast": 1,
+                "Wind Cutter": 7,
+                "Stone Blast": 15,
+                "Seed Machine Gun": 22,
+                "Seed Mine": 30,
+                "Sand Tornado": 40,
+                "Solar Blast": 50
+            }
+        },
+        {
             "CodeName": "QueenBee",
             "Name": "Elizabee",
             "Type": [
@@ -2303,6 +2320,24 @@
             "Human": true
         },
         {
+            "CodeName": "PalDealer_Desert",
+            "Name": "Pal Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "PalDealer_Volcano",
+            "Name": "Pal Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Police_Handgun",
             "Name": "PIDF Guard",
             "Type": [
@@ -2385,6 +2420,42 @@
         },
         {
             "CodeName": "SalesPerson",
+            "Name": "Wandering Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Desert",
+            "Name": "Wandering Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Desert2",
+            "Name": "Wandering Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Volcano",
+            "Name": "Wandering Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Volcano2",
             "Name": "Wandering Merchant",
             "Type": [
                 "None"
