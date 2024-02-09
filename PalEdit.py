@@ -32,7 +32,7 @@ class PalEditConfig:
     goodskill = "#FEDE00"
 
 class PalEdit():
-    ranks = ('0', '1', '2', '3', '4')
+    ranks = (0, 1, 2, 3, 4)
 
     def load_i18n(self, lang=""):
         path = f"{module_dir}/resources/data/ui.json"
@@ -302,30 +302,23 @@ class PalEdit():
 
         self.refresh(i)
 
-    def changerank(self, configvalue):
+    def changerank(self, choice):
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
-        match configvalue:
-            case 4:
-                pal.SetRank(5)
-            case 3:
-                pal.SetRank(4)
-            case 2:
-                pal.SetRank(3)
-            case 1:
-                pal.SetRank(2)
-            case _:
-                pal.SetRank(1)
+        ranks = {
+            4: 5,
+            3: 4,
+            2: 3,
+            1: 2,
+        }
+        new_rank = ranks.get(choice, 1)
+        self.handleMaxHealthUpdates(pal, changes={
+            'rank': new_rank
+        })
+        pal.SetRank(new_rank)
         self.refresh(i)
-
-    def changerankchoice(self, choice):
-        if not self.isPalSelected():
-            return
-        i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
-        self.changerank(self.ranksvar.get())
 
     def changeskill(self, num):
         if not self.isPalSelected():
@@ -361,12 +354,12 @@ class PalEdit():
         self.refresh(i)
 
     def onselect(self, evt):
+        self.is_onselect = True
         w = evt.widget
         if not self.isPalSelected():
             return
-
-        if self.editindex > -1:
-            self.updatestats(self.editindex)
+        
+        self.updatestats()
 
         index = int(w.curselection()[0])
         self.editindex = index
@@ -404,17 +397,7 @@ class PalEdit():
         self.updateAttacks()
 
         # rank
-        match pal.GetRank():
-            case 5:
-                self.ranksvar.set(PalEdit.ranks[4])
-            case 4:
-                self.ranksvar.set(PalEdit.ranks[3])
-            case 3:
-                self.ranksvar.set(PalEdit.ranks[2])
-            case 2:
-                self.ranksvar.set(PalEdit.ranks[1])
-            case _:
-                self.ranksvar.set(PalEdit.ranks[0])
+        self.ranksvar.set(pal.GetRank() - 1)
 
         s = pal.GetSkills()[:]
         while len(s) < 4:
@@ -428,6 +411,8 @@ class PalEdit():
 
         self.updateSkillsName()
         self.setskillcolours()
+        self.is_onselect = False
+
 
     def changetext(self, num):
         if num == -1:
@@ -672,30 +657,74 @@ class PalEdit():
         newguid = uuid.uuid4()
         print(newguid)
 
-    def updatestats(self, e):
+
+    def handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
+        retval = pal.UpdateMaxHP(changes)
+        if retval is not None:
+            answer = messagebox.askquestion(
+                title="Choose HP Scaling", 
+                message="""
+Note:
+- It is rare but some bosses may have different scaling data that I haven't yet added to PalEdit.
+- I am using pal's original MaxHealth to derive the Guessed Scaling Value.
+
+Warning:
+- Guessed Scaling Value is different from the Non-Boss Scaling:
+    - Derived: %s
+    - Non-BOSS HP Scaling: %s
+- This can be also caused by older version of PalEdit messing up the MaxHealth.
+- Don't be worried, leveling up your pals in game can also fix this issue!
+
+Do you want to use %s's DEFAULT Scaling (%s)?
+""" % (retval[0], retval[1], pal.GetName(), retval[1]))
+            pal.UpdateMaxHP(changes, hp_scaling=retval[1] if answer == 'yes' else retval[0])
+
+
+    def updatestats(self):
         if not self.isPalSelected():
             return
-        i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][e]
+        
+        if self.editindex < 0:
+            return
+
+        pal = self.palbox[self.players[self.current.get()]][self.editindex]
         l = pal.GetLevel()
-        # pal.SetTalentHP(talent_hp_var.get())
-        h = self.phpvar.get()
-        pal.SetTalentHP(h)
-        hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
-        self.hthstatval.config(text=math.floor(hv))
+        
+        if self.phpvar.dirty:
+            self.phpvar.dirty = False
+            h = self.phpvar.get()
+            self.handleMaxHealthUpdates(pal, changes={
+                'hp_iv': h
+            })
+            print(f"{pal.GetFullName()}: TalentHP {pal.GetTalentHP()} -> {h}")
+            pal.SetTalentHP(h)
+            # hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
+            # self.hthstatval.config(text=math.floor(hv))
+        if self.meleevar.dirty:
+            self.meleevar.dirty = False
+            a = self.meleevar.get()
+            print(f"{pal.GetFullName()}: AttackMelee {pal.GetAttackMelee()} -> {a}")
+            pal.SetAttackMelee(a)
+            # av = 100 + (((70 * 0.75) * l) * (1 + (a / 100)))
+            # self.atkstatval.config(text=math.floor(av))
+        if self.shotvar.dirty:
+            self.shotvar.dirty = False
+            r = self.shotvar.get()
+            print(f"{pal.GetFullName()}: AttackRanged {pal.GetAttackRanged()} -> {r}")
+            pal.SetAttackRanged(r)
+        if self.defvar.dirty:
+            self.defvar.dirty = False
+            d = self.defvar.get()
+            print(f"{pal.GetFullName()}: Defence {pal.GetDefence()} -> {d}")
+            pal.SetDefence(d)
+            # dv = 50 + (((70 * 0.75) * l) * (1 + (d / 100)))
+            # self.defstatval.config(text=math.floor(dv))
+        if self.wspvar.dirty:
+            self.wspvar.dirty = False
+            w = self.wspvar.get()
+            print(f"{pal.GetFullName()}: WorkSpeed {pal.GetWorkSpeed()} -> {w}")
+            pal.SetWorkSpeed(w)
 
-        a = self.meleevar.get()
-        pal.SetAttackMelee(a)
-        pal.SetAttackRanged(self.shotvar.get())
-        av = 100 + (((70 * 0.75) * l) * (1 + (a / 100)))
-        self.atkstatval.config(text=math.floor(av))
-
-        d = self.defvar.get()
-        pal.SetDefence(d)
-        dv = 50 + (((70 * 0.75) * l) * (1 + (d / 100)))
-        self.defstatval.config(text=math.floor(dv))
-
-        pal.SetWorkSpeed(self.wspvar.get())
 
     def takelevel(self):
         if not self.isPalSelected():
@@ -705,7 +734,11 @@ class PalEdit():
 
         if pal.GetLevel() == 1:
             return
-        pal.SetLevel(pal.GetLevel() - 1)
+        lv = pal.GetLevel() - 1
+        self.handleMaxHealthUpdates(pal, changes={
+            'level': lv
+        })
+        pal.SetLevel(lv)
         self.refresh(i)
 
     def givelevel(self):
@@ -716,7 +749,11 @@ class PalEdit():
 
         if pal.GetLevel() == 50:
             return
-        pal.SetLevel(pal.GetLevel() + 1)
+        lv = pal.GetLevel() + 1
+        self.handleMaxHealthUpdates(pal, changes={
+            'level': lv
+        })
+        pal.SetLevel(lv)
         self.refresh(i)
 
     def changespeciestype(self, evt):
@@ -938,6 +975,8 @@ class PalEdit():
         self.filename = ""
         self.gui = self.createWindow()
         self.palguidmanager: PalGuid = None
+        self.is_onselect = False
+
         
         self.attacks = []
         self.attacks_name = []
@@ -1181,12 +1220,21 @@ class PalEdit():
                             command=self.swapgender)
         swapbtn.pack(side=tk.constants.RIGHT)
 
-        def clamp(var):
+        def validate_and_mark_dirty(var, entry: tk.Entry):
+            if self.is_onselect:
+                return
+            if entry.focus_get() != entry:
+                return
             try:
                 int(var.get())
             except TclError as e:
+                var.dirty = False
                 return
+            
+            clamp(var)
+            var.dirty = True
 
+        def clamp(var):
             if var.get() > 100:
                 var.set(100)
                 return
@@ -1204,52 +1252,62 @@ class PalEdit():
 
             return False
 
-        def fillifempty(var):
-            try:
-                int(var.get())
-            except TclError as e:
-                var.set(0)
+        def try_update(var, event=None):
+            if not var.dirty:
+                return
+            if self.editindex < 0:
+                return
+            self.updatestats()
+
 
         valreg = root.register(ivvalidate)
 
         attackframe = tk.Frame(editview, width=6)
         attackframe.pack(fill=tk.constants.X)
+
         self.meleevar = tk.IntVar()
-        self.shotvar = tk.IntVar()
-        self.meleevar.trace("w", lambda name, index, mode, sv=self.meleevar: clamp(sv))
-        self.shotvar.trace("w", lambda name, index, mode, sv=self.shotvar: clamp(sv))
+        self.meleevar.dirty = False
         self.meleevar.set(100)
-        self.shotvar.set(0)
         meleeicon = tk.Label(attackframe, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
         meleeicon.pack(side=tk.constants.LEFT)
+        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
+        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
+        palmelee.pack(side=tk.constants.LEFT)
+        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
+        
+
+        self.shotvar = tk.IntVar()
+        self.shotvar.dirty = False
+        self.shotvar.set(0)
         shoticon = tk.Label(attackframe, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
         shoticon.pack(side=tk.constants.RIGHT)
-        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize),
-                            width=6)
-        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        palmelee.bind("<FocusOut>", lambda evt, sv=self.meleevar: fillifempty(sv))
-        palmelee.pack(side=tk.constants.LEFT)
-        palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize),
-                           width=6)
+        palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         palshot.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        palshot.bind("<FocusOut>", lambda evt, sv=self.shotvar: fillifempty(sv))
+        palshot.bind("<FocusOut>", lambda event, var=self.shotvar: try_update(var))
         palshot.pack(side=tk.constants.RIGHT)
+        self.shotvar.trace_add("write", lambda name, index, mode, sv=self.shotvar, entry=palshot: validate_and_mark_dirty(sv, entry))
+
 
         self.defvar = tk.IntVar()
-        self.defvar.trace("w", lambda name, index, mode, sv=self.defvar: clamp(sv))
+        self.defvar.dirty = False
         self.defvar.set(100)
         paldef = tk.Entry(editview, textvariable=self.defvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         paldef.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        paldef.bind("<FocusOut>", lambda evt, sv=self.defvar: fillifempty(sv))
+        paldef.bind("<FocusOut>", lambda event, var=self.defvar: try_update(var))
         paldef.pack(expand=True, fill=tk.constants.X)
+        self.defvar.trace_add("write", lambda name, index, mode, sv=self.defvar, entry=paldef: validate_and_mark_dirty(sv, entry))
+
 
         self.wspvar = tk.IntVar()
-        self.wspvar.trace("w", lambda name, index, mode, sv=self.wspvar: clamp(sv))
+        self.wspvar.dirty = False
         self.wspvar.set(70)
         palwsp = tk.Entry(editview, textvariable=self.wspvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         palwsp.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        palwsp.bind("<FocusOut>", lambda evt, sv=self.wspvar: fillifempty(sv))
+        palwsp.bind("<FocusOut>", lambda event, var=self.wspvar: try_update(var))
         palwsp.pack(expand=True, fill=tk.constants.X)
+        self.wspvar.trace_add("write", lambda name, index, mode, sv=self.wspvar, entry=palwsp: validate_and_mark_dirty(sv, entry))
+
 
         def talent_hp_changed(*args):
             if not self.isPalSelected():
@@ -1261,12 +1319,14 @@ class PalEdit():
             # change value of pal
 
         self.phpvar = tk.IntVar()
-        self.phpvar.trace("w", lambda name, index, mode, sv=self.phpvar: clamp(sv))
+        self.phpvar.dirty = False
         self.phpvar.set(50)
         palhps = tk.Entry(editview, textvariable=self.phpvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         palhps.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
-        palhps.bind("<FocusOut>", lambda evt, sv=self.phpvar: fillifempty(sv))
+        palhps.bind("<FocusOut>", lambda event, var=self.phpvar: try_update(var))
         palhps.pack(expand=True, fill=tk.constants.X)
+        self.phpvar.trace_add("write", lambda name, index, mode, sv=self.phpvar, entry=palhps: validate_and_mark_dirty(sv, entry))
+
 
         """
         talent_hp_var = IntVar(value=50)
@@ -1278,7 +1338,7 @@ class PalEdit():
         """
 
         self.ranksvar = tk.IntVar()
-        palrank = tk.OptionMenu(editview, self.ranksvar, *PalEdit.ranks, command=self.changerankchoice)
+        palrank = tk.OptionMenu(editview, self.ranksvar, *PalEdit.ranks, command=self.changerank)
         palrank.config(font=(PalEditConfig.font, PalEditConfig.ftsize), justify='center', padx=0, pady=0, borderwidth=1,
                        width=5)
         self.ranksvar.set(PalEdit.ranks[4])
@@ -1515,6 +1575,11 @@ class PalEdit():
         # root.resizable(width=False, height=True)
         root.geometry("")  # auto window size
         self.updateWindowSize("true")
+
+        def save_before_close():
+            self.updatestats()
+            root.destroy()
+        root.protocol("WM_DELETE_WINDOW", save_before_close)
     
     def mainloop(self):
         self.gui.mainloop()

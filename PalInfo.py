@@ -1,3 +1,4 @@
+import copy
 import json
 import os
 from enum import Enum
@@ -72,7 +73,7 @@ class PalGender(Enum):
     
 
 class PalObject:
-    def __init__(self, name, code_name, primary, secondary="None", human=False, tower=False, imageName=None):
+    def __init__(self, name, code_name, primary, secondary="None", human=False, tower=False, imageName=None, scaling=None):
         self._name = name
         self._code_name = code_name
         self._img = None
@@ -81,6 +82,7 @@ class PalObject:
         self._human = human
         self._tower = tower
         self._imageName = imageName
+        self._scaling = scaling
 
     def GetName(self):
         return self._name
@@ -104,6 +106,9 @@ class PalObject:
 
     def GetSecondary(self):
         return self._secondary
+    
+    def GetScaling(self):
+        return self._scaling
 
 class PalEntity:
 
@@ -242,7 +247,7 @@ class PalEntity:
         self._type = PalSpecies[value]
         self.SetLevelMoves()
 
-    def GetObject(self):
+    def GetObject(self) -> PalObject:
         return self._type
 
     def GetGender(self):
@@ -263,6 +268,75 @@ class PalEntity:
 
     def SetTalentHP(self, value):
         self._obj['Talent_HP']['value'] = self._talent_hp = value
+
+    # the soul bonus, 1 -> 3%, 10 -> 30%
+    def GetRankHP(self):
+        if "Rank_HP" in self._obj:
+            return self._obj["Rank_HP"]["value"]
+        return 0
+
+    def GetRankAttack(self):
+        if "Rank_Attack" in self._obj:
+            return self._obj["Rank_Attack"]["value"]
+        return 0
+    
+    # def GetRankDefense(self):
+    #     # I haven't checked if this is the correct key.
+    #     # unused
+    #     if "Rank_Defense" in self._obj:
+    #         return self._obj["Rank_Defense"]["value"]
+    #     return 0
+    
+    # def GetRankCraftSpeed(self):
+    #     # I haven't checked if this is the correct key.
+    #     # unused
+    #     if "Rank_CraftSpeed" in self._obj:
+    #         return self._obj["Rank_CraftSpeed"]["value"]
+    #     return 0
+    
+    def GetMaxHP(self):
+        return self._obj['MaxHP']['value']['Value']['value']
+
+    def UpdateMaxHP(self, changes: dict, hp_scaling=None) -> bool:
+        # do not manually pass in hp_scaling unless you are 100% sure that the value is correct!
+        factors = {
+            'level': self.GetLevel(),
+            'rank': self.GetRank(),
+            'hp_rank': self.GetRankHP(),
+            'hp_iv': self.GetTalentHP()
+        }
+
+        old_hp = self.GetMaxHP()
+        if hp_scaling is None:
+            # assume old MaxHP is valid
+            possible_hp_scaling = (old_hp / 1000 - 500 - 5 * factors['level']) / (0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))
+            print("--------")
+            print("Derived Specie HP Scaling (from og MaxHP): %s" % possible_hp_scaling)
+            hp_scaling = possible_hp_scaling
+            specie_scaling = self.GetObject().GetScaling()
+            if specie_scaling:
+                bossKey = "HP_BOSS"
+                key = "HP"
+                if self.isBoss and bossKey in specie_scaling:
+                    hp_scaling = specie_scaling[bossKey]
+                else:
+                    hp_scaling = specie_scaling[key]
+                    if self.isBoss and abs(possible_hp_scaling - hp_scaling) > 1:
+                        return (possible_hp_scaling, hp_scaling)
+                print("%s HP Scaling: %s" % (self.GetName(), hp_scaling))
+            else:
+                print("HP scaling data missing, using derived value.")
+        print("Calculating MaxHP using the following stats:")      
+        for valkey in factors:
+            if valkey in changes:
+                factors[valkey] = changes[valkey]
+            print("- %s: %s" % (valkey, factors[valkey]))
+        print("- hp_scaling: %s" % hp_scaling)
+            
+        new_hp = int((500 + 5 * factors['level'] + hp_scaling * 0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))) * 1000
+        self._obj['MaxHP']['value']['Value']['value'] = new_hp
+        print("%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
+
 
     def GetAttackMelee(self):
         return self._melee
@@ -625,7 +699,7 @@ def LoadPals(lang=None):
             s = "None"
             if len(i["Type"]) == 2:
                 s = i["Type"][1]
-            PalSpecies[i["CodeName"]] = PalObject(i["Name"], i["CodeName"], p, s, h, t, PalCodeMapping[i['CodeName']])
+            PalSpecies[i["CodeName"]] = PalObject(i["Name"], i["CodeName"], p, s, h, t, PalCodeMapping[i['CodeName']], i["Scaling"] if "Scaling" in i else None)
             PalLearnSet[i["CodeName"]] = i["Moveset"]
 
 LoadPals()
