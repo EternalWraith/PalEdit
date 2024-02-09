@@ -664,15 +664,18 @@ class PalEdit():
             answer = messagebox.askquestion(
                 title="Choose HP Scaling", 
                 message="""
+Note:
+- It is rare but some bosses may have different scaling data that I haven't yet added to PalEdit.
+- I am using pal's original MaxHealth to derive the Guessed Scaling Value.
+
 Warning:
-- It is rare but some bosses may have a different scaling value.
-- The HP scaling derived from pal's previous MaxHealth is different from the Non-Boss scaling:
+- Guessed Scaling Value is different from the Non-Boss Scaling:
     - Derived: %s
     - Non-BOSS HP Scaling: %s
+- This can be also caused by older version of PalEdit messing up the MaxHealth.
+- Don't be worried, leveling up your pals in game can also fix this issue!
 
-This might also caused by older version of PalEdit messed up the MaxHealth.
-
-Do you want to use %s's DEFAULT Scaling (%s)? (You don't need to be too worry, leveling your pal in game can also fix this!)
+Do you want to use %s's DEFAULT Scaling (%s)?
 """ % (retval[0], retval[1], pal.GetName(), retval[1]))
             pal.UpdateMaxHP(changes, hp_scaling=retval[1] if answer == 'yes' else retval[0])
 
