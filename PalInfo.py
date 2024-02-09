@@ -305,7 +305,7 @@ class PalEntity:
         return len(self._skills)
 
     def SetSkill(self, slot, skill):
-        print("set slot %d  -> %s", slot, skill)
+        print("set slot %d  -> %s" % (slot, skill))
         if slot > len(self._skills)-1:
             self._skills.append(skill)
         else:

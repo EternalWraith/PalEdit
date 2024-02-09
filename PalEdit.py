@@ -211,73 +211,73 @@ class PalEdit():
 
         tid = []
         for v in range(0, 4):
-            t = self.skills[v].trace_add("write", lambda *args, num=v: self.changeskill(num))
+            t = self.skills_name[v].trace_add("write", lambda *args, num=v: self.changeskill(num))
             tid.append(t)
-
+        
         match preset:
             case "base":
-                self.skills[0].set("CraftSpeed_up2")
-                self.skills[1].set("PAL_Sanity_Down_2")
-                self.skills[2].set("Rare")
-                self.skills[3].set("PAL_FullStomach_Down_2")
+                self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up2"])
+                self.skills_name[1].set(PalInfo.PalPassives["PAL_Sanity_Down_2"])
+                self.skills_name[2].set(PalInfo.PalPassives["Rare"])
+                self.skills_name[3].set(PalInfo.PalPassives["PAL_FullStomach_Down_2"])
             case "workspeed":
-                self.skills[0].set("CraftSpeed_up2")
-                self.skills[1].set("CraftSpeed_up1")
-                self.skills[2].set("Rare")
-                self.skills[3].set("PAL_CorporateSlave")
+                self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up2"])
+                self.skills_name[1].set(PalInfo.PalPassives["CraftSpeed_up1"])
+                self.skills_name[2].set(PalInfo.PalPassives["Rare"])
+                self.skills_name[3].set(PalInfo.PalPassives["PAL_CorporateSlave"])
             case "movement":
-                self.skills[0].set("MoveSpeed_up_3")
-                self.skills[1].set("Legend")
-                self.skills[2].set("MoveSpeed_up_2")
-                self.skills[3].set("MoveSpeed_up_1")
+                self.skills_name[0].set(PalInfo.PalPassives["MoveSpeed_up_3"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["MoveSpeed_up_2"])
+                self.skills_name[3].set(PalInfo.PalPassives["MoveSpeed_up_1"])
             case "tank":
-                self.skills[0].set("Deffence_up2")
-                self.skills[1].set("Legend")
-                self.skills[2].set("PAL_masochist")
-                self.skills[3].set("Deffence_up1")
+                self.skills_name[0].set(PalInfo.PalPassives["Deffence_up2"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_masochist"])
+                self.skills_name[3].set(PalInfo.PalPassives["Deffence_up1"])
             case "dmg_max":
-                self.skills[0].set("Noukin")
-                self.skills[1].set("Legend")
-                self.skills[2].set("PAL_ALLAttack_up2")
-                self.skills[3].set("Rare")
+                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
+                self.skills_name[3].set(PalInfo.PalPassives["Rare"])
             case "dmg_balanced":
-                self.skills[0].set("Noukin")
-                self.skills[1].set("Legend")
-                self.skills[2].set("PAL_ALLAttack_up2")
-                self.skills[3].set("Deffence_up2")
+                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
+                self.skills_name[3].set(PalInfo.PalPassives["Deffence_up2"])
             case "dmg_mount":
-                self.skills[0].set("Noukin")
-                self.skills[1].set("Legend")
-                self.skills[2].set("PAL_ALLAttack_up2")
-                self.skills[3].set("MoveSpeed_up_3")
+                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
+                self.skills_name[3].set(PalInfo.PalPassives["MoveSpeed_up_3"])
             case "dmg_element":
                 primary = pal.GetPrimary().lower()
                 secondary = pal.GetSecondary().lower()
                 if primary == "none":
                     messagebox.showerror("Preset: Dmg: Element", "This pal has no elements! Preset skipped")
                     return
-                self.skills[0].set("Noukin")
-                self.skills[1].set("Legend")
-                self.skills[2].set("PAL_ALLAttack_up2")
+                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
                 match primary:
                     case "neutral":
-                        self.skills[3].set("ElementBoost_Normal_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Normal_2_PAL"])
                     case "dark":
-                        self.skills[3].set("ElementBoost_Dark_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Dark_2_PAL"])
                     case "dragon":
-                        self.skills[3].set("ElementBoost_Dragon_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Dragon_2_PAL"])
                     case "ice":
-                        self.skills[3].set("ElementBoost_Ice_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Ice_2_PAL"])
                     case "fire":
-                        self.skills[3].set("ElementBoost_Fire_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Fire_2_PAL"])
                     case "grass":
-                        self.skills[3].set("ElementBoost_Leaf_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Leaf_2_PAL"])
                     case "ground":
-                        self.skills[3].set("ElementBoost_Earth_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Earth_2_PAL"])
                     case "electric":
-                        self.skills[3].set("ElementBoost_Thunder_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Thunder_2_PAL"])
                     case "water":
-                        self.skills[3].set("ElementBoost_Aqua_2_PAL")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Aqua_2_PAL"])
                     case _:
                         messagebox.showerror(f"Error: elemental was not found for preset: {primary}-{secondary}")
 
@@ -288,10 +288,8 @@ class PalEdit():
                 print(f"Preset {preset} not found - nothing changed")
                 return
 
-        self.updateSkillsName()
-
         for v in range(0, 4):
-            self.skills[v].trace_remove("write", tid[v])
+            self.skills_name[v].trace_remove("write", tid[v])
 
         # exp (if level selected)
         if self.checkboxLevelVar.get() == 1:
