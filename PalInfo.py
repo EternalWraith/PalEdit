@@ -72,16 +72,21 @@ class PalGender(Enum):
     
 
 class PalObject:
-    def __init__(self, name, primary, secondary="None", human=False, tower=False):
+    def __init__(self, name, code_name, primary, secondary="None", human=False, tower=False, imageName=None):
         self._name = name
+        self._code_name = code_name
         self._img = None
         self._primary = primary
         self._secondary = secondary
         self._human = human
         self._tower = tower
+        self._imageName = imageName
 
     def GetName(self):
         return self._name
+    
+    def GetCodeName(self):
+        return self._code_name
 
     def IsTower(self):
         return self._tower
@@ -89,6 +94,8 @@ class PalObject:
     def GetImage(self):
         if self._img == None:
             n = self.GetName() if not self._human else "Human"
+            if self._imageName is not None and not self._human:
+                n = self._imageName
             self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
         return self._img
 
@@ -200,7 +207,7 @@ class PalEntity:
             self._obj["MasteredWaza"] = copy.deepcopy(EmptyMovesObject.copy())
         
         for i in self._obj["MasteredWaza"]["value"]["values"]:
-            if not matches(typename, i) or PalAttacks[i] in PalLearnSet[self._type.GetName()]:
+            if not matches(typename, i) or PalAttacks[i] in PalLearnSet[self._type.GetCodeName()]:
                 self._obj["MasteredWaza"]["value"]["values"].remove(i)
         for i in self._obj["EquipWaza"]["value"]["values"]:
             if not matches(typename, i):
@@ -231,9 +238,8 @@ class PalEntity:
         return self._type
 
     def SetType(self, value):
-        f = find(value)
-        self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) else "") + f
-        self._type = PalSpecies[f]
+        self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) else "") + value
+        self._type = PalSpecies[value]
         self.SetLevelMoves()
 
     def GetObject(self):
@@ -278,6 +284,9 @@ class PalEntity:
 
     def GetName(self):
         return self.GetObject().GetName()
+    
+    def GetCodeName(self):
+        return self.GetObject().GetCodeName()
 
     def GetImage(self):
         return self.GetObject().GetImage()
@@ -296,16 +305,17 @@ class PalEntity:
         return len(self._skills)
 
     def SetSkill(self, slot, skill):
+        print("set slot %d  -> %s", slot, skill)
         if slot > len(self._skills)-1:
-            self._skills.append(find(skill))
+            self._skills.append(skill)
         else:
-            self._skills[slot] = find(skill)
+            self._skills[slot] = skill
 
     def SetAttackSkill(self, slot, attack):
         if slot > len(self._equipMoves)-1:
-            self._equipMoves.append(find(attack))
+            self._equipMoves.append(attack)
         else:
-            self._equipMoves[slot] = find(attack)
+            self._equipMoves[slot] = attack
         self.SetLevelMoves()
 
     def GetOwner(self):
@@ -326,15 +336,15 @@ class PalEntity:
     def SetLevelMoves(self):
         value = self._level
         self._obj["MasteredWaza"]["value"]["values"] = self._learntMoves = self._learntBackup[:]
-        for i in PalLearnSet[self._type.GetName()]:
-            if value >= PalLearnSet[self._type.GetName()][i]:
+        for i in PalLearnSet[self._type.GetCodeName()]:
+            if value >= PalLearnSet[self._type.GetCodeName()][i]:
                 if not find(i) in self._obj["MasteredWaza"]["value"]["values"]:
                     self._obj["MasteredWaza"]["value"]["values"].append(find(i))
             elif find(i) in self._obj["MasteredWaza"]["value"]["values"]:
                 self._obj["MasteredWaza"]["value"]["values"].remove(find(i))
 
         for i in self._equipMoves:
-            if not matches(find(self._type.GetName()), i):
+            if not matches(self._type.GetCodeName(), i):
                 self._equipMoves.remove(i)
                 self._obj["EquipWaza"]["value"]["values"] = self._equipMoves
             elif not i in self._obj["MasteredWaza"]["value"]["values"]:
@@ -587,54 +597,96 @@ def matches(pal, move):
     """
                     
 
-with open(module_dir+"/resources/data/elements.json", "r", encoding="utf8") as elementfile:
+with open("%s/resources/data/elements.json" % (module_dir), "r", encoding="utf8") as elementfile:
     PalElements = {}
     for i in json.loads(elementfile.read())["values"]:
         PalElements[i['Name']] = i['Color']
 
-with open(module_dir+"/resources/data/pals.json", "r", encoding="utf8") as palfile:
-    PalSpecies = {}
-    PalLearnSet = {}
-    for i in json.loads(palfile.read())["values"]:
-        h = "Human" in i
-        t = "Tower" in i
-        p = i["Type"][0]
-        s = "None"
-        if len(i["Type"]) == 2:
-            s = i["Type"][1]
-        PalSpecies[i["CodeName"]] = PalObject(i["Name"], p, s, h, t)
-        PalLearnSet[i["Name"]] = i["Moveset"]
+PalSpecies = {}
+PalLearnSet = {}
 
-with open(module_dir+"/resources/data/passives.json", "r", encoding="utf8") as passivefile:
+def LoadPals(lang=None):
+    global PalSpecies, PalLearnSet
+
+    if lang is not None and not os.path.exists("%s/resources/data/pals%s.json" % (module_dir, "_" + lang)):
+        lang = None
+
+    PalCodeMapping = {}
+    with open("%s/resources/data/pals.json" % (module_dir), "r", encoding="utf8") as palfile:
+        pals = json.load(palfile)
+        PalCodeMapping = {pal['CodeName']: pal['Name'] for pal in pals['values']}
+    with open("%s/resources/data/pals%s.json" % (module_dir, "_"+lang if lang is not None else ""), "r", encoding="utf8") as palfile:
+        PalSpecies = {}
+        PalLearnSet = {}
+        for i in json.loads(palfile.read())["values"]:
+            h = "Human" in i
+            t = "Tower" in i
+            p = i["Type"][0]
+            s = "None"
+            if len(i["Type"]) == 2:
+                s = i["Type"][1]
+            PalSpecies[i["CodeName"]] = PalObject(i["Name"], i["CodeName"], p, s, h, t, PalCodeMapping[i['CodeName']])
+            PalLearnSet[i["CodeName"]] = i["Moveset"]
+
+LoadPals()
+
+PalPassives = {}
+PassiveDescriptions = {}
+PassiveRating = {}
+
+def LoadPassives(lang=None):
+    global PalPassives, PassiveDescriptions, PassiveRating
+
     PalPassives = {}
     PassiveDescriptions = {}
     PassiveRating = {}
-    for i in json.loads(passivefile.read())["values"]:
-        PalPassives[i["CodeName"]] = i["Name"]
-        PassiveDescriptions[i["Name"]] = i["Description"]
-        PassiveRating[i["Name"]] = i["Rating"]
-    PalPassives = dict(sorted(PalPassives.items()))
-
-with open(module_dir+"/resources/data/attacks.json", "r", encoding="utf8") as attackfile:
-    PalAttacks = {}
-    AttackPower = {}
-    AttackTypes = {}
-    SkillExclusivity = {}
-
-    l = json.loads(attackfile.read())
-
-    debugOutput = l["values"]
     
-    for i in l["values"]:
-        PalAttacks[i["CodeName"]] = i["Name"]
-        AttackPower[i["Name"]] = i["Power"]
-        AttackTypes[i["Name"]] = i["Type"]
-        if "Exclusive" in i:
-            SkillExclusivity[i["CodeName"]] = i["Exclusive"]
-        else:
-            SkillExclusivity[i["CodeName"]] = None
+    if lang is not None and not os.path.exists("%s/resources/data/passives%s.json" % (module_dir, "_"+lang)):
+        lang = None
+    
+    with open("%s/resources/data/passives%s.json" % (module_dir, "_"+lang if lang is not None else ""), "r", encoding="utf8") as passivefile:
+        for i in json.loads(passivefile.read())["values"]:
+            PalPassives[i["CodeName"]] = i["Name"]
+            PassiveDescriptions[i["CodeName"]] = i["Description"]
+            PassiveRating[i["CodeName"]] = i["Rating"]
+        PalPassives = dict(sorted(PalPassives.items()))
 
-    PalAttacks = dict(sorted(PalAttacks.items()))
+LoadPassives()
+
+PalAttacks = {}
+AttackPower = {}
+AttackTypes = {}
+SkillExclusivity = {}
+
+
+def LoadAttacks(lang=None):
+    global PalAttacks, AttackPower, AttackTypes, SkillExclusivity
+
+    if lang is not None and not os.path.exists("%s/resources/data/attacks%s.json" % (module_dir, "_" + lang)):
+        lang = None
+
+    with open("%s/resources/data/attacks%s.json" % (module_dir, "_"+lang if lang is not None else ""), "r", encoding="utf8") as attackfile:
+        PalAttacks = {}
+        AttackPower = {}
+        AttackTypes = {}
+        SkillExclusivity = {}
+    
+        l = json.loads(attackfile.read())
+    
+        debugOutput = l["values"]
+        
+        for i in l["values"]:
+            PalAttacks[i["CodeName"]] = i["Name"]
+            AttackPower[i["CodeName"]] = i["Power"]
+            AttackTypes[i["CodeName"]] = i["Type"]
+            if "Exclusive" in i:
+                SkillExclusivity[i["CodeName"]] = i["Exclusive"]
+            else:
+                SkillExclusivity[i["CodeName"]] = None
+    
+        PalAttacks = dict(sorted(PalAttacks.items()))
+
+LoadAttacks()
 
 def find(name):
     for i in PalSpecies:
