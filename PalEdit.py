@@ -22,8 +22,9 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import messagebox
 from PIL import ImageTk, Image
 
+import traceback
 class PalEditConfig:
-    version = "0.5.4"
+    version = "0.5.5"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
@@ -33,6 +34,77 @@ class PalEditConfig:
 class PalEdit():
     ranks = ('0', '1', '2', '3', '4')
 
+    def load_i18n(self, lang=""):
+        path = f"{module_dir}/resources/data/ui.json"
+        if os.path.exists(f"{module_dir}/resources/data/ui_{lang}.json"):
+            path = f"{module_dir}/resources/data/ui_{lang}.json"
+        with open(path, "r", encoding="utf-8") as f:
+            keys = json.load(f)
+            for i18n_k in keys:     # For multi lang didn't translate with original one
+                self.i18n[i18n_k] = keys[i18n_k]
+        
+        for item in self.i18n_el:
+            if item in self.i18n:
+                try:
+                    if isinstance(self.i18n_el[item], ttk.Combobox):
+                        index = self.i18n_el[item].current()
+                        self.i18n_el[item]['values'] = self.i18n[item]
+                        self.i18n_el[item].current(index)
+                    elif isinstance(self.i18n_el[item], tuple):
+                        if isinstance(self.i18n_el[item][0], tk.Menu):
+                            self.i18n_el[item][0].entryconfigure(self.i18n_el[item][1], label=self.i18n[item])
+                        else:
+                            print("failed to edit to class ", type(self.i18n_el[item][0]))
+                    else:
+                        self.i18n_el[item].config(text=self.i18n[item])
+                except Exception as e:
+                    print("Fail to update i18n for %s" % item)
+                    traceback.print_exception(e)
+        LoadPals(lang)
+        LoadAttacks(lang)
+        LoadPassives(lang)
+        self.attackops.clear()
+        for e in PalInfo.PalAttacks:
+            self.attackops.append(PalInfo.PalAttacks[e])
+        self.attackops.remove("None")
+        self.attackops.sort()
+        self.attackops.insert(0, "None")
+
+        op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
+        op.pop(0)
+        op.pop(0)
+        op.sort()
+        op.insert(0, "None")
+
+        def atk_upd(menu, atk_id, idx, n):
+            menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.attacks_name[atk_id], n,
+                                                                        lambda evt: self.changeattack(atk_id)))
+            
+        for atk_id, menu in enumerate(self.attackdrops):
+            for idx, n in enumerate(self.attackops):
+                atk_upd(menu, atk_id, idx, n)
+
+        def skill_upd(menu, skid, idx, n):
+            menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.skills_name[skid], n, lambda evt:self.changeskill(skid)))
+        
+        for skid, menu in enumerate(self.skilldrops):
+            for idx, n in enumerate(op):
+                skill_upd(menu, skid, idx, n)
+
+        self.updateAttackName()
+        self.updateSkillsName()
+        species = [PalInfo.PalSpecies[e].GetName() for e in PalInfo.PalSpecies]
+        species.sort()
+        try:
+            for idx, n in enumerate(species):
+                self.palname['menu'].entryconfigure(idx, label=n, command=tk._setit(self.speciesvar_name, n, self.changespeciestype))
+            if self.speciesvar.get() in PalInfo.PalSpecies:
+                self.speciesvar_name.set(PalInfo.PalSpecies[self.speciesvar.get()].GetName())
+            else:
+                self.speciesvar_name.set(self.speciesvar.get())
+        except AttributeError as e:
+            pass
+    
     @staticmethod
     def hex_to_rgb(value):
         value = value.lstrip('#')
@@ -112,8 +184,9 @@ class PalEdit():
             if a > len(pal.GetEquippedMoves()) - 1:
                 self.attacks[a].set("None")
             else:
-                self.attacks[a].set(PalInfo.PalAttacks[pal.GetEquippedMoves()[a]])
+                self.attacks[a].set(pal.GetEquippedMoves()[a])
         self.setAttackCols()
+        self.updateAttackName()
 
     def setAttackCols(self):
         for i in range(0, 3):
@@ -125,6 +198,10 @@ class PalEdit():
                 basecol = PalInfo.PalElements[PalInfo.AttackTypes[v]]
                 halfcol = PalEdit.mean_color(basecol, "ffffff")
                 self.attackdrops[i].config(highlightbackground=basecol, bg=halfcol, activebackground=halfcol)
+    
+    def updateAttackName(self):
+        for idx, n in enumerate(self.attacks):
+            self.attacks_name[idx].set(PalInfo.PalAttacks[n.get()])
 
     def setpreset(self, preset):
         if not self.isPalSelected():
@@ -134,73 +211,73 @@ class PalEdit():
 
         tid = []
         for v in range(0, 4):
-            t = self.skills[v].trace_add("write", lambda *args, num=v: self.changeskill(num))
+            t = self.skills_name[v].trace_add("write", lambda *args, num=v: self.changeskill(num))
             tid.append(t)
-
+        
         match preset:
             case "base":
-                self.skills[0].set("Artisan")
-                self.skills[1].set("Workaholic")
-                self.skills[2].set("Lucky")
-                self.skills[3].set("Diet Lover")
+                self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up2"])
+                self.skills_name[1].set(PalInfo.PalPassives["PAL_Sanity_Down_2"])
+                self.skills_name[2].set(PalInfo.PalPassives["Rare"])
+                self.skills_name[3].set(PalInfo.PalPassives["PAL_FullStomach_Down_2"])
             case "workspeed":
-                self.skills[0].set("Artisan")
-                self.skills[1].set("Serious")
-                self.skills[2].set("Lucky")
-                self.skills[3].set("Work Slave")
+                self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up2"])
+                self.skills_name[1].set(PalInfo.PalPassives["CraftSpeed_up1"])
+                self.skills_name[2].set(PalInfo.PalPassives["Rare"])
+                self.skills_name[3].set(PalInfo.PalPassives["PAL_CorporateSlave"])
             case "movement":
-                self.skills[0].set("Swift")
-                self.skills[1].set("Legend")
-                self.skills[2].set("Runner")
-                self.skills[3].set("Nimble")
+                self.skills_name[0].set(PalInfo.PalPassives["MoveSpeed_up_3"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["MoveSpeed_up_2"])
+                self.skills_name[3].set(PalInfo.PalPassives["MoveSpeed_up_1"])
             case "tank":
-                self.skills[0].set("Burly Body")
-                self.skills[1].set("Legend")
-                self.skills[2].set("Masochist")
-                self.skills[3].set("Hard Skin")
+                self.skills_name[0].set(PalInfo.PalPassives["Deffence_up2"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_masochist"])
+                self.skills_name[3].set(PalInfo.PalPassives["Deffence_up1"])
             case "dmg_max":
-                self.skills[0].set("Musclehead")
-                self.skills[1].set("Legend")
-                self.skills[2].set("Ferocious")
-                self.skills[3].set("Lucky")
+                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
+                self.skills_name[3].set(PalInfo.PalPassives["Rare"])
             case "dmg_balanced":
-                self.skills[0].set("Musclehead")
-                self.skills[1].set("Legend")
-                self.skills[2].set("Ferocious")
-                self.skills[3].set("Burly Body")
+                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
+                self.skills_name[3].set(PalInfo.PalPassives["Deffence_up2"])
             case "dmg_mount":
-                self.skills[0].set("Musclehead")
-                self.skills[1].set("Legend")
-                self.skills[2].set("Ferocious")
-                self.skills[3].set("Swift")
+                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
+                self.skills_name[3].set(PalInfo.PalPassives["MoveSpeed_up_3"])
             case "dmg_element":
                 primary = pal.GetPrimary().lower()
                 secondary = pal.GetSecondary().lower()
                 if primary == "none":
                     messagebox.showerror("Preset: Dmg: Element", "This pal has no elements! Preset skipped")
                     return
-                self.skills[0].set("Musclehead")
-                self.skills[1].set("Legend")
-                self.skills[2].set("Ferocious")
+                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[1].set(PalInfo.PalPassives["Legend"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
                 match primary:
                     case "neutral":
-                        self.skills[3].set("Celestial Emperor")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Normal_2_PAL"])
                     case "dark":
-                        self.skills[3].set("Lord of the Underworld")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Dark_2_PAL"])
                     case "dragon":
-                        self.skills[3].set("Divine Dragon")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Dragon_2_PAL"])
                     case "ice":
-                        self.skills[3].set("Ice Emperor")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Ice_2_PAL"])
                     case "fire":
-                        self.skills[3].set("Flame Emperor")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Fire_2_PAL"])
                     case "grass":
-                        self.skills[3].set("Spirit Emperor")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Leaf_2_PAL"])
                     case "ground":
-                        self.skills[3].set("Earth Emperor")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Earth_2_PAL"])
                     case "electric":
-                        self.skills[3].set("Lord of Lightning")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Thunder_2_PAL"])
                     case "water":
-                        self.skills[3].set("Lord of the Sea")
+                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Aqua_2_PAL"])
                     case _:
                         messagebox.showerror(f"Error: elemental was not found for preset: {primary}-{secondary}")
 
@@ -212,7 +289,7 @@ class PalEdit():
                 return
 
         for v in range(0, 4):
-            self.skills[v].trace_remove("write", tid[v])
+            self.skills_name[v].trace_remove("write", tid[v])
 
         # exp (if level selected)
         if self.checkboxLevelVar.get() == 1:
@@ -256,11 +333,12 @@ class PalEdit():
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
 
+        index = list(PalInfo.PalPassives.values()).index(self.skills_name[num].get())
+        self.skills[num].set(list(PalInfo.PalPassives.keys())[index])
         if not self.skills[num].get() in ["Unknown", "UNKNOWN"]:
             if self.skills[num].get() in ["None", "NONE"]:
                 pal.RemoveSkill(num)
             else:
-
                 pal.SetSkill(num, self.skills[num].get())
 
         self.refresh(i)
@@ -271,12 +349,15 @@ class PalEdit():
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
 
+        index = list(PalInfo.PalAttacks.values()).index(self.attacks_name[num].get())
+        self.attacks[num].set(list(PalInfo.PalAttacks.keys())[index])
         if not self.attacks[num].get() in ["Unknown", "UNKNOWN"]:
             if self.attacks[num].get() in ["None", "NONE"]:
                 pal.RemoveAttack(num)
             else:
                 pal.SetAttackSkill(num, self.attacks[num].get())
-
+                
+        self.updateAttackName()
         self.refresh(i)
 
     def onselect(self, evt):
@@ -292,7 +373,8 @@ class PalEdit():
 
         pal = self.palbox[self.players[self.current.get()]][index]
         # palname.config(text=pal.GetName())
-        self.speciesvar.set(pal.GetName())
+        self.speciesvar.set(pal.GetCodeName())
+        self.speciesvar_name.set(pal.GetName())
 
         self.storageId.config(text=f"StorageID: {pal.storageId}")
         self.storageSlot.config(text=f"StorageSlot: {pal.storageSlot}")
@@ -337,20 +419,21 @@ class PalEdit():
         s = pal.GetSkills()[:]
         while len(s) < 4:
             s.append("NONE")
-
+        
         for i in range(0, 4):
             if not s[i] in [p for p in PalInfo.PalPassives]:
                 self.skills[i].set("Unknown")
             else:
-                self.skills[i].set(PalInfo.PalPassives[s[i]])
+                self.skills[i].set(s[i])
 
+        self.updateSkillsName()
         self.setskillcolours()
         self.is_onselect = False
 
 
     def changetext(self, num):
         if num == -1:
-            self.skilllabel.config(text="Hover a skill to see it's description")
+            self.skilllabel.config(text=self.i18n['msg_skill'])
             return
 
         if not self.isPalSelected():
@@ -368,7 +451,7 @@ class PalEdit():
         self.skilllabel.config(text=PalInfo.PassiveDescriptions[self.skills[num].get()])
 
     def loadfile(self):
-        self.skilllabel.config(text="Loading save, please be patient...")
+        self.skilllabel.config(text=self.i18n['msg_saving'])
 
         file = askopenfilename(initialdir=os.path.expanduser('~') + "\\AppData\\Local\\Pal\\Saved\\SaveGames",
                                filetypes=[("Level.sav", "Level.sav")])
@@ -377,16 +460,16 @@ class PalEdit():
         if file:
             self.filename = file
             self.gui.title(f"PalEdit v{PalEditConfig.version} - {file}")
-            self.skilllabel.config(text="Decompressing save, please be patient...")
+            self.skilllabel.config(text=self.i18n['msg_decompressing'])
             with open(file, "rb") as f:
                 data = f.read()
                 raw_gvas, _ = decompress_sav_to_gvas(data)
-            self.skilllabel.config(text=f"Loading GVAS file, please be patient...")
+            self.skilllabel.config(text=self.i18n['msg_loading'])
             gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
             self.loaddata(gvas_file)
             # self.doconvertjson(file, (not self.debug))
         else:
-            messagebox.showerror("Select a file", "Please select a save file.")
+            messagebox.showerror(self.i18n['select_file'], self.i18n['msg_select_save_file'])
 
     def load(self, file):
         self.current.set("")
@@ -406,7 +489,7 @@ class PalEdit():
             # json.dump(paldata, f, indent=4)
             # f.close()
         
-        messagebox.showinfo("Done", "Done loading!")
+        messagebox.showinfo("Done", self.i18n['msg_done'])
     
     def loaddata(self, data):
         self.data = data
@@ -514,7 +597,7 @@ class PalEdit():
                 self.listdisplay.itemconfig(tk.constants.END, {'fg': 'blue'})
 
     def savefile(self):
-        self.skilllabel.config(text="Saving, please be patient... (it can take up to 5 minutes in large files)")
+        self.skilllabel.config(text=self.i18n['msg_saving_big'])
         self.gui.update()
 
         if self.isPalSelected():
@@ -538,7 +621,7 @@ class PalEdit():
                 sav_file = compress_gvas_to_sav(
                     gvas_file.write(PALWORLD_CUSTOM_PROPERTIES), save_type
                 )
-                self.skilllabel.config(text="Writing SAV file...")
+                self.skilllabel.config(text=self.i18n['msg_writing'])
                 with open(file, "wb") as f:
                     f.write(sav_file)
                 self.data = None
@@ -662,6 +745,10 @@ class PalEdit():
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
 
+        for item in PalInfo.PalSpecies:
+            if PalInfo.PalSpecies[item].GetName() == self.speciesvar_name.get():
+                self.speciesvar.set(item)
+                break
         pal.SetType(self.speciesvar.get())
         self.updateDisplay()
         self.refresh(self.palbox[self.players[self.current.get()]].index(pal))
@@ -683,7 +770,7 @@ class PalEdit():
 
     def converttojson(self):
 
-        self.skilllabel.config(text="Converting... this may take a while.")
+        self.skilllabel.config(text=self.i18n['msg_converting'])
 
         file = askopenfilename(filetypes=[("All files", "*.sav")])
         print(f"Opening file {file}")
@@ -703,7 +790,7 @@ class PalEdit():
 
         file = askopenfilename(filetypes=[("json files", "*.json")])
         if file == '':
-            messagebox.showerror("Select a file", "Please select a save file.")
+            messagebox.showerror(self.i18n['select_file'], self.i18n['msg_select_save_file'])
             return
 
         f = open(file, "r", encoding="utf8")
@@ -738,7 +825,7 @@ class PalEdit():
             with open(file, "wb") as f:
                 f.write(json.dumps(pals, indent=4).encode('utf-8'))
         else:
-            messagebox.showerror("Select a file", "Please select a save file.")
+            messagebox.showerror("Select a file", self.i18n['msg_select_file'])
 
     def doconvertjson(self, file, compress=False):
         SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
@@ -750,7 +837,7 @@ class PalEdit():
         # messagebox.showinfo("Done", "Done decompiling!")
 
     def converttosave(self):
-        self.skilllabel.config(text="Converting... this may take a while.")
+        self.skilllabel.config(text=self.i18n['msg_converting'])
 
         file = askopenfilename(filetypes=[("All files", "*.sav.json")])
         print(f"Opening file {file}")
@@ -812,15 +899,21 @@ class PalEdit():
         root = tk.Tk()
         root.title(f"PalEdit v{PalEditConfig.version}")
         return root
+    
+    def add_lang_menu(self, langmenu, languages, lang):
+        langmenu.add_command(label=languages[lang], command=lambda: self.load_i18n(lang))
 
     def build_menu(self):
         self.menu = tk.Menu(self.gui)
         tools = self.menu
         self.gui.config(menu=tools)
-
+        
+        global filemenu
         filemenu = tk.Menu(tools, tearoff=0)
-        filemenu.add_command(label="Load PalWorld Save", command=self.loadfile)
-        filemenu.add_command(label="Save Changes To File", command=self.savefile)
+        filemenu.add_command(label=self.i18n['menu_load_save'], command=self.loadfile)
+        self.i18n_el['menu_load_save'] = (filemenu, 0)
+        filemenu.add_command(label=self.i18n['menu_save'], command=self.savefile)
+        self.i18n_el['menu_save'] = (filemenu, 1)
 
         tools.add_cascade(label="File", menu=filemenu, underline=0)
 
@@ -830,17 +923,31 @@ class PalEdit():
 
         tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
+        langmenu = tk.Menu(tools, tearoff=0)
+        with open(f"{module_dir}/resources/data/ui-lang.json", "r", encoding="utf-8") as f:
+            languages = json.load(f)
+            for lang in languages:
+                self.add_lang_menu(langmenu, languages, lang)
+
+        tools.add_cascade(label="Language", menu=langmenu, underline=0)
+        
         # convmenu = Menu(tools, tearoff=0)
         # convmenu.add_command(label="Convert Save to Json", command=converttojson)
         # convmenu.add_command(label="Convert Json to Save", command=converttosave)
 
         # tools.add_cascade(label="Converter", menu=convmenu, underline=0)
 
+    def updateSkillsName(self):
+        for idx, n in enumerate(self.skills):
+            self.skills_name[idx].set(PalInfo.PalPassives[n.get()])
+    
     def __init__(self):
         global EmptyObjectHandler, PalInfo
         import EmptyObjectHandler
         import PalInfo
 
+        self.i18n = {}
+        self.i18n_el = {}
         self.data = None
         self.palbox = {}
         self.players = {}
@@ -853,6 +960,16 @@ class PalEdit():
         self.palguidmanager: PalGuid = None
         self.is_onselect = False
 
+        
+        self.attacks = []
+        self.attacks_name = []
+        self.attackops = []
+        self.attackdrops = []
+        self.skilldrops = []
+        self.skills = []
+        self.skills_name = []
+        self.load_i18n()
+        
         purplepanda = ImageTk.PhotoImage(
             Image.open(f'{module_dir}/resources/MossandaIcon.png').resize((240, 240)))
         self.gui.iconphoto(True, purplepanda)
@@ -868,7 +985,8 @@ class PalEdit():
         self.build_menu()
         playerframe = tk.Frame(scrollview)
         playerframe.pack(fill=tk.constants.X)
-        playerlbl = tk.Label(playerframe, text="Player:")
+        playerlbl = tk.Label(playerframe, text=self.i18n['player_lbl'])
+        self.i18n_el['player_lbl'] = playerlbl
         playerlbl.config(justify='center')
         playerlbl.pack(side=tk.constants.LEFT, fill=tk.constants.X, expand=True)
         self.playerdrop = ttk.Combobox(playerframe, textvariable=self.current)
@@ -885,27 +1003,26 @@ class PalEdit():
         # Attack Skills
         atkskill = tk.Frame(root, width=120, relief="groove", borderwidth=2)
         atkskill.pack(side=tk.constants.RIGHT, fill=tk.constants.Y)
-        atkLabel = tk.Label(atkskill, bg="darkgrey", width=12, text="Equipped",
+        atkLabel = tk.Label(atkskill, bg="darkgrey", width=12, text=self.i18n['atk_lbl'],
                             font=(PalEditConfig.font, PalEditConfig.ftsize),
                             justify="center")
+        self.i18n_el['atk_lbl'] = atkLabel
         atkLabel.pack(fill=tk.constants.X)
 
         self.attacks = [tk.StringVar(), tk.StringVar(), tk.StringVar()]
-        self.attacks[0].set("Blast Punch")
-        self.attacks[1].set("Tri-Lightning")
-        self.attacks[2].set("Dark Laser")
+        self.attacks_name = [tk.StringVar(), tk.StringVar(), tk.StringVar()]
+        self.attacks[0].set("EPalWazaID::Unique_GrassPanda_Electric_ElectricPunch")
+        self.attacks[1].set("EPalWazaID::ThreeThunder")
+        self.attacks[2].set("EPalWazaID::DarkLaser")
+        self.updateAttackName()
 
         equipFrame = tk.Frame(atkskill, borderwidth=2, relief="raised")
         equipFrame.pack(fill=tk.constants.X)
 
-        self.attackops = [PalInfo.PalAttacks[e] for e in PalInfo.PalAttacks]
-        self.attackops.remove("None")
-        self.attackops.sort()
-        self.attackops.insert(0, "None")
         self.attackdrops = [
-            tk.OptionMenu(equipFrame, self.attacks[0], *self.attackops, command=lambda evt: self.changeattack(0)),
-            tk.OptionMenu(equipFrame, self.attacks[1], *self.attackops, command=lambda evt: self.changeattack(1)),
-            tk.OptionMenu(equipFrame, self.attacks[2], *self.attackops, command=lambda evt: self.changeattack(2))
+            tk.OptionMenu(equipFrame, self.attacks_name[0], *self.attackops, command=lambda evt: self.changeattack(0)),
+            tk.OptionMenu(equipFrame, self.attacks_name[1], *self.attackops, command=lambda evt: self.changeattack(1)),
+            tk.OptionMenu(equipFrame, self.attacks_name[2], *self.attackops, command=lambda evt: self.changeattack(2))
         ]
 
         self.attackdrops[0].pack(fill=tk.constants.X)
@@ -928,21 +1045,25 @@ class PalEdit():
         stats = tk.Frame(atkskill)
         # stats.pack(fill=tk.constants.X)
 
-        statLabel = tk.Label(stats, bg="darkgrey", width=12, text="Stats",
+        statLabel = tk.Label(stats, bg="darkgrey", width=12, text=self.i18n['stat_lbl'],
                              font=(PalEditConfig.font, PalEditConfig.ftsize), justify="center")
         statLabel.pack(fill=tk.constants.X)
+        self.i18n_el['stat_lbl'] = statLabel
 
         statlbls = tk.Frame(stats, width=6, bg="darkgrey")
         statlbls.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
 
-        hthstatlbl = tk.Label(statlbls, bg="darkgrey", text="Health", font=(PalEditConfig.font, PalEditConfig.ftsize),
+        hthstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['health_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                               justify="center")
+        self.i18n_el['health_lbl'] = hthstatlbl
         hthstatlbl.pack()
-        atkstatlbl = tk.Label(statlbls, bg="darkgrey", text="Attack", font=(PalEditConfig.font, PalEditConfig.ftsize),
+        atkstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['attack_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                               justify="center")
+        self.i18n_el['attack_lbl'] = atkstatlbl
         atkstatlbl.pack()
-        defstatlbl = tk.Label(statlbls, bg="darkgrey", text="Defence", font=(PalEditConfig.font, PalEditConfig.ftsize),
+        defstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['defence_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                               justify="center")
+        self.i18n_el['defence_lbl'] = atkstatlbl
         defstatlbl.pack()
 
         statvals = tk.Frame(stats, width=6)
@@ -959,8 +1080,9 @@ class PalEdit():
                                    justify="center")
         self.defstatval.pack(fill=tk.constants.X)
 
-        disclaim = tk.Label(atkskill, bg="darkgrey", text="The values above do not include passive skills",
+        disclaim = tk.Label(atkskill, bg="darkgrey", text=self.i18n['msg_disclaim'],
                             font=(PalEditConfig.font, PalEditConfig.ftsize // 2))
+        self.i18n_el['msg_disclaim'] = disclaim
         # disclaim.pack(fill=tk.constants.X)
 
         # Individual Info
@@ -978,22 +1100,26 @@ class PalEdit():
 
         typeframe = tk.Frame(resourceview)
         typeframe.pack(expand=True, fill=tk.constants.X)
-        self.ptype = tk.Label(typeframe, text="Electric", font=(PalEditConfig.font, PalEditConfig.ftsize),
+        self.ptype = tk.Label(typeframe, text=self.i18n['electric_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                               bg=PalInfo.PalElements["Electric"], width=6)
+        self.i18n_el['electric_lbl'] = self.ptype
         self.ptype.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
-        self.stype = tk.Label(typeframe, text="Dark", font=(PalEditConfig.font, PalEditConfig.ftsize),
+        self.stype = tk.Label(typeframe, text=self.i18n['dark_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                               bg=PalInfo.PalElements["Dark"], width=6)
+        self.i18n_el['dark_lbl'] = self.stype
         self.stype.pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.X)
 
         formframe = tk.Frame(resourceview)
         formframe.pack(expand=True, fill=tk.constants.X)
         self.luckyvar = tk.IntVar()
         self.alphavar = tk.IntVar()
-        luckybox = tk.Checkbutton(formframe, text='Lucky', variable=self.luckyvar, onvalue='1', offvalue='0',
+        luckybox = tk.Checkbutton(formframe, text=self.i18n['lucky_lbl'], variable=self.luckyvar, onvalue='1', offvalue='0',
                                   command=self.togglelucky)
+        self.i18n_el['lucky_lbl'] = luckybox
         luckybox.pack(side=tk.constants.LEFT, expand=True)
-        alphabox = tk.Checkbutton(formframe, text='Alpha', variable=self.alphavar, onvalue='1', offvalue='0',
+        alphabox = tk.Checkbutton(formframe, text=self.i18n['alpha_lbl'], variable=self.alphavar, onvalue='1', offvalue='0',
                                   command=self.togglealpha)
+        self.i18n_el['alpha_lbl'] = alphabox
         alphabox.pack(side=tk.constants.RIGHT, expand=True)
 
         deckview = tk.Frame(dataview, width=320, relief="sunken", borderwidth=2, pady=0)
@@ -1028,24 +1154,31 @@ class PalEdit():
         labelview = tk.Frame(deckview, bg="lightgrey", pady=0, padx=16)
         labelview.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
 
-        name = tk.Label(labelview, text="Species", font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey")
+        name = tk.Label(labelview, text=self.i18n['name_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey")
         name.pack(expand=True, fill=tk.constants.X)
-        gender = tk.Label(labelview, text="Gender", font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
+        self.i18n_el['name_prop'] = name
+        gender = tk.Label(labelview, text=self.i18n['gender_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
                           width=6, pady=6)
+        self.i18n_el['gender_prop'] = gender
         gender.pack(expand=True, fill=tk.constants.X)
-        attack = tk.Label(labelview, text="Attack IV%", font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
+        attack = tk.Label(labelview, text=self.i18n['attack_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
                           width=8)
+        self.i18n_el['attack_prop'] = attack
         attack.pack(expand=True, fill=tk.constants.X)
-        defence = tk.Label(labelview, text="Defence IV%", font=(PalEditConfig.font, PalEditConfig.ftsize),
+        defence = tk.Label(labelview, text=self.i18n['defence_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                            bg="lightgrey", width=8)
+        self.i18n_el['defence_prop'] = defence
         defence.pack(expand=True, fill=tk.constants.X)
-        workspeed = tk.Label(labelview, text="Workspeed IV%", font=(PalEditConfig.font, PalEditConfig.ftsize),
+        workspeed = tk.Label(labelview, text=self.i18n['workspeed_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                              bg="lightgrey", width=12)
+        self.i18n_el['workspeed_prop'] = workspeed
         workspeed.pack(expand=True, fill=tk.constants.X)
-        hp = tk.Label(labelview, text="HP IV%", font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
+        hp = tk.Label(labelview, text=self.i18n['hp_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
                       width=10)
+        self.i18n_el['hp_prop'] = hp
         hp.pack(expand=True, fill=tk.constants.X)
-        rankspeed = tk.Label(labelview, text="Rank", font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey")
+        rankspeed = tk.Label(labelview, text=self.i18n['rank_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey")
+        self.i18n_el['rank_prop'] = rankspeed
         rankspeed.pack(expand=True, fill=tk.constants.X)
 
         editview = tk.Frame(deckview)
@@ -1054,11 +1187,12 @@ class PalEdit():
         species = [PalInfo.PalSpecies[e].GetName() for e in PalInfo.PalSpecies]
         species.sort()
         self.speciesvar = tk.StringVar()
-        self.speciesvar.set("PalEdit")
-        palname = tk.OptionMenu(editview, self.speciesvar, *species, command=self.changespeciestype)
-        palname.config(font=(PalEditConfig.font, PalEditConfig.ftsize), padx=0, pady=0, borderwidth=1, width=5,
+        self.speciesvar_name = tk.StringVar()
+        self.speciesvar_name.set("PalEdit")
+        self.palname = tk.OptionMenu(editview, self.speciesvar_name, *species, command=self.changespeciestype)
+        self.palname.config(font=(PalEditConfig.font, PalEditConfig.ftsize), padx=0, pady=0, borderwidth=1, width=5,
                        direction='right')
-        palname.pack(expand=True, fill=tk.constants.X)
+        self.palname.pack(expand=True, fill=tk.constants.X)
 
         genderframe = tk.Frame(editview, pady=0)
         genderframe.pack()
@@ -1203,13 +1337,15 @@ class PalEdit():
         botview.pack(fill=tk.constants.BOTH, expand=True)
 
         self.skills = [tk.StringVar(), tk.StringVar(), tk.StringVar(), tk.StringVar()]
+        self.skills_name = [tk.StringVar(), tk.StringVar(), tk.StringVar(), tk.StringVar()]
         # for i in range(0, 4):
         # skills[i].set("Unknown")
         # skills[i].trace("w", lambda *args, num=i: changeskill(num))
         self.skills[0].set("Legend")
-        self.skills[1].set("Workaholic")
-        self.skills[2].set("Ferocious")
-        self.skills[3].set("Lucky")
+        self.skills[1].set("PAL_Sanity_Down_2")
+        self.skills[2].set("PAL_ALLAttack_up2")
+        self.skills[3].set("Rare")
+        self.updateSkillsName()
 
         op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
         op.pop(0)
@@ -1217,10 +1353,10 @@ class PalEdit():
         op.sort()
         op.insert(0, "None")
         self.skilldrops = [
-            tk.OptionMenu(topview, self.skills[0], *op, command=lambda evt: self.changeskill(0)),
-            tk.OptionMenu(topview, self.skills[1], *op, command=lambda evt: self.changeskill(1)),
-            tk.OptionMenu(botview, self.skills[2], *op, command=lambda evt: self.changeskill(2)),
-            tk.OptionMenu(botview, self.skills[3], *op, command=lambda evt: self.changeskill(3))
+            tk.OptionMenu(topview, self.skills_name[0], *op, command=lambda evt: self.changeskill(0)),
+            tk.OptionMenu(topview, self.skills_name[1], *op, command=lambda evt: self.changeskill(1)),
+            tk.OptionMenu(botview, self.skills_name[2], *op, command=lambda evt: self.changeskill(2)),
+            tk.OptionMenu(botview, self.skills_name[3], *op, command=lambda evt: self.changeskill(3))
         ]
 
         self.skilldrops[0].pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
@@ -1260,47 +1396,61 @@ class PalEdit():
 
         framePresetsTitle = tk.Frame(framePresets)
         framePresetsTitle.pack(fill=tk.constants.BOTH)
-        presetTitle = tk.Label(framePresetsTitle, text='Presets:', anchor='w', bg="darkgrey",
+        presetTitle = tk.Label(framePresetsTitle, text=self.i18n['preset_lbl'], anchor='w', bg="darkgrey",
                                font=(PalEditConfig.font, PalEditConfig.ftsize), width=6,
-                               height=1).pack(fill=tk.constants.BOTH)
+                               height=1)
+        presetTitle.pack(fill=tk.constants.BOTH)
+        self.i18n_el['preset_lbl'] = presetTitle
 
         framePresetsButtons = tk.Frame(framePresets, relief="groove", borderwidth=4)
         framePresetsButtons.pack(fill=tk.constants.BOTH, expand=True)
 
         framePresetsButtons1 = tk.Frame(framePresetsButtons)
         framePresetsButtons1.pack(fill=tk.constants.BOTH, expand=True)
-        preset_title1 = tk.Label(framePresetsButtons1, text='Utility:', anchor='e', bg="darkgrey",
+        preset_title1 = tk.Label(framePresetsButtons1, text=self.i18n['preset_title1'], anchor='e', bg="darkgrey",
                                  font=(PalEditConfig.font, 13),
-                                 width=9).pack(side=tk.constants.LEFT, fill=tk.constants.X)
-        preset_button = tk.Button(framePresetsButtons1, text="Base", command=lambda: self.setpreset("base"))
+                                 width=9)
+        preset_title1.pack(side=tk.constants.LEFT, fill=tk.constants.X)
+        self.i18n_el['preset_title1'] = preset_title1
+        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_base'], command=lambda: self.setpreset("base"))
+        self.i18n_el['preset_base'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons1, text="Speed Worker",
+        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_speed_worker'],
                                   command=lambda: self.setpreset("workspeed"))
+        self.i18n_el['preset_speed_worker'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons1, text="Speed Runner", command=lambda: self.setpreset("movement"))
+        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_speed_runner'], command=lambda: self.setpreset("movement"))
+        self.i18n_el['preset_speed_runner'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons1, text="Tank", command=lambda: self.setpreset("tank"))
+        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_tank'], command=lambda: self.setpreset("tank"))
+        self.i18n_el['preset_tank'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
 
         framePresetsButtons2 = tk.Frame(framePresetsButtons)
         framePresetsButtons2.pack(fill=tk.constants.BOTH, expand=True)
-        preset_title2 = tk.Label(framePresetsButtons2, text='Damage:', anchor='e', bg="darkgrey",
+        preset_title2 = tk.Label(framePresetsButtons2, text=self.i18n['preset_title2'], anchor='e', bg="darkgrey",
                                  font=(PalEditConfig.font, 13),
-                                 width=9).pack(side=tk.constants.LEFT, fill=tk.constants.X)
-        preset_button = tk.Button(framePresetsButtons2, text="Max", command=lambda: self.setpreset("dmg_max"))
+                                 width=9)
+        preset_title2.pack(side=tk.constants.LEFT, fill=tk.constants.X)
+        self.i18n_el['preset_title2'] = preset_title2
+        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_max'], command=lambda: self.setpreset("dmg_max"))
+        self.i18n_el['preset_max'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons2, text="Balanced", command=lambda: self.setpreset("dmg_balanced"))
+        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_balance'], command=lambda: self.setpreset("dmg_balanced"))
+        self.i18n_el['preset_balance'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons2, text="Mount", command=lambda: self.setpreset("dmg_mount"))
+        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_mount'], command=lambda: self.setpreset("dmg_mount"))
+        self.i18n_el['preset_mount'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons2, text="Element", command=lambda: self.setpreset("dmg_element"))
+        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_element'], command=lambda: self.setpreset("dmg_element"))
+        self.i18n_el['preset_element'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
 
@@ -1310,13 +1460,17 @@ class PalEdit():
 
         framePresetsLevel = tk.Frame(framePresetsExtras)
         framePresetsLevel.pack(fill=tk.constants.BOTH, expand=True)
-        presetTitleLevel = tk.Label(framePresetsLevel, text='Set Level:', anchor='center', bg="lightgrey",
+        presetTitleLevel = tk.Label(framePresetsLevel, text=self.i18n['preset_title_level'], anchor='center', bg="lightgrey",
                                     font=(PalEditConfig.font, 13),
-                                    width=20, height=1).pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.Y)
+                                    width=20, height=1)
+        presetTitleLevel.pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.Y)
+        self.i18n_el['preset_title_level'] = presetTitleLevel
         self.checkboxLevelVar = tk.IntVar()
-        checkboxLevel = tk.Checkbutton(framePresetsLevel, text='Preset changes level', variable=self.checkboxLevelVar,
+        checkboxLevel = tk.Checkbutton(framePresetsLevel, text=self.i18n['preset_chg_lvl'], variable=self.checkboxLevelVar,
                                        onvalue='1',
-                                       offvalue='0').pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.BOTH)
+                                       offvalue='0')
+        checkboxLevel.pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.BOTH)
+        self.i18n_el['preset_chg_lvl'] = checkboxLevel
         self.textboxLevelVar = tk.IntVar(value=1)
         textboxLevel = tk.Entry(framePresetsLevel, textvariable=self.textboxLevelVar, justify='center', width=10)
         textboxLevel.config(font=(PalEditConfig.font, 10), width=10)
@@ -1324,13 +1478,17 @@ class PalEdit():
 
         framePresetsRank = tk.Frame(framePresetsExtras)
         framePresetsRank.pack(fill=tk.constants.BOTH, expand=True)
-        presetTitleRank = tk.Label(framePresetsRank, text='Set Rank:', anchor='center', bg="lightgrey",
+        presetTitleRank = tk.Label(framePresetsRank, text=self.i18n['preset_title_rank'], anchor='center', bg="lightgrey",
                                    font=(PalEditConfig.font, 13),
-                                   width=20, height=1).pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.Y)
+                                   width=20, height=1)
+        presetTitleRank.pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.Y)
+        self.i18n_el['preset_title_rank'] = presetTitleRank
         self.checkboxRankVar = tk.IntVar()
-        checkboxRank = tk.Checkbutton(framePresetsRank, text='Preset changes rank', variable=self.checkboxRankVar,
+        checkboxRank = tk.Checkbutton(framePresetsRank, text=self.i18n['preset_change_rank'], variable=self.checkboxRankVar,
                                       onvalue='1',
-                                      offvalue='0').pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.BOTH)
+                                      offvalue='0')
+        checkboxRank.pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.BOTH)
+        self.i18n_el['preset_change_rank'] = checkboxRank
         self.optionMenuRankVar = tk.IntVar(value=1)
         self.optionMenuRank = tk.OptionMenu(framePresetsRank, self.optionMenuRankVar, *PalEdit.ranks)
         self.optionMenuRankVar.set(PalEdit.ranks[0])
@@ -1339,17 +1497,21 @@ class PalEdit():
 
         framePresetsAttributes = tk.Frame(framePresetsExtras)
         framePresetsAttributes.pack(fill=tk.constants.BOTH, expand=False)
-        presetTitleAttributes = tk.Label(framePresetsAttributes, text='Set Attributes:', anchor='center',
+        presetTitleAttributes = tk.Label(framePresetsAttributes, text=self.i18n['preset_set_attr'], anchor='center',
                                          bg="lightgrey",
-                                         font=(PalEditConfig.font, 13), width=20, height=1).pack(side=tk.constants.LEFT,
+                                         font=(PalEditConfig.font, 13), width=20, height=1)
+        presetTitleAttributes.pack(side=tk.constants.LEFT,
                                                                                                  expand=False,
                                                                                                  fill=tk.constants.Y)
+        self.i18n_el['preset_set_attr'] = presetTitleAttributes
         self.checkboxAttributesVar = tk.IntVar()
-        checkboxAttributes = tk.Checkbutton(framePresetsAttributes, text='Preset changes attributes',
-                                            variable=self.checkboxAttributesVar, onvalue='1', offvalue='0').pack(
+        checkboxAttributes = tk.Checkbutton(framePresetsAttributes, text=self.i18n['preset_change_attr'],
+                                            variable=self.checkboxAttributesVar, onvalue='1', offvalue='0')
+        checkboxAttributes.pack(
             side=tk.constants.LEFT,
             expand=False,
             fill=tk.constants.BOTH)
+        self.i18n_el['preset_change_attr'] = checkboxAttributes
         presetTitleAttributesTodo = tk.Label(framePresetsAttributes, text='Not Yet', font=(PalEditConfig.font, 10),
                                              width=10,
                                              justify='center').pack(side=tk.constants.LEFT, expand=True,
@@ -1389,8 +1551,9 @@ class PalEdit():
         # FOOTER
         frameFooter = tk.Frame(infoview, relief="flat")
         frameFooter.pack(fill=tk.constants.BOTH, expand=False)
-        self.skilllabel = tk.Label(frameFooter, text="Hover a skill to see it's description")
+        self.skilllabel = tk.Label(frameFooter, text=self.i18n['msg_skill'])
         self.skilllabel.pack()
+        self.i18n_el['msg_skill'] = self.skilllabel
 
         # root.resizable(width=False, height=True)
         root.geometry("")  # auto window size
@@ -1425,6 +1588,7 @@ class PalEdit():
             root.geometry("{}x{}".format(window_width, window_height))
 
 def main():
+    global pal
     pal = PalEdit()
     pal.gui.mainloop()
 
