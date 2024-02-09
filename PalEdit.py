@@ -685,36 +685,54 @@ class PalEdit():
         l = pal.GetLevel()
         
         if self.phpvar.dirty:
+            self.phpvar.dirty = False
             h = self.phpvar.get()
             print(f"{pal.GetFullName()}: TalentHP {pal.GetTalentHP()} -> {h}")
+            old_iv = pal.GetTalentHP()
             pal.SetTalentHP(h)
-            hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
-            self.hthstatval.config(text=math.floor(hv))
-            self.phpvar.dirty = False
+            retval = pal.UpdateMaxHP(old_iv=old_iv)
+            if retval is not None:
+                answer = messagebox.askquestion(
+                    title="Choose HP Scaling", 
+                    message="""
+Warning:
+    - It is rare but some bosses may have a different scaling value.
+    - The HP scaling derived from pal's previous MaxHealth is different from the Non-Boss scaling:
+        - Derived: %s
+        - Non-BOSS HP Scaling: %s
+
+    This might also caused by older version of PalEdit messed up the MaxHealth.
+
+    Do you want to use %s's DEFAULT Scaling (%s)? (You don't need to be too worry, leveling your pal in game can also fix this!)
+""" % (retval[0], retval[1], pal.GetName(), retval[1]))
+                pal.UpdateMaxHP(old_iv=old_iv, hp_scaling=retval[1] if answer == 'yes' else retval[0])
+
+            # hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
+            # self.hthstatval.config(text=math.floor(hv))
         if self.meleevar.dirty:
+            self.meleevar.dirty = False
             a = self.meleevar.get()
             print(f"{pal.GetFullName()}: AttackMelee {pal.GetAttackMelee()} -> {a}")
             pal.SetAttackMelee(a)
-            av = 100 + (((70 * 0.75) * l) * (1 + (a / 100)))
-            self.atkstatval.config(text=math.floor(av))
-            self.meleevar.dirty = False
+            # av = 100 + (((70 * 0.75) * l) * (1 + (a / 100)))
+            # self.atkstatval.config(text=math.floor(av))
         if self.shotvar.dirty:
+            self.shotvar.dirty = False
             r = self.shotvar.get()
             print(f"{pal.GetFullName()}: AttackRanged {pal.GetAttackRanged()} -> {r}")
             pal.SetAttackRanged(r)
-            self.shotvar.dirty = False
         if self.defvar.dirty:
+            self.defvar.dirty = False
             d = self.defvar.get()
             print(f"{pal.GetFullName()}: Defence {pal.GetDefence()} -> {d}")
             pal.SetDefence(d)
-            dv = 50 + (((70 * 0.75) * l) * (1 + (d / 100)))
-            self.defstatval.config(text=math.floor(dv))
-            self.defvar.dirty = False
+            # dv = 50 + (((70 * 0.75) * l) * (1 + (d / 100)))
+            # self.defstatval.config(text=math.floor(dv))
         if self.wspvar.dirty:
+            self.wspvar.dirty = False
             w = self.wspvar.get()
             print(f"{pal.GetFullName()}: WorkSpeed {pal.GetWorkSpeed()} -> {w}")
             pal.SetWorkSpeed(w)
-            self.wspvar.dirty = False
 
 
     def takelevel(self):
