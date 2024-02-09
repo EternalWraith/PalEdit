@@ -382,14 +382,14 @@ class PalEntity:
     
     def SetLucky(self, v=True):
         self._obj["IsRarePal"]['value'] = self.isLucky = v
-        self.SetType(self._type.GetName())
+        self.SetType(self._type.GetCodeName())
         if v:
             if self.isBoss:
                 self.isBoss = False
                 
     def SetBoss(self, v=True):
         self.isBoss = v
-        self.SetType(self._type.GetName())
+        self.SetType(self._type.GetCodeName())
         if v:
             if self.isLucky:
                 self.SetLucky(False)
