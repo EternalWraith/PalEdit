@@ -102,7 +102,6 @@ class PalEdit():
                 self.speciesvar_name.set(PalInfo.PalSpecies[self.speciesvar.get()].GetName())
             else:
                 self.speciesvar_name.set(self.speciesvar.get())
-            self.updateDisplay()
         except AttributeError as e:
             pass
     
