@@ -32,7 +32,7 @@ class PalEditConfig:
     goodskill = "#FEDE00"
 
 class PalEdit():
-    ranks = ('0', '1', '2', '3', '4')
+    ranks = (0, 1, 2, 3, 4)
 
     def load_i18n(self, lang=""):
         path = f"{module_dir}/resources/data/ui.json"
@@ -302,30 +302,23 @@ class PalEdit():
 
         self.refresh(i)
 
-    def changerank(self, configvalue):
+    def changerank(self, choice):
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
-        match configvalue:
-            case 4:
-                pal.SetRank(5)
-            case 3:
-                pal.SetRank(4)
-            case 2:
-                pal.SetRank(3)
-            case 1:
-                pal.SetRank(2)
-            case _:
-                pal.SetRank(1)
+        ranks = {
+            4: 5,
+            3: 4,
+            2: 3,
+            1: 2,
+        }
+        new_rank = ranks.get(choice, 1)
+        self.handleMaxHealthUpdates(pal, changes={
+            'rank': new_rank
+        })
+        pal.SetRank(new_rank)
         self.refresh(i)
-
-    def changerankchoice(self, choice):
-        if not self.isPalSelected():
-            return
-        i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
-        self.changerank(self.ranksvar.get())
 
     def changeskill(self, num):
         if not self.isPalSelected():
@@ -404,17 +397,7 @@ class PalEdit():
         self.updateAttacks()
 
         # rank
-        match pal.GetRank():
-            case 5:
-                self.ranksvar.set(PalEdit.ranks[4])
-            case 4:
-                self.ranksvar.set(PalEdit.ranks[3])
-            case 3:
-                self.ranksvar.set(PalEdit.ranks[2])
-            case 2:
-                self.ranksvar.set(PalEdit.ranks[1])
-            case _:
-                self.ranksvar.set(PalEdit.ranks[0])
+        self.ranksvar.set(pal.GetRank() - 1)
 
         s = pal.GetSkills()[:]
         while len(s) < 4:
@@ -1352,7 +1335,7 @@ Do you want to use %s's DEFAULT Scaling (%s)? (You don't need to be too worry, l
         """
 
         self.ranksvar = tk.IntVar()
-        palrank = tk.OptionMenu(editview, self.ranksvar, *PalEdit.ranks, command=self.changerankchoice)
+        palrank = tk.OptionMenu(editview, self.ranksvar, *PalEdit.ranks, command=self.changerank)
         palrank.config(font=(PalEditConfig.font, PalEditConfig.ftsize), justify='center', padx=0, pady=0, borderwidth=1,
                        width=5)
         self.ranksvar.set(PalEdit.ranks[4])
