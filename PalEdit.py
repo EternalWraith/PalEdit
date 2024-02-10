@@ -578,6 +578,8 @@ class PalEdit():
                 self.listdisplay.itemconfig(tk.constants.END, {'fg': 'red'})
             elif p.isLucky:
                 self.listdisplay.itemconfig(tk.constants.END, {'fg': 'blue'})
+        
+        self.refresh()
 
     def savefile(self):
         self.skilllabel.config(text=self.i18n['msg_saving_big'])
@@ -1584,7 +1586,14 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def mainloop(self):
         self.gui.mainloop()
 
+
+    def cleanup_pal_selection(self):
+        # workaround so onselect no longer tries to get pals using pal[newplayer][oldindex]
+        self.editindex = -1
+
+
     def changeplayer(self, evt):
+        self.cleanup_pal_selection()
         print(self.current.get())
         self.updateDisplay()
 
