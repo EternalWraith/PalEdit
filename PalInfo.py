@@ -321,7 +321,7 @@ class PalEntity:
                     hp_scaling = specie_scaling[bossKey]
                 else:
                     hp_scaling = specie_scaling[key]
-                    if self.isBoss and abs(possible_hp_scaling - hp_scaling) > 1:
+                    if self.isBoss and abs(possible_hp_scaling - hp_scaling) > 1 and 'species' not in changes:
                         return (possible_hp_scaling, hp_scaling)
                 print("%s HP Scaling: %s" % (self.GetName(), hp_scaling))
             else:

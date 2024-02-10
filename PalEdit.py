@@ -766,7 +766,11 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             if PalInfo.PalSpecies[item].GetName() == self.speciesvar_name.get():
                 self.speciesvar.set(item)
                 break
+
         pal.SetType(self.speciesvar.get())
+        self.handleMaxHealthUpdates(pal, changes={
+            'species': self.speciesvar.get()
+        })
         self.updateDisplay()
         self.refresh(self.palbox[self.players[self.current.get()]].index(pal))
 
