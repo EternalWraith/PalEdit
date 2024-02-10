@@ -651,6 +651,8 @@ class PalPlayerEntity:
         return self._data
 
 def matches(pal, move):
+    if move not in SkillExclusivity:
+        return False
     if SkillExclusivity[move] == None:
         return True
     elif pal in SkillExclusivity[move]:

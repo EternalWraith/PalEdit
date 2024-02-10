@@ -521,6 +521,7 @@ class PalEdit():
                 else:
                     self.unknown.append(i)
                     print(f"Error occured: {str(e)}")
+                    traceback.print_exception(e)
                 # print(f"Debug: Data {i}")
 
         self.current.set(next(iter(self.players)))
@@ -570,7 +571,7 @@ class PalEdit():
     def updateDisplay(self):
         self.listdisplay.delete(0, tk.constants.END)
         self.palbox[self.players[self.current.get()]].sort(key=lambda e: e.GetName())
-
+        
         for p in self.palbox[self.players[self.current.get()]]:
             self.listdisplay.insert(tk.constants.END, p.GetFullName())
 
@@ -1598,7 +1599,6 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
     def changeplayer(self, evt):
         self.cleanup_pal_selection()
-        print(self.current.get())
         self.updateDisplay()
 
     # center & window size
