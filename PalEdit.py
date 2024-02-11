@@ -457,6 +457,10 @@ def load(file):
                 palbox[p.owner] = []
             palbox[p.owner].append(p)
 
+            # Update moveset for each Pal in order to fix any save files with Pals that were broken by the bug
+            # Pals will still retain any skills learned from fruits
+            p.SetLevelMoves()
+
             n = p.GetFullName()
 
             for m in p.GetLearntMoves():
