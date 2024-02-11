@@ -7,7 +7,7 @@ import pyperclip
 
 import SaveConverter
 from lib.gvas import GvasFile
-from lib.archive import FArchiveReader, FArchiveWriter
+from lib.archive import FArchiveReader, FArchiveWriter, UUID
 from lib.json_tools import CustomEncoder
 from lib.palsav import compress_gvas_to_sav, decompress_sav_to_gvas
 from lib.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TYPE_HINTS
@@ -22,9 +22,16 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import messagebox
 from PIL import ImageTk, Image
 
+class UUIDEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, UUID):
+            # if the obj is uuid, we simply return the value of uuid
+            return str(obj)
+        return json.JSONEncoder.default(self, obj)
+
 import traceback
 class PalEditConfig:
-    version = "0.5.5"
+    version = "0.6"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
@@ -475,6 +482,7 @@ class PalEdit():
         messagebox.showinfo("Done", self.i18n['msg_done'])
     
     def loaddata(self, data):
+        print(type(data))
         self.data = data
         if isinstance(data, GvasFile):
             self.data = {
@@ -837,17 +845,20 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             self.palguidmanager.SetContainerSave(slotguid, i, newguid)
             self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
             print(f"Add Pal at slot {i} : {slotguid}")
-        self.loaddata(self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'])
+        self.loaddata(self.data)#['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'])
 
     def dumppals(self):
         if not self.isPalSelected():
             return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.palbox[self.players[self.current.get()]][i]
+        
         pals = {}
-        pals['Pals'] = [pal._data for pal in self.palbox[self.players[self.current.get()]]]
+        pals['Pals'] = [pal._data] #[pal._data for pal in self.palbox[self.players[self.current.get()]]]
         file = asksaveasfilename(filetypes=[("json files", "*.json")], defaultextension=".json")
         if file:
             with open(file, "wb") as f:
-                f.write(json.dumps(pals, indent=4).encode('utf-8'))
+                f.write(json.dumps(pals, indent=4, cls=UUIDEncoder).encode('utf-8'))
         else:
             messagebox.showerror("Select a file", self.i18n['msg_select_file'])
 
@@ -1278,7 +1289,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         meleeicon = tk.Label(attackframe, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
         meleeicon.pack(side=tk.constants.LEFT)
         palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
-        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'), state="disabled")
         palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
         palmelee.pack(side=tk.constants.LEFT)
         self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
@@ -1286,7 +1297,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         self.shotvar = tk.IntVar()
         self.shotvar.dirty = False
-        self.shotvar.set(0)
+        self.shotvar.set(100)
         shoticon = tk.Label(attackframe, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
         shoticon.pack(side=tk.constants.RIGHT)
         palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
@@ -1565,10 +1576,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         button = tk.Button(frameDebug, text="Generate & Copy GUID", command=self.createGUIDtoClipboard)
         button.config(font=(PalEditConfig.font, 12))
         button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        button = Button(frameDebug, text="Add Pal", command=self.spawnpal)
+
+        cloneLabel = tk.Label(atkskill, bg="darkgrey", width=12, text=self.i18n['clone_lbl'],
+                            font=(PalEditConfig.font, PalEditConfig.ftsize),
+                            justify="center")
+        self.i18n_el['clone_lbl'] = cloneLabel
+        cloneLabel.pack(fill=tk.constants.X)
+        palframe = Frame(atkskill)
+        palframe.pack(fill=X)
+        button = Button(palframe, text="Add Pal", command=self.spawnpal)
         button.config(font=(PalEditConfig.font, 12))
         button.pack(side=LEFT, expand=True, fill=BOTH)
-        button = Button(frameDebug, text="Dump Pal", command=self.dumppals)
+        button = Button(palframe, text="Dump Pal", command=self.dumppals)
         button.config(font=(PalEditConfig.font, 12))
         button.pack(side=LEFT, expand=True, fill=BOTH)
 

@@ -1,6 +1,7 @@
 {
   "player_lbl": "Player:",
   "atk_lbl": "Equipped",
+  "clone_lbl": "Cloning Tools",
   "stat_lbl": "Stats",
   "health_lbl": "Health",
   "attack_lbl": "Attack",

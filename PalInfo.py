@@ -7,7 +7,8 @@ from EmptyObjectHandler import *
 import uuid
 import copy
 
-module_dir = os.path.dirname(os.path.abspath(__file__))
+# for some reason os.path when compiled with CxFreeze bugs out the program. Will look into it.
+module_dir = "." #os.path.dirname(os.path.realpath(__file__))
 
 xpthresholds = [
     0,

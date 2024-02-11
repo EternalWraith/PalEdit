@@ -1,6 +1,7 @@
 {
   "player_lbl": "玩家:",
   "atk_lbl": "已装备技能",
+  "clone_lbl": "克隆工具",
   "stat_lbl": "Stats",
   "health_lbl": "Health",
   "attack_lbl": "Attack",
