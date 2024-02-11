@@ -78,6 +78,19 @@ def toggleDebug():
         frameDebug.pack_forget()
     updateWindowSize()
 
+def fixMoveset():
+    global filename
+    if filename:
+        for player, pals in palbox.items():  # Iterating over each player's pals
+            for pal in pals:  # Iterating over each PalEntity
+                try:
+                    pal.SetLevelMoves()
+                except Exception as e:
+                    unknown.append(pal)
+                    print(f"Error occurred: {str(e)}")
+        messagebox.showinfo("Done", "Pals fixed!")
+    else:
+        messagebox.showinfo("Error", "No file loaded!")
 
 
 def isPalSelected():
@@ -457,10 +470,6 @@ def load(file):
                 palbox[p.owner] = []
             palbox[p.owner].append(p)
 
-            # Update moveset for each Pal in order to fix any save files with Pals that were broken by the bug
-            # Pals will still retain any skills learned from fruits
-            p.SetLevelMoves()
-
             n = p.GetFullName()
 
             for m in p.GetLearntMoves():
@@ -769,6 +778,7 @@ tools.add_cascade(label="File", menu=filemenu, underline=0)
 
 toolmenu = Menu(tools, tearoff=0)
 toolmenu.add_command(label="Debug", command=toggleDebug)
+toolmenu.add_command(label="Fix Pal Movesets", command=fixMoveset)
 # toolmenu.add_command(label="Generate GUID", command=generateguid)
 
 tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
