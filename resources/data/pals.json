@@ -14,6 +14,11 @@
                 "Shockwave": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 75,
+                "DEF": 90
             }
         },
         {
@@ -30,6 +35,11 @@
                 "Flare Storm": 30,
                 "Ignis Rage": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 115,
+                "DEF": 100
             }
         },
         {
@@ -46,6 +56,11 @@
                 "Forceful Charge": 30,
                 "Ground Smash": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 130,
+                "DEF": 100
             }
         },
         {
@@ -63,6 +78,11 @@
                 "Shadow Burst": 30,
                 "Fire Ball": 40,
                 "Ignis Rage": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 100,
+                "DEF": 85
             }
         },
         {
@@ -79,6 +99,11 @@
                 "Shadow Burst": 30,
                 "Fire Ball": 40,
                 "Ignis Rage": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 105,
+                "DEF": 85
             }
         },
         {
@@ -95,6 +120,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 60,
+                "DEF": 70
             }
         },
         {
@@ -111,6 +141,11 @@
                 "Iceberg": 30,
                 "Cryst Breath": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 65,
+                "DEF": 70
             }
         },
         {
@@ -127,6 +162,11 @@
                 "Grass Tornado": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 70,
+                "DEF": 90
             }
         },
         {
@@ -144,6 +184,11 @@
                 "Nightmare Ball": 30,
                 "Fire Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 115,
+                "DEF": 90
             }
         },
         {
@@ -161,6 +206,11 @@
                 "Nightmare Ball": 30,
                 "Blizzard Spike": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 120,
+                "DEF": 95
             }
         },
         {
@@ -177,6 +227,12 @@
                 "Rock Lance": 30,
                 "Twin Spears": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "HP_BOSS": 260,
+                "ATK": 145,
+                "DEF": 120
             }
         },
         {
@@ -193,6 +249,11 @@
                 "Nightmare Ball": 30,
                 "Divine Disaster": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 120,
+                "DEF": 140
             }
         },
         {
@@ -210,6 +271,11 @@
                 "Draconic Breath": 30,
                 "Dark Laser": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 125,
+                "DEF": 125
             }
         },
         {
@@ -227,6 +293,11 @@
                 "Draconic Breath": 30,
                 "Hydro Laser": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 100,
+                "DEF": 100
             }
         },
         {
@@ -243,6 +314,11 @@
                 "Bubble Blast": 30,
                 "Aqua Burst": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 80,
+                "DEF": 60
             }
         },
         {
@@ -259,6 +335,11 @@
                 "Power Bomb": 30,
                 "Rock Lance": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -276,6 +357,11 @@
                 "Aqua Burst": 30,
                 "Blizzard Spike": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 95,
+                "DEF": 95
             }
         },
         {
@@ -292,6 +378,11 @@
                 "Power Bomb": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -308,6 +399,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 95,
+                "DEF": 80
             }
         },
         {
@@ -324,6 +420,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 105,
+                "DEF": 90
             }
         },
         {
@@ -340,6 +441,11 @@
                 "Nightmare Ball": 30,
                 "Ignis Rage": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 105,
+                "DEF": 110
             }
         },
         {
@@ -356,6 +462,11 @@
                 "Grass Tornado": 30,
                 "Sand Tornado": 40,
                 "Flare Storm": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 60,
+                "DEF": 60
             }
         },
         {
@@ -372,6 +483,11 @@
                 "Sand Tornado": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 75,
+                "DEF": 70
             }
         },
         {
@@ -388,6 +504,11 @@
                 "Stone Cannon": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 50,
+                "DEF": 80
             }
         },
         {
@@ -404,6 +525,11 @@
                 "Seed Mine": 30,
                 "Grass Tornado": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 80,
+                "DEF": 80
             }
         },
         {
@@ -420,6 +546,11 @@
                 "Seed Machine Gun": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -436,6 +567,11 @@
                 "Power Bomb": 30,
                 "Sand Tornado": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 65,
+                "ATK": 80,
+                "DEF": 50
             }
         },
         {
@@ -452,6 +588,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 95,
+                "DEF": 80
             }
         },
         {
@@ -469,6 +610,11 @@
                 "Nightmare Ball": 30,
                 "Rock Lance": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 130
             }
         },
         {
@@ -485,6 +631,11 @@
                 "Power Bomb": 30,
                 "Rock Lance": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 80,
+                "DEF": 80
             }
         },
         {
@@ -501,6 +652,11 @@
                 "Power Bomb": 30,
                 "Sand Tornado": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 80,
+                "DEF": 80
             }
         },
         {
@@ -517,6 +673,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 75,
+                "DEF": 60
             }
         },
         {
@@ -533,6 +694,11 @@
                 "Sand Tornado": 30,
                 "Aqua Burst": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 95,
+                "DEF": 120
             }
         },
         {
@@ -549,6 +715,11 @@
                 "Sand Tornado": 30,
                 "Grass Tornado": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 85,
+                "DEF": 60
             }
         },
         {
@@ -565,6 +736,11 @@
                 "Tri-Lightning": 30,
                 "Lightning Streak": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 75,
+                "DEF": 70
             }
         },
         {
@@ -581,6 +757,11 @@
                 "Tri-Lightning": 30,
                 "Lightning Strike": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 100,
+                "DEF": 100
             }
         },
         {
@@ -597,6 +778,11 @@
                 "Draconic Breath": 30,
                 "Pal Blast": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 80,
+                "DEF": 90
             }
         },
         {
@@ -614,6 +800,11 @@
                 "Acid Rain": 30,
                 "Hydro Laser": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 115,
+                "ATK": 80,
+                "DEF": 95
             }
         },
         {
@@ -630,6 +821,11 @@
                 "Aqua Burst": 30,
                 "Blizzard Spike": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 110,
+                "DEF": 90
             }
         },
         {
@@ -646,6 +842,11 @@
                 "Ignis Slam": 30,
                 "Ignis Rage": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 95,
+                "DEF": 90
             }
         },
         {
@@ -663,6 +864,11 @@
                 "Dark Charge": 30,
                 "Ignis Rage": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 95,
+                "DEF": 90
             }
         },
         {
@@ -679,6 +885,11 @@
                 "Flare Storm": 30,
                 "Ignis Rage": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 70,
+                "DEF": 75
             }
         },
         {
@@ -695,6 +906,11 @@
                 "Ignis Breath": 30,
                 "Ignis Rage": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 85,
+                "ATK": 95,
+                "DEF": 95
             }
         },
         {
@@ -712,6 +928,11 @@
                 "Draconic Breath": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 85,
+                "DEF": 90
             }
         },
         {
@@ -729,6 +950,11 @@
                 "Tri-Lightning": 30,
                 "Lightning Strike": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 90,
+                "DEF": 90
             }
         },
         {
@@ -745,6 +971,11 @@
                 "Grass Tornado": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 95,
+                "DEF": 100
             }
         },
         {
@@ -761,6 +992,11 @@
                 "Bubble Blast": 30,
                 "Grass Tornado": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 65,
+                "DEF": 70
             }
         },
         {
@@ -777,6 +1013,11 @@
                 "Seed Machine Gun": 30,
                 "Aqua Burst": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 70,
+                "DEF": 80
             }
         },
         {
@@ -793,6 +1034,11 @@
                 "Flare Storm": 30,
                 "Fire Ball": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 110,
+                "DEF": 80
             }
         },
         {
@@ -809,6 +1055,11 @@
                 "Acid Rain": 30,
                 "Aqua Burst": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 60,
+                "DEF": 70
             }
         },
         {
@@ -825,6 +1076,11 @@
                 "Ignis Blast": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 90,
+                "DEF": 75
             }
         },
         {
@@ -841,6 +1097,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 105,
+                "DEF": 80
             }
         },
         {
@@ -857,6 +1118,11 @@
                 "Seed Machine Gun": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 95,
+                "DEF": 90
             }
         },
         {
@@ -873,6 +1139,11 @@
                 "Earth Impact": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 150,
+                "ATK": 85,
+                "DEF": 90
             }
         },
         {
@@ -889,6 +1160,11 @@
                 "Earth Impact": 30,
                 "Cryst Breath": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 150,
+                "ATK": 85,
+                "DEF": 90
             }
         },
         {
@@ -905,6 +1181,11 @@
                 "Seed Mine": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 90,
+                "DEF": 90
             }
         },
         {
@@ -921,6 +1202,11 @@
                 "Tri-Lightning": 30,
                 "Lightning Strike": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 100
             }
         },
         {
@@ -937,6 +1223,11 @@
                 "Grass Tornado": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 115,
+                "DEF": 90
             }
         },
         {
@@ -953,6 +1244,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 125,
+                "DEF": 100
             }
         },
         {
@@ -969,6 +1265,11 @@
                 "Sand Tornado": 30,
                 "Grass Tornado": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 95,
+                "DEF": 80
             }
         },
         {
@@ -985,6 +1286,11 @@
                 "Tri-Lightning": 30,
                 "Lightning Streak": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 75,
+                "DEF": 70
             }
         },
         {
@@ -1001,6 +1307,11 @@
                 "Icicle Cutter": 30,
                 "Cryst Breath": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 75,
+                "DEF": 80
             }
         },
         {
@@ -1018,6 +1329,11 @@
                 "Giga Horn": 30,
                 "Rock Lance": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 100,
+                "DEF": 120
             }
         },
         {
@@ -1034,6 +1350,11 @@
                 "Phoenix Flare": 30,
                 "Ignis Rage": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 105,
+                "DEF": 110
             }
         },
         {
@@ -1050,6 +1371,11 @@
                 "Iceberg": 30,
                 "Cryst Breath": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 85,
+                "DEF": 110
             }
         },
         {
@@ -1066,6 +1392,11 @@
                 "Iceberg": 30,
                 "Cryst Breath": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 95,
+                "DEF": 105
             }
         },
         {
@@ -1082,6 +1413,11 @@
                 "Crystal Wing": 30,
                 "Cryst Breath": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 140,
+                "ATK": 140,
+                "DEF": 120
             }
         },
         {
@@ -1098,6 +1434,11 @@
                 "Crystal Wing": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 140,
+                "ATK": 140,
+                "DEF": 135
             }
         },
         {
@@ -1114,6 +1455,12 @@
                 "Beam Comet": 30,
                 "Fire Ball": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "HP_BOSS": 330,
+                "ATK": 140,
+                "DEF": 110
             }
         },
         {
@@ -1130,6 +1477,11 @@
                 "Power Bomb": 30,
                 "Aqua Burst": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -1146,6 +1498,11 @@
                 "Dragon Burst": 30,
                 "Ignis Breath": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -1162,6 +1519,11 @@
                 "Tri-Lightning": 30,
                 "Rock Lance": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 85,
+                "DEF": 90
             }
         },
         {
@@ -1178,6 +1540,11 @@
                 "Cryst Breath": 30,
                 "Aqua Burst": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 85,
+                "DEF": 90
             }
         },
         {
@@ -1194,6 +1561,11 @@
                 "Ignis Rage": 30,
                 "Fire Ball": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 125,
+                "DEF": 120
             }
         },
         {
@@ -1210,6 +1582,11 @@
                 "Tri-Lightning": 30,
                 "Lightning Strike": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 105,
+                "DEF": 105
             }
         },
         {
@@ -1226,6 +1603,11 @@
                 "Ignis Breath": 30,
                 "Spirit Flame": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 65,
+                "ATK": 75,
+                "DEF": 70
             }
         },
         {
@@ -1242,6 +1624,11 @@
                 "Flare Storm": 30,
                 "Ignis Rage": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 70,
+                "DEF": 80
             }
         },
         {
@@ -1250,7 +1637,12 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": {}
+            "Moveset": {},
+            "Scaling": {
+                "HP": 100,
+                "ATK": 70,
+                "DEF": 95
+            }
         },
         {
             "CodeName": "LazyDragon",
@@ -1267,6 +1659,11 @@
                 "Draconic Breath": 30,
                 "Aqua Burst": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 100,
+                "DEF": 70
             }
         },
         {
@@ -1284,6 +1681,11 @@
                 "Draconic Breath": 30,
                 "Lightning Strike": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 110,
+                "DEF": 75
             }
         },
         {
@@ -1300,6 +1702,11 @@
                 "Grass Tornado": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 110,
+                "DEF": 105
             }
         },
         {
@@ -1316,6 +1723,11 @@
                 "Nightmare Ball": 30,
                 "Blizzard Spike": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 110,
+                "DEF": 115
             }
         },
         {
@@ -1332,6 +1744,11 @@
                 "Iceberg": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 80,
+                "DEF": 80
             }
         },
         {
@@ -1348,6 +1765,11 @@
                 "Nightmare Ball": 30,
                 "Ignis Breath": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 80,
+                "DEF": 50
             }
         },
         {
@@ -1364,6 +1786,11 @@
                 "Flare Storm": 30,
                 "Ignis Rage": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 80,
+                "DEF": 50
             }
         },
         {
@@ -1380,6 +1807,11 @@
                 "Ignis Rage": 30,
                 "Fire Ball": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 110,
+                "DEF": 80
             }
         },
         {
@@ -1397,6 +1829,11 @@
                 "Ignis Rage": 30,
                 "Fire Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 115,
+                "DEF": 80
             }
         },
         {
@@ -1413,6 +1850,11 @@
                 "Stone Cannon": 30,
                 "Grass Tornado": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -1429,6 +1871,11 @@
                 "Iceberg": 30,
                 "Cryst Breath": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 60,
+                "DEF": 60
             }
         },
         {
@@ -1445,6 +1892,11 @@
                 "Cryst Breath": 30,
                 "Pal Blast": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 90,
+                "DEF": 90
             }
         },
         {
@@ -1461,6 +1913,11 @@
                 "Power Bomb": 30,
                 "Blizzard Spike": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 100,
+                "DEF": 90
             }
         },
         {
@@ -1477,6 +1934,11 @@
                 "Stone Cannon": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 80,
+                "DEF": 80
             }
         },
         {
@@ -1493,6 +1955,11 @@
                 "Shadow Burst": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -1509,6 +1976,11 @@
                 "Acid Rain": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 60,
+                "DEF": 70
             }
         },
         {
@@ -1525,6 +1997,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 85,
+                "DEF": 70
             }
         },
         {
@@ -1542,6 +2019,11 @@
                 "Iceberg": 30,
                 "Blizzard Spike": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 75,
+                "DEF": 70
             }
         },
         {
@@ -1558,6 +2040,11 @@
                 "Wind Cutter": 30,
                 "Seed Machine Gun": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -1574,6 +2061,11 @@
                 "Power Bomb": 30,
                 "Implode": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -1607,6 +2099,11 @@
                 "Seed Mine": 30,
                 "Sand Tornado": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -1623,6 +2120,11 @@
                 "Grass Tornado": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 105,
+                "DEF": 100
             }
         },
         {
@@ -1639,6 +2141,11 @@
                 "Tri-Lightning": 30,
                 "Lightning Strike": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 80,
+                "DEF": 70
             }
         },
         {
@@ -1655,6 +2162,11 @@
                 "Flare Storm": 30,
                 "Ignis Breath": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 105,
+                "DEF": 120
             }
         },
         {
@@ -1671,6 +2183,11 @@
                 "Grass Tornado": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 105,
+                "DEF": 80
             }
         },
         {
@@ -1688,6 +2205,11 @@
                 "Sand Tornado": 30,
                 "Solar Blast": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 105,
+                "DEF": 80
             }
         },
         {
@@ -1704,6 +2226,11 @@
                 "Ignis Breath": 30,
                 "Lightning Strike": 40,
                 "Ignis Rage": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 125,
+                "DEF": 80
             }
         },
         {
@@ -1720,6 +2247,12 @@
                 "Blizzard Spike": 30,
                 "Spear Thrust": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "HP_BOSS": 260,
+                "ATK": 120,
+                "DEF": 145
             }
         },
         {
@@ -1736,6 +2269,11 @@
                 "Grass Tornado": 30,
                 "Spine Vine": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 90,
+                "DEF": 100
             }
         },
         {
@@ -1753,6 +2291,11 @@
                 "Spine Vine": 30,
                 "Aqua Burst": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 95,
+                "DEF": 100
             }
         },
         {
@@ -1769,6 +2312,11 @@
                 "Dragon Burst": 30,
                 "Draconic Breath": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 80
             }
         },
         {
@@ -1785,6 +2333,11 @@
                 "Sand Tornado": 30,
                 "Draconic Breath": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 100
             }
         },
         {
@@ -1801,6 +2354,11 @@
                 "Icicle Cutter": 30,
                 "Aqua Burst": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 75
             }
         },
         {
@@ -1817,6 +2375,11 @@
                 "Lightning Streak": 30,
                 "Fire Ball": 40,
                 "Ignis Rage": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 75
             }
         },
         {
@@ -1833,6 +2396,11 @@
                 "Electric Ball": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
             }
         },
         {
@@ -1849,6 +2417,11 @@
                 "Grass Tornado": 30,
                 "Aqua Burst": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 100,
+                "DEF": 100
             }
         },
         {
@@ -1865,6 +2438,11 @@
                 "Acid Rain": 30,
                 "Grass Tornado": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 90,
+                "DEF": 90
             }
         },
         {
@@ -1881,6 +2459,11 @@
                 "Ignis Breath": 30,
                 "Flare Storm": 40,
                 "Fire Ball": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 105,
+                "DEF": 105
             }
         },
         {
@@ -1897,6 +2480,11 @@
                 "Aqua Burst": 30,
                 "Blizzard Spike": 40,
                 "Hydro Laser": 50
+            },
+            "Scaling": {
+                "HP": 125,
+                "ATK": 105,
+                "DEF": 105
             }
         },
         {
@@ -1913,6 +2501,11 @@
                 "Bubble Blast": 30,
                 "Power Bomb": 40,
                 "Pal Blast": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 90
             }
         },
         {
@@ -1929,6 +2522,11 @@
                 "Tri-Lightning": 30,
                 "Sand Tornado": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 115,
+                "DEF": 80
             }
         },
         {
@@ -1945,6 +2543,11 @@
                 "Electric Ball": 30,
                 "Lightning Streak": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 100,
+                "DEF": 80
             }
         },
         {
@@ -1962,6 +2565,11 @@
                 "Lightning Streak": 30,
                 "Tri-Lightning": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 130,
+                "DEF": 100
             }
         },
         {
@@ -1979,6 +2587,11 @@
                 "Tri-Lightning": 30,
                 "Hydro Laser": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "ATK": 120,
+                "DEF": 100
             }
         },
         {
@@ -1996,6 +2609,11 @@
                 "Tri-Lightning": 30,
                 "Fire Ball": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "ATK": 130,
+                "DEF": 100
             }
         },
         {
@@ -2012,6 +2630,11 @@
                 "Grass Tornado": 30,
                 "Nightmare Ball": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 120
             }
         },
         {
@@ -2029,6 +2652,11 @@
                 "Volcanic Burst": 30,
                 "Ignis Rage": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 105,
+                "DEF": 120
             }
         },
         {
@@ -2046,6 +2674,11 @@
                 "Frost Burst": 30,
                 "Blizzard Spike": 40,
                 "Rock Lance": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 105,
+                "DEF": 130
             }
         },
         {
@@ -2063,6 +2696,11 @@
                 "Draconic Breath": 30,
                 "Cryst Breath": 40,
                 "Dragon Meteor": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 80,
+                "DEF": 80
             }
         },
         {
@@ -2079,6 +2717,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 100,
+                "DEF": 80
             }
         },
         {
@@ -2095,6 +2738,11 @@
                 "Spirit Flame": 30,
                 "Aqua Burst": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 90,
+                "DEF": 100
             }
         },
         {
@@ -2111,6 +2759,11 @@
                 "Iceberg": 30,
                 "Cryst Breath": 40,
                 "Blizzard Spike": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 110
             }
         },
         {
@@ -2119,7 +2772,12 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": {}
+            "Moveset": {},
+            "Scaling": {
+                "HP": 80,
+                "ATK": 70,
+                "DEF": 70
+            }
         },
         {
             "CodeName": "WindChimes_Ice",
@@ -2127,7 +2785,12 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": {}
+            "Moveset": {},
+            "Scaling": {
+                "HP": 80,
+                "ATK": 80,
+                "DEF": 70
+            }
         },
         {
             "CodeName": "WizardOwl",
@@ -2143,6 +2806,11 @@
                 "Spirit Flame": 30,
                 "Nightmare Ball": 40,
                 "Dark Laser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 80
             }
         },
         {
@@ -2159,6 +2827,11 @@
                 "Shockwave": 30,
                 "Power Bomb": 40,
                 "Lightning Bolt": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 75
             }
         },
         {
@@ -2175,6 +2848,11 @@
                 "Cryst Breath": 30,
                 "Blizzard Spike": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 140,
+                "ATK": 80,
+                "DEF": 100
             }
         },
         {
@@ -2191,6 +2869,11 @@
                 "Spine Vine": 30,
                 "Aqua Burst": 40,
                 "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 140,
+                "ATK": 80,
+                "DEF": 110
             }
         },
         {
