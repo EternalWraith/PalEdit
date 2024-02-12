@@ -240,18 +240,16 @@ class PalEntity:
     def CleanseAttacks(self):
         i = 0
         while i < len(self._learntMoves):
-            remove = 0
+            remove = False
             if not SkillExclusivity[self._learntMoves[i]] is None:
                 if not self._type.GetCodeName() in SkillExclusivity[self._learntMoves[i]]:
-                    remove = 1
+                    remove = True
 
             if PalAttacks[self._learntMoves[i]] in PalLearnSet[self._type.GetCodeName()]:
-                print(self._level,PalLearnSet[self._type.GetCodeName()][PalAttacks[self._learntMoves[i]]])
                 if not self._level >= PalLearnSet[self._type.GetCodeName()][PalAttacks[self._learntMoves[i]]]:
-                    remove = 2
+                    remove = True
                     
-            if remove > 0:
-                print(f"Removing {self._learntMoves[i]} : Reason {remove}")
+            if remove:
                 if self._learntMoves[i] in self._equipMoves:
                     self._equipMoves.remove(self._learntMoves[i])
                 self._learntMoves.pop(i)
@@ -266,9 +264,6 @@ class PalEntity:
         for i in self._equipMoves:
             if not i in self._learntMoves:
                 self._learntMoves.append(i)
-        print("------")
-        for i in self._learntMoves:
-            print(i)
         
     def GetType(self):
         return self._type
@@ -276,7 +271,7 @@ class PalEntity:
     def SetType(self, value):
         self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) else "") + value
         self._type = PalSpecies[value]
-        self.SetLevelMoves()
+        self.CleanseAttacks()
 
     def GetObject(self) -> PalObject:
         return self._type

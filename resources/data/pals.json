@@ -2107,6 +2107,28 @@
             }
         },
         {
+            "CodeName": "PlantSlime_Flower",
+            "Name": "Gumoss (Special)",
+            "Type": [
+                "Grass",
+                "Ground"
+            ],
+            "Moveset": {
+                "Sand Blast": 1,
+                "Wind Cutter": 7,
+                "Stone Blast": 15,
+                "Seed Machine Gun": 22,
+                "Seed Mine": 30,
+                "Sand Tornado": 40,
+                "Solar Blast": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            }
+        },
+        {
             "CodeName": "QueenBee",
             "Name": "Elizabee",
             "Type": [
@@ -2874,6 +2896,50 @@
                 "HP": 140,
                 "ATK": 80,
                 "DEF": 110
+            }
+        },
+        {
+            "CodeName": "BlackFurDragon",
+            "Name": "Dragostrophe",
+            "Type": [
+                "Dark",
+                "Dragon"
+            ],
+            "Moveset": {
+            },
+            "Scaling": {
+                "HP": 130,
+                "ATK": 130,
+                "DEF": 110
+            }
+        },
+        {
+            "CodeName": "ElecLion",
+            "Name": "Boltmane",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 110,
+                "DEF": 70
+            }
+        },
+        {
+            "CodeName": "DarkMutant",
+            "Name": "Dark Mutant",
+            "Type": [
+                "Dark",
+                "Dragon"
+            ],
+            "Moveset": {
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 100
             }
         },
         {

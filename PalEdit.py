@@ -31,7 +31,7 @@ class UUIDEncoder(json.JSONEncoder):
 
 import traceback
 class PalEditConfig:
-    version = "0.6"
+    version = "0.6.1"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
@@ -365,6 +365,7 @@ class PalEdit():
         self.is_onselect = True
         w = evt.widget
         if not self.isPalSelected():
+            self.portrait.config(image=self.purplepanda)
             return
         
         self.updatestats()
@@ -386,6 +387,7 @@ class PalEdit():
 
         self.title.config(text=f"{pal.GetNickname()}")
         self.level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
+
         self.portrait.config(image=pal.GetImage())
 
         self.ptype.config(text=pal.GetPrimary(), bg=PalInfo.PalElements[pal.GetPrimary()])
@@ -1007,9 +1009,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skills_name = []
         self.load_i18n()
         
-        purplepanda = ImageTk.PhotoImage(
+        self.purplepanda = ImageTk.PhotoImage(
             Image.open(f'{module_dir}/resources/MossandaIcon.png').resize((240, 240)))
-        self.gui.iconphoto(True, purplepanda)
+        self.gui.iconphoto(True, self.purplepanda)
 
         root = self.gui
 
@@ -1132,7 +1134,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         resourceview = tk.Frame(dataview)
         resourceview.pack(side=tk.constants.LEFT, fill=tk.constants.BOTH, expand=True)
 
-        self.portrait = tk.Label(resourceview, image=purplepanda, relief="sunken", borderwidth=2)
+        self.portrait = tk.Label(resourceview, image=self.purplepanda, relief="sunken", borderwidth=2)
         self.portrait.pack()
 
         typeframe = tk.Frame(resourceview)
