@@ -187,6 +187,7 @@ class PalEdit():
         pal = self.palbox[self.players[self.current.get()]][i]
         self.attackops = [PalInfo.PalAttacks[e] for e in PalInfo.PalAttacks]
 
+        pal.CleanseAttacks()
         for a in range(0, 3):
             if a > len(pal.GetEquippedMoves()) - 1:
                 self.attacks[a].set("None")
@@ -354,7 +355,7 @@ class PalEdit():
         if not self.attacks[num].get() in ["Unknown", "UNKNOWN"]:
             if self.attacks[num].get() in ["None", "NONE"]:
                 pal.RemoveAttack(num)
-            else:
+            elif not self.attacks[num].get() in pal._equipMoves:
                 pal.SetAttackSkill(num, self.attacks[num].get())
                 
         self.updateAttackName()
@@ -416,6 +417,7 @@ class PalEdit():
             else:
                 self.skills[i].set(s[i])
 
+        pal.CleanseAttacks()
         self.updateSkillsName()
         self.setskillcolours()
         self.is_onselect = False
@@ -1286,24 +1288,24 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.meleevar = tk.IntVar()
         self.meleevar.dirty = False
         self.meleevar.set(100)
-        meleeicon = tk.Label(attackframe, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
-        meleeicon.pack(side=tk.constants.LEFT)
-        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
-        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'), state="disabled")
-        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
-        palmelee.pack(side=tk.constants.LEFT)
-        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
+##        meleeicon = tk.Label(attackframe, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
+##        meleeicon.pack(side=tk.constants.LEFT)
+##        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
+##        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'), state="disabled")
+##        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
+##        palmelee.pack(side=tk.constants.LEFT)
+##        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
         
 
         self.shotvar = tk.IntVar()
         self.shotvar.dirty = False
         self.shotvar.set(100)
-        shoticon = tk.Label(attackframe, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
-        shoticon.pack(side=tk.constants.RIGHT)
+        #shoticon = tk.Label(attackframe, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        #shoticon.pack(side=tk.constants.RIGHT)
         palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
         palshot.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
         palshot.bind("<FocusOut>", lambda event, var=self.shotvar: try_update(var))
-        palshot.pack(side=tk.constants.RIGHT)
+        palshot.pack(fill=X)#side=tk.constants.RIGHT)
         self.shotvar.trace_add("write", lambda name, index, mode, sv=self.shotvar, entry=palshot: validate_and_mark_dirty(sv, entry))
 
 
