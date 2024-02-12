@@ -100,9 +100,9 @@ class PalObject:
         if self._img == None:
             n = self.GetName() if not self._human else "Human"
             if os.path.exists(f'resources/{n}.png'):
-                self._img = ImageTk.PhotoImage(Image.open(module_dir+f'resources/{n}.png').resize((240,240)))
+                self._img = ImageTk.PhotoImage(Image.open(f'resources/{n}.png').resize((240,240)))
             else:
-                self._img = ImageTk.PhotoImage(Image.open(module_dir+f'resources/#ERROR.png').resize((240,240)))
+                self._img = ImageTk.PhotoImage(Image.open(f'resources/#ERROR.png').resize((240,240)))
         return self._img
 
     def GetPrimary(self):
@@ -154,9 +154,9 @@ class PalEntity:
         if typename in PalSpecies:
             self._type = PalSpecies[typename]
         else:
-            PalSpecies[typename] = PalObject(f"Unknow:{self._obj['CharacterID']['value']}", "None", "None", False, False)
+            PalSpecies[typename] = PalObject(f"Unknow:{self._obj['CharacterID']['value']}",typename, "None", "None", False, False)
             self._type = PalSpecies[typename]
-            PalLearnSet[self._type.GetName()] = {}
+            PalLearnSet[self._type.GetCodeName()] = {}
         
         print(f"Created Entity of type {typename}: {self._type} - Lucky: {self.isLucky} Boss: {self.isBoss}")
 
@@ -250,10 +250,17 @@ class PalEntity:
         i = 0
         while i < len(self._learntMoves):
             remove = False
+            if self._learntMoves[i] not in PalAttacks:
+                uname = f"Unknow:{self._learntMoves[i]}"
+                PalAttacks[self._learntMoves[i]] = uname
+                SkillExclusivity[self._learntMoves[i]] = None
+                AttackPower[uname] = 0
+                AttackTypes[uname] = ""
+
             if not SkillExclusivity[self._learntMoves[i]] is None:
                 if not self._type.GetCodeName() in SkillExclusivity[self._learntMoves[i]]:
                     remove = True
-
+            
             if PalAttacks[self._learntMoves[i]] in PalLearnSet[self._type.GetCodeName()]:
                 if not self._level >= PalLearnSet[self._type.GetCodeName()][PalAttacks[self._learntMoves[i]]]:
                     remove = True
