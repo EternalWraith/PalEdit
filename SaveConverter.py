@@ -74,6 +74,7 @@ def convert_sav_to_obj(filename):
     gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
     return gvas_file.dump()
 
+
 def convert_obj_to_sav(obj, output_path, force=False):
     if os.path.exists(output_path):
         print(f"{output_path} already exists, this will overwrite the file")

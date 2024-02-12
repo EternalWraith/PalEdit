@@ -133,13 +133,8 @@ If you’ve installed Palworld via Steam, you can also access your save files by
 > If you think you can help us deliver any of the features listed below, please feel free to open a pull request.
 
 - **Pending features:**
-  - [ ] Generating new Pals
-  - [ ] Cloning Pals
   - [ ] Pal Deletion
-  - [ ] Localisation support for Chinese, Japanese, Spanish, French, German, and English (for starters)
   - [ ] Stat Editing (Hero Statue)
-  - [ ] Move Editing
-  - [ ] Menu displaying Pal moves/attacks
   - [ ] Edit Pals Nickname
   - [ ] Improve Pal ListBox UI to mimic ingame PalBox
   - [ ] Add update notification if a newer version is found
@@ -170,3 +165,10 @@ If you’ve installed Palworld via Steam, you can also access your save files by
   - [x] Simplify Loading/Converting/Saving process
   - [x] Database system to make things easier to update
   - [x] Pal Info Database Overhaul
+ 
+- **v0.6 Release:**
+  - [x] Generate New Pals/Clone Old Pals
+  - [x] Localisation Support
+  - [x] Move Editing
+  - [X] Optimised Loading and Saving
+  - [X] Changed Code structure to OOP
