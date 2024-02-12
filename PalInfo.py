@@ -1,14 +1,18 @@
 import copy
 import json
 import os
+import sys
 from enum import Enum
 from PIL import ImageTk, Image
 from EmptyObjectHandler import *
 import uuid
 import copy
 
-# for some reason os.path when compiled with CxFreeze bugs out the program. Will look into it.
-module_dir = "." #os.path.dirname(os.path.realpath(__file__))
+if getattr(sys, 'frozen', False):
+    # for some reason os.path when compiled with CxFreeze bugs out the program. Will look into it.
+    module_dir = os.path.dirname(sys.executable)
+else:
+    module_dir = os.path.dirname(os.path.realpath(__file__))
 
 xpthresholds = [
     0,
