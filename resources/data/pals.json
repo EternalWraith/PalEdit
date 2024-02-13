@@ -2500,6 +2500,15 @@
             "Human": true
         },
         {
+            "CodeName": "SalesPerson_Wander",
+            "Name": "Wandering Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "SalesPerson_Desert",
             "Name": "Wandering Merchant",
             "Type": [
