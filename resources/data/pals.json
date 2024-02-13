@@ -2275,6 +2275,24 @@
             "Human": true
         },
         {
+            "CodeName": "FireCult_Rifle",
+            "Name": "Brothers of the Eternal Pyre Martyr",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Police_old",
+            "Name": "Reincarnated Guy",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Male_Soldier01",
             "Name": "Burly Merc",
             "Type": [
@@ -2293,6 +2311,15 @@
             "Human": true
         },
         {
+            "CodeName": "Believer_Bat",
+            "Name": "Free Pal Alliance Devout",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Believer_CrossBow",
             "Name": "Free Pal Alliance Devout",
             "Type": [
@@ -2302,7 +2329,34 @@
             "Human": true
         },
         {
+            "CodeName": "Guard_Rifle",
+            "Name": "Guard",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Guard_Shotgun",
+            "Name": "Guard",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Male_Scientist01_LaserRifle",
+            "Name": "PAL Genetic Research Unit Executioner",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Scientist_FlameThrower",
             "Name": "PAL Genetic Research Unit Executioner",
             "Type": [
                 "None"
@@ -2340,6 +2394,24 @@
         {
             "CodeName": "Police_Handgun",
             "Name": "PIDF Guard",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Police_Shotgun",
+            "Name": "PIDF Elite",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Police_Rifle",
+            "Name": "PIDF Infantry",
             "Type": [
                 "None"
             ],
