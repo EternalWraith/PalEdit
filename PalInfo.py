@@ -2,8 +2,9 @@ import copy
 import json
 import os
 import sys
+import traceback
 from enum import Enum
-from PIL import ImageTk, Image
+import tkinter
 from EmptyObjectHandler import *
 import uuid
 import copy
@@ -74,10 +75,10 @@ class PalGender(Enum):
     FEMALE = "#EC49A6"
     UNKNOWN = "darkgrey"
 
-    
+
 
 class PalObject:
-    def __init__(self, name, code_name, primary, secondary="None", human=False, tower=False, imageName=None, scaling=None):
+    def __init__(self, name, code_name, primary, secondary="None", human=False, tower=False, scaling=None):
         self._name = name
         self._code_name = code_name
         self._img = None
@@ -85,12 +86,11 @@ class PalObject:
         self._secondary = secondary
         self._human = human
         self._tower = tower
-        self._imageName = imageName
         self._scaling = scaling
 
     def GetName(self):
         return self._name
-    
+
     def GetCodeName(self):
         return self._code_name
 
@@ -99,10 +99,9 @@ class PalObject:
 
     def GetImage(self):
         if self._img == None:
-            n = self.GetName() if not self._human else "Human"
-            if self._imageName is not None and not self._human:
-                n = self._imageName
-            self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
+            n = self.GetCodeName() if not self._human else "Human"
+            # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
+            self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/{n}.png')
         return self._img
 
     def GetPrimary(self):
@@ -110,7 +109,7 @@ class PalObject:
 
     def GetSecondary(self):
         return self._secondary
-    
+
     def GetScaling(self):
         return self._scaling
 
@@ -131,7 +130,7 @@ class PalEntity:
             self._obj["IsRarePal"] = copy.deepcopy(EmptyRarePalObject)
         self.isLucky = self._obj["IsRarePal"]['value']
 
-        
+
         typename = self._obj['CharacterID']['value']
         # print(f"Debug: typename1 - {typename}")
 
@@ -214,14 +213,14 @@ class PalEntity:
 
         if not "MasteredWaza" in self._obj:
             self._obj["MasteredWaza"] = copy.deepcopy(EmptyMovesObject)
-        
-        
-                
+
+
+
         self._learntMoves = self._obj["MasteredWaza"]["value"]["values"]
         self._equipMoves = self._obj["EquipWaza"]["value"]["values"]
-        
+
         self.CleanseAttacks()
-        
+
 
     def SwapGender(self):
         if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
@@ -230,7 +229,7 @@ class PalEntity:
         else:
             self._obj['Gender']['value']['value'] = "EPalGenderType::Male"
             self._gender = "Male ♂"
-               
+
 
     def CleanseSkills(self):
         i = 0
@@ -251,14 +250,14 @@ class PalEntity:
             if PalAttacks[self._learntMoves[i]] in PalLearnSet[self._type.GetCodeName()]:
                 if not self._level >= PalLearnSet[self._type.GetCodeName()][PalAttacks[self._learntMoves[i]]]:
                     remove = True
-                    
+
             if remove:
                 if self._learntMoves[i] in self._equipMoves:
                     self._equipMoves.remove(self._learntMoves[i])
                 self._learntMoves.pop(i)
             else:
                 i += 1
-                
+
         for i in PalLearnSet[self._type.GetCodeName()]:
             if not find(i) in self._learntMoves:
                 if PalLearnSet[self._type.GetCodeName()][i] <= self._level:
@@ -267,7 +266,7 @@ class PalEntity:
         for i in self._equipMoves:
             if not i in self._learntMoves:
                 self._learntMoves.append(i)
-        
+
     def GetType(self):
         return self._type
 
@@ -308,21 +307,21 @@ class PalEntity:
         if "Rank_Attack" in self._obj:
             return self._obj["Rank_Attack"]["value"]
         return 0
-    
+
     # def GetRankDefense(self):
     #     # I haven't checked if this is the correct key.
     #     # unused
     #     if "Rank_Defense" in self._obj:
     #         return self._obj["Rank_Defense"]["value"]
     #     return 0
-    
+
     # def GetRankCraftSpeed(self):
     #     # I haven't checked if this is the correct key.
     #     # unused
     #     if "Rank_CraftSpeed" in self._obj:
     #         return self._obj["Rank_CraftSpeed"]["value"]
     #     return 0
-    
+
     def GetMaxHP(self):
         return self._obj['MaxHP']['value']['Value']['value']
 
@@ -355,13 +354,13 @@ class PalEntity:
                 print("%s HP Scaling: %s" % (self.GetName(), hp_scaling))
             else:
                 print("HP scaling data missing, using derived value.")
-        print("Calculating MaxHP using the following stats:")      
+        print("Calculating MaxHP using the following stats:")
         for valkey in factors:
             if valkey in changes:
                 factors[valkey] = changes[valkey]
             print("- %s: %s" % (valkey, factors[valkey]))
         print("- hp_scaling: %s" % hp_scaling)
-            
+
         new_hp = int((500 + 5 * factors['level'] + hp_scaling * 0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))) * 1000
         self._obj['MaxHP']['value']['Value']['value'] = new_hp
         print("%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
@@ -387,13 +386,13 @@ class PalEntity:
 
     def GetName(self):
         return self.GetObject().GetName()
-    
+
     def GetCodeName(self):
         return self.GetObject().GetCodeName()
 
     def GetImage(self):
         return self.GetObject().GetImage()
-    
+
     def GetPrimary(self):
         return self.GetObject().GetPrimary()
 
@@ -452,7 +451,7 @@ class PalEntity:
 ##                self._obj["EquipWaza"]["value"]["values"] = self._equipMoves
 ##            elif not i in self._obj["MasteredWaza"]["value"]["values"]:
 ##                self._obj["MasteredWaza"]["value"]["values"].append(i)
-##                
+##
 ##        self._learntMoves = self._obj["MasteredWaza"]["value"]["values"]
 ##        print("------")
 ##        for i in self._learntMoves:
@@ -482,14 +481,14 @@ class PalEntity:
 
     def GetFullName(self):
         return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ♖" if self.isTower else "" ) + (" ✨" if self.isLucky else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
-    
+
     def SetLucky(self, v=True):
         self._obj["IsRarePal"]['value'] = self.isLucky = v
         self.SetType(self._type.GetCodeName())
         if v:
             if self.isBoss:
                 self.isBoss = False
-                
+
     def SetBoss(self, v=True):
         self.isBoss = v
         self.SetType(self._type.GetCodeName())
@@ -499,7 +498,7 @@ class PalEntity:
 
     def GetEquippedMoves(self):
         return self._equipMoves
-    
+
     def GetLearntMoves(self):
         return self._learntMoves
 
@@ -541,10 +540,10 @@ class PalGuid:
         self._CharacterContainerSaveData = \
         data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
         self._GroupSaveDataMap = data['properties']['worldSaveData']['value']['GroupSaveDataMap']['value']
-    
+
     def GetPlayerslist(self):
         players = list(filter(lambda x: 'IsPlayer' in x['value'], [
-            {'uid':x['key']['PlayerUId'], 
+            {'uid':x['key']['PlayerUId'],
              'value':x['value']['RawData']['value']['object']['SaveParameter']['value']
              } for x in self._data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']]))
         return {x['value']['NickName']['value']: str(x['uid']['value']) for x in players}
@@ -678,7 +677,7 @@ class PalPlayerEntity:
 
     def dump(self):
         return self._data
-                    
+
 
 with open("%s/resources/data/elements.json" % (module_dir), "r", encoding="utf8") as elementfile:
     PalElements = {}
@@ -702,13 +701,19 @@ def LoadPals(lang=None):
         PalSpecies = {}
         PalLearnSet = {}
         for i in json.loads(palfile.read())["values"]:
+            # try:
+            #     img = Image.open(module_dir + f'/resources/{i["Name"]}.png').resize((240, 240))
+            #     with open(module_dir + f'/resources/pals/{i["CodeName"]}.png', 'wb') as f:
+            #         img.save(f)
+            # except Exception as e:
+            #     traceback.print_exception(e)
             h = "Human" in i
             t = "Tower" in i
             p = i["Type"][0]
             s = "None"
             if len(i["Type"]) == 2:
                 s = i["Type"][1]
-            PalSpecies[i["CodeName"]] = PalObject(i["Name"], i["CodeName"], p, s, h, t, PalCodeMapping[i['CodeName']], i["Scaling"] if "Scaling" in i else None)
+            PalSpecies[i["CodeName"]] = PalObject(i["Name"], i["CodeName"], p, s, h, t, i["Scaling"] if "Scaling" in i else None)
             PalLearnSet[i["CodeName"]] = i["Moveset"]
 
 LoadPals()
@@ -723,10 +728,10 @@ def LoadPassives(lang=None):
     PalPassives = {}
     PassiveDescriptions = {}
     PassiveRating = {}
-    
+
     if lang is not None and not os.path.exists("%s/resources/data/passives%s.json" % (module_dir, "_"+lang)):
         lang = None
-    
+
     with open("%s/resources/data/passives%s.json" % (module_dir, "_"+lang if lang is not None else ""), "r", encoding="utf8") as passivefile:
         for i in json.loads(passivefile.read())["values"]:
             PalPassives[i["CodeName"]] = i["Name"]
@@ -753,11 +758,11 @@ def LoadAttacks(lang=None):
         AttackPower = {}
         AttackTypes = {}
         SkillExclusivity = {}
-    
+
         l = json.loads(attackfile.read())
-    
+
         debugOutput = l["values"]
-        
+
         for i in l["values"]:
             PalAttacks[i["CodeName"]] = i["Name"]
             AttackPower[i["CodeName"]] = i["Power"]
@@ -766,7 +771,7 @@ def LoadAttacks(lang=None):
                 SkillExclusivity[i["CodeName"]] = i["Exclusive"]
             else:
                 SkillExclusivity[i["CodeName"]] = None
-    
+
         PalAttacks = dict(sorted(PalAttacks.items()))
 
 LoadAttacks()
@@ -783,7 +788,7 @@ def find(name):
             return i
     return "None"
 
-        
+
 
 ##if __name__ == "__main__":
 ##    PalObject("Mossanda Noct", "Electric", "Dark")
@@ -793,8 +798,8 @@ def find(name):
 ##        import bs4 as bsoup
 ##        import urllib.request as ureq
 ##
-##        
-##        
+##
+##
 ##        with open(module_dir+"/resources/data/pals.json", "r+", encoding="utf8") as palfile:
 ##            p = json.loads(palfile.read())
 ##            palfile.seek(0)
@@ -810,7 +815,7 @@ def find(name):
 ##                    con = soup.find_all("div", {"class": "active skills"})
 ##                    if len(con) > 0:
 ##                        for item in con[0].find_all("div", {"class": "item"}):
-##                            
+##
 ##                            name = item.find("div", {"class": "name"}).text
 ##                            level = item.find("div", {"class": "level"})
 ##
@@ -818,7 +823,7 @@ def find(name):
 ##                                level = int(level.text.replace("- Lv ", ""))
 ##                                pal["Moveset"][name] = level
 ##            json.dump(p, palfile, indent=4)
-##            
+##
 ##
 ##    if True:
 ##
@@ -842,5 +847,5 @@ def find(name):
 ##            debugOutput.append({"CodeName": codes[i], "Name": i, "Type": "", "Power": 0})
 ##        with open(module_dir+"/resources/data/attacks.json", "w", encoding="utf8") as attackfile:
 ##            json.dump({"values": debugOutput}, attackfile, indent=4)
-    
-        
+
+

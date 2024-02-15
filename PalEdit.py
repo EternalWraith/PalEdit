@@ -20,7 +20,6 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import messagebox
-from PIL import ImageTk, Image
 
 class UUIDEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -49,7 +48,7 @@ class PalEdit():
             keys = json.load(f)
             for i18n_k in keys:     # For multi lang didn't translate with original one
                 self.i18n[i18n_k] = keys[i18n_k]
-        
+
         for item in self.i18n_el:
             if item in self.i18n:
                 try:
@@ -86,14 +85,14 @@ class PalEdit():
         def atk_upd(menu, atk_id, idx, n):
             menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.attacks_name[atk_id], n,
                                                                         lambda evt: self.changeattack(atk_id)))
-            
+
         for atk_id, menu in enumerate(self.attackdrops):
             for idx, n in enumerate(self.attackops):
                 atk_upd(menu, atk_id, idx, n)
 
         def skill_upd(menu, skid, idx, n):
             menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.skills_name[skid], n, lambda evt:self.changeskill(skid)))
-        
+
         for skid, menu in enumerate(self.skilldrops):
             for idx, n in enumerate(op):
                 skill_upd(menu, skid, idx, n)
@@ -111,7 +110,7 @@ class PalEdit():
                 self.speciesvar_name.set(self.speciesvar.get())
         except AttributeError as e:
             pass
-    
+
     @staticmethod
     def hex_to_rgb(value):
         value = value.lstrip('#')
@@ -175,8 +174,8 @@ class PalEdit():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
-        # print(f"Get Data: {pal.GetNickname()}")    
-        # print(f"{pal._obj}")  
+        # print(f"Get Data: {pal.GetNickname()}")
+        # print(f"{pal._obj}")
         pyperclip.copy(f"{pal._obj}")
         webbrowser.open('https://jsonformatter.curiousconcept.com/#')
 
@@ -206,7 +205,7 @@ class PalEdit():
                 basecol = PalInfo.PalElements[PalInfo.AttackTypes[v]]
                 halfcol = PalEdit.mean_color(basecol, "ffffff")
                 self.attackdrops[i].config(highlightbackground=basecol, bg=halfcol, activebackground=halfcol)
-    
+
     def updateAttackName(self):
         for idx, n in enumerate(self.attacks):
             self.attacks_name[idx].set(PalInfo.PalAttacks[n.get()])
@@ -221,7 +220,7 @@ class PalEdit():
         for v in range(0, 4):
             t = self.skills_name[v].trace_add("write", lambda *args, num=v: self.changeskill(num))
             tid.append(t)
-        
+
         match preset:
             case "base":
                 self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up2"])
@@ -357,7 +356,7 @@ class PalEdit():
                 pal.RemoveAttack(num)
             elif not self.attacks[num].get() in pal._equipMoves:
                 pal.SetAttackSkill(num, self.attacks[num].get())
-                
+
         self.updateAttackName()
         self.refresh(i)
 
@@ -367,7 +366,7 @@ class PalEdit():
         if not self.isPalSelected():
             self.portrait.config(image=self.purplepanda)
             return
-        
+
         self.updatestats()
 
         index = int(w.curselection()[0])
@@ -412,7 +411,7 @@ class PalEdit():
         s = pal.GetSkills()[:]
         while len(s) < 4:
             s.append("NONE")
-        
+
         for i in range(0, 4):
             if not s[i] in [p for p in PalInfo.PalPassives]:
                 self.skills[i].set("Unknown")
@@ -469,7 +468,7 @@ class PalEdit():
         self.current.set("")
         self.palbox = {}
         self.players = {}
-        
+
         f = open(file, "r", encoding="utf8")
         data = json.loads(f.read())
         f.close()
@@ -482,9 +481,9 @@ class PalEdit():
             # f = open("current.pson", "w", encoding="utf8")
             # json.dump(paldata, f, indent=4)
             # f.close()
-        
+
         messagebox.showinfo("Done", self.i18n['msg_done'])
-    
+
     def loaddata(self, data):
         print(type(data))
         self.data = data
@@ -496,7 +495,7 @@ class PalEdit():
         paldata = self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
         self.palguidmanager = PalGuid(self.data)
         self.loadpal(paldata)
-        
+
     def loadpal(self, paldata):
         self.palbox = {}
         self.players = {}
@@ -568,7 +567,7 @@ class PalEdit():
         nullmoves.sort()
         for i in nullmoves:
             print(f"{i} was not found in Attack Database")
-        
+
         self.refresh()
 
         self.changetext(-1)
@@ -583,7 +582,7 @@ class PalEdit():
     def updateDisplay(self):
         self.listdisplay.delete(0, tk.constants.END)
         self.palbox[self.players[self.current.get()]].sort(key=lambda e: e.GetName())
-        
+
         for p in self.palbox[self.players[self.current.get()]]:
             self.listdisplay.insert(tk.constants.END, p.GetFullName())
 
@@ -591,7 +590,7 @@ class PalEdit():
                 self.listdisplay.itemconfig(tk.constants.END, {'fg': 'red'})
             elif p.isLucky:
                 self.listdisplay.itemconfig(tk.constants.END, {'fg': 'blue'})
-        
+
         self.refresh()
 
     def savefile(self):
@@ -606,7 +605,7 @@ class PalEdit():
         print(file, self.filename)
         if file:
             print(f"Opening file {file}")
-            
+
             if 'gvas_file' in self.data:
                 gvas_file = self.data['gvas_file']
                 if (
@@ -677,7 +676,7 @@ class PalEdit():
         retval = pal.UpdateMaxHP(changes)
         if retval is not None:
             answer = messagebox.askquestion(
-                title="Choose HP Scaling", 
+                title="Choose HP Scaling",
                 message="""
 Note:
 - It is rare but some bosses may have different scaling data that I haven't yet added to PalEdit.
@@ -698,13 +697,13 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def updatestats(self):
         if not self.isPalSelected():
             return
-        
+
         if self.editindex < 0:
             return
 
         pal = self.palbox[self.players[self.current.get()]][self.editindex]
         l = pal.GetLevel()
-        
+
         if self.phpvar.dirty:
             self.phpvar.dirty = False
             h = self.phpvar.get()
@@ -856,7 +855,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
-        
+
         pals = {}
         pals['Pals'] = [pal._data] #[pal._data for pal in self.palbox[self.players[self.current.get()]]]
         file = asksaveasfilename(filetypes=[("json files", "*.json")], defaultextension=".json")
@@ -938,7 +937,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         root = tk.Tk()
         root.title(f"PalEdit v{PalEditConfig.version}")
         return root
-    
+
     def add_lang_menu(self, langmenu, languages, lang):
         langmenu.add_command(label=languages[lang], command=lambda: self.load_i18n(lang))
 
@@ -946,7 +945,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.menu = tk.Menu(self.gui)
         tools = self.menu
         self.gui.config(menu=tools)
-        
+
         global filemenu
         filemenu = tk.Menu(tools, tearoff=0)
         filemenu.add_command(label=self.i18n['menu_load_save'], command=self.loadfile)
@@ -969,7 +968,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 self.add_lang_menu(langmenu, languages, lang)
 
         tools.add_cascade(label="Language", menu=langmenu, underline=0)
-        
+
         # convmenu = Menu(tools, tearoff=0)
         # convmenu.add_command(label="Convert Save to Json", command=converttojson)
         # convmenu.add_command(label="Convert Json to Save", command=converttosave)
@@ -979,7 +978,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def updateSkillsName(self):
         for idx, n in enumerate(self.skills):
             self.skills_name[idx].set(PalInfo.PalPassives[n.get()])
-    
+
     def __init__(self):
         global EmptyObjectHandler, PalInfo
         import EmptyObjectHandler
@@ -999,7 +998,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.palguidmanager: PalGuid = None
         self.is_onselect = False
 
-        
+
         self.attacks = []
         self.attacks_name = []
         self.attackops = []
@@ -1008,9 +1007,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skills = []
         self.skills_name = []
         self.load_i18n()
-        
-        self.purplepanda = ImageTk.PhotoImage(
-            Image.open(f'{module_dir}/resources/MossandaIcon.png').resize((240, 240)))
+
+        self.purplepanda = tk.PhotoImage(master=self.gui, file=f'{module_dir}/resources/MossandaIcon.png')
         self.gui.iconphoto(True, self.purplepanda)
 
         root = self.gui
@@ -1252,7 +1250,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             except TclError as e:
                 var.dirty = False
                 return
-            
+
             clamp(var)
             var.dirty = True
 
@@ -1297,7 +1295,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 ##        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
 ##        palmelee.pack(side=tk.constants.LEFT)
 ##        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
-        
+
 
         self.shotvar = tk.IntVar()
         self.shotvar.dirty = False
@@ -1610,7 +1608,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             self.updatestats()
             root.destroy()
         root.protocol("WM_DELETE_WINDOW", save_before_close)
-    
+
     def mainloop(self):
         self.gui.mainloop()
 
