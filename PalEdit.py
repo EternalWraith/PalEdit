@@ -6,11 +6,11 @@ import os, webbrowser, json, time, uuid, math
 import pyperclip
 
 import SaveConverter
-from lib.gvas import GvasFile
-from lib.archive import FArchiveReader, FArchiveWriter, UUID
-from lib.json_tools import CustomEncoder
-from lib.palsav import compress_gvas_to_sav, decompress_sav_to_gvas
-from lib.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TYPE_HINTS
+from palworld_save_tools.gvas import GvasFile
+from palworld_save_tools.archive import FArchiveReader, FArchiveWriter, UUID
+from palworld_save_tools.json_tools import CustomEncoder
+from palworld_save_tools.palsav import compress_gvas_to_sav, decompress_sav_to_gvas
+from palworld_save_tools.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TYPE_HINTS
 import tkinter as tk
 import copy
 
@@ -27,6 +27,91 @@ class UUIDEncoder(json.JSONEncoder):
             # if the obj is uuid, we simply return the value of uuid
             return str(obj)
         return json.JSONEncoder.default(self, obj)
+
+def skip_decode(
+        reader: FArchiveReader, type_name: str, size: int, path: str
+):
+    if type_name == "ArrayProperty":
+        array_type = reader.fstring()
+        value = {
+            "skip_type": type_name,
+            "array_type": array_type,
+            "id": reader.optional_guid(),
+            "value": reader.read(size)
+        }
+    elif type_name == "MapProperty":
+        key_type = reader.fstring()
+        value_type = reader.fstring()
+        _id = reader.optional_guid()
+        value = {
+            "skip_type": type_name,
+            "key_type": key_type,
+            "value_type": value_type,
+            "id": _id,
+            "value": reader.read(size),
+        }
+    elif type_name == "StructProperty":
+        value = {
+            "skip_type": type_name,
+            "struct_type": reader.fstring(),
+            "struct_id": reader.guid(),
+            "id": reader.optional_guid(),
+            "value": reader.read(size),
+        }
+    else:
+        raise Exception(
+            f"Expected ArrayProperty or MapProperty or StructProperty, got {type_name} in {path}"
+        )
+    return value
+
+
+def skip_encode(
+        writer: FArchiveWriter, property_type: str, properties: dict
+) -> int:
+    if "skip_type" not in properties:
+        if properties['custom_type'] in PALWORLD_CUSTOM_PROPERTIES is not None:
+            # print("process parent encoder -> ", properties['custom_type'])
+            return PALWORLD_CUSTOM_PROPERTIES[properties["custom_type"]][1](
+                writer, property_type, properties
+            )
+        else:
+            # Never be run to here
+            return writer.property_inner(writer, property_type, properties)
+    if property_type == "ArrayProperty":
+        del properties["custom_type"]
+        del properties["skip_type"]
+        writer.fstring(properties["array_type"])
+        writer.optional_guid(properties.get("id", None))
+        writer.write(properties["value"])
+        return len(properties["value"])
+    elif property_type == "MapProperty":
+        del properties["custom_type"]
+        del properties["skip_type"]
+        writer.fstring(properties["key_type"])
+        writer.fstring(properties["value_type"])
+        writer.optional_guid(properties.get("id", None))
+        writer.write(properties["value"])
+        return len(properties["value"])
+    elif property_type == "StructProperty":
+        del properties["custom_type"]
+        del properties["skip_type"]
+        writer.fstring(properties["struct_type"])
+        writer.guid(properties["struct_id"])
+        writer.optional_guid(properties.get("id", None))
+        writer.write(properties["value"])
+        return len(properties["value"])
+    else:
+        raise Exception(
+            f"Expected ArrayProperty or MapProperty or StructProperty, got {property_type}"
+        )
+
+PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.MapObjectSaveData"] = (skip_decode, skip_encode)
+PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.FoliageGridSaveDataMap"] = (skip_decode, skip_encode)
+PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.MapObjectSpawnerInStageSaveData"] = (skip_decode, skip_encode)
+PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.DynamicItemSaveData"] = (skip_decode, skip_encode)
+PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.CharacterContainerSaveData"] = (skip_decode, skip_encode)
+PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.ItemContainerSaveData"] = (skip_decode, skip_encode)
+PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.GroupSaveDataMap"] = (skip_decode, skip_encode)
 
 import traceback
 class PalEditConfig:
