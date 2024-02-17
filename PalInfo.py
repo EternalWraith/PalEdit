@@ -76,7 +76,6 @@ class PalGender(Enum):
     UNKNOWN = "darkgrey"
 
 
-
 class PalObject:
     def __init__(self, name, code_name, primary, secondary="None", human=False, tower=False, scaling=None):
         self._name = name
@@ -113,6 +112,7 @@ class PalObject:
     def GetScaling(self):
         return self._scaling
 
+
 class PalEntity:
 
     def __init__(self, data):
@@ -130,16 +130,15 @@ class PalEntity:
             self._obj["IsRarePal"] = copy.deepcopy(EmptyRarePalObject)
         self.isLucky = self._obj["IsRarePal"]['value']
 
-
         typename = self._obj['CharacterID']['value']
         # print(f"Debug: typename1 - {typename}")
 
         self.isBoss = False
         if typename[:5].lower() == "boss_":
-            typename = typename[5:] # if first 5 characters match boss_ then cut the first 5 characters off
+            typename = typename[5:]  # if first 5 characters match boss_ then cut the first 5 characters off
             # typename = typename.replace("BOSS_", "") # this causes bugs
             self.isBoss = True if not self.isLucky else False
-            if typename == "LazyCatFish": # BOSS_LazyCatFish and LazyCatfish
+            if typename == "LazyCatFish":  # BOSS_LazyCatFish and LazyCatfish
                 typename = "LazyCatfish"
 
         # print(f"Debug: typename2 - '{typename}'")
@@ -165,7 +164,7 @@ class PalEntity:
 
         if not "Talent_HP" in self._obj:
             self._obj['Talent_HP'] = copy.deepcopy(EmptyMeleeObject)
-            self._talent_hp = 0 # we set 0, so if its not changed it should be removed by the game again.
+            self._talent_hp = 0  # we set 0, so if its not changed it should be removed by the game again.
         self._talent_hp = self._obj['Talent_HP']['value']
 
         if not "Talent_Melee" in self._obj:
@@ -214,13 +213,10 @@ class PalEntity:
         if not "MasteredWaza" in self._obj:
             self._obj["MasteredWaza"] = copy.deepcopy(EmptyMovesObject)
 
-
-
         self._learntMoves = self._obj["MasteredWaza"]["value"]["values"]
         self._equipMoves = self._obj["EquipWaza"]["value"]["values"]
 
         self.CleanseAttacks()
-
 
     def SwapGender(self):
         if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
@@ -230,14 +226,13 @@ class PalEntity:
             self._obj['Gender']['value']['value'] = "EPalGenderType::Male"
             self._gender = "Male ♂"
 
-
     def CleanseSkills(self):
         i = 0
         while i < len(self._skills):
             if self._skills[i].lower() == "none":
                 self._skills.pop(i)
             else:
-                i+=1
+                i += 1
 
     def CleanseAttacks(self):
         i = 0
@@ -337,7 +332,9 @@ class PalEntity:
         old_hp = self.GetMaxHP()
         if hp_scaling is None:
             # assume old MaxHP is valid
-            possible_hp_scaling = (old_hp / 1000 - 500 - 5 * factors['level']) / (0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))
+            possible_hp_scaling = (old_hp / 1000 - 500 - 5 * factors['level']) / (
+                    0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (
+                    1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))
             print("--------")
             print("Derived Specie HP Scaling (from og MaxHP): %s" % possible_hp_scaling)
             hp_scaling = possible_hp_scaling
@@ -361,10 +358,11 @@ class PalEntity:
             print("- %s: %s" % (valkey, factors[valkey]))
         print("- hp_scaling: %s" % hp_scaling)
 
-        new_hp = int((500 + 5 * factors['level'] + hp_scaling * 0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))) * 1000
+        new_hp = int((500 + 5 * factors['level'] + hp_scaling * 0.5 * factors['level'] * (
+                1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (
+                              1 + (factors['rank'] - 1) * 5 / 100))) * 1000
         self._obj['MaxHP']['value']['Value']['value'] = new_hp
         print("%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
-
 
     def GetAttackMelee(self):
         return self._melee
@@ -408,13 +406,13 @@ class PalEntity:
 
     def SetSkill(self, slot, skill):
         print("set slot %d  -> %s" % (slot, skill))
-        if slot > len(self._skills)-1:
+        if slot > len(self._skills) - 1:
             self._skills.append(skill)
         else:
             self._skills[slot] = skill
 
     def SetAttackSkill(self, slot, attack):
-        if slot > len(self._equipMoves)-1:
+        if slot > len(self._equipMoves) - 1:
             self._equipMoves.append(attack)
         else:
             self._equipMoves[slot] = attack
@@ -430,42 +428,43 @@ class PalEntity:
         # We need this check until we fix adding missing nodes
         if "Level" in self._obj and "Exp" in self._obj:
             self._obj['Level']['value'] = self._level = value
-            self._obj['Exp']['value'] = xpthresholds[value-1]
-            self.CleanseAttacks() #self.SetLevelMoves()
+            self._obj['Exp']['value'] = xpthresholds[value - 1]
+            self.CleanseAttacks()  # self.SetLevelMoves()
         else:
             print(f"[ERROR:] Failed to update level for: '{self.GetName()}'")
 
-##    def SetLevelMoves(self):
-##        value = self._level
-##        self._obj["MasteredWaza"]["value"]["values"] = self._learntMoves = self._learntBackup[:]
-##        for i in PalLearnSet[self._type.GetCodeName()]:
-##            if value >= PalLearnSet[self._type.GetCodeName()][i]:
-##                if not find(i) in self._obj["MasteredWaza"]["value"]["values"]:
-##                    self._obj["MasteredWaza"]["value"]["values"].append(find(i))
-##            elif find(i) in self._obj["MasteredWaza"]["value"]["values"]:
-##                self._obj["MasteredWaza"]["value"]["values"].remove(find(i))
-##
-##        for i in self._equipMoves:
-##            if not matches(self._type.GetCodeName(), i):
-##                self._equipMoves.remove(i)
-##                self._obj["EquipWaza"]["value"]["values"] = self._equipMoves
-##            elif not i in self._obj["MasteredWaza"]["value"]["values"]:
-##                self._obj["MasteredWaza"]["value"]["values"].append(i)
-##
-##        self._learntMoves = self._obj["MasteredWaza"]["value"]["values"]
-##        print("------")
-##        for i in self._learntMoves:
-##            print(i)
-
+    ##    def SetLevelMoves(self):
+    ##        value = self._level
+    ##        self._obj["MasteredWaza"]["value"]["values"] = self._learntMoves = self._learntBackup[:]
+    ##        for i in PalLearnSet[self._type.GetCodeName()]:
+    ##            if value >= PalLearnSet[self._type.GetCodeName()][i]:
+    ##                if not find(i) in self._obj["MasteredWaza"]["value"]["values"]:
+    ##                    self._obj["MasteredWaza"]["value"]["values"].append(find(i))
+    ##            elif find(i) in self._obj["MasteredWaza"]["value"]["values"]:
+    ##                self._obj["MasteredWaza"]["value"]["values"].remove(find(i))
+    ##
+    ##        for i in self._equipMoves:
+    ##            if not matches(self._type.GetCodeName(), i):
+    ##                self._equipMoves.remove(i)
+    ##                self._obj["EquipWaza"]["value"]["values"] = self._equipMoves
+    ##            elif not i in self._obj["MasteredWaza"]["value"]["values"]:
+    ##                self._obj["MasteredWaza"]["value"]["values"].append(i)
+    ##
+    ##        self._learntMoves = self._obj["MasteredWaza"]["value"]["values"]
+    ##        print("------")
+    ##        for i in self._learntMoves:
+    ##            print(i)
 
     def GetRank(self):
         return self._rank
 
     def SetRank(self, value):
         if "Rank" in self._obj:
-            self._obj['Rank']['value'] = self._rank = value # we dont +1 here, since we have methods to patch rank in PalEdit.py
+            self._obj['Rank'][
+                'value'] = self._rank = value  # we dont +1 here, since we have methods to patch rank in PalEdit.py
         else:
-            print(f"[ERROR:] Failed to update rank for: '{self.GetName()}'") # we probably could get rid of this line, since you add rank if missing - same with level
+            print(
+                f"[ERROR:] Failed to update rank for: '{self.GetName()}'")  # we probably could get rid of this line, since you add rank if missing - same with level
 
     def RemoveSkill(self, slot):
         if slot < len(self._skills):
@@ -480,7 +479,8 @@ class PalEntity:
         return self.GetName() if self._nickname == "" else self._nickname
 
     def GetFullName(self):
-        return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ♖" if self.isTower else "" ) + (" ✨" if self.isLucky else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
+        return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ♖" if self.isTower else "") + (
+            " ✨" if self.isLucky else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
 
     def SetLucky(self, v=True):
         self._obj["IsRarePal"]['value'] = self.isLucky = v
@@ -534,17 +534,18 @@ class PalEntity:
     def SetPalInstanceGuid(self, v: str):
         self._data['key']['InstanceId']['value'] = v
 
+
 class PalGuid:
     def __init__(self, data):
         self._data = data
         self._CharacterContainerSaveData = \
-        data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
+            data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
         self._GroupSaveDataMap = data['properties']['worldSaveData']['value']['GroupSaveDataMap']['value']
 
     def GetPlayerslist(self):
         players = list(filter(lambda x: 'IsPlayer' in x['value'], [
-            {'uid':x['key']['PlayerUId'],
-             'value':x['value']['RawData']['value']['object']['SaveParameter']['value']
+            {'uid': x['key']['PlayerUId'],
+             'value': x['value']['RawData']['value']['object']['SaveParameter']['value']
              } for x in self._data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']]))
         return {x['value']['NickName']['value']: str(x['uid']['value']) for x in players}
 
@@ -629,6 +630,7 @@ class PalGuid:
             svdata['properties']['worldSaveData']['value']['GroupSaveDataMap']['value'] = self._GroupSaveDataMap
         return svdata
 
+
 class PalPlayerEntity:
     def __init__(self, data):
         self._data = data
@@ -687,6 +689,7 @@ with open("%s/resources/data/elements.json" % (module_dir), "r", encoding="utf8"
 PalSpecies = {}
 PalLearnSet = {}
 
+
 def LoadPals(lang=None):
     global PalSpecies, PalLearnSet
 
@@ -697,7 +700,8 @@ def LoadPals(lang=None):
     with open("%s/resources/data/pals.json" % (module_dir), "r", encoding="utf8") as palfile:
         pals = json.load(palfile)
         PalCodeMapping = {pal['CodeName']: pal['Name'] for pal in pals['values']}
-    with open("%s/resources/data/pals%s.json" % (module_dir, "_"+lang if lang is not None else ""), "r", encoding="utf8") as palfile:
+    with open("%s/resources/data/pals%s.json" % (module_dir, "_" + lang if lang is not None else ""), "r",
+              encoding="utf8") as palfile:
         PalSpecies = {}
         PalLearnSet = {}
         for i in json.loads(palfile.read())["values"]:
@@ -713,14 +717,17 @@ def LoadPals(lang=None):
             s = "None"
             if len(i["Type"]) == 2:
                 s = i["Type"][1]
-            PalSpecies[i["CodeName"]] = PalObject(i["Name"], i["CodeName"], p, s, h, t, i["Scaling"] if "Scaling" in i else None)
+            PalSpecies[i["CodeName"]] = PalObject(i["Name"], i["CodeName"], p, s, h, t,
+                                                  i["Scaling"] if "Scaling" in i else None)
             PalLearnSet[i["CodeName"]] = i["Moveset"]
+
 
 LoadPals()
 
 PalPassives = {}
 PassiveDescriptions = {}
 PassiveRating = {}
+
 
 def LoadPassives(lang=None):
     global PalPassives, PassiveDescriptions, PassiveRating
@@ -729,15 +736,17 @@ def LoadPassives(lang=None):
     PassiveDescriptions = {}
     PassiveRating = {}
 
-    if lang is not None and not os.path.exists("%s/resources/data/passives%s.json" % (module_dir, "_"+lang)):
+    if lang is not None and not os.path.exists("%s/resources/data/passives%s.json" % (module_dir, "_" + lang)):
         lang = None
 
-    with open("%s/resources/data/passives%s.json" % (module_dir, "_"+lang if lang is not None else ""), "r", encoding="utf8") as passivefile:
+    with open("%s/resources/data/passives%s.json" % (module_dir, "_" + lang if lang is not None else ""), "r",
+              encoding="utf8") as passivefile:
         for i in json.loads(passivefile.read())["values"]:
             PalPassives[i["CodeName"]] = i["Name"]
             PassiveDescriptions[i["CodeName"]] = i["Description"]
             PassiveRating[i["CodeName"]] = i["Rating"]
         PalPassives = dict(sorted(PalPassives.items()))
+
 
 LoadPassives()
 
@@ -753,7 +762,8 @@ def LoadAttacks(lang=None):
     if lang is not None and not os.path.exists("%s/resources/data/attacks%s.json" % (module_dir, "_" + lang)):
         lang = None
 
-    with open("%s/resources/data/attacks%s.json" % (module_dir, "_"+lang if lang is not None else ""), "r", encoding="utf8") as attackfile:
+    with open("%s/resources/data/attacks%s.json" % (module_dir, "_" + lang if lang is not None else ""), "r",
+              encoding="utf8") as attackfile:
         PalAttacks = {}
         AttackPower = {}
         AttackTypes = {}
@@ -774,7 +784,9 @@ def LoadAttacks(lang=None):
 
         PalAttacks = dict(sorted(PalAttacks.items()))
 
+
 LoadAttacks()
+
 
 def find(name):
     for i in PalSpecies:
@@ -787,8 +799,6 @@ def find(name):
         if PalAttacks[i] == name:
             return i
     return "None"
-
-
 
 ##if __name__ == "__main__":
 ##    PalObject("Mossanda Noct", "Electric", "Dark")
@@ -847,5 +857,3 @@ def find(name):
 ##            debugOutput.append({"CodeName": codes[i], "Name": i, "Type": "", "Power": 0})
 ##        with open(module_dir+"/resources/data/attacks.json", "w", encoding="utf8") as attackfile:
 ##            json.dump({"values": debugOutput}, attackfile, indent=4)
-
-
