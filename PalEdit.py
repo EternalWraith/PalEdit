@@ -443,7 +443,7 @@ class PalEdit():
             elif not self.attacks[num].get() in pal._equipMoves:
                 pal.SetAttackSkill(num, self.attacks[num].get())
 
-        self.updateAttackName()
+        self.updateAttacks()
         self.refresh(i)
 
     def onselect(self, evt):
