@@ -1,0 +1,400 @@
+{
+    "values": [
+        {
+            "CodeName": "UNKNOWN",
+            "Name": "未知",
+            "Description": " 不存在或不在我们的数据库中",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "NONE",
+            "Name": "空",
+            "Description": "此帕鲁在该槽位没有技能",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Normal_1_PAL",
+            "Name": "一反常态",
+            "Description": "-10%受到的无属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Dark_1_PAL",
+            "Name": "阳光开朗",
+            "Description": "-10%受到的暗属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Dragon_1_PAL",
+            "Name": "屠龙之人",
+            "Description": "-10%受到的龙属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Ice_1_PAL",
+            "Name": "高温体质",
+            "Description": "-10%受到的冰属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Fire_1_PAL",
+            "Name": "拥抱烈日",
+            "Description": "-10%受到的火属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Leaf_1_PAL",
+            "Name": "除草效果",
+            "Description": "-10%受到的草属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Earth_1_PAL",
+            "Name": "抗震结构",
+            "Description": "-10%受到的地属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Thunder_1_PAL",
+            "Name": "绝缘体",
+            "Description": "-10%受到的电属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementResist_Aqua_1_PAL",
+            "Name": "防水性能",
+            "Description": "-10%受到的水属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Normal_1_PAL",
+            "Name": "禅境",
+            "Description": "+10%造成的无属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Dark_1_PAL",
+            "Name": "夜幕",
+            "Description": "+10%造成的暗属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Dragon_1_PAL",
+            "Name": "龙之血脉",
+            "Description": "+10%造成的龙属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Ice_1_PAL",
+            "Name": "冷血",
+            "Description": "+10%造成的冰属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Fire_1_PAL",
+            "Name": "喜欢玩火",
+            "Description": "+10%造成的火属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Leaf_1_PAL",
+            "Name": "草木馨香",
+            "Description": "+10%造成的草属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Earth_1_PAL",
+            "Name": "大地之力",
+            "Description": "+10%造成的地属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Thunder_1_PAL",
+            "Name": "电容",
+            "Description": "+10%造成的电属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Aqua_1_PAL",
+            "Name": "喜欢戏水",
+            "Description": "+10%造成的水属性攻击伤害",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "ElementBoost_Normal_2_PAL",
+            "Name": "圣天",
+            "Description": "+20%造成的无属性攻击伤害; 圣光骑士的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Dark_2_PAL",
+            "Name": "冥王",
+            "Description": "+20%造成的暗属性攻击伤害; 混沌骑士的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Dragon_2_PAL",
+            "Name": "神龙",
+            "Description": "+20%造成的龙属性攻击伤害; 空涡龙的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Ice_2_PAL",
+            "Name": "冰帝",
+            "Description": "+20%造成的冰属性攻击伤害; 唤冬兽的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Fire_2_PAL",
+            "Name": "炎帝",
+            "Description": "+20%造成的火属性攻击伤害; 焰煌的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Leaf_2_PAL",
+            "Name": "精灵王",
+            "Description": "+20%造成的草属性攻击伤害; 百合女王的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Earth_2_PAL",
+            "Name": "岩帝",
+            "Description": "+20%造成的地属性攻击伤害; 阿努比斯的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Thunder_2_PAL",
+            "Name": "雷帝",
+            "Description": "+20%造成的电属性攻击伤害; 波鲁杰克斯的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "ElementBoost_Aqua_2_PAL",
+            "Name": "海皇",
+            "Description": "+20%造成的水属性攻击伤害; 覆海龙的专属能力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_up1",
+            "Name": "勇敢",
+            "Description": "+10%攻击力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_up2",
+            "Name": "凶猛",
+            "Description": "+20%攻击力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_down1",
+            "Name": "胆小",
+            "Description": "-10%攻击力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_ALLAttack_down2",
+            "Name": "消极主义",
+            "Description": "-20%攻击力",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "Deffence_up1",
+            "Name": "坚硬皮肤",
+            "Description": "+10%防御力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Deffence_up2",
+            "Name": "顽强肉体",
+            "Description": "+20%防御力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "Deffence_down1",
+            "Name": "弱不禁风",
+            "Description": "-10%防御力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Deffence_down2",
+            "Name": "骨质疏松",
+            "Description": "-20%防御力",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "TrainerMining_up1",
+            "Name": "采伐领袖",
+            "Description": "+25%玩家伐木效率",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerLogging_up1",
+            "Name": "矿山首领",
+            "Description": "+25%玩家采矿效率",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerATK_UP_1",
+            "Name": "突袭指挥官",
+            "Description": "+10%玩家攻击力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerWorkSpeed_UP_1",
+            "Name": "啦啦队",
+            "Description": "+25%玩家工作速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "TrainerDEF_UP_1",
+            "Name": "铁壁军师",
+            "Description": "+10%玩家防御力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_Sanity_Down_1",
+            "Name": "积极思维",
+            "Description": "理智下降速度减缓10%",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_Sanity_Down_2",
+            "Name": "工作狂",
+            "Description": "理智下降速度减缓15%",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_Sanity_Up_1",
+            "Name": "情绪不稳",
+            "Description": "理智下降速度加快10%",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_Sanity_Up_2",
+            "Name": "毁灭欲望",
+            "Description": "理智下降速度加快15%",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Down_1",
+            "Name": "小胃",
+            "Description": "饱食下降速度减缓10%",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Down_2",
+            "Name": "节食大师",
+            "Description": "饱食下降速度减缓15%",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Up_1",
+            "Name": "贪吃",
+            "Description": "饱食下降速度加快10%",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_FullStomach_Up_2",
+            "Name": "无底之胃",
+            "Description": "饱食下降速度加快15%",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "CraftSpeed_up1",
+            "Name": "认真",
+            "Description": "+20%工作速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "CraftSpeed_up2",
+            "Name": "工匠精神",
+            "Description": "+50%工作速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "CraftSpeed_down1",
+            "Name": "笨手笨脚",
+            "Description": "-10%工作速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "CraftSpeed_down2",
+            "Name": "偷懒成瘾",
+            "Description": "-30%工作速度",
+            "Rating": "Bad"
+        },
+        {
+            "CodeName": "MoveSpeed_up_1",
+            "Name": "灵活",
+            "Description": "+10%移动速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "MoveSpeed_up_2",
+            "Name": "运动健将",
+            "Description": "+20%移动速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "MoveSpeed_up_3",
+            "Name": "神速",
+            "Description": "+30%移动速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_CorporateSlave",
+            "Name": "社畜",
+            "Description": "+30%工作速度, -30%攻击力",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_rude",
+            "Name": "粗暴",
+            "Description": "+15%攻击力, -10%工作速度",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Noukin",
+            "Name": "脑筋",
+            "Description": "+30%攻击力, -50%工作速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "PAL_oraora",
+            "Name": "强势",
+            "Description": "+10%攻击力, -10%防御力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_conceited",
+            "Name": "自恋狂",
+            "Description": "+10%工作速度, -10%防御力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_masochist",
+            "Name": "受虐狂",
+            "Description": "+15%防御力, -15%攻击力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "PAL_sadist",
+            "Name": "虐待狂",
+            "Description": "+15%攻击力, -15%防御力",
+            "Rating": "Okay"
+        },
+        {
+            "CodeName": "Rare",
+            "Name": "稀有",
+            "Description": "+15%攻击力, +15%工作速度",
+            "Rating": "Good"
+        },
+        {
+            "CodeName": "Legend",
+            "Name": "传说",
+            "Description": "+20%攻击力, +20%防御力, +15%移动速度",
+            "Rating": "Good"
+        }
+    ]
+}
