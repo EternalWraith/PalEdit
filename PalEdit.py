@@ -168,27 +168,7 @@ class PalEdit():
         self.attackops.sort()
         self.attackops.insert(0, "None")
 
-        op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
-        op.pop(0)
-        op.pop(0)
-        op.sort()
-        op.insert(0, "None")
-
-        def atk_upd(menu, atk_id, idx, n):
-            menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.attacks_name[atk_id], n,
-                                                                        lambda evt: self.changeattack(atk_id)))
-
-        for atk_id, menu in enumerate(self.attackdrops):
-            for idx, n in enumerate(self.attackops):
-                atk_upd(menu, atk_id, idx, n)
-
-        def skill_upd(menu, skid, idx, n):
-            menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.skills_name[skid], n,
-                                                                        lambda evt: self.changeskill(skid)))
-
-        for skid, menu in enumerate(self.skilldrops):
-            for idx, n in enumerate(op):
-                skill_upd(menu, skid, idx, n)
+        self.updateSkillMenu()
 
         self.updateAttackName()
         self.updateSkillsName()
@@ -204,6 +184,42 @@ class PalEdit():
                 self.speciesvar_name.set(self.speciesvar.get())
         except AttributeError as e:
             pass
+
+    def updateSkillMenu(self):
+        if not self.isPalSelected():
+            return
+
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.palbox[self.players[self.current.get()]][i]
+
+        available_ops = pal.GetAvailableSkills()
+        available_ops.sort()
+        available_ops.insert(0, "None")
+
+        def atk_upd(menu, atk_id, label, codename):
+            menu['menu'].add_command(label=label, command=tk._setit(self.attacks[atk_id], codename,
+                                                                        lambda evt: self.changeattack(atk_id)))
+
+        for atk_id, menu in enumerate(self.attackdrops):
+            while menu['menu'].index("end") is not None:
+                menu['menu'].delete(0)
+            for idx, codename in enumerate(available_ops):
+                atk_upd(menu, atk_id, PalAttacks[codename], codename)
+
+        op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
+        op.pop(0)
+        op.pop(0)
+        op.sort()
+        op.insert(0, "None")
+
+        def skill_upd(menu, skid, idx, n):
+            menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.skills_name[skid], n,
+                                                                        lambda evt: self.changeskill(skid)))
+
+        for skid, menu in enumerate(self.skilldrops):
+            for idx, n in enumerate(op):
+                skill_upd(menu, skid, idx, n)
+
 
     @staticmethod
     def hex_to_rgb(value):
@@ -443,8 +459,8 @@ class PalEdit():
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
 
-        index = list(PalInfo.PalAttacks.values()).index(self.attacks_name[num].get())
-        self.attacks[num].set(list(PalInfo.PalAttacks.keys())[index])
+        # index = list(PalInfo.PalAttacks.values()).index(self.attacks_name[num].get())
+        # self.attacks[num].set(list(PalInfo.PalAttacks.keys())[index])
         if not self.attacks[num].get() in ["Unknown", "UNKNOWN"]:
             if self.attacks[num].get() in ["None", "NONE"]:
                 pal.RemoveAttack(num)
@@ -497,6 +513,7 @@ class PalEdit():
         self.luckyvar.set(pal.isLucky)
         self.alphavar.set(pal.isBoss)
 
+        self.updateSkillMenu()
         self.updateAttacks()
 
         # rank
@@ -1096,15 +1113,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilldrops = []
         self.skills = []
         self.skills_name = []
+
+        self.current = tk.StringVar()
+        self.current.set("")
+
         self.load_i18n()
 
         self.purplepanda = tk.PhotoImage(master=self.gui, file=f'{module_dir}/resources/MossandaIcon.png')
         self.gui.iconphoto(True, self.purplepanda)
 
         root = self.gui
-
-        self.current = tk.StringVar()
-        self.current.set("")
 
         scrollview = tk.Frame(root)
         scrollview.pack(side=tk.constants.LEFT, fill=tk.constants.Y)

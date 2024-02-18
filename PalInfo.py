@@ -234,6 +234,16 @@ class PalEntity:
             else:
                 i += 1
 
+    def GetAvailableSkills(self):
+        avail_skills = []
+        for skill_codename in SkillExclusivity:
+            if skill_codename == '':
+                continue
+            if SkillExclusivity[skill_codename] is None or self._type.GetCodeName() in SkillExclusivity[skill_codename]:
+                avail_skills.append(skill_codename)
+
+        return avail_skills
+
     def CleanseAttacks(self):
         i = 0
         while i < len(self._learntMoves):
@@ -754,6 +764,7 @@ def LoadPassives(lang=None):
 
 LoadPassives()
 
+# PalAttacks CodeName -> Name
 PalAttacks = {}
 AttackPower = {}
 AttackTypes = {}
@@ -787,7 +798,6 @@ def LoadAttacks(lang=None):
                 SkillExclusivity[i["CodeName"]] = None
 
         PalAttacks = dict(sorted(PalAttacks.items()))
-
 
 LoadAttacks()
 
