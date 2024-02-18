@@ -238,14 +238,17 @@ class PalEntity:
         i = 0
         while i < len(self._learntMoves):
             remove = False
-            if not SkillExclusivity[self._learntMoves[i]] is None:
-                if not self._type.GetCodeName() in SkillExclusivity[self._learntMoves[i]]:
-                    remove = True
-
-            if PalAttacks[self._learntMoves[i]] in PalLearnSet[self._type.GetCodeName()]:
-                if not self._level >= PalLearnSet[self._type.GetCodeName()][PalAttacks[self._learntMoves[i]]]:
-                    remove = True
-
+            if self._learntMoves[i] in ["None", "EPalWazaID::None"]:
+                remove = True
+            else:
+                # Check skill has Exclusivity
+                if not (SkillExclusivity[self._learntMoves[i]] is None):
+                    if not self._type.GetCodeName() in SkillExclusivity[self._learntMoves[i]]:
+                        remove = True
+                # Check level are available for Skills
+                if self._learntMoves[i] in PalLearnSet[self._type.GetCodeName()]:
+                    if not self._level >= PalLearnSet[self._type.GetCodeName()][self._learntMoves[i]]:
+                        remove = True
             if remove:
                 if self._learntMoves[i] in self._equipMoves:
                     self._equipMoves.remove(self._learntMoves[i])
@@ -253,10 +256,10 @@ class PalEntity:
             else:
                 i += 1
 
-        for i in PalLearnSet[self._type.GetCodeName()]:
-            if not find(i) in self._learntMoves:
-                if PalLearnSet[self._type.GetCodeName()][i] <= self._level:
-                    self._learntMoves.append(find(i))
+        for skill_CodeName in PalLearnSet[self._type.GetCodeName()]:
+            if not skill_CodeName in self._learntMoves:
+                if PalLearnSet[self._type.GetCodeName()][skill_CodeName] <= self._level:
+                    self._learntMoves.append(skill_CodeName)
 
         for i in self._equipMoves:
             if not i in self._learntMoves:
@@ -687,6 +690,7 @@ with open("%s/resources/data/elements.json" % (module_dir), "r", encoding="utf8"
         PalElements[i['Name']] = i['Color']
 
 PalSpecies = {}
+# PalLearnSet: Pal Skills require Level
 PalLearnSet = {}
 
 
@@ -800,8 +804,26 @@ def find(name):
             return i
     return "None"
 
-##if __name__ == "__main__":
-##    PalObject("Mossanda Noct", "Electric", "Dark")
+if __name__ == "__main__":
+    # Convert Pals -> Moveset from Name to CodeName for i18n
+    with open("%s/resources/data/pals.json" % (module_dir), "r", encoding="utf-8") as f:
+        pals = json.load(f)
+        for pal in pals['values']:
+            if 'Moveset' in pal:
+                new_moveset = {}
+                for move_name in pal['Moveset']:
+                    move_id = pal['Moveset'][move_name]
+                    if find(move_name) != "None":
+                        new_moveset[find(move_name)] = move_id
+                    elif move_name in PalAttacks:
+                        new_moveset[move_name] = move_id
+                    else:
+                        print(f"Error: Invalid {move_name}")
+                pal['Moveset'] = new_moveset
+
+    with open("%s/resources/data/pals.json" % (module_dir), "w", encoding="utf-8") as f:
+        json.dump(pals, f, indent=4)
+
 ##
 ##
 ##    if True:

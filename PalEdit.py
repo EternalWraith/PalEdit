@@ -624,8 +624,9 @@ class PalEdit():
                     # self.players[pl] = plguid
                 else:
                     self.unknown.append(i)
-                    print(f"Error occured: {str(e)}")
+                    print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
                     traceback.print_exception(e)
+                    print()
                 # print(f"Debug: Data {i}")
 
         self.current.set(next(iter(self.players)))
