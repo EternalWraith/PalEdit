@@ -6,6 +6,7 @@ from PIL import ImageTk, Image
 from EmptyObjectHandler import *
 import uuid
 import copy
+import math
 
 # for some reason os.path when compiled with CxFreeze bugs out the program. Will look into it.
 module_dir = "." #os.path.dirname(os.path.realpath(__file__))
@@ -218,6 +219,7 @@ class PalEntity:
         self._equipMoves = self._obj["EquipWaza"]["value"]["values"]
         
         self.CleanseAttacks()
+        self.UpdateMaxHP()
         
 
     def SwapGender(self):
@@ -247,7 +249,8 @@ class PalEntity:
 
             if PalAttacks[self._learntMoves[i]] in PalLearnSet[self._type.GetCodeName()]:
                 if not self._level >= PalLearnSet[self._type.GetCodeName()][PalAttacks[self._learntMoves[i]]]:
-                    remove = True
+                    if self._learntMoves[i] not in self._equipMoves:
+                        remove = True
                     
             if remove:
                 if self._learntMoves[i] in self._equipMoves:
@@ -306,12 +309,12 @@ class PalEntity:
             return self._obj["Rank_Attack"]["value"]
         return 0
     
-    # def GetRankDefense(self):
-    #     # I haven't checked if this is the correct key.
-    #     # unused
-    #     if "Rank_Defense" in self._obj:
-    #         return self._obj["Rank_Defense"]["value"]
-    #     return 0
+    def GetRankDefence(self):
+        # I haven't checked if this is the correct key.
+        # unused
+        if "Rank_Defence" in self._obj:
+            return self._obj["Rank_Defence"]["value"]
+        return 0
     
     # def GetRankCraftSpeed(self):
     #     # I haven't checked if this is the correct key.
@@ -323,7 +326,47 @@ class PalEntity:
     def GetMaxHP(self):
         return self._obj['MaxHP']['value']['Value']['value']
 
-    def UpdateMaxHP(self, changes: dict, hp_scaling=None) -> bool:
+    def CalculateIngameStats(self):
+        LEVEL = self.GetLevel()
+        SCALING = self.GetObject().GetScaling()
+
+        HP_SCALE = SCALING["HP"]
+        if self.isBoss and "HP_BOSS" in SCALING:
+            HP_SCALE = SCALING["HP_BOSS"]
+        HP_IV = self.GetTalentHP() * 0.3 / 100
+        HP_SOUL = self.GetRankHP() * 0.03
+        HP_RANK = (self.GetRank() - 1) * 0.05
+        HP_BONUS = 0
+
+        HP_STAT = math.floor(500 + 5 * LEVEL + HP_SCALE * 0.5 * LEVEL * (1 + HP_IV))
+        HP_STAT = math.floor(HP_STAT * (1 + HP_BONUS) * (1 + HP_SOUL) * (1 + HP_RANK))
+
+        AT_SCALE = SCALING["ATK"]
+        AT_IV = self.GetAttackRanged() * 0.3 / 100
+        AT_SOUL = self.GetRankAttack() * 0.03
+        AT_RANK = (self.GetRank() - 1) * 0.05
+        AT_BONUS = 0
+
+        AT_STAT = math.floor(100 + AT_SCALE * 0.075 * LEVEL * (1 + AT_IV))
+        AT_STAT = math.floor(AT_STAT * (1 + AT_BONUS) * (1 + AT_SOUL) * (1 + AT_RANK))
+
+        DF_SCALE = SCALING["DEF"]
+        DF_IV = self.GetDefence() * 0.3 / 100
+        DF_SOUL = self.GetRankDefence() * 0.03
+        DF_RANK = (self.GetRank() - 1) * 0.05
+        DF_BONUS = 0
+
+        DF_STAT = math.floor(50 + DF_SCALE * 0.075 * LEVEL * (1 + DF_IV))
+        DF_STAT = math.floor(DF_STAT * (1 + DF_BONUS) * (1 + DF_SOUL) * (1 + DF_RANK))
+        return {"HP": HP_STAT, "ATK": AT_STAT, "DEF": DF_STAT}
+
+
+    def UpdateMaxHP(self):
+        new_hp = self.CalculateIngameStats()["HP"]
+        self._obj['MaxHP']['value']['Value']['value'] = new_hp * 1000
+        self._obj['HP']['value']['Value']['value'] = new_hp * 1000
+
+    def OLD_UpdateMaxHP(self, changes: dict, hp_scaling=None) -> bool:
         # do not manually pass in hp_scaling unless you are 100% sure that the value is correct!
         factors = {
             'level': self.GetLevel(),
@@ -361,6 +404,7 @@ class PalEntity:
             
         new_hp = int((500 + 5 * factors['level'] + hp_scaling * 0.5 * factors['level'] * (1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (1 + (factors['rank'] - 1) * 5 / 100))) * 1000
         self._obj['MaxHP']['value']['Value']['value'] = new_hp
+        self._obj['HP']['value']['Value']['value'] = new_hp
         print("%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
 
 
