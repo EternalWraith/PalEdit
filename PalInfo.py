@@ -870,3 +870,66 @@ if __name__ == "__main__":
                     if find(move_name) != "None":
                         new_moveset[find(move_name)] = move_id
                     elif move_name in PalAttacks:
+                        new_moveset[move_name] = move_id
+                    else:
+                        print(f"Error: Invalid {move_name}")
+                pal['Moveset'] = new_moveset
+
+    with open("%s/resources/data/pals.json" % (module_dir), "w", encoding="utf-8") as f:
+        json.dump(pals, f, indent=4)
+
+##
+##
+##    if True:
+##        import bs4 as bsoup
+##        import urllib.request as ureq
+##
+##
+##
+##        with open(module_dir+"/resources/data/pals.json", "r+", encoding="utf8") as palfile:
+##            p = json.loads(palfile.read())
+##            palfile.seek(0)
+##            for pal in p['values']:
+##                pal["Moveset"] = {}
+##                if not "Human" in pal and not "Tower" in pal:
+##                    n = pal["Name"].lower().replace(" ", "-")
+##                    headers = {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'}
+##                    req = ureq.Request(f"http://palworld.gg/pal/{n}", None, headers)
+##                    src = ureq.urlopen(req)
+##                    soup = bsoup.BeautifulSoup(src, "lxml")
+##
+##                    con = soup.find_all("div", {"class": "active skills"})
+##                    if len(con) > 0:
+##                        for item in con[0].find_all("div", {"class": "item"}):
+##
+##                            name = item.find("div", {"class": "name"}).text
+##                            level = item.find("div", {"class": "level"})
+##
+##                            if not level == None:
+##                                level = int(level.text.replace("- Lv ", ""))
+##                                pal["Moveset"][name] = level
+##            json.dump(p, palfile, indent=4)
+##
+##
+##    if True:
+##
+##        codes = {}
+##        with open("data.txt", "r") as file:
+##            for line in file:
+##                l = line.replace("\t", " ").replace("\n", "")
+##                c, n = l.split(" ", 1)
+##                codes[n] = c
+##
+##        def sortStuff(e):
+##            return e["Name"]
+##        debugOutput.sort(key=sortStuff)
+##
+##        for i in debugOutput:
+##            if i["Name"] in codes:
+##                i["CodeName"] = codes[i["Name"]]
+##                codes.pop(i["Name"])
+##
+##        for i in codes:
+##            debugOutput.append({"CodeName": codes[i], "Name": i, "Type": "", "Power": 0})
+##        with open(module_dir+"/resources/data/attacks.json", "w", encoding="utf8") as attackfile:
+##            json.dump({"values": debugOutput}, attackfile, indent=4)
