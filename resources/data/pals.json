@@ -7,13 +7,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Fluffy Tackle": 7,
-                "Sand Blast": 15,
-                "Power Shot": 22,
-                "Shockwave": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -28,13 +28,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Spirit Fire": 7,
-                "Spirit Flame": 15,
-                "Daring Flames": 22,
-                "Flare Storm": 30,
-                "Ignis Rage": 40,
-                "Fire Ball": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::GhostFlame": 15,
+                "EPalWazaID::Unique_AmaterasuWolf_FireCharge": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -49,13 +49,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Stone Blast": 1,
-                "Power Bomb": 7,
-                "Sand Tornado": 15,
-                "Spinning Roundhouse": 22,
-                "Forceful Charge": 30,
-                "Ground Smash": 40,
-                "Rock Lance": 50
+                "EPalWazaID::StoneShotgun": 1,
+                "EPalWazaID::PowerBall": 7,
+                "EPalWazaID::SandTornado": 15,
+                "EPalWazaID::Unique_Anubis_LowRoundKick": 22,
+                "EPalWazaID::Unique_Anubis_Tackle": 30,
+                "EPalWazaID::Unique_Anubis_GroundPunch": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -71,13 +71,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Spirit Fire": 7,
-                "Flare Arrow": 15,
-                "Hellfire Claw": 22,
-                "Shadow Burst": 30,
-                "Fire Ball": 40,
-                "Ignis Rage": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::Unique_Baphomet_SwallowKite": 22,
+                "EPalWazaID::DarkWave": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::Inferno": 50
             },
             "Scaling": {
                 "HP": 95,
@@ -92,13 +92,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Spirit Fire": 7,
-                "Flare Arrow": 15,
-                "Hellfire Claw": 22,
-                "Shadow Burst": 30,
-                "Fire Ball": 40,
-                "Ignis Rage": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::Unique_Baphomet_SwallowKite": 22,
+                "EPalWazaID::DarkWave": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::Inferno": 50
             },
             "Scaling": {
                 "HP": 95,
@@ -113,13 +113,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Dark Ball": 7,
-                "Shadow Burst": 15,
-                "Sand Tornado": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::SandTornado": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -134,13 +134,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Ice Missile": 1,
-                "Air Cannon": 7,
-                "Sand Blast": 15,
-                "Icicle Cutter": 22,
-                "Iceberg": 30,
-                "Cryst Breath": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -155,13 +155,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Air Cannon": 7,
-                "Sand Blast": 15,
-                "Power Shot": 22,
-                "Grass Tornado": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -177,13 +177,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Ignis Blast": 7,
-                "Spirit Fire": 15,
-                "Ignis Breath": 22,
-                "Nightmare Ball": 30,
-                "Fire Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::FireBlast": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -199,13 +199,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Ice Missile": 7,
-                "Icicle Cutter": 15,
-                "Cryst Breath": 22,
-                "Nightmare Ball": 30,
-                "Blizzard Spike": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -220,13 +220,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Shadow Burst": 1,
-                "Spirit Fire": 7,
-                "Spirit Flame": 15,
-                "Nightmare Ball": 22,
-                "Rock Lance": 30,
-                "Twin Spears": 40,
-                "Dark Laser": 50
+                "EPalWazaID::DarkWave": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::GhostFlame": 15,
+                "EPalWazaID::ShadowBall": 22,
+                "EPalWazaID::RockLance": 30,
+                "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 130,
@@ -242,13 +242,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Dark Ball": 7,
-                "Shadow Burst": 15,
-                "Spirit Flame": 22,
-                "Nightmare Ball": 30,
-                "Divine Disaster": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::Unique_BlackGriffon_TackleLaser": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -264,13 +264,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Dragon Cannon": 1,
-                "Spirit Flame": 7,
-                "Dragon Burst": 15,
-                "Nightmare Ball": 22,
-                "Draconic Breath": 30,
-                "Dark Laser": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::DragonCanon": 1,
+                "EPalWazaID::GhostFlame": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::ShadowBall": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::DarkLaser": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -286,13 +286,13 @@
                 "Dragon"
             ],
             "Moveset": {
-                "Aqua Gun": 1,
-                "Dragon Cannon": 7,
-                "Bubble Blast": 15,
-                "Dragon Burst": 22,
-                "Draconic Breath": 30,
-                "Hydro Laser": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::BubbleShot": 15,
+                "EPalWazaID::DragonWave": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::HydroPump": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -307,13 +307,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Aqua Gun": 1,
-                "Power Shot": 7,
-                "Hydro Jet": 15,
-                "Ice Missile": 22,
-                "Bubble Blast": 30,
-                "Aqua Burst": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::AquaJet": 15,
+                "EPalWazaID::IceMissile": 22,
+                "EPalWazaID::BubbleShot": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 60,
@@ -328,13 +328,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Reckless Charge": 1,
-                "Sand Blast": 7,
-                "Power Shot": 15,
-                "Stone Blast": 22,
-                "Power Bomb": 30,
-                "Rock Lance": 40,
-                "Pal Blast": 50
+                "EPalWazaID::Unique_Boar_Tackle": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -350,13 +350,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Aqua Gun": 1,
-                "Iceberg": 7,
-                "Emperor Slide": 15,
-                "Cryst Breath": 22,
-                "Aqua Burst": 30,
-                "Blizzard Spike": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::BlizzardLance": 7,
+                "EPalWazaID::Unique_CaptainPenguin_BodySlide": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::WaterBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 95,
@@ -371,13 +371,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Air Cannon": 7,
-                "Power Shot": 15,
-                "Seed Machine Gun": 22,
-                "Power Bomb": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::SeedMachinegun": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 75,
@@ -392,13 +392,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Poison Blast": 7,
-                "Dark Ball": 15,
-                "Shadow Burst": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkBall": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 95,
@@ -413,13 +413,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Dark Ball": 7,
-                "Flare Arrow": 15,
-                "Shadow Burst": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -434,13 +434,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Poison Blast": 1,
-                "Dark Ball": 7,
-                "Shadow Burst": 15,
-                "Spirit Flame": 22,
-                "Nightmare Ball": 30,
-                "Ignis Rage": 40,
-                "Dark Laser": 50
+                "EPalWazaID::PoisonShot": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -455,13 +455,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Chicken Rush": 1,
-                "Air Cannon": 7,
-                "Power Shot": 15,
-                "Implode": 22,
-                "Grass Tornado": 30,
-                "Sand Tornado": 40,
-                "Flare Storm": 50
+                "EPalWazaID::Unique_ChickenPal_ChickenPeck": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::SelfDestruct": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::FlareTornado": 50
             },
             "Scaling": {
                 "HP": 60,
@@ -476,13 +476,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Implode": 1,
-                "Air Cannon": 7,
-                "Power Shot": 15,
-                "Megaton Implode": 22,
-                "Sand Tornado": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::SelfDestruct": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::SelfExplosion": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 60,
@@ -497,13 +497,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Sand Blast": 7,
-                "Air Cannon": 15,
-                "Stone Blast": 22,
-                "Stone Cannon": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::AirCanon": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::ThrowRock": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -518,13 +518,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Wind Cutter": 7,
-                "Poison Fog": 15,
-                "Sand Tornado": 22,
-                "Seed Mine": 30,
-                "Grass Tornado": 40,
-                "Solar Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::PoisonFog": 15,
+                "EPalWazaID::SandTornado": 22,
+                "EPalWazaID::SeedMine": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -539,13 +539,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Sand Blast": 7,
-                "Power Shot": 15,
-                "Wind Cutter": 22,
-                "Seed Machine Gun": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::WindCutter": 22,
+                "EPalWazaID::SeedMachinegun": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -560,13 +560,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Power Shot": 7,
-                "Stone Blast": 15,
-                "Stone Cannon": 22,
-                "Power Bomb": 30,
-                "Sand Tornado": 40,
-                "Rock Lance": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 65,
@@ -581,13 +581,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Dark Ball": 7,
-                "Phantom Peck": 15,
-                "Shadow Burst": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::Unique_DarkCrow_TelePoke": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 75,
@@ -603,13 +603,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Poison Blast": 7,
-                "Shadow Burst": 15,
-                "Stone Cannon": 22,
-                "Nightmare Ball": 30,
-                "Rock Lance": 40,
-                "Dark Laser": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -624,13 +624,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Antler Uppercut": 7,
-                "Stone Blast": 15,
-                "Stone Cannon": 22,
-                "Power Bomb": 30,
-                "Rock Lance": 40,
-                "Pal Blast": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::Unique_Deer_PushupHorn": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 95,
@@ -645,13 +645,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Antler Uppercut": 7,
-                "Stone Blast": 15,
-                "Stone Cannon": 22,
-                "Power Bomb": 30,
-                "Sand Tornado": 40,
-                "Rock Lance": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::Unique_Deer_PushupHorn": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 95,
@@ -666,13 +666,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Dark Ball": 1,
-                "Poison Blast": 7,
-                "Shadow Burst": 15,
-                "Cryst Breath": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::DarkBall": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -687,13 +687,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Aqua Gun": 1,
-                "Stone Blast": 7,
-                "Shell Spin": 15,
-                "Stone Cannon": 22,
-                "Sand Tornado": 30,
-                "Aqua Burst": 40,
-                "Rock Lance": 50
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::StoneShotgun": 7,
+                "EPalWazaID::Unique_DrillGame_ShellAttack": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -708,13 +708,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Gale Claw": 1,
-                "Air Cannon": 7,
-                "Sand Blast": 15,
-                "Wind Cutter": 22,
-                "Sand Tornado": 30,
-                "Grass Tornado": 40,
-                "Pal Blast": 50
+                "EPalWazaID::Unique_Eagle_GlidingNail": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::WindCutter": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 75,
@@ -729,13 +729,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Spark Blast": 1,
-                "Sand Blast": 7,
-                "Shockwave": 15,
-                "Electric Ball": 22,
-                "Tri-Lightning": 30,
-                "Lightning Streak": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::ElecWave": 15,
+                "EPalWazaID::ThunderBall": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LineThunder": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 60,
@@ -750,13 +750,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Spark Blast": 1,
-                "Shockwave": 7,
-                "Lightning Claw": 15,
-                "Lightning Streak": 22,
-                "Tri-Lightning": 30,
-                "Lightning Strike": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::Unique_ElecPanda_ElecScratch": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 105,
@@ -771,13 +771,13 @@
                 "Dragon"
             ],
             "Moveset": {
-                "Dragon Cannon": 1,
-                "Dragon Burst": 7,
-                "Flare Arrow": 15,
-                "Mystic Whirlwind": 22,
-                "Draconic Breath": 30,
-                "Pal Blast": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::DragonCanon": 1,
+                "EPalWazaID::DragonWave": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::HyperBeam": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -793,13 +793,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Aqua Gun": 1,
-                "Dragon Cannon": 7,
-                "Dragon Burst": 15,
-                "Mystic Whirlwind": 22,
-                "Acid Rain": 30,
-                "Hydro Laser": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
+                "EPalWazaID::AcidRain": 30,
+                "EPalWazaID::HydroPump": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 115,
@@ -814,13 +814,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Aqua Gun": 7,
-                "Cloud Tempest": 15,
-                "Acid Rain": 22,
-                "Aqua Burst": 30,
-                "Blizzard Spike": 40,
-                "Pal Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::Unique_FengyunDeeper_CloudTempest": 15,
+                "EPalWazaID::AcidRain": 22,
+                "EPalWazaID::WaterBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -835,13 +835,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Ignis Blast": 7,
-                "Spirit Fire": 15,
-                "Flare Arrow": 22,
-                "Ignis Slam": 30,
-                "Ignis Rage": 40,
-                "Fire Ball": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::FireBlast": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::Unique_FireKirin_Tackle": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -857,13 +857,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Shadow Burst": 7,
-                "Ignis Breath": 15,
-                "Spirit Flame": 22,
-                "Dark Charge": 30,
-                "Ignis Rage": 40,
-                "Dark Laser": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DarkWave": 7,
+                "EPalWazaID::Flamethrower": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::Unique_FireKirin_Dark_DarkTossin": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -878,13 +878,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Power Shot": 7,
-                "Spirit Fire": 15,
-                "Flare Arrow": 22,
-                "Flare Storm": 30,
-                "Ignis Rage": 40,
-                "Fire Ball": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 75,
@@ -899,13 +899,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Blazing Horn": 7,
-                "Spirit Fire": 15,
-                "Flare Arrow": 22,
-                "Ignis Breath": 30,
-                "Ignis Rage": 40,
-                "Fire Ball": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::Unique_FlameBuffalo_FlameHorn": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::Flamethrower": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 85,
@@ -921,13 +921,13 @@
                 "Dragon"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Botanical Smash": 7,
-                "Dragon Burst": 15,
-                "Seed Mine": 22,
-                "Draconic Breath": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::Unique_FlowerDinosaur_Whip": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -943,13 +943,13 @@
                 "Dragon"
             ],
             "Moveset": {
-                "Shockwave": 1,
-                "Plasma Tornado": 7,
-                "Botanical Smash": 15,
-                "Draconic Breath": 22,
-                "Tri-Lightning": 30,
-                "Lightning Strike": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::ElecWave": 1,
+                "EPalWazaID::ThunderFunnel": 7,
+                "EPalWazaID::Unique_FlowerDinosaur_Whip": 15,
+                "EPalWazaID::DragonBreath": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -964,13 +964,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Aqua Gun": 7,
-                "Seed Machine Gun": 15,
-                "Bubble Blast": 22,
-                "Grass Tornado": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::SeedMachinegun": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -985,13 +985,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Air Cannon": 7,
-                "Hydro Jet": 15,
-                "Seed Machine Gun": 22,
-                "Bubble Blast": 30,
-                "Grass Tornado": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::AquaJet": 15,
+                "EPalWazaID::SeedMachinegun": 22,
+                "EPalWazaID::BubbleShot": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 75,
@@ -1006,13 +1006,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Hydro Jet": 1,
-                "Aqua Gun": 7,
-                "Power Shot": 15,
-                "Bubble Blast": 22,
-                "Seed Machine Gun": 30,
-                "Aqua Burst": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::SeedMachinegun": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -1027,13 +1027,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Spirit Fire": 7,
-                "Flare Arrow": 15,
-                "Spirit Flame": 22,
-                "Flare Storm": 30,
-                "Fire Ball": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -1048,13 +1048,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Aqua Gun": 1,
-                "Hydro Jet": 7,
-                "Sand Blast": 15,
-                "Bubble Blast": 22,
-                "Acid Rain": 30,
-                "Aqua Burst": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::AquaJet": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::AcidRain": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -1069,13 +1069,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Fierce Fang": 1,
-                "Sand Blast": 7,
-                "Air Cannon": 15,
-                "Power Shot": 22,
-                "Ignis Blast": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::Unique_Garm_Bite": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::AirCanon": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::FireBlast": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -1090,13 +1090,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Dark Ball": 7,
-                "Flare Arrow": 15,
-                "Shadow Burst": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 75,
@@ -1111,13 +1111,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Power Shot": 7,
-                "Ground Pound": 15,
-                "Stone Blast": 22,
-                "Seed Machine Gun": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::Unique_Gorilla_GroundPunch": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::SeedMachinegun": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -1132,13 +1132,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Seed Machine Gun": 7,
-                "Power Bomb": 15,
-                "Grass Tornado": 22,
-                "Earth Impact": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::PowerBall": 15,
+                "EPalWazaID::GrassTornado": 22,
+                "EPalWazaID::Unique_Grassmammoth_Earthquake": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 150,
@@ -1153,13 +1153,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Stone Cannon": 1,
-                "Icicle Cutter": 7,
-                "Power Bomb": 15,
-                "Iceberg": 22,
-                "Earth Impact": 30,
-                "Cryst Breath": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::ThrowRock": 1,
+                "EPalWazaID::IceBlade": 7,
+                "EPalWazaID::PowerBall": 15,
+                "EPalWazaID::BlizzardLance": 22,
+                "EPalWazaID::Unique_Grassmammoth_Earthquake": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 150,
@@ -1174,13 +1174,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Seed Machine Gun": 7,
-                "Stone Cannon": 15,
-                "Crushing Punch": 22,
-                "Seed Mine": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::ThrowRock": 15,
+                "EPalWazaID::Unique_GrassPanda_MusclePunch": 22,
+                "EPalWazaID::SeedMine": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -1195,13 +1195,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Spark Blast": 1,
-                "Shockwave": 7,
-                "Lightning Streak": 15,
-                "Blast Punch": 22,
-                "Tri-Lightning": 30,
-                "Lightning Strike": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::LineThunder": 15,
+                "EPalWazaID::Unique_GrassPanda_Electric_ElectricPunch": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -1216,13 +1216,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Stone Cannon": 7,
-                "Seed Machine Gun": 15,
-                "Stone Blast": 22,
-                "Grass Tornado": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::ThrowRock": 7,
+                "EPalWazaID::SeedMachinegun": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -1237,13 +1237,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Spirit Fire": 1,
-                "Dark Ball": 7,
-                "Shadow Burst": 15,
-                "Flare Storm": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::FireSeed": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::FlareTornado": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -1258,13 +1258,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Tornado Attack": 7,
-                "Wind Cutter": 15,
-                "Power Bomb": 22,
-                "Sand Tornado": 30,
-                "Grass Tornado": 40,
-                "Pal Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_HawkBird_Storm": 7,
+                "EPalWazaID::WindCutter": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -1279,13 +1279,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Shockwave": 1,
-                "Power Shot": 7,
-                "Electric Ball": 15,
-                "Power Bomb": 22,
-                "Tri-Lightning": 30,
-                "Lightning Streak": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::ElecWave": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::ThunderBall": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LineThunder": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -1300,13 +1300,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Ice Missile": 1,
-                "Power Shot": 7,
-                "Iceberg": 15,
-                "Power Bomb": 22,
-                "Icicle Cutter": 30,
-                "Cryst Breath": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::IceBlade": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -1322,13 +1322,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Seed Machine Gun": 7,
-                "Stone Blast": 15,
-                "Stone Cannon": 22,
-                "Giga Horn": 30,
-                "Rock Lance": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::Unique_HerculesBeetle_BeetleTackle": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -1343,13 +1343,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Flare Arrow": 7,
-                "Spirit Fire": 15,
-                "Ignis Breath": 22,
-                "Phoenix Flare": 30,
-                "Ignis Rage": 40,
-                "Fire Ball": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FlareArrow": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::Unique_Horus_FlareBird": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -1364,13 +1364,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Ice Missile": 7,
-                "Icicle Cutter": 15,
-                "Freezing Charge": 22,
-                "Iceberg": 30,
-                "Cryst Breath": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::Unique_IceDeer_IceHorn": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -1385,13 +1385,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Ice Missile": 7,
-                "Icicle Cutter": 15,
-                "Spirit Flame": 22,
-                "Iceberg": 30,
-                "Cryst Breath": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -1406,13 +1406,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Ice Missile": 7,
-                "Icicle Cutter": 15,
-                "Iceberg": 22,
-                "Crystal Wing": 30,
-                "Cryst Breath": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::BlizzardLance": 22,
+                "EPalWazaID::Unique_IceHorse_IceBladeAttack": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 140,
@@ -1427,13 +1427,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Dark Ball": 7,
-                "Shadow Burst": 15,
-                "Spirit Flame": 22,
-                "Crystal Wing": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::Unique_IceHorse_IceBladeAttack": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 140,
@@ -1448,13 +1448,13 @@
                 "Dragon"
             ],
             "Moveset": {
-                "Spirit Fire": 1,
-                "Dragon Burst": 7,
-                "Flare Storm": 15,
-                "Draconic Breath": 22,
-                "Beam Comet": 30,
-                "Fire Ball": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::FireSeed": 1,
+                "EPalWazaID::DragonWave": 7,
+                "EPalWazaID::FlareTornado": 15,
+                "EPalWazaID::DragonBreath": 22,
+                "EPalWazaID::Unique_JetDragon_JumpBeam": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -1470,13 +1470,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Hydro Jet": 1,
-                "Dragon Cannon": 7,
-                "Aqua Gun": 15,
-                "Bubble Blast": 22,
-                "Power Bomb": 30,
-                "Aqua Burst": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -1491,13 +1491,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Dragon Cannon": 7,
-                "Spirit Fire": 15,
-                "Flare Arrow": 22,
-                "Dragon Burst": 30,
-                "Ignis Breath": 40,
-                "Fire Ball": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::DragonWave": 30,
+                "EPalWazaID::Flamethrower": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -1512,13 +1512,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Power Shot": 7,
-                "Power Bomb": 15,
-                "Kingly Slam": 22,
-                "Tri-Lightning": 30,
-                "Rock Lance": 40,
-                "Pal Blast": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::PowerBall": 15,
+                "EPalWazaID::Unique_KingAlpaca_BodyPress": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -1533,13 +1533,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Ice Missile": 1,
-                "Icicle Cutter": 7,
-                "Iceberg": 15,
-                "Kingly Slam": 22,
-                "Cryst Breath": 30,
-                "Aqua Burst": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::IceBlade": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::Unique_KingAlpaca_BodyPress": 22,
+                "EPalWazaID::FrostBreath": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -1554,13 +1554,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Ignis Blast": 7,
-                "Stone Blast": 15,
-                "Ignis Breath": 22,
-                "Ignis Rage": 30,
-                "Fire Ball": 40,
-                "Rock Lance": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::FireBlast": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::Inferno": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -1575,13 +1575,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Spark Blast": 1,
-                "Shockwave": 7,
-                "Lock-on Laser": 15,
-                "Lightning Streak": 22,
-                "Tri-Lightning": 30,
-                "Lightning Strike": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::LockonLaser": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -1596,13 +1596,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Sand Blast": 7,
-                "Spirit Fire": 15,
-                "Flare Arrow": 22,
-                "Ignis Breath": 30,
-                "Spirit Flame": 40,
-                "Fire Ball": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::Flamethrower": 30,
+                "EPalWazaID::GhostFlame": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 65,
@@ -1617,13 +1617,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Spirit Fire": 7,
-                "Flare Arrow": 15,
-                "Spirit Flame": 22,
-                "Flare Storm": 30,
-                "Ignis Rage": 40,
-                "Fire Ball": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 60,
@@ -1652,13 +1652,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Dragon Cannon": 1,
-                "Aqua Gun": 7,
-                "Dragon Burst": 15,
-                "Bubble Blast": 22,
-                "Draconic Breath": 30,
-                "Aqua Burst": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::DragonCanon": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -1674,13 +1674,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Spark Blast": 1,
-                "Dragon Cannon": 7,
-                "Shockwave": 15,
-                "Lightning Streak": 22,
-                "Draconic Breath": 30,
-                "Lightning Strike": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::ElecWave": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -1695,13 +1695,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Seed Machine Gun": 7,
-                "Seed Mine": 15,
-                "Aqua Burst": 22,
-                "Grass Tornado": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::SeedMine": 15,
+                "EPalWazaID::WaterBall": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -1716,13 +1716,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Dark Ball": 1,
-                "Icicle Cutter": 7,
-                "Shadow Burst": 15,
-                "Cryst Breath": 22,
-                "Nightmare Ball": 30,
-                "Blizzard Spike": 40,
-                "Dark Laser": 50
+                "EPalWazaID::DarkBall": 1,
+                "EPalWazaID::IceBlade": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -1737,13 +1737,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Seed Machine Gun": 7,
-                "Ice Missile": 15,
-                "Grass Tornado": 22,
-                "Iceberg": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::IceMissile": 15,
+                "EPalWazaID::GrassTornado": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -1758,13 +1758,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Poison Blast": 1,
-                "Dark Ball": 7,
-                "Shadow Burst": 15,
-                "Spirit Flame": 22,
-                "Nightmare Ball": 30,
-                "Ignis Breath": 40,
-                "Dark Laser": 50
+                "EPalWazaID::PoisonShot": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::Flamethrower": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -1779,13 +1779,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Poison Blast": 7,
-                "Spirit Fire": 15,
-                "Ignis Breath": 22,
-                "Flare Storm": 30,
-                "Ignis Rage": 40,
-                "Fire Ball": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -1800,13 +1800,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Power Shot": 7,
-                "Flare Arrow": 15,
-                "Ignis Breath": 22,
-                "Ignis Rage": 30,
-                "Fire Ball": 40,
-                "Pal Blast": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::Inferno": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 105,
@@ -1822,13 +1822,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Shadow Burst": 1,
-                "Flare Arrow": 7,
-                "Ignis Breath": 15,
-                "Spirit Flame": 22,
-                "Ignis Rage": 30,
-                "Fire Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::DarkWave": 1,
+                "EPalWazaID::FlareArrow": 7,
+                "EPalWazaID::Flamethrower": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::Inferno": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 105,
@@ -1843,13 +1843,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Sand Blast": 7,
-                "Seed Machine Gun": 15,
-                "Seed Mine": 22,
-                "Stone Cannon": 30,
-                "Grass Tornado": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::SeedMachinegun": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::ThrowRock": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -1864,13 +1864,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Ice Missile": 7,
-                "Icicle Cutter": 15,
-                "Power Bomb": 22,
-                "Iceberg": 30,
-                "Cryst Breath": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 60,
@@ -1885,13 +1885,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Ice Missile": 7,
-                "Icicle Cutter": 15,
-                "Iceberg": 22,
-                "Cryst Breath": 30,
-                "Pal Blast": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::BlizzardLance": 22,
+                "EPalWazaID::FrostBreath": 30,
+                "EPalWazaID::HyperBeam": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -1906,13 +1906,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Power Shot": 7,
-                "Icicle Cutter": 15,
-                "Plasma Tornado": 22,
-                "Power Bomb": 30,
-                "Blizzard Spike": 40,
-                "Pal Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::ThunderFunnel": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -1927,13 +1927,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Power Shot": 7,
-                "Cat Press": 15,
-                "Stone Blast": 22,
-                "Stone Cannon": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::Unique_NaughtyCat_CatPress": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::ThrowRock": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -1948,13 +1948,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Poison Blast": 1,
-                "Sand Blast": 7,
-                "Dark Ball": 15,
-                "Ice Missile": 22,
-                "Shadow Burst": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::PoisonShot": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::DarkBall": 15,
+                "EPalWazaID::IceMissile": 22,
+                "EPalWazaID::DarkWave": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -1969,13 +1969,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Hydro Jet": 1,
-                "Poison Blast": 7,
-                "Dark Ball": 15,
-                "Shadow Burst": 22,
-                "Acid Rain": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkBall": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::AcidRain": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 60,
@@ -1990,13 +1990,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Dark Ball": 7,
-                "Shadow Burst": 15,
-                "Power Bomb": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 75,
@@ -2012,13 +2012,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Ice Missile": 1,
-                "Hydro Jet": 7,
-                "Aqua Gun": 15,
-                "Icicle Cutter": 22,
-                "Iceberg": 30,
-                "Blizzard Spike": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::AquaJet": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2033,13 +2033,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Punch Flurry": 1,
-                "Air Cannon": 7,
-                "Sand Blast": 15,
-                "Power Shot": 22,
-                "Wind Cutter": 30,
-                "Seed Machine Gun": 40,
-                "Pal Blast": 50
+                "EPalWazaID::Unique_PinkCat_CatPunch": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::WindCutter": 30,
+                "EPalWazaID::SeedMachinegun": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2054,13 +2054,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Poison Blast": 7,
-                "Shadow Burst": 15,
-                "Acid Rain": 22,
-                "Power Bomb": 30,
-                "Implode": 40,
-                "Pal Blast": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::AcidRain": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::SelfDestruct": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -2075,13 +2075,18 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Power Shot": 7,
-                "Ice Missile": 15,
-                "Blizzard Spike": 22,
-                "Power Bomb": 30,
-                "Iceberg": 40,
-                "Pal Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::IceMissile": 15,
+                "EPalWazaID::IcicleThrow": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::BlizzardLance": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 65,
+                "DEF": 70
             }
         },
         {
@@ -2092,13 +2097,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Wind Cutter": 7,
-                "Stone Blast": 15,
-                "Seed Machine Gun": 22,
-                "Seed Mine": 30,
-                "Sand Tornado": 40,
-                "Solar Blast": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::SeedMachinegun": 22,
+                "EPalWazaID::SeedMine": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2114,13 +2119,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Wind Cutter": 7,
-                "Stone Blast": 15,
-                "Seed Machine Gun": 22,
-                "Seed Mine": 30,
-                "Sand Tornado": 40,
-                "Solar Blast": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::SeedMachinegun": 22,
+                "EPalWazaID::SeedMine": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2135,13 +2140,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Wind Cutter": 7,
-                "Poison Blast": 15,
-                "Spinning Lance": 22,
-                "Grass Tornado": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::PoisonShot": 15,
+                "EPalWazaID::Unique_QueenBee_SpinLance": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2156,13 +2161,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Shockwave": 7,
-                "Acid Rain": 15,
-                "Lightning Streak": 22,
-                "Tri-Lightning": 30,
-                "Lightning Strike": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::AcidRain": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2177,13 +2182,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Spirit Fire": 7,
-                "Flare Arrow": 15,
-                "Sand Tornado": 22,
-                "Flare Storm": 30,
-                "Ignis Breath": 40,
-                "Fire Ball": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::SandTornado": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Flamethrower": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 95,
@@ -2198,13 +2203,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Power Shot": 7,
-                "Focus Shot": 15,
-                "Seed Mine": 22,
-                "Grass Tornado": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::Unique_RobinHood_BowSnipe": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2220,13 +2225,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Wind Cutter": 7,
-                "Focus Shot": 15,
-                "Stone Blast": 22,
-                "Sand Tornado": 30,
-                "Solar Blast": 40,
-                "Rock Lance": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::Unique_RobinHood_BowSnipe": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::SolarBeam": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2241,13 +2246,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Wind Cutter": 7,
-                "Icicle Cutter": 15,
-                "Iaigiri": 22,
-                "Ignis Breath": 30,
-                "Lightning Strike": 40,
-                "Ignis Rage": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::Unique_Ronin_Iai": 22,
+                "EPalWazaID::Flamethrower": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Inferno": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -2262,13 +2267,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Ice Missile": 7,
-                "Iceberg": 15,
-                "Power Bomb": 22,
-                "Blizzard Spike": 30,
-                "Spear Thrust": 40,
-                "Pal Blast": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::IcicleThrow": 30,
+                "EPalWazaID::Unique_SaintCentaur_OneSpearRushes": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 130,
@@ -2284,13 +2289,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Sand Blast": 7,
-                "Muscle Slam": 15,
-                "Seed Mine": 22,
-                "Grass Tornado": 30,
-                "Spine Vine": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::Unique_SakuraSaurus_SideTackle": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -2306,13 +2311,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Aqua Gun": 1,
-                "Bubble Blast": 7,
-                "Muscle Slam": 15,
-                "Seed Mine": 22,
-                "Spine Vine": 30,
-                "Aqua Burst": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::BubbleShot": 7,
+                "EPalWazaID::Unique_SakuraSaurus_SideTackle": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::RootAttack": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -2327,13 +2332,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Hydro Jet": 1,
-                "Dragon Cannon": 7,
-                "Aqua Gun": 15,
-                "Bubble Blast": 22,
-                "Dragon Burst": 30,
-                "Draconic Breath": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::DragonWave": 30,
+                "EPalWazaID::DragonBreath": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2348,13 +2353,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Dragon Cannon": 7,
-                "Stone Blast": 15,
-                "Stone Cannon": 22,
-                "Sand Tornado": 30,
-                "Draconic Breath": 40,
-                "Rock Lance": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::DragonBreath": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2369,13 +2374,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Hydro Jet": 1,
-                "Power Shot": 7,
-                "Aqua Gun": 15,
-                "Bubble Blast": 22,
-                "Icicle Cutter": 30,
-                "Aqua Burst": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::IceBlade": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2390,13 +2395,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Power Shot": 7,
-                "Spirit Fire": 15,
-                "Flare Arrow": 22,
-                "Lightning Streak": 30,
-                "Fire Ball": 40,
-                "Ignis Rage": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::LineThunder": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::Inferno": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2411,13 +2416,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Roly Poly": 1,
-                "Air Cannon": 7,
-                "Power Shot": 15,
-                "Implode": 22,
-                "Electric Ball": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::Unique_SheepBall_Roll": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::SelfDestruct": 22,
+                "EPalWazaID::ThunderBall": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2432,13 +2437,13 @@
                 "Dragon"
             ],
             "Moveset": {
-                "Dragon Cannon": 1,
-                "Spirit Fire": 7,
-                "Acid Rain": 15,
-                "Draconic Breath": 22,
-                "Grass Tornado": 30,
-                "Aqua Burst": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::DragonCanon": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::AcidRain": 15,
+                "EPalWazaID::DragonBreath": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 105,
@@ -2453,13 +2458,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Wind Cutter": 7,
-                "Bee Quiet": 15,
-                "Poison Blast": 22,
-                "Acid Rain": 30,
-                "Grass Tornado": 40,
-                "Solar Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::SelfDestruct_Bee": 15,
+                "EPalWazaID::PoisonShot": 22,
+                "EPalWazaID::AcidRain": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -2474,13 +2479,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Ignis Blast": 7,
-                "Spirit Fire": 15,
-                "Flare Arrow": 22,
-                "Ignis Breath": 30,
-                "Flare Storm": 40,
-                "Fire Ball": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::FireBlast": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::Flamethrower": 30,
+                "EPalWazaID::FlareTornado": 40,
+                "EPalWazaID::FireBall": 50
             },
             "Scaling": {
                 "HP": 120,
@@ -2495,13 +2500,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Hydro Jet": 1,
-                "Ice Missile": 7,
-                "Aqua Gun": 15,
-                "Cryst Breath": 22,
-                "Aqua Burst": 30,
-                "Blizzard Spike": 40,
-                "Hydro Laser": 50
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::WaterBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HydroPump": 50
             },
             "Scaling": {
                 "HP": 125,
@@ -2516,13 +2521,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Sand Blast": 7,
-                "Power Shot": 15,
-                "Wind Cutter": 22,
-                "Bubble Blast": 30,
-                "Power Bomb": 40,
-                "Pal Blast": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::WindCutter": 22,
+                "EPalWazaID::BubbleShot": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2537,13 +2542,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Spark Blast": 7,
-                "Shockwave": 15,
-                "Lightning Streak": 22,
-                "Tri-Lightning": 30,
-                "Sand Tornado": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::SpreadPulse": 7,
+                "EPalWazaID::ElecWave": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 105,
@@ -2558,13 +2563,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Sand Blast": 1,
-                "Shockwave": 7,
-                "Spark Blast": 15,
-                "Stone Blast": 22,
-                "Electric Ball": 30,
-                "Lightning Streak": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::SpreadPulse": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::ThunderBall": 30,
+                "EPalWazaID::LineThunder": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2580,13 +2585,13 @@
                 "Electric"
             ],
             "Moveset": {
-                "Kerauno": 1,
-                "Lightning Strike": 7,
-                "Spark Blast": 15,
-                "Draconic Breath": 22,
-                "Lightning Streak": 30,
-                "Tri-Lightning": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::Unique_ThunderDragonMan_ThunderSwordAttack": 1,
+                "EPalWazaID::LightningStrike": 7,
+                "EPalWazaID::SpreadPulse": 15,
+                "EPalWazaID::DragonBreath": 22,
+                "EPalWazaID::LineThunder": 30,
+                "EPalWazaID::ThreeThunder": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -2602,13 +2607,13 @@
                 "Water"
             ],
             "Moveset": {
-                "Aqua Gun": 1,
-                "Dragon Cannon": 7,
-                "Draconic Breath": 15,
-                "Aqua Burst": 22,
-                "Tri-Lightning": 30,
-                "Hydro Laser": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::DragonBreath": 15,
+                "EPalWazaID::WaterBall": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::HydroPump": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 130,
@@ -2624,13 +2629,13 @@
                 "Fire"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Dragon Cannon": 7,
-                "Flare Storm": 15,
-                "Ignis Breath": 22,
-                "Tri-Lightning": 30,
-                "Fire Ball": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::FlareTornado": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 130,
@@ -2645,13 +2650,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Poison Fog": 1,
-                "Wind Cutter": 7,
-                "Poison Blast": 15,
-                "Seed Mine": 22,
-                "Grass Tornado": 30,
-                "Nightmare Ball": 40,
-                "Solar Blast": 50
+                "EPalWazaID::PoisonFog": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::PoisonShot": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -2667,13 +2672,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Ignis Blast": 1,
-                "Stone Blast": 7,
-                "Stone Cannon": 15,
-                "Ignis Breath": 22,
-                "Volcanic Burst": 30,
-                "Ignis Rage": 40,
-                "Rock Lance": 50
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::StoneShotgun": 7,
+                "EPalWazaID::ThrowRock": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::Unique_VolcanicMonster_MagmaAttack": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -2689,13 +2694,13 @@
                 "Ground"
             ],
             "Moveset": {
-                "Ice Missile": 1,
-                "Stone Blast": 7,
-                "Iceberg": 15,
-                "Cryst Breath": 22,
-                "Frost Burst": 30,
-                "Blizzard Spike": 40,
-                "Rock Lance": 50
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::StoneShotgun": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::RockLance": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -2711,13 +2716,13 @@
                 "Dragon"
             ],
             "Moveset": {
-                "Ice Missile": 1,
-                "Dragon Cannon": 7,
-                "Dragon Burst": 15,
-                "Icicle Cutter": 22,
-                "Draconic Breath": 30,
-                "Cryst Breath": 40,
-                "Dragon Meteor": 50
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::DragonMeteor": 50
             },
             "Scaling": {
                 "HP": 90,
@@ -2732,13 +2737,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Dark Ball": 1,
-                "Jumping Claw": 7,
-                "Shadow Burst": 15,
-                "Icicle Cutter": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::DarkBall": 1,
+                "EPalWazaID::Unique_Werewolf_Scratch": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 80,
@@ -2753,13 +2758,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Ice Missile": 1,
-                "Icicle Cutter": 7,
-                "Iceberg": 15,
-                "Cryst Breath": 22,
-                "Spirit Flame": 30,
-                "Aqua Burst": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::IceBlade": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 110,
@@ -2774,13 +2779,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Power Shot": 1,
-                "Ice Missile": 7,
-                "Stone Cannon": 15,
-                "Icicle Cutter": 22,
-                "Iceberg": 30,
-                "Cryst Breath": 40,
-                "Blizzard Spike": 50
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::ThrowRock": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
                 "HP": 100,
@@ -2821,13 +2826,13 @@
                 "Dark"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Dark Ball": 7,
-                "Shadow Burst": 15,
-                "Sand Tornado": 22,
-                "Spirit Flame": 30,
-                "Nightmare Ball": 40,
-                "Dark Laser": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::SandTornado": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2842,13 +2847,13 @@
                 "Neutral"
             ],
             "Moveset": {
-                "Air Cannon": 1,
-                "Sand Blast": 7,
-                "Spark Blast": 15,
-                "Power Shot": 22,
-                "Shockwave": 30,
-                "Power Bomb": 40,
-                "Lightning Bolt": 50
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::SpreadPulse": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::Thunderbolt": 50
             },
             "Scaling": {
                 "HP": 70,
@@ -2863,13 +2868,13 @@
                 "Ice"
             ],
             "Moveset": {
-                "Ice Missile": 1,
-                "Wind Cutter": 7,
-                "Icicle Cutter": 15,
-                "Iceberg": 22,
-                "Cryst Breath": 30,
-                "Blizzard Spike": 40,
-                "Solar Blast": 50
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::BlizzardLance": 22,
+                "EPalWazaID::FrostBreath": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 140,
@@ -2884,13 +2889,13 @@
                 "Grass"
             ],
             "Moveset": {
-                "Wind Cutter": 1,
-                "Aqua Gun": 7,
-                "Seed Mine": 15,
-                "Grass Tornado": 22,
-                "Spine Vine": 30,
-                "Aqua Burst": 40,
-                "Solar Blast": 50
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::SeedMine": 15,
+                "EPalWazaID::GrassTornado": 22,
+                "EPalWazaID::RootAttack": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::SolarBeam": 50
             },
             "Scaling": {
                 "HP": 140,
@@ -2905,8 +2910,7 @@
                 "Dark",
                 "Dragon"
             ],
-            "Moveset": {
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 130,
                 "ATK": 130,
@@ -2919,8 +2923,7 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": {
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 100,
                 "ATK": 110,
@@ -2934,8 +2937,7 @@
                 "Dark",
                 "Dragon"
             ],
-            "Moveset": {
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 100,
                 "ATK": 100,
