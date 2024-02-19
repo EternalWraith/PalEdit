@@ -1,4 +1,0 @@
-= START OF LOG =
-App opened at 19:04:12 on 19/02/2024
-Opening file C:/Users/jajay/AppData/Local/Pal/Saved/SaveGames/76561198142645136/ED18F09245E76E31D8FE81899AE1327B/Level.sav
-= END OF LOG =
