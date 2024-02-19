@@ -1,0 +1,737 @@
+{
+    "values": [
+        {
+            "CodeName": "",
+            "Name": "(无效条目)",
+            "Type": "",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::AcidRain",
+            "Name": "酸雨",
+            "Type": "Water",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::AirCanon",
+            "Name": "空气炮",
+            "Type": "Neutral",
+            "Power": 25
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Deer_PushupHorn",
+            "Name": "尖角顶击[紫霞/祇岳鹿]",
+            "Type": "Neutral",
+            "Power": 50,
+            "Exclusive": ["Deer", "Deer_Ground"]
+        },
+        {
+            "CodeName": "EPalWazaID::WaterBall",
+            "Name": "爆裂水球",
+            "Type": "Water",
+            "Power": 100
+        },
+        {
+            "CodeName": "EPalWazaID::WaterGun",
+            "Name": "水枪",
+            "Type": "Water",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_JetDragon_JumpBeam",
+            "Name": "光束彗星[空涡龙]",
+            "Type": "Dragon",
+            "Power": 140,
+            "Exclusive": ["JetDragon"]
+        },
+        {
+            "CodeName": "EPalWazaID::SelfDestruct_Bee",
+            "Name": "蜂!蜂!蜂![骑士蜂]",
+            "Type": "Neutral",
+            "Power": 200,
+            "Exclusive": ["SoldierBee"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_GrassPanda_Electric_ElectricPunch",
+            "Name": "爆裂拳击[雷胖达]",
+            "Type": "Electric",
+            "Power": 85,
+            "Exclusive": ["GrassPanda_Electric"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FlameBuffalo_FlameHorn",
+            "Name": "炽热角击[炽焰牛]",
+            "Type": "Fire",
+            "Power": 50,
+            "Exclusive": ["FlameBuffalo"]
+        },
+        {
+            "CodeName": "EPalWazaID::IcicleThrow",
+            "Name": "钻石星辰",
+            "Type": "Ice",
+            "Power": 130
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FlowerDinosaur_Whip",
+            "Name": "植物猛击[花冠龙]",
+            "Type": "Grass",
+            "Power": 60,
+            "Exclusive": ["FlowerDinosaur"]
+        },
+        {
+            "CodeName": "EPalWazaID::BubbleShot",
+            "Name": "泡沫射击",
+            "Type": "Water",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_NaughtyCat_CatPress",
+            "Name": "猫咪扑击[笑魇猫]",
+            "Type": "Neutral",
+            "Power": 60,
+            "Exclusive": ["NaughtyCat"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_ChickenPal_ChickenPeck",
+            "Name": "皮皮冲鸡[皮皮鸡]",
+            "Type": "Neutral",
+            "Power": 30,
+            "Exclusive": ["ChickenPal"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FengyunDeeper_CloudTempest",
+            "Name": "阴云之岚[云海鹿]",
+            "Type": "Neutral",
+            "Power": 0,
+            "Exclusive": ["FengyunDeeper"]
+        },
+        {
+            "CodeName": "EPalWazaID::CrossThunder",
+            "Name": "十字雷击",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_GrassPanda_MusclePunch",
+            "Name": "筋肉重拳[叶胖达]",
+            "Type": "Grass",
+            "Power": 85,
+            "Exclusive": ["GrassPanda"]
+        },
+        {
+            "CodeName": "EPalWazaID::FrostBreath",
+            "Name": "凛冬之息",
+            "Type": "Ice",
+            "Power": 90
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_IceHorse_IceBladeAttack",
+            "Name": "冰晶之翼[唤冬/夜兽]",
+            "Type": "Ice",
+            "Power": 110,
+            "Exclusive": ["IceHorse", "IceHorse_Dark"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_AmaterasuWolf_FireCharge",
+            "Name": "风林火山[苍焰狼]",
+            "Type": "Fire",
+            "Power": 75,
+            "Exclusive": ["AmaterasuWolf"]
+        },
+        {
+            "CodeName": "EPalWazaID::DarkBall",
+            "Name": "暗黑球",
+            "Type": "Dark",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FireKirin_Dark_DarkTossin",
+            "Name": "暗影冲撞[邪麒麟]",
+            "Type": "Dark",
+            "Power": 85,
+            "Exclusive": ["FireKirin_Dark"]
+        },
+        {
+            "CodeName": "EPalWazaID::DarkLaser",
+            "Name": "暗黑镭射",
+            "Type": "Dark",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::DarkLegion",
+            "Name": "黑暗之拥",
+            "Type": "Dark",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_BlackGriffon_TackleLaser",
+            "Name": "神圣灾祸[异构格里芬]",
+            "Type": "Dark",
+            "Power": 160,
+            "Exclusive": ["BlackGriffon"]
+        },
+        {
+            "CodeName": "EPalWazaID::DragonBreath",
+            "Name": "龙息",
+            "Type": "Dragon",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::DragonWave",
+            "Name": "龙之波动",
+            "Type": "Dragon",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::DragonCanon",
+            "Name": "龙息弹",
+            "Type": "Dragon",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::DragonMeteor",
+            "Name": "龙彗星",
+            "Type": "Dragon",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Grassmammoth_Earthquake",
+            "Name": "(无效条目)Earth Impact[森/雪猛犸]",
+            "Type": "Ground",
+            "Power": 100,
+            "Exclusive": ["Grassmammoth", "Grassmammoth_Ice"]
+        },
+        {
+            "CodeName": "EPalWazaID::ThunderBall",
+            "Name": "闪电球",
+            "Type": "Electric",
+            "Power": 50
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_CaptainPenguin_BodySlide",
+            "Name": "王者滑击[企丸王]",
+            "Type": "Ice",
+            "Power": 70,
+            "Exclusive": ["CaptainPenguin"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Garm_Bite",
+            "Name": "狂野獠牙[猎狼]",
+            "Type": "Neutral",
+            "Power": 45,
+            "Exclusive": ["Garm"]
+        },
+        {
+            "CodeName": "EPalWazaID::FireBall",
+            "Name": "烈焰球",
+            "Type": "Fire",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::FlareArrow",
+            "Name": "烈焰箭",
+            "Type": "Fire",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::FlareTornado",
+            "Name": "烈焰风暴",
+            "Type": "Fire",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Alpaca_Tackle",
+            "Name": "绒毛冲撞[美露帕]",
+            "Type": "Neutral",
+            "Power": 40,
+            "Exclusive": ["Alpaca"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_RobinHood_BowSnipe",
+            "Name": "精准狙击[羽箭/山岳射手]",
+            "Type": "Grass",
+            "Power": 65,
+            "Exclusive": ["RobinHood", "RobinHood_Ground"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Anubis_Tackle",
+            "Name": "巨力冲锋[阿努比斯]",
+            "Type": "Ground",
+            "Power": 120,
+            "Exclusive": ["Anubis"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_IceDeer_IceHorn",
+            "Name": "霜角猛攻[严冬鹿]",
+            "Type": "Ice",
+            "Power": 65,
+            "Exclusive": ["IceDeer"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack",
+            "Name": "霜冻爆裂[寒霜兽]",
+            "Type": "Ice",
+            "Power": 100,
+            "Exclusive": ["VolcanicMonster_Ice"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Eagle_GlidingNail",
+            "Name": "滑空爪[天擒鸟]",
+            "Type": "Neutral",
+            "Power": 60,
+            "Exclusive": ["Eagle"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_HerculesBeetle_BeetleTackle",
+            "Name": "终极角击[铠格力斯]",
+            "Type": "Ground",
+            "Power": 75,
+            "Exclusive": ["HerculesBeetle"]
+        },
+        {
+            "CodeName": "EPalWazaID::GrassTornado",
+            "Name": "绿野飓风",
+            "Type": "Grass",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Gorilla_GroundPunch",
+            "Name": "猩猩连打[铁拳猿]",
+            "Type": "Neutral",
+            "Power": 85,
+            "Exclusive": ["Gorilla"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Anubis_GroundPunch",
+            "Name": "粉碎大地[阿努比斯]",
+            "Type": "Ground",
+            "Power": 140,
+            "Exclusive": ["Anubis"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Baphomet_SwallowKite",
+            "Name": "狱火爪[炎/暗魔羊]",
+            "Type": "Fire",
+            "Power": 70,
+            "Exclusive": ["Baphomet", "Baphomet_Dark"]
+        },
+        {
+            "CodeName": "EPalWazaID::AquaJet",
+            "Name": "水流射击",
+            "Type": "Water",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::HydroPump",
+            "Name": "高压水炮",
+            "Type": "Water",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Ronin_Iai",
+            "Name": "居合斩[浪刃武士]",
+            "Type": "Fire",
+            "Power": 65,
+            "Exclusive": ["Ronin"]
+        },
+        {
+            "CodeName": "EPalWazaID::IceMissile",
+            "Name": "冰雪发射",
+            "Type": "Ice",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::BlizzardLance",
+            "Name": "冰刺",
+            "Type": "Ice",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::IceBlade",
+            "Name": "冰刃",
+            "Type": "Ice",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::FireBlast",
+            "Name": "烈焰射击",
+            "Type": "Fire",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::Flamethrower",
+            "Name": "烈焰放射",
+            "Type": "Fire",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::Inferno",
+            "Name": "地狱火",
+            "Type": "Fire",
+            "Power": 120
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FireKirin_Tackle",
+            "Name": "烈焰冲撞[火/邪麒麟]",
+            "Type": "Fire",
+            "Power": 85,
+            "Exclusive": ["FireKirin"]
+        },
+        {
+            "CodeName": "EPalWazaID::SelfDestruct",
+            "Name": "自爆",
+            "Type": "Neutral",
+            "Power": 180
+        },
+        {
+            "CodeName": "EPalWazaID::Intimidate",
+            "Name": "恐吓",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Werewolf_Scratch",
+            "Name": "飞跃爪击[月镰魔]",
+            "Type": "Dark",
+            "Power": 55,
+            "Exclusive": ["Werewolf"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_ThunderDragonMan_ThunderSwordAttack",
+            "Name": "雷神之枪[波鲁杰克斯]",
+            "Type": "Electric",
+            "Power": 100,
+            "Exclusive": ["ThunderDragonMan"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_KingAlpaca_BodyPress",
+            "Name": "泰山压顶[君王/冰帝美露帕]",
+            "Type": "Neutral",
+            "Power": 100,
+            "Exclusive": ["KingAlpaca", "KingAlpaca_Ice"]
+        },
+        {
+            "CodeName": "EPalWazaID::Thunderbolt",
+            "Name": "闪电伏特",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_ElecPanda_ElecScratch",
+            "Name": "霹雳连爪[暴电熊]",
+            "Type": "Electric",
+            "Power": 90,
+            "Exclusive": ["ElecPanda"]
+        },
+        {
+            "CodeName": "EPalWazaID::ThunderRain",
+            "Name": "雷雨",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::LineThunder",
+            "Name": "雷击",
+            "Type": "Electric",
+            "Power": 75
+        },
+        {
+            "CodeName": "EPalWazaID::LightningStrike",
+            "Name": "闪电冲击",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Kirin_LightningTackle",
+            "Name": "疾风迅雷[雷角马]",
+            "Type": "Electric",
+            "Power": 0,
+            "Exclusive": ["Kirin"]
+        },
+        {
+            "CodeName": "EPalWazaID::LockonLaser",
+            "Name": "锁定雷射",
+            "Type": "Electric",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::SelfExplosion",
+            "Name": "超自爆",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::SpecialCutter",
+            "Name": "多重利刃",
+            "Type": "Grass",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_SakuraSaurus_SideTackle",
+            "Name": "铁山靠[连理/海誓龙]",
+            "Type": "Neutral",
+            "Power": 80,
+            "Exclusive": ["SakuraSaurus", "SakuraSaurus_Water"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_FairyDragon_FairyTornado",
+            "Name": "神秘旋风[精灵/水灵龙]",
+            "Type": "Dragon",
+            "Power": 70,
+            "Exclusive": ["FairyDragon", "FairyDragon_Water"]
+        },
+        {
+            "CodeName": "EPalWazaID::ShadowBall",
+            "Name": "恶魔球",
+            "Type": "Dark",
+            "Power": 100
+        },
+        {
+            "CodeName": "None",
+            "Name": "None",
+            "Type": "None",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::HyperBeam",
+            "Name": "帕鲁光束",
+            "Type": "Neutral",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_DarkCrow_TelePoke",
+            "Name": "幻影突袭[黑鸦隐士]",
+            "Type": "Dark",
+            "Power": 55,
+            "Exclusive": ["DarkCrow"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Horus_FlareBird",
+            "Name": "凤凰翔波[荷鲁斯]",
+            "Type": "Fire",
+            "Power": 135,
+            "Exclusive": ["Horus"]
+        },
+        {
+            "CodeName": "EPalWazaID::ThunderFunnel",
+            "Name": "等离子浮游炮",
+            "Type": "Electric",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::PoisonShot",
+            "Name": "剧毒射击",
+            "Type": "Dark",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::PoisonFog",
+            "Name": "毒雾",
+            "Type": "Dark",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::PowerBall",
+            "Name": "元气弹",
+            "Type": "Neutral",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::PowerShot",
+            "Name": "能量射击",
+            "Type": "Neutral",
+            "Power": 35
+        },
+        {
+            "CodeName": "EPalWazaID::Psychokinesis",
+            "Name": "念动引力",
+            "Type": "Dark",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Human_Punch",
+            "Name": "击打",
+            "Type": "Neutral",
+            "Power": 0
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_PinkCat_CatPunch",
+            "Name": "喵喵拳[捣蛋猫]",
+            "Type": "Neutral",
+            "Power": 40,
+            "Exclusive": ["PinkCat"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Boar_Tackle",
+            "Name": "猪突猛进[草莽猪]",
+            "Type": "Neutral",
+            "Power": 55,
+            "Exclusive": ["Boar"]
+        },
+        {
+            "CodeName": "EPalWazaID::RockLance",
+            "Name": "岩石锐矛",
+            "Type": "Ground",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_SheepBall_Roll",
+            "Name": "滚滚毛球[棉悠悠]",
+            "Type": "Neutral",
+            "Power": 35,
+            "Exclusive": ["Sheepball"]
+        },
+        {
+            "CodeName": "EPalWazaID::MudShot",
+            "Name": "泥浆投掷",
+            "Type": "Ground",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::SandTornado",
+            "Name": "砂砾飓风",
+            "Type": "Ground",
+            "Power": 80
+        },
+        {
+            "CodeName": "EPalWazaID::SeedMachinegun",
+            "Name": "种子机关枪",
+            "Type": "Grass",
+            "Power": 50
+        },
+        {
+            "CodeName": "EPalWazaID::SeedMine",
+            "Name": "种子地雷",
+            "Type": "Grass",
+            "Power": 65
+        },
+        {
+            "CodeName": "EPalWazaID::DarkWave",
+            "Name": "暗影波动",
+            "Type": "Dark",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_DrillGame_ShellAttack",
+            "Name": "甲壳回旋[碎岩龟]",
+            "Type": "Ground",
+            "Power": 65,
+            "Exclusive": ["DrillGame"]
+        },
+        {
+            "CodeName": "EPalWazaID::ElecWave",
+            "Name": "冲击波",
+            "Type": "Electric",
+            "Power": 40
+        },
+        {
+            "CodeName": "EPalWazaID::SolarBeam",
+            "Name": "太阳光束",
+            "Type": "Electric",
+            "Power": 150
+        },
+        {
+            "CodeName": "EPalWazaID::SpreadPulse",
+            "Name": "电火花",
+            "Type": "Electric",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_SaintCentaur_OneSpearRushes",
+            "Name": "闪枪冲锋[圣光骑士]",
+            "Type": "Neutral",
+            "Power": 120,
+            "Exclusive": ["SaintCentaur"]
+        },
+        {
+            "CodeName": "EPalWazaID::RootAttack",
+            "Name": "缠绕地刺",
+            "Type": "Grass",
+            "Power": 95
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_QueenBee_SpinLance",
+            "Name": "(无效条目)Spinning Lance[女皇蜂]",
+            "Type": "Grass",
+            "Power": 70,
+            "Exclusive": ["Queenbee"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_Anubis_LowRoundKick",
+            "Name": "回旋踢[阿努比斯]",
+            "Type": "Ground",
+            "Power": 100,
+            "Exclusive": ["Anubis"]
+        },
+        {
+            "CodeName": "EPalWazaID::FireSeed",
+            "Name": "烈焰溅射",
+            "Type": "Fire",
+            "Power": 45
+        },
+        {
+            "CodeName": "EPalWazaID::GhostFlame",
+            "Name": "鬼火",
+            "Type": "Dark",
+            "Power": 75
+        },
+        {
+            "CodeName": "EPalWazaID::StoneShotgun",
+            "Name": "碎石霰弹",
+            "Type": "Ground",
+            "Power": 55
+        },
+        {
+            "CodeName": "EPalWazaID::ThrowRock",
+            "Name": "投石",
+            "Type": "Ground",
+            "Power": 70
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_BluePlatypus_Toboggan",
+            "Name": "乘风破浪[冲浪鸭]",
+            "Type": "Water",
+            "Power": 0,
+            "Exclusive": ["BluePlatypus"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_HawkBird_Storm",
+            "Name": "龙卷风[疾风隼]",
+            "Type": "Neutral",
+            "Power": 65,
+            "Exclusive": ["HawkBird"]
+        },
+        {
+            "CodeName": "EPalWazaID::ThreeThunder",
+            "Name": "三重雷击",
+            "Type": "Electric",
+            "Power": 90
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes",
+            "Name": "双枪一闪[混沌骑士]",
+            "Type": "Dark",
+            "Power": 120,
+            "Exclusive": ["BlackCentaur"]
+        },
+        {
+            "CodeName": "EPalWazaID::Unique_VolcanicMonster_MagmaAttack",
+            "Name": "火山爆发[熔岩兽]",
+            "Type": "Fire",
+            "Power": 100,
+            "Exclusive": ["VolcanicMonster"]
+        },
+        {
+            "CodeName": "EPalWazaID::WindCutter",
+            "Name": "风刃",
+            "Type": "Grass",
+            "Power": 30
+        },
+        {
+            "CodeName": "EPalWazaID::WaterWave",
+            "Name": "(无效条目)en Text",
+            "Type": "",
+            "Power": 0
+        }
+    ]
+}

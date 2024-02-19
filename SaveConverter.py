@@ -65,6 +65,38 @@ def main():
             output_path = args.output
         convert_json_to_sav(args.filename, output_path, args.force)
 
+def convert_sav_to_obj(filename):
+    print(f"Decompressing sav file")
+    with open(filename, "rb") as f:
+        data = f.read()
+        raw_gvas, _ = decompress_sav_to_gvas(data)
+    print(f"Loading GVAS file")
+    gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
+    return gvas_file.dump()
+
+
+def convert_obj_to_sav(obj, output_path, force=False):
+    if os.path.exists(output_path):
+        print(f"{output_path} already exists, this will overwrite the file")
+        if not force:
+            if not confirm_prompt("Are you sure you want to continue?"):
+                exit(1)
+    gvas_file = GvasFile.load(obj)
+    print(f"Compressing SAV file")
+    if (
+        "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
+        or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
+    ):
+        save_type = 0x32
+    else:
+        save_type = 0x31
+    sav_file = compress_gvas_to_sav(
+        gvas_file.write(PALWORLD_CUSTOM_PROPERTIES), save_type
+    )
+    print(f"Writing SAV file to {output_path}")
+    with open(output_path, "wb") as f:
+        f.write(sav_file)
+
 
 def convert_sav_to_json(filename, output_path, force=False, minify=False):
     print(f"Converting {filename} to JSON, saving to {output_path}")
