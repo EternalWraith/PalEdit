@@ -107,7 +107,7 @@ If you’ve installed Palworld via Steam, you can also access your save files by
 6. Build the binary file. Once done, it will be located in the `dist` folder:
 
     ```powershell
-    pyinstaller --noconfirm --onefile --windowed --icon "resources/MossandaIcon.ico" --hidden-import=PIL "PalEdit.py"
+    pyinstaller --noconfirm --onefile --windowed --icon "palworld_pal_edit/resources/MossandaIcon.ico" --hidden-import=PIL "PalEdit.py"
     ```
 
     > If you get any error about virus, check the top of this README file. Also this issue comment with some further explanation may interest you: [Issue #41](https://github.com/EternalWraith/PalEdit/issues/41#issuecomment-1914567848)
