@@ -347,7 +347,8 @@ class PalEntity:
     def CalculateIngameStats(self):
         LEVEL = self.GetLevel()
         SCALING = self.GetObject().GetScaling()
-
+        if SCALING is None:
+            return {"HP": 0, "ATK": 0, "DEF": 0}
         HP_SCALE = SCALING["HP"]
         if self.isBoss and "HP_BOSS" in SCALING:
             HP_SCALE = SCALING["HP_BOSS"]
