@@ -8,6 +8,7 @@ import tkinter
 from EmptyObjectHandler import *
 import uuid
 import copy
+import math
 
 module_dir = os.path.dirname(os.path.realpath(__file__))
 if not os.path.exists("%s/resources/data/elements.json" % module_dir) and getattr(sys, 'frozen', False):
@@ -217,6 +218,7 @@ class PalEntity:
         self._equipMoves = self._obj["EquipWaza"]["value"]["values"]
 
         self.CleanseAttacks()
+        self.UpdateMaxHP()
 
     def SwapGender(self):
         if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
@@ -259,6 +261,7 @@ class PalEntity:
                 if self._learntMoves[i] in PalLearnSet[self._type.GetCodeName()]:
                     if not self._level >= PalLearnSet[self._type.GetCodeName()][self._learntMoves[i]]:
                         remove = True
+
             if remove:
                 if self._learntMoves[i] in self._equipMoves:
                     self._equipMoves.remove(self._learntMoves[i])
@@ -316,12 +319,12 @@ class PalEntity:
             return self._obj["Rank_Attack"]["value"]
         return 0
 
-    # def GetRankDefense(self):
-    #     # I haven't checked if this is the correct key.
-    #     # unused
-    #     if "Rank_Defense" in self._obj:
-    #         return self._obj["Rank_Defense"]["value"]
-    #     return 0
+    def GetRankDefence(self):
+        # I haven't checked if this is the correct key.
+        # unused
+        if "Rank_Defence" in self._obj:
+            return self._obj["Rank_Defence"]["value"]
+        return 0
 
     # def GetRankCraftSpeed(self):
     #     # I haven't checked if this is the correct key.
@@ -333,7 +336,47 @@ class PalEntity:
     def GetMaxHP(self):
         return self._obj['MaxHP']['value']['Value']['value']
 
-    def UpdateMaxHP(self, changes: dict, hp_scaling=None) -> bool:
+    def CalculateIngameStats(self):
+        LEVEL = self.GetLevel()
+        SCALING = self.GetObject().GetScaling()
+
+        HP_SCALE = SCALING["HP"]
+        if self.isBoss and "HP_BOSS" in SCALING:
+            HP_SCALE = SCALING["HP_BOSS"]
+        HP_IV = self.GetTalentHP() * 0.3 / 100
+        HP_SOUL = self.GetRankHP() * 0.03
+        HP_RANK = (self.GetRank() - 1) * 0.05
+        HP_BONUS = 0
+
+        HP_STAT = math.floor(500 + 5 * LEVEL + HP_SCALE * 0.5 * LEVEL * (1 + HP_IV))
+        HP_STAT = math.floor(HP_STAT * (1 + HP_BONUS) * (1 + HP_SOUL) * (1 + HP_RANK))
+
+        AT_SCALE = SCALING["ATK"]
+        AT_IV = self.GetAttackRanged() * 0.3 / 100
+        AT_SOUL = self.GetRankAttack() * 0.03
+        AT_RANK = (self.GetRank() - 1) * 0.05
+        AT_BONUS = 0
+
+        AT_STAT = math.floor(100 + AT_SCALE * 0.075 * LEVEL * (1 + AT_IV))
+        AT_STAT = math.floor(AT_STAT * (1 + AT_BONUS) * (1 + AT_SOUL) * (1 + AT_RANK))
+
+        DF_SCALE = SCALING["DEF"]
+        DF_IV = self.GetDefence() * 0.3 / 100
+        DF_SOUL = self.GetRankDefence() * 0.03
+        DF_RANK = (self.GetRank() - 1) * 0.05
+        DF_BONUS = 0
+
+        DF_STAT = math.floor(50 + DF_SCALE * 0.075 * LEVEL * (1 + DF_IV))
+        DF_STAT = math.floor(DF_STAT * (1 + DF_BONUS) * (1 + DF_SOUL) * (1 + DF_RANK))
+        return {"HP": HP_STAT, "ATK": AT_STAT, "DEF": DF_STAT}
+
+
+    def UpdateMaxHP(self):
+        new_hp = self.CalculateIngameStats()["HP"]
+        self._obj['MaxHP']['value']['Value']['value'] = new_hp * 1000
+        self._obj['HP']['value']['Value']['value'] = new_hp * 1000
+
+    def OLD_UpdateMaxHP(self, changes: dict, hp_scaling=None) -> bool:
         # do not manually pass in hp_scaling unless you are 100% sure that the value is correct!
         factors = {
             'level': self.GetLevel(),
@@ -375,6 +418,7 @@ class PalEntity:
                 1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (
                               1 + (factors['rank'] - 1) * 5 / 100))) * 1000
         self._obj['MaxHP']['value']['Value']['value'] = new_hp
+        self._obj['HP']['value']['Value']['value'] = new_hp
         print("%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
 
     def GetAttackMelee(self):
@@ -826,66 +870,3 @@ if __name__ == "__main__":
                     if find(move_name) != "None":
                         new_moveset[find(move_name)] = move_id
                     elif move_name in PalAttacks:
-                        new_moveset[move_name] = move_id
-                    else:
-                        print(f"Error: Invalid {move_name}")
-                pal['Moveset'] = new_moveset
-
-    with open("%s/resources/data/pals.json" % (module_dir), "w", encoding="utf-8") as f:
-        json.dump(pals, f, indent=4)
-
-##
-##
-##    if True:
-##        import bs4 as bsoup
-##        import urllib.request as ureq
-##
-##
-##
-##        with open(module_dir+"/resources/data/pals.json", "r+", encoding="utf8") as palfile:
-##            p = json.loads(palfile.read())
-##            palfile.seek(0)
-##            for pal in p['values']:
-##                pal["Moveset"] = {}
-##                if not "Human" in pal and not "Tower" in pal:
-##                    n = pal["Name"].lower().replace(" ", "-")
-##                    headers = {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'}
-##                    req = ureq.Request(f"http://palworld.gg/pal/{n}", None, headers)
-##                    src = ureq.urlopen(req)
-##                    soup = bsoup.BeautifulSoup(src, "lxml")
-##
-##                    con = soup.find_all("div", {"class": "active skills"})
-##                    if len(con) > 0:
-##                        for item in con[0].find_all("div", {"class": "item"}):
-##
-##                            name = item.find("div", {"class": "name"}).text
-##                            level = item.find("div", {"class": "level"})
-##
-##                            if not level == None:
-##                                level = int(level.text.replace("- Lv ", ""))
-##                                pal["Moveset"][name] = level
-##            json.dump(p, palfile, indent=4)
-##
-##
-##    if True:
-##
-##        codes = {}
-##        with open("data.txt", "r") as file:
-##            for line in file:
-##                l = line.replace("\t", " ").replace("\n", "")
-##                c, n = l.split(" ", 1)
-##                codes[n] = c
-##
-##        def sortStuff(e):
-##            return e["Name"]
-##        debugOutput.sort(key=sortStuff)
-##
-##        for i in debugOutput:
-##            if i["Name"] in codes:
-##                i["CodeName"] = codes[i["Name"]]
-##                codes.pop(i["Name"])
-##
-##        for i in codes:
-##            debugOutput.append({"CodeName": codes[i], "Name": i, "Type": "", "Power": 0})
-##        with open(module_dir+"/resources/data/attacks.json", "w", encoding="utf8") as attackfile:
-##            json.dump({"values": debugOutput}, attackfile, indent=4)

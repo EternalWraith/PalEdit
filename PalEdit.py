@@ -121,7 +121,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.6.1"
+    version = "0.6.3"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
@@ -498,6 +498,10 @@ class PalEdit():
         self.level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
 
         self.portrait.config(image=pal.GetImage())
+        calc = pal.CalculateIngameStats()
+        self.hthstatval.config(text=calc["HP"])
+        self.atkstatval.config(text=calc["ATK"])
+        self.defstatval.config(text=calc["DEF"])
 
         self.ptype.config(text=pal.GetPrimary(), bg=PalInfo.PalElements[pal.GetPrimary()])
         self.stype.config(text=pal.GetSecondary(), bg=PalInfo.PalElements[pal.GetSecondary()])
@@ -783,6 +787,9 @@ class PalEdit():
         print(newguid)
 
     def handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
+        pal.UpdateMaxHP()
+        
+    def OLD_handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
         retval = pal.UpdateMaxHP(changes)
         if retval is not None:
             answer = messagebox.askquestion(
@@ -1188,7 +1195,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                    activebackground=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"))
 
         stats = tk.Frame(atkskill)
-        # stats.pack(fill=tk.constants.X)
+        stats.pack(fill=tk.constants.X)
 
         statLabel = tk.Label(stats, bg="darkgrey", width=12, text=self.i18n['stat_lbl'],
                              font=(PalEditConfig.font, PalEditConfig.ftsize), justify="center")
@@ -1231,7 +1238,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         disclaim = tk.Label(atkskill, bg="darkgrey", text=self.i18n['msg_disclaim'],
                             font=(PalEditConfig.font, PalEditConfig.ftsize // 2))
         self.i18n_el['msg_disclaim'] = disclaim
-        # disclaim.pack(fill=tk.constants.X)
+        disclaim.pack(fill=tk.constants.X)
 
         # Individual Info
         infoview = tk.Frame(root, relief="groove", borderwidth=2, width=480, height=480)
