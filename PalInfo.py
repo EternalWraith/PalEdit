@@ -382,8 +382,15 @@ class PalEntity:
 
     def UpdateMaxHP(self):
         new_hp = self.CalculateIngameStats()["HP"]
-        self._obj['MaxHP']['value']['Value']['value'] = new_hp * 1000
-        self._obj['HP']['value']['Value']['value'] = new_hp * 1000
+        if new_hp == 0:
+            return
+        if 'MaxHP' in self._obj:
+            self._obj['MaxHP']['value']['Value']['value'] = new_hp * 1000
+        if 'HP' in self._obj:
+            self._obj['HP']['value']['Value']['value'] = new_hp * 1000
+        
+        
+        
 
     def OLD_UpdateMaxHP(self, changes: dict, hp_scaling=None) -> bool:
         # do not manually pass in hp_scaling unless you are 100% sure that the value is correct!
@@ -607,7 +614,7 @@ class PalGuid:
         return result_list
     
     def GetContainerSave(self, SoltGuid : str, SlotIndex : int):
-        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
+        if SoltGuid == "00000000-0000-0000-0000-000000000000":
             return "00000000-0000-0000-0000-000000000000"
         for e in self._CharacterContainerSaveData:
             if(e['key']['ID']['value'] == SoltGuid):
@@ -622,6 +629,17 @@ class PalGuid:
                 e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value']['instance_id'] = PalGuid
                 e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value']['player_uid'] = "00000000-0000-0000-0000-000000000001"
     
+    def RemoveContainerSave(self, SoltGuid : str, PalGuid : str):
+        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
+            return
+        for e in self._CharacterContainerSaveData:
+            if(e['key']['ID']['value'] == SoltGuid):
+                for ee in e['value']['Slots']['value']['values']:
+                    if ee['RawData']['value']['instance_id'] == PalGuid:
+                        ee['RawData']['value']['instance_id'] = "00000000-0000-0000-0000-000000000000"
+                        ee['RawData']['value']['player_uid'] = "00000000-0000-0000-0000-000000000000"
+                        return
+        
     def AddGroupSaveData(self, GroupGuid : str, PalGuid : str ):
         if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
             return
@@ -632,6 +650,16 @@ class PalGuid:
                         return
                 tmp = {"guid":"00000000-0000-0000-0000-000000000001","instance_id":PalGuid}
                 e['value']['RawData']['value']['individual_character_handle_ids'].append(tmp)
+    
+    def RemoveGroupSaveData(self, GroupGuid : str, PalGuid : str ):
+        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
+            return
+        for e in self._GroupSaveDataMap:
+            if(e['key'] == GroupGuid):
+                for ee in e['value']['RawData']['value']['individual_character_handle_ids']:
+                    if(ee['instance_id'] == PalGuid):
+                        e['value']['RawData']['value']['individual_character_handle_ids'].remove(ee)
+                        return
     
     def GetSoltMaxCount(self, SoltGuid : str):
         if SoltGuid == "00000000-0000-0000-0000-000000000000":
@@ -713,7 +741,8 @@ class PalPlayerEntity:
     def __init__(self, data):
         self._data = data
         self._obj = self._data['properties']['SaveData']['value']
-        self._record = self._obj['RecordData']['value']
+        if 'RecordData' in self._obj:
+            self._record = self._obj['RecordData']['value']
         self._inventoryinfo = self._obj['inventoryInfo']['value']
 
     def GetPlayerGuid(self):
@@ -744,10 +773,11 @@ class PalPlayerEntity:
         return str(self._inventoryinfo['PlayerEquipArmorContainerId']['value']['ID']['value'])
     
     def SetLifmunkEffigyCount(self, v : int):
-        if 'RelicPossessNum' in self._record:
-            self._record['RelicPossessNum']['value'] = v
-        else:
-            self._record['RelicPossessNum'] = {'id': None, 'value': v, 'type': 'IntProperty'}
+        if self._record:
+            if 'RelicPossessNum' in self._record:
+                self._record['RelicPossessNum']['value'] = v
+            else:
+                self._record['RelicPossessNum'] = {'id': None, 'value': v, 'type': 'IntProperty'}
     
     def SetTechnologyPoint(self, v : int):
         self._obj['TechnologyPoint']['value'] = v
@@ -814,151 +844,7 @@ class PalPlayerManager:
 
     def SetPalInstanceGuid(self, v: str):
         self._data['key']['InstanceId']['value'] = v
-
-class PalGuid:
-    def __init__(self, data):
-        self._data = data
-        self._CharacterContainerSaveData = \
-        data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
-        self._GroupSaveDataMap = data['properties']['worldSaveData']['value']['GroupSaveDataMap']['value']
-    
-    def GetPlayerslist(self):
-        players = list(filter(lambda x: 'IsPlayer' in x['value'], [
-            {'uid':x['key']['PlayerUId'], 
-             'value':x['value']['RawData']['value']['object']['SaveParameter']['value']
-             } for x in self._data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']]))
-        return {x['value']['NickName']['value']: str(x['uid']['value']) for x in players}
-
-    def ConvertGuid(guid_str):
-        guid_str = guid_str
-        guid = uuid.UUID(guid_str)
-        guid_bytes = guid.bytes
-        guid_list = [b for b in guid_bytes]
-        result_list = [0] * 16
-        for n in range(0, len(guid_list), 4):
-            result_list.extend(guid_list[n:n + 4][::-1])
-        result_list.append(0)
-        result_list[12] = 1
-        return result_list
-
-    def SetContainerSave(self, SoltGuid: str, SlotIndex: int, PalGuid: str):
-        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
-            return
-        for e in self._CharacterContainerSaveData:
-            if (e['key']['ID']['value'] == SoltGuid):
-                e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value']['instance_id'] = PalGuid
-                e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value'][
-                    'player_uid'] = "00000000-0000-0000-0000-000000000001"
-
-    def AddGroupSaveData(self, GroupGuid: str, PalGuid: str):
-        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
-            return
-        for e in self._GroupSaveDataMap:
-            if (e['key'] == GroupGuid):
-                for ee in e['value']['RawData']['value']['individual_character_handle_ids']:
-                    if (ee['instance_id'] == PalGuid):
-                        return
-                tmp = {"guid": "00000000-0000-0000-0000-000000000001", "instance_id": PalGuid}
-                e['value']['RawData']['value']['individual_character_handle_ids'].append(tmp)
-
-    def GetSoltMaxCount(self, SoltGuid: str):
-        if SoltGuid == "00000000-0000-0000-0000-000000000000":
-            return 0
-        for e in self._CharacterContainerSaveData:
-            if (e['key']['ID']['value'] == SoltGuid):
-                return len(e['value']['Slots']['value']['values'])
-
-    def GetEmptySlotIndex(self, SoltGuid: str):
-        if SoltGuid == "00000000-0000-0000-0000-000000000000":
-            return -1
-        for e in self._CharacterContainerSaveData:
-            if (e['key']['ID']['value'] == SoltGuid):
-                Solt = e['value']['Slots']['value']['values']
-                for i in range(len(Solt)):
-                    if Solt[i]['RawData']['value']['instance_id'] == "00000000-0000-0000-0000-000000000000":
-                        return i
-        return -1
-
-    def GetAdminGuid(self):
-        for e in self._GroupSaveDataMap:
-            if "admin_player_uid" in e['value']['RawData']['value']:
-                return e['value']['RawData']['value']['admin_player_uid']
-
-    def GetAdminGroupGuid(self):
-        for e in self._GroupSaveDataMap:
-            if "admin_player_uid" in e['value']['RawData']['value']:
-                return e['key']
-
-    def GetGroupGuid(self, playerguid):
-        for e in self._GroupSaveDataMap:
-            if "players" in e['value']['RawData']['value']:
-                for player in e['value']['RawData']['value']['players']:
-                    if player['player_uid'] == playerguid:
-                        return e['key']
-
-    def RemanePlayer(self, PlayerGuid: str, NewName: str):
-        for e in self._GroupSaveDataMap:
-            if "players" in e['value']['RawData']['value']:
-                for p in e['value']['RawData']['value']['players']:
-                    if p['player_uid'] == PlayerGuid:
-                        p['player_info']['player_name'] = NewName
-
-    def Save(self, svdata):
-        if 'properties' in svdata:
-            svdata['properties']['worldSaveData']['value']['CharacterContainerSaveData'][
-                'value'] = self._CharacterContainerSaveData
-            svdata['properties']['worldSaveData']['value']['GroupSaveDataMap']['value'] = self._GroupSaveDataMap
-        return svdata
-
-class PalPlayerEntity:
-    def __init__(self, data):
-        self._data = data
-        self._obj = self._data['properties']['SaveData']['value']
-        self._record = self._obj['RecordData']['value']
-        self._inventoryinfo = self._obj['inventoryInfo']['value']
-
-    def GetPlayerGuid(self):
-        return self._obj['PlayerUId']['value']
-
-    def GetPlayerIndividualId(self):
-        return self._obj['IndividualId']['value']['InstanceId']['value']
-
-    def GetTravelPalInventoryGuid(self):
-        return self._obj['OtomoCharacterContainerId']['value']['ID']['value']
-
-    def GetPalStorageGuid(self):
-        return self._obj['PalStorageContainerId']['value']['ID']['value']
-
-    def GetCommonItemInventoryGuid(self):
-        self._inventoryinfo['CommonContainerId']['value']['ID']['value']
-
-    def GetKeyItemInventoryGuid(self):
-        self._inventoryinfo['EssentialContainerId']['value']['ID']['value']
-
-    def GetWeaponLoadOutInventoryGuid(self):
-        self._inventoryinfo['WeaponLoadOutContainerId']['value']['ID']['value']
-
-    def GetFoodInventoryGuid(self):
-        self._inventoryinfo['FoodEquipContainerId']['value']['ID']['value']
-
-    def GetPlayerEquipArmorGuid(self):
-        self._inventoryinfo['PlayerEquipArmorContainerId']['value']['ID']['value']
-
-    def SetLifmunkEffigyCount(self, v: int):
-        if 'RelicPossessNum' in self._record:
-            self._record['RelicPossessNum']['value'] = v
-        else:
-            self._record['RelicPossessNum'] = {'id': None, 'value': v, 'type': 'IntProperty'}
-
-    def SetTechnologyPoint(self, v: int):
-        self._obj['TechnologyPoint']['value'] = v
-
-    def SetAncientTechnologyPoint(self, v: int):
-        self._obj['bossTechnologyPoint']['value'] = v
-
-    def dump(self):
-        return self._data
-                    
+                 
 
 with open("%s/resources/data/elements.json" % (module_dir), "r", encoding="utf8") as elementfile:
     PalElements = {}

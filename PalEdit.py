@@ -825,7 +825,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         playerguid = self.players[self.current.get()]
         playersav = os.path.dirname(self.filename) + f"/players/{playerguid.replace('-', '')}.sav"
         if not os.path.exists(playersav):
-            print("Cannot Load Player Save!")
+            messagebox.showerror("Player Sav Error", f"Player Sav :{playersav} Does Not Exist!")
             return
         player = PalPlayerEntity(SaveConverter.convert_sav_to_obj(playersav))
         SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
@@ -860,17 +860,27 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def dumppals(self):
         if not self.isPalSelected():
             return
-        i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        #i = int(self.listdisplay.curselection()[0])
+        #pal = self.palbox[self.players[self.current.get()]][i]
         
         pals = {}
-        pals['Pals'] = [pal._data] #[pal._data for pal in self.palbox[self.players[self.current.get()]]]
+        pals['Pals'] = [pal._data for pal in self.palbox[self.players[self.current.get()]]] #[pal._data] 
         file = asksaveasfilename(filetypes=[("json files", "*.json")], defaultextension=".json")
         if file:
             with open(file, "wb") as f:
                 f.write(json.dumps(pals, indent=4, cls=UUIDEncoder).encode('utf-8'))
         else:
             messagebox.showerror("Select a file", self.i18n['msg_select_file'])
+
+    def removepal(self):
+        if not self.isPalSelected() or self.palguidmanager is None:
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.palbox[self.players[self.current.get()]][i]
+
+        self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].remove(pal._data)
+
+
 
     def doconvertjson(self, file, compress=False):
         SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
