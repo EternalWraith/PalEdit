@@ -877,9 +877,11 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
-
+        self.palguidmanager.RemoveContainerSave(pal.GetSlotGuid(),pal.GetPalInstanceGuid())
+        self.palguidmanager.RemoveGroupSaveData(pal.GetGroupGuid(),pal.GetPalInstanceGuid())
         self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].remove(pal._data)
-
+        print(f"Remove Pal : {pal.GetPalInstanceGuid()}")
+        self.loaddata(self.data)
 
 
     def doconvertjson(self, file, compress=False):
@@ -1594,6 +1596,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         button.config(font=(PalEditConfig.font, 12))
         button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
         button = tk.Button(frameDebug, text="Generate & Copy GUID", command=self.createGUIDtoClipboard)
+        button.config(font=(PalEditConfig.font, 12))
+        button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
+        button = tk.Button(frameDebug, text="Remove Pal", command=self.removepal)
         button.config(font=(PalEditConfig.font, 12))
         button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
 

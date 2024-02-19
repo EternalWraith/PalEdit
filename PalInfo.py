@@ -723,12 +723,12 @@ class PalGuid:
                 for p in e['value']['RawData']['value']['players']:
                     nickname = p['player_info']['player_name']
                     if nickname == "":
-                        players[f"NoName-{p['player_uid']}"] = p['player_uid']
+                        players[f"NoName-{p['player_uid']}"] = str(p['player_uid'])
                     else:
                         if nickname in players:
-                            players[nickname + p['player_uid']] = p['player_uid']
+                            players[nickname + p['player_uid']] = str(p['player_uid'])
                         else:
-                            players[nickname] = p['player_uid']
+                            players[nickname] = str(p['player_uid'])
         return players
 
     def Save(self, svdata):
