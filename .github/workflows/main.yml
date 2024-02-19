@@ -32,13 +32,13 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --noconfirm --onefile --windowed --icon "resources/MossandaIcon.ico" --hidden-import=PIL "PalEdit.py"
+        pyinstaller --noconfirm --onefile --windowed --icon "palworld_pal_edit/resources/MossandaIcon.ico" --hidden-import=PIL "PalEdit.py"
 
     - name: Create zip file
       run: |
         mkdir -p zip_contents
         cp dist/PalEdit.exe zip_contents/
-        cp -r resources zip_contents/
+        cp -r palworld_pal_edit/resources zip_contents/
         Compress-Archive -Path zip_contents\* -DestinationPath PalEdit.zip
 
     - name: List Contents of dist directory
