@@ -1,4 +1,4 @@
-import os, webbrowser, json, time, uuid, math
+import os, webbrowser, json, time, uuid, math, shutil
 
 # pyperclip
 # docs: https://pypi.org/project/pyperclip/#description
@@ -565,9 +565,31 @@ class PalEdit():
         file = askopenfilename(initialdir=os.path.expanduser('~') + "\\AppData\\Local\\Pal\\Saved\\SaveGames",
                                filetypes=[("Level.sav", "Level.sav")])
         self.logger.WriteLog(f"Opening file {file}")
+        self.logger.WriteLog(f"Backing up save")
 
         if file:
             self.filename = file
+
+            now = datetime.now()
+            current_date = ".".join((str(now.date().year),
+                                     "{:02d}".format(now.date().month),
+                                     "{:02d}".format(now.date().day)))
+            current_time = ".".join(("{:02d}".format(now.time().hour),
+                                     "{:02d}".format(now.time().minute),
+                                     "{:02d}".format(now.time().second)))
+            current_datetime = "-".join((current_date, current_time))
+            backup_path = file.replace("Level.sav", os.path.join("backup", "world", current_datetime))
+            if not os.path.exists(backup_path):
+                os.makedirs(backup_path)
+                os.makedirs(os.path.join(backup_path, "Players"))
+            if not os.path.exists(backup_path.replace('world', 'local')):
+                os.makedirs(backup_path.replace('world', 'local'))
+            shutil.copy(self.filename,  os.path.join(backup_path, "Level.sav"))
+            shutil.copy(self.filename.replace("Level.sav", "LevelMeta.sav"),  os.path.join(backup_path, "LevelMeta.sav"))
+            shutil.copy(self.filename.replace("Level.sav", "LocalData.sav"), os.path.join(backup_path.replace('world', 'local'), 'LocalData.sav'))
+            for player_file in os.scandir(self.filename.replace("Level.sav", "Players")):
+                shutil.copy(player_file.path, os.path.join(backup_path, "players", player_file.name))
+
             self.gui.title(f"PalEdit v{PalEditConfig.version} - {file}")
             self.skilllabel.config(text=self.i18n['msg_decompressing'])
             with open(file, "rb") as f:
