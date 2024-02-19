@@ -2082,6 +2082,11 @@
                 "EPalWazaID::PowerBall": 30,
                 "EPalWazaID::BlizzardLance": 40,
                 "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 65,
+                "DEF": 70
             }
         },
         {

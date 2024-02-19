@@ -211,6 +211,9 @@ class PalEntity:
         self.storageId = self._storedLocation["value"]["ContainerId"]["value"]["ID"]["value"]
         self.storageSlot = self._storedLocation["value"]["SlotIndex"]["value"]
 
+        if not "EquipWaza" in self._obj:
+            self._obj["EquipWaza"] = copy.deepcopy(EmptyMovesObject)
+
         if not "MasteredWaza" in self._obj:
             self._obj["MasteredWaza"] = copy.deepcopy(EmptyMovesObject)
 

@@ -15,12 +15,14 @@ import tkinter as tk
 import copy
 
 from PalInfo import *
+from PalEditLogger import *
 
 from tkinter import *
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import messagebox
 
+from datetime import datetime
 
 class UUIDEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -294,7 +296,7 @@ class PalEdit():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
-        self.attackops = [PalInfo.PalAttacks[e] for e in PalInfo.PalAttacks]
+        self.attackops = [PalInfo.PalAttacks[e] for e in PalInfo.PalAttacks].sort()
 
         pal.CleanseAttacks()
         for a in range(0, 3):
@@ -562,7 +564,7 @@ class PalEdit():
 
         file = askopenfilename(initialdir=os.path.expanduser('~') + "\\AppData\\Local\\Pal\\Saved\\SaveGames",
                                filetypes=[("Level.sav", "Level.sav")])
-        print(f"Opening file {file}")
+        self.logger.WriteLog(f"Opening file {file}")
 
         if file:
             self.filename = file
@@ -717,9 +719,9 @@ class PalEdit():
             self.refresh(i)
 
         file = self.filename
-        print(file, self.filename)
+        #print(file, self.filename)
         if file:
-            print(f"Opening file {file}")
+            self.logger.WriteLog(f"Opening file {file}")
 
             if 'gvas_file' in self.data:
                 gvas_file = self.data['gvas_file']
@@ -923,7 +925,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilllabel.config(text=self.i18n['msg_converting'])
 
         file = askopenfilename(filetypes=[("All files", "*.sav")])
-        print(f"Opening file {file}")
+        self.logger.WriteLog(f"Opening file {file}")
 
         self.doconvertjson(file)
 
@@ -993,7 +995,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilllabel.config(text=self.i18n['msg_converting'])
 
         file = askopenfilename(filetypes=[("All files", "*.sav.json")])
-        print(f"Opening file {file}")
+        self.logger.WriteLog(f"Opening file {file}")
 
         self.doconvertsave(file)
 
@@ -1095,9 +1097,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             self.skills_name[idx].set(PalInfo.PalPassives[n.get()])
 
     def __init__(self):
-        global EmptyObjectHandler, PalInfo
+        global EmptyObjectHandler, PalInfo, PalEditLogger
         import EmptyObjectHandler
         import PalInfo
+        import PalEditLogger
+
+        self.logger = PalEditLogger.Logger()
+
+        t = datetime.today().strftime('%H:%M:%S')
+        d = datetime.today().strftime('%d/%m/%Y')
+        self.logger.WriteLog(f"App opened at {t} on {d}")
 
         self.i18n = {}
         self.i18n_el = {}
@@ -1783,6 +1792,7 @@ def main():
     global pal
     pal = PalEdit()
     pal.gui.mainloop()
+    pal.logger.Close()
 
 
 if __name__ == "__main__":
