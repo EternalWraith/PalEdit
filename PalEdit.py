@@ -6,11 +6,11 @@ import os, webbrowser, json, time, uuid, math
 import pyperclip
 
 import SaveConverter
-from lib.gvas import GvasFile
-from lib.archive import FArchiveReader, FArchiveWriter, UUID
-from lib.json_tools import CustomEncoder
-from lib.palsav import compress_gvas_to_sav, decompress_sav_to_gvas
-from lib.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TYPE_HINTS
+from palworld_save_tools.gvas import GvasFile
+from palworld_save_tools.archive import FArchiveReader, FArchiveWriter, UUID
+from palworld_save_tools.json_tools import CustomEncoder
+from palworld_save_tools.palsav import compress_gvas_to_sav, decompress_sav_to_gvas
+from palworld_save_tools.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TYPE_HINTS
 import tkinter as tk
 import copy
 
@@ -20,7 +20,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import messagebox
-from PIL import ImageTk, Image
+
 
 class UUIDEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -29,7 +29,97 @@ class UUIDEncoder(json.JSONEncoder):
             return str(obj)
         return json.JSONEncoder.default(self, obj)
 
+
+def skip_decode(
+        reader: FArchiveReader, type_name: str, size: int, path: str
+):
+    if type_name == "ArrayProperty":
+        array_type = reader.fstring()
+        value = {
+            "skip_type": type_name,
+            "array_type": array_type,
+            "id": reader.optional_guid(),
+            "value": reader.read(size)
+        }
+    elif type_name == "MapProperty":
+        key_type = reader.fstring()
+        value_type = reader.fstring()
+        _id = reader.optional_guid()
+        value = {
+            "skip_type": type_name,
+            "key_type": key_type,
+            "value_type": value_type,
+            "id": _id,
+            "value": reader.read(size),
+        }
+    elif type_name == "StructProperty":
+        value = {
+            "skip_type": type_name,
+            "struct_type": reader.fstring(),
+            "struct_id": reader.guid(),
+            "id": reader.optional_guid(),
+            "value": reader.read(size),
+        }
+    else:
+        raise Exception(
+            f"Expected ArrayProperty or MapProperty or StructProperty, got {type_name} in {path}"
+        )
+    return value
+
+
+def skip_encode(
+        writer: FArchiveWriter, property_type: str, properties: dict
+) -> int:
+    if "skip_type" not in properties:
+        if properties['custom_type'] in PALWORLD_CUSTOM_PROPERTIES is not None:
+            # print("process parent encoder -> ", properties['custom_type'])
+            return PALWORLD_CUSTOM_PROPERTIES[properties["custom_type"]][1](
+                writer, property_type, properties
+            )
+        else:
+            # Never be run to here
+            return writer.property_inner(writer, property_type, properties)
+    if property_type == "ArrayProperty":
+        del properties["custom_type"]
+        del properties["skip_type"]
+        writer.fstring(properties["array_type"])
+        writer.optional_guid(properties.get("id", None))
+        writer.write(properties["value"])
+        return len(properties["value"])
+    elif property_type == "MapProperty":
+        del properties["custom_type"]
+        del properties["skip_type"]
+        writer.fstring(properties["key_type"])
+        writer.fstring(properties["value_type"])
+        writer.optional_guid(properties.get("id", None))
+        writer.write(properties["value"])
+        return len(properties["value"])
+    elif property_type == "StructProperty":
+        del properties["custom_type"]
+        del properties["skip_type"]
+        writer.fstring(properties["struct_type"])
+        writer.guid(properties["struct_id"])
+        writer.optional_guid(properties.get("id", None))
+        writer.write(properties["value"])
+        return len(properties["value"])
+    else:
+        raise Exception(
+            f"Expected ArrayProperty or MapProperty or StructProperty, got {property_type}"
+        )
+
+
+PALEDIT_PALWORLD_CUSTOM_PROPERTIES = copy.deepcopy(PALWORLD_CUSTOM_PROPERTIES)
+PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.MapObjectSaveData"] = (skip_decode, skip_encode)
+PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.FoliageGridSaveDataMap"] = (skip_decode, skip_encode)
+PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.MapObjectSpawnerInStageSaveData"] = (skip_decode, skip_encode)
+PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.DynamicItemSaveData"] = (skip_decode, skip_encode)
+PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.CharacterContainerSaveData"] = (skip_decode, skip_encode)
+PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.ItemContainerSaveData"] = (skip_decode, skip_encode)
+PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.GroupSaveDataMap"] = (skip_decode, skip_encode)
+
 import traceback
+
+
 class PalEditConfig:
     version = "0.6.3"
     ftsize = 18
@@ -37,6 +127,7 @@ class PalEditConfig:
     badskill = "#DE3C3A"
     okayskill = "#DFE8E7"
     goodskill = "#FEDE00"
+
 
 class PalEdit():
     ranks = (0, 1, 2, 3, 4)
@@ -47,9 +138,9 @@ class PalEdit():
             path = f"{module_dir}/resources/data/ui_{lang}.json"
         with open(path, "r", encoding="utf-8") as f:
             keys = json.load(f)
-            for i18n_k in keys:     # For multi lang didn't translate with original one
+            for i18n_k in keys:  # For multi lang didn't translate with original one
                 self.i18n[i18n_k] = keys[i18n_k]
-        
+
         for item in self.i18n_el:
             if item in self.i18n:
                 try:
@@ -77,26 +168,7 @@ class PalEdit():
         self.attackops.sort()
         self.attackops.insert(0, "None")
 
-        op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
-        op.pop(0)
-        op.pop(0)
-        op.sort()
-        op.insert(0, "None")
-
-        def atk_upd(menu, atk_id, idx, n):
-            menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.attacks_name[atk_id], n,
-                                                                        lambda evt: self.changeattack(atk_id)))
-            
-        for atk_id, menu in enumerate(self.attackdrops):
-            for idx, n in enumerate(self.attackops):
-                atk_upd(menu, atk_id, idx, n)
-
-        def skill_upd(menu, skid, idx, n):
-            menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.skills_name[skid], n, lambda evt:self.changeskill(skid)))
-        
-        for skid, menu in enumerate(self.skilldrops):
-            for idx, n in enumerate(op):
-                skill_upd(menu, skid, idx, n)
+        self.updateSkillMenu()
 
         self.updateAttackName()
         self.updateSkillsName()
@@ -104,14 +176,51 @@ class PalEdit():
         species.sort()
         try:
             for idx, n in enumerate(species):
-                self.palname['menu'].entryconfigure(idx, label=n, command=tk._setit(self.speciesvar_name, n, self.changespeciestype))
+                self.palname['menu'].entryconfigure(idx, label=n,
+                                                    command=tk._setit(self.speciesvar_name, n, self.changespeciestype))
             if self.speciesvar.get() in PalInfo.PalSpecies:
                 self.speciesvar_name.set(PalInfo.PalSpecies[self.speciesvar.get()].GetName())
             else:
                 self.speciesvar_name.set(self.speciesvar.get())
         except AttributeError as e:
             pass
-    
+
+    def updateSkillMenu(self):
+        if not self.isPalSelected():
+            return
+
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.palbox[self.players[self.current.get()]][i]
+
+        available_ops = pal.GetAvailableSkills()
+        available_ops.sort()
+        available_ops.insert(0, "None")
+
+        def atk_upd(menu, atk_id, label, codename):
+            menu['menu'].add_command(label=label, command=tk._setit(self.attacks[atk_id], codename,
+                                                                        lambda evt: self.changeattack(atk_id)))
+
+        for atk_id, menu in enumerate(self.attackdrops):
+            while menu['menu'].index("end") is not None:
+                menu['menu'].delete(0)
+            for idx, codename in enumerate(available_ops):
+                atk_upd(menu, atk_id, PalAttacks[codename], codename)
+
+        op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
+        op.pop(0)
+        op.pop(0)
+        op.sort()
+        op.insert(0, "None")
+
+        def skill_upd(menu, skid, idx, n):
+            menu['menu'].entryconfigure(idx, label=n, command=tk._setit(self.skills_name[skid], n,
+                                                                        lambda evt: self.changeskill(skid)))
+
+        for skid, menu in enumerate(self.skilldrops):
+            for idx, n in enumerate(op):
+                skill_upd(menu, skid, idx, n)
+
+
     @staticmethod
     def hex_to_rgb(value):
         value = value.lstrip('#')
@@ -175,8 +284,8 @@ class PalEdit():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
-        # print(f"Get Data: {pal.GetNickname()}")    
-        # print(f"{pal._obj}")  
+        # print(f"Get Data: {pal.GetNickname()}")
+        # print(f"{pal._obj}")
         pyperclip.copy(f"{pal._obj}")
         webbrowser.open('https://jsonformatter.curiousconcept.com/#')
 
@@ -206,7 +315,7 @@ class PalEdit():
                 basecol = PalInfo.PalElements[PalInfo.AttackTypes[v]]
                 halfcol = PalEdit.mean_color(basecol, "ffffff")
                 self.attackdrops[i].config(highlightbackground=basecol, bg=halfcol, activebackground=halfcol)
-    
+
     def updateAttackName(self):
         for idx, n in enumerate(self.attacks):
             self.attacks_name[idx].set(PalInfo.PalAttacks[n.get()])
@@ -221,7 +330,7 @@ class PalEdit():
         for v in range(0, 4):
             t = self.skills_name[v].trace_add("write", lambda *args, num=v: self.changeskill(num))
             tid.append(t)
-        
+
         match preset:
             case "base":
                 self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up2"])
@@ -350,15 +459,15 @@ class PalEdit():
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
 
-        index = list(PalInfo.PalAttacks.values()).index(self.attacks_name[num].get())
-        self.attacks[num].set(list(PalInfo.PalAttacks.keys())[index])
+        # index = list(PalInfo.PalAttacks.values()).index(self.attacks_name[num].get())
+        # self.attacks[num].set(list(PalInfo.PalAttacks.keys())[index])
         if not self.attacks[num].get() in ["Unknown", "UNKNOWN"]:
             if self.attacks[num].get() in ["None", "NONE"]:
                 pal.RemoveAttack(num)
             elif not self.attacks[num].get() in pal._equipMoves:
                 pal.SetAttackSkill(num, self.attacks[num].get())
-                
-        self.updateAttackName()
+
+        self.updateAttacks()
         self.refresh(i)
 
     def onselect(self, evt):
@@ -367,7 +476,7 @@ class PalEdit():
         if not self.isPalSelected():
             self.portrait.config(image=self.purplepanda)
             return
-        
+
         self.updatestats()
 
         index = int(w.curselection()[0])
@@ -408,6 +517,7 @@ class PalEdit():
         self.luckyvar.set(pal.isLucky)
         self.alphavar.set(pal.isBoss)
 
+        self.updateSkillMenu()
         self.updateAttacks()
 
         # rank
@@ -416,7 +526,7 @@ class PalEdit():
         s = pal.GetSkills()[:]
         while len(s) < 4:
             s.append("NONE")
-        
+
         for i in range(0, 4):
             if not s[i] in [p for p in PalInfo.PalPassives]:
                 self.skills[i].set("Unknown")
@@ -427,7 +537,6 @@ class PalEdit():
         self.updateSkillsName()
         self.setskillcolours()
         self.is_onselect = False
-
 
     def changetext(self, num):
         if num == -1:
@@ -463,7 +572,7 @@ class PalEdit():
                 data = f.read()
                 raw_gvas, _ = decompress_sav_to_gvas(data)
             self.skilllabel.config(text=self.i18n['msg_loading'])
-            gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
+            gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALEDIT_PALWORLD_CUSTOM_PROPERTIES)
             self.loaddata(gvas_file)
             # self.doconvertjson(file, (not self.debug))
         else:
@@ -473,7 +582,7 @@ class PalEdit():
         self.current.set("")
         self.palbox = {}
         self.players = {}
-        
+
         f = open(file, "r", encoding="utf8")
         data = json.loads(f.read())
         f.close()
@@ -486,9 +595,9 @@ class PalEdit():
             # f = open("current.pson", "w", encoding="utf8")
             # json.dump(paldata, f, indent=4)
             # f.close()
-        
+
         messagebox.showinfo("Done", self.i18n['msg_done'])
-    
+
     def loaddata(self, data):
         print(type(data))
         self.data = data
@@ -500,7 +609,7 @@ class PalEdit():
         paldata = self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
         self.palguidmanager = PalGuid(self.data)
         self.loadpal(paldata)
-        
+
     def loadpal(self, paldata):
         self.palbox = {}
         self.players = {}
@@ -536,8 +645,9 @@ class PalEdit():
                     # self.players[pl] = plguid
                 else:
                     self.unknown.append(i)
-                    print(f"Error occured: {str(e)}")
+                    print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
                     traceback.print_exception(e)
+                    print()
                 # print(f"Debug: Data {i}")
 
         self.current.set(next(iter(self.players)))
@@ -572,7 +682,7 @@ class PalEdit():
         nullmoves.sort()
         for i in nullmoves:
             print(f"{i} was not found in Attack Database")
-        
+
         self.refresh()
 
         self.changetext(-1)
@@ -587,7 +697,7 @@ class PalEdit():
     def updateDisplay(self):
         self.listdisplay.delete(0, tk.constants.END)
         self.palbox[self.players[self.current.get()]].sort(key=lambda e: e.GetName())
-        
+
         for p in self.palbox[self.players[self.current.get()]]:
             self.listdisplay.insert(tk.constants.END, p.GetFullName())
 
@@ -595,7 +705,7 @@ class PalEdit():
                 self.listdisplay.itemconfig(tk.constants.END, {'fg': 'red'})
             elif p.isLucky:
                 self.listdisplay.itemconfig(tk.constants.END, {'fg': 'blue'})
-        
+
         self.refresh()
 
     def savefile(self):
@@ -610,7 +720,7 @@ class PalEdit():
         print(file, self.filename)
         if file:
             print(f"Opening file {file}")
-            
+
             if 'gvas_file' in self.data:
                 gvas_file = self.data['gvas_file']
                 if (
@@ -621,7 +731,7 @@ class PalEdit():
                 else:
                     save_type = 0x31
                 sav_file = compress_gvas_to_sav(
-                    gvas_file.write(PALWORLD_CUSTOM_PROPERTIES), save_type
+                    gvas_file.write(PALEDIT_PALWORLD_CUSTOM_PROPERTIES), save_type
                 )
                 self.skilllabel.config(text=self.i18n['msg_writing'])
                 with open(file, "wb") as f:
@@ -683,7 +793,7 @@ class PalEdit():
         retval = pal.UpdateMaxHP(changes)
         if retval is not None:
             answer = messagebox.askquestion(
-                title="Choose HP Scaling", 
+                title="Choose HP Scaling",
                 message="""
 Note:
 - It is rare but some bosses may have different scaling data that I haven't yet added to PalEdit.
@@ -700,17 +810,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 """ % (retval[0], retval[1], pal.GetName(), retval[1]))
             pal.UpdateMaxHP(changes, hp_scaling=retval[1] if answer == 'yes' else retval[0])
 
-
     def updatestats(self):
         if not self.isPalSelected():
             return
-        
+
         if self.editindex < 0:
             return
 
         pal = self.palbox[self.players[self.current.get()]][self.editindex]
         l = pal.GetLevel()
-        
+
         if self.phpvar.dirty:
             self.phpvar.dirty = False
             h = self.phpvar.get()
@@ -745,7 +854,6 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             w = self.wspvar.get()
             print(f"{pal.GetFullName()}: WorkSpeed {pal.GetWorkSpeed()} -> {w}")
             pal.SetWorkSpeed(w)
-
 
     def takelevel(self):
         if not self.isPalSelected():
@@ -855,16 +963,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             self.palguidmanager.SetContainerSave(slotguid, i, newguid)
             self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
             print(f"Add Pal at slot {i} : {slotguid}")
-        self.loaddata(self.data)#['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'])
+        self.loaddata(self.data)  # ['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'])
 
     def dumppals(self):
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
-        
+
         pals = {}
-        pals['Pals'] = [pal._data] #[pal._data for pal in self.palbox[self.players[self.current.get()]]]
+        pals['Pals'] = [pal._data]  # [pal._data for pal in self.palbox[self.players[self.current.get()]]]
         file = asksaveasfilename(filetypes=[("json files", "*.json")], defaultextension=".json")
         if file:
             with open(file, "wb") as f:
@@ -944,7 +1052,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         root = tk.Tk()
         root.title(f"PalEdit v{PalEditConfig.version}")
         return root
-    
+
     def add_lang_menu(self, langmenu, languages, lang):
         langmenu.add_command(label=languages[lang], command=lambda: self.load_i18n(lang))
 
@@ -952,7 +1060,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.menu = tk.Menu(self.gui)
         tools = self.menu
         self.gui.config(menu=tools)
-        
+
         global filemenu
         filemenu = tk.Menu(tools, tearoff=0)
         filemenu.add_command(label=self.i18n['menu_load_save'], command=self.loadfile)
@@ -975,7 +1083,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 self.add_lang_menu(langmenu, languages, lang)
 
         tools.add_cascade(label="Language", menu=langmenu, underline=0)
-        
+
         # convmenu = Menu(tools, tearoff=0)
         # convmenu.add_command(label="Convert Save to Json", command=converttojson)
         # convmenu.add_command(label="Convert Json to Save", command=converttosave)
@@ -985,7 +1093,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def updateSkillsName(self):
         for idx, n in enumerate(self.skills):
             self.skills_name[idx].set(PalInfo.PalPassives[n.get()])
-    
+
     def __init__(self):
         global EmptyObjectHandler, PalInfo
         import EmptyObjectHandler
@@ -1005,7 +1113,6 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.palguidmanager: PalGuid = None
         self.is_onselect = False
 
-        
         self.attacks = []
         self.attacks_name = []
         self.attackops = []
@@ -1013,16 +1120,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilldrops = []
         self.skills = []
         self.skills_name = []
-        self.load_i18n()
-        
-        self.purplepanda = ImageTk.PhotoImage(
-            Image.open(f'{module_dir}/resources/MossandaIcon.png').resize((240, 240)))
-        self.gui.iconphoto(True, self.purplepanda)
-
-        root = self.gui
 
         self.current = tk.StringVar()
         self.current.set("")
+
+        self.load_i18n()
+
+        self.purplepanda = tk.PhotoImage(master=self.gui, file=f'{module_dir}/resources/MossandaIcon.png')
+        self.gui.iconphoto(True, self.purplepanda)
+
+        root = self.gui
 
         scrollview = tk.Frame(root)
         scrollview.pack(side=tk.constants.LEFT, fill=tk.constants.Y)
@@ -1098,15 +1205,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         statlbls = tk.Frame(stats, width=6, bg="darkgrey")
         statlbls.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
 
-        hthstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['health_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+        hthstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['health_lbl'],
+                              font=(PalEditConfig.font, PalEditConfig.ftsize),
                               justify="center")
         self.i18n_el['health_lbl'] = hthstatlbl
         hthstatlbl.pack()
-        atkstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['attack_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+        atkstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['attack_lbl'],
+                              font=(PalEditConfig.font, PalEditConfig.ftsize),
                               justify="center")
         self.i18n_el['attack_lbl'] = atkstatlbl
         atkstatlbl.pack()
-        defstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['defence_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+        defstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['defence_lbl'],
+                              font=(PalEditConfig.font, PalEditConfig.ftsize),
                               justify="center")
         self.i18n_el['defence_lbl'] = atkstatlbl
         defstatlbl.pack()
@@ -1145,7 +1255,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         typeframe = tk.Frame(resourceview)
         typeframe.pack(expand=True, fill=tk.constants.X)
-        self.ptype = tk.Label(typeframe, text=self.i18n['electric_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+        self.ptype = tk.Label(typeframe, text=self.i18n['electric_lbl'],
+                              font=(PalEditConfig.font, PalEditConfig.ftsize),
                               bg=PalInfo.PalElements["Electric"], width=6)
         self.i18n_el['electric_lbl'] = self.ptype
         self.ptype.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
@@ -1158,11 +1269,13 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         formframe.pack(expand=True, fill=tk.constants.X)
         self.luckyvar = tk.IntVar()
         self.alphavar = tk.IntVar()
-        luckybox = tk.Checkbutton(formframe, text=self.i18n['lucky_lbl'], variable=self.luckyvar, onvalue='1', offvalue='0',
+        luckybox = tk.Checkbutton(formframe, text=self.i18n['lucky_lbl'], variable=self.luckyvar, onvalue='1',
+                                  offvalue='0',
                                   command=self.togglelucky)
         self.i18n_el['lucky_lbl'] = luckybox
         luckybox.pack(side=tk.constants.LEFT, expand=True)
-        alphabox = tk.Checkbutton(formframe, text=self.i18n['alpha_lbl'], variable=self.alphavar, onvalue='1', offvalue='0',
+        alphabox = tk.Checkbutton(formframe, text=self.i18n['alpha_lbl'], variable=self.alphavar, onvalue='1',
+                                  offvalue='0',
                                   command=self.togglealpha)
         self.i18n_el['alpha_lbl'] = alphabox
         alphabox.pack(side=tk.constants.RIGHT, expand=True)
@@ -1199,14 +1312,17 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         labelview = tk.Frame(deckview, bg="lightgrey", pady=0, padx=16)
         labelview.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
 
-        name = tk.Label(labelview, text=self.i18n['name_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey")
+        name = tk.Label(labelview, text=self.i18n['name_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+                        bg="lightgrey")
         name.pack(expand=True, fill=tk.constants.X)
         self.i18n_el['name_prop'] = name
-        gender = tk.Label(labelview, text=self.i18n['gender_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
+        gender = tk.Label(labelview, text=self.i18n['gender_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+                          bg="lightgrey",
                           width=6, pady=6)
         self.i18n_el['gender_prop'] = gender
         gender.pack(expand=True, fill=tk.constants.X)
-        attack = tk.Label(labelview, text=self.i18n['attack_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
+        attack = tk.Label(labelview, text=self.i18n['attack_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+                          bg="lightgrey",
                           width=8)
         self.i18n_el['attack_prop'] = attack
         attack.pack(expand=True, fill=tk.constants.X)
@@ -1214,15 +1330,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                            bg="lightgrey", width=8)
         self.i18n_el['defence_prop'] = defence
         defence.pack(expand=True, fill=tk.constants.X)
-        workspeed = tk.Label(labelview, text=self.i18n['workspeed_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+        workspeed = tk.Label(labelview, text=self.i18n['workspeed_prop'],
+                             font=(PalEditConfig.font, PalEditConfig.ftsize),
                              bg="lightgrey", width=12)
         self.i18n_el['workspeed_prop'] = workspeed
         workspeed.pack(expand=True, fill=tk.constants.X)
-        hp = tk.Label(labelview, text=self.i18n['hp_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey",
+        hp = tk.Label(labelview, text=self.i18n['hp_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+                      bg="lightgrey",
                       width=10)
         self.i18n_el['hp_prop'] = hp
         hp.pack(expand=True, fill=tk.constants.X)
-        rankspeed = tk.Label(labelview, text=self.i18n['rank_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize), bg="lightgrey")
+        rankspeed = tk.Label(labelview, text=self.i18n['rank_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+                             bg="lightgrey")
         self.i18n_el['rank_prop'] = rankspeed
         rankspeed.pack(expand=True, fill=tk.constants.X)
 
@@ -1236,7 +1355,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.speciesvar_name.set("PalEdit")
         self.palname = tk.OptionMenu(editview, self.speciesvar_name, *species, command=self.changespeciestype)
         self.palname.config(font=(PalEditConfig.font, PalEditConfig.ftsize), padx=0, pady=0, borderwidth=1, width=5,
-                       direction='right')
+                            direction='right')
         self.palname.pack(expand=True, fill=tk.constants.X)
 
         genderframe = tk.Frame(editview, pady=0)
@@ -1258,7 +1377,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             except TclError as e:
                 var.dirty = False
                 return
-            
+
             clamp(var)
             var.dirty = True
 
@@ -1287,7 +1406,6 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 return
             self.updatestats()
 
-
         valreg = root.register(ivvalidate)
 
         attackframe = tk.Frame(editview, width=6)
@@ -1296,26 +1414,27 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.meleevar = tk.IntVar()
         self.meleevar.dirty = False
         self.meleevar.set(100)
-##        meleeicon = tk.Label(attackframe, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
-##        meleeicon.pack(side=tk.constants.LEFT)
-##        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
-##        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'), state="disabled")
-##        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
-##        palmelee.pack(side=tk.constants.LEFT)
-##        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
-        
+        ##        meleeicon = tk.Label(attackframe, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        ##        meleeicon.pack(side=tk.constants.LEFT)
+        ##        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
+        ##        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'), state="disabled")
+        ##        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
+        ##        palmelee.pack(side=tk.constants.LEFT)
+        ##        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
 
         self.shotvar = tk.IntVar()
         self.shotvar.dirty = False
         self.shotvar.set(100)
-        #shoticon = tk.Label(attackframe, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
-        #shoticon.pack(side=tk.constants.RIGHT)
-        palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
+        # shoticon = tk.Label(attackframe, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        # shoticon.pack(side=tk.constants.RIGHT)
+        palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize),
+                           width=6)
         palshot.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
         palshot.bind("<FocusOut>", lambda event, var=self.shotvar: try_update(var))
-        palshot.pack(fill=X)#side=tk.constants.RIGHT)
-        self.shotvar.trace_add("write", lambda name, index, mode, sv=self.shotvar, entry=palshot: validate_and_mark_dirty(sv, entry))
-
+        palshot.pack(fill=X)  # side=tk.constants.RIGHT)
+        self.shotvar.trace_add("write",
+                               lambda name, index, mode, sv=self.shotvar, entry=palshot: validate_and_mark_dirty(sv,
+                                                                                                                 entry))
 
         self.defvar = tk.IntVar()
         self.defvar.dirty = False
@@ -1324,8 +1443,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         paldef.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
         paldef.bind("<FocusOut>", lambda event, var=self.defvar: try_update(var))
         paldef.pack(expand=True, fill=tk.constants.X)
-        self.defvar.trace_add("write", lambda name, index, mode, sv=self.defvar, entry=paldef: validate_and_mark_dirty(sv, entry))
-
+        self.defvar.trace_add("write",
+                              lambda name, index, mode, sv=self.defvar, entry=paldef: validate_and_mark_dirty(sv,
+                                                                                                              entry))
 
         self.wspvar = tk.IntVar()
         self.wspvar.dirty = False
@@ -1334,8 +1454,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         palwsp.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
         palwsp.bind("<FocusOut>", lambda event, var=self.wspvar: try_update(var))
         palwsp.pack(expand=True, fill=tk.constants.X)
-        self.wspvar.trace_add("write", lambda name, index, mode, sv=self.wspvar, entry=palwsp: validate_and_mark_dirty(sv, entry))
-
+        self.wspvar.trace_add("write",
+                              lambda name, index, mode, sv=self.wspvar, entry=palwsp: validate_and_mark_dirty(sv,
+                                                                                                              entry))
 
         def talent_hp_changed(*args):
             if not self.isPalSelected():
@@ -1353,8 +1474,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         palhps.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
         palhps.bind("<FocusOut>", lambda event, var=self.phpvar: try_update(var))
         palhps.pack(expand=True, fill=tk.constants.X)
-        self.phpvar.trace_add("write", lambda name, index, mode, sv=self.phpvar, entry=palhps: validate_and_mark_dirty(sv, entry))
-
+        self.phpvar.trace_add("write",
+                              lambda name, index, mode, sv=self.phpvar, entry=palhps: validate_and_mark_dirty(sv,
+                                                                                                              entry))
 
         """
         talent_hp_var = IntVar(value=50)
@@ -1457,7 +1579,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                  width=9)
         preset_title1.pack(side=tk.constants.LEFT, fill=tk.constants.X)
         self.i18n_el['preset_title1'] = preset_title1
-        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_base'], command=lambda: self.setpreset("base"))
+        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_base'],
+                                  command=lambda: self.setpreset("base"))
         self.i18n_el['preset_base'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
@@ -1466,11 +1589,13 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el['preset_speed_worker'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_speed_runner'], command=lambda: self.setpreset("movement"))
+        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_speed_runner'],
+                                  command=lambda: self.setpreset("movement"))
         self.i18n_el['preset_speed_runner'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_tank'], command=lambda: self.setpreset("tank"))
+        preset_button = tk.Button(framePresetsButtons1, text=self.i18n['preset_tank'],
+                                  command=lambda: self.setpreset("tank"))
         self.i18n_el['preset_tank'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
@@ -1482,19 +1607,23 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                  width=9)
         preset_title2.pack(side=tk.constants.LEFT, fill=tk.constants.X)
         self.i18n_el['preset_title2'] = preset_title2
-        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_max'], command=lambda: self.setpreset("dmg_max"))
+        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_max'],
+                                  command=lambda: self.setpreset("dmg_max"))
         self.i18n_el['preset_max'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_balance'], command=lambda: self.setpreset("dmg_balanced"))
+        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_balance'],
+                                  command=lambda: self.setpreset("dmg_balanced"))
         self.i18n_el['preset_balance'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_mount'], command=lambda: self.setpreset("dmg_mount"))
+        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_mount'],
+                                  command=lambda: self.setpreset("dmg_mount"))
         self.i18n_el['preset_mount'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
-        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_element'], command=lambda: self.setpreset("dmg_element"))
+        preset_button = tk.Button(framePresetsButtons2, text=self.i18n['preset_element'],
+                                  command=lambda: self.setpreset("dmg_element"))
         self.i18n_el['preset_element'] = preset_button
         preset_button.config(font=(PalEditConfig.font, 12))
         preset_button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
@@ -1505,13 +1634,15 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         framePresetsLevel = tk.Frame(framePresetsExtras)
         framePresetsLevel.pack(fill=tk.constants.BOTH, expand=True)
-        presetTitleLevel = tk.Label(framePresetsLevel, text=self.i18n['preset_title_level'], anchor='center', bg="lightgrey",
+        presetTitleLevel = tk.Label(framePresetsLevel, text=self.i18n['preset_title_level'], anchor='center',
+                                    bg="lightgrey",
                                     font=(PalEditConfig.font, 13),
                                     width=20, height=1)
         presetTitleLevel.pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.Y)
         self.i18n_el['preset_title_level'] = presetTitleLevel
         self.checkboxLevelVar = tk.IntVar()
-        checkboxLevel = tk.Checkbutton(framePresetsLevel, text=self.i18n['preset_chg_lvl'], variable=self.checkboxLevelVar,
+        checkboxLevel = tk.Checkbutton(framePresetsLevel, text=self.i18n['preset_chg_lvl'],
+                                       variable=self.checkboxLevelVar,
                                        onvalue='1',
                                        offvalue='0')
         checkboxLevel.pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.BOTH)
@@ -1523,13 +1654,15 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         framePresetsRank = tk.Frame(framePresetsExtras)
         framePresetsRank.pack(fill=tk.constants.BOTH, expand=True)
-        presetTitleRank = tk.Label(framePresetsRank, text=self.i18n['preset_title_rank'], anchor='center', bg="lightgrey",
+        presetTitleRank = tk.Label(framePresetsRank, text=self.i18n['preset_title_rank'], anchor='center',
+                                   bg="lightgrey",
                                    font=(PalEditConfig.font, 13),
                                    width=20, height=1)
         presetTitleRank.pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.Y)
         self.i18n_el['preset_title_rank'] = presetTitleRank
         self.checkboxRankVar = tk.IntVar()
-        checkboxRank = tk.Checkbutton(framePresetsRank, text=self.i18n['preset_change_rank'], variable=self.checkboxRankVar,
+        checkboxRank = tk.Checkbutton(framePresetsRank, text=self.i18n['preset_change_rank'],
+                                      variable=self.checkboxRankVar,
                                       onvalue='1',
                                       offvalue='0')
         checkboxRank.pack(side=tk.constants.LEFT, expand=False, fill=tk.constants.BOTH)
@@ -1546,8 +1679,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                          bg="lightgrey",
                                          font=(PalEditConfig.font, 13), width=20, height=1)
         presetTitleAttributes.pack(side=tk.constants.LEFT,
-                                                                                                 expand=False,
-                                                                                                 fill=tk.constants.Y)
+                                   expand=False,
+                                   fill=tk.constants.Y)
         self.i18n_el['preset_set_attr'] = presetTitleAttributes
         self.checkboxAttributesVar = tk.IntVar()
         checkboxAttributes = tk.Checkbutton(framePresetsAttributes, text=self.i18n['preset_change_attr'],
@@ -1588,8 +1721,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         button.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
 
         cloneLabel = tk.Label(atkskill, bg="darkgrey", width=12, text=self.i18n['clone_lbl'],
-                            font=(PalEditConfig.font, PalEditConfig.ftsize),
-                            justify="center")
+                              font=(PalEditConfig.font, PalEditConfig.ftsize),
+                              justify="center")
         self.i18n_el['clone_lbl'] = cloneLabel
         cloneLabel.pack(fill=tk.constants.X)
         palframe = Frame(atkskill)
@@ -1615,16 +1748,15 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         def save_before_close():
             self.updatestats()
             root.destroy()
+
         root.protocol("WM_DELETE_WINDOW", save_before_close)
-    
+
     def mainloop(self):
         self.gui.mainloop()
-
 
     def cleanup_pal_selection(self):
         # workaround so onselect no longer tries to get pals using pal[newplayer][oldindex]
         self.editindex = -1
-
 
     def changeplayer(self, evt):
         self.cleanup_pal_selection()
@@ -1646,10 +1778,12 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         else:
             root.geometry("{}x{}".format(window_width, window_height))
 
+
 def main():
     global pal
     pal = PalEdit()
     pal.gui.mainloop()
+
 
 if __name__ == "__main__":
     main()
