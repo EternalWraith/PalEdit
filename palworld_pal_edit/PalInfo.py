@@ -709,7 +709,7 @@ class PalGuid:
             if "admin_player_uid" in e['value']['RawData']['value']:
                 return e['key']
 
-    def GetGroupGuid(self, playerguid):
+    def GetGroupGuid(self, playerguid):        
         for e in self._GroupSaveDataMap:
             if "players" in e['value']['RawData']['value']:
                 for player in e['value']['RawData']['value']['players']:

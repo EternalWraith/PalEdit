@@ -115,9 +115,9 @@ PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.MapObjectSaveData"] = (skip_d
 PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.FoliageGridSaveDataMap"] = (skip_decode, skip_encode)
 PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.MapObjectSpawnerInStageSaveData"] = (skip_decode, skip_encode)
 PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.DynamicItemSaveData"] = (skip_decode, skip_encode)
-PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.CharacterContainerSaveData"] = (skip_decode, skip_encode)
+#PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.CharacterContainerSaveData"] = (skip_decode, skip_encode)
 PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.ItemContainerSaveData"] = (skip_decode, skip_encode)
-PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.GroupSaveDataMap"] = (skip_decode, skip_encode)
+#PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.GroupSaveDataMap"] = (skip_decode, skip_encode)
 
 import traceback
 
@@ -965,6 +965,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.doconvertjson(file)
 
     def spawnpal(self):
+        print(self.palguidmanager)
         if not self.isPalSelected() or self.palguidmanager is None:
             return
         playerguid = self.players[self.current.get()]
@@ -972,8 +973,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not os.path.exists(playersav):
             print("Cannot Load Player Save!")
             return
-        player = PalPlayerEntity(SaveConverter.convert_sav_to_obj(playersav))
-        SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
+        player = PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+        palworld_pal_edit.SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
 
         file = askopenfilename(filetypes=[("json files", "*.json")])
         if file == '':
