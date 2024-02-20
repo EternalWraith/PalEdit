@@ -43,6 +43,21 @@ EmptyExpObject = {
     "type": "IntProperty"
 }
 
+EmptyHpObject = {
+    "struct_type": "FixedPoint64",
+    "struct_id": "00000000-0000-0000-0000-000000000000",
+    "id": None,
+    "value": {
+        "Value": {
+            "id": None,
+            "value": 0,
+            "type": "Int64Property"
+        }
+    },
+    "type": "StructProperty"
+}
+
+
 EmptyRarePalObject = {
     "value": False,
     "id": None,

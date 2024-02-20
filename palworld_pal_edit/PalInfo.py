@@ -224,7 +224,15 @@ class PalEntity:
         self._equipMoves = self._obj["EquipWaza"]["value"]["values"]
 
         self.CleanseAttacks()
+        if not "HP" in self._obj:
+            self._obj["HP"] = copy.deepcopy(EmptyHpObject)
         self.UpdateMaxHP()
+
+    def IsHuman(self):
+        return self._type._human
+
+    def IsTower(self):
+        return self._type._tower
 
     def SwapGender(self):
         if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":

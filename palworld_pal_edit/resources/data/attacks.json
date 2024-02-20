@@ -168,7 +168,7 @@
             "Name": "Divine Disaster",
             "Type": "Dark",
             "Power": 160,
-            "Exclusive": ["BlackGriffon"]
+            "Exclusive": ["BlackGriffon", "GYM_BlackGriffon"]
         },
         {
             "CodeName": "EPalWazaID::DragonBreath",
@@ -401,7 +401,7 @@
             "Name": "Kerauno",
             "Type": "Electric",
             "Power": 100,
-            "Exclusive": ["ThunderDragonMan"]
+            "Exclusive": ["ThunderDragonMan", "GYM_ThunderDragonMan"]
         },
         {
             "CodeName": "EPalWazaID::Unique_KingAlpaca_BodyPress",
@@ -421,7 +421,7 @@
             "Name": "Lightning Claw",
             "Type": "Electric",
             "Power": 90,
-            "Exclusive": ["ElecPanda"]
+            "Exclusive": ["ElecPanda", "GYM_ElecPanda"]
         },
         {
             "CodeName": "EPalWazaID::ThunderRain",
@@ -510,7 +510,7 @@
             "Name": "Phoenix Flare",
             "Type": "Fire",
             "Power": 135,
-            "Exclusive": ["Horus"]
+            "Exclusive": ["Horus", "GYM_Horus"]
         },
         {
             "CodeName": "EPalWazaID::ThunderFunnel",

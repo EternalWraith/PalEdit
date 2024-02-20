@@ -123,7 +123,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.6.5"
+    version = "0.6.6"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
@@ -485,12 +485,18 @@ class PalEdit():
         self.editindex = index
 
         pal = self.palbox[self.players[self.current.get()]][index]
-        # palname.config(text=pal.GetName())
+
+
+        # All Entities
         self.speciesvar.set(pal.GetCodeName())
         self.speciesvar_name.set(pal.GetName())
 
         self.storageId.config(text=f"StorageID: {pal.storageId}")
         self.storageSlot.config(text=f"StorageSlot: {pal.storageSlot}")
+
+        self.portrait.config(image=pal.GetImage())
+
+        # palname.config(text=pal.GetName())
 
         g = pal.GetGender()
         self.palgender.config(text=g,
@@ -499,11 +505,15 @@ class PalEdit():
         self.title.config(text=f"{pal.GetNickname()}")
         self.level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
 
-        self.portrait.config(image=pal.GetImage())
-        calc = pal.CalculateIngameStats()
-        self.hthstatval.config(text=calc["HP"])
-        self.atkstatval.config(text=calc["ATK"])
-        self.defstatval.config(text=calc["DEF"])
+        if not pal.IsTower() and not pal.IsHuman():
+            calc = pal.CalculateIngameStats()
+            self.hthstatval.config(text=calc["HP"])
+            self.atkstatval.config(text=calc["ATK"])
+            self.defstatval.config(text=calc["DEF"])
+        else:
+            self.hthstatval.config(text="n/a")
+            self.atkstatval.config(text="n/a")
+            self.defstatval.config(text="n/a")
 
         self.fruitOptions['values'] = [PalInfo.PalAttacks[aval] for aval in pal.GetAvailableSkills()]
 
@@ -666,7 +676,7 @@ class PalEdit():
                     # print(f"{pl} - {plguid}")
                     # self.players[pl] = plguid
                 else:
-                    self.unknown.append(i['key']['InstanceId']['value'])
+                    self.unknown.append(str(e))
                     print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
                     #traceback.print_exception(e)
                     print()
@@ -681,7 +691,7 @@ class PalEdit():
         logger.WriteLog(f"NOTE: Unknown list is a list of pals that could not be loaded")
         logger.WriteLog(f"Unknown list contains {len(self.unknown)} entries")
         for i in self.unknown:
-            logger.WriteLog(i)
+            logger.WriteLog(str(i))
 
         logger.Space()
         logger.WriteLog(f"{len(self.players)} players found:")
@@ -813,7 +823,8 @@ class PalEdit():
         print(newguid)
 
     def handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
-        pal.UpdateMaxHP()
+        if not pal.IsTower() and not pal.IsHuman():
+            pal.UpdateMaxHP()
 
     def OLD_handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
         retval = pal.UpdateMaxHP(changes)
