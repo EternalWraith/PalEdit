@@ -17,6 +17,9 @@ class Logger:
         self.WriteLog("= END OF LOG =")
         self.log.close()
 
+    def Space(self):
+        self.WriteLog("")
+
 if __name__ == "__main__":
     test = Logger()
     test.WriteLog("testing logger")

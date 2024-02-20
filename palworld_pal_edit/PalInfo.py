@@ -118,6 +118,8 @@ class PalObject:
 class PalEntity:
 
     def __init__(self, data):
+        global logger
+        
         self._data = data
         self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
 
@@ -152,7 +154,7 @@ class PalEntity:
         # print(f"Debug: typename3 - '{typename}'")
 
         self._type = PalSpecies[typename]
-        print(f"Created Entity of type {typename}: {self._type} - Lucky: {self.isLucky} Boss: {self.isBoss}")
+        logger.WriteLog(f"Created Entity of type {typename}: {self._type} - Lucky: {self.isLucky} Boss: {self.isBoss}")
 
         if "Gender" in self._obj:
             if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
@@ -264,7 +266,8 @@ class PalEntity:
                 # Check level are available for Skills
                 if self._learntMoves[i] in PalLearnSet[self._type.GetCodeName()]:
                     if not self._level >= PalLearnSet[self._type.GetCodeName()][self._learntMoves[i]]:
-                        remove = True
+                        if not self._learntMoves[i] in self._equipMoves:
+                            remove = True
 
             if remove:
                 if self._learntMoves[i] in self._equipMoves:
@@ -526,6 +529,26 @@ class PalEntity:
         else:
             print(
                 f"[ERROR:] Failed to update rank for: '{self.GetName()}'")  # we probably could get rid of this line, since you add rank if missing - same with level
+
+    def PurgeAttack(self, slot):
+        if slot >= len(self._equipMoves):
+            return
+        p = self._equipMoves.pop(slot)
+        if not p in PalLearnSet[self.GetCodeName()]:
+            self._learntMoves.remove(p)
+        else:
+            if PalLearnSet[self.GetCodeName()][p] > self.GetLevel():
+                self._learntMoves.remove(p)
+
+    def StripAttack(self, name):
+        strip = False
+        if not name in self._equipMoves:
+            if not name in PalLearnSet[self.GetCodeName()]:
+                strip = True
+            elif PalLearnSet[self.GetCodeName()][name] > self.GetLevel():
+                strip = True
+        if strip:
+            self._learntMoves.remove(name)
 
     def RemoveSkill(self, slot):
         if slot < len(self._skills):
@@ -937,3 +960,8 @@ if __name__ == "__main__":
 ##            debugOutput.append({"CodeName": codes[i], "Name": i, "Type": "", "Power": 0})
 ##        with open(module_dir+"/resources/data/attacks.json", "w", encoding="utf8") as attackfile:
 ##            json.dump({"values": debugOutput}, attackfile, indent=4)
+
+
+def RecieveLogger(l):
+    global logger
+    logger = l

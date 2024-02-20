@@ -461,6 +461,7 @@ class PalEdit():
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
 
+        pal.PurgeAttack(num)
         # index = list(PalInfo.PalAttacks.values()).index(self.attacks_name[num].get())
         # self.attacks[num].set(list(PalInfo.PalAttacks.keys())[index])
         if not self.attacks[num].get() in ["Unknown", "UNKNOWN"]:
@@ -504,6 +505,23 @@ class PalEdit():
         self.hthstatval.config(text=calc["HP"])
         self.atkstatval.config(text=calc["ATK"])
         self.defstatval.config(text=calc["DEF"])
+
+        p = 0
+        self.learntMoves.delete(0, tk.constants.END)
+        for i in pal._learntMoves:
+            an = PalInfo.PalAttacks[i]
+            if i in pal._equipMoves:
+                self.learntMoves.insert(0, an)
+                self.learntMoves.itemconfig(0, {'bg': 'lightgrey'})
+                p += 1
+            elif i in PalInfo.PalLearnSet[pal.GetCodeName()]:
+                if PalInfo.PalLearnSet[pal.GetCodeName()][i] <= pal.GetLevel():
+                    if not i in pal._equipMoves:
+                        self.learntMoves.insert(p, an)
+                        self.learntMoves.itemconfig(p, {'bg': 'darkgrey'})
+            else:
+                self.learntMoves.insert(tk.constants.END, an)
+                
 
         self.ptype.config(text=pal.GetPrimary(), bg=PalInfo.PalElements[pal.GetPrimary()])
         self.stype.config(text=pal.GetSecondary(), bg=PalInfo.PalElements[pal.GetSecondary()])
@@ -564,7 +582,7 @@ class PalEdit():
 
         file = askopenfilename(initialdir=os.path.expanduser('~') + "\\AppData\\Local\\Pal\\Saved\\SaveGames",
                                filetypes=[("Level.sav", "Level.sav")])
-        self.logger.WriteLog(f"Opening file {file}")
+        logger.WriteLog(f"Opening file {file}")
 
         if file:
             self.filename = file
@@ -613,6 +631,7 @@ class PalEdit():
         self.loadpal(paldata)
 
     def loadpal(self, paldata):
+        logger.Space()
         self.palbox = {}
         self.players = {}
         self.players = self.palguidmanager.GetPlayerslist()
@@ -646,9 +665,9 @@ class PalEdit():
                     # print(f"{pl} - {plguid}")
                     # self.players[pl] = plguid
                 else:
-                    self.unknown.append(i)
+                    self.unknown.append(i['key']['InstanceId']['value'])
                     print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
-                    traceback.print_exception(e)
+                    #traceback.print_exception(e)
                     print()
                 # print(f"Debug: Data {i}")
 
@@ -657,15 +676,19 @@ class PalEdit():
 
         self.updateDisplay()
 
-        print(f"Unknown list contains {len(self.unknown)} entries")
-        # for i in unknown:
-        # print (i)
+        logger.Space()
+        logger.WriteLog(f"NOTE: Unknown list is a list of pals that could not be loaded")
+        logger.WriteLog(f"Unknown list contains {len(self.unknown)} entries")
+        for i in self.unknown:
+            logger.WriteLog(i)
 
-        print(f"{len(self.players)} players found:")
+        logger.Space()
+        logger.WriteLog(f"{len(self.players)} players found:")
         for i in self.players:
-            print(f"{i} = {self.players[i]}")
+            logger.WriteLog(f"{i} = {self.players[i]}")
         self.playerdrop['values'] = list(self.players.keys())
         self.playerdrop.current(0)
+        logger.Space()
 
         if False:  # change to true to enable testing of containers
             if not file.endswith(".pson"):
@@ -721,7 +744,7 @@ class PalEdit():
         file = self.filename
         #print(file, self.filename)
         if file:
-            self.logger.WriteLog(f"Opening file {file}")
+            logger.WriteLog(f"Opening file {file}")
 
             if 'gvas_file' in self.data:
                 gvas_file = self.data['gvas_file']
@@ -925,7 +948,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilllabel.config(text=self.i18n['msg_converting'])
 
         file = askopenfilename(filetypes=[("All files", "*.sav")])
-        self.logger.WriteLog(f"Opening file {file}")
+        logger.WriteLog(f"Opening file {file}")
 
         self.doconvertjson(file)
 
@@ -995,7 +1018,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilllabel.config(text=self.i18n['msg_converting'])
 
         file = askopenfilename(filetypes=[("All files", "*.sav.json")])
-        self.logger.WriteLog(f"Opening file {file}")
+        logger.WriteLog(f"Opening file {file}")
 
         self.doconvertsave(file)
 
@@ -1050,6 +1073,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.replaceitem(i, pal)
         self.refresh(i)
 
+    def stripMove(self):
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.palbox[self.players[self.current.get()]][i]
+
+        m = self.learntMoves.curselection()
+        if len(m) > 0:
+            m = self.learntMoves.get(int(m[0]))
+            pal.StripAttack(PalInfo.find(m))
+            self.refresh(i)
+
     def createWindow(self):
         root = tk.Tk()
         root.title(f"PalEdit v{PalEditConfig.version}")
@@ -1102,11 +1137,13 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         import palworld_pal_edit.PalInfo as PalInfo
         import palworld_pal_edit.PalEditLogger as PalEditLogger
 
-        self.logger = PalEditLogger.Logger()
+        global logger
+        logger = PalEditLogger.Logger()
+        PalInfo.RecieveLogger(logger)
 
         t = datetime.today().strftime('%H:%M:%S')
         d = datetime.today().strftime('%d/%m/%Y')
-        self.logger.WriteLog(f"App opened at {t} on {d}")
+        logger.WriteLog(f"App opened at {t} on {d}")
 
         self.i18n = {}
         self.i18n_el = {}
@@ -1203,6 +1240,21 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                    bg=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"),
                                    activebackground=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"))
 
+        learntWaza = tk.Frame(atkskill)
+        learntWaza.pack(fill=tk.constants.BOTH)
+        scrollbar = tk.Scrollbar(learntWaza)
+        scrollbar.pack(side=tk.constants.LEFT, fill=tk.constants.Y)
+        self.learntMoves = tk.Listbox(learntWaza, width=30, yscrollcommand=scrollbar.set, exportselection=0)
+        self.learntMoves.pack(side=tk.constants.LEFT, fill=tk.constants.X)
+
+        removeMove = tk.Button(learntWaza, fg="red", text="🗑", borderwidth=1, font=(PalEditConfig.font, PalEditConfig.ftsize - 2),
+                              command=self.stripMove,
+                              bg="darkgrey")
+        removeMove.pack(fill=tk.constants.BOTH, expand=True)
+        
+        #self.listdisplay.bind("<<ListboxSelect>>", self.onselect)
+        scrollbar.config(command=self.learntMoves.yview)
+
         stats = tk.Frame(atkskill)
         stats.pack(fill=tk.constants.X)
 
@@ -1229,6 +1281,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                               justify="center")
         self.i18n_el['defence_lbl'] = atkstatlbl
         defstatlbl.pack()
+
 
         statvals = tk.Frame(stats, width=6)
         statvals.pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.X)
@@ -1792,7 +1845,7 @@ def main():
     global pal
     pal = PalEdit()
     pal.gui.mainloop()
-    pal.logger.Close()
+    logger.Close()
 
 
 if __name__ == "__main__":
