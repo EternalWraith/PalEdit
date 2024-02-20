@@ -2,11 +2,8 @@ import copy
 import json
 import os
 from enum import Enum
-<<<<<<< HEAD
 import os
 import uuid
-=======
->>>>>>> parent of e893057 (Merge branch 'main' of https://github.com/EternalWraith/PalEdit)
 from PIL import ImageTk, Image
 from EmptyObjectHandler import *
 import uuid
@@ -105,15 +102,11 @@ class PalObject:
             n = self.GetName() if not self._human else "Human"
             if self._imageName is not None and not self._human:
                 n = self._imageName
-<<<<<<< HEAD
             if os.path.exists(f'resources/{n}.png'):
                 self._img = ImageTk.PhotoImage(Image.open(f'resources/{n}.png').resize((240,240)))
             else:
                 self._img = ImageTk.PhotoImage(Image.open(f'resources/#ERROR.png').resize((240,240)))
-=======
-            self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
->>>>>>> parent of e893057 (Merge branch 'main' of https://github.com/EternalWraith/PalEdit)
-        return self._img
+
 
     def GetPrimary(self):
         return self._primary
@@ -261,7 +254,6 @@ class PalEntity:
         i = 0
         while i < len(self._learntMoves):
             remove = False
-<<<<<<< HEAD
             if self._learntMoves[i] not in PalAttacks:
                 uname = f"Unknow:{self._learntMoves[i]}"
                 PalAttacks[self._learntMoves[i]] = uname
@@ -273,12 +265,6 @@ class PalEntity:
                 if not self._type.GetCodeName() in SkillExclusivity[self._learntMoves[i]]:
                     remove = True
             
-=======
-            if not SkillExclusivity[self._learntMoves[i]] is None:
-                if not self._type.GetCodeName() in SkillExclusivity[self._learntMoves[i]]:
-                    remove = True
-
->>>>>>> parent of e893057 (Merge branch 'main' of https://github.com/EternalWraith/PalEdit)
             if PalAttacks[self._learntMoves[i]] in PalLearnSet[self._type.GetCodeName()]:
                 if not self._level >= PalLearnSet[self._type.GetCodeName()][PalAttacks[self._learntMoves[i]]]:
                     if self._learntMoves[i] not in self._equipMoves:
@@ -858,9 +844,6 @@ class PalPlayerManager:
 
     def SetPalInstanceGuid(self, v: str):
         self._data['key']['InstanceId']['value'] = v
-<<<<<<< HEAD
-                 
-=======
 
 class PalGuid:
     def __init__(self, data):
@@ -1006,8 +989,6 @@ class PalPlayerEntity:
     def dump(self):
         return self._data
                     
->>>>>>> parent of e893057 (Merge branch 'main' of https://github.com/EternalWraith/PalEdit)
-
 with open("%s/resources/data/elements.json" % (module_dir), "r", encoding="utf8") as elementfile:
     PalElements = {}
     for i in json.loads(elementfile.read())["values"]:

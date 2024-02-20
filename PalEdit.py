@@ -860,19 +860,12 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def dumppals(self):
         if not self.isPalSelected():
             return
-<<<<<<< HEAD
         #i = int(self.listdisplay.curselection()[0])
         #pal = self.palbox[self.players[self.current.get()]][i]
         
         pals = {}
         pals['Pals'] = [pal._data for pal in self.palbox[self.players[self.current.get()]]] #[pal._data] 
-=======
-        i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
-        
-        pals = {}
-        pals['Pals'] = [pal._data] #[pal._data for pal in self.palbox[self.players[self.current.get()]]]
->>>>>>> parent of e893057 (Merge branch 'main' of https://github.com/EternalWraith/PalEdit)
+
         file = asksaveasfilename(filetypes=[("json files", "*.json")], defaultextension=".json")
         if file:
             with open(file, "wb") as f:
