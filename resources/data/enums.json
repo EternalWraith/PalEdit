@@ -20,9 +20,7 @@
     "EPalBaseCampWorkerSickType": [
         {
             "CodeName": "",
-            "Name": "",
-            "Type": "",
-            "Power": 0
+            "Name": ""
         },
         {
             "CodeName": "EPalBaseCampWorkerSickType::None",

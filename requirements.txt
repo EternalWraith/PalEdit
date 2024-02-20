@@ -5,5 +5,7 @@ pillow==10.2.0
 pyinstaller==6.3.0
 pyinstaller-hooks-contrib==2024.0
 pywin32-ctypes==0.2.2
+<<<<<<< HEAD
 orjson==3.9.12
-palworld_save_tools
+=======
+>>>>>>> parent of e893057 (Merge branch 'main' of https://github.com/EternalWraith/PalEdit)

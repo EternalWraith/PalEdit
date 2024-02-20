@@ -1,0 +1,4 @@
+= START OF LOG =
+App opened at 13:17:50 on 20/02/2024
+Opening file C:/Users/97232/AppData/Local/Pal/Saved/SaveGames/76561198127564502/892A35CD416B43CAD3274E94E0531BC1/Level.sav
+Opening file C:/Users/97232/AppData/Local/Pal/Saved/SaveGames/76561198127564502/892A35CD416B43CAD3274E94E0531BC1/Level.sav
