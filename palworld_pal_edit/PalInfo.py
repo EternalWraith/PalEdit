@@ -250,6 +250,8 @@ class PalEntity:
             if SkillExclusivity[skill_codename] is None or self._type.GetCodeName() in SkillExclusivity[skill_codename]:
                 avail_skills.append(skill_codename)
 
+        avail_skills.sort(key=lambda e: PalAttacks[e])
+        avail_skills.remove("None")
         return avail_skills
 
     def CleanseAttacks(self):
@@ -549,6 +551,10 @@ class PalEntity:
                 strip = True
         if strip:
             self._learntMoves.remove(name)
+
+    def FruitAttack(self, name):
+        if not name in self._learntMoves:
+            self._learntMoves.append(name)
 
     def RemoveSkill(self, slot):
         if slot < len(self._skills):
