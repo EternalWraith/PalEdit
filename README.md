@@ -31,32 +31,25 @@ Download the compiled executable from [Nexus Mods](https://www.nexusmods.com/pal
 
 ## **⚠️ A word of warning**
 
-When in the app, simply load a _deserialized_ save file using the file menu. Wait **patiently** for it to load the `*.json` and gather the data.
-You can then replace the traits of your Pals with ones that you want.
-
 > [!CAUTION]
 > It is advised that you backup ALL save files before using the tool; it will eventually do this on it's own but doesn't yet.
 > For more information on how to do this, see the [**📦 Backing up your save**](#-backing-up-your-save) section.
 
-It is recommended to save your edited pals as a `*.pson` file for easier access. You can choose to save as a `*.pson` file. When you want to inject the changes into your save, simply save over your `Level.sav.json` and the program will splice it in at the correct location. Then Serialize the save again using 'palworld-save-tools' and put the resulting `Level.sav` into your save folder where the original one was. Load up PalWorld and enjoy.
-
 ## **🕹️ Usage**
 
-1. Convert your save to a `*.sav.json` using the Convert menu at the top.
-2. Load the `*.sav.json` file using the File menu.
-3. Edit your Pals as desired.
-4. Save the changes to the same `*.sav.json` file.
-5. Convert it back to a `*.sav` using the Convert menu again.
+1. Open PalEdit
+2. Select your save file
+3. Edit your Pals
+4. Save
+5. Done
 
-## **💾 Saving Edited Pals**
+## **💾 Cloning Pals**
 
-1. Save your edited pals as a `*.pson` file for easier access.
-2. Choose to save as a `*.pson` file.
-3. To inject the changes into your save, save over your `Level.sav.json`.
-4. The program will splice it in at the correct location.
-5. Serialize the save again using the Convert menu.
-6. Put the resulting `Level.sav` into your save folder where the original one was.
-7. Load up PalWorld and enjoy.
+1. Load a save
+2. Select a Pal
+3. Click "Dump Pal", and choose a filename (any name)
+4. Click "Add Pal" and select the file you just made
+5. Edit the clone
 
 ## **📦 Backing up your save**
 
@@ -169,6 +162,7 @@ If you’ve installed Palworld via Steam, you can also access your save files by
 - **v0.6 Release:**
   - [x] Generate New Pals/Clone Old Pals
   - [x] Localisation Support
-  - [x] Move Editing
+  - [x] Equipped Move Editing
+  - [x] Learnt Move Editing
   - [X] Optimised Loading and Saving
   - [X] Changed Code structure to OOP
