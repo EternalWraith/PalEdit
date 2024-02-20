@@ -5,7 +5,7 @@ import os, webbrowser, json, time, uuid, math
 # install: pip install pyperclip
 import pyperclip
 
-import SaveConverter
+import palworld_pal_edit.SaveConverter
 from palworld_save_tools.gvas import GvasFile
 from palworld_save_tools.archive import FArchiveReader, FArchiveWriter, UUID
 from palworld_save_tools.json_tools import CustomEncoder
@@ -14,8 +14,8 @@ from palworld_save_tools.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TY
 import tkinter as tk
 import copy
 
-from PalInfo import *
-from PalEditLogger import *
+from palworld_pal_edit.PalInfo import *
+from palworld_pal_edit.PalEditLogger import *
 
 from tkinter import *
 from tkinter import ttk
@@ -790,7 +790,7 @@ class PalEdit():
 
     def handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
         pal.UpdateMaxHP()
-        
+
     def OLD_handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
         retval = pal.UpdateMaxHP(changes)
         if retval is not None:
@@ -1098,9 +1098,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
     def __init__(self):
         global EmptyObjectHandler, PalInfo, PalEditLogger
-        import EmptyObjectHandler
-        import PalInfo
-        import PalEditLogger
+        import palworld_pal_edit.EmptyObjectHandler
+        import palworld_pal_edit.PalInfo as PalInfo
+        import palworld_pal_edit.PalEditLogger as PalEditLogger
 
         self.logger = PalEditLogger.Logger()
 

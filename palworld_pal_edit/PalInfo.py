@@ -5,7 +5,6 @@ import sys
 import traceback
 from enum import Enum
 import tkinter
-from EmptyObjectHandler import *
 import uuid
 import copy
 import math
@@ -14,6 +13,8 @@ module_dir = os.path.dirname(os.path.realpath(__file__))
 if not os.path.exists("%s/resources/data/elements.json" % module_dir) and getattr(sys, 'frozen', False):
     # for some reason os.path when compiled with CxFreeze bugs out the program. Will look into it.
     module_dir = os.path.dirname(sys.executable)
+
+from palworld_pal_edit.EmptyObjectHandler import *
 
 xpthresholds = [
     0,
