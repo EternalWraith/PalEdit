@@ -3009,6 +3009,15 @@
             "Human": true
         },
         {
+            "CodeName": "FireCult_Rifle",
+            "Name": "Brothers of the Eternal Pyre Rifleman",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Male_Soldier01",
             "Name": "Burly Merc",
             "Type": [
@@ -3029,6 +3038,15 @@
         {
             "CodeName": "Believer_CrossBow",
             "Name": "Free Pal Alliance Devout",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Believer_Bat",
+            "Name": "Free Pal Alliance Thug",
             "Type": [
                 "None"
             ],
@@ -3137,6 +3155,177 @@
         {
             "CodeName": "SalesPerson",
             "Name": "Wandering Merchant",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Desert",
+            "Name": "Wandering Merchant (Desert)",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Desert2",
+            "Name": "Wandering Merchant (Desert)",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Volcano",
+            "Name": "Wandering Merchant (Volcano)",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Volcano2",
+            "Name": "Wandering Merchant (Volcano)",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_DesertPeople02",
+            "Name": "Female Villager",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_People02",
+            "Name": "Female Villager",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_People03",
+            "Name": "Female Villager",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_DesertPeople01",
+            "Name": "Male Villager",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_People02",
+            "Name": "Male Villager",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_People03",
+            "Name": "Male Villager",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "MobuCitizen",
+            "Name": "Female Islander",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "MobuCitizen_Male",
+            "Name": "Male Islander",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "MobuCitizen",
+            "Name": "Islander",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Guard_Rifle",
+            "Name": "Guard",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Guard_Shotgun",
+            "Name": "PIDF Goody Two-Shoes",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "PalDealer_Desert",
+            "Name": "Pal Merchant (Desert)",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "PalDealer_Volcano",
+            "Name": "Pal Merchant (Volcano)",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Police_Rifle",
+            "Name": "PIDF Infantry",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Police_Shotgun",
+            "Name": "PIDF Elite",
             "Type": [
                 "None"
             ],

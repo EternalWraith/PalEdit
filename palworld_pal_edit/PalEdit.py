@@ -123,7 +123,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.6.6"
+    version = "0.6.7"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
@@ -678,7 +678,7 @@ class PalEdit():
                 else:
                     self.unknown.append(str(e))
                     print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
-                    #traceback.print_exception(e)
+                    traceback.print_exception(e)
                     print()
                 # print(f"Debug: Data {i}")
 

@@ -389,6 +389,8 @@ class PalEntity:
 
 
     def UpdateMaxHP(self):
+        if self.IsTower() or self.IsHuman():
+            return
         new_hp = self.CalculateIngameStats()["HP"]
         self._obj['MaxHP']['value']['Value']['value'] = new_hp * 1000
         self._obj['HP']['value']['Value']['value'] = new_hp * 1000
