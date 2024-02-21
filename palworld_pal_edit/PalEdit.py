@@ -859,32 +859,28 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if self.phpvar.dirty:
             self.phpvar.dirty = False
             h = self.phpvar.get()
-            self.handleMaxHealthUpdates(pal, changes={
-                'hp_iv': h
-            })
             print(f"{pal.GetFullName()}: TalentHP {pal.GetTalentHP()} -> {h}")
             pal.SetTalentHP(h)
-            # hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
-            # self.hthstatval.config(text=math.floor(hv))
+            self.handleMaxHealthUpdates(pal)
+
         if self.meleevar.dirty:
             self.meleevar.dirty = False
             a = self.meleevar.get()
             print(f"{pal.GetFullName()}: AttackMelee {pal.GetAttackMelee()} -> {a}")
             pal.SetAttackMelee(a)
-            # av = 100 + (((70 * 0.75) * l) * (1 + (a / 100)))
-            # self.atkstatval.config(text=math.floor(av))
+
         if self.shotvar.dirty:
             self.shotvar.dirty = False
             r = self.shotvar.get()
             print(f"{pal.GetFullName()}: AttackRanged {pal.GetAttackRanged()} -> {r}")
             pal.SetAttackRanged(r)
+
         if self.defvar.dirty:
             self.defvar.dirty = False
             d = self.defvar.get()
             print(f"{pal.GetFullName()}: Defence {pal.GetDefence()} -> {d}")
             pal.SetDefence(d)
-            # dv = 50 + (((70 * 0.75) * l) * (1 + (d / 100)))
-            # self.defstatval.config(text=math.floor(dv))
+
         if self.wspvar.dirty:
             self.wspvar.dirty = False
             w = self.wspvar.get()
@@ -931,9 +927,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 break
 
         pal.SetType(self.speciesvar.get())
-        self.handleMaxHealthUpdates(pal, changes={
-            'species': self.speciesvar.get()
-        })
+        self.handleMaxHealthUpdates(pal)
         self.updateDisplay()
         self.refresh(self.palbox[self.players[self.current.get()]].index(pal))
 
