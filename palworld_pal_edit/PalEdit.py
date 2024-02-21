@@ -432,10 +432,9 @@ class PalEdit():
             1: 2,
         }
         new_rank = ranks.get(choice, 1)
-        self.handleMaxHealthUpdates(pal, changes={
-            'rank': new_rank
-        })
+
         pal.SetRank(new_rank)
+        self.handleMaxHealthUpdates(pal)
         self.refresh(i)
 
     def changeskill(self, num):
