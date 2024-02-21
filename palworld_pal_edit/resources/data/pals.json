@@ -1415,6 +1415,7 @@
                 "EPalWazaID::IcicleThrow": 50
             },
             "Scaling": {
+                "HP_BOSS": 420,
                 "HP": 140,
                 "ATK": 140,
                 "DEF": 120
