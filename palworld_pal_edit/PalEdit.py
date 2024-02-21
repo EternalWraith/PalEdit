@@ -506,7 +506,7 @@ class PalEdit():
 
         if not pal.IsTower() and not pal.IsHuman():
             calc = pal.CalculateIngameStats()
-            self.hthstatval.config(text=pal.GetMaxHP())
+            self.hthstatval.config(text=pal.GetMaxHP() / 1000)
             self.atkstatval.config(text=calc["ATK"])
             self.defstatval.config(text=calc["DEF"])
         else:
@@ -862,30 +862,36 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             print(f"{pal.GetFullName()}: TalentHP {pal.GetTalentHP()} -> {h}")
             pal.SetTalentHP(h)
             self.handleMaxHealthUpdates(pal)
+            self.refresh()
 
         if self.meleevar.dirty:
             self.meleevar.dirty = False
             a = self.meleevar.get()
             print(f"{pal.GetFullName()}: AttackMelee {pal.GetAttackMelee()} -> {a}")
             pal.SetAttackMelee(a)
+            self.refresh()
 
         if self.shotvar.dirty:
             self.shotvar.dirty = False
             r = self.shotvar.get()
             print(f"{pal.GetFullName()}: AttackRanged {pal.GetAttackRanged()} -> {r}")
             pal.SetAttackRanged(r)
+            self.refresh()
 
         if self.defvar.dirty:
             self.defvar.dirty = False
             d = self.defvar.get()
             print(f"{pal.GetFullName()}: Defence {pal.GetDefence()} -> {d}")
             pal.SetDefence(d)
+            self.refresh()
 
         if self.wspvar.dirty:
             self.wspvar.dirty = False
             w = self.wspvar.get()
             print(f"{pal.GetFullName()}: WorkSpeed {pal.GetWorkSpeed()} -> {w}")
             pal.SetWorkSpeed(w)
+            self.refresh()
+
 
     def takelevel(self):
         if not self.isPalSelected():
