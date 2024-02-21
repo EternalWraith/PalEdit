@@ -24,6 +24,7 @@ from tkinter import messagebox
 
 from datetime import datetime
 
+
 class UUIDEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, UUID):
@@ -199,7 +200,7 @@ class PalEdit():
 
         def atk_upd(menu, atk_id, label, codename):
             menu['menu'].add_command(label=label, command=tk._setit(self.attacks[atk_id], codename,
-                                                                        lambda evt: self.changeattack(atk_id)))
+                                                                    lambda evt: self.changeattack(atk_id)))
 
         for atk_id, menu in enumerate(self.attackdrops):
             while menu['menu'].index("end") is not None:
@@ -220,7 +221,6 @@ class PalEdit():
         for skid, menu in enumerate(self.skilldrops):
             for idx, n in enumerate(op):
                 skill_upd(menu, skid, idx, n)
-
 
     @staticmethod
     def hex_to_rgb(value):
@@ -486,7 +486,6 @@ class PalEdit():
 
         pal = self.palbox[self.players[self.current.get()]][index]
 
-
         # All Entities
         self.speciesvar.set(pal.GetCodeName())
         self.speciesvar_name.set(pal.GetName())
@@ -532,7 +531,6 @@ class PalEdit():
                         self.learntMoves.itemconfig(p, {'bg': 'darkgrey'})
             else:
                 self.learntMoves.insert(tk.constants.END, an)
-                
 
         self.ptype.config(text=pal.GetPrimary(), bg=PalInfo.PalElements[pal.GetPrimary()])
         self.stype.config(text=pal.GetSecondary(), bg=PalInfo.PalElements[pal.GetSecondary()])
@@ -753,7 +751,7 @@ class PalEdit():
             self.refresh(i)
 
         file = self.filename
-        #print(file, self.filename)
+        # print(file, self.filename)
         if file:
             logger.WriteLog(f"Opening file {file}")
 
@@ -968,7 +966,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected() or self.palguidmanager is None:
             return
         playerguid = self.players[self.current.get()]
-        playersav = os.path.dirname(self.filename) + f"/players/{playerguid.replace('-', '')}.sav"
+        playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
         if not os.path.exists(playersav):
             print("Cannot Load Player Save!")
             return
@@ -1261,9 +1259,6 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                    bg=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"),
                                    activebackground=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"))
 
-
-        
-        
         learntWaza = tk.Frame(atkskill)
         learntWaza.pack(fill=tk.constants.BOTH)
 
@@ -1279,12 +1274,13 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.learntMoves = tk.Listbox(wazaScroll, width=30, yscrollcommand=scrollbar.set, exportselection=0)
         self.learntMoves.pack(side=tk.constants.LEFT, fill=tk.constants.X)
 
-        removeMove = tk.Button(wazaButtons, fg="red", text="🗑", borderwidth=1, font=(PalEditConfig.font, PalEditConfig.ftsize - 2),
-                              command=self.stripMove,
-                              bg="darkgrey")
+        removeMove = tk.Button(wazaButtons, fg="red", text="🗑", borderwidth=1,
+                               font=(PalEditConfig.font, PalEditConfig.ftsize - 2),
+                               command=self.stripMove,
+                               bg="darkgrey")
         removeMove.pack(fill=tk.constants.BOTH, expand=True)
-        
-        #self.listdisplay.bind("<<ListboxSelect>>", self.onselect)
+
+        # self.listdisplay.bind("<<ListboxSelect>>", self.onselect)
         scrollbar.config(command=self.learntMoves.yview)
 
         # ➕
@@ -1292,10 +1288,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.fruitOptions = ttk.Combobox(wazaDisplay, textvariable=self.fruitPicker)
         self.fruitOptions.pack(fill=tk.constants.BOTH)
         addMove = tk.Button(wazaButtons, text="➕", borderwidth=1, font=(PalEditConfig.font, PalEditConfig.ftsize - 10),
-                              command=self.appendMove,
-                              bg="darkgrey")
+                            command=self.appendMove,
+                            bg="darkgrey")
         addMove.pack(side=tk.constants.RIGHT, fill=tk.constants.BOTH, expand=True)
-
 
         stats = tk.Frame(atkskill)
         stats.pack(fill=tk.constants.X)
@@ -1323,7 +1318,6 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                               justify="center")
         self.i18n_el['defence_lbl'] = atkstatlbl
         defstatlbl.pack()
-
 
         statvals = tk.Frame(stats, width=6)
         statvals.pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.X)
