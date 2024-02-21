@@ -432,10 +432,9 @@ class PalEdit():
             1: 2,
         }
         new_rank = ranks.get(choice, 1)
-        self.handleMaxHealthUpdates(pal, changes={
-            'rank': new_rank
-        })
+
         pal.SetRank(new_rank)
+        self.handleMaxHealthUpdates(pal)
         self.refresh(i)
 
     def changeskill(self, num):
@@ -471,7 +470,7 @@ class PalEdit():
 
         self.updateAttacks()
         self.refresh(i)
-
+        
     def onselect(self, evt):
         self.is_onselect = True
         w = evt.widget
@@ -507,7 +506,7 @@ class PalEdit():
 
         if not pal.IsTower() and not pal.IsHuman():
             calc = pal.CalculateIngameStats()
-            self.hthstatval.config(text=calc["HP"])
+            self.hthstatval.config(text=math.floor(pal.GetMaxHP() / 1000))
             self.atkstatval.config(text=calc["ATK"])
             self.defstatval.config(text=calc["DEF"])
         else:
@@ -822,7 +821,7 @@ class PalEdit():
         newguid = uuid.uuid4()
         print(newguid)
 
-    def handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
+    def handleMaxHealthUpdates(self, pal: PalEntity):
         if not pal.IsTower() and not pal.IsHuman():
             pal.UpdateMaxHP()
 
@@ -855,42 +854,45 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             return
 
         pal = self.palbox[self.players[self.current.get()]][self.editindex]
+        i = self.listdisplay.curselection()
         l = pal.GetLevel()
 
         if self.phpvar.dirty:
             self.phpvar.dirty = False
             h = self.phpvar.get()
-            self.handleMaxHealthUpdates(pal, changes={
-                'hp_iv': h
-            })
             print(f"{pal.GetFullName()}: TalentHP {pal.GetTalentHP()} -> {h}")
             pal.SetTalentHP(h)
-            # hv = 500 + (((70 * 0.5) * l) * (1 + (h / 100)))
-            # self.hthstatval.config(text=math.floor(hv))
+            self.handleMaxHealthUpdates(pal)
+            self.refresh(i)
+
         if self.meleevar.dirty:
             self.meleevar.dirty = False
             a = self.meleevar.get()
             print(f"{pal.GetFullName()}: AttackMelee {pal.GetAttackMelee()} -> {a}")
             pal.SetAttackMelee(a)
-            # av = 100 + (((70 * 0.75) * l) * (1 + (a / 100)))
-            # self.atkstatval.config(text=math.floor(av))
+            self.refresh(i)
+
         if self.shotvar.dirty:
             self.shotvar.dirty = False
             r = self.shotvar.get()
             print(f"{pal.GetFullName()}: AttackRanged {pal.GetAttackRanged()} -> {r}")
             pal.SetAttackRanged(r)
+            self.refresh(i)
+
         if self.defvar.dirty:
             self.defvar.dirty = False
             d = self.defvar.get()
             print(f"{pal.GetFullName()}: Defence {pal.GetDefence()} -> {d}")
             pal.SetDefence(d)
-            # dv = 50 + (((70 * 0.75) * l) * (1 + (d / 100)))
-            # self.defstatval.config(text=math.floor(dv))
+            self.refresh(i)
+
         if self.wspvar.dirty:
             self.wspvar.dirty = False
             w = self.wspvar.get()
             print(f"{pal.GetFullName()}: WorkSpeed {pal.GetWorkSpeed()} -> {w}")
             pal.SetWorkSpeed(w)
+            self.refresh(i)
+
 
     def takelevel(self):
         if not self.isPalSelected():
@@ -901,10 +903,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if pal.GetLevel() == 1:
             return
         lv = pal.GetLevel() - 1
-        self.handleMaxHealthUpdates(pal, changes={
-            'level': lv
-        })
+
         pal.SetLevel(lv)
+        self.handleMaxHealthUpdates(pal)
         self.refresh(i)
 
     def givelevel(self):
@@ -916,10 +917,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if pal.GetLevel() == 50:
             return
         lv = pal.GetLevel() + 1
-        self.handleMaxHealthUpdates(pal, changes={
-            'level': lv
-        })
+
         pal.SetLevel(lv)
+        self.handleMaxHealthUpdates(pal)
         self.refresh(i)
 
     def changespeciestype(self, evt):
@@ -934,9 +934,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 break
 
         pal.SetType(self.speciesvar.get())
-        self.handleMaxHealthUpdates(pal, changes={
-            'species': self.speciesvar.get()
-        })
+        self.handleMaxHealthUpdates(pal)
         self.updateDisplay()
         self.refresh(self.palbox[self.players[self.current.get()]].index(pal))
 
