@@ -506,7 +506,7 @@ class PalEdit():
 
         if not pal.IsTower() and not pal.IsHuman():
             calc = pal.CalculateIngameStats()
-            self.hthstatval.config(text=calc["HP"])
+            self.hthstatval.config(text=pal.GetMaxHP())
             self.atkstatval.config(text=calc["ATK"])
             self.defstatval.config(text=calc["DEF"])
         else:
