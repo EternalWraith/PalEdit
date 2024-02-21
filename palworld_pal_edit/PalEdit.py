@@ -470,7 +470,7 @@ class PalEdit():
 
         self.updateAttacks()
         self.refresh(i)
-
+        
     def onselect(self, evt):
         self.is_onselect = True
         w = evt.widget
@@ -506,7 +506,7 @@ class PalEdit():
 
         if not pal.IsTower() and not pal.IsHuman():
             calc = pal.CalculateIngameStats()
-            self.hthstatval.config(text=pal.GetMaxHP() / 1000)
+            self.hthstatval.config(text=math.floor(pal.GetMaxHP() / 1000))
             self.atkstatval.config(text=calc["ATK"])
             self.defstatval.config(text=calc["DEF"])
         else:
@@ -821,7 +821,7 @@ class PalEdit():
         newguid = uuid.uuid4()
         print(newguid)
 
-    def handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
+    def handleMaxHealthUpdates(self, pal: PalEntity):
         if not pal.IsTower() and not pal.IsHuman():
             pal.UpdateMaxHP()
 
@@ -854,6 +854,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             return
 
         pal = self.palbox[self.players[self.current.get()]][self.editindex]
+        i = self.listdisplay.curselection()
         l = pal.GetLevel()
 
         if self.phpvar.dirty:
@@ -862,35 +863,35 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             print(f"{pal.GetFullName()}: TalentHP {pal.GetTalentHP()} -> {h}")
             pal.SetTalentHP(h)
             self.handleMaxHealthUpdates(pal)
-            self.refresh()
+            self.refresh(i)
 
         if self.meleevar.dirty:
             self.meleevar.dirty = False
             a = self.meleevar.get()
             print(f"{pal.GetFullName()}: AttackMelee {pal.GetAttackMelee()} -> {a}")
             pal.SetAttackMelee(a)
-            self.refresh()
+            self.refresh(i)
 
         if self.shotvar.dirty:
             self.shotvar.dirty = False
             r = self.shotvar.get()
             print(f"{pal.GetFullName()}: AttackRanged {pal.GetAttackRanged()} -> {r}")
             pal.SetAttackRanged(r)
-            self.refresh()
+            self.refresh(i)
 
         if self.defvar.dirty:
             self.defvar.dirty = False
             d = self.defvar.get()
             print(f"{pal.GetFullName()}: Defence {pal.GetDefence()} -> {d}")
             pal.SetDefence(d)
-            self.refresh()
+            self.refresh(i)
 
         if self.wspvar.dirty:
             self.wspvar.dirty = False
             w = self.wspvar.get()
             print(f"{pal.GetFullName()}: WorkSpeed {pal.GetWorkSpeed()} -> {w}")
             pal.SetWorkSpeed(w)
-            self.refresh()
+            self.refresh(i)
 
 
     def takelevel(self):
