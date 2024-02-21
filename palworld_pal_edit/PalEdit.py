@@ -901,10 +901,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if pal.GetLevel() == 1:
             return
         lv = pal.GetLevel() - 1
-        self.handleMaxHealthUpdates(pal, changes={
-            'level': lv
-        })
+
         pal.SetLevel(lv)
+        self.handleMaxHealthUpdates(pal)
         self.refresh(i)
 
     def givelevel(self):
@@ -916,10 +915,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if pal.GetLevel() == 50:
             return
         lv = pal.GetLevel() + 1
-        self.handleMaxHealthUpdates(pal, changes={
-            'level': lv
-        })
+
         pal.SetLevel(lv)
+        self.handleMaxHealthUpdates(pal)
         self.refresh(i)
 
     def changespeciestype(self, evt):
