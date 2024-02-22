@@ -5,7 +5,7 @@ class Logger:
     def __init__(self):
         if os.path.exists("log.txt"):
             os.remove("log.txt")
-        self.log = open("log.txt", "a", buffering=1)
+        self.log = open("log.txt", "a", encoding="UTF-8", buffering=1)
         self.WriteLog("= START OF LOG =")
 
     def WriteLog(self, string):
