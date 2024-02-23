@@ -119,7 +119,7 @@ class PalEntity:
 
     def __init__(self, data):
         global logger
-        
+
         self._data = data
         self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
 
@@ -154,7 +154,7 @@ class PalEntity:
         # print(f"Debug: typename3 - '{typename}'")
 
         self._type = PalSpecies[typename]
-        logger.WriteLog(f"Created Entity of type {typename}: {self._type} - Lucky: {self.isLucky} Boss: {self.isBoss}")
+        logger.debug(f"Created Entity of type {typename}: {self._type} - Lucky: {self.isLucky} Boss: {self.isBoss}")
 
         if "Gender" in self._obj:
             if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":

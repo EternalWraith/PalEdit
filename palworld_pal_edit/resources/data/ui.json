@@ -17,6 +17,8 @@
   "workspeed_prop": "Workspeed IV%",
   "hp_prop": "HP IV%",
   "rank_prop": "Rank",
+  "btn_add_pal": "Add Pal",
+  "btn_dump_pal": "Dump Pal",
   "preset_lbl": "Presets:",
   "preset_title1": "Utility:",
   "preset_base": "Base",

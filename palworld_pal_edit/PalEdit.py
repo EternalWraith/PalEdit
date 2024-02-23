@@ -14,7 +14,7 @@ from palworld_save_tools.paltypes import PALWORLD_CUSTOM_PROPERTIES, PALWORLD_TY
 import tkinter as tk
 import copy
 
-from palworld_pal_edit.PalInfo import *
+import palworld_pal_edit.PalInfo as PalInfo
 from palworld_pal_edit.PalEditLogger import *
 
 from tkinter import *
@@ -136,9 +136,9 @@ class PalEdit():
     ranks = (0, 1, 2, 3, 4)
 
     def load_i18n(self, lang=""):
-        path = f"{module_dir}/resources/data/ui.json"
-        if os.path.exists(f"{module_dir}/resources/data/ui_{lang}.json"):
-            path = f"{module_dir}/resources/data/ui_{lang}.json"
+        path = f"{PalInfo.module_dir}/resources/data/ui.json"
+        if os.path.exists(f"{PalInfo.module_dir}/resources/data/ui_{lang}.json"):
+            path = f"{PalInfo.module_dir}/resources/data/ui_{lang}.json"
         with open(path, "r", encoding="utf-8") as f:
             keys = json.load(f)
             for i18n_k in keys:  # For multi lang didn't translate with original one
@@ -161,9 +161,9 @@ class PalEdit():
                 except Exception as e:
                     print("Fail to update i18n for %s" % item)
                     traceback.print_exception(e)
-        LoadPals(lang)
-        LoadAttacks(lang)
-        LoadPassives(lang)
+        PalInfo.LoadPals(lang)
+        PalInfo.LoadAttacks(lang)
+        PalInfo.LoadPassives(lang)
         self.attackops.clear()
         for e in PalInfo.PalAttacks:
             self.attackops.append(PalInfo.PalAttacks[e])
@@ -206,7 +206,7 @@ class PalEdit():
             while menu['menu'].index("end") is not None:
                 menu['menu'].delete(0)
             for idx, codename in enumerate(available_ops):
-                atk_upd(menu, atk_id, PalAttacks[codename], codename)
+                atk_upd(menu, atk_id, PalInfo.PalAttacks[codename], codename)
 
         op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
         op.pop(0)
@@ -591,7 +591,7 @@ class PalEdit():
 
         file = askopenfilename(initialdir=os.path.expanduser('~') + "\\AppData\\Local\\Pal\\Saved\\SaveGames",
                                filetypes=[("Level.sav", "Level.sav")])
-        logger.WriteLog(f"Opening file {file}")
+        logger.info(f"Opening file {file}")
 
         if file:
             self.filename = file
@@ -644,7 +644,6 @@ class PalEdit():
         self.palbox = {}
         self.players = {}
         self.players = self.palguidmanager.GetPlayerslist()
-        print(self.players)
         for p in self.players:
             self.palbox[self.players[p]] = []
         self.containers = {}
@@ -664,7 +663,7 @@ class PalEdit():
                             nullmoves.append(m)
             except Exception as e:
                 if str(e) == "This is a player character":
-                    print("Found Player Character")
+                    logger.debug(f"Found Player Character")
                     # print(f"\nDebug: Data \n{i}\n\n")
                     # o = i['value']['RawData']['value']['object']['SaveParameter']['value']
                     # pl = "No Name"
@@ -675,26 +674,27 @@ class PalEdit():
                     # self.players[pl] = plguid
                 else:
                     self.unknown.append(str(e))
-                    print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
-                    traceback.print_exception(e)
+                    logger.error(f"Error occured on {i['key']['InstanceId']['value']}", exc_info=True)
+                    # print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
+                    # traceback.print_exception(e)
                     print()
                 # print(f"Debug: Data {i}")
 
         self.current.set(next(iter(self.players)))
-        print(f"Defaulted selection to {self.current.get()}")
+        logger.info(f"Defaulted selection to {self.current.get()}")
 
         self.updateDisplay()
 
         logger.Space()
-        logger.WriteLog(f"NOTE: Unknown list is a list of pals that could not be loaded")
-        logger.WriteLog(f"Unknown list contains {len(self.unknown)} entries")
+        logger.info(f"NOTE: Unknown list is a list of pals that could not be loaded")
+        logger.warning(f"Unknown list contains {len(self.unknown)} entries")
         for i in self.unknown:
-            logger.WriteLog(str(i))
+            logger.warning("  %s" % str(i))
 
         logger.Space()
-        logger.WriteLog(f"{len(self.players)} players found:")
+        logger.debug(f"{len(self.players)} players found:")
         for i in self.players:
-            logger.WriteLog(f"{i} = {self.players[i]}")
+            logger.debug(f"{i} = {self.players[i]}")
         self.playerdrop['values'] = list(self.players.keys())
         self.playerdrop.current(0)
         logger.Space()
@@ -753,7 +753,7 @@ class PalEdit():
         file = self.filename
         # print(file, self.filename)
         if file:
-            logger.WriteLog(f"Opening file {file}")
+            logger.info(f"Opening file {file}")
 
             if 'gvas_file' in self.data:
                 gvas_file = self.data['gvas_file']
@@ -820,11 +820,11 @@ class PalEdit():
         newguid = uuid.uuid4()
         print(newguid)
 
-    def handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
+    def handleMaxHealthUpdates(self, pal: PalInfo.PalEntity, changes: dict):
         if not pal.IsTower() and not pal.IsHuman():
             pal.UpdateMaxHP()
 
-    def OLD_handleMaxHealthUpdates(self, pal: PalEntity, changes: dict):
+    def OLD_handleMaxHealthUpdates(self, pal: PalInfo.PalEntity, changes: dict):
         retval = pal.UpdateMaxHP(changes)
         if retval is not None:
             answer = messagebox.askquestion(
@@ -958,7 +958,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilllabel.config(text=self.i18n['msg_converting'])
 
         file = askopenfilename(filetypes=[("All files", "*.sav")])
-        logger.WriteLog(f"Opening file {file}")
+        logger.info(f"Opening file {file}")
 
         self.doconvertjson(file)
 
@@ -988,7 +988,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             return
         for p in spawnpaldata['Pals']:
             newguid = str(uuid.uuid4())
-            pal = PalEntity(p)
+            pal = PalInfo.PalEntity(p)
             i = self.palguidmanager.GetEmptySlotIndex(slotguid)
             if i == -1:
                 print("Player Pal Storage is full!")
@@ -1028,7 +1028,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilllabel.config(text=self.i18n['msg_converting'])
 
         file = askopenfilename(filetypes=[("All files", "*.sav.json")])
-        logger.WriteLog(f"Opening file {file}")
+        logger.info(f"Opening file {file}")
 
         self.doconvertsave(file)
 
@@ -1133,7 +1133,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
         langmenu = tk.Menu(tools, tearoff=0)
-        with open(f"{module_dir}/resources/data/ui-lang.json", "r", encoding="utf-8") as f:
+        with open(f"{PalInfo.module_dir}/resources/data/ui-lang.json", "r", encoding="utf-8") as f:
             languages = json.load(f)
             for lang in languages:
                 self.add_lang_menu(langmenu, languages, lang)
@@ -1162,7 +1162,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         t = datetime.today().strftime('%H:%M:%S')
         d = datetime.today().strftime('%d/%m/%Y')
-        logger.WriteLog(f"App opened at {t} on {d}")
+        logger.info(f"App opened at {t} on {d}")
 
         self.i18n = {}
         self.i18n_el = {}
@@ -1191,7 +1191,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         self.load_i18n()
 
-        self.purplepanda = tk.PhotoImage(master=self.gui, file=f'{module_dir}/resources/MossandaIcon.png')
+        self.purplepanda = tk.PhotoImage(master=self.gui, file=f'{PalInfo.module_dir}/resources/MossandaIcon.png')
         self.gui.iconphoto(True, self.purplepanda)
 
         root = self.gui
@@ -1316,7 +1316,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         defstatlbl = tk.Label(statlbls, bg="darkgrey", text=self.i18n['defence_lbl'],
                               font=(PalEditConfig.font, PalEditConfig.ftsize),
                               justify="center")
-        self.i18n_el['defence_lbl'] = atkstatlbl
+        self.i18n_el['defence_lbl'] = defstatlbl
         defstatlbl.pack()
 
         statvals = tk.Frame(stats, width=6)
@@ -1825,12 +1825,14 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         cloneLabel.pack(fill=tk.constants.X)
         palframe = Frame(atkskill)
         palframe.pack(fill=X)
-        button = Button(palframe, text="Add Pal", command=self.spawnpal)
+        button = Button(palframe, text=self.i18n['btn_add_pal'], command=self.spawnpal)
         button.config(font=(PalEditConfig.font, 12))
         button.pack(side=LEFT, expand=True, fill=BOTH)
-        button = Button(palframe, text="Dump Pal", command=self.dumppals)
+        self.i18n_el['btn_add_pal'] = button
+        button = Button(palframe, text=self.i18n['btn_dump_pal'], command=self.dumppals)
         button.config(font=(PalEditConfig.font, 12))
         button.pack(side=LEFT, expand=True, fill=BOTH)
+        self.i18n_el['btn_dump_pal'] = button
 
         # FOOTER
         frameFooter = tk.Frame(infoview, relief="flat")
