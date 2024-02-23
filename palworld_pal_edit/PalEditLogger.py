@@ -8,7 +8,7 @@ class Logger(logging.Logger):
         super().__init__("PalEdit", logging.DEBUG)
         if os.path.exists("log.txt"):
             os.remove("log.txt")
-        self.log = open("log.txt", "a", buffering=1)
+        self.log = open("log.txt", "a", encoding="UTF-8", buffering=1)
         log_steam = logging.StreamHandler(self.log)
         log_steam.setFormatter(logging.Formatter(fmt='%(asctime)s %(levelname)-8s :: %(message)s'))
         self.addHandler(log_steam)
