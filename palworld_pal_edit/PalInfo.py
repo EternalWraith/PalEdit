@@ -79,7 +79,7 @@ class PalGender(Enum):
 
 
 class PalObject:
-    def __init__(self, name, code_name, primary, secondary="None", human=False, tower=False, scaling=None):
+    def __init__(self, name, code_name, primary, secondary="None", human=False, tower=False, scaling=None, suits={}):
         self._name = name
         self._code_name = code_name
         self._img = None
@@ -88,6 +88,7 @@ class PalObject:
         self._human = human
         self._tower = tower
         self._scaling = scaling
+        self._suits = suits
 
     def GetName(self):
         return self._name
@@ -819,8 +820,12 @@ def LoadPals(lang=None):
             if len(i["Type"]) == 2:
                 s = i["Type"][1]
             PalSpecies[i["CodeName"]] = PalObject(i["Name"], i["CodeName"], p, s, h, t,
-                                                  i["Scaling"] if "Scaling" in i else None)
-            PalLearnSet[i["CodeName"]] = i["Moveset"]
+                                                  i["Scaling"] if "Scaling" in i else None,
+                                                  i["Suitabilities"] if "Suitabilities" in i else {})
+            if t:
+                PalSpecies[i["CodeName"]]._suits = PalSpecies[i["CodeName"].replace("GYM_", "")]._suits
+                PalSpecies[i["CodeName"]]._scaling = PalSpecies[i["CodeName"].replace("GYM_", "")]._scaling
+            PalLearnSet[i["CodeName"]] = i["Moveset"] if not t else PalLearnSet[i["CodeName"].replace("GYM_", "")]
 
 
 LoadPals()
