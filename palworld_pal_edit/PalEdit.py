@@ -978,7 +978,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not os.path.exists(playersav):
             print("Cannot Load Player Save!")
             return
-        player = PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+        player = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
         palworld_pal_edit.SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
 
         file = askopenfilename(filetypes=[("json files", "*.json")])
