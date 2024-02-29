@@ -673,7 +673,21 @@ class PalGuid:
             {'uid': x['key']['PlayerUId'],
              'value': x['value']['RawData']['value']['object']['SaveParameter']['value']
              } for x in self._data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']]))
-        return {x['value']['NickName']['value']: str(x['uid']['value']) for x in players}
+
+        out = {}
+        for x in players:
+            g = str(x['uid']['value'])
+            if g.replace("0", "").replace("-", "") == "1":
+                out[x['value']['NickName']['value'] + " (HOST)"] = g
+            elif not x['value']['NickName']['value'] in out:
+                out[x['value']['NickName']['value']] = g
+            else:
+                v = 2
+                while f"{x['value']['NickName']['value']} #{v}" in out:
+                    v += 1
+                out[x['value']['NickName']['value'] + f" #{v}"] = g
+            
+        return out #{x['value']['NickName']['value']: str(x['uid']['value']) for x in players}
 
     def ConvertGuid(guid_str):
         guid_str = guid_str
