@@ -6,6 +6,8 @@ import os, webbrowser, json, time, uuid, math
 import pyperclip
 
 import palworld_pal_edit.SaveConverter
+
+
 from palworld_save_tools.gvas import GvasFile
 from palworld_save_tools.archive import FArchiveReader, FArchiveWriter, UUID
 from palworld_save_tools.json_tools import CustomEncoder
@@ -124,7 +126,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.6.7"
+    version = "0.7"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
@@ -488,8 +490,9 @@ class PalEdit():
         self.speciesvar.set(pal.GetCodeName())
         self.speciesvar_name.set(pal.GetName())
 
-        self.storageId.config(text=f"StorageID: {pal.storageId}")
-        self.storageSlot.config(text=f"StorageSlot: {pal.storageSlot}")
+        self.debugTitle.config(text=f"Debug: {pal.GetPalInstanceGuid()}")
+        self.storageId.config(text=f"StorageID: {pal.GetSlotGuid()}")
+        self.storageSlot.config(text=f"StorageSlot: {pal.GetSlotIndex()}")
 
         self.portrait.config(image=pal.GetImage())
 
@@ -556,6 +559,10 @@ class PalEdit():
 
         # rank
         self.ranksvar.set(pal.GetRank() - 1)
+        self.hpsoulvar.set(pal.GetRankHP())
+        self.atsoulvar.set(pal.GetRankAttack())
+        self.dfsoulvar.set(pal.GetRankDefence())
+        self.wssoulvar.set(pal.GetRankWorkSpeed())
 
         s = pal.GetSkills()[:]
         while len(s) < 4:
@@ -787,6 +794,7 @@ class PalEdit():
             self.changetext(-1)
             self.jump()
             messagebox.showinfo("Done", "Done saving!")
+            self.resetTitle()
 
     def savepson(self, filename):
         f = open(filename, "w", encoding="utf8")
@@ -939,9 +947,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 break
 
         pal.SetType(self.speciesvar.get())
-        self.handleMaxHealthUpdates(pal, changes={
-            'species': self.speciesvar.get()
-        })
+        self.handleMaxHealthUpdates(pal)
         self.updateDisplay()
         self.refresh(self.palbox[self.players[self.current.get()]].index(pal))
 
@@ -1023,6 +1029,50 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         else:
             messagebox.showerror("Select a file", self.i18n['msg_select_file'])
 
+    def clonepal(self):
+        if not self.isPalSelected() or self.palguidmanager is None:
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.palbox[self.players[self.current.get()]][i]
+
+        
+
+        with open("temp.json", "wb") as f:
+            f.write(json.dumps(pal._data, indent=4, cls=UUIDEncoder).encode('utf-8'))
+
+        f = open("temp.json", "r", encoding="utf8")
+        spawnpaldata = json.loads(f.read())
+        f.close()
+        
+        playerguid = self.players[self.current.get()]
+        playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
+        if not os.path.exists(playersav):
+            print("Cannot Load Player Save!")
+            return
+        player = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+        palworld_pal_edit.SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
+
+        slotguid = str(player.GetPalStorageGuid())
+        groupguid = self.palguidmanager.GetGroupGuid(playerguid)
+        if any(guid == None for guid in [slotguid, groupguid]):
+            return
+
+        newguid = str(uuid.uuid4())
+        pal = PalInfo.PalEntity(spawnpaldata)
+        i = self.palguidmanager.GetEmptySlotIndex(slotguid)
+        if i == -1:
+            print("Player Pal Storage is full!")
+            return
+        pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
+        pal.SetSoltIndex(i)
+        self.palguidmanager.AddGroupSaveData(groupguid, newguid)
+        self.palguidmanager.SetContainerSave(slotguid, i, newguid)
+        self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
+        print(f"Add Pal at slot {i} : {slotguid}")
+        self.loaddata(self.data)
+
+        os.remove("temp.json")
+        
     def doconvertjson(self, file, compress=False):
         SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
 
@@ -1114,8 +1164,10 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
     def createWindow(self):
         root = tk.Tk()
-        root.title(f"PalEdit v{PalEditConfig.version}")
         return root
+
+    def resetTitle(self):
+        self.gui.title(f"PalEdit v{PalEditConfig.version}")
 
     def add_lang_menu(self, langmenu, languages, lang):
         langmenu.add_command(label=languages[lang], command=lambda: self.load_i18n(lang))
@@ -1158,6 +1210,32 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         for idx, n in enumerate(self.skills):
             self.skills_name[idx].set(PalInfo.PalPassives[n.get()])
 
+    def changesoul(self, field):
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.palbox[self.players[self.current.get()]][i]
+            
+        match field:
+            case "HP":
+                v = self.hpsoulvar.get()
+                self.hpsoulval.config(text=f"+{v*3}%")
+                pal.SetRankHP(v)
+            case "AT":
+                v = self.atsoulvar.get()
+                self.atsoulval.config(text=f"+{v*3}%")
+                pal.SetRankAttack(v)
+            case "DF":
+                v = self.dfsoulvar.get()
+                self.dfsoulval.config(text=f"+{v*3}%")
+                pal.SetRankDefence(v)
+            case "WS":
+                v = self.wssoulvar.get()
+                self.wssoulval.config(text=f"+{v*3}%")
+                pal.SetRankWorkSpeed(v)
+            case _:
+                return
+
     def __init__(self):
         global EmptyObjectHandler, PalInfo, PalEditLogger
         import palworld_pal_edit.EmptyObjectHandler
@@ -1183,6 +1261,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.editindex = -1
         self.filename = ""
         self.gui = self.createWindow()
+        self.resetTitle()
         self.palguidmanager: PalGuid = None
         self.is_onselect = False
 
@@ -1297,16 +1376,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         learntWaza.pack(fill=tk.constants.BOTH)
 
         wazaDisplay = tk.Frame(learntWaza)
-        wazaDisplay.pack(side=tk.constants.LEFT, fill=tk.constants.Y)
-        wazaButtons = tk.Frame(learntWaza)
-        wazaButtons.pack(side=tk.constants.RIGHT, fill=tk.constants.BOTH, expand=True)
+        wazaDisplay.pack(side=tk.constants.LEFT, fill=tk.constants.BOTH, expand=True)
+        wazaButtons = tk.Frame(learntWaza, width=20)
+        wazaButtons.pack(side=tk.constants.RIGHT, fill=tk.constants.BOTH)
 
         wazaScroll = tk.Frame(wazaDisplay)
-        wazaScroll.pack()
+        wazaScroll.pack(expand=True, fill=tk.constants.X)
         scrollbar = tk.Scrollbar(wazaScroll)
         scrollbar.pack(side=tk.constants.LEFT, fill=tk.constants.Y)
         self.learntMoves = tk.Listbox(wazaScroll, width=30, yscrollcommand=scrollbar.set, exportselection=0)
-        self.learntMoves.pack(side=tk.constants.LEFT, fill=tk.constants.X)
+        self.learntMoves.pack(side=tk.constants.LEFT, fill=tk.constants.X, expand=True)
 
         removeMove = tk.Button(wazaButtons, fg="red", text="🗑", borderwidth=1,
                                font=(PalEditConfig.font, PalEditConfig.ftsize - 2),
@@ -1337,7 +1416,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         resourceview.pack(side=tk.constants.LEFT, fill=tk.constants.BOTH, expand=True)
 
         self.portrait = tk.Label(resourceview, image=self.purplepanda, relief="sunken", borderwidth=2)
-        self.portrait.pack()
+        self.portrait.pack(pady=0)
 
         typeframe = tk.Frame(resourceview)
         typeframe.pack(expand=True, fill=tk.constants.X)
@@ -1366,7 +1445,10 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el['alpha_lbl'] = alphabox
         alphabox.pack(side=tk.constants.RIGHT, expand=True)
 
-        
+        button = Button(resourceview, text=self.i18n['btn_clone_pal'], command=self.clonepal)
+        button.config(font=(PalEditConfig.font, 12))
+        button.pack(expand=True, fill=BOTH)
+        self.i18n_el['btn_clone_pal'] = button
         
 
         deckview = tk.Frame(dataview, width=320, relief="sunken", borderwidth=2, pady=0)
@@ -1550,13 +1632,13 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         stateditview = tk.Frame(statview, bg="darkgrey")
         stateditview.pack(fill=tk.constants.X, side=tk.constants.RIGHT, expand=True)
 
-        def talent_hp_changed(*args):
-            if not self.isPalSelected():
-                return
-            i = int(listdisplay.curselection()[0])
-            pal = palbox[self.players[self.current.get()]][i]
-            if talent_hp_var.get() == 0:
-                talent_hp_var.set(1)
+##        def talent_hp_changed(*args):
+##            if not self.isPalSelected():
+##                return
+##            i = int(listdisplay.curselection()[0])
+##            pal = palbox[self.players[self.current.get()]][i]
+##            if talent_hp_var.get() == 0:
+##                talent_hp_var.set(1)
             # change value of pal
 
         self.phpvar = tk.IntVar()
@@ -1782,7 +1864,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         # PRESETS OPTIONS
         framePresetsExtras = tk.Frame(framePresets, relief="groove", borderwidth=4)
-        framePresetsExtras.pack(fill=tk.constants.BOTH, expand=True)
+        #framePresetsExtras.pack(fill=tk.constants.BOTH, expand=True)
 
         framePresetsLevel = tk.Frame(framePresetsExtras)
         framePresetsLevel.pack(fill=tk.constants.BOTH, expand=True)
@@ -1847,13 +1929,73 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                              justify='center').pack(side=tk.constants.LEFT, expand=True,
                                                                     fill=tk.constants.Y)
 
+        # SOUL STATUE STUFF ⚪⚫
+        soulview = tk.Frame(atkskill, relief="groove", borderwidth=2)
+        soulview.pack(fill=tk.constants.X)
+        soullbl = tk.Label(soulview, text=self.i18n["soul_tooltip"], bg="darkgrey", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        soullbl.pack(expand=True, fill=tk.constants.X, pady=0)
+        self.i18n_el["soul_tooltip"] = soullbl
+
+        self.hpsoulvar = tk.IntVar()
+        self.hpsoulvar.set(10)
+        self.hpsoulvar.trace_add("write", lambda *args: self.changesoul("HP"))
+        self.atsoulvar = tk.IntVar()
+        self.atsoulvar.set(5)
+        self.atsoulvar.trace_add("write", lambda *args: self.changesoul("AT"))
+        self.dfsoulvar = tk.IntVar()
+        self.dfsoulvar.set(7)
+        self.dfsoulvar.trace_add("write", lambda *args: self.changesoul("DF"))
+        self.wssoulvar = tk.IntVar()
+        self.wssoulvar.set(0)
+        self.wssoulvar.trace_add("write", lambda *args: self.changesoul("WS"))
+
+        hpsoul = tk.Frame(soulview)
+        hpsoul.pack(fill=tk.constants.X)
+        hpsoultag = tk.Label(hpsoul, width=10, text=self.i18n["health_soul_lbl"], bg="darkgrey", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        hpsoultag.pack(side=tk.constants.LEFT, fill=tk.constants.X, expand=True)
+        self.i18n_el["health_soul_lbl"] = hpsoultag
+        self.hpsoulval = tk.Label(hpsoul, width=6, text="+30%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
+        self.hpsoulval.pack(side=tk.constants.RIGHT)
+        hpsoulbar = tk.Scale(hpsoul, showvalue=False, variable=self.hpsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        hpsoulbar.pack(side=tk.constants.RIGHT)
+
+        atsoul = tk.Frame(soulview)
+        atsoul.pack(fill=tk.constants.X)
+        atsoultag = tk.Label(atsoul, width=10, text=self.i18n["attack_soul_lbl"], bg="darkgrey", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        atsoultag.pack(side=tk.constants.LEFT, fill=tk.constants.X, expand=True)
+        self.i18n_el["attack_soul_lbl"] = atsoultag
+        self.atsoulval = tk.Label(atsoul, width=6, text="+15%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
+        self.atsoulval.pack(side=tk.constants.RIGHT)
+        atsoulbar = tk.Scale(atsoul, showvalue=False, variable=self.atsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        atsoulbar.pack(side=tk.constants.RIGHT)
+
+        dfsoul = tk.Frame(soulview)
+        dfsoul.pack(fill=tk.constants.X)
+        dfsoultag = tk.Label(dfsoul, width=10, text=self.i18n["defence_soul_lbl"], bg="darkgrey", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        dfsoultag.pack(side=tk.constants.LEFT, fill=tk.constants.X, expand=True)
+        self.i18n_el["defence_soul_lbl"] = dfsoultag
+        self.dfsoulval = tk.Label(dfsoul, width=6, text="+21%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
+        self.dfsoulval.pack(side=tk.constants.RIGHT)
+        dfsoulbar = tk.Scale(dfsoul, showvalue=False, variable=self.dfsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        dfsoulbar.pack(side=tk.constants.RIGHT)
+
+        wssoul = tk.Frame(soulview)
+        wssoul.pack(fill=tk.constants.X)
+        wssoultag = tk.Label(wssoul, width=10, text=self.i18n["working_soul_lbl"], bg="darkgrey", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        wssoultag.pack(side=tk.constants.LEFT, fill=tk.constants.X, expand=True)
+        self.i18n_el["working_soul_lbl"] = wssoultag
+        self.wssoulval = tk.Label(wssoul, width=6, text="+0%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
+        self.wssoulval.pack(side=tk.constants.RIGHT)
+        wssoulbar = tk.Scale(wssoul, showvalue=False, variable=self.wssoulvar, from_=0, to=10, orient=HORIZONTAL)
+        wssoulbar.pack(side=tk.constants.RIGHT)
+        
         # DEBUG
         frameDebug = self.frameDebug = tk.Frame(infoview, relief="flat")
         frameDebug.pack()
         frameDebug.pack_forget()
-        debugTitle = tk.Label(frameDebug, text='Debug:', anchor='w', bg="darkgrey",
+        self.debugTitle = tk.Label(frameDebug, text='Debug:', anchor='w', bg="darkgrey",
                               font=(PalEditConfig.font, PalEditConfig.ftsize), width=6, height=1)
-        debugTitle.pack(fill=tk.constants.BOTH)
+        self.debugTitle.pack(fill=tk.constants.BOTH)
         self.storageId = tk.Label(frameDebug, text='StorageID: NULL', anchor='w', bg="darkgrey",
                                   font=(PalEditConfig.font, PalEditConfig.ftsize), width=6,
                                   height=1)
@@ -1876,16 +2018,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                               font=(PalEditConfig.font, PalEditConfig.ftsize),
                               justify="center")
         self.i18n_el['clone_lbl'] = cloneLabel
-        cloneLabel.pack(fill=tk.constants.X)
+        #cloneLabel.pack(fill=tk.constants.X)
         palframe = Frame(atkskill)
         palframe.pack(fill=X)
         button = Button(palframe, text=self.i18n['btn_add_pal'], command=self.spawnpal)
         button.config(font=(PalEditConfig.font, 12))
-        button.pack(side=LEFT, expand=True, fill=BOTH)
+        #button.pack(side=LEFT, expand=True, fill=BOTH)
         self.i18n_el['btn_add_pal'] = button
         button = Button(palframe, text=self.i18n['btn_dump_pal'], command=self.dumppals)
         button.config(font=(PalEditConfig.font, 12))
-        button.pack(side=LEFT, expand=True, fill=BOTH)
+        #button.pack(side=LEFT, expand=True, fill=BOTH)
         self.i18n_el['btn_dump_pal'] = button
 
         
@@ -1936,4 +2078,6 @@ def main():
 
 
 if __name__ == "__main__":
+    sys.path.append('..')
+    print(sys.path)
     main()

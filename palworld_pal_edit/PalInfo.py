@@ -14,7 +14,10 @@ if not os.path.exists("%s/resources/data/elements.json" % module_dir) and getatt
     # for some reason os.path when compiled with CxFreeze bugs out the program. Will look into it.
     module_dir = os.path.dirname(sys.executable)
 
-from palworld_pal_edit.EmptyObjectHandler import *
+try:
+    from palworld_pal_edit.EmptyObjectHandler import *
+except:
+    from EmptyObjectHandler import *
 
 xpthresholds = [
     0,
@@ -304,6 +307,12 @@ class PalEntity:
         self._type = PalSpecies[value]
         self.CleanseAttacks()
 
+        ss = copy.deepcopy(EmptySuitObject)
+        for i in ss["value"]["values"]:
+            t = i["WorkSuitability"]["value"]["value"].split("::")[1]
+            i["Rank"]["value"] = self._type._suits[t]
+        self._obj["CraftSpeeds"] = ss
+
     def GetObject(self) -> PalObject:
         return self._type
 
@@ -338,18 +347,34 @@ class PalEntity:
         return 0
 
     def GetRankDefence(self):
-        # I haven't checked if this is the correct key.
-        # unused
         if "Rank_Defence" in self._obj:
             return self._obj["Rank_Defence"]["value"]
         return 0
 
-    # def GetRankCraftSpeed(self):
-    #     # I haven't checked if this is the correct key.
-    #     # unused
-    #     if "Rank_CraftSpeed" in self._obj:
-    #         return self._obj["Rank_CraftSpeed"]["value"]
-    #     return 0
+    def GetRankWorkSpeed(self):
+        if "Rank_CraftSpeed" in self._obj:
+            return self._obj["Rank_CraftSpeed"]["value"]
+        return 0
+
+    def SetRankHP(self, value):
+        if not "Rank_HP" in self._obj:
+            self._obj["Rank_HP"] = copy.deepcopy(EmptySoulObject)
+        self._obj["Rank_HP"]["value"] = value
+
+    def SetRankAttack(self, value):
+        if not "Rank_Attack" in self._obj:
+            self._obj["Rank_Attack"] = copy.deepcopy(EmptySoulObject)
+        self._obj["Rank_Attack"]["value"] = value
+
+    def SetRankDefence(self, value):
+        if not "Rank_Defence" in self._obj:
+            self._obj["Rank_Defence"] = copy.deepcopy(EmptySoulObject)
+        self._obj["Rank_Defence"]["value"] = value
+
+    def SetRankWorkSpeed(self, value):
+        if not "Rank_CraftSpeed" in self._obj:
+            self._obj["Rank_CraftSpeed"] = copy.deepcopy(EmptySoulObject)
+        self._obj["Rank_CraftSpeed"]["value"] = value
 
     def GetMaxHP(self):
         return self._obj['MaxHP']['value']['Value']['value']
