@@ -239,7 +239,10 @@ class PalEntity:
         return self._type._tower
 
     def SwapGender(self):
-        if self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
+        if 'Gender' not in self._obj:
+            self._obj['Gender'] = {'value': {'value': "EPalGenderType::Female"}}
+            self._gender = "Female ♀"
+        elif self._obj['Gender']['value']['value'] == "EPalGenderType::Male":
             self._obj['Gender']['value']['value'] = "EPalGenderType::Female"
             self._gender = "Female ♀"
         else:
