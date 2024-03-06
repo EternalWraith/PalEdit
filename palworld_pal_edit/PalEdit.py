@@ -1,4 +1,4 @@
-import os, webbrowser, json, time, uuid, math
+import os, webbrowser, json, time, uuid, math, zipfile
 
 # pyperclip
 # docs: https://pypi.org/project/pyperclip/#description
@@ -138,9 +138,9 @@ class PalEdit():
     ranks = (0, 1, 2, 3, 4)
 
     def load_i18n(self, lang=""):
-        path = f"{PalInfo.module_dir}/resources/data/ui.json"
-        if os.path.exists(f"{PalInfo.module_dir}/resources/data/ui_{lang}.json"):
-            path = f"{PalInfo.module_dir}/resources/data/ui_{lang}.json"
+        path = f"{PalInfo.module_dir}/resources/data/en-GB/ui.json"
+        if os.path.exists(f"{PalInfo.module_dir}/resources/data/{lang}/ui.json"):
+            path = f"{PalInfo.module_dir}/resources/data/{lang}/ui.json"
         with open(path, "r", encoding="utf-8") as f:
             keys = json.load(f)
             for i18n_k in keys:  # For multi lang didn't translate with original one
@@ -166,7 +166,7 @@ class PalEdit():
         PalInfo.LoadPals(lang)
         PalInfo.LoadAttacks(lang)
         PalInfo.LoadPassives(lang)
-        self.attackops.clear()
+        self.attackops = []
         for e in PalInfo.PalAttacks:
             self.attackops.append(PalInfo.PalAttacks[e])
         self.attackops.remove("None")
@@ -733,6 +733,8 @@ class PalEdit():
 
         self.changetext(-1)
         self.jump()
+        self.enable_menus()
+
 
     def jump(self):
         self.gui.attributes('-topmost', 1)
@@ -795,6 +797,8 @@ class PalEdit():
             self.jump()
             messagebox.showinfo("Done", "Done saving!")
             self.resetTitle()
+            self.disable_menus()
+
 
     def savepson(self, filename):
         f = open(filename, "w", encoding="utf8")
@@ -984,7 +988,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not os.path.exists(playersav):
             print("Cannot Load Player Save!")
             return
-        player = PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+        player = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
         palworld_pal_edit.SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
 
         file = askopenfilename(filetypes=[("json files", "*.json")])
@@ -1008,6 +1012,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 print("Player Pal Storage is full!")
                 return
             pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
+            pal.SetSoltIndex(i)
             self.palguidmanager.AddGroupSaveData(groupguid, newguid)
             self.palguidmanager.SetContainerSave(slotguid, i, newguid)
             self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
@@ -1169,8 +1174,21 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def resetTitle(self):
         self.gui.title(f"PalEdit v{PalEditConfig.version}")
 
-    def add_lang_menu(self, langmenu, languages, lang):
-        langmenu.add_command(label=languages[lang], command=lambda: self.load_i18n(lang))
+    def add_lang_menu(self, langmenu, lang):
+        with open(f"{PalInfo.module_dir}/resources/data/{lang}/ui.json", "r", encoding="utf-8") as f:
+            content = json.load(f)
+            l = content["language"]
+        langmenu.add_command(label=l, command=lambda: self.load_i18n(lang))
+
+    def disable_menus(self):
+        filemenu.entryconfig(self.i18n['menu_save'], state="disabled")
+        filemenu.entryconfig(self.i18n['menu_export'], state="disabled")
+        filemenu.entryconfig(self.i18n['menu_import'], state="disabled")
+
+    def enable_menus(self):
+        filemenu.entryconfig(self.i18n['menu_save'], state="normal")
+        filemenu.entryconfig(self.i18n['menu_export'], state="normal")
+        filemenu.entryconfig(self.i18n['menu_import'], state="normal")
 
     def build_menu(self):
         self.menu = tk.Menu(self.gui)
@@ -1184,6 +1202,14 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         filemenu.add_command(label=self.i18n['menu_save'], command=self.savefile)
         self.i18n_el['menu_save'] = (filemenu, 1)
 
+        filemenu.add_separator()        
+        filemenu.add_command(label=self.i18n['menu_export'], command=self.dumppals)
+        self.i18n_el['menu_export'] = (filemenu, 3)
+        filemenu.add_command(label=self.i18n['menu_import'], command=self.spawnpal)
+        self.i18n_el['menu_import'] = (filemenu, 4)
+
+        self.disable_menus()
+
         tools.add_cascade(label="File", menu=filemenu, underline=0)
 
         toolmenu = tk.Menu(tools, tearoff=0)
@@ -1193,10 +1219,31 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
         langmenu = tk.Menu(tools, tearoff=0)
-        with open(f"{PalInfo.module_dir}/resources/data/ui-lang.json", "r", encoding="utf-8") as f:
-            languages = json.load(f)
-            for lang in languages:
-                self.add_lang_menu(langmenu, languages, lang)
+        langops = next(os.walk(f"{PalInfo.module_dir}/resources/data"))
+        langops = [x for x in langops[1]]
+        #with open(f"{PalInfo.module_dir}/resources/data/ui-lang.json", "r", encoding="utf-8") as f:
+            #languages = json.load(f)
+            #for lang in languages:
+                #self.add_lang_menu(langmenu, languages, lang)
+
+        for lang in langops:
+            self.add_lang_menu(langmenu, lang)
+
+
+        def installlang():
+            file = askopenfilename(filetypes=[("Zip files", "*.zip")])
+            if file:
+                with zipfile.ZipFile(file, "r") as z:
+                    name = file.split("/")[-1].replace(".zip","")
+                    z.extractall(f"{PalInfo.module_dir}/resources/data/{name}")
+                    langmenu.delete(langmenu.index("end")-1, langmenu.index("end"))
+                    self.add_lang_menu(langmenu, name)
+                    dlclangs()
+
+        def dlclangs():
+            langmenu.add_separator()
+            langmenu.add_command(label="Install language...", command=installlang)
+        dlclangs()
 
         tools.add_cascade(label="Language", menu=langmenu, underline=0)
 

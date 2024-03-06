@@ -1,4 +1,5 @@
 {
+  "language": "中文",
   "player_lbl": "玩家:",
   "atk_lbl": "已装备技能",
   "clone_lbl": "克隆工具",
@@ -44,6 +45,8 @@
   "preset_change_attr": "预设修改属性",
   "menu_load_save": "加载帕鲁存档",
   "menu_save": "保存到存档",
+  "menu_export": "出口伙伴",
+  "menu_import": "将伙伴导入到选定的玩家",
   "msg_select_file": "请选择存档文件.",
   "msg_disclaim": "以上数值为游戏内统计数据；但不包括被动技能",
   "msg_skill": "鼠标放置于技能上看描述...",

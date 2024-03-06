@@ -1,4 +1,5 @@
 {
+  "language": "English",
   "player_lbl": "Player:",
   "atk_lbl": "Equipped",
   "clone_lbl": "Cloning Tools",
@@ -44,6 +45,8 @@
   "preset_change_attr": "Preset changes attributes",
   "menu_load_save": "Load PalWorld Save",
   "menu_save": "Save Changes To File",
+  "menu_export": "Export Pal",
+  "menu_import": "Import Pal to selected Player",
   "msg_select_file": "Please select a save file.",
   "msg_disclaim": "The values above are in-game stats; and do not include passive skills",
   "msg_skill": "Hover a skill to see it's description",

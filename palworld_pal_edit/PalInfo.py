@@ -874,23 +874,33 @@ PassiveDescriptions = {}
 PassiveRating = {}
 
 
-def LoadPassives(lang=None):
+def LoadPassives(lang="en-GB"):
     global PalPassives, PassiveDescriptions, PassiveRating
 
     PalPassives = {}
     PassiveDescriptions = {}
     PassiveRating = {}
 
-    if lang is not None and not os.path.exists("%s/resources/data/passives%s.json" % (module_dir, "_" + lang)):
-        lang = None
+    if lang == "":
+        lang = "en-GB"
 
-    with open("%s/resources/data/passives%s.json" % (module_dir, "_" + lang if lang is not None else ""), "r",
-              encoding="utf8") as passivefile:
-        for i in json.loads(passivefile.read())["values"]:
-            PalPassives[i["CodeName"]] = i["Name"]
-            PassiveDescriptions[i["CodeName"]] = i["Description"]
-            PassiveRating[i["CodeName"]] = i["Rating"]
-        PalPassives = dict(sorted(PalPassives.items()))
+    if lang is not None and not os.path.exists(f"%s/resources/data/{lang}/passives.json" % (module_dir)):
+        lang = "en-GB"
+
+    with open("%s/resources/data/passives.json" % (module_dir), "r",
+              encoding="utf8") as datafile:
+        with open(f"%s/resources/data/{lang}/passives.json" % (module_dir), "r",
+                  encoding="utf8") as passivefile:
+
+            d = json.loads(datafile.read())
+            l = json.loads(passivefile.read())
+            
+            for i in d:
+                code = i
+                PalPassives[code] = l[code]["Name"]
+                PassiveDescriptions[code] = l[code]["Description"]
+                PassiveRating[code] = d[i]["Rating"]
+            PalPassives = dict(sorted(PalPassives.items()))
 
 
 LoadPassives()
@@ -902,33 +912,40 @@ AttackTypes = {}
 SkillExclusivity = {}
 
 
-def LoadAttacks(lang=None):
+def LoadAttacks(lang="en-GB"):
     global PalAttacks, AttackPower, AttackTypes, SkillExclusivity
 
-    if lang is not None and not os.path.exists("%s/resources/data/attacks%s.json" % (module_dir, "_" + lang)):
-        lang = None
+    if lang == "":
+        lang = "en-GB"
 
-    with open("%s/resources/data/attacks%s.json" % (module_dir, "_" + lang if lang is not None else ""), "r",
-              encoding="utf8") as attackfile:
-        PalAttacks = {}
-        AttackPower = {}
-        AttackTypes = {}
-        SkillExclusivity = {}
+    if lang is not None and not os.path.exists(f"%s/resources/data/{lang}/attacks.json" % (module_dir)):
+        lang = "en-GB"
 
-        l = json.loads(attackfile.read())
+    with open("%s/resources/data/attacks.json" % (module_dir), "r",
+              encoding="utf8") as datafile:
+        with open(f"%s/resources/data/{lang}/attacks.json" % (module_dir), "r",
+                  encoding="utf8") as attackfile:
+            PalAttacks = {}
+            AttackPower = {}
+            AttackTypes = {}
+            SkillExclusivity = {}
 
-        debugOutput = l["values"]
+            d = json.loads(datafile.read())
+            l = json.loads(attackfile.read())
 
-        for i in l["values"]:
-            PalAttacks[i["CodeName"]] = i["Name"]
-            AttackPower[i["CodeName"]] = i["Power"]
-            AttackTypes[i["CodeName"]] = i["Type"]
-            if "Exclusive" in i:
-                SkillExclusivity[i["CodeName"]] = i["Exclusive"]
-            else:
-                SkillExclusivity[i["CodeName"]] = None
+            #debugOutput = d["values"]
 
-        PalAttacks = dict(sorted(PalAttacks.items()))
+            for i in d:
+                code = i
+                PalAttacks[code] = l[code]
+                AttackPower[code] = d[i]["Power"]
+                AttackTypes[code] = d[i]["Type"]
+                if "Exclusive" in d[i]:
+                    SkillExclusivity[code] = d[i]["Exclusive"]
+                else:
+                    SkillExclusivity[code] = None
+
+            PalAttacks = dict(sorted(PalAttacks.items()))
 
 LoadAttacks()
 
@@ -947,7 +964,7 @@ def find(name):
 
 if __name__ == "__main__":
     # Convert Pals -> Moveset from Name to CodeName for i18n
-    with open("%s/resources/data/pals.json" % (module_dir), "r", encoding="utf-8") as f:
+    """with open("%s/resources/data/pals.json" % (module_dir), "r", encoding="utf-8") as f:
         pals = json.load(f)
         for pal in pals['values']:
             if 'Moveset' in pal:
@@ -964,6 +981,18 @@ if __name__ == "__main__":
 
     with open("%s/resources/data/pals.json" % (module_dir), "w", encoding="utf-8") as f:
         json.dump(pals, f, indent=4)
+        """
+
+    with open(f"%s/resources/data/passives.json" % (module_dir), "r", encoding="utf-8") as f:
+        ps = json.load(f)
+        o = {}
+        for p in ps['values']:
+            o[p["CodeName"]] = {
+                    "Rating": p["Rating"],
+                }
+    with open(f"%s/resources/data/passives.json" % (module_dir), "w", encoding="utf-8") as f:
+        json.dump(o, f, indent=4, ensure_ascii=False)
+    
 
 ##
 ##
