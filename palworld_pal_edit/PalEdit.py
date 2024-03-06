@@ -126,7 +126,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.7"
+    version = "0.7.2"
     ftsize = 18
     font = "Arial"
     badskill = "#DE3C3A"
