@@ -148,12 +148,12 @@
         "Description": "-20%防御力"
     },
     "TrainerMining_up1": {
-        "Name": "采伐领袖",
-        "Description": "+25%玩家伐木效率"
-    },
-    "TrainerLogging_up1": {
         "Name": "矿山首领",
         "Description": "+25%玩家采矿效率"
+    },
+    "TrainerLogging_up1": {
+        "Name": "采伐领袖",
+        "Description": "+25%玩家伐木效率"
     },
     "TrainerATK_UP_1": {
         "Name": "突袭指挥官",
