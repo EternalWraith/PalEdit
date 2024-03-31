@@ -3,3 +3,7 @@ current.pson
 build
 data.txt
 log.txt
+venv
+dist
+PalEdit.spec
+PalEdit.exe

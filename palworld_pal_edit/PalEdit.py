@@ -1,8 +1,5 @@
 import os, webbrowser, json, time, uuid, math, zipfile
 
-# pyperclip
-# docs: https://pypi.org/project/pyperclip/#description
-# install: pip install pyperclip
 import pyperclip
 
 import palworld_pal_edit.SaveConverter

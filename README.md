@@ -20,7 +20,7 @@
 - [**🚀 Installation**](#-installation)
 - [**⚠️ A word of warning**](#️-a-word-of-warning)
 - [**🕹️ Usage**](#️-usage)
-- [**💾 Saving Edited Pals**](#-saving-edited-pals)
+- [**💾 Cloning Pals**](#-cloning-pals)
 - [**📦 Backing up your save**](#-backing-up-your-save)
 - [**🛠️ Building from source (on Windows)**](#️-building-from-source-on-windows)
 - [**🚧 Project roadmap**](#-project-roadmap)
@@ -57,10 +57,7 @@ It is advised that you backup ALL save files before using the tool. Although the
 
 On Windows, the saves can be found in the following locations:
 
-- `%appdata%/Local/Pal/Save/Savegames`
-- `C:\Users\<username>\AppData\Local\Pal\Saved\SaveGames`
-
-Replace `<username>` with your Windows username.
+- `%LocalAppData%\Pal\Saved\SaveGames\`
 
 If you’ve installed Palworld via Steam, you can also access your save files by following these steps:
 
@@ -108,7 +105,7 @@ If you’ve installed Palworld via Steam, you can also access your save files by
 7. Copy the `resources` folder into the `dist` folder. This is required to display the images inside PalEdit:
 
     ```powershell
-    cp -r resources dist
+    cp -r palworld_pal_edit\resources dist
     ```
 
 8. Run your newly built binary file and enjoy.
