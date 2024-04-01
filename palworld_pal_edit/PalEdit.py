@@ -125,7 +125,7 @@ import traceback
 class PalEditConfig:
     version = "0.7.2"
     ftsize = 18
-    font = "Arial"
+    font = "Microsoft YaHei"
     badskill = "#DE3C3A"
     okayskill = "#DFE8E7"
     goodskill = "#FEDE00"
@@ -170,8 +170,11 @@ class PalEdit():
         self.attackops.sort()
         self.attackops.insert(0, "None")
 
+        # Skip the first load. And handle the situation where the user switches language before loading save.
+        if hasattr(self, "listdisplay") and self.current.get() != "": 
+            self.updateDisplay()
+        
         self.updateSkillMenu()
-
         self.updateAttackName()
         self.updateSkillsName()
         species = [PalInfo.PalSpecies[e].GetName() for e in PalInfo.PalSpecies]
@@ -485,7 +488,7 @@ class PalEdit():
 
         # All Entities
         self.speciesvar.set(pal.GetCodeName())
-        self.speciesvar_name.set(pal.GetName())
+        self.speciesvar_name.set(PalInfo.PalSpecies[self.speciesvar.get()].GetName())
 
         self.debugTitle.config(text=f"Debug: {pal.GetPalInstanceGuid()}")
         self.storageId.config(text=f"StorageID: {pal.GetSlotGuid()}")
