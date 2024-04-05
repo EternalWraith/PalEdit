@@ -94,7 +94,7 @@ class PalObject:
         self._suits = suits
 
     def GetName(self):
-        return self._name
+        return PalSpecies[self._code_name]._name # Update PalEdit.listdisplay
 
     def GetCodeName(self):
         return self._code_name
@@ -831,17 +831,20 @@ PalSpecies = {}
 PalLearnSet = {}
 
 
-def LoadPals(lang=None):
+def LoadPals(lang="en-GB"):
     global PalSpecies, PalLearnSet
 
-    if lang is not None and not os.path.exists("%s/resources/data/pals%s.json" % (module_dir, "_" + lang)):
-        lang = None
+    if lang == "":
+        lang = "en-GB"
 
-    PalCodeMapping = {}
-    with open("%s/resources/data/pals.json" % (module_dir), "r", encoding="utf8") as palfile:
-        pals = json.load(palfile)
-        PalCodeMapping = {pal['CodeName']: pal['Name'] for pal in pals['values']}
-    with open("%s/resources/data/pals%s.json" % (module_dir, "_" + lang if lang is not None else ""), "r",
+    if lang is not None and not os.path.exists(f"%s/resources/data/{lang}/pals.json" % (module_dir)):
+        lang = "en-GB"
+    
+    # PalCodeMapping = {}
+    # with open("%s/resources/data/pals.json" % (module_dir), "r", encoding="utf8") as palfile:
+    #     pals = json.load(palfile)
+    #     PalCodeMapping = {pal['CodeName']: pal['Name'] for pal in pals['values']}
+    with open(f"%s/resources/data/{lang}/pals.json" % (module_dir), "r",
               encoding="utf8") as palfile:
         PalSpecies = {}
         PalLearnSet = {}
