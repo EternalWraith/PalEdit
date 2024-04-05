@@ -112,5 +112,12 @@
     "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes": "Twin Spears",
     "EPalWazaID::Unique_VolcanicMonster_MagmaAttack": "Volcanic Burst",
     "EPalWazaID::WindCutter": "Wind Cutter",
-    "EPalWazaID::WaterWave": "en Text"
+    "EPalWazaID::WaterWave": "en Text",
+    "EPalWazaID::Unique_NightLady_FlameNightmare": "Flame Waltz",
+    "EPalWazaID::Unique_NightLady_WarpBeam": "Nightmare Bloom",
+    "EPalWazaID::Unique_NightLady_WarpBeam_Straight": "Nightmare Ray",
+    "EPalWazaID::DarkCanon": "Dark Cannon",
+    "EPalWazaID::DarkPulse": "Umbral Surge",
+    "EPalWazaID::DarkArrow": "Dark Arrow",
+    "EPalWazaID::Apocalypse": "Apocalypse"
 }

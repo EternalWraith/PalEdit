@@ -112,5 +112,12 @@
     "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes": "双枪一闪[混沌骑士]",
     "EPalWazaID::Unique_VolcanicMonster_MagmaAttack": "火山爆发[熔岩兽]",
     "EPalWazaID::WindCutter": "风刃",
-    "EPalWazaID::WaterWave": "(无效条目)en Text"
+    "EPalWazaID::WaterWave": "(无效条目)en Text",
+    "EPalWazaID::Unique_NightLady_FlameNightmare": "烈焰华尔兹",
+    "EPalWazaID::Unique_NightLady_WarpBeam": "噩梦绽放",
+    "EPalWazaID::Unique_NightLady_WarpBeam_Straight": "噩梦射线",
+    "EPalWazaID::DarkCanon": "黑暗弹",
+    "EPalWazaID::DarkPulse": "黑暗霰射",
+    "EPalWazaID::DarkArrow": "黑暗箭",
+    "EPalWazaID::Apocalypse": "启示录"
 }

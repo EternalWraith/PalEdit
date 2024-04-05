@@ -1,0 +1,5359 @@
+{
+    "values": [
+        {
+            "CodeName": "Alpaca",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 75,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "AmaterasuWolf",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::GhostFlame": 15,
+                "EPalWazaID::Unique_AmaterasuWolf_FireCharge": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 115,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Anubis",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::StoneShotgun": 1,
+                "EPalWazaID::PowerBall": 7,
+                "EPalWazaID::SandTornado": 15,
+                "EPalWazaID::Unique_Anubis_LowRoundKick": 22,
+                "EPalWazaID::Unique_Anubis_Tackle": 30,
+                "EPalWazaID::Unique_Anubis_GroundPunch": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 130,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 4,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Baphomet",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::Unique_Baphomet_SwallowKite": 22,
+                "EPalWazaID::DarkWave": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::Inferno": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 100,
+                "DEF": 85
+            },
+            "Suitabilities": {
+                "EmitFlame": 1,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Baphomet_Dark",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::Unique_Baphomet_SwallowKite": 22,
+                "EPalWazaID::DarkWave": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::Inferno": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 105,
+                "DEF": 85
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Bastet",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::SandTornado": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 60,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "Bastet_Ice",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 65,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 1,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "BerryGoat",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 70,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "BirdDragon",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::FireBlast": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 115,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 1,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "BirdDragon_Ice",
+            "Type": [
+                "Ice",
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 120,
+                "DEF": 95
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 2,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "BlackCentaur",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkWave": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::GhostFlame": 15,
+                "EPalWazaID::ShadowBall": 22,
+                "EPalWazaID::RockLance": 30,
+                "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "HP_BOSS": 260,
+                "ATK": 145,
+                "DEF": 120
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "BlackGriffon",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::Unique_BlackGriffon_TackleLaser": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 120,
+                "DEF": 140
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "BlackMetalDragon",
+            "Type": [
+                "Dragon",
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DragonCanon": 1,
+                "EPalWazaID::GhostFlame": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::ShadowBall": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::DarkLaser": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 125,
+                "DEF": 125
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 4,
+                "OilExtraction": 3,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "BlueDragon",
+            "Type": [
+                "Water",
+                "Dragon"
+            ],
+            "Moveset": {
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::BubbleShot": 15,
+                "EPalWazaID::DragonWave": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::HydroPump": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 100,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 3,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "BluePlatypus",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::AquaJet": 15,
+                "EPalWazaID::IceMissile": 22,
+                "EPalWazaID::BubbleShot": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 80,
+                "DEF": 60
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 1,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Boar",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_Boar_Tackle": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "CaptainPenguin",
+            "Type": [
+                "Water",
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::BlizzardLance": 7,
+                "EPalWazaID::Unique_CaptainPenguin_BodySlide": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::WaterBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 95,
+                "DEF": 95
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 2,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 2,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Carbunclo",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::SeedMachinegun": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 1,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "CatBat",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkBall": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 95,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "CatMage",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 105,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 2,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "CatVampire",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::PoisonShot": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 105,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 3,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "ChickenPal",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_ChickenPal_ChickenPeck": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::SelfDestruct": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::FlareTornado": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 60,
+                "DEF": 60
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "ColorfulBird",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::SelfDestruct": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::SelfExplosion": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 75,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "CowPal",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::AirCanon": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::ThrowRock": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 50,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "CuteButterfly",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::PoisonFog": 15,
+                "EPalWazaID::SandTornado": 22,
+                "EPalWazaID::SeedMine": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 80,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 1,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "CuteFox",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::WindCutter": 22,
+                "EPalWazaID::SeedMachinegun": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "CuteMole",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 65,
+                "ATK": 80,
+                "DEF": 50
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "DarkCrow",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::Unique_DarkCrow_TelePoke": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 95,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "DarkScorpion",
+            "Type": [
+                "Dark",
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 130
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Deer",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::Unique_Deer_PushupHorn": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 80,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Deer_Ground",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::Unique_Deer_PushupHorn": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 80,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "DreamDemon",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkBall": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 75,
+                "DEF": 60
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "DrillGame",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::StoneShotgun": 7,
+                "EPalWazaID::Unique_DrillGame_ShellAttack": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 95,
+                "DEF": 120
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Eagle",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_Eagle_GlidingNail": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::WindCutter": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 85,
+                "DEF": 60
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "ElecCat",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::ElecWave": 15,
+                "EPalWazaID::ThunderBall": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LineThunder": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 75,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 1,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "ElecPanda",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::Unique_ElecPanda_ElecScratch": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 100,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 3,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FairyDragon",
+            "Type": [
+                "Dragon"
+            ],
+            "Moveset": {
+                "EPalWazaID::DragonCanon": 1,
+                "EPalWazaID::DragonWave": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::HyperBeam": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 80,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FairyDragon_Water",
+            "Type": [
+                "Dragon",
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
+                "EPalWazaID::AcidRain": 30,
+                "EPalWazaID::HydroPump": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 115,
+                "ATK": 80,
+                "DEF": 95
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 3,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FengyunDeeper",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::Unique_FengyunDeeper_CloudTempest": 15,
+                "EPalWazaID::AcidRain": 22,
+                "EPalWazaID::WaterBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 110,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FireKirin",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::FireBlast": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::Unique_FireKirin_Tackle": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 95,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FireKirin_Dark",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DarkWave": 7,
+                "EPalWazaID::Flamethrower": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::Unique_FireKirin_Dark_DarkTossin": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 95,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FlameBambi",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 70,
+                "DEF": 75
+            },
+            "Suitabilities": {
+                "EmitFlame": 1,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FlameBuffalo",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::Unique_FlameBuffalo_FlameHorn": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::Flamethrower": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 85,
+                "ATK": 95,
+                "DEF": 95
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FlowerDinosaur",
+            "Type": [
+                "Grass",
+                "Dragon"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::Unique_FlowerDinosaur_Whip": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 85,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FlowerDinosaur_Electric",
+            "Type": [
+                "Electric",
+                "Dragon"
+            ],
+            "Moveset": {
+                "EPalWazaID::ElecWave": 1,
+                "EPalWazaID::ThunderFunnel": 7,
+                "EPalWazaID::Unique_FlowerDinosaur_Whip": 15,
+                "EPalWazaID::DragonBreath": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 90,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 2,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FlowerDoll",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::SeedMachinegun": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 95,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 3,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 2,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FlowerRabbit",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::AquaJet": 15,
+                "EPalWazaID::SeedMachinegun": 22,
+                "EPalWazaID::BubbleShot": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 65,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 1,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FlyingManta",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::SeedMachinegun": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 70,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 1,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FoxMage",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 110,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 3,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Ganesha",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::AquaJet": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::AcidRain": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 60,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 1,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Garm",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_Garm_Bite": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::AirCanon": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::FireBlast": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 90,
+                "DEF": 75
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GhostBeast",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 105,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Gorilla",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::Unique_Gorilla_GroundPunch": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::SeedMachinegun": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 95,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GrassMammoth",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::PowerBall": 15,
+                "EPalWazaID::GrassTornado": 22,
+                "EPalWazaID::Unique_Grassmammoth_Earthquake": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 150,
+                "ATK": 85,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GrassMammoth_Ice",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::ThrowRock": 1,
+                "EPalWazaID::IceBlade": 7,
+                "EPalWazaID::PowerBall": 15,
+                "EPalWazaID::BlizzardLance": 22,
+                "EPalWazaID::Unique_Grassmammoth_Earthquake": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 150,
+                "ATK": 85,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 2,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GrassPanda",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::ThrowRock": 15,
+                "EPalWazaID::Unique_GrassPanda_MusclePunch": 22,
+                "EPalWazaID::SeedMine": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 90,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GrassPanda_Electric",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::LineThunder": 15,
+                "EPalWazaID::Unique_GrassPanda_Electric_ElectricPunch": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 2,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GrassRabbitMan",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::ThrowRock": 7,
+                "EPalWazaID::SeedMachinegun": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 115,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 3,
+                "Collection": 3,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "HadesBird",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireSeed": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::FlareTornado": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 125,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "HawkBird",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_HawkBird_Storm": 7,
+                "EPalWazaID::WindCutter": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 95,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Hedgehog",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::ElecWave": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::ThunderBall": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LineThunder": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 75,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 1,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Hedgehog_Ice",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::IceBlade": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 75,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 1,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "HerculesBeetle",
+            "Type": [
+                "Ground",
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::Unique_HerculesBeetle_BeetleTackle": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 100,
+                "DEF": 120
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 3,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Horus",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FlareArrow": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::Unique_Horus_FlareBird": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 105,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "IceDeer",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::Unique_IceDeer_IceHorn": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 85,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 2,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "IceFox",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 95,
+                "DEF": 105
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 2,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "IceHorse",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::BlizzardLance": 22,
+                "EPalWazaID::Unique_IceHorse_IceBladeAttack": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 140,
+                "ATK": 140,
+                "DEF": 120,
+                "HP_BOSS": 420
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 4,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "IceHorse_Dark",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::Unique_IceHorse_IceBladeAttack": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 140,
+                "ATK": 140,
+                "DEF": 135
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 4,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "JetDragon",
+            "Type": [
+                "Dragon"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireSeed": 1,
+                "EPalWazaID::DragonWave": 7,
+                "EPalWazaID::FlareTornado": 15,
+                "EPalWazaID::DragonBreath": 22,
+                "EPalWazaID::Unique_JetDragon_JumpBeam": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "HP_BOSS": 330,
+                "ATK": 140,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 3,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 3,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Kelpie",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 1,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Kelpie_Fire",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::DragonWave": 30,
+                "EPalWazaID::Flamethrower": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 1,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "KingAlpaca",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::PowerBall": 15,
+                "EPalWazaID::Unique_KingAlpaca_BodyPress": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::RockLance": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 85,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "KingAlpaca_Ice",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::IceBlade": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::Unique_KingAlpaca_BodyPress": 22,
+                "EPalWazaID::FrostBreath": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 85,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 3,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "KingBahamut",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::FireBlast": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::Inferno": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 125,
+                "DEF": 120
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 4,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Kirin",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::LockonLaser": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 105,
+                "DEF": 105
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 2,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Kitsunebi",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::Flamethrower": 30,
+                "EPalWazaID::GhostFlame": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 65,
+                "ATK": 75,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 1,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LavaGirl",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 70,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 1,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "LazyCatfish",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {},
+            "Scaling": {
+                "HP": 100,
+                "ATK": 70,
+                "DEF": 95
+            },
+            "Suitabilities": {
+                "EmitFlame": 1,
+                "Watering": 1,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 2,
+                "OilExtraction": 1,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LazyDragon",
+            "Type": [
+                "Dragon",
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::DragonCanon": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 100,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 2,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LazyDragon_Electric",
+            "Type": [
+                "Dragon",
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::SpreadPulse": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::ElecWave": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 110,
+                "DEF": 75
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 3,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LilyQueen",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::SeedMine": 15,
+                "EPalWazaID::WaterBall": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 110,
+                "DEF": 105
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 4,
+                "GenerateElectricity": 0,
+                "Handcraft": 3,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 3,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LilyQueen_Dark",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkBall": 1,
+                "EPalWazaID::IceBlade": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 110,
+                "DEF": 115
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 3,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 4,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LittleBriarRose",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::SeedMachinegun": 7,
+                "EPalWazaID::IceMissile": 15,
+                "EPalWazaID::GrassTornado": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 80,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 2,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LizardMan",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::PoisonShot": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::Flamethrower": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 80,
+                "DEF": 50
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LizardMan_Fire",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 80,
+                "DEF": 50
+            },
+            "Suitabilities": {
+                "EmitFlame": 1,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Manticore",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::Inferno": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 110,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Manticore_Dark",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkWave": 1,
+                "EPalWazaID::FlareArrow": 7,
+                "EPalWazaID::Flamethrower": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::Inferno": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 115,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Monkey",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::SeedMachinegun": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::ThrowRock": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "MopBaby",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 60,
+                "DEF": 60
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 1,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "MopKing",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::BlizzardLance": 22,
+                "EPalWazaID::FrostBreath": 30,
+                "EPalWazaID::HyperBeam": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 90,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 2,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Mutant",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::ThunderFunnel": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 100,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 3,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "NaughtyCat",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::Unique_NaughtyCat_CatPress": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::ThrowRock": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 80,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "NegativeKoala",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::PoisonShot": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::DarkBall": 15,
+                "EPalWazaID::IceMissile": 22,
+                "EPalWazaID::DarkWave": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "NegativeOctopus",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkBall": 15,
+                "EPalWazaID::DarkWave": 22,
+                "EPalWazaID::AcidRain": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 60,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "NightFox",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 85,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Penguin",
+            "Type": [
+                "Water",
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::AquaJet": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 75,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 1,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 1,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "PinkCat",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_PinkCat_CatPunch": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::WindCutter": 30,
+                "EPalWazaID::SeedMachinegun": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "PinkLizard",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::PoisonShot": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::AcidRain": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::SelfDestruct": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 2,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "PinkRabbit",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::IceMissile": 15,
+                "EPalWazaID::IcicleThrow": 22,
+                "EPalWazaID::PowerBall": 30,
+                "EPalWazaID::BlizzardLance": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 65,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "PlantSlime",
+            "Type": [
+                "Grass",
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::SeedMachinegun": 22,
+                "EPalWazaID::SeedMine": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "PlantSlime_Flower",
+            "Type": [
+                "Grass",
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::SeedMachinegun": 22,
+                "EPalWazaID::SeedMine": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "QueenBee",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::PoisonShot": 15,
+                "EPalWazaID::Unique_QueenBee_SpinLance": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 105,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 2,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 2,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "RaijinDaughter",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::AcidRain": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 80,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 1,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "RedArmorBird",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::FlareArrow": 15,
+                "EPalWazaID::SandTornado": 22,
+                "EPalWazaID::FlareTornado": 30,
+                "EPalWazaID::Flamethrower": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 105,
+                "DEF": 120
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "RobinHood",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::Unique_RobinHood_BowSnipe": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 105,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 2,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 1,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "RobinHood_Ground",
+            "Type": [
+                "Grass",
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::Unique_RobinHood_BowSnipe": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::SolarBeam": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 105,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 2,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 1,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Ronin",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::Unique_Ronin_Iai": 22,
+                "EPalWazaID::Flamethrower": 30,
+                "EPalWazaID::LightningStrike": 40,
+                "EPalWazaID::Inferno": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 125,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 3,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SaintCentaur",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::PowerBall": 22,
+                "EPalWazaID::IcicleThrow": 30,
+                "EPalWazaID::Unique_SaintCentaur_OneSpearRushes": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "HP_BOSS": 260,
+                "ATK": 120,
+                "DEF": 145
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SakuraSaurus",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::Unique_SakuraSaurus_SideTackle": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::RootAttack": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 90,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 3,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SakuraSaurus_Water",
+            "Type": [
+                "Grass",
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::BubbleShot": 7,
+                "EPalWazaID::Unique_SakuraSaurus_SideTackle": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::RootAttack": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 95,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 3,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Serpent",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::DragonWave": 30,
+                "EPalWazaID::DragonBreath": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 2,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Serpent_Ground",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::StoneShotgun": 15,
+                "EPalWazaID::ThrowRock": 22,
+                "EPalWazaID::SandTornado": 30,
+                "EPalWazaID::DragonBreath": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SharkKid",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::BubbleShot": 22,
+                "EPalWazaID::IceBlade": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 75
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 2,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SharkKid_Fire",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::PowerShot": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::LineThunder": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::Inferno": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 75
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Sheepball",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_SheepBall_Roll": 1,
+                "EPalWazaID::AirCanon": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::SelfDestruct": 22,
+                "EPalWazaID::ThunderBall": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "SkyDragon",
+            "Type": [
+                "Dragon"
+            ],
+            "Moveset": {
+                "EPalWazaID::DragonCanon": 1,
+                "EPalWazaID::FireSeed": 7,
+                "EPalWazaID::AcidRain": 15,
+                "EPalWazaID::DragonBreath": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 100,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SoldierBee",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::SelfDestruct_Bee": 15,
+                "EPalWazaID::PoisonShot": 22,
+                "EPalWazaID::AcidRain": 30,
+                "EPalWazaID::GrassTornado": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 90,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 1,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 1,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "Suzaku",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::FireBlast": 7,
+                "EPalWazaID::FireSeed": 15,
+                "EPalWazaID::FlareArrow": 22,
+                "EPalWazaID::Flamethrower": 30,
+                "EPalWazaID::FlareTornado": 40,
+                "EPalWazaID::FireBall": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 105,
+                "DEF": 105
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Suzaku_Water",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::AquaJet": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::WaterGun": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::WaterBall": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::HydroPump": 50
+            },
+            "Scaling": {
+                "HP": 125,
+                "ATK": 105,
+                "DEF": 105
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 3,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SweetsSheep",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::PowerShot": 15,
+                "EPalWazaID::WindCutter": 22,
+                "EPalWazaID::BubbleShot": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "ThunderBird",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::SpreadPulse": 7,
+                "EPalWazaID::ElecWave": 15,
+                "EPalWazaID::LineThunder": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::SandTornado": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 115,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 2,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "ThunderDog",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::MudShot": 1,
+                "EPalWazaID::ElecWave": 7,
+                "EPalWazaID::SpreadPulse": 15,
+                "EPalWazaID::StoneShotgun": 22,
+                "EPalWazaID::ThunderBall": 30,
+                "EPalWazaID::LineThunder": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 100,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 2,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "ThunderDragonMan",
+            "Type": [
+                "Dragon",
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_ThunderDragonMan_ThunderSwordAttack": 1,
+                "EPalWazaID::LightningStrike": 7,
+                "EPalWazaID::SpreadPulse": 15,
+                "EPalWazaID::DragonBreath": 22,
+                "EPalWazaID::LineThunder": 30,
+                "EPalWazaID::ThreeThunder": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 130,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 4,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Umihebi",
+            "Type": [
+                "Dragon",
+                "Water"
+            ],
+            "Moveset": {
+                "EPalWazaID::WaterGun": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::DragonBreath": 15,
+                "EPalWazaID::WaterBall": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::HydroPump": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "ATK": 120,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 4,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Umihebi_Fire",
+            "Type": [
+                "Dragon",
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::FlareTornado": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::ThreeThunder": 30,
+                "EPalWazaID::FireBall": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "ATK": 130,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 4,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "VioletFairy",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::PoisonFog": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::PoisonShot": 15,
+                "EPalWazaID::SeedMine": 22,
+                "EPalWazaID::GrassTornado": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 120
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 3,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "VolcanicMonster",
+            "Type": [
+                "Fire",
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::FireBlast": 1,
+                "EPalWazaID::StoneShotgun": 7,
+                "EPalWazaID::ThrowRock": 15,
+                "EPalWazaID::Flamethrower": 22,
+                "EPalWazaID::Unique_VolcanicMonster_MagmaAttack": 30,
+                "EPalWazaID::Inferno": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 105,
+                "DEF": 120
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "VolcanicMonster_Ice",
+            "Type": [
+                "Ice",
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::StoneShotgun": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::RockLance": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 105,
+                "DEF": 130
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 3,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WeaselDragon",
+            "Type": [
+                "Ice",
+                "Dragon"
+            ],
+            "Moveset": {
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::DragonCanon": 7,
+                "EPalWazaID::DragonWave": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::DragonBreath": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::DragonMeteor": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 80,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 1,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Werewolf",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkBall": 1,
+                "EPalWazaID::Unique_Werewolf_Scratch": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 100,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WhiteMoth",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::IceBlade": 7,
+                "EPalWazaID::BlizzardLance": 15,
+                "EPalWazaID::FrostBreath": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 90,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 2,
+                "Cool": 2,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "WhiteTiger",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::PowerShot": 1,
+                "EPalWazaID::IceMissile": 7,
+                "EPalWazaID::ThrowRock": 15,
+                "EPalWazaID::IceBlade": 22,
+                "EPalWazaID::BlizzardLance": 30,
+                "EPalWazaID::FrostBreath": 40,
+                "EPalWazaID::IcicleThrow": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 3,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WindChimes",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {},
+            "Scaling": {
+                "HP": 80,
+                "ATK": 70,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WindChimes_Ice",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {},
+            "Scaling": {
+                "HP": 80,
+                "ATK": 80,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 1,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WizardOwl",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::DarkBall": 7,
+                "EPalWazaID::DarkWave": 15,
+                "EPalWazaID::SandTornado": 22,
+                "EPalWazaID::GhostFlame": 30,
+                "EPalWazaID::ShadowBall": 40,
+                "EPalWazaID::DarkLaser": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WoolFox",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::MudShot": 7,
+                "EPalWazaID::SpreadPulse": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::Thunderbolt": 50
+            },
+            "Scaling": {
+                "HP": 70,
+                "ATK": 70,
+                "DEF": 75
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "Yeti",
+            "Type": [
+                "Ice"
+            ],
+            "Moveset": {
+                "EPalWazaID::IceMissile": 1,
+                "EPalWazaID::WindCutter": 7,
+                "EPalWazaID::IceBlade": 15,
+                "EPalWazaID::BlizzardLance": 22,
+                "EPalWazaID::FrostBreath": 30,
+                "EPalWazaID::IcicleThrow": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 140,
+                "ATK": 80,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 3,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 2,
+                "Transport": 4,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Yeti_Grass",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::WindCutter": 1,
+                "EPalWazaID::WaterGun": 7,
+                "EPalWazaID::SeedMine": 15,
+                "EPalWazaID::GrassTornado": 22,
+                "EPalWazaID::RootAttack": 30,
+                "EPalWazaID::WaterBall": 40,
+                "EPalWazaID::SolarBeam": 50
+            },
+            "Scaling": {
+                "HP": 140,
+                "ATK": 80,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 1,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 3,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 4,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "BlackFurDragon",
+            "Type": [
+                "Dark",
+                "Dragon"
+            ],
+            "Moveset": {},
+            "Scaling": {
+                "HP": 130,
+                "ATK": 130,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 4,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "ElecLion",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {},
+            "Scaling": {
+                "HP": 100,
+                "ATK": 110,
+                "DEF": 70
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "DarkMutant",
+            "Type": [
+                "Dark",
+                "Dragon"
+            ],
+            "Moveset": {},
+            "Scaling": {
+                "HP": 100,
+                "ATK": 100,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 4,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 4,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "NightLady",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkCanon": 1,
+                "EPalWazaID::DarkPulse": 7,
+                "EPalWazaID::DarkArrow": 15,
+                "EPalWazaID::GhostFlame": 22,
+                "EPalWazaID::ShadowBall": 30,
+                "EPalWazaID::Apocalypse": 40,
+                "EPalWazaID::Unique_NightLady_WarpBeam_Straight": 50
+            },
+            "RaidMoveset": {
+                "EPalWazaID::GhostFlame": 1,
+                "EPalWazaID::DarkPulse": 2,
+                "EPalWazaID::ShadowBall": 3,
+                "EPalWazaID::DarkLaser": 4,
+                "EPalWazaID::DarkCannon": 5,
+                "EPalWazaID::DarkArrow": 6,
+                "EPalWazaID::Apocalypse": 7,
+                "EPalWazaID::Unique_NightLady_WarpBeam_Straight": 8
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 150,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 4,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "NightLady_Dark",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkCanon": 1,
+                "EPalWazaID::DarkPulse": 7,
+                "EPalWazaID::DarkArrow": 15,
+                "EPalWazaID::ShadowBall": 22,
+                "EPalWazaID::Apocalypse": 30,
+                "EPalWazaID::Unique_NightLady_FlameNightmare": 40,
+                "EPalWazaID::Unique_NightLady_WarpBeam": 50
+            },
+            "RaidMoveset": {
+                "EPalWazaID::DarkPulse": 1,
+                "EPalWazaID::ShadowBall": 2,
+                "EPalWazaID::DarkLaser": 3,
+                "EPalWazaID::DarkCanon": 4,
+                "EPalWazaID::DarkLegion": 5,
+                "EPalWazaID::DarkArrow": 6,
+                "EPalWazaID::Apocalypse": 7,
+                "EPalWazaID::Unique_NightLady_FlameNightmare": 8,
+                "EPalWazaID::Unique_NightLady_WarpBeam": 9
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 150,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 4,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GYM_ThunderDragonMan",
+            "Type": [
+                "Dragon",
+                "Electric"
+            ],
+            "Moveset": {},
+            "Tower": true
+        },
+        {
+            "CodeName": "GYM_LilyQueen",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {},
+            "Tower": true
+        },
+        {
+            "CodeName": "GYM_Horus",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {},
+            "Tower": true
+        },
+        {
+            "CodeName": "GYM_BlackGriffon",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {},
+            "Tower": true
+        },
+        {
+            "CodeName": "GYM_ElecPanda",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {},
+            "Tower": true
+        },
+        {
+            "CodeName": "Male_DarkTrader01",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "FireCult_FlameThrower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "FireCult_Rifle",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Soldier01",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_Soldier01",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Believer_CrossBow",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Believer_Bat",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Scientist01_LaserRifle",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "PalDealer",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Police_Handgun",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Bat",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_FlameThrower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Fat_GatlingGun",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_RocketLauncher",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Grenade",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Rifle",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Shotgun",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Handgun",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Desert",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Desert2",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Volcano",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Volcano2",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_DesertPeople02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_People02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_People03",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_DesertPeople01",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_People02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_People03",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "MobuCitizen",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "MobuCitizen_Male",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "MobuCitizen",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Guard_Rifle",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Guard_Shotgun",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "PalDealer_Desert",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "PalDealer_Volcano",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Police_Rifle",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Police_Shotgun",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        }
+    ]
+}

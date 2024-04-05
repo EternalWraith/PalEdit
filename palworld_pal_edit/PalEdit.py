@@ -123,7 +123,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.7.2"
+    version = "0.8"
     ftsize = 18
     font = "Microsoft YaHei"
     badskill = "#DE3C3A"
@@ -660,6 +660,8 @@ class PalEdit():
             self.palbox[self.players[p]] = []
         self.containers = {}
         nullmoves = []
+
+        erroredpals = []
         for i in paldata:
             try:
                 p = PalInfo.PalEntity(i)
@@ -686,6 +688,10 @@ class PalEdit():
                     # self.players[pl] = plguid
                 else:
                     self.unknown.append(str(e))
+                    try:
+                        erroredpals.append(i)
+                    except:
+                        erroredpals.append(None)
                     logger.error(f"Error occured on {i['key']['InstanceId']['value']}", exc_info=True)
                     # print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
                     # traceback.print_exception(e)
@@ -700,8 +706,11 @@ class PalEdit():
         logger.Space()
         logger.info(f"NOTE: Unknown list is a list of pals that could not be loaded")
         logger.warning(f"Unknown list contains {len(self.unknown)} entries")
-        for i in self.unknown:
-            logger.warning("  %s" % str(i))
+        for i in range(0, len(self.unknown)):
+            logger.warning("  %s" % str(self.unknown[i]))
+            with open(f"pals/error_{i}.json", "wb") as errorfile:
+                errorfile.write(json.dumps(erroredpals[i], indent=4, cls=UUIDEncoder).encode('utf-8'))
+            
 
         logger.Space()
         logger.debug(f"{len(self.players)} players found:")

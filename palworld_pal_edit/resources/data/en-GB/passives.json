@@ -262,5 +262,9 @@
     "Legend": {
         "Name": "Legend",
         "Description": "+20% attack, +20% defence, +15% move speed"
+    },
+    "Witch": {
+        "Name": "Siren of the Void",
+        "Description": "+20% damage dealt with Ice and Dark attacks; Bellanoir Libero's signature ability"
     }
 }

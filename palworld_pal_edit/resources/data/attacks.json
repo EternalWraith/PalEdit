@@ -138,7 +138,7 @@
     },
     "EPalWazaID::DarkLegion": {
         "Type": "Dark",
-        "Power": 0
+        "Power": 160
     },
     "EPalWazaID::Unique_BlackGriffon_TackleLaser": {
         "Type": "Dark",
@@ -440,6 +440,43 @@
             "Horus",
             "GYM_Horus"
         ]
+    },
+    "EPalWazaID::Unique_NightLady_FlameNightmare": {
+        "Type": "Dark",
+        "Power": 130,
+        "Exclusive": [
+            "NightLady_Dark"
+        ]
+    },
+    "EPalWazaID::Unique_NightLady_WarpBeam": {
+        "Type": "Dark",
+        "Power": 160,
+        "Exclusive": [
+            "NightLady_Dark"
+        ]
+    },
+    "EPalWazaID::Unique_NightLady_WarpBeam_Straight": {
+        "Type": "Dark",
+        "Power": 140,
+        "Exclusive": [
+            "NightLady"
+        ]
+    },
+    "EPalWazaID::DarkCanon": {
+        "Type": "Dark",
+        "Power": 50
+    },
+    "EPalWazaID::DarkPulse": {
+        "Type": "Dark",
+        "Power": 40
+    },
+    "EPalWazaID::DarkArrow": {
+        "Type": "Dark",
+        "Power": 65
+    },
+    "EPalWazaID::Apocalypse": {
+        "Type": "Dark",
+        "Power": 110
     },
     "EPalWazaID::ThunderFunnel": {
         "Type": "Electric",
