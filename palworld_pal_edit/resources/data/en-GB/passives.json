@@ -266,5 +266,9 @@
     "Witch": {
         "Name": "Siren of the Void",
         "Description": "+20% damage dealt with Ice and Dark attacks; Bellanoir Libero's signature ability"
+    },
+    "NonKilling": {
+        "Name": "Mercy hit",
+        "Description": "will not reduce the target's health below 1"
     }
 }
