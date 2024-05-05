@@ -199,5 +199,8 @@
     },
     "Witch": {
         "Rating": "Good"
+    },
+    "NonKilling": {
+        "Rating": "Bad"
     }
 }
