@@ -106,7 +106,10 @@ class PalObject:
         if self._img == None:
             n = self.GetCodeName() if not self._human else "Human"
             # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
-            self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/{n}.png')
+            try:
+                self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/{n}.png')
+            except:
+                self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/Alpaca.png')
         return self._img
 
     def GetPrimary(self):

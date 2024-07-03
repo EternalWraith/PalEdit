@@ -203,6 +203,37 @@
     "Stamina_Up_1": {
         "Rating": "Good"
     },
+    "SalePrice_Up_1": {
+        "Rating": "Good"
+    },
+    "CoolTimeReduction_Up_1": {
+        "Rating": "Good"
+    },
+
+    "SalePrice_Up_2": {
+        "Rating": "Good"
+    },
+    "CoolTimeReduction_Up_2": {
+        "Rating": "Good"
+    },
+    "Stamina_Up_2": {
+        "Rating": "Good"
+    },
+    "Nocturnal": {
+        "Rating": "Good"
+    },
+    "SalePrice_Down_1": {
+        "Rating": "Bad"
+    },
+    "Test_PalEgg_HatchingSpeed_Up": {
+        "Rating": "Good"
+    },
+    "CoolTimeReduction_Down_1": {
+        "Rating": "Bad"
+    },
+    "Stamina_Down_1": {
+        "Rating": "Bad"
+    },
     "NonKilling": {
         "Rating": "Bad"
     }

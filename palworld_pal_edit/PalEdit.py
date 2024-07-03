@@ -133,6 +133,7 @@ class PalEditConfig:
 
 class PalEdit():
     ranks = (0, 1, 2, 3, 4)
+    debug_listPassivesSeen = set()
 
     def load_i18n(self, lang=""):
         path = f"{PalInfo.module_dir}/resources/data/en-GB/ui.json"
@@ -571,7 +572,8 @@ class PalEdit():
         for i in range(0, 4):
             if not s[i] in [p for p in PalInfo.PalPassives]:
                 self.skills[i].set("UNKNOWN")
-                print(s[i])
+                self.debug_listPassivesSeen.add(s[i])
+                print(self.debug_listPassivesSeen)
             else:
                 self.skills[i].set(s[i])
 

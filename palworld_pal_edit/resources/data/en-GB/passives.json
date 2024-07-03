@@ -271,8 +271,48 @@
         "Name": "Infinite Stamina",
         "Description": "Max Stamina +50% (This effect is only valid for rideable pals.)"
     },
+    "SalePrice_Up_1": {
+        "Name": "Noble",
+        "Description": "+5% Sell price"
+    },
+    "CoolTimeReduction_Up_1": {
+        "Name": "Serenity",
+        "Description": "Active skill cooldown reduction 30% Attack +10% "
+    },
     "NonKilling": {
         "Name": "Mercy hit",
         "Description": "will not reduce the target's health below 1"
+    },
+    "SalePrice_Up_2": {
+        "Name": "Fine Furs",
+        "Description": "Sale price 3% "
+    },
+    "CoolTimeReduction_Up_2": {
+        "Name": "Impatient",
+        "Description": "Active skill cooldown reduction 15%"
+    },
+    "Stamina_Up_2": {
+        "Name": "Fit as a Fiddle",
+        "Description": "Max Stamina +25% (This effect is only valid for rideable pals.)"
+    },
+    "Nocturnal": {
+        "Name": "Nocturnal",
+        "Description": "The Pal does not sleep at night and continues to work. "
+    },
+    "SalePrice_Down_1": {
+        "Name": "Shabby",
+        "Description": "Sale price -10%"
+    },
+    "Test_PalEgg_HatchingSpeed_Up": {
+        "Name": "Philantropist",
+        "Description": "When assigned to a Breeding Farm, egg production time is reduced by 100%"
+    },
+    "Stamina_Down_1": {
+        "Name": "Sickly",
+        "Description": "-25% max Stamina"
+    },
+    "CoolTimeReduction_Down_1": {
+        "Name": "Easygoing",
+        "Description": "Active Skill Cooldown extension -15%"
     }
 }
