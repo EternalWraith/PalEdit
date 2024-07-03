@@ -267,6 +267,10 @@
         "Name": "Siren of the Void",
         "Description": "+20% damage dealt with Ice and Dark attacks; Bellanoir Libero's signature ability"
     },
+    "Stamina_Up_1": {
+        "Name": "Infinite Stamina",
+        "Description": "Max Stamina +50% (This effect is only valid for rideable pals.)"
+    },
     "NonKilling": {
         "Name": "Mercy hit",
         "Description": "will not reduce the target's health below 1"

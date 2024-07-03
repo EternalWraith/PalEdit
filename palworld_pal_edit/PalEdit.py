@@ -570,7 +570,8 @@ class PalEdit():
 
         for i in range(0, 4):
             if not s[i] in [p for p in PalInfo.PalPassives]:
-                self.skills[i].set("Unknown")
+                self.skills[i].set("UNKNOWN")
+                print(s[i])
             else:
                 self.skills[i].set(s[i])
 
@@ -1262,9 +1263,58 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         # tools.add_cascade(label="Converter", menu=convmenu, underline=0)
 
+
+
+# for i in paldata:
+#             try:
+#                 p = PalInfo.PalEntity(i)
+#                 if not str(p.owner) in self.palbox:
+#                     self.palbox[str(p.owner)] = []
+#                 self.palbox[str(p.owner)].append(p)
+
+#                 n = p.GetFullName()
+
+#                 for m in p.GetLearntMoves():
+#                     if not m in nullmoves:
+#                         if not m in PalInfo.PalAttacks:
+#                             nullmoves.append(m)
+#             except Exception as e:
+#                 if str(e) == "This is a player character":
+#                     logger.debug(f"Found Player Character")
+#                     # print(f"\nDebug: Data \n{i}\n\n")
+#                     # o = i['value']['RawData']['value']['object']['SaveParameter']['value']
+#                     # pl = "No Name"
+#                     # if "NickName" in o:
+#                     #     pl = o['NickName']['value']
+#                     # plguid = i['key']['PlayerUId']['value']
+#                     # print(f"{pl} - {plguid}")
+#                     # self.players[pl] = plguid
+#                 else:
+#                     self.unknown.append(str(e))
+#                     try:
+#                         erroredpals.append(i)
+#                     except:
+#                         erroredpals.append(None)
+#                     logger.error(f"Error occured on {i['key']['InstanceId']['value']}", exc_info=True)
+#                     # print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
+#                     # traceback.print_exception(e)
+#                     print()
+#                 # print(f"Debug: Data {i}")
+
+
+
     def updateSkillsName(self):
         for idx, n in enumerate(self.skills):
-            self.skills_name[idx].set(PalInfo.PalPassives[n.get()])
+            try:
+                self.skills_name[idx].set(PalInfo.PalPassives[n.get()])
+            except Exception as e:
+                print(type(n))
+                # self.unknown.append(str(e))
+                # logger.error(f"Error occured on {i['key']['InstanceId']['value']}", exc_info=True)
+                #     # print(f"Error occured on {i['key']['InstanceId']['value']}: {e.__class__.__name__}: {str(e)}")
+                #     # traceback.print_exception(e)
+                # print()
+
 
     def changesoul(self, field):
         if not self.isPalSelected():

@@ -183,5 +183,11 @@
     "PalDealer_Desert": "Pal Merchant (Desert)",
     "PalDealer_Volcano": "Pal Merchant (Volcano)",
     "Police_Rifle": "PIDF Infantry",
-    "Police_Shotgun": "PIDF Elite"
+    "Police_Shotgun": "PIDF Elite",
+    "DarkAlien": "Xenovader",
+    "KendoFrog": "Croajiro",
+    "MimicDog": "Mimog",
+    "FeatherOstrich": "Dazemu",
+    "MushroomDragon": "Shroomer"
+
 }

@@ -200,6 +200,9 @@
     "Witch": {
         "Rating": "Good"
     },
+    "Stamina_Up_1": {
+        "Rating": "Good"
+    },
     "NonKilling": {
         "Rating": "Bad"
     }
