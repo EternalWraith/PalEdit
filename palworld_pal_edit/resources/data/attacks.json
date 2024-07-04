@@ -11,6 +11,10 @@
         "Type": "Neutral",
         "Power": 25
     },
+    "EPalWazaID::Unique_WeaselDragon_FlyingTackle": {
+        "Type": "Dragon",
+        "Power": 50
+    },
     "EPalWazaID::Unique_Deer_PushupHorn": {
         "Type": "Neutral",
         "Power": 50,
