@@ -1,19 +1,26 @@
 {
     "": {
         "Type": "",
-        "Power": 0
+        "Power": 0,
+        "Category": "Null"
     },
     "EPalWazaID::AcidRain": {
         "Type": "Water",
-        "Power": 80
+        "Power": 80,
+        "Category": "Shot"
     },
     "EPalWazaID::AirCanon": {
         "Type": "Neutral",
-        "Power": 25
+        "Power": 25,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_WeaselDragon_FlyingTackle": {
         "Type": "Dragon",
-        "Power": 50
+        "Power": 50,
+        "Exclusive": [
+            "WeaselDragon_Fire"
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_Deer_PushupHorn": {
         "Type": "Neutral",
@@ -21,94 +28,110 @@
         "Exclusive": [
             "Deer",
             "Deer_Ground"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::WaterBall": {
         "Type": "Water",
-        "Power": 100
+        "Power": 100,
+        "Category": "Shot"
     },
     "EPalWazaID::WaterGun": {
         "Type": "Water",
-        "Power": 40
+        "Power": 40,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_JetDragon_JumpBeam": {
         "Type": "Dragon",
         "Power": 140,
         "Exclusive": [
             "JetDragon"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::SelfDestruct_Bee": {
-        "Type": "Neutral",
-        "Power": 200,
+        "Type": "Grass",
+        "Power": 250,
         "Exclusive": [
             "SoldierBee"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_GrassPanda_Electric_ElectricPunch": {
         "Type": "Electric",
         "Power": 85,
         "Exclusive": [
             "GrassPanda_Electric"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_FlameBuffalo_FlameHorn": {
         "Type": "Fire",
         "Power": 50,
         "Exclusive": [
             "FlameBuffalo"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::IcicleThrow": {
         "Type": "Ice",
-        "Power": 130
+        "Power": 130,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_FlowerDinosaur_Whip": {
         "Type": "Grass",
         "Power": 60,
         "Exclusive": [
             "FlowerDinosaur"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::BubbleShot": {
         "Type": "Water",
-        "Power": 65
+        "Power": 65,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_NaughtyCat_CatPress": {
         "Type": "Neutral",
         "Power": 60,
         "Exclusive": [
             "NaughtyCat"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_ChickenPal_ChickenPeck": {
         "Type": "Neutral",
         "Power": 30,
         "Exclusive": [
             "ChickenPal"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_FengyunDeeper_CloudTempest": {
         "Type": "Neutral",
-        "Power": 0,
+        "Power": 90,
         "Exclusive": [
             "FengyunDeeper"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::CrossThunder": {
         "Type": "Electric",
-        "Power": 0
+        "Power": 1,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_GrassPanda_MusclePunch": {
         "Type": "Grass",
         "Power": 85,
         "Exclusive": [
             "GrassPanda"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::FrostBreath": {
         "Type": "Ice",
-        "Power": 90
+        "Power": 90,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_IceHorse_IceBladeAttack": {
         "Type": "Ice",
@@ -116,33 +139,39 @@
         "Exclusive": [
             "IceHorse",
             "IceHorse_Dark"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_AmaterasuWolf_FireCharge": {
         "Type": "Fire",
         "Power": 75,
         "Exclusive": [
             "AmaterasuWolf"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::DarkBall": {
         "Type": "Dark",
-        "Power": 40
+        "Power": 40,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_FireKirin_Dark_DarkTossin": {
         "Type": "Dark",
         "Power": 85,
         "Exclusive": [
             "FireKirin_Dark"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::DarkLaser": {
         "Type": "Dark",
-        "Power": 150
+        "Power": 150,
+        "Category": "Shot"
     },
     "EPalWazaID::DarkLegion": {
         "Type": "Dark",
-        "Power": 160
+        "Power": 160,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_BlackGriffon_TackleLaser": {
         "Type": "Dark",
@@ -150,23 +179,28 @@
         "Exclusive": [
             "BlackGriffon",
             "GYM_BlackGriffon"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::DragonBreath": {
         "Type": "Dragon",
-        "Power": 70
+        "Power": 70,
+        "Category": "Shot"
     },
     "EPalWazaID::DragonWave": {
         "Type": "Dragon",
-        "Power": 55
+        "Power": 55,
+        "Category": "Shot"
     },
     "EPalWazaID::DragonCanon": {
         "Type": "Dragon",
-        "Power": 30
+        "Power": 30,
+        "Category": "Shot"
     },
     "EPalWazaID::DragonMeteor": {
         "Type": "Dragon",
-        "Power": 150
+        "Power": 150,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Grassmammoth_Earthquake": {
         "Type": "Ground",
@@ -174,44 +208,52 @@
         "Exclusive": [
             "Grassmammoth",
             "Grassmammoth_Ice"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::ThunderBall": {
         "Type": "Electric",
-        "Power": 50
+        "Power": 50,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_CaptainPenguin_BodySlide": {
         "Type": "Ice",
         "Power": 70,
         "Exclusive": [
             "CaptainPenguin"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Garm_Bite": {
         "Type": "Neutral",
         "Power": 45,
         "Exclusive": [
             "Garm"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::FireBall": {
         "Type": "Fire",
-        "Power": 150
+        "Power": 150,
+        "Category": "Shot"
     },
     "EPalWazaID::FlareArrow": {
         "Type": "Fire",
-        "Power": 55
+        "Power": 55,
+        "Category": "Shot"
     },
     "EPalWazaID::FlareTornado": {
         "Type": "Fire",
-        "Power": 80
+        "Power": 80,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Alpaca_Tackle": {
         "Type": "Neutral",
         "Power": 40,
         "Exclusive": [
             "Alpaca"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_RobinHood_BowSnipe": {
         "Type": "Grass",
@@ -219,60 +261,69 @@
         "Exclusive": [
             "RobinHood",
             "RobinHood_Ground"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Anubis_Tackle": {
         "Type": "Ground",
         "Power": 120,
         "Exclusive": [
             "Anubis"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_IceDeer_IceHorn": {
         "Type": "Ice",
         "Power": 65,
         "Exclusive": [
             "IceDeer"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack": {
         "Type": "Ice",
         "Power": 100,
         "Exclusive": [
             "VolcanicMonster_Ice"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Eagle_GlidingNail": {
         "Type": "Neutral",
         "Power": 60,
         "Exclusive": [
             "Eagle"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_HerculesBeetle_BeetleTackle": {
         "Type": "Ground",
         "Power": 75,
         "Exclusive": [
             "HerculesBeetle"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::GrassTornado": {
         "Type": "Grass",
-        "Power": 80
+        "Power": 80,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Gorilla_GroundPunch": {
         "Type": "Neutral",
         "Power": 85,
         "Exclusive": [
             "Gorilla"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_Anubis_GroundPunch": {
         "Type": "Ground",
         "Power": 140,
         "Exclusive": [
             "Anubis"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_Baphomet_SwallowKite": {
         "Type": "Fire",
@@ -280,68 +331,82 @@
         "Exclusive": [
             "Baphomet",
             "Baphomet_Dark"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::AquaJet": {
         "Type": "Water",
-        "Power": 30
+        "Power": 30,
+        "Category": "Shot"
     },
     "EPalWazaID::HydroPump": {
         "Type": "Water",
-        "Power": 150
+        "Power": 150,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Ronin_Iai": {
         "Type": "Fire",
         "Power": 65,
         "Exclusive": [
             "Ronin"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::IceMissile": {
         "Type": "Ice",
-        "Power": 30
+        "Power": 30,
+        "Category": "Shot"
     },
     "EPalWazaID::BlizzardLance": {
         "Type": "Ice",
-        "Power": 70
+        "Power": 70,
+        "Category": "Shot"
     },
     "EPalWazaID::IceBlade": {
         "Type": "Ice",
-        "Power": 55
+        "Power": 55,
+        "Category": "Shot"
     },
     "EPalWazaID::FireBlast": {
         "Type": "Fire",
-        "Power": 30
+        "Power": 30,
+        "Category": "Shot"
     },
     "EPalWazaID::Flamethrower": {
         "Type": "Fire",
-        "Power": 70
+        "Power": 70,
+        "Category": "Shot"
     },
     "EPalWazaID::Inferno": {
         "Type": "Fire",
-        "Power": 120
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_FireKirin_Tackle": {
         "Type": "Fire",
         "Power": 85,
         "Exclusive": [
             "FireKirin"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::SelfDestruct": {
         "Type": "Neutral",
-        "Power": 180
+        "Power": 230,
+        "Category": "Shot"
     },
     "EPalWazaID::Intimidate": {
         "Type": "Neutral",
-        "Power": 0
+        "Power": 1,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Werewolf_Scratch": {
         "Type": "Dark",
         "Power": 55,
         "Exclusive": [
             "Werewolf"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_ThunderDragonMan_ThunderSwordAttack": {
         "Type": "Electric",
@@ -349,7 +414,8 @@
         "Exclusive": [
             "ThunderDragonMan",
             "GYM_ThunderDragonMan"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_KingAlpaca_BodyPress": {
         "Type": "Neutral",
@@ -357,11 +423,13 @@
         "Exclusive": [
             "KingAlpaca",
             "KingAlpaca_Ice"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Thunderbolt": {
         "Type": "Electric",
-        "Power": 0
+        "Power": 150,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_ElecPanda_ElecScratch": {
         "Type": "Electric",
@@ -369,38 +437,46 @@
         "Exclusive": [
             "ElecPanda",
             "GYM_ElecPanda"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::ThunderRain": {
         "Type": "Electric",
-        "Power": 0
+        "Power": 135,
+        "Category": "Shot"
     },
     "EPalWazaID::LineThunder": {
         "Type": "Electric",
-        "Power": 75
+        "Power": 75,
+        "Category": "Shot"
     },
     "EPalWazaID::LightningStrike": {
         "Type": "Electric",
-        "Power": 0
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Kirin_LightningTackle": {
         "Type": "Electric",
-        "Power": 0,
+        "Power": 100,
         "Exclusive": [
             "Kirin"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::LockonLaser": {
         "Type": "Electric",
-        "Power": 0
+        "Power": 70,
+        "Category": "Shot"
     },
     "EPalWazaID::SelfExplosion": {
         "Type": "Neutral",
-        "Power": 0
+        "Power": 500,
+        "Category": "Shot"
     },
     "EPalWazaID::SpecialCutter": {
         "Type": "Grass",
-        "Power": 0
+        "Power": 60,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_SakuraSaurus_SideTackle": {
         "Type": "Neutral",
@@ -408,7 +484,8 @@
         "Exclusive": [
             "SakuraSaurus",
             "SakuraSaurus_Water"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_FairyDragon_FairyTornado": {
         "Type": "Dragon",
@@ -416,26 +493,31 @@
         "Exclusive": [
             "FairyDragon",
             "FairyDragon_Water"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::ShadowBall": {
         "Type": "Dark",
-        "Power": 100
+        "Power": 100,
+        "Category": "Shot"
     },
     "None": {
         "Type": "None",
-        "Power": 0
+        "Power": 0,
+        "Category": "Null"
     },
     "EPalWazaID::HyperBeam": {
         "Type": "Neutral",
-        "Power": 150
+        "Power": 150,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_DarkCrow_TelePoke": {
         "Type": "Dark",
         "Power": 55,
         "Exclusive": [
             "DarkCrow"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_Horus_FlareBird": {
         "Type": "Fire",
@@ -443,375 +525,452 @@
         "Exclusive": [
             "Horus",
             "GYM_Horus"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_NightLady_FlameNightmare": {
         "Type": "Dark",
         "Power": 130,
         "Exclusive": [
             "NightLady_Dark"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_NightLady_WarpBeam": {
         "Type": "Dark",
         "Power": 160,
         "Exclusive": [
             "NightLady_Dark"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_NightLady_WarpBeam_Straight": {
         "Type": "Dark",
         "Power": 140,
         "Exclusive": [
             "NightLady"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::DarkCanon": {
         "Type": "Dark",
-        "Power": 50
+        "Power": 50,
+        "Category": "Shot"
     },
     "EPalWazaID::DarkPulse": {
         "Type": "Dark",
-        "Power": 40
+        "Power": 40,
+        "Category": "Shot"
     },
     "EPalWazaID::DarkArrow": {
         "Type": "Dark",
-        "Power": 65
+        "Power": 65,
+        "Category": "Shot"
     },
     "EPalWazaID::Apocalypse": {
         "Type": "Dark",
-        "Power": 110
+        "Power": 110,
+        "Category": "Shot"
     },
     "EPalWazaID::ThunderFunnel": {
         "Type": "Electric",
-        "Power": 65
+        "Power": 65,
+        "Category": "Shot"
     },
     "EPalWazaID::PoisonShot": {
         "Type": "Dark",
-        "Power": 30
+        "Power": 30,
+        "Category": "Shot"
     },
     "EPalWazaID::PoisonFog": {
         "Type": "Dark",
-        "Power": 0
+        "Power": 0,
+        "Category": "Shot"
     },
     "EPalWazaID::PowerBall": {
         "Type": "Neutral",
-        "Power": 70
+        "Power": 70,
+        "Category": "Shot"
     },
     "EPalWazaID::PowerShot": {
         "Type": "Neutral",
-        "Power": 35
+        "Power": 35,
+        "Category": "Shot"
     },
     "EPalWazaID::Psychokinesis": {
         "Type": "Dark",
-        "Power": 0
+        "Power": 110,
+        "Category": "Shot"
     },
     "EPalWazaID::Human_Punch": {
         "Type": "Neutral",
-        "Power": 0
+        "Power": 12,
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_PinkCat_CatPunch": {
         "Type": "Neutral",
         "Power": 40,
         "Exclusive": [
             "PinkCat"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_Boar_Tackle": {
         "Type": "Neutral",
         "Power": 55,
         "Exclusive": [
             "Boar"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::RockLance": {
         "Type": "Ground",
-        "Power": 150
+        "Power": 150,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_SheepBall_Roll": {
         "Type": "Neutral",
         "Power": 35,
         "Exclusive": [
             "Sheepball"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::MudShot": {
         "Type": "Ground",
-        "Power": 40
+        "Power": 40,
+        "Category": "Shot"
     },
     "EPalWazaID::SandTornado": {
         "Type": "Ground",
-        "Power": 80
+        "Power": 80,
+        "Category": "Shot"
     },
     "EPalWazaID::SeedMachinegun": {
         "Type": "Grass",
-        "Power": 50
+        "Power": 50,
+        "Category": "Shot"
     },
     "EPalWazaID::SeedMine": {
         "Type": "Grass",
-        "Power": 65
+        "Power": 65,
+        "Category": "Shot"
     },
     "EPalWazaID::DarkWave": {
         "Type": "Dark",
-        "Power": 55
+        "Power": 55,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_DrillGame_ShellAttack": {
         "Type": "Ground",
         "Power": 65,
         "Exclusive": [
             "DrillGame"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::ElecWave": {
         "Type": "Electric",
-        "Power": 40
+        "Power": 40,
+        "Category": "Shot"
     },
     "EPalWazaID::SolarBeam": {
-        "Type": "Electric",
-        "Power": 150
+        "Type": "Grass",
+        "Power": 150,
+        "Category": "Shot"
     },
     "EPalWazaID::SpreadPulse": {
         "Type": "Electric",
-        "Power": 30
+        "Power": 30,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_SaintCentaur_OneSpearRushes": {
         "Type": "Neutral",
         "Power": 120,
         "Exclusive": [
             "SaintCentaur"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::RootAttack": {
         "Type": "Grass",
-        "Power": 95
+        "Power": 95,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_QueenBee_SpinLance": {
         "Type": "Grass",
         "Power": 70,
         "Exclusive": [
             "Queenbee"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Anubis_LowRoundKick": {
         "Type": "Ground",
         "Power": 100,
         "Exclusive": [
             "Anubis"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::FireSeed": {
         "Type": "Fire",
-        "Power": 45
+        "Power": 45,
+        "Category": "Shot"
     },
     "EPalWazaID::GhostFlame": {
         "Type": "Dark",
-        "Power": 75
+        "Power": 75,
+        "Category": "Shot"
     },
     "EPalWazaID::StoneShotgun": {
         "Type": "Ground",
-        "Power": 55
+        "Power": 55,
+        "Category": "Shot"
     },
     "EPalWazaID::ThrowRock": {
         "Type": "Ground",
-        "Power": 70
+        "Power": 70,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_BluePlatypus_Toboggan": {
         "Type": "Water",
-        "Power": 0,
+        "Power": 100,
         "Exclusive": [
             "BluePlatypus"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_HawkBird_Storm": {
         "Type": "Neutral",
         "Power": 65,
         "Exclusive": [
             "HawkBird"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::ThreeThunder": {
         "Type": "Electric",
-        "Power": 90
+        "Power": 90,
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes": {
         "Type": "Dark",
         "Power": 120,
         "Exclusive": [
             "BlackCentaur"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_VolcanicMonster_MagmaAttack": {
         "Type": "Fire",
         "Power": 100,
         "Exclusive": [
             "VolcanicMonster"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::WindCutter": {
         "Type": "Grass",
-        "Power": 30
+        "Power": 30,
+        "Category": "Shot"
     },
     "EPalWazaID::WaterWave": {
         "Type": "Water",
-        "Power": 0
+        "Power": 1,
+        "Category": "Shot"
     },
-
     "EPalWazaID::IcicleLine": {
         "Type": "Ice",
-        "Power": 120
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::FlareTwister": {
         "Type": "Fire",
-        "Power": 130
+        "Power": 130,
+        "Category": "Shot"
     },
     "EPalWazaID::WindEdge": {
         "Type": "Grass",
-        "Power": 90
+        "Power": 90,
+        "Category": "Shot"
     },
     "EPalWazaID::RaidCutter": {
         "Type": "Grass",
-        "Power": 110
+        "Power": 110,
+        "Category": "Shot"
     },
     "EPalWazaID::IceAge": {
         "Type": "Ice",
-        "Power": 140
+        "Power": 140,
+        "Category": "Shot"
     },
     "EPalWazaID::DoubleIcicleThrow": {
         "Type": "Ice",
-        "Power": 200
+        "Power": 200,
+        "Category": "Shot"
     },
     "EPalWazaID::IciclePierce": {
         "Type": "Ice",
-        "Power": 110
+        "Power": 110,
+        "Category": "Shot"
     },
     "EPalWazaID::ChaosLaser": {
         "Type": "Dark",
-        "Power": 300
+        "Power": 300,
+        "Category": "Shot"
     },
     "EPalWazaID::BubbleShower": {
         "Type": "Dark",
-        "Power": 110
+        "Power": 110,
+        "Category": "Shot"
     },
     "EPalWazaID::ShokeiLaser": {
         "Type": "Electric",
-        "Power": 170
+        "Power": 170,
+        "Category": "Shot"
     },
     "EPalWazaID::Railbolt": {
         "Type": "Electric",
-        "Power": 200
+        "Power": 200,
+        "Category": "Shot"
     },
     "EPalWazaID::RangeThunder": {
         "Type": "Electric",
-        "Power": 125
+        "Power": 125,
+        "Category": "Shot"
     },
     "EPalWazaID::SandTwister": {
         "Type": "Ground",
-        "Power": 160
+        "Power": 160,
+        "Category": "Shot"
     },
     "EPalWazaID::FlameFunnel": {
         "Type": "Fire",
-        "Power": 120
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::ThunderStorm": {
         "Type": "Electric",
-        "Power": 160
+        "Power": 160,
+        "Category": "Shot"
     },
     "EPalWazaID::TriSpark": {
         "Type": "Electric",
-        "Power": 110
+        "Power": 110,
+        "Category": "Shot"
     },
     "EPalWazaID::WallSplash": {
         "Type": "Water",
-        "Power": 120
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::AirBlade": {
         "Type": "Neutral",
-        "Power": 85
+        "Power": 85,
+        "Category": "Shot"
     },
     "EPalWazaID::FlameWall": {
         "Type": "Fire",
-        "Power": 100
+        "Power": 100,
+        "Category": "Shot"
     },
     "EPalWazaID::HolyBlast": {
         "Type": "Neutral",
-        "Power": 120
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::Eruption": {
         "Type": "Fire",
-        "Power": 130
+        "Power": 130,
+        "Category": "Shot"
     },
     "EPalWazaID::CommetRain": {
         "Type": "Dragon",
-        "Power": 160
+        "Power": 160,
+        "Category": "Shot"
     },
-    "EPalWazaID::ThreeComemt": {
+    "EPalWazaID::ThreeCommet": {
         "Type": "Dragon",
-        "Power": 120
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::BlastCanon": {
         "Type": "Dragon",
-        "Power": 100
+        "Power": 100,
+        "Category": "Shot"
     },
     "EPalWazaID::ChargeCanon": {
         "Type": "Dragon",
-        "Power": 120
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::LineGeyser": {
         "Type": "Water",
-        "Power": 90
+        "Power": 90,
+        "Category": "Shot"
     },
     "EPalWazaID::RootLance": {
         "Type": "Grass",
-        "Power": 120
+        "Power": 120,
+        "Category": "Shot"
     },
     "EPalWazaID::StarMine": {
         "Type": "Neutral",
-        "Power": 110
+        "Power": 110,
+        "Category": "Shot"
     },
     "EPalWazaID::DiamondFall": {
         "Type": "Ice",
-        "Power": 160
+        "Power": 160,
+        "Category": "Shot"
     },
     "EPalWazaID::BeamSlicer": {
         "Type": "Dragon",
-        "Power": 130
+        "Power": 130,
+        "Category": "Shot"
     },
     "EPalWazaID::Tremor": {
-        "Type": "Earth",
-        "Power": 130
+        "Type": "Ground",
+        "Power": 130,
+        "Category": "Shot"
     },
     "EPalWazaID::Commet": {
         "Type": "Dragon",
-        "Power": 110
+        "Power": 110,
+        "Category": "Shot"
     },
-
     "EPalWazaID::Unique_DarkScorpion_Pierce": {
-        "Type": "Dark",
+        "Type": "Ground",
         "Power": 110,
         "Exclusive": [
             "DarkScorpion"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_FeatherOstrich_Tossin": {
-        "Type": "Earth",
+        "Type": "Ground",
         "Power": 100,
         "Exclusive": [
             "FeatherOstrich"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_SifuDog_Counter": {
         "Type": "Neutral",
         "Power": 170,
         "Exclusive": [
             "SifuDog"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_WingGolem_RoundCutter": {
-        "Type": "Earth",
+        "Type": "Ground",
         "Power": 145,
         "Exclusive": [
             "WingGolem"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_MoonQueen_MoonBlade": {
         "Type": "Neutral",
@@ -819,7 +978,8 @@
         "Exclusive": [
             "MoonQueen",
             "GYM_MoonQueen"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_MoonQueen_MoonBeam": {
         "Type": "Neutral",
@@ -827,87 +987,165 @@
         "Exclusive": [
             "MoonQueen",
             "GYM_MoonQueen"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_DarkAlien_JumpScractch": {
         "Type": "Dark",
         "Power": 95,
         "Exclusive": [
             "DarkAlien"
-        ]
+        ],
+        "Category": "Shot"
     },
-    "EPalWazaID::Unique_KingBahamut_ArmSlash": {
+    "EPalWazaID::Unique_KingBahamut_ArmSmash": {
         "Type": "Fire",
         "Power": 150,
         "Exclusive": [
             "KingBahamut",
             "KingBahamut_Dragon"
-        ]
+        ],
+        "Category": "Melee"
     },
     "EPalWazaID::Unique_KingBahamut_AirCrash": {
         "Type": "Dragon",
         "Power": 160,
         "Exclusive": [
             "KingBahamut_Dragon"
-        ]
+        ],
+        "Category": "Melee"
     },
-    "EPalWazaID::Unique_WeaselDragon_FlyingTackle": {
-        "Type": "Dragon",
-        "Power": 50,
-        "Exclusive": [
-            "WeaselDragon_Fire"
-        ]
-    },
-
-    "EPalWazaID::ThunderBird_ThunderStorm": {
+    "EPalWazaID::Unique_ThunderBird_ThunderStorm": {
         "Type": "Electric",
-        "Power": 0
+        "Power": 1,
+        "Category": "Melee"
     },
-    "EPalWazaID::Manticore_InfernoStrike": {
+    "EPalWazaID::Unique_Manticore_InfernoStrike": {
         "Type": "Fire",
-        "Power": 0
+        "Power": 1,
+        "Category": "Melee"
     },
-
     "EPalWazaID::Unique_BlackGriffon_TackleLaser2": {
         "Type": "Dark",
         "Power": 170,
         "Exclusive": [
             "GYM_BlackGriffon"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_Horus_PerfectStorm": {
         "Type": "Fire",
         "Power": 145,
         "Exclusive": [
             "GYM_Horus"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_MoonQueen_IceMoonBlade": {
         "Type": "Neutral",
         "Power": 110,
         "Exclusive": [
             "GYM_MoonQueen"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_ElecPanda_GatlingAttack": {
         "Type": "Electric",
         "Power": 160,
         "Exclusive": [
             "GYM_ElecPanda"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": {
-        "Type": "Electic",
+        "Type": "Electric",
         "Power": 180,
         "Exclusive": [
             "GYM_ThunderDragonMan"
-        ]
+        ],
+        "Category": "Shot"
     },
     "EPalWazaID::Unique_LilyQueen_WindBarrier": {
         "Type": "Grass",
         "Power": 60,
         "Exclusive": [
             "GYM_LilyQueen"
-        ]
+        ],
+        "Category": "Shot"
+    },
+    "EPalWazaID::TripleCannon": {
+        "Type": "Dragon",
+        "Power": 120,
+        "Category": "Shot"
+    },
+    "EPalWazaID::TidalWave": {
+        "Type": "Water",
+        "Power": 1,
+        "Category": "Shot"
+    },
+    "EPalWazaID::Throw": {
+        "Type": "Neutral",
+        "Power": 60,
+        "Category": "Shot"
+    },
+    "EPalWazaID::Scratch": {
+        "Type": "Neutral",
+        "Power": 100,
+        "Category": "Melee"
+    },
+    "EPalWazaID::WorkAttack": {
+        "Type": "Neutral",
+        "Power": 100,
+        "Category": "Melee"
+    },
+    "EPalWazaID::SnowStorm": {
+        "Type": "Ice",
+        "Power": 1,
+        "Category": "Shot"
+    },
+    "EPalWazaID::EnergyShot": {
+        "Type": "Ice",
+        "Power": 1,
+        "Category": "Shot"
+    },
+    "EPalWazaID::Funnel_RaijinDaughter": {
+        "Type": "Electric",
+        "Power": 30,
+        "Category": "Shot"
+    },
+    "EPalWazaID::Funnel_DreamDemon": {
+        "Type": "Dark",
+        "Power": 20,
+        "Category": "Shot"
+    },
+    "EPalWazaID::DarkTornado": {
+        "Type": "Dark",
+        "Power": 80,
+        "Category": "Shot"
+    },
+    "EPalWazaID::Unique_LilyQueen_LilyHealing": {
+        "Type": "Neutral",
+        "Power": 0,
+        "Category": "Shot"
+    },
+    "EPalWazaID::Unique_ScorpionMan_Uppercut": {
+        "Type": "Dark",
+        "Power": 110,
+        "Category": "Melee"
+    },
+    "EPalWazaID::WaterBalloon": {
+        "Type": "Water",
+        "Power": 90,
+        "Category": "Shot"
+    },
+    "EPalWazaID::GrassTyphoon": {
+        "Type": "Grass",
+        "Power": 90,
+        "Category": "Shot"
+    },
+    "EPalWazaID::SeedShotgun": {
+        "Type": "Grass",
+        "Power": 90,
+        "Category": "Shot"
     }
 }

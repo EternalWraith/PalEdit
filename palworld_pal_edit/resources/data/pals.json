@@ -16,7 +16,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 75,
+                "PHY": 90,
+                "MAG": 75,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -51,7 +52,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 115,
+                "PHY": 70,
+                "MAG": 115,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -86,7 +88,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 130,
+                "PHY": 130,
+                "MAG": 130,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -122,7 +125,8 @@
             },
             "Scaling": {
                 "HP": 95,
-                "ATK": 100,
+                "PHY": 150,
+                "MAG": 100,
                 "DEF": 85
             },
             "Suitabilities": {
@@ -157,7 +161,8 @@
             },
             "Scaling": {
                 "HP": 95,
-                "ATK": 105,
+                "PHY": 150,
+                "MAG": 105,
                 "DEF": 85
             },
             "Suitabilities": {
@@ -192,7 +197,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 60,
+                "PHY": 70,
+                "MAG": 60,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -227,7 +233,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 65,
+                "PHY": 70,
+                "MAG": 65,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -262,7 +269,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -298,7 +306,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 115,
+                "PHY": 100,
+                "MAG": 115,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -334,7 +343,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 120,
+                "PHY": 100,
+                "MAG": 120,
                 "DEF": 95
             },
             "Suitabilities": {
@@ -369,8 +379,8 @@
             },
             "Scaling": {
                 "HP": 130,
-                "HP_BOSS": 260,
-                "ATK": 145,
+                "PHY": 100,
+                "MAG": 145,
                 "DEF": 120
             },
             "Suitabilities": {
@@ -405,7 +415,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 120,
+                "PHY": 130,
+                "MAG": 120,
                 "DEF": 140
             },
             "Suitabilities": {
@@ -441,7 +452,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 125,
+                "PHY": 100,
+                "MAG": 125,
                 "DEF": 125
             },
             "Suitabilities": {
@@ -477,7 +489,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 100,
+                "PHY": 70,
+                "MAG": 100,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -512,7 +525,8 @@
             },
             "Scaling": {
                 "HP": 60,
-                "ATK": 80,
+                "PHY": 80,
+                "MAG": 80,
                 "DEF": 60
             },
             "Suitabilities": {
@@ -547,7 +561,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -583,7 +598,8 @@
             },
             "Scaling": {
                 "HP": 95,
-                "ATK": 95,
+                "PHY": 70,
+                "MAG": 95,
                 "DEF": 95
             },
             "Suitabilities": {
@@ -618,7 +634,8 @@
             },
             "Scaling": {
                 "HP": 75,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -653,7 +670,8 @@
             },
             "Scaling": {
                 "HP": 95,
-                "ATK": 95,
+                "PHY": 100,
+                "MAG": 95,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -688,7 +706,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -723,7 +742,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 110
             },
             "Suitabilities": {
@@ -758,7 +778,8 @@
             },
             "Scaling": {
                 "HP": 60,
-                "ATK": 60,
+                "PHY": 70,
+                "MAG": 60,
                 "DEF": 60
             },
             "Suitabilities": {
@@ -793,7 +814,8 @@
             },
             "Scaling": {
                 "HP": 60,
-                "ATK": 75,
+                "PHY": 80,
+                "MAG": 75,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -828,7 +850,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 50,
+                "PHY": 100,
+                "MAG": 50,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -863,7 +886,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 80,
+                "PHY": 100,
+                "MAG": 80,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -898,7 +922,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -933,7 +958,8 @@
             },
             "Scaling": {
                 "HP": 65,
-                "ATK": 80,
+                "PHY": 100,
+                "MAG": 80,
                 "DEF": 50
             },
             "Suitabilities": {
@@ -968,7 +994,8 @@
             },
             "Scaling": {
                 "HP": 75,
-                "ATK": 95,
+                "PHY": 80,
+                "MAG": 95,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -1004,7 +1031,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 130
             },
             "Suitabilities": {
@@ -1039,7 +1067,8 @@
             },
             "Scaling": {
                 "HP": 95,
-                "ATK": 80,
+                "PHY": 70,
+                "MAG": 80,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -1074,7 +1103,8 @@
             },
             "Scaling": {
                 "HP": 95,
-                "ATK": 80,
+                "PHY": 70,
+                "MAG": 80,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -1109,7 +1139,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 75,
+                "PHY": 100,
+                "MAG": 75,
                 "DEF": 60
             },
             "Suitabilities": {
@@ -1144,7 +1175,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 95,
+                "PHY": 80,
+                "MAG": 95,
                 "DEF": 120
             },
             "Suitabilities": {
@@ -1179,7 +1211,8 @@
             },
             "Scaling": {
                 "HP": 75,
-                "ATK": 85,
+                "PHY": 120,
+                "MAG": 85,
                 "DEF": 60
             },
             "Suitabilities": {
@@ -1214,7 +1247,8 @@
             },
             "Scaling": {
                 "HP": 60,
-                "ATK": 75,
+                "PHY": 60,
+                "MAG": 75,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -1249,7 +1283,8 @@
             },
             "Scaling": {
                 "HP": 105,
-                "ATK": 100,
+                "PHY": 120,
+                "MAG": 100,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -1284,7 +1319,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 80,
+                "PHY": 80,
+                "MAG": 80,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1320,7 +1356,8 @@
             },
             "Scaling": {
                 "HP": 115,
-                "ATK": 80,
+                "PHY": 80,
+                "MAG": 80,
                 "DEF": 95
             },
             "Suitabilities": {
@@ -1355,7 +1392,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 110,
+                "PHY": 110,
+                "MAG": 110,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1390,7 +1428,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 95,
+                "PHY": 110,
+                "MAG": 95,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1426,7 +1465,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 95,
+                "PHY": 110,
+                "MAG": 95,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1461,7 +1501,8 @@
             },
             "Scaling": {
                 "HP": 75,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 75
             },
             "Suitabilities": {
@@ -1496,7 +1537,8 @@
             },
             "Scaling": {
                 "HP": 85,
-                "ATK": 95,
+                "PHY": 100,
+                "MAG": 95,
                 "DEF": 95
             },
             "Suitabilities": {
@@ -1532,7 +1574,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 85,
+                "PHY": 90,
+                "MAG": 85,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1568,7 +1611,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 90,
+                "PHY": 90,
+                "MAG": 90,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1603,7 +1647,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 95,
+                "PHY": 100,
+                "MAG": 95,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -1638,7 +1683,8 @@
             },
             "Scaling": {
                 "HP": 75,
-                "ATK": 65,
+                "PHY": 100,
+                "MAG": 65,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -1673,7 +1719,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -1708,7 +1755,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 110,
+                "PHY": 50,
+                "MAG": 110,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -1743,7 +1791,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 60,
+                "PHY": 70,
+                "MAG": 60,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -1778,7 +1827,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 90,
+                "PHY": 110,
+                "MAG": 90,
                 "DEF": 75
             },
             "Suitabilities": {
@@ -1813,7 +1863,8 @@
             },
             "Scaling": {
                 "HP": 75,
-                "ATK": 105,
+                "PHY": 50,
+                "MAG": 105,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -1848,7 +1899,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 95,
+                "PHY": 110,
+                "MAG": 95,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1883,7 +1935,8 @@
             },
             "Scaling": {
                 "HP": 150,
-                "ATK": 85,
+                "PHY": 100,
+                "MAG": 85,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1918,7 +1971,8 @@
             },
             "Scaling": {
                 "HP": 150,
-                "ATK": 85,
+                "PHY": 100,
+                "MAG": 85,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1953,7 +2007,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 90,
+                "PHY": 100,
+                "MAG": 90,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -1988,7 +2043,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -2023,7 +2079,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 115,
+                "PHY": 100,
+                "MAG": 115,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -2058,7 +2115,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 125,
+                "PHY": 100,
+                "MAG": 125,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -2093,7 +2151,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 95,
+                "PHY": 100,
+                "MAG": 95,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -2128,7 +2187,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 75,
+                "PHY": 70,
+                "MAG": 75,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -2163,7 +2223,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 75,
+                "PHY": 70,
+                "MAG": 75,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -2199,7 +2260,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 120
             },
             "Suitabilities": {
@@ -2234,7 +2296,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 110
             },
             "Suitabilities": {
@@ -2269,7 +2332,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 85,
+                "PHY": 80,
+                "MAG": 85,
                 "DEF": 110
             },
             "Suitabilities": {
@@ -2304,7 +2368,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 95,
+                "PHY": 100,
+                "MAG": 95,
                 "DEF": 105
             },
             "Suitabilities": {
@@ -2339,9 +2404,9 @@
             },
             "Scaling": {
                 "HP": 140,
-                "ATK": 140,
-                "DEF": 120,
-                "HP_BOSS": 420
+                "PHY": 100,
+                "MAG": 140,
+                "DEF": 120
             },
             "Suitabilities": {
                 "EmitFlame": 0,
@@ -2375,7 +2440,8 @@
             },
             "Scaling": {
                 "HP": 140,
-                "ATK": 140,
+                "PHY": 100,
+                "MAG": 140,
                 "DEF": 135
             },
             "Suitabilities": {
@@ -2410,8 +2476,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "HP_BOSS": 330,
-                "ATK": 140,
+                "PHY": 100,
+                "MAG": 140,
                 "DEF": 110
             },
             "Suitabilities": {
@@ -2446,7 +2512,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -2481,7 +2548,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -2516,7 +2584,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 85,
+                "PHY": 100,
+                "MAG": 85,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -2551,7 +2620,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 85,
+                "PHY": 100,
+                "MAG": 85,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -2586,7 +2656,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 125,
+                "PHY": 150,
+                "MAG": 125,
                 "DEF": 120
             },
             "Suitabilities": {
@@ -2621,7 +2692,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 105,
+                "PHY": 110,
+                "MAG": 105,
                 "DEF": 105
             },
             "Suitabilities": {
@@ -2656,7 +2728,8 @@
             },
             "Scaling": {
                 "HP": 65,
-                "ATK": 75,
+                "PHY": 70,
+                "MAG": 75,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -2691,7 +2764,8 @@
             },
             "Scaling": {
                 "HP": 60,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -2718,7 +2792,8 @@
             "Moveset": {},
             "Scaling": {
                 "HP": 100,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 95
             },
             "Suitabilities": {
@@ -2754,7 +2829,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 100,
+                "PHY": 110,
+                "MAG": 100,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -2790,7 +2866,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 110,
+                "PHY": 110,
+                "MAG": 110,
                 "DEF": 75
             },
             "Suitabilities": {
@@ -2825,7 +2902,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 110,
+                "PHY": 100,
+                "MAG": 110,
                 "DEF": 105
             },
             "Suitabilities": {
@@ -2860,7 +2938,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 110,
+                "PHY": 100,
+                "MAG": 110,
                 "DEF": 115
             },
             "Suitabilities": {
@@ -2895,7 +2974,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 80,
+                "PHY": 80,
+                "MAG": 80,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -2930,7 +3010,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 80,
+                "PHY": 90,
+                "MAG": 80,
                 "DEF": 50
             },
             "Suitabilities": {
@@ -2965,7 +3046,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 80,
+                "PHY": 90,
+                "MAG": 80,
                 "DEF": 50
             },
             "Suitabilities": {
@@ -3000,7 +3082,8 @@
             },
             "Scaling": {
                 "HP": 105,
-                "ATK": 110,
+                "PHY": 100,
+                "MAG": 110,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -3036,7 +3119,8 @@
             },
             "Scaling": {
                 "HP": 105,
-                "ATK": 115,
+                "PHY": 100,
+                "MAG": 115,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -3071,7 +3155,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3106,7 +3191,8 @@
             },
             "Scaling": {
                 "HP": 60,
-                "ATK": 60,
+                "PHY": 100,
+                "MAG": 60,
                 "DEF": 60
             },
             "Suitabilities": {
@@ -3141,7 +3227,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 90,
+                "PHY": 100,
+                "MAG": 90,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -3176,7 +3263,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 100,
+                "PHY": 80,
+                "MAG": 100,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -3211,7 +3299,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 80,
+                "PHY": 100,
+                "MAG": 80,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -3246,7 +3335,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3281,7 +3371,8 @@
             },
             "Scaling": {
                 "HP": 60,
-                "ATK": 60,
+                "PHY": 100,
+                "MAG": 60,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3316,7 +3407,8 @@
             },
             "Scaling": {
                 "HP": 75,
-                "ATK": 85,
+                "PHY": 70,
+                "MAG": 85,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3352,7 +3444,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 75,
+                "PHY": 70,
+                "MAG": 75,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3387,7 +3480,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3422,7 +3516,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3457,7 +3552,8 @@
             },
             "Scaling": {
                 "HP": 75,
-                "ATK": 65,
+                "PHY": 100,
+                "MAG": 65,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3493,7 +3589,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3529,7 +3626,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3564,7 +3662,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -3599,7 +3698,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 80,
+                "PHY": 110,
+                "MAG": 80,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -3634,7 +3734,8 @@
             },
             "Scaling": {
                 "HP": 95,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 120
             },
             "Suitabilities": {
@@ -3669,7 +3770,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -3705,7 +3807,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -3740,7 +3843,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 125,
+                "PHY": 100,
+                "MAG": 125,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -3775,8 +3879,8 @@
             },
             "Scaling": {
                 "HP": 130,
-                "HP_BOSS": 260,
-                "ATK": 120,
+                "PHY": 110,
+                "MAG": 120,
                 "DEF": 145
             },
             "Suitabilities": {
@@ -3811,7 +3915,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 90,
+                "PHY": 80,
+                "MAG": 90,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -3847,7 +3952,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 95,
+                "PHY": 80,
+                "MAG": 95,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -3882,7 +3988,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 90,
+                "PHY": 70,
+                "MAG": 90,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -3917,7 +4024,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 90,
+                "PHY": 70,
+                "MAG": 90,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -3952,7 +4060,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 90,
+                "PHY": 90,
+                "MAG": 90,
                 "DEF": 75
             },
             "Suitabilities": {
@@ -3987,7 +4096,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 90,
+                "PHY": 90,
+                "MAG": 90,
                 "DEF": 75
             },
             "Suitabilities": {
@@ -4057,7 +4167,8 @@
             },
             "Scaling": {
                 "HP": 105,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -4092,7 +4203,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 90,
+                "PHY": 100,
+                "MAG": 90,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -4127,7 +4239,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 105
             },
             "Suitabilities": {
@@ -4162,7 +4275,8 @@
             },
             "Scaling": {
                 "HP": 125,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 105
             },
             "Suitabilities": {
@@ -4197,7 +4311,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -4232,7 +4347,8 @@
             },
             "Scaling": {
                 "HP": 105,
-                "ATK": 115,
+                "PHY": 100,
+                "MAG": 115,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -4267,7 +4383,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -4303,7 +4420,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 130,
+                "PHY": 100,
+                "MAG": 130,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -4339,7 +4457,8 @@
             },
             "Scaling": {
                 "HP": 130,
-                "ATK": 120,
+                "PHY": 150,
+                "MAG": 120,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -4375,7 +4494,8 @@
             },
             "Scaling": {
                 "HP": 130,
-                "ATK": 130,
+                "PHY": 150,
+                "MAG": 130,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -4410,7 +4530,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 120
             },
             "Suitabilities": {
@@ -4446,7 +4567,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 120
             },
             "Suitabilities": {
@@ -4482,7 +4604,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 130
             },
             "Suitabilities": {
@@ -4516,11 +4639,11 @@
                 "EPalWazaID::DragonBreath": 30,
                 "EPalWazaID::FrostBreath": 40,
                 "EPalWazaID::DragonMeteor": 50
-                
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 80,
+                "PHY": 100,
+                "MAG": 80,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -4555,7 +4678,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 100,
+                "PHY": 130,
+                "MAG": 100,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -4590,7 +4714,8 @@
             },
             "Scaling": {
                 "HP": 110,
-                "ATK": 90,
+                "PHY": 90,
+                "MAG": 90,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -4625,7 +4750,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 100,
+                "PHY": 140,
+                "MAG": 100,
                 "DEF": 110
             },
             "Suitabilities": {
@@ -4652,7 +4778,8 @@
             "Moveset": {},
             "Scaling": {
                 "HP": 80,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -4679,7 +4806,8 @@
             "Moveset": {},
             "Scaling": {
                 "HP": 80,
-                "ATK": 80,
+                "PHY": 70,
+                "MAG": 80,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -4714,7 +4842,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -4749,7 +4878,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 75
             },
             "Suitabilities": {
@@ -4784,7 +4914,8 @@
             },
             "Scaling": {
                 "HP": 140,
-                "ATK": 80,
+                "PHY": 100,
+                "MAG": 80,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -4819,7 +4950,8 @@
             },
             "Scaling": {
                 "HP": 140,
-                "ATK": 80,
+                "PHY": 100,
+                "MAG": 80,
                 "DEF": 110
             },
             "Suitabilities": {
@@ -4847,7 +4979,8 @@
             "Moveset": {},
             "Scaling": {
                 "HP": 130,
-                "ATK": 130,
+                "PHY": 100,
+                "MAG": 130,
                 "DEF": 110
             },
             "Suitabilities": {
@@ -4874,7 +5007,8 @@
             "Moveset": {},
             "Scaling": {
                 "HP": 100,
-                "ATK": 110,
+                "PHY": 100,
+                "MAG": 110,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -4902,7 +5036,8 @@
             "Moveset": {},
             "Scaling": {
                 "HP": 100,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -4947,7 +5082,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 150,
+                "PHY": 100,
+                "MAG": 150,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -4993,7 +5129,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 150,
+                "PHY": 100,
+                "MAG": 150,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -5019,7 +5156,13 @@
                 "Electric"
             ],
             "Moveset": {},
-            "Tower": true
+            "Tower": true,
+            "Scaling": {
+                "HP": 100,
+                "PHY": 100,
+                "MAG": 130,
+                "DEF": 110
+            }
         },
         {
             "CodeName": "GYM_LilyQueen",
@@ -5027,7 +5170,13 @@
                 "Grass"
             ],
             "Moveset": {},
-            "Tower": true
+            "Tower": true,
+            "Scaling": {
+                "HP": 110,
+                "PHY": 100,
+                "MAG": 110,
+                "DEF": 105
+            }
         },
         {
             "CodeName": "GYM_Horus",
@@ -5035,7 +5184,13 @@
                 "Fire"
             ],
             "Moveset": {},
-            "Tower": true
+            "Tower": true,
+            "Scaling": {
+                "HP": 100,
+                "PHY": 100,
+                "MAG": 105,
+                "DEF": 110
+            }
         },
         {
             "CodeName": "GYM_BlackGriffon",
@@ -5043,7 +5198,13 @@
                 "Dark"
             ],
             "Moveset": {},
-            "Tower": true
+            "Tower": true,
+            "Scaling": {
+                "HP": 120,
+                "PHY": 130,
+                "MAG": 120,
+                "DEF": 140
+            }
         },
         {
             "CodeName": "GYM_ElecPanda",
@@ -5051,7 +5212,13 @@
                 "Electric"
             ],
             "Moveset": {},
-            "Tower": true
+            "Tower": true,
+            "Scaling": {
+                "HP": 105,
+                "PHY": 100,
+                "MAG": 100,
+                "DEF": 100
+            }
         },
         {
             "CodeName": "Male_DarkTrader01",
@@ -5357,7 +5524,6 @@
             "Moveset": {},
             "Human": true
         },
-
         {
             "CodeName": "Gorilla_Ground",
             "Type": [
@@ -5374,7 +5540,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 100,
+                "PHY": 110,
+                "MAG": 100,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -5410,7 +5577,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 85,
+                "PHY": 100,
+                "MAG": 85,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -5446,7 +5614,8 @@
             },
             "Scaling": {
                 "HP": 80,
-                "ATK": 130,
+                "PHY": 100,
+                "MAG": 130,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -5482,7 +5651,8 @@
             },
             "Scaling": {
                 "HP": 95,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -5518,7 +5688,8 @@
             },
             "Scaling": {
                 "HP": 90,
-                "ATK": 110,
+                "PHY": 50,
+                "MAG": 110,
                 "DEF": 85
             },
             "Suitabilities": {
@@ -5553,7 +5724,8 @@
             },
             "Scaling": {
                 "HP": 120,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 120
             },
             "Suitabilities": {
@@ -5589,7 +5761,8 @@
             },
             "Scaling": {
                 "HP": 105,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -5625,7 +5798,8 @@
             },
             "Scaling": {
                 "HP": 105,
-                "ATK": 130,
+                "PHY": 150,
+                "MAG": 130,
                 "DEF": 125
             },
             "Suitabilities": {
@@ -5661,7 +5835,8 @@
             },
             "Scaling": {
                 "HP": 105,
-                "ATK": 125,
+                "PHY": 100,
+                "MAG": 125,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -5696,7 +5871,8 @@
             },
             "Scaling": {
                 "HP": 100,
-                "ATK": 105,
+                "PHY": 100,
+                "MAG": 105,
                 "DEF": 130
             },
             "Suitabilities": {
@@ -5715,7 +5891,6 @@
                 "MonsterFarm": 0
             }
         },
-
         {
             "CodeName": "MoonQueen",
             "Type": [
@@ -5733,7 +5908,8 @@
             },
             "Scaling": {
                 "HP": 130,
-                "ATK": 115,
+                "PHY": 100,
+                "MAG": 115,
                 "DEF": 110
             },
             "Suitabilities": {
@@ -5759,20 +5935,24 @@
                 "Neutral"
             ],
             "Moveset": {},
-            "Tower": true
+            "Tower": true,
+            "Scaling": {
+                "HP": 130,
+                "PHY": 100,
+                "MAG": 115,
+                "DEF": 110
+            }
         },
-
         {
             "CodeName": "KendoFrog",
             "Type": [
                 "Water"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 80,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 85
             },
             "Suitabilities": {
@@ -5796,12 +5976,11 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 90,
-                "ATK": 90,
+                "PHY": 100,
+                "MAG": 90,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -5825,12 +6004,11 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 110,
-                "ATK": 80,
+                "PHY": 100,
+                "MAG": 80,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -5855,12 +6033,11 @@
                 "Dark",
                 "Grass"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 110,
-                "ATK": 85,
+                "PHY": 100,
+                "MAG": 85,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -5884,12 +6061,11 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 75,
-                "ATK": 70,
+                "PHY": 100,
+                "MAG": 70,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -5914,12 +6090,11 @@
                 "Dark",
                 "Fire"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 105,
-                "ATK": 125,
+                "PHY": 100,
+                "MAG": 125,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -5944,12 +6119,11 @@
                 "Dark",
                 "Ground"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 90,
-                "ATK": 110,
+                "PHY": 100,
+                "MAG": 110,
                 "DEF": 90
             },
             "Suitabilities": {
@@ -5973,12 +6147,11 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 105,
-                "ATK": 110,
+                "PHY": 100,
+                "MAG": 110,
                 "DEF": 135
             },
             "Suitabilities": {
@@ -6002,12 +6175,11 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 85,
-                "ATK": 85,
+                "PHY": 80,
+                "MAG": 85,
                 "DEF": 85
             },
             "Suitabilities": {
@@ -6031,12 +6203,11 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 90,
-                "ATK": 100,
+                "PHY": 100,
+                "MAG": 100,
                 "DEF": 100
             },
             "Suitabilities": {
@@ -6060,12 +6231,11 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 95,
-                "ATK": 90,
+                "PHY": 100,
+                "MAG": 90,
                 "DEF": 80
             },
             "Suitabilities": {
@@ -6089,12 +6259,11 @@
             "Type": [
                 "Neutral"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 60,
-                "ATK": 60,
+                "PHY": 100,
+                "MAG": 60,
                 "DEF": 130
             },
             "Suitabilities": {
@@ -6118,12 +6287,11 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 90,
-                "ATK": 125,
+                "PHY": 100,
+                "MAG": 125,
                 "DEF": 85
             },
             "Suitabilities": {
@@ -6147,12 +6315,11 @@
             "Type": [
                 "Dragon"
             ],
-            "Moveset": {
-
-            },
+            "Moveset": {},
             "Scaling": {
                 "HP": 110,
-                "ATK": 120,
+                "PHY": 100,
+                "MAG": 120,
                 "DEF": 130
             },
             "Suitabilities": {

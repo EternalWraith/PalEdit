@@ -23,7 +23,6 @@ from tkinter import messagebox
 
 from datetime import datetime
 
-
 class UUIDEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, UUID):
@@ -123,12 +122,13 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.9"
+    version = "0.9.1"
     ftsize = 18
     font = "Microsoft YaHei"
     badskill = "#DE3C3A"
     okayskill = "#DFE8E7"
     goodskill = "#FEDE00"
+    levelcap = 55
 
 
 class PalEdit():
@@ -512,6 +512,15 @@ class PalEdit():
         self.learntMoves.delete(0, tk.constants.END)
         for i in pal._learntMoves:
             an = PalInfo.PalAttacks[i]
+            
+
+            if i in PalInfo.AttackCats:
+                ct = PalInfo.AttackCats[i]
+                match ct:
+                    case "Melee":
+                        an += '⚔'
+                    case "Shot":
+                        an += '🏹'
             if i in pal._equipMoves:
                 self.learntMoves.insert(0, an)
                 self.learntMoves.itemconfig(0, {'bg': 'lightgrey'})
@@ -548,14 +557,16 @@ class PalEdit():
 
             calc = pal.CalculateIngameStats()
             self.hthstatval.config(text=calc["HP"])
-            self.atkstatval.config(text=calc["ATK"])
+            self.matkstatval.config(text=calc["PHY"])
+            self.satkstatval.config(text=calc["MAG"])
             self.defstatval.config(text=calc["DEF"])
         else:
             for i in suitabilities:
                 self.suits[f"{i}_label"].config(text="-")
 
             self.hthstatval.config(text="n/a")
-            self.atkstatval.config(text="n/a")
+            self.matkstatval.config(text="n/a")
+            self.satkstatval.config(text="n/a")
             self.defstatval.config(text="n/a")
 
         # rank
@@ -921,7 +932,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not pal.IsTower() and not pal.IsHuman():
             calc = pal.CalculateIngameStats()
             self.hthstatval.config(text=calc["HP"])
-            self.atkstatval.config(text=calc["ATK"])
+            self.matkstatval.config(text=calc["PHY"])
+            self.satkstatval.config(text=calc["MAG"])
             self.defstatval.config(text=calc["DEF"])
 
 
@@ -944,7 +956,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         i = int(self.listdisplay.curselection()[0])
         pal = self.palbox[self.players[self.current.get()]][i]
 
-        if pal.GetLevel() == 50:
+        if pal.GetLevel() == PalEditConfig.levelcap:
             return
         lv = pal.GetLevel() + 1
         pal.SetLevel(lv)
@@ -1625,11 +1637,17 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                       width=10)
         self.i18n_el['hp_prop'] = hp
         hp.pack(expand=True, fill=tk.constants.X)
-        attack = tk.Label(statlabelview, text=self.i18n['attack_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+        mattack = tk.Label(statlabelview, text=self.i18n['mattack_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                           bg="darkgrey",
                           width=8)
-        self.i18n_el['attack_prop'] = attack
-        attack.pack(expand=True, fill=tk.constants.X)
+        self.i18n_el['mattack_prop'] = mattack
+        mattack.pack(expand=True, fill=tk.constants.X)
+        sattack = tk.Label(statlabelview, text=self.i18n['sattack_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
+                          bg="darkgrey",
+                          width=8)
+        self.i18n_el['sattack_prop'] = sattack
+        sattack.pack(expand=True, fill=tk.constants.X)
+        
         defence = tk.Label(statlabelview, text=self.i18n['defence_prop'], font=(PalEditConfig.font, PalEditConfig.ftsize),
                            bg="darkgrey", width=8)
         self.i18n_el['defence_prop'] = defence
@@ -1644,9 +1662,12 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                    font=(PalEditConfig.font, PalEditConfig.ftsize),
                                    justify="center")
         self.hthstatval.pack(fill=tk.constants.X)
-        self.atkstatval = tk.Label(statvals, bg="darkgrey", text="100", font=(PalEditConfig.font, PalEditConfig.ftsize),
+        self.matkstatval = tk.Label(statvals, bg="darkgrey", text="100", font=(PalEditConfig.font, PalEditConfig.ftsize),
                                    justify="center")
-        self.atkstatval.pack(fill=tk.constants.X)
+        self.matkstatval.pack(fill=tk.constants.X)
+        self.satkstatval = tk.Label(statvals, bg="darkgrey", text="100", font=(PalEditConfig.font, PalEditConfig.ftsize),
+                                   justify="center")
+        self.satkstatval.pack(fill=tk.constants.X)
         self.defstatval = tk.Label(statvals, bg="darkgrey", text="50", font=(PalEditConfig.font, PalEditConfig.ftsize),
                                    justify="center")
         self.defstatval.pack(fill=tk.constants.X)
@@ -1760,30 +1781,34 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                               lambda name, index, mode, sv=self.phpvar, entry=palhps: validate_and_mark_dirty(sv,
                                                                                                               entry))
         
-        attackframe = tk.Frame(stateditview, width=6, bg="darkgrey")
-        attackframe.pack(fill=tk.constants.X)
+        meleeframe = tk.Frame(stateditview, width=6, bg="darkgrey")
+        meleeframe.pack(fill=tk.constants.X)
         
         self.meleevar = tk.IntVar()
         self.meleevar.dirty = False
         self.meleevar.set(100)
-        ##        meleeicon = tk.Label(attackframe, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
-        ##        meleeicon.pack(side=tk.constants.LEFT)
-        ##        palmelee = tk.Entry(attackframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
-        ##        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'), state="disabled")
-        ##        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
-        ##        palmelee.pack(side=tk.constants.LEFT)
-        ##        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
+        meleeicon = tk.Label(meleeframe, width=2, text="⚔", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        meleeicon.pack(side=tk.constants.LEFT)
+        palmelee = tk.Entry(meleeframe, textvariable=self.meleevar, font=(PalEditConfig.font, PalEditConfig.ftsize), width=6)
+        palmelee.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
+        palmelee.bind("<FocusOut>", lambda event, var=self.meleevar: try_update(var))
+        palmelee.pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.X, pady=1)
+        self.meleevar.trace_add("write", lambda name, index, mode, sv=self.meleevar, entry=palmelee: validate_and_mark_dirty(sv, entry))
 
+
+        shotframe = tk.Frame(stateditview, width=6, bg="darkgrey")
+        shotframe.pack(fill=tk.constants.X)
+        
         self.shotvar = tk.IntVar()
         self.shotvar.dirty = False
         self.shotvar.set(100)
-        # shoticon = tk.Label(attackframe, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
-        # shoticon.pack(side=tk.constants.RIGHT)
-        palshot = tk.Entry(attackframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize),
+        shoticon = tk.Label(shotframe, width=2, text="🏹", font=(PalEditConfig.font, PalEditConfig.ftsize))
+        shoticon.pack(side=tk.constants.LEFT)
+        palshot = tk.Entry(shotframe, textvariable=self.shotvar, font=(PalEditConfig.font, PalEditConfig.ftsize),
                            width=6)
         palshot.config(justify="center", validate="all", validatecommand=(valreg, '%P'))
         palshot.bind("<FocusOut>", lambda event, var=self.shotvar: try_update(var))
-        palshot.pack(expand=True, fill=tk.constants.X, pady=1)
+        palshot.pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.X, pady=1)
         self.shotvar.trace_add("write",
                                lambda name, index, mode, sv=self.shotvar, entry=palshot: validate_and_mark_dirty(sv,
                                                                                                                  entry))

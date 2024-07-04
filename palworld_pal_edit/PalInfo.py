@@ -400,14 +400,23 @@ class PalEntity:
         HP_STAT = math.floor(500 + 5 * LEVEL + HP_SCALE * 0.5 * LEVEL * (1 + HP_IV))
         HP_STAT = math.floor(HP_STAT * (1 + HP_BONUS) * (1 + HP_SOUL) * (1 + HP_RANK))
 
-        AT_SCALE = SCALING["ATK"]
-        AT_IV = self.GetAttackRanged() * 0.3 / 100
+        AT_SCALE = SCALING["PHY"]
+        AT_IV = self.GetAttackMelee() * 0.3 / 100
         AT_SOUL = self.GetRankAttack() * 0.03
         AT_RANK = (self.GetRank() - 1) * 0.05
         AT_BONUS = 0
 
         AT_STAT = math.floor(100 + AT_SCALE * 0.075 * LEVEL * (1 + AT_IV))
         AT_STAT = math.floor(AT_STAT * (1 + AT_BONUS) * (1 + AT_SOUL) * (1 + AT_RANK))
+
+        MT_SCALE = SCALING["MAG"]
+        MT_IV = self.GetAttackRanged() * 0.3 / 100
+        MT_SOUL = self.GetRankAttack() * 0.03
+        MT_RANK = (self.GetRank() - 1) * 0.05
+        MT_BONUS = 0
+
+        MT_STAT = math.floor(100 + MT_SCALE * 0.075 * LEVEL * (1 + MT_IV))
+        MT_STAT = math.floor(MT_STAT * (1 + MT_BONUS) * (1 + MT_SOUL) * (1 + MT_RANK))
 
         DF_SCALE = SCALING["DEF"]
         DF_IV = self.GetDefence() * 0.3 / 100
@@ -417,7 +426,7 @@ class PalEntity:
 
         DF_STAT = math.floor(50 + DF_SCALE * 0.075 * LEVEL * (1 + DF_IV))
         DF_STAT = math.floor(DF_STAT * (1 + DF_BONUS) * (1 + DF_SOUL) * (1 + DF_RANK))
-        return {"HP": HP_STAT, "ATK": AT_STAT, "DEF": DF_STAT}
+        return {"HP": HP_STAT, "PHY": AT_STAT, "MAG": MT_STAT, "DEF": DF_STAT}
 
 
     def UpdateMaxHP(self):
@@ -587,6 +596,7 @@ class PalEntity:
                 self._learntMoves.remove(p)
 
     def StripAttack(self, name):
+        name = name.replace("⚔","").replace("🏹","")
         strip = False
         if not name in self._equipMoves:
             if not name in PalLearnSet[self.GetCodeName()]:
@@ -784,7 +794,7 @@ class PalPlayerEntity:
         self._data = data
         self._obj = self._data['properties']['SaveData']['value']
         self._record = self._obj['RecordData']['value']
-        self._inventoryinfo = self._obj['inventoryInfo']['value']
+        self._inventoryinfo = self._obj['InventoryInfo']['value']
 
     def GetPlayerGuid(self):
         return self._obj['PlayerUId']['value']
@@ -916,11 +926,12 @@ LoadPassives()
 PalAttacks = {}
 AttackPower = {}
 AttackTypes = {}
+AttackCats = {}
 SkillExclusivity = {}
 
 
 def LoadAttacks(lang="en-GB"):
-    global PalAttacks, AttackPower, AttackTypes, SkillExclusivity
+    global PalAttacks, AttackPower, AttackTypes, AttackCats, SkillExclusivity
 
     if lang == "":
         lang = "en-GB"
@@ -935,6 +946,7 @@ def LoadAttacks(lang="en-GB"):
             PalAttacks = {}
             AttackPower = {}
             AttackTypes = {}
+            AttackCats = {}
             SkillExclusivity = {}
 
             d = json.loads(datafile.read())
@@ -947,6 +959,7 @@ def LoadAttacks(lang="en-GB"):
                 PalAttacks[code] = l[code]
                 AttackPower[code] = d[i]["Power"]
                 AttackTypes[code] = d[i]["Type"]
+                AttackCats[code] = d[i]["Category"]
                 if "Exclusive" in d[i]:
                     SkillExclusivity[code] = d[i]["Exclusive"]
                 else:
