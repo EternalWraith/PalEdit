@@ -652,7 +652,262 @@
         "Power": 30
     },
     "EPalWazaID::WaterWave": {
-        "Type": "",
+        "Type": "Water",
         "Power": 0
+    },
+
+    "EPalWazaID::IcicleLine": {
+        "Type": "Ice",
+        "Power": 120
+    },
+    "EPalWazaID::FlareTwister": {
+        "Type": "Fire",
+        "Power": 130
+    },
+    "EPalWazaID::WindEdge": {
+        "Type": "Grass",
+        "Power": 90
+    },
+    "EPalWazaID::RaidCutter": {
+        "Type": "Grass",
+        "Power": 110
+    },
+    "EPalWazaID::IceAge": {
+        "Type": "Ice",
+        "Power": 140
+    },
+    "EPalWazaID::DoubleIcicleThrow": {
+        "Type": "Ice",
+        "Power": 200
+    },
+    "EPalWazaID::IciclePierce": {
+        "Type": "Ice",
+        "Power": 110
+    },
+    "EPalWazaID::ChaosLaser": {
+        "Type": "Dark",
+        "Power": 300
+    },
+    "EPalWazaID::BubbleShower": {
+        "Type": "Dark",
+        "Power": 110
+    },
+    "EPalWazaID::ShokeiLaser": {
+        "Type": "Electric",
+        "Power": 170
+    },
+    "EPalWazaID::Railbolt": {
+        "Type": "Electric",
+        "Power": 200
+    },
+    "EPalWazaID::RangeThunder": {
+        "Type": "Electric",
+        "Power": 125
+    },
+    "EPalWazaID::SandTwister": {
+        "Type": "Ground",
+        "Power": 160
+    },
+    "EPalWazaID::FlameFunnel": {
+        "Type": "Fire",
+        "Power": 120
+    },
+    "EPalWazaID::ThunderStorm": {
+        "Type": "Electric",
+        "Power": 160
+    },
+    "EPalWazaID::TriSpark": {
+        "Type": "Electric",
+        "Power": 110
+    },
+    "EPalWazaID::WallSplash": {
+        "Type": "Water",
+        "Power": 120
+    },
+    "EPalWazaID::AirBlade": {
+        "Type": "Neutral",
+        "Power": 85
+    },
+    "EPalWazaID::FlameWall": {
+        "Type": "Fire",
+        "Power": 100
+    },
+    "EPalWazaID::HolyBlast": {
+        "Type": "Neutral",
+        "Power": 120
+    },
+    "EPalWazaID::Eruption": {
+        "Type": "Fire",
+        "Power": 130
+    },
+    "EPalWazaID::CommetRain": {
+        "Type": "Dragon",
+        "Power": 160
+    },
+    "EPalWazaID::ThreeComemt": {
+        "Type": "Dragon",
+        "Power": 120
+    },
+    "EPalWazaID::BlastCanon": {
+        "Type": "Dragon",
+        "Power": 100
+    },
+    "EPalWazaID::ChargeCanon": {
+        "Type": "Dragon",
+        "Power": 120
+    },
+    "EPalWazaID::LineGeyser": {
+        "Type": "Water",
+        "Power": 90
+    },
+    "EPalWazaID::RootLance": {
+        "Type": "Grass",
+        "Power": 120
+    },
+    "EPalWazaID::StarMine": {
+        "Type": "Neutral",
+        "Power": 110
+    },
+    "EPalWazaID::DiamondFall": {
+        "Type": "Ice",
+        "Power": 160
+    },
+    "EPalWazaID::BeamSlicer": {
+        "Type": "Dragon",
+        "Power": 130
+    },
+    "EPalWazaID::Tremor": {
+        "Type": "Earth",
+        "Power": 130
+    },
+    "EPalWazaID::Commet": {
+        "Type": "Dragon",
+        "Power": 110
+    },
+
+    "EPalWazaID::Unique_DarkScorpion_Pierce": {
+        "Type": "Dark",
+        "Power": 110,
+        "Exclusive": [
+            "DarkScorpion"
+        ]
+    },
+    "EPalWazaID::Unique_FeatherOstrich_Tossin": {
+        "Type": "Earth",
+        "Power": 100,
+        "Exclusive": [
+            "FeatherOstrich"
+        ]
+    },
+    "EPalWazaID::Unique_SifuDog_Counter": {
+        "Type": "Neutral",
+        "Power": 170,
+        "Exclusive": [
+            "SifuDog"
+        ]
+    },
+    "EPalWazaID::Unique_WingGolem_RoundCutter": {
+        "Type": "Earth",
+        "Power": 145,
+        "Exclusive": [
+            "WingGolem"
+        ]
+    },
+    "EPalWazaID::Unique_MoonQueen_MoonBlade": {
+        "Type": "Neutral",
+        "Power": 110,
+        "Exclusive": [
+            "MoonQueen",
+            "GYM_MoonQueen"
+        ]
+    },
+    "EPalWazaID::Unique_MoonQueen_MoonBeam": {
+        "Type": "Neutral",
+        "Power": 170,
+        "Exclusive": [
+            "MoonQueen",
+            "GYM_MoonQueen"
+        ]
+    },
+    "EPalWazaID::Unique_DarkAlien_JumpScractch": {
+        "Type": "Dark",
+        "Power": 95,
+        "Exclusive": [
+            "DarkAlien"
+        ]
+    },
+    "EPalWazaID::Unique_KingBahamut_ArmSlash": {
+        "Type": "Fire",
+        "Power": 150,
+        "Exclusive": [
+            "KingBahamut",
+            "KingBahamut_Dragon"
+        ]
+    },
+    "EPalWazaID::Unique_KingBahamut_AirCrash": {
+        "Type": "Dragon",
+        "Power": 160,
+        "Exclusive": [
+            "KingBahamut_Dragon"
+        ]
+    },
+    "EPalWazaID::Unique_WeaselDragon_FlyingTackle": {
+        "Type": "Dragon",
+        "Power": 50,
+        "Exclusive": [
+            "WeaselDragon_Fire"
+        ]
+    },
+
+    "EPalWazaID::ThunderBird_ThunderStorm": {
+        "Type": "Electric",
+        "Power": 0
+    },
+    "EPalWazaID::Manticore_InfernoStrike": {
+        "Type": "Fire",
+        "Power": 0
+    },
+
+    "EPalWazaID::Unique_BlackGriffon_TackleLaser2": {
+        "Type": "Dark",
+        "Power": 170,
+        "Exclusive": [
+            "GYM_BlackGriffon"
+        ]
+    },
+    "EPalWazaID::Unique_Horus_PerfectStorm": {
+        "Type": "Fire",
+        "Power": 145,
+        "Exclusive": [
+            "GYM_Horus"
+        ]
+    },
+    "EPalWazaID::Unique_MoonQueen_IceMoonBlade": {
+        "Type": "Neutral",
+        "Power": 110,
+        "Exclusive": [
+            "GYM_MoonQueen"
+        ]
+    },
+    "EPalWazaID::Unique_ElecPanda_GatlingAttack": {
+        "Type": "Electric",
+        "Power": 160,
+        "Exclusive": [
+            "GYM_ElecPanda"
+        ]
+    },
+    "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": {
+        "Type": "Electic",
+        "Power": 180,
+        "Exclusive": [
+            "GYM_ThunderDragonMan"
+        ]
+    },
+    "EPalWazaID::Unique_LilyQueen_WindBarrier": {
+        "Type": "Grass",
+        "Power": 60,
+        "Exclusive": [
+            "GYM_LilyQueen"
+        ]
     }
 }

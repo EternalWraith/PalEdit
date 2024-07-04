@@ -314,5 +314,13 @@
     "CoolTimeReduction_Down_1": {
         "Name": "Easygoing",
         "Description": "Active Skill Cooldown extension -15%"
+    },
+    "EternalFlame": {
+        "Name": "Eternal Flame",
+        "Description": "+30% damage dealt with Fire and Lightning damage"
+    },
+    "Alien": {
+        "Name": "Otherworldly Cells",
+        "Description": "Attack +10%; -15% damage received from Fire and Lightning damage"
     }
 }

@@ -184,10 +184,37 @@
     "PalDealer_Volcano": "Pal Merchant (Volcano)",
     "Police_Rifle": "PIDF Infantry",
     "Police_Shotgun": "PIDF Elite",
-    "DarkAlien": "Xenovader",
+
+    "Gorilla_Ground": "Gorirat Terra",
+    "WeaselDragon_Fire": "Chillet Ignis",
+    "Ronin_Dark": "Bushi Noct",
+    "CatMage_Fire": "Katress Ignis",
+    "FoxMage_Dark": "Wixen Noct",
+    "HerculesBeetle_Ground": "Warsect Terra",
+    "SkyDragon_Grass": "Quivern Botan",
+    "KingBahamut_Dragon": "Blazamut Ryu",
+    "HadesBird_Electric": "Helzephyr Lux",
+    "DarkScorpion_Ground": "Menasting Terra",
+
+    "MoonQueen": "Selyne",
+    "GYM_MoonQueen": "Saya & Selyne",
+
     "KendoFrog": "Croajiro",
-    "MimicDog": "Mimog",
+    "LeafPrincess": "Lullu",
+    "MushroomDragon": "Shroomer",
+    "MushroomDragon_Dark": "Shroomer Dark",
+    "SmallArmadillo": "Kikit",
+    "CandleGhost": "Sootseer",
+    "ScorpionMan": "Prixter",
+    "WingGolem": "Knocklem",
+    "GuardianDog": "Yakumo",
+    "SifuDog": "Dogen",
     "FeatherOstrich": "Dazemu",
-    "MushroomDragon": "Shroomer"
+    "MimicDog": "Mimog",
+    "DarkAlien": "Xenovader",
+    "WhiteAlienDragon": "Xenogard",
+
+    "Male_NinjaElite01": "Moonflower Jonin",
+    "Male_Ninja01": "Moonflower Genin"
 
 }

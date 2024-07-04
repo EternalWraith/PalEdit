@@ -236,5 +236,13 @@
     },
     "NonKilling": {
         "Rating": "Bad"
+    },
+
+    "Alien" : {
+        "Rating": "Okay"
+    },
+
+    "EternalFlame" : {
+        "Rating": "Good"
     }
 }

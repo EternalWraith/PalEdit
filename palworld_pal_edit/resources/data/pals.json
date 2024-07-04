@@ -5013,151 +5013,6 @@
             }
         },
         {
-            "CodeName": "DarkAlien",
-            "Type": [
-                "Dark"
-            ],
-            "Moveset": {
-                
-            },
-            "Scaling": {
-                "HP": 90,
-                "ATK": 125,
-                "DEF": 85
-            },
-            "Suitabilities": {
-                "EmitFlame": 0,
-                "Watering": 0,
-                "Seeding": 0,
-                "GenerateElectricity": 0,
-                "Handcraft": 0,
-                "Collection": 0,
-                "Deforest": 2,
-                "Mining": 0,
-                "OilExtraction": 0,
-                "ProductMedicine": 0,
-                "Cool": 0,
-                "Transport": 2,
-                "MonsterFarm": 0
-            }
-        },
-        {
-            "CodeName": "MimicDog",
-            "Type": [
-                "Neutral"
-            ],
-            "Moveset": {
-                
-            },
-            "Scaling": {
-                "HP": 60,
-                "ATK": 60,
-                "DEF": 130
-            },
-            "Suitabilities": {
-                "EmitFlame": 0,
-                "Watering": 0,
-                "Seeding": 0,
-                "GenerateElectricity": 0,
-                "Handcraft": 0,
-                "Collection": 1,
-                "Deforest": 0,
-                "Mining": 0,
-                "OilExtraction": 0,
-                "ProductMedicine": 0,
-                "Cool": 0,
-                "Transport": 0,
-                "MonsterFarm": 0
-            }
-        },
-        {
-            "CodeName": "KendoFrog",
-            "Type": [
-                "Water"
-            ],
-            "Moveset": {
-                
-            },
-            "Scaling": {
-                "HP": 80,
-                "ATK": 80,
-                "DEF": 80
-            },
-            "Suitabilities": {
-                "EmitFlame": 0,
-                "Watering": 1,
-                "Seeding": 0,
-                "GenerateElectricity": 0,
-                "Handcraft": 1,
-                "Collection": 1,
-                "Deforest": 0,
-                "Mining": 0,
-                "OilExtraction": 0,
-                "ProductMedicine": 0,
-                "Cool": 0,
-                "Transport": 1,
-                "MonsterFarm": 0
-            }
-        },
-        {
-            "CodeName": "FeatherOstrich",
-            "Type": [
-                "Ground"
-            ],
-            "Moveset": {
-                
-            },
-            "Scaling": {
-                "HP": 80,
-                "ATK": 80,
-                "DEF": 80
-            },
-            "Suitabilities": {
-                "EmitFlame": 0,
-                "Watering": 0,
-                "Seeding": 0,
-                "GenerateElectricity": 0,
-                "Handcraft": 0,
-                "Collection": 2,
-                "Deforest": 0,
-                "Mining": 0,
-                "OilExtraction": 0,
-                "ProductMedicine": 0,
-                "Cool": 0,
-                "Transport": 0,
-                "MonsterFarm": 0
-            }
-        },
-        {
-            "CodeName": "MushroomDragon",
-            "Type": [
-                "Grass"
-            ],
-            "Moveset": {
-                
-            },
-            "Scaling": {
-                "HP": 80,
-                "ATK": 80,
-                "DEF": 80
-            },
-            "Suitabilities": {
-                "EmitFlame": 0,
-                "Watering": 0,
-                "Seeding": 2,
-                "GenerateElectricity": 0,
-                "Handcraft": 1,
-                "Collection": 2,
-                "Deforest": 2,
-                "Mining": 0,
-                "OilExtraction": 0,
-                "ProductMedicine": 0,
-                "Cool": 0,
-                "Transport": 0,
-                "MonsterFarm": 0
-            }
-        },
-        {
             "CodeName": "GYM_ThunderDragonMan",
             "Type": [
                 "Dragon",
@@ -5501,6 +5356,820 @@
             ],
             "Moveset": {},
             "Human": true
+        },
+
+        {
+            "CodeName": "Gorilla_Ground",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 100,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WeaselDragon_Fire",
+            "Type": [
+                "Fire",
+                "Dragon"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 85,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "Ronin_Dark",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 130,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 3,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "CatMage_Fire",
+            "Type": [
+                "Dark",
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 105,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 2,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FoxMage_Dark",
+            "Type": [
+                "Fire",
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 110,
+                "DEF": 85
+            },
+            "Suitabilities": {
+                "EmitFlame": 2,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 3,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "HerculesBeetle_Ground",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 120,
+                "ATK": 105,
+                "DEF": 120
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SkyDragon_Grass",
+            "Type": [
+                "Drgon",
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 105,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "KingBahamut_Dragon",
+            "Type": [
+                "Dragon",
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 130,
+                "DEF": 125
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 4,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "HadesBird_Electric",
+            "Type": [
+                "Dark",
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 125,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 3,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "DarkScorpion_Ground",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 100,
+                "ATK": 105,
+                "DEF": 130
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+
+        {
+            "CodeName": "MoonQueen",
+            "Type": [
+                "Dark",
+                "Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirCanon": 1,
+                "EPalWazaID::Unique_Alpaca_Tackle": 7,
+                "EPalWazaID::MudShot": 15,
+                "EPalWazaID::PowerShot": 22,
+                "EPalWazaID::ElecWave": 30,
+                "EPalWazaID::PowerBall": 40,
+                "EPalWazaID::HyperBeam": 50
+            },
+            "Scaling": {
+                "HP": 130,
+                "ATK": 115,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 3,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 3,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GYM_MoonQueen",
+            "Type": [
+                "Dark",
+                "Neutral"
+            ],
+            "Moveset": {},
+            "Tower": true
+        },
+
+        {
+            "CodeName": "KendoFrog",
+            "Type": [
+                "Water"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 80,
+                "ATK": 100,
+                "DEF": 85
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 1,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "LeafPrincess",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 90,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 2,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "MushroomDragon",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 80,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 2,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "MushroomDragon_Dark",
+            "Type": [
+                "Dark",
+                "Grass"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 85,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 2,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 2,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SmallArmadillo",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 75,
+                "ATK": 70,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 1,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "CandleGhost",
+            "Type": [
+                "Dark",
+                "Fire"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 125,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 2,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 1
+            }
+        },
+        {
+            "CodeName": "ScorpionMan",
+            "Type": [
+                "Dark",
+                "Ground"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 110,
+                "DEF": 90
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 3,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 1,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WingGolem",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 105,
+                "ATK": 110,
+                "DEF": 135
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 3,
+                "Deforest": 0,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 4,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GuardianDog",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 85,
+                "ATK": 85,
+                "DEF": 85
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "SifuDog",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 100,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 3,
+                "Collection": 2,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 1,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "FeatherOstrich",
+            "Type": [
+                "Ground"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 95,
+                "ATK": 90,
+                "DEF": 80
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "MimicDog",
+            "Type": [
+                "Neutral"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 60,
+                "ATK": 60,
+                "DEF": 130
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "DarkAlien",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 90,
+                "ATK": 125,
+                "DEF": 85
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "WhiteAlienDragon",
+            "Type": [
+                "Dragon"
+            ],
+            "Moveset": {
+
+            },
+            "Scaling": {
+                "HP": 110,
+                "ATK": 120,
+                "DEF": 130
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
         }
     ]
 }

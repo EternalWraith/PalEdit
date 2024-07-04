@@ -109,7 +109,7 @@ class PalObject:
             try:
                 self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/{n}.png')
             except:
-                self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/Alpaca.png')
+                self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/#ERROR.png')
         return self._img
 
     def GetPrimary(self):
@@ -907,8 +907,8 @@ def LoadPassives(lang="en-GB"):
                 PalPassives[code] = l[code]["Name"]
                 PassiveDescriptions[code] = l[code]["Description"]
                 PassiveRating[code] = d[i]["Rating"]
+                #print(i, l[code]["Name"])
             PalPassives = dict(sorted(PalPassives.items()))
-
 
 LoadPassives()
 

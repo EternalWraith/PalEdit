@@ -123,7 +123,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.8"
+    version = "0.9"
     ftsize = 18
     font = "Microsoft YaHei"
     badskill = "#DE3C3A"
@@ -212,8 +212,8 @@ class PalEdit():
                 atk_upd(menu, atk_id, PalInfo.PalAttacks[codename], codename)
 
         op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
-        op.pop(0)
-        op.pop(0)
+        op.remove("None")
+        op.remove("Unknown")
         op.sort()
         op.insert(0, "None")
 
@@ -1830,10 +1830,10 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.updateSkillsName()
 
         op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
-        op.pop(0)
-        op.pop(0)
+        op.remove("None")
         op.sort()
         op.insert(0, "None")
+        op.remove("Unknown")
         self.skilldrops = [
             tk.OptionMenu(topview, self.skills_name[0], *op, command=lambda evt: self.changeskill(0)),
             tk.OptionMenu(topview, self.skills_name[1], *op, command=lambda evt: self.changeskill(1)),
