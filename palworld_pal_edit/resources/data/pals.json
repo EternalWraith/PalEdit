@@ -5229,6 +5229,14 @@
             "Human": true
         },
         {
+            "CodeName": "Male_DarkTrader02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "FireCult_FlameThrower",
             "Type": [
                 "None"
@@ -5253,7 +5261,55 @@
             "Human": true
         },
         {
+            "CodeName": "Male_Soldier02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Soldier03",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Soldier04",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Female_Soldier01",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_Soldier02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_Soldier03",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_Soldier04",
             "Type": [
                 "None"
             ],
@@ -5398,6 +5454,14 @@
         },
         {
             "CodeName": "SalesPerson_Volcano2",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "SalesPerson_Wander",
             "Type": [
                 "None"
             ],
