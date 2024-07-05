@@ -4132,7 +4132,8 @@
             },
             "Scaling": {
                 "HP": 70,
-                "ATK": 70,
+                "PHY": 70,
+                "MAG": 70,
                 "DEF": 70
             },
             "Suitabilities": {
@@ -5229,6 +5230,14 @@
             "Human": true
         },
         {
+            "CodeName": "Male_DarkTrader02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "FireCult_FlameThrower",
             "Type": [
                 "None"
@@ -5253,7 +5262,55 @@
             "Human": true
         },
         {
+            "CodeName": "Male_Soldier02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Soldier03",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Male_Soldier04",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Female_Soldier01",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_Soldier02",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_Soldier03",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Female_Soldier04",
             "Type": [
                 "None"
             ],
@@ -5277,6 +5334,14 @@
             "Human": true
         },
         {
+            "CodeName": "Believer_Fat_GatlingGun",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Male_Scientist01_LaserRifle",
             "Type": [
                 "None"
@@ -5285,7 +5350,31 @@
             "Human": true
         },
         {
+            "CodeName": "Scientist_FlameThrower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "PalDealer",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "RandomEventShop",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Male_Trader01",
             "Type": [
                 "None"
             ],
@@ -5405,6 +5494,14 @@
             "Human": true
         },
         {
+            "CodeName": "SalesPerson_Wander",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
             "CodeName": "Female_DesertPeople02",
             "Type": [
                 "None"
@@ -5446,6 +5543,14 @@
         },
         {
             "CodeName": "Male_People03",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Male_Police_old",
             "Type": [
                 "None"
             ],
@@ -5523,6 +5628,572 @@
             ],
             "Moveset": {},
             "Human": true
+        },
+        {
+            "CodeName": "Male_Ninja01",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Male_NinjaElite01",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "FireCult_FlameThrower_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "FireCult_Rifle_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Believer_CrossBow_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Believer_Bat_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Male_Scientist01_LaserRifle_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Scientist_FlameThrower_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "Hunter_Bat_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Handgun_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Rifle_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Shotgun_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Grenade_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Fat_GatlingGun_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_FlameThrower_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_GrenadeLauncher_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_RocketLauncher_Invader",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Rifle_Oilrig",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Shotgun_Oilrig",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Grenade_Oilrig",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Fat_GatlingGun_Oilrig",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_FlameThrower_Oilrig",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_GrenadeLauncher_Oilrig",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_RocketLauncher_Oilrig",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_MissileLauncher_Oilrig",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Hunter_Fat_GatlingGun_Tower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Believer_CrossBow_Tower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Police_Rifle_Tower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Police_Shotgun_Tower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "Ninja01_Tower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+		{
+            "CodeName": "NinjaElite01_Tower",
+            "Type": [
+                "None"
+            ],
+            "Moveset": {},
+            "Human": true
+        },
+        {
+            "CodeName": "GYM_ThunderDragonMan_2",
+            "Type": [
+                "Dragon",
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": 1,
+                "EPalWazaID::RangeThunder": 2,
+                "EPalWazaID::Commet": 3,
+                "EPalWazaID::BeamSlicer": 4,
+                "EPalWazaID::BlastCanon": 5,
+                "EPalWazaID::RootLance": 6,
+                "EPalWazaID::SolarBeam": 7,
+                "EPalWazaID::WindEdge": 8
+            },
+            "Scaling": {
+                "HP": 100,
+                "PHY": 100,
+                "MAG": 130,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 3,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GYM_LilyQueen_2",
+            "Type": [
+                "Grass"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_LilyQueen_LilyHealing": 1,
+                "EPalWazaID::SeedMine": 2,
+                "EPalWazaID::RaidCutter": 3,
+                "EPalWazaID::RootAttack": 4,
+                "EPalWazaID::RootLance": 5,
+                "EPalWazaID::HydroPump": 6,
+                "EPalWazaID::LineGeyser": 7,
+                "EPalWazaID::WallSplash": 8,
+                "EPalWazaID::AcidRain": 9,
+                "EPalWazaID::WindEdge": 10,
+                "EPalWazaID::WaterBall": 11,
+                "EPalWazaID::BubbleShot": 12
+            },
+            "Scaling": {
+                "HP": 110,
+                "PHY": 100,
+                "MAG": 110,
+                "DEF": 105
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 3,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 2,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 3,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GYM_Horus_2",
+            "Type": [
+                "Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_Horus_PerfectStorm": 1,
+                "EPalWazaID::FlareArrow": 2,
+                "EPalWazaID::FireBall": 3,
+                "EPalWazaID::FlameWall": 4,
+                "EPalWazaID::Eruption": 5,
+                "EPalWazaID::TriSpark": 6,
+                "EPalWazaID::ThunderRain": 7,
+                "EPalWazaID::ThunderStorm": 8,
+                "EPalWazaID::Railbolt": 9
+            },
+            "Scaling": {
+                "HP": 100,
+                "PHY": 100,
+                "MAG": 105,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 3,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GYM_BlackGriffon_2",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_BlackGriffon_TackleLaser": 1,
+                "EPalWazaID::Unique_BlackGriffon_TackleLaser2": 2,
+                "EPalWazaID::DarkLaser": 3,
+                "EPalWazaID::Apocalypse": 4,
+                "EPalWazaID::IciclePierce": 5,
+                "EPalWazaID::DoubleIcicleThrow": 6,
+                "EPalWazaID::IcicleLine": 7,
+                "EPalWazaID::BeamSlicer": 8,
+                "EPalWazaID::ShokeiLaser": 9,
+                "EPalWazaID::SandTwister": 10,
+                "EPalWazaID::WallSplash": 11,
+                "EPalWazaID::FlameFunnel": 12
+            },
+            "Scaling": {
+                "HP": 120,
+                "PHY": 130,
+                "MAG": 120,
+                "DEF": 140
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GYM_BlackGriffon_2_Avatar",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_BlackGriffon_TackleLaser": 1,
+                "EPalWazaID::Unique_BlackGriffon_TackleLaser2": 2,
+                "EPalWazaID::DarkLaser": 3,
+                "EPalWazaID::Apocalypse": 4,
+                "EPalWazaID::IciclePierce": 5,
+                "EPalWazaID::DoubleIcicleThrow": 6,
+                "EPalWazaID::IcicleLine": 7,
+                "EPalWazaID::BeamSlicer": 8,
+                "EPalWazaID::ShokeiLaser": 9,
+                "EPalWazaID::SandTwister": 10,
+                "EPalWazaID::WallSplash": 11,
+                "EPalWazaID::FlameFunnel": 12
+            },
+            "Scaling": {
+                "HP": 120,
+                "PHY": 130,
+                "MAG": 120,
+                "DEF": 140
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 1,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+		{
+            "CodeName": "GYM_ElecPanda_2",
+            "Type": [
+                "Electric"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_ElecPanda_GatlingAttack": 1,
+                "EPalWazaID::Unique_ElecPanda_ElecScratch": 2,
+                "EPalWazaID::LineThunder": 3,
+                "EPalWazaID::LightningStrike": 4,
+                "EPalWazaID::Thunderbolt": 5,
+                "EPalWazaID::ShokeiLaser": 6,
+                "EPalWazaID::RootAttack": 7,
+                "EPalWazaID::SeedMine": 8,
+                "EPalWazaID::GrassTornado": 9,
+                "EPalWazaID::TriSpark": 10
+            },
+            "Scaling": {
+                "HP": 105,
+                "PHY": 100,
+                "MAG": 100,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 3,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 2,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 3,
+                "MonsterFarm": 0
+            }
+        },
+        {
+            "CodeName": "GYM_MoonQueen_2",
+            "Type": [
+                "Dark",
+				"Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::Unique_MoonQueen_MoonBeam": 1,
+                "EPalWazaID::Unique_MoonQueen_IceMoonBlade": 2,
+                "EPalWazaID::StarMine": 3,
+                "EPalWazaID::AirBlade": 4,
+                "EPalWazaID::HolyBlast": 5,
+                "EPalWazaID::IciclePierce": 6,
+                "EPalWazaID::ShadowBall": 7,
+                "EPalWazaID::IceAge": 8,
+                "EPalWazaID::DoubleIcicleThrow": 9,
+                "EPalWazaID::DiamondFall": 10,
+                "EPalWazaID::ThreeCommet": 11,
+                "EPalWazaID::BlastCanon": 12,
+                "EPalWazaID::DarkCanon": 13
+            },
+            "Scaling": {
+                "HP": 130,
+                "PHY": 100,
+                "MAG": 115,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
+        },
+		{
+            "CodeName": "GYM_MoonQueen_2_Servant",
+            "Type": [
+                "Dark",
+				"Neutral"
+            ],
+            "Moveset": {
+                "EPalWazaID::AirBlade": 1,
+                "EPalWazaID::PowerBall": 2,
+                "EPalWazaID::ShadowBall": 3,
+                "EPalWazaID::IcicleThrow": 4,
+                "EPalWazaID::Commet": 5,
+                "EPalWazaID::GhostFlame": 6,
+                "EPalWazaID::DarkArrow": 7
+            },
+            "Scaling": {
+                "HP": 130,
+                "PHY": 100,
+                "MAG": 115,
+                "DEF": 110
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 1,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 1,
+                "MonsterFarm": 0
+            }
         },
         {
             "CodeName": "Gorilla_Ground",
@@ -5747,7 +6418,7 @@
         {
             "CodeName": "SkyDragon_Grass",
             "Type": [
-                "Drgon",
+                "Dragon",
                 "Grass"
             ],
             "Moveset": {
@@ -6331,6 +7002,245 @@
                 "Collection": 0,
                 "Deforest": 0,
                 "Mining": 3,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+		{
+            "CodeName": "RAID_NightLady",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkCanon": 1,
+                "EPalWazaID::DarkPulse": 7,
+                "EPalWazaID::DarkArrow": 15,
+                "EPalWazaID::ShadowBall": 22,
+                "EPalWazaID::Apocalypse": 30,
+                "EPalWazaID::Unique_NightLady_FlameNightmare": 40,
+                "EPalWazaID::Unique_NightLady_WarpBeam": 50
+            },
+            "RaidMoveset": {
+                "EPalWazaID::GhostFlame": 1,
+                "EPalWazaID::DarkPulse": 2,
+                "EPalWazaID::ShadowBall": 3,
+                "EPalWazaID::DarkLaser": 4,
+                "EPalWazaID::DarkCanon": 5,
+                "EPalWazaID::DarkArrow": 6,
+                "EPalWazaID::Apocalypse": 7,
+                "EPalWazaID::Unique_NightLady_FlameNightmare": 8,
+                "EPalWazaID::Unique_NightLady_WarpBeam_Straight": 9
+            },
+            "Scaling": {
+                "HP": 120,
+                "PHY": 100,
+                "MAG": 140,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+		{
+            "CodeName": "RAID_NightLady_Dark",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkCanon": 1,
+                "EPalWazaID::DarkPulse": 7,
+                "EPalWazaID::DarkArrow": 15,
+                "EPalWazaID::ShadowBall": 22,
+                "EPalWazaID::Apocalypse": 30,
+                "EPalWazaID::Unique_NightLady_FlameNightmare": 40,
+                "EPalWazaID::Unique_NightLady_WarpBeam": 50
+            },
+            "RaidMoveset": {
+                "EPalWazaID::DarkPulse": 1,
+                "EPalWazaID::ShadowBall": 2,
+                "EPalWazaID::DarkLaser": 3,
+                "EPalWazaID::DarkCanon": 4,
+                "EPalWazaID::DarkLegion": 5,
+                "EPalWazaID::DarkArrow": 6,
+                "EPalWazaID::Apocalypse": 7,
+                "EPalWazaID::Unique_NightLady_FlameNightmare": 8,
+                "EPalWazaID::Unique_NightLady_WarpBeam": 9
+            },
+            "Scaling": {
+                "HP": 120,
+                "PHY": 100,
+                "MAG": 150,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+		{
+            "CodeName": "RAID_NightLady_Dark_2",
+            "Type": [
+                "Dark"
+            ],
+            "Moveset": {
+                "EPalWazaID::DarkCanon": 1,
+                "EPalWazaID::DarkPulse": 7,
+                "EPalWazaID::DarkArrow": 15,
+                "EPalWazaID::ShadowBall": 22,
+                "EPalWazaID::Apocalypse": 30,
+                "EPalWazaID::Unique_NightLady_FlameNightmare": 40,
+                "EPalWazaID::Unique_NightLady_WarpBeam": 50
+            },
+            "RaidMoveset": {
+                "EPalWazaID::DarkPulse": 1,
+                "EPalWazaID::ShadowBall": 2,
+                "EPalWazaID::DarkLaser": 3,
+                "EPalWazaID::DarkCanon": 4,
+                "EPalWazaID::DarkLegion": 5,
+                "EPalWazaID::DarkArrow": 6,
+                "EPalWazaID::Apocalypse": 7,
+                "EPalWazaID::Unique_NightLady_FlameNightmare": 8,
+                "EPalWazaID::Unique_NightLady_WarpBeam": 9
+            },
+            "Scaling": {
+                "HP": 120,
+                "PHY": 100,
+                "MAG": 150,
+                "DEF": 100
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 2,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 0,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 2,
+                "MonsterFarm": 0
+            }
+        },
+		{
+            "CodeName": "RAID_KingBahamut_Dragon",
+            "Type": [
+                "Dragon",
+				"Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::DragonWave": 1,
+                "EPalWazaID::Flamethrower": 7,
+                "EPalWazaID::FlameWall": 15,
+                "EPalWazaID::Commet": 22,
+                "EPalWazaID::BeamSlicer": 30,
+                "EPalWazaID::Unique_KingBahamut_ArmSmash": 40,
+                "EPalWazaID::Unique_KingBahamut_AirCrash": 50
+            },
+            "RaidMoveset": {
+                "EPalWazaID::Unique_KingBahamut_AirCrash": 1,
+                "EPalWazaID::Unique_KingBahamut_ArmSmash": 2,
+                "EPalWazaID::ThreeCommet": 3,
+                "EPalWazaID::BlastCanon": 5,
+                "EPalWazaID::DragonMeteor": 6,
+                "EPalWazaID::BeamSlicer": 7,
+                "EPalWazaID::Eruption": 8,
+                "EPalWazaID::FireBall": 9,
+                "EPalWazaID::FlameWall": 10,
+				"EPalWazaID::FlameFunnel": 11
+            },
+            "Scaling": {
+                "HP": 105,
+                "PHY": 150,
+                "MAG": 130,
+                "DEF": 125
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 4,
+                "OilExtraction": 0,
+                "ProductMedicine": 0,
+                "Cool": 0,
+                "Transport": 0,
+                "MonsterFarm": 0
+            }
+        },
+		{
+            "CodeName": "RAID_KingBahamut_Dragon_2",
+            "Type": [
+                "Dragon",
+				"Fire"
+            ],
+            "Moveset": {
+                "EPalWazaID::DragonWave": 1,
+                "EPalWazaID::Flamethrower": 7,
+                "EPalWazaID::FlameWall": 15,
+                "EPalWazaID::Commet": 22,
+                "EPalWazaID::BeamSlicer": 30,
+                "EPalWazaID::Unique_KingBahamut_ArmSmash": 40,
+                "EPalWazaID::Unique_KingBahamut_AirCrash": 50
+            },
+            "RaidMoveset": {
+                "EPalWazaID::Unique_KingBahamut_AirCrash": 1,
+                "EPalWazaID::Unique_KingBahamut_ArmSmash": 2,
+                "EPalWazaID::CommetRain": 3,
+                "EPalWazaID::BlastCanon": 5,
+                "EPalWazaID::DragonMeteor": 6,
+                "EPalWazaID::BeamSlicer": 7,
+                "EPalWazaID::Eruption": 8,
+                "EPalWazaID::FireBall": 9,
+                "EPalWazaID::FlameWall": 10,
+				"EPalWazaID::FlameFunnel": 11
+            },
+            "Scaling": {
+                "HP": 105,
+                "PHY": 150,
+                "MAG": 130,
+                "DEF": 125
+            },
+            "Suitabilities": {
+                "EmitFlame": 0,
+                "Watering": 0,
+                "Seeding": 0,
+                "GenerateElectricity": 0,
+                "Handcraft": 0,
+                "Collection": 0,
+                "Deforest": 0,
+                "Mining": 4,
                 "OilExtraction": 0,
                 "ProductMedicine": 0,
                 "Cool": 0,
