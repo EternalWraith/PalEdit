@@ -58,5 +58,7 @@
   "msg_converting": "转换中... 这个可能要花一会儿时间.",
   "select_file": "选择文件",
   "msg_select_save_file": "请选择存档文件.",
-  "msg_done": "完成加载!"
+  "msg_done": "完成加载!",
+  "mattack_prop": "物理",
+  "sattack_prop": "魔法"
 }

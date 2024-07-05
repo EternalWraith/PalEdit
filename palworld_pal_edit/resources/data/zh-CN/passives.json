@@ -270,5 +270,57 @@
     "NonKilling": {
         "Name": "怜悯的一击",
         "Description": "不会使目标的健康值低于 1"
+    },
+    "Stamina_Up_1": {
+        "Name": "无限精力",
+        "Description": "最大体力+50% ※此效果仅对可骑乘的帕鲁有效。"
+    },
+    "SalePrice_Up_1": {
+        "Name": "高贵",
+        "Description": "改善交易价格+5%"
+    },
+    "CoolTimeReduction_Up_1": {
+        "Name": "沉着冷静",
+        "Description": "主动技能的冷却时间缩短30% 攻击+10%"
+    },
+    "SalePrice_Up_2": {
+        "Name": "贵族",
+        "Description": "改善交易价格+3%"
+    },
+    "CoolTimeReduction_Up_2": {
+        "Name": "急性子",
+        "Description": "主动技能的冷却时间缩短15%"
+    },
+    "Stamina_Up_2": {
+        "Name": "品学兼优",
+        "Description": "最大体力+25% ※此效果仅对可骑乘的帕鲁有效。"
+    },
+    "Nocturnal": {
+        "Name": "夜行性",
+        "Description": "即使到夜晚也不会睡觉，会一直工作。"
+    },
+    "SalePrice_Down_1": {
+        "Name": "寒酸",
+        "Description": "改善交易价格-10%"
+    },
+    "Test_PalEgg_HatchingSpeed_Up": {
+        "Name": "博爱主义者",
+        "Description": "当分配到配种牧场时,产出蛋的速度将加快100%。"
+    },
+    "Stamina_Down_1": {
+        "Name": "家里蹲",
+        "Description": "最大体力-25% ※此效果仅对可骑乘的帕鲁有效。"
+    },
+    "CoolTimeReduction_Down_1": {
+        "Name": "慢性子",
+        "Description": "主动技能的冷却时间延长-15%"
+    },
+    "EternalFlame": {
+        "Name": "永炎",
+        "Description": "火属性攻击伤害增加30% 雷属性攻击伤害增加30%"
+    },
+    "Alien": {
+        "Name": "未知生物细胞",
+        "Description": "攻击力+10% 火属性伤害减免15% 雷属性伤害减免15%"
     }
 }
