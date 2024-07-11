@@ -18,6 +18,7 @@
         "Type": "Dragon",
         "Power": 50,
         "Exclusive": [
+            "WeaselDragon",
             "WeaselDragon_Fire"
         ],
         "Category": "Melee"
@@ -178,7 +179,9 @@
         "Power": 160,
         "Exclusive": [
             "BlackGriffon",
-            "GYM_BlackGriffon"
+            "GYM_BlackGriffon",
+            "GYM_BlackGriffon_2",
+            "GYM_BlackGriffon_2_Avatar"
         ],
         "Category": "Shot"
     },
@@ -313,7 +316,8 @@
         "Type": "Neutral",
         "Power": 85,
         "Exclusive": [
-            "Gorilla"
+            "Gorilla",
+            "Gorilla_Ground"
         ],
         "Category": "Melee"
     },
@@ -532,7 +536,9 @@
         "Type": "Dark",
         "Power": 130,
         "Exclusive": [
-            "NightLady_Dark"
+            "NightLady_Dark",
+            "RAID_NightLady_Dark",
+            "RAID_NightLady_Dark_2"
         ],
         "Category": "Shot"
     },
@@ -540,7 +546,9 @@
         "Type": "Dark",
         "Power": 160,
         "Exclusive": [
-            "NightLady_Dark"
+            "NightLady_Dark",
+            "RAID_NightLady_Dark",
+            "RAID_NightLady_Dark_2"
         ],
         "Category": "Shot"
     },
@@ -548,7 +556,8 @@
         "Type": "Dark",
         "Power": 140,
         "Exclusive": [
-            "NightLady"
+            "NightLady",
+            "RAID_NightLady"
         ],
         "Category": "Shot"
     },
@@ -986,7 +995,8 @@
         "Power": 170,
         "Exclusive": [
             "MoonQueen",
-            "GYM_MoonQueen"
+            "GYM_MoonQueen",
+            "GYM_MoonQueen_2"
         ],
         "Category": "Shot"
     },
@@ -1003,7 +1013,9 @@
         "Power": 150,
         "Exclusive": [
             "KingBahamut",
-            "KingBahamut_Dragon"
+            "KingBahamut_Dragon",
+            "RAID_KingBahamut_Dragon",
+            "RAID_KingBahamut_Dragon_2"
         ],
         "Category": "Melee"
     },
@@ -1011,7 +1023,9 @@
         "Type": "Dragon",
         "Power": 160,
         "Exclusive": [
-            "KingBahamut_Dragon"
+            "KingBahamut_Dragon",
+            "RAID_KingBahamut_Dragon",
+            "RAID_KingBahamut_Dragon_2"
         ],
         "Category": "Melee"
     },
@@ -1029,7 +1043,9 @@
         "Type": "Dark",
         "Power": 170,
         "Exclusive": [
-            "GYM_BlackGriffon"
+            "GYM_BlackGriffon",
+            "GYM_BlackGriffon_2",
+            "GYM_BlackGriffon_2_Avatar"
         ],
         "Category": "Shot"
     },
@@ -1037,7 +1053,9 @@
         "Type": "Fire",
         "Power": 145,
         "Exclusive": [
-            "GYM_Horus"
+            "Horus",
+            "GYM_Horus",
+            "GYM_Horus_2"
         ],
         "Category": "Shot"
     },
@@ -1045,7 +1063,7 @@
         "Type": "Neutral",
         "Power": 110,
         "Exclusive": [
-            "GYM_MoonQueen"
+            "GYM_MoonQueen_2"
         ],
         "Category": "Shot"
     },
@@ -1053,6 +1071,7 @@
         "Type": "Electric",
         "Power": 160,
         "Exclusive": [
+            "ElecPanda",
             "GYM_ElecPanda"
         ],
         "Category": "Shot"
@@ -1061,6 +1080,7 @@
         "Type": "Electric",
         "Power": 180,
         "Exclusive": [
+            "ThunderDragonMan",
             "GYM_ThunderDragonMan"
         ],
         "Category": "Shot"
@@ -1126,11 +1146,18 @@
     "EPalWazaID::Unique_LilyQueen_LilyHealing": {
         "Type": "Neutral",
         "Power": 0,
+		"Exclusive": [
+            "LilyQueen",
+            "GYM_LilyQueen_2"
+		],
         "Category": "Shot"
     },
     "EPalWazaID::Unique_ScorpionMan_Uppercut": {
         "Type": "Dark",
         "Power": 110,
+		"Exclusive": [
+            "ScorpionMan"
+		],
         "Category": "Melee"
     },
     "EPalWazaID::WaterBalloon": {
