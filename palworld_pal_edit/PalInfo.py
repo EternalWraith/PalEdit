@@ -281,8 +281,8 @@ class PalEntity:
         self._equipMoves = self._obj["EquipWaza"]["value"]["values"]
 
         self.CleanseAttacks()
-        if not "HP" in self._obj:
-            self._obj["HP"] = copy.deepcopy(EmptyHpObject)
+        if not "Hp" in self._obj:
+            self._obj["Hp"] = copy.deepcopy(EmptyHpObject)
         self.UpdateMaxHP()
 
     def IsHuman(self):
