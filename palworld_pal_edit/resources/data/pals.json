@@ -411,7 +411,8 @@
                 "EPalWazaID::GhostFlame": 22,
                 "EPalWazaID::ShadowBall": 30,
                 "EPalWazaID::Unique_BlackGriffon_TackleLaser": 40,
-                "EPalWazaID::DarkLaser": 50
+                "EPalWazaID::DarkLaser": 50,
+		"EPalWazaID::Unique_BlackGriffon_TackleLaser2": 55
             },
             "Scaling": {
                 "HP": 120,
@@ -1279,7 +1280,8 @@
                 "EPalWazaID::LineThunder": 22,
                 "EPalWazaID::ThreeThunder": 30,
                 "EPalWazaID::LightningStrike": 40,
-                "EPalWazaID::Thunderbolt": 50
+                "EPalWazaID::Thunderbolt": 50,
+		"EPalWazaID::Unique_ElecPanda_GatlingAttack": 55
             },
             "Scaling": {
                 "HP": 105,
@@ -2292,7 +2294,8 @@
                 "EPalWazaID::Flamethrower": 22,
                 "EPalWazaID::Unique_Horus_FlareBird": 30,
                 "EPalWazaID::Inferno": 40,
-                "EPalWazaID::FireBall": 50
+                "EPalWazaID::FireBall": 50,
+		"EPalWazaID::Unique_Horus_PerfectStorm": 55
             },
             "Scaling": {
                 "HP": 100,
@@ -2529,7 +2532,7 @@
                 "ProductMedicine": 0,
                 "Cool": 0,
                 "Transport": 0,
-                "MonsterFarm": 0
+                "MonsterFarm": 1
             }
         },
         {
@@ -2565,7 +2568,7 @@
                 "ProductMedicine": 0,
                 "Cool": 0,
                 "Transport": 0,
-                "MonsterFarm": 0
+                "MonsterFarm": 1
             }
         },
         {
@@ -2789,7 +2792,15 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": {},
+            "Moveset": {
+		"EPalWazaID::MudShot": 1,
+		"EPalWazaID::WaterGun": 7,
+		"EPalWazaID::StoneShotgun": 15,
+		"EPalWazaID::BubbleShot": 22,
+		"EPalWazaID::WaterBall": 30,
+		"EPalWazaID::RockLance": 40,
+		"EPalWazaID::HydroPump": 50
+	    },
             "Scaling": {
                 "HP": 100,
                 "PHY": 100,
@@ -2809,7 +2820,7 @@
                 "ProductMedicine": 0,
                 "Cool": 0,
                 "Transport": 1,
-                "MonsterFarm": 0
+                "MonsterFarm": 1
             }
         },
         {
@@ -2898,7 +2909,8 @@
                 "EPalWazaID::WaterBall": 22,
                 "EPalWazaID::GrassTornado": 30,
                 "EPalWazaID::RootAttack": 40,
-                "EPalWazaID::SolarBeam": 50
+                "EPalWazaID::SolarBeam": 50,
+		"EPalWazaID::Unique_LilyQueen_LilyHealing": 55
             },
             "Scaling": {
                 "HP": 110,
@@ -4417,7 +4429,8 @@
                 "EPalWazaID::DragonBreath": 22,
                 "EPalWazaID::LineThunder": 30,
                 "EPalWazaID::ThreeThunder": 40,
-                "EPalWazaID::Thunderbolt": 50
+                "EPalWazaID::Thunderbolt": 50,
+		"EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": 55
             },
             "Scaling": {
                 "HP": 100,
@@ -4776,7 +4789,15 @@
             "Type": [
                 "Ground"
             ],
-            "Moveset": {},
+            "Moveset": {
+		"EPalWazaID::MudShot": 1,
+		"EPalWazaID::AirCanon": 7,
+		"EPalWazaID::WindCutter": 15,
+		"EPalWazaID::PowerShot": 22,
+		"EPalWazaID::PowerBall": 30,
+		"EPalWazaID::SandTornado": 40,
+		"EPalWazaID::RockLance": 50
+	    },
             "Scaling": {
                 "HP": 80,
                 "PHY": 70,
@@ -4804,7 +4825,15 @@
             "Type": [
                 "Ice"
             ],
-            "Moveset": {},
+            "Moveset": {
+		"EPalWazaID::AirCanon": 1,
+		"EPalWazaID::IceMissile": 7,
+		"EPalWazaID::PowerShot": 15,
+		"EPalWazaID::IceBlade": 22,
+		"EPalWazaID::BlizzardLance": 30,
+		"EPalWazaID::FrostBreath": 40,
+		"EPalWazaID::IcicleThrow": 50
+	    },
             "Scaling": {
                 "HP": 80,
                 "PHY": 70,
@@ -5156,7 +5185,17 @@
                 "Dragon",
                 "Electric"
             ],
-            "Moveset": {},
+            "Moveset": {
+		"EPalWazaID::Unique_ThunderDragonMan_ThunderSwordAttack": 1,
+		"EPalWazaID::LightningStrike": 2,
+		"EPalWazaID::DragonWave": 3,
+		"EPalWazaID::DragonBreath": 4,
+		"EPalWazaID::LineThunder": 5,
+		"EPalWazaID::DragonCanon": 6,
+		"EPalWazaID::Thunderbolt": 7,
+		"EPalWazaID::AcidRain": 8,
+		"EPalWazaID::DragonMeteor": 9
+	    },
             "Tower": true,
             "Scaling": {
                 "HP": 100,
@@ -5170,7 +5209,15 @@
             "Type": [
                 "Grass"
             ],
-            "Moveset": {},
+            "Moveset": {
+		"EPalWazaID::PoisonFog": 1,
+		"EPalWazaID::BubbleShot": 2,
+		"EPalWazaID::SeedMine": 3,
+		"EPalWazaID::WaterBall": 4,
+		"EPalWazaID::SpecialCutter": 5,
+		"EPalWazaID::GrassTornado": 6,
+		"EPalWazaID::RootAttack": 7
+	    },
             "Tower": true,
             "Scaling": {
                 "HP": 110,
@@ -5184,7 +5231,19 @@
             "Type": [
                 "Fire"
             ],
-            "Moveset": {},
+            "Moveset": {
+		"EPalWazaID::Unique_Horus_FlareBird": 1,
+		"EPalWazaID::FlareArrow": 2,
+		"EPalWazaID::RockLance": 3,
+		"EPalWazaID::Flamethrower": 4,
+		"EPalWazaID::ThreeThunder": 5,
+		"EPalWazaID::Inferno": 6,
+		"EPalWazaID::FireBall": 7,
+		"EPalWazaID::LightningStrike": 8,
+		"EPalWazaID::Thunderbolt": 9,
+		"EPalWazaID::FireSeed": 10,
+		"EPalWazaID::FireBlast": 11
+	    },
             "Tower": true,
             "Scaling": {
                 "HP": 100,
@@ -5198,7 +5257,19 @@
             "Type": [
                 "Dark"
             ],
-            "Moveset": {},
+            "Moveset": {
+		"EPalWazaID::Unique_BlackGriffon_TackleLaser": 1,
+		"EPalWazaID::DarkLegion": 2,
+		"EPalWazaID::GhostFlame": 3,
+		"EPalWazaID::ShadowBall": 4,
+		"EPalWazaID::IcicleThrow": 5,
+		"EPalWazaID::BlizzardLance": 6,
+		"EPalWazaID::DarkLaser": 7,
+		"EPalWazaID::FrostBreath": 8,
+		"EPalWazaID::HyperBeam": 9,
+		"EPalWazaID::IceMissile": 10,
+		"EPalWazaID::IceBlade": 11
+	    },
             "Tower": true,
             "Scaling": {
                 "HP": 120,
@@ -5212,7 +5283,14 @@
             "Type": [
                 "Electric"
             ],
-            "Moveset": {},
+            "Moveset": {
+		"EPalWazaID::Unique_ElecPanda_ElecScratch": 1,
+		"EPalWazaID::SpreadPulse": 2,
+		"EPalWazaID::ElecWave": 3,
+		"EPalWazaID::ThunderBall": 4,
+		"EPalWazaID::ThunderFunnel": 5,
+		"EPalWazaID::LockonLaser": 6
+	    },
             "Tower": true,
             "Scaling": {
                 "HP": 105,
