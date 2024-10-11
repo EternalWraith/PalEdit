@@ -1,0 +1,418 @@
+{
+    "key": {
+        "PlayerUId": {
+            "struct_type": "Guid",
+            "struct_id": "00000000-0000-0000-0000-000000000000",
+            "id": null,
+            "value": "00000000-0000-0000-0000-000000000001",
+            "type": "StructProperty"
+        },
+        "InstanceId": {
+            "struct_type": "Guid",
+            "struct_id": "00000000-0000-0000-0000-000000000000",
+            "id": null,
+            "value": "2d21e3f4-48cd-93c6-f951-188b67f1e7ca",
+            "type": "StructProperty"
+        },
+        "DebugName": {
+            "id": null,
+            "value": "",
+            "type": "StrProperty"
+        }
+    },
+    "value": {
+        "RawData": {
+            "array_type": "ByteProperty",
+            "id": null,
+            "value": {
+                "object": {
+                    "SaveParameter": {
+                        "struct_type": "PalIndividualCharacterSaveParameter",
+                        "struct_id": "00000000-0000-0000-0000-000000000000",
+                        "id": null,
+                        "value": {
+                            "CharacterID": {
+                                "id": null,
+                                "value": "BOSS_MopBaby",
+                                "type": "NameProperty"
+                            },
+                            "Gender": {
+                                "id": null,
+                                "value": {
+                                    "type": "EPalGenderType",
+                                    "value": "EPalGenderType::Female"
+                                },
+                                "type": "EnumProperty"
+                            },
+                            "Level": {
+                                "id": null,
+                                "value": {
+                                    "type": "None",
+                                    "value": 34
+                                },
+                                "type": "ByteProperty"
+                            },
+                            "Exp": {
+                                "id": null,
+                                "value": 142429,
+                                "type": "Int64Property"
+                            },
+                            "IsRarePal": {
+                                "value": true,
+                                "id": null,
+                                "type": "BoolProperty"
+                            },
+                            "EquipWaza": {
+                                "array_type": "EnumProperty",
+                                "id": null,
+                                "value": {
+                                    "values": [
+                                        "EPalWazaID::PowerBall",
+                                        "EPalWazaID::IceBlade",
+                                        "EPalWazaID::IceMissile"
+                                    ]
+                                },
+                                "type": "ArrayProperty"
+                            },
+                            "MasteredWaza": {
+                                "array_type": "EnumProperty",
+                                "id": null,
+                                "value": {
+                                    "values": [
+                                        "EPalWazaID::AirCanon",
+                                        "EPalWazaID::IceMissile",
+                                        "EPalWazaID::IceBlade",
+                                        "EPalWazaID::PowerBall",
+                                        "EPalWazaID::BlizzardLance"
+                                    ]
+                                },
+                                "type": "ArrayProperty"
+                            },
+                            "Hp": {
+                                "struct_type": "FixedPoint64",
+                                "struct_id": "00000000-0000-0000-0000-000000000000",
+                                "id": null,
+                                "value": {
+                                    "Value": {
+                                        "id": null,
+                                        "value": 2158000,
+                                        "type": "Int64Property"
+                                    }
+                                },
+                                "type": "StructProperty"
+                            },
+                            "Talent_HP": {
+                                "id": null,
+                                "value": {
+                                    "type": "None",
+                                    "value": 72
+                                },
+                                "type": "ByteProperty"
+                            },
+                            "Talent_Shot": {
+                                "id": null,
+                                "value": {
+                                    "type": "None",
+                                    "value": 94
+                                },
+                                "type": "ByteProperty"
+                            },
+                            "Talent_Defense": {
+                                "id": null,
+                                "value": {
+                                    "type": "None",
+                                    "value": 56
+                                },
+                                "type": "ByteProperty"
+                            },
+                            "FullStomach": {
+                                "id": null,
+                                "value": 150.0,
+                                "type": "FloatProperty"
+                            },
+                            "PassiveSkillList": {
+                                "array_type": "NameProperty",
+                                "id": null,
+                                "value": {
+                                    "values": [
+                                        "Rare",
+                                        "PAL_sadist"
+                                    ]
+                                },
+                                "type": "ArrayProperty"
+                            },
+                            "OwnedTime": {
+                                "struct_type": "DateTime",
+                                "struct_id": "00000000-0000-0000-0000-000000000000",
+                                "id": null,
+                                "value": 638425093558110000,
+                                "type": "StructProperty"
+                            },
+                            "OwnerPlayerUId": {
+                                "struct_type": "Guid",
+                                "struct_id": "00000000-0000-0000-0000-000000000000",
+                                "id": null,
+                                "value": "00000000-0000-0000-0000-000000000001",
+                                "type": "StructProperty"
+                            },
+                            "OldOwnerPlayerUIds": {
+                                "array_type": "StructProperty",
+                                "id": null,
+                                "value": {
+                                    "prop_name": "OldOwnerPlayerUIds",
+                                    "prop_type": "StructProperty",
+                                    "values": [
+                                        "00000000-0000-0000-0000-000000000001"
+                                    ],
+                                    "type_name": "Guid",
+                                    "id": "00000000-0000-0000-0000-000000000000"
+                                },
+                                "type": "ArrayProperty"
+                            },
+                            "SlotID": {
+                                "struct_type": "PalCharacterSlotId",
+                                "struct_id": "00000000-0000-0000-0000-000000000000",
+                                "id": null,
+                                "value": {
+                                    "ContainerId": {
+                                        "struct_type": "PalContainerId",
+                                        "struct_id": "00000000-0000-0000-0000-000000000000",
+                                        "id": null,
+                                        "value": {
+                                            "ID": {
+                                                "struct_type": "Guid",
+                                                "struct_id": "00000000-0000-0000-0000-000000000000",
+                                                "id": null,
+                                                "value": "69ca6b34-4b7a-9920-b216-d799139a5ead",
+                                                "type": "StructProperty"
+                                            }
+                                        },
+                                        "type": "StructProperty"
+                                    },
+                                    "SlotIndex": {
+                                        "id": null,
+                                        "value": 116,
+                                        "type": "IntProperty"
+                                    }
+                                },
+                                "type": "StructProperty"
+                            },
+                            "GotStatusPointList": {
+                                "array_type": "StructProperty",
+                                "id": null,
+                                "value": {
+                                    "prop_name": "GotStatusPointList",
+                                    "prop_type": "StructProperty",
+                                    "values": [
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u6700\u5927HP",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u6700\u5927SP",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u653b\u6483\u529b",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u6240\u6301\u91cd\u91cf",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u6355\u7372\u7387",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u4f5c\u696d\u901f\u5ea6",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        }
+                                    ],
+                                    "type_name": "PalGotStatusPoint",
+                                    "id": "00000000-0000-0000-0000-000000000000"
+                                },
+                                "type": "ArrayProperty"
+                            },
+                            "GotExStatusPointList": {
+                                "array_type": "StructProperty",
+                                "id": null,
+                                "value": {
+                                    "prop_name": "GotExStatusPointList",
+                                    "prop_type": "StructProperty",
+                                    "values": [
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u6700\u5927HP",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u6700\u5927SP",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u653b\u6483\u529b",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u6240\u6301\u91cd\u91cf",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        },
+                                        {
+                                            "StatusName": {
+                                                "id": null,
+                                                "value": "\u4f5c\u696d\u901f\u5ea6",
+                                                "type": "NameProperty"
+                                            },
+                                            "StatusPoint": {
+                                                "id": null,
+                                                "value": 0,
+                                                "type": "IntProperty"
+                                            }
+                                        }
+                                    ],
+                                    "type_name": "PalGotStatusPoint",
+                                    "id": "00000000-0000-0000-0000-000000000000"
+                                },
+                                "type": "ArrayProperty"
+                            },
+                            "LastJumpedLocation": {
+                                "struct_type": "Vector",
+                                "struct_id": "00000000-0000-0000-0000-000000000000",
+                                "id": null,
+                                "value": {
+                                    "x": -90888.07053042878,
+                                    "y": 230505.97492391037,
+                                    "z": 20802.0744766207
+                                },
+                                "type": "StructProperty"
+                            }
+                        },
+                        "type": "StructProperty"
+                    }
+                },
+                "unknown_bytes": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "group_id": "9924e319-423c-11d7-a30f-8b8640612656"
+            },
+            "type": "ArrayProperty",
+            "custom_type": ".worldSaveData.CharacterSaveParameterMap.Value.RawData"
+        },
+        "CustomVersionData": {
+            "array_type": "ByteProperty",
+            "id": null,
+            "value": {
+                "values": [
+                    1,
+                    0,
+                    0,
+                    0,
+                    108,
+                    246,
+                    252,
+                    15,
+                    153,
+                    72,
+                    144,
+                    17,
+                    248,
+                    156,
+                    96,
+                    177,
+                    94,
+                    71,
+                    70,
+                    74,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "type": "ArrayProperty"
+        }
+    }
+}

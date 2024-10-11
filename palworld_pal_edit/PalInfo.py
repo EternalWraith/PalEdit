@@ -181,8 +181,8 @@ class PalEntity:
         self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
 
         self.owner = ""
-        if "OwnerPlayerUId" in self._obj:
-            self.owner = self._obj["OwnerPlayerUId"]['value']
+        if "SlotID" in self._obj:
+            self.owner = self._obj["SlotID"]['value']["ContainerId"]['value']['ID']['value']
 
         if "IsPlayer" in self._obj:
             raise Exception("This is a player character")
@@ -221,28 +221,28 @@ class PalEntity:
         else:
             self._gender = "Unknown"
 
-        self._workspeed = self._obj['CraftSpeed']['value']
+        #self._workspeed = self._obj['CraftSpeed']['value']
 
         if not "Talent_HP" in self._obj:
-            self._obj['Talent_HP'] = copy.deepcopy(EmptyMeleeObject)
+            self._obj['Talent_HP'] = copy.deepcopy(EmptyTalentObject)
             self._talent_hp = 0  # we set 0, so if its not changed it should be removed by the game again.
-        self._talent_hp = self._obj['Talent_HP']['value']
+        self._talent_hp = self._obj['Talent_HP']['value']["value"]
 
         if not "Talent_Melee" in self._obj:
-            self._obj['Talent_Melee'] = copy.deepcopy(EmptyMeleeObject)
-        self._melee = self._obj['Talent_Melee']['value']
+            self._obj['Talent_Melee'] = copy.deepcopy(EmptyTalentObject)
+        self._melee = self._obj['Talent_Melee']['value']["value"]
 
         if not "Talent_Shot" in self._obj:
-            self._obj['Talent_Shot'] = copy.deepcopy(EmptyShotObject)
-        self._ranged = self._obj['Talent_Shot']['value']
+            self._obj['Talent_Shot'] = copy.deepcopy(EmptyTalentObject)
+        self._ranged = self._obj['Talent_Shot']['value']["value"]
 
         if not "Talent_Defense" in self._obj:
-            self._obj['Talent_Defense'] = copy.deepcopy(EmptyDefenceObject)
-        self._defence = self._obj['Talent_Defense']['value']
+            self._obj['Talent_Defense'] = copy.deepcopy(EmptyTalentObject)
+        self._defence = self._obj['Talent_Defense']['value']["value"]
 
         if not "Rank" in self._obj:
             self._obj['Rank'] = copy.deepcopy(EmptyRankObject)
-        self._rank = self._obj['Rank']['value']
+        self._rank = self._obj['Rank']['value']['value']
 
         # Fix broken ranks
         if self.GetRank() < 1 or self.GetRank() > 5:
@@ -255,7 +255,7 @@ class PalEntity:
 
         if not "Level" in self._obj:
             self._obj['Level'] = copy.deepcopy(EmptyLevelObject)
-        self._level = self._obj['Level']['value']
+        self._level = self._obj['Level']['value']['value']
 
         if not "Exp" in self._obj:
             self._obj['Exp'] = copy.deepcopy(EmptyExpObject)
@@ -372,62 +372,62 @@ class PalEntity:
     def GetGender(self):
         return self._gender
 
-    def GetWorkSpeed(self):
-        return self._workspeed
+    #def GetWorkSpeed(self):
+        #return self._workspeed
 
-    def SetWorkSpeed(self, value):
-        self._obj['CraftSpeed']['value'] = self._workspeed = value
+    #def SetWorkSpeed(self, value):
+        #self._obj['CraftSpeed']['value'] = self._workspeed = value
 
     def SetAttack(self, mval, rval):
-        self._obj['Talent_Melee']['value'] = self._melee = mval
-        self._obj['Talent_Shot']['value'] = self._ranged = rval
+        self._obj['Talent_Melee']['value']["value"] = self._melee = mval
+        self._obj['Talent_Shot']['value']["value"] = self._ranged = rval
 
     def GetTalentHP(self):
         return self._talent_hp
 
     def SetTalentHP(self, value):
-        self._obj['Talent_HP']['value'] = self._talent_hp = value
+        self._obj['Talent_HP']['value']["value"] = self._talent_hp = value
 
     # the soul bonus, 1 -> 3%, 10 -> 30%
     def GetRankHP(self):
         if "Rank_HP" in self._obj:
-            return self._obj["Rank_HP"]["value"]
+            return self._obj["Rank_HP"]["value"]["value"]
         return 0
 
     def GetRankAttack(self):
         if "Rank_Attack" in self._obj:
-            return self._obj["Rank_Attack"]["value"]
+            return self._obj["Rank_Attack"]["value"]["value"]
         return 0
 
     def GetRankDefence(self):
         if "Rank_Defence" in self._obj:
-            return self._obj["Rank_Defence"]["value"]
+            return self._obj["Rank_Defence"]["value"]["value"]
         return 0
 
     def GetRankWorkSpeed(self):
         if "Rank_CraftSpeed" in self._obj:
-            return self._obj["Rank_CraftSpeed"]["value"]
+            return self._obj["Rank_CraftSpeed"]["value"]["value"]
         return 0
 
     def SetRankHP(self, value):
         if not "Rank_HP" in self._obj:
             self._obj["Rank_HP"] = copy.deepcopy(EmptySoulObject)
-        self._obj["Rank_HP"]["value"] = value
+        self._obj["Rank_HP"]["value"]["value"] = value
 
     def SetRankAttack(self, value):
         if not "Rank_Attack" in self._obj:
             self._obj["Rank_Attack"] = copy.deepcopy(EmptySoulObject)
-        self._obj["Rank_Attack"]["value"] = value
+        self._obj["Rank_Attack"]["value"]["value"] = value
 
     def SetRankDefence(self, value):
         if not "Rank_Defence" in self._obj:
             self._obj["Rank_Defence"] = copy.deepcopy(EmptySoulObject)
-        self._obj["Rank_Defence"]["value"] = value
+        self._obj["Rank_Defence"]["value"]["value"] = value
 
     def SetRankWorkSpeed(self, value):
         if not "Rank_CraftSpeed" in self._obj:
             self._obj["Rank_CraftSpeed"] = copy.deepcopy(EmptySoulObject)
-        self._obj["Rank_CraftSpeed"]["value"] = value
+        self._obj["Rank_CraftSpeed"]["value"]["value"] = value
 
     def GetMaxHP(self):
         del self._obj['MaxHP']
@@ -537,19 +537,19 @@ class PalEntity:
         return self._melee
 
     def SetAttackMelee(self, value):
-        self._obj['Talent_Melee']['value'] = self._melee = value
+        self._obj['Talent_Melee']['value']["value"] = self._melee = value
 
     def GetAttackRanged(self):
         return self._ranged
 
     def SetAttackRanged(self, value):
-        self._obj['Talent_Shot']['value'] = self._ranged = value
+        self._obj['Talent_Shot']['value']["value"] = self._ranged = value
 
     def GetDefence(self):
         return self._defence
 
     def SetDefence(self, value):
-        self._obj['Talent_Defense']['value'] = self._defence = value
+        self._obj['Talent_Defense']['value']["value"] = self._defence = value
 
     def GetName(self):
         return self.GetObject().GetName()
@@ -596,7 +596,7 @@ class PalEntity:
     def SetLevel(self, value):
         # We need this check until we fix adding missing nodes
         if "Level" in self._obj and "Exp" in self._obj:
-            self._obj['Level']['value'] = self._level = value
+            self._obj['Level']['value']["value"] = self._level = value
             self._obj['Exp']['value'] = xpthresholds[value - 1]
             self.CleanseAttacks()  # self.SetLevelMoves()
         else:
@@ -629,8 +629,8 @@ class PalEntity:
 
     def SetRank(self, value):
         if "Rank" in self._obj:
-            self._obj['Rank'][
-                'value'] = self._rank = value  # we dont +1 here, since we have methods to patch rank in PalEdit.py
+            self._obj['Rank']['value']["value"] = self._rank = value
+            # we dont +1 here, since we have methods to patch rank in PalEdit.py
         else:
             print(
                 f"[ERROR:] Failed to update rank for: '{self.GetName()}'")  # we probably could get rid of this line, since you add rank if missing - same with level
@@ -772,11 +772,16 @@ class PalGuid:
     def SetContainerSave(self, SoltGuid: str, SlotIndex: int, PalGuid: str):
         if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
             return
+        
         for e in self._CharacterContainerSaveData:
             if (e['key']['ID']['value'] == SoltGuid):
-                e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value']['instance_id'] = PalGuid
-                e['value']['Slots']['value']['values'][SlotIndex]['RawData']['value'][
-                    'player_uid'] = "00000000-0000-0000-0000-000000000001"
+                v = len(e['value']['Slots']['value']['values'])-1
+
+                n = copy.deepcopy(e['value']['Slots']['value']['values'][v])
+                e['value']['Slots']['value']['values'].append(n)
+                e['value']['Slots']['value']['values'][v+1]['SlotIndex']['value'] = SlotIndex
+                e['value']['Slots']['value']['values'][v+1]['RawData']['value']['instance_id'] = PalGuid
+                print(e['value']['Slots']['value']['values'][v+1])
 
     def AddGroupSaveData(self, GroupGuid: str, PalGuid: str):
         if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
@@ -797,13 +802,21 @@ class PalGuid:
                 return len(e['value']['Slots']['value']['values'])
 
     def GetEmptySlotIndex(self, SoltGuid: str):
+        print(SoltGuid)
         if SoltGuid == "00000000-0000-0000-0000-000000000000":
             return -1
         for e in self._CharacterContainerSaveData:
             if (e['key']['ID']['value'] == SoltGuid):
+                print("Matched", SoltGuid)
+                oc = []
                 Solt = e['value']['Slots']['value']['values']
                 for i in range(len(Solt)):
-                    if Solt[i]['RawData']['value']['instance_id'] == "00000000-0000-0000-0000-000000000000":
+                    oc.append(Solt[i]['SlotIndex']['value'])
+                    #if Solt[i]['RawData']['value']['instance_id'] == "00000000-0000-0000-0000-000000000000":
+                       # return i
+                print(oc)
+                for i in range(0, 960):
+                    if i not in oc:
                         return i
         return -1
 

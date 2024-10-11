@@ -9,37 +9,26 @@ EmptySkillObject = {
 
 EmptyLevelObject = {
     "id": None,
-    "value": 1,
-    "type": "IntProperty"
+    "value": {"value": 1, "type":"None"},
+    "type": "ByteProperty"
 }
 
 EmptyRankObject = {
     "id": None,
-    "value": 1,
-    "type": "IntProperty"
+    "value": {"value": 1, "type":"None"},
+    "type": "ByteProperty"
 }
 
-EmptyMeleeObject = {
+EmptyTalentObject = {
     "id": None,
-    "value": 0,
-    "type": "IntProperty"
+    "value": {"value": 0, "type":"None"},
+    "type": "ByteProperty"
 }
 
-EmptyShotObject = {
-    "id": None,
-    "value": 0,
-    "type": "IntProperty"
-}
-
-EmptyDefenceObject = {
-    "id": None,
-    "value": 0,
-    "type": "IntProperty"
-}
 
 EmptyExpObject = {
     "id": None,
-    "value": 0,
+    "value": 1,
     "type": "IntProperty"
 }
 
@@ -285,6 +274,6 @@ EmptySuitObject =  {
 
 EmptySoulObject = {
     "id": None,
-    "value": 0,
-    "type": "IntProperty"
+    "value": {"value": 0, "type":"None"},
+    "type": "ByteProperty"
 }

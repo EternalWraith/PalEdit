@@ -122,7 +122,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.9.3"
+    version = "0.10"
     ftsize = 18
     font = "Microsoft YaHei"
     badskill = "#DE3C3A"
@@ -196,7 +196,7 @@ class PalEdit():
             return
 
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         available_ops = pal.GetAvailableSkills()
         available_ops.insert(0, "None")
@@ -261,7 +261,7 @@ class PalEdit():
     def isPalSelected(self):
         if self.current.get() == "":
             return False
-        if len(self.palbox[self.players[self.current.get()]]) == 0:
+        if len(self.FilteredPals()) == 0:
             return False
         if len(self.listdisplay.curselection()) == 0:
             return False
@@ -271,7 +271,7 @@ class PalEdit():
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
         print(f"Get Info: {pal.GetNickname()}")
         print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
         print(f"  - Rank: {pal.GetRank()}")
@@ -287,7 +287,7 @@ class PalEdit():
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
         # print(f"Get Data: {pal.GetNickname()}")
         # print(f"{pal._obj}")
         pyperclip.copy(f"{pal._obj}")
@@ -297,7 +297,7 @@ class PalEdit():
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
         self.attackops = [PalInfo.PalAttacks[e] for e in PalInfo.PalAttacks].sort()
 
         pal.CleanseAttacks()
@@ -328,7 +328,7 @@ class PalEdit():
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         tid = []
         for v in range(0, 4):
@@ -427,7 +427,7 @@ class PalEdit():
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
         ranks = {
             4: 5,
             3: 4,
@@ -443,7 +443,7 @@ class PalEdit():
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         index = list(PalInfo.PalPassives.values()).index(self.skills_name[num].get())
         self.skills[num].set(list(PalInfo.PalPassives.keys())[index])
@@ -459,7 +459,7 @@ class PalEdit():
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         pal.PurgeAttack(num)
         # index = list(PalInfo.PalAttacks.values()).index(self.attacks_name[num].get())
@@ -485,7 +485,7 @@ class PalEdit():
         index = int(w.curselection()[0])
         self.editindex = index
 
-        pal = self.palbox[self.players[self.current.get()]][index]
+        pal = self.FilteredPals()[index]
 
         # All Entities
         self.speciesvar.set(pal.GetCodeName())
@@ -542,7 +542,7 @@ class PalEdit():
         self.meleevar.set(pal.GetAttackMelee())
         self.shotvar.set(pal.GetAttackRanged())
         self.defvar.set(pal.GetDefence())
-        self.wspvar.set(pal.GetWorkSpeed())
+        #self.wspvar.set(pal.GetWorkSpeed())
 
         self.luckyvar.set(pal.isLucky)
         self.alphavar.set(pal.isBoss)
@@ -601,7 +601,7 @@ class PalEdit():
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         if type(num) == str:
             self.skilllabel.config(text=pal.GetOwner())
@@ -667,11 +667,14 @@ class PalEdit():
 
     def loadpal(self, paldata):
         logger.Space()
-        self.palbox = {}
+        self.palbox = []
         self.players = {}
         self.players = self.palguidmanager.GetPlayerslist()
+        print(self.players)
         for p in self.players:
-            self.palbox[self.players[p]] = []
+            playerguid = self.players[p]
+            playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
+            self.players[p] = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
         self.containers = {}
         nullmoves = []
 
@@ -679,9 +682,7 @@ class PalEdit():
         for i in paldata:
             try:
                 p = PalInfo.PalEntity(i)
-                if not str(p.owner) in self.palbox:
-                    self.palbox[str(p.owner)] = []
-                self.palbox[str(p.owner)].append(p)
+                self.palbox.append(p)
 
                 n = p.GetFullName()
 
@@ -767,9 +768,12 @@ class PalEdit():
 
     def updateDisplay(self):
         self.listdisplay.delete(0, tk.constants.END)
-        self.palbox[self.players[self.current.get()]].sort(key=lambda e: e.GetName())
+        currentguid = self.players[self.current.get()].GetPlayerGuid()
+        
+        print("Filter", self.FilteredPals())
+        pals = self.FilteredPals()
 
-        for p in self.palbox[self.players[self.current.get()]]:
+        for p in pals:
             self.listdisplay.insert(tk.constants.END, p.GetFullName())
 
             if p.isBoss:
@@ -885,6 +889,23 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 """ % (retval[0], retval[1], pal.GetName(), retval[1]))
             pal.UpdateMaxHP(changes, hp_scaling=retval[1] if answer == 'yes' else retval[0])
 
+    def FilteredPals(self):
+        def GetMyPals(item):
+            player = self.players[self.current.get()]
+
+            if item.owner == player.GetTravelPalInventoryGuid():
+                return True
+            if item.owner == player.GetPalStorageGuid():
+                return True
+            return False
+
+        filtered = filter(GetMyPals, self.palbox)
+        filterlist = list(filtered)
+
+        filterlist.sort(key=lambda e: e.GetName())
+        
+        return filterlist
+
     def updatestats(self):
         if not self.isPalSelected():
             return
@@ -892,7 +913,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if self.editindex < 0:
             return
 
-        pal = self.palbox[self.players[self.current.get()]][self.editindex]
+
+        pal = self.FilteredPals()[self.editindex]
         l = pal.GetLevel()
 
         if self.phpvar.dirty:
@@ -941,7 +963,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         if pal.GetLevel() == 1:
             return
@@ -954,7 +976,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         if pal.GetLevel() == PalEditConfig.levelcap:
             return
@@ -967,7 +989,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         for item in PalInfo.PalSpecies:
             if PalInfo.PalSpecies[item].GetName() == self.speciesvar_name.get():
@@ -977,7 +999,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         pal.SetType(self.speciesvar.get())
         self.handleMaxHealthUpdates(pal)
         self.updateDisplay()
-        self.refresh(self.palbox[self.players[self.current.get()]].index(pal))
+        self.refresh(self.FilteredPals().index(pal))
 
     def setskillcolours(self):
         for snum in range(0, 4):
@@ -1007,7 +1029,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         print(self.palguidmanager)
         if not self.isPalSelected() or self.palguidmanager is None:
             return
-        playerguid = self.players[self.current.get()]
+        playerguid = self.players[self.current.get()].GetPlayerGuid()
         playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
         if not os.path.exists(playersav):
             print("Cannot Load Player Save!")
@@ -1047,10 +1069,10 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         pals = {}
-        pals['Pals'] = [pal._data]  # [pal._data for pal in self.palbox[self.players[self.current.get()]]]
+        pals['Pals'] = [pal._data]  # [pal._data for pal in self.FilteredPals()]
         file = asksaveasfilename(filetypes=[("json files", "*.json")], defaultextension=".json")
         if file:
             with open(file, "wb") as f:
@@ -1062,7 +1084,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected() or self.palguidmanager is None:
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         
 
@@ -1073,7 +1095,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         spawnpaldata = json.loads(f.read())
         f.close()
         
-        playerguid = self.players[self.current.get()]
+        playerguid = self.players[self.current.get()].GetPlayerGuid()
         playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
         if not os.path.exists(playersav):
             print("Cannot Load Player Save!")
@@ -1130,7 +1152,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         pal.SwapGender()
         self.refresh(i)
@@ -1148,7 +1170,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         if self.luckyvar.get() == 1 and self.alphavar.get() == 1:
             self.alphavar.set(0)
@@ -1161,7 +1183,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         if self.luckyvar.get() == 1 and self.alphavar.get() == 1:
             self.luckyvar.set(0)
@@ -1174,7 +1196,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         m = self.learntMoves.curselection()
         if len(m) > 0:
@@ -1186,7 +1208,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
 
         pal.FruitAttack(PalInfo.find(self.fruitPicker.get()))
         self.refresh(i)
@@ -1334,7 +1356,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
-        pal = self.palbox[self.players[self.current.get()]][i]
+        pal = self.FilteredPals()[i]
             
         match field:
             case "HP":
@@ -1765,7 +1787,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 ##            if not self.isPalSelected():
 ##                return
 ##            i = int(listdisplay.curselection()[0])
-##            pal = palbox[self.players[self.current.get()]][i]
+##            pal = palbox[self.players[self.current.get()].GetPlayerGuid()][i]
 ##            if talent_hp_var.get() == 0:
 ##                talent_hp_var.set(1)
             # change value of pal

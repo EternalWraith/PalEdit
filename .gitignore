@@ -7,3 +7,4 @@ venv
 dist
 PalEdit.spec
 PalEdit.exe
+compile_local.bat
