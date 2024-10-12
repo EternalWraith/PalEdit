@@ -673,8 +673,14 @@ class PalEdit():
         print(self.players)
         for p in self.players:
             playerguid = self.players[p]
-            playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
-            self.players[p] = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+            try:
+                playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
+                self.players[p] = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+            except FileNotFoundError:
+                # hard coding here to get the player name
+                playersav = os.path.dirname(self.filename) + f"/Players/BA77AF22000000000000000000000000.sav"
+                self.players[p] = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+
         self.containers = {}
         nullmoves = []
 
