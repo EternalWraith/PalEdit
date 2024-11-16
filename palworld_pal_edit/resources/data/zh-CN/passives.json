@@ -1,10 +1,10 @@
 {
     "UNKNOWN": {
-        "Name": "未知",
+        "Name": "Unknown",
         "Description": " 不存在或不在我们的数据库中"
     },
     "NONE": {
-        "Name": "空",
+        "Name": "None",
         "Description": "此帕鲁在该槽位没有技能"
     },
     "ElementResist_Normal_1_PAL": {
