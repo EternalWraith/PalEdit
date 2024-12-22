@@ -135,12 +135,11 @@ class PalEditConfig:
 class PalEdit():
     ranks = (0, 1, 2, 3, 4)
     debug_listPassivesSeen = set()
-    _state_locked: bool = False
 
+    _state_locked: bool = False
     def lock_state(self) -> None:
         self._state_locked = True
         self.disable_menus(include_load=True)
-
     def unlock_state(self) -> None:
         self._state_locked = False
         self.enable_menus(include_load=True)
@@ -604,9 +603,14 @@ class PalEdit():
         self.is_onselect = False
 
     def changetext(self, num):
+        # When the state is locked by a long running task, dont let the main UI loop update the skilllabel
+        # This should probably be improved in the future to use a totally separate label to indicate current operations
         if self._state_locked:
             return
+
+        # Ensure the skilllabel is the normal font, and not a bold font used by a long running task
         self.skilllabel.config(font=(PalEditConfig.font, 12))
+
         if num == -1:
             self.skilllabel.config(text=self.i18n['msg_skill'])
             return
@@ -626,9 +630,10 @@ class PalEdit():
         self.skilllabel.config(text=PalInfo.PassiveDescriptions[self.skills[num].get()])
 
     def loadfile(self):
+        # Ensure skilllabel is noticable during long running task
         self.skilllabel.config(text=self.i18n['msg_saving'], font=(PalEditConfig.font, 14, 'bold'))
 
-        file = askopenfilename(initialdir="C:\\Users\\Yoni\\Downloads\\PalworldServerBackup_2024-12-21\\SaveGames\\0\\4F8B70EE44E9F47589753DB4816285C4\\",
+        file = askopenfilename(initialdir=os.path.expanduser('~') + "\\AppData\\Local\\Pal\\Saved\\SaveGames",
                                filetypes=[("Level.sav", "Level.sav")])
         logger.info(f"Opening file {file}")
 
@@ -637,16 +642,17 @@ class PalEdit():
             self.gui.title(f"PalEdit v{PalEditConfig.version} - {file}")
             self.skilllabel.config(text=self.i18n['msg_decompressing'], font=(PalEditConfig.font, 14, 'bold'))
 
+            # Opening the file and decompressing can take a couple seconds and shouldnt block the UI.
             def open_file_task():
                 with open(file, "rb") as f:
                     data = f.read()
                     raw_gvas, _ = decompress_sav_to_gvas(data)
                 return raw_gvas
-
             raw_gvas = PalEditTask.run_task(self, open_file_task)
             self.skilllabel.config(text=self.i18n['msg_loading'], font=(PalEditConfig.font, 14, 'bold'))
             self.gui.update()
 
+            # Same for reading the gvas file
             gvas_file = PalEditTask.run_task(self, lambda: GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALEDIT_PALWORLD_CUSTOM_PROPERTIES))
             self.loaddata(gvas_file)
             # self.doconvertjson(file, (not self.debug))
