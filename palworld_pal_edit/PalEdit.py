@@ -15,6 +15,7 @@ import copy
 
 import palworld_pal_edit.PalInfo as PalInfo
 from palworld_pal_edit.PalEditLogger import *
+from palworld_pal_edit import PalEditTask
 
 from tkinter import *
 from tkinter import ttk
@@ -134,6 +135,14 @@ class PalEditConfig:
 class PalEdit():
     ranks = (0, 1, 2, 3, 4)
     debug_listPassivesSeen = set()
+
+    _state_locked: bool = False
+    def lock_state(self) -> None:
+        self._state_locked = True
+        self.disable_menus(include_load=True)
+    def unlock_state(self) -> None:
+        self._state_locked = False
+        self.enable_menus(include_load=True)
 
     def load_i18n(self, lang=""):
         path = f"{PalInfo.module_dir}/resources/data/en-GB/ui.json"
@@ -594,6 +603,14 @@ class PalEdit():
         self.is_onselect = False
 
     def changetext(self, num):
+        # When the state is locked by a long running task, dont let the main UI loop update the skilllabel
+        # This should probably be improved in the future to use a totally separate label to indicate current operations
+        if self._state_locked:
+            return
+
+        # Ensure the skilllabel is the normal font, and not a bold font used by a long running task
+        self.skilllabel.config(font=(PalEditConfig.font, 12))
+
         if num == -1:
             self.skilllabel.config(text=self.i18n['msg_skill'])
             return
@@ -613,7 +630,8 @@ class PalEdit():
         self.skilllabel.config(text=PalInfo.PassiveDescriptions[self.skills[num].get()])
 
     def loadfile(self):
-        self.skilllabel.config(text=self.i18n['msg_saving'])
+        # Ensure skilllabel is noticable during long running task
+        self.skilllabel.config(text=self.i18n['msg_saving'], font=(PalEditConfig.font, 14, 'bold'))
 
         file = askopenfilename(initialdir=os.path.expanduser('~') + "\\AppData\\Local\\Pal\\Saved\\SaveGames",
                                filetypes=[("Level.sav", "Level.sav")])
@@ -622,16 +640,25 @@ class PalEdit():
         if file:
             self.filename = file
             self.gui.title(f"PalEdit v{PalEditConfig.version} - {file}")
-            self.skilllabel.config(text=self.i18n['msg_decompressing'])
-            with open(file, "rb") as f:
-                data = f.read()
-                raw_gvas, _ = decompress_sav_to_gvas(data)
-            self.skilllabel.config(text=self.i18n['msg_loading'])
-            gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALEDIT_PALWORLD_CUSTOM_PROPERTIES)
+            self.skilllabel.config(text=self.i18n['msg_decompressing'], font=(PalEditConfig.font, 14, 'bold'))
+
+            # Opening the file and decompressing can take a couple seconds and shouldnt block the UI.
+            def open_file_task():
+                with open(file, "rb") as f:
+                    data = f.read()
+                    raw_gvas, _ = decompress_sav_to_gvas(data)
+                return raw_gvas
+            raw_gvas = PalEditTask.run_task(self, open_file_task)
+            self.skilllabel.config(text=self.i18n['msg_loading'], font=(PalEditConfig.font, 14, 'bold'))
+            self.gui.update()
+
+            # Same for reading the gvas file
+            gvas_file = PalEditTask.run_task(self, lambda: GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALEDIT_PALWORLD_CUSTOM_PROPERTIES))
             self.loaddata(gvas_file)
             # self.doconvertjson(file, (not self.debug))
         else:
             messagebox.showerror(self.i18n['select_file'], self.i18n['msg_select_save_file'])
+            self.changetext(-1)
 
     def load(self, file):
         self.current.set("")
@@ -784,7 +811,7 @@ class PalEdit():
         self.refresh()
 
     def savefile(self):
-        self.skilllabel.config(text=self.i18n['msg_saving_big'])
+        self.skilllabel.config(text=self.i18n['msg_saving_big'], font=(PalEditConfig.font, 14, 'bold'))
         self.gui.update()
 
         if self.isPalSelected():
@@ -805,16 +832,20 @@ class PalEdit():
                     save_type = 0x32
                 else:
                     save_type = 0x31
-                sav_file = compress_gvas_to_sav(
+
+                sav_file = PalEditTask.run_task(self, lambda: compress_gvas_to_sav(
                     gvas_file.write(PALEDIT_PALWORLD_CUSTOM_PROPERTIES), save_type
-                )
-                self.skilllabel.config(text=self.i18n['msg_writing'])
-                with open(file, "wb") as f:
-                    f.write(sav_file)
+                ))
+                self.skilllabel.config(text=self.i18n['msg_writing'], font=(PalEditConfig.font, 14, 'bold'))
+                def _save_file():
+                    with open(file, "wb") as f:
+                        f.write(sav_file)
+                PalEditTask.run_task(self, _save_file)
                 self.data = None
                 self.current.set("")
                 self.palbox = {}
                 self.players = {}
+                self.playerdrop['values'] = []
                 self.listdisplay.delete(0, tk.constants.END)
             else:
                 self.savejson(file)
@@ -1125,7 +1156,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         os.remove("temp.json")
         
     def doconvertjson(self, file, compress=False):
-        SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
+        palworld_pal_edit.SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
 
         self.load(file.replace(".sav", ".sav.json"))
 
@@ -1142,7 +1173,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.doconvertsave(file)
 
     def doconvertsave(self, file):
-        SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"), True)
+        palworld_pal_edit.SaveConverter.convert_json_to_sav(file, file.replace(".sav.json", ".sav"), True)
 
         self.changetext(-1)
         self.jump()
@@ -1226,12 +1257,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             l = content["language"]
         langmenu.add_command(label=l, command=lambda: self.load_i18n(lang))
 
-    def disable_menus(self):
+    def disable_menus(self, include_load=False):
+        if include_load:
+            filemenu.entryconfig(self.i18n['menu_load_save'], state="disabled")
         filemenu.entryconfig(self.i18n['menu_save'], state="disabled")
         filemenu.entryconfig(self.i18n['menu_export'], state="disabled")
         filemenu.entryconfig(self.i18n['menu_import'], state="disabled")
 
-    def enable_menus(self):
+    def enable_menus(self, include_load=False):
+        if include_load:
+            filemenu.entryconfig(self.i18n['menu_load_save'], state="normal")
         filemenu.entryconfig(self.i18n['menu_save'], state="normal")
         filemenu.entryconfig(self.i18n['menu_export'], state="normal")
         filemenu.entryconfig(self.i18n['menu_import'], state="normal")
@@ -2229,6 +2264,7 @@ def main():
     global pal
     pal = PalEdit()
     pal.gui.mainloop()
+    PalEditTask.close_executor()
     logger.Close()
 
 
