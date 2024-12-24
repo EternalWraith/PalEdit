@@ -1,0 +1,39 @@
+{
+    "CodeName": "Suzaku",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::FireBlast": 7,
+        "EPalWazaID::FireSeed": 15,
+        "EPalWazaID::FlareArrow": 22,
+        "EPalWazaID::Flamethrower": 30,
+        "EPalWazaID::FlareTornado": 40,
+        "EPalWazaID::FireBall": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

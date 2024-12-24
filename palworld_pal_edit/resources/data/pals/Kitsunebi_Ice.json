@@ -1,0 +1,39 @@
+{
+    "CodeName": "Kitsunebi_Ice",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::AquaJet": 7,
+        "EPalWazaID::IceBlade": 15,
+        "EPalWazaID::BlizzardLance": 22,
+        "EPalWazaID::FrostBreath": 30,
+        "EPalWazaID::IciclePierce": 40,
+        "EPalWazaID::IcicleThrow": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 65,
+        "PHY": 70,
+        "MAG": 80,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 1,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

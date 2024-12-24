@@ -1,0 +1,40 @@
+{
+    "CodeName": "BirdDragon",
+    "Type": [
+        "Fire",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::FireBlast": 7,
+        "EPalWazaID::FireSeed": 15,
+        "EPalWazaID::Flamethrower": 22,
+        "EPalWazaID::Unique_BirdDragon_FireBreath": 26,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 100,
+        "MAG": 115,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 1,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

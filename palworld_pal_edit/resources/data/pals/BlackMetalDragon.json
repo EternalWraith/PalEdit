@@ -1,0 +1,40 @@
+{
+    "CodeName": "BlackMetalDragon",
+    "Type": [
+        "Dragon",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::GhostFlame": 7,
+        "EPalWazaID::DragonWave": 15,
+        "EPalWazaID::ShadowBall": 22,
+        "EPalWazaID::DragonBreath": 30,
+        "EPalWazaID::Unique_BlackMetalDragon_FirePunch": 35,
+        "EPalWazaID::DarkLaser": 40,
+        "EPalWazaID::DragonMeteor": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 125,
+        "DEF": 125
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 4,
+        "OilExtraction": 3,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

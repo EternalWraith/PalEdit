@@ -1,0 +1,39 @@
+{
+    "CodeName": "FairyDragon_Water",
+    "Type": [
+        "Dragon",
+        "Water"
+    ],
+    "Moveset": {
+        "EPalWazaID::WaterGun": 1,
+        "EPalWazaID::DragonCanon": 7,
+        "EPalWazaID::DragonWave": 15,
+        "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
+        "EPalWazaID::AcidRain": 30,
+        "EPalWazaID::HydroPump": 40,
+        "EPalWazaID::DragonMeteor": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 115,
+        "PHY": 80,
+        "MAG": 80,
+        "DEF": 95
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 3,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

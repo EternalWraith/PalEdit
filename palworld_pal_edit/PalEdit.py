@@ -533,8 +533,10 @@ class PalEdit():
             else:
                 self.learntMoves.insert(tk.constants.END, an)
 
-        self.ptype.config(text=pal.GetPrimary(), bg=PalInfo.PalElements[pal.GetPrimary()])
-        self.stype.config(text=pal.GetSecondary(), bg=PalInfo.PalElements[pal.GetSecondary()])
+        
+        
+        self.ptype.config(text=self.i18n[f'{pal.GetPrimary().lower()}_lbl'], bg=PalInfo.PalElements[pal.GetPrimary()])
+        self.stype.config(text=self.i18n[f'{pal.GetSecondary().lower()}_lbl'], bg=PalInfo.PalElements[pal.GetSecondary()])
 
         # ⚔🏹
         # talent_hp_var.set(pal.GetTalentHP())
@@ -1221,6 +1223,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.gui.title(f"PalEdit v{PalEditConfig.version}")
 
     def add_lang_menu(self, langmenu, lang):
+        if lang in ["pals", "attacks"]: return
         with open(f"{PalInfo.module_dir}/resources/data/{lang}/ui.json", "r", encoding="utf-8") as f:
             content = json.load(f)
             l = content["language"]
@@ -1504,12 +1507,12 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.attackdrops[2].pack(fill=tk.constants.X)
         self.attackdrops[2].config(font=(PalEditConfig.font, PalEditConfig.ftsize), width=12, direction="right")
 
-        self.attackdrops[0].config(highlightbackground=PalInfo.PalElements["Electric"],
-                                   bg=PalEdit.mean_color(PalInfo.PalElements["Electric"], "ffffff"),
-                                   activebackground=PalEdit.mean_color(PalInfo.PalElements["Electric"], "ffffff"))
-        self.attackdrops[1].config(highlightbackground=PalInfo.PalElements["Electric"],
-                                   bg=PalEdit.mean_color(PalInfo.PalElements["Electric"], "ffffff"),
-                                   activebackground=PalEdit.mean_color(PalInfo.PalElements["Electric"], "ffffff"))
+        self.attackdrops[0].config(highlightbackground=PalInfo.PalElements["Electricity"],
+                                   bg=PalEdit.mean_color(PalInfo.PalElements["Electricity"], "ffffff"),
+                                   activebackground=PalEdit.mean_color(PalInfo.PalElements["Electricity"], "ffffff"))
+        self.attackdrops[1].config(highlightbackground=PalInfo.PalElements["Electricity"],
+                                   bg=PalEdit.mean_color(PalInfo.PalElements["Electricity"], "ffffff"),
+                                   activebackground=PalEdit.mean_color(PalInfo.PalElements["Electricity"], "ffffff"))
         self.attackdrops[2].config(highlightbackground=PalInfo.PalElements["Dark"],
                                    bg=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"),
                                    activebackground=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"))
@@ -1562,9 +1565,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         typeframe = tk.Frame(resourceview)
         typeframe.pack(expand=True, fill=tk.constants.X)
-        self.ptype = tk.Label(typeframe, text=self.i18n['electric_lbl'],
+        self.ptype = tk.Label(typeframe, text=self.i18n['electricity_lbl'],
                               font=(PalEditConfig.font, PalEditConfig.ftsize),
-                              bg=PalInfo.PalElements["Electric"], width=6)
+                              bg=PalInfo.PalElements["Electricity"], width=6)
         self.i18n_el['electric_lbl'] = self.ptype
         self.ptype.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
         self.stype = tk.Label(typeframe, text=self.i18n['dark_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
@@ -1707,9 +1710,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.speciesvar = tk.StringVar()
         self.speciesvar_name = tk.StringVar()
         self.speciesvar_name.set("PalEdit")
-        self.palname = tk.OptionMenu(editview, self.speciesvar_name, *species, command=self.changespeciestype)
-        self.palname.config(font=(PalEditConfig.font, PalEditConfig.ftsize), padx=0, pady=0, borderwidth=1, width=5,
-                            direction='right')
+        self.palname = ttk.Combobox(editview, textvariable=self.speciesvar_name, values=species)
+        #self.palname = tk.OptionMenu(editview, self.speciesvar_name, *species, command=self.changespeciestype)
+        self.palname.bind("<<ComboboxSelected>>", self.changespeciestype)
+        self.palname.config(font=(PalEditConfig.font, PalEditConfig.ftsize),
+                            #padx=0,
+                            #pady=0,
+                            #borderwidth=1,
+                            width=5,
+                            #direction='right'
+                            )
         self.palname.pack(expand=True, fill=tk.constants.X)
 
         genderframe = tk.Frame(editview, pady=0)

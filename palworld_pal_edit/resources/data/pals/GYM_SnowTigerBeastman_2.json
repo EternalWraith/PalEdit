@@ -1,0 +1,49 @@
+{
+    "CodeName": "GYM_SnowTigerBeastman_2",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::GhostFlame": 1,
+        "EPalWazaID::DoubleIcicleThrow": 2,
+        "EPalWazaID::DarkArrow": 3,
+        "EPalWazaID::Unique_SnowTigerBeastman_TrampleSlash": 4,
+        "EPalWazaID::BubbleShot": 5,
+        "EPalWazaID::RockBeat": 6,
+        "EPalWazaID::DiamondFall": 7,
+        "EPalWazaID::Unique_SnowTigerBeastman_SnowImpact": 8,
+        "EPalWazaID::Apocalypse": 9,
+        "EPalWazaID::ShadowBall": 10,
+        "EPalWazaID::LineGeyser": 11,
+        "EPalWazaID::WallSplash": 12,
+        "EPalWazaID::HydroPump": 13,
+        "EPalWazaID::DarkLegion": 14,
+        "EPalWazaID::WaterBall": 15,
+        "EPalWazaID::IciclePierce": 16,
+        "EPalWazaID::AcidRain": 17
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 140,
+        "PHY": 100,
+        "MAG": 130,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 2,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 3,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

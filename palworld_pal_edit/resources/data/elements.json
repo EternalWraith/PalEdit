@@ -5,7 +5,7 @@
             "Color": "#d9d9d9"
         },
         {
-            "Name": "Neutral",
+            "Name": "Normal",
             "Color": "#d8a796"
         },
         {
@@ -25,15 +25,15 @@
             "Color": "#ff4208"
         },
         {
-            "Name": "Grass",
+            "Name": "Leaf",
             "Color": "#83f001"
         },
         {
-            "Name": "Ground",
+            "Name": "Earth",
             "Color": "#ba5608"
         },
         {
-            "Name": "Electric",
+            "Name": "Electricity",
             "Color": "#feed01"
         },
         {

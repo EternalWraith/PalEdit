@@ -1,0 +1,52 @@
+{
+    "CodeName": "PREDATOR_Umihebi_Fire",
+    "Type": [
+        "Dragon",
+        "Fire"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::DragonCanon": 7,
+        "EPalWazaID::FlareTornado": 15,
+        "EPalWazaID::Flamethrower": 22,
+        "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::Unique_Umihebi_Fire_FireWindingTackle": 35,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::DragonMeteor": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::Inferno": 1,
+        "EPalWazaID::DragonCanon": 2,
+        "EPalWazaID::Eruption": 3,
+        "EPalWazaID::BlastCanon": 4,
+        "EPalWazaID::ThunderStorm": 5,
+        "EPalWazaID::FireBall": 6,
+        "EPalWazaID::DragonMeteor": 7,
+        "EPalWazaID::PredatorBeam": 8,
+        "EPalWazaID::PredatorWave": 9,
+        "EPalWazaID::PredatorLockon": 10,
+        "EPalWazaID::Unique_Umihebi_Fire_FireWindingTackle": 11
+    },
+    "Scaling": {
+        "HP": 156,
+        "PHY": 150,
+        "MAG": 130,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 4,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

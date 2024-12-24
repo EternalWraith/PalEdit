@@ -1,0 +1,39 @@
+{
+    "CodeName": "CaptainPenguin",
+    "Type": [
+        "Water",
+        "Ice"
+    ],
+    "Moveset": {
+        "EPalWazaID::WaterGun": 1,
+        "EPalWazaID::BlizzardLance": 7,
+        "EPalWazaID::Unique_CaptainPenguin_BodySlide": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::WaterBall": 30,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::HydroPump": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 95,
+        "PHY": 70,
+        "MAG": 95,
+        "DEF": 95
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 2,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 2,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 2,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

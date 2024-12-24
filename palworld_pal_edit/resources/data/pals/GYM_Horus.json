@@ -1,0 +1,43 @@
+{
+    "CodeName": "GYM_Horus",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_Horus_FlareBird": 1,
+        "EPalWazaID::FlareArrow": 2,
+        "EPalWazaID::RockLance": 3,
+        "EPalWazaID::Flamethrower": 4,
+        "EPalWazaID::ThreeThunder": 5,
+        "EPalWazaID::Inferno": 6,
+        "EPalWazaID::FireBall": 7,
+        "EPalWazaID::LightningStrike": 8,
+        "EPalWazaID::Thunderbolt": 9,
+        "EPalWazaID::FireSeed": 10,
+        "EPalWazaID::FireBlast": 11
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

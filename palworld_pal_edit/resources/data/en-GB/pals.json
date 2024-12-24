@@ -292,6 +292,36 @@
     "RAID_NightLady_Dark": "Bellanoir Libero (Raid)",
     "RAID_NightLady_Dark_2": "Bellanoir Libero (Ultra)",
     "RAID_KingBahamut_Dragon": "Blazamut Ryu (Raid)",
-    "RAID_KingBahamut_Dragon_2": "Blazamut Ryu (Ultra)"
+    "RAID_KingBahamut_Dragon_2": "Blazamut Ryu (Ultra)",
 
+	"Kitsunebi_Ice": "Foxsparks Cryst",
+	"BerryGoat_Dark": "Caprity Noct",
+	"PinkRabbit_Grass": "Ribbuny Botan",
+	"Werewolf_Ice": "Loupmoon Cryst",
+	"AmaterasuWolf_Dark": "Kitsun Noct",
+	"RaijinDaughter_Water": "Dazzi Noct",
+	"WhiteTiger_Ground": "Cryolinx Terra",
+	"FengyunDeeper_Electric": "Fenglope Lux",
+	"Horus_Water": "Faleris Aqua",
+
+	"BadCatgirl": "Nyafia",
+	"BlueberryFairy": "Prunelia",
+	"GoldenHorse": "Gildane",
+	"DarkMechaDragon": "Xenolord",
+	"GhostRabbit": "Nitemary",
+	"NightBlueHorse": "Starryon",
+	"WhiteShieldDragon": "Silvegis",
+	"BlackPuppy": "Smokie",
+	"WhiteDeer": "Celesdir",
+	"MysteryMask": "Omascul",
+	"GrimGirl": "Splatterina",
+	"PurpleSpider": "Tarantriss",
+	"BlueThunderHorse": "Azurmane",
+	"SnowTigerBeastman": "Bastigor",
+
+	"GYM_SnowTigerBeastman": "Bjorn & Bastigor",
+	"GYM_SnowTigerBeastman_2": "Bjorn & Bastigor",
+
+	"RAID_DarkMechaDragon": "Xenolord (Raid)",
+	"RAID_DarkMechaDragon_2": "Xenolord (Ultra)"
 }

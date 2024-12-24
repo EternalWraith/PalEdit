@@ -1,0 +1,39 @@
+{
+    "CodeName": "Hedgehog",
+    "Type": [
+        "Electricity",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::ElecWave": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::ThunderBall": 15,
+        "EPalWazaID::PowerBall": 22,
+        "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::LineThunder": 40,
+        "EPalWazaID::Thunderbolt": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 70,
+        "MAG": 75,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 1,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

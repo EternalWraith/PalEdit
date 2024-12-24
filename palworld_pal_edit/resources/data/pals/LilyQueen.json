@@ -1,0 +1,40 @@
+{
+    "CodeName": "LilyQueen",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::WindCutter": 1,
+        "EPalWazaID::SeedMachinegun": 7,
+        "EPalWazaID::SeedMine": 15,
+        "EPalWazaID::WaterBall": 22,
+        "EPalWazaID::GrassTornado": 30,
+        "EPalWazaID::RootAttack": 40,
+        "EPalWazaID::SolarBeam": 50,
+        "EPalWazaID::Unique_LilyQueen_LilyHealing": 55
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 4,
+        "GenerateElectricity": 0,
+        "Handcraft": 3,
+        "Collection": 2,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 3,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

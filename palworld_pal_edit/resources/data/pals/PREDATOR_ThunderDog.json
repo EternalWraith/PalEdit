@@ -1,0 +1,49 @@
+{
+    "CodeName": "PREDATOR_ThunderDog",
+    "Type": [
+        "Electricity",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::ElecWave": 7,
+        "EPalWazaID::SpreadPulse": 15,
+        "EPalWazaID::StoneShotgun": 22,
+        "EPalWazaID::Unique_ThunderDog_InazumaShorai": 26,
+        "EPalWazaID::ThunderBall": 30,
+        "EPalWazaID::LineThunder": 40,
+        "EPalWazaID::Thunderbolt": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::Unique_ThunderDog_InazumaShorai": 1,
+        "EPalWazaID::LineThunder": 2,
+        "EPalWazaID::TriSpark": 3,
+        "EPalWazaID::ThunderRain": 4,
+        "EPalWazaID::ThunderFunnel": 5,
+        "EPalWazaID::PredatorBeam": 6,
+        "EPalWazaID::PredatorWave": 7,
+        "EPalWazaID::PredatorLockon": 8
+    },
+    "Scaling": {
+        "HP": 108,
+        "PHY": 100,
+        "MAG": 100,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 2,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

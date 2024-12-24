@@ -1,0 +1,48 @@
+{
+    "CodeName": "PREDATOR_DrillGame",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::WaterGun": 1,
+        "EPalWazaID::StoneShotgun": 7,
+        "EPalWazaID::Unique_DrillGame_ShellAttack": 15,
+        "EPalWazaID::ThrowRock": 22,
+        "EPalWazaID::SandTornado": 30,
+        "EPalWazaID::WaterBall": 40,
+        "EPalWazaID::RockLance": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::SandTwister": 1,
+        "EPalWazaID::Unique_DrillGame_ShellAttack": 2,
+        "EPalWazaID::ThrowRock": 3,
+        "EPalWazaID::Tremor": 4,
+        "EPalWazaID::RockLance": 5,
+        "EPalWazaID::PredatorBeam": 6,
+        "EPalWazaID::PredatorWave": 7,
+        "EPalWazaID::PredatorLockon": 8
+    },
+    "Scaling": {
+        "HP": 96,
+        "PHY": 80,
+        "MAG": 95,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

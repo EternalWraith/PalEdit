@@ -1,0 +1,39 @@
+{
+    "CodeName": "DarkMechaDragon",
+    "Type": [
+        "Dark",
+        "Dragon"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::DarkPulse": 7,
+        "EPalWazaID::Unique_DarkMechaDragon_SetFunnel": 15,
+        "EPalWazaID::Unique_DarkMechaDragon_BeamSlash": 22,
+        "EPalWazaID::Unique_DarkMechaDragon_ConvergentBeam": 30,
+        "EPalWazaID::Unique_DarkMechaDragon_WarpComet": 40,
+        "EPalWazaID::Unique_DarkMechaDragon_FunnelLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 130,
+        "PHY": 100,
+        "MAG": 120,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

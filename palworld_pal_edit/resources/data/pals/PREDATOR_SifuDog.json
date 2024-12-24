@@ -1,0 +1,49 @@
+{
+    "CodeName": "PREDATOR_SifuDog",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::ThrowRock": 15,
+        "EPalWazaID::PowerBall": 22,
+        "EPalWazaID::AirBlade": 30,
+        "EPalWazaID::Unique_SifuDog_Counter": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::PowerBall": 2,
+        "EPalWazaID::PoisonFog": 3,
+        "EPalWazaID::AirBlade": 4,
+        "EPalWazaID::Unique_SifuDog_Counter": 5,
+        "EPalWazaID::HolyBlast": 6,
+        "EPalWazaID::PredatorBeam": 7,
+        "EPalWazaID::PredatorWave": 8,
+        "EPalWazaID::PredatorLockon": 9
+    },
+    "Scaling": {
+        "HP": 108,
+        "PHY": 100,
+        "MAG": 100,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 3,
+        "Collection": 2,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 1,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

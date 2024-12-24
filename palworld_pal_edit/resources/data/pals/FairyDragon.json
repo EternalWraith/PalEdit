@@ -1,0 +1,39 @@
+{
+    "CodeName": "FairyDragon",
+    "Type": [
+        "Dragon",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::DragonWave": 7,
+        "EPalWazaID::FlareArrow": 15,
+        "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
+        "EPalWazaID::DragonBreath": 30,
+        "EPalWazaID::HyperBeam": 40,
+        "EPalWazaID::DragonMeteor": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 80,
+        "MAG": 80,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

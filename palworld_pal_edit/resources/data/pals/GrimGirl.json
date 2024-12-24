@@ -1,0 +1,39 @@
+{
+    "CodeName": "GrimGirl",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkBall": 1,
+        "EPalWazaID::DarkPulse": 7,
+        "EPalWazaID::DarkCanon": 15,
+        "EPalWazaID::DarkWave": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::Unique_GrimGirl_BrutalMachete": 40,
+        "EPalWazaID::DarkLegion": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 95,
+        "PHY": 100,
+        "MAG": 115,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 4,
+        "Collection": 0,
+        "Deforest": 1,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 3,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

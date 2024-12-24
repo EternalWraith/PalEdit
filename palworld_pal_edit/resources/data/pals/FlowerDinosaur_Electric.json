@@ -1,0 +1,39 @@
+{
+    "CodeName": "FlowerDinosaur_Electric",
+    "Type": [
+        "Electricity",
+        "Dragon"
+    ],
+    "Moveset": {
+        "EPalWazaID::ElecWave": 1,
+        "EPalWazaID::ThunderFunnel": 7,
+        "EPalWazaID::Unique_FlowerDinosaur_Whip": 15,
+        "EPalWazaID::DragonBreath": 22,
+        "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::LightningStrike": 40,
+        "EPalWazaID::Thunderbolt": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 90,
+        "MAG": 90,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 2,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

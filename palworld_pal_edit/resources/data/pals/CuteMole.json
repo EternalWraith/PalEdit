@@ -1,0 +1,39 @@
+{
+    "CodeName": "CuteMole",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::ThrowRock": 22,
+        "EPalWazaID::PowerBall": 30,
+        "EPalWazaID::SandTornado": 40,
+        "EPalWazaID::RockLance": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 65,
+        "PHY": 100,
+        "MAG": 80,
+        "DEF": 50
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 1,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

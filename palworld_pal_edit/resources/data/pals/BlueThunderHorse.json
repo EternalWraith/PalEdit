@@ -1,0 +1,39 @@
+{
+    "CodeName": "BlueThunderHorse",
+    "Type": [
+        "Electricity",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::SpreadPulse": 1,
+        "EPalWazaID::ElecWave": 7,
+        "EPalWazaID::LineThunder": 15,
+        "EPalWazaID::TriSpark": 22,
+        "EPalWazaID::RangeThunder": 30,
+        "EPalWazaID::Railbolt": 40,
+        "EPalWazaID::Unique_BlueThunderHorse_FlashDash": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 130,
+        "PHY": 100,
+        "MAG": 120,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 4,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

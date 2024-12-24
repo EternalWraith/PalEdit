@@ -1,0 +1,39 @@
+{
+    "CodeName": "DarkScorpion_Ground",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::StoneShotgun": 7,
+        "EPalWazaID::ThrowRock": 15,
+        "EPalWazaID::SandTornado": 22,
+        "EPalWazaID::Unique_DarkScorpion_Pierce": 30,
+        "EPalWazaID::RockLance": 40,
+        "EPalWazaID::Tremor": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 130
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

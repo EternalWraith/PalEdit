@@ -1,0 +1,39 @@
+{
+    "CodeName": "SkyDragon_Grass",
+    "Type": [
+        "Dragon",
+        "Leaf"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::WindCutter": 7,
+        "EPalWazaID::SeedMachinegun": 15,
+        "EPalWazaID::DragonBreath": 22,
+        "EPalWazaID::GrassTornado": 30,
+        "EPalWazaID::Commet": 40,
+        "EPalWazaID::RootLance": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 2,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 2,
+        "Deforest": 0,
+        "Mining": 2,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

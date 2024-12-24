@@ -1,0 +1,39 @@
+{
+    "CodeName": "Gorilla",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::Unique_Gorilla_GroundPunch": 15,
+        "EPalWazaID::StoneShotgun": 22,
+        "EPalWazaID::SeedMachinegun": 30,
+        "EPalWazaID::PowerBall": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 110,
+        "MAG": 95,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

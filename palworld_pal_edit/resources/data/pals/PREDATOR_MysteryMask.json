@@ -1,0 +1,48 @@
+{
+    "CodeName": "PREDATOR_MysteryMask",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkBall": 1,
+        "EPalWazaID::DarkPulse": 7,
+        "EPalWazaID::DarkCanon": 15,
+        "EPalWazaID::DarkWave": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::Unique_MysteryMask_LifeSteal": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::DarkArrow": 1,
+        "EPalWazaID::GhostFlame": 2,
+        "EPalWazaID::ShadowBall": 3,
+        "EPalWazaID::Apocalypse": 4,
+        "EPalWazaID::PredatorBeam": 5,
+        "EPalWazaID::PredatorWave": 6,
+        "EPalWazaID::PredatorLockon": 7,
+        "EPalWazaID::Unique_MysteryMask_LifeSteal": 8
+    },
+    "Scaling": {
+        "HP": 114,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

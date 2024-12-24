@@ -1,0 +1,39 @@
+{
+    "CodeName": "Suzaku_Water",
+    "Type": [
+        "Water",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::IceMissile": 7,
+        "EPalWazaID::WaterGun": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::WaterBall": 30,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::HydroPump": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 125,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 3,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

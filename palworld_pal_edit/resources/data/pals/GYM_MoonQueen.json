@@ -1,0 +1,43 @@
+{
+    "CodeName": "GYM_MoonQueen",
+    "Type": [
+        "Dark",
+        "Normal"
+    ],
+    "Moveset": {
+        "EPalWazaID::StarMine": 1,
+        "EPalWazaID::PowerBall": 2,
+        "EPalWazaID::Commet": 3,
+        "EPalWazaID::IcicleThrow": 4,
+        "EPalWazaID::Unique_MoonQueen_MoonBeam": 5,
+        "EPalWazaID::Unique_MoonQueen_MoonBlade": 6,
+        "EPalWazaID::HolyBlast": 7,
+        "EPalWazaID::AirBlade": 8,
+        "EPalWazaID::DarkArrow": 9,
+        "EPalWazaID::ShadowBall": 10,
+        "EPalWazaID::DiamondFall": 11
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 130,
+        "PHY": 100,
+        "MAG": 115,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

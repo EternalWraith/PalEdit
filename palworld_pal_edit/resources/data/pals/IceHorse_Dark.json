@@ -1,0 +1,41 @@
+{
+    "CodeName": "IceHorse_Dark",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::DarkBall": 7,
+        "EPalWazaID::DarkWave": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::Unique_IceHorse_IceBladeAttack": 30,
+        "EPalWazaID::ShadowBall": 40,
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DoubleIcicleThrow": 55,
+        "EPalWazaID::DarkLegion": 60
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 140,
+        "PHY": 100,
+        "MAG": 140,
+        "DEF": 135
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 4,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

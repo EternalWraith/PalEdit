@@ -1,0 +1,45 @@
+{
+    "CodeName": "GYM_SnowTigerBeastman",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::ThrowRock": 1,
+        "EPalWazaID::IciclePierce": 2,
+        "EPalWazaID::Unique_SnowTigerBeastman_TrampleSlash": 4,
+        "EPalWazaID::Tremor": 5,
+        "EPalWazaID::RockBeat": 6,
+        "EPalWazaID::DiamondFall": 7,
+        "EPalWazaID::IceAge": 8,
+        "EPalWazaID::Unique_SnowTigerBeastman_SnowImpact": 9,
+        "EPalWazaID::WallSplash": 10,
+        "EPalWazaID::LineGeyser": 11,
+        "EPalWazaID::WaterBall": 12,
+        "EPalWazaID::HydroPump": 13,
+        "EPalWazaID::IcicleThrow": 14
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 140,
+        "PHY": 100,
+        "MAG": 130,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 2,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 3,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

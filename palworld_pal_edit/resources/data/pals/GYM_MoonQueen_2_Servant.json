@@ -1,0 +1,39 @@
+{
+    "CodeName": "GYM_MoonQueen_2_Servant",
+    "Type": [
+        "Dark",
+        "Normal"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirBlade": 1,
+        "EPalWazaID::PowerBall": 2,
+        "EPalWazaID::ShadowBall": 3,
+        "EPalWazaID::IcicleThrow": 4,
+        "EPalWazaID::Commet": 5,
+        "EPalWazaID::GhostFlame": 6,
+        "EPalWazaID::DarkArrow": 7
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 130,
+        "PHY": 100,
+        "MAG": 115,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

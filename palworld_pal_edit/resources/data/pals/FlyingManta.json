@@ -1,0 +1,39 @@
+{
+    "CodeName": "FlyingManta",
+    "Type": [
+        "Water",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::WaterGun": 7,
+        "EPalWazaID::PowerShot": 15,
+        "EPalWazaID::BubbleShot": 22,
+        "EPalWazaID::SeedMachinegun": 30,
+        "EPalWazaID::WaterBall": 40,
+        "EPalWazaID::HydroPump": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 80,
+        "PHY": 100,
+        "MAG": 70,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 1,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "AmaterasuWolf_Dark",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkCanon": 1,
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::GhostFlame": 15,
+        "EPalWazaID::Unique_AmaterasuWolf_Dark_DarkCharge": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::FlameFunnel": 40,
+        "EPalWazaID::DarkLegion": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 70,
+        "MAG": 115,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 2,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "FlowerDinosaur",
+    "Type": [
+        "Leaf",
+        "Dragon"
+    ],
+    "Moveset": {
+        "EPalWazaID::WindCutter": 1,
+        "EPalWazaID::Unique_FlowerDinosaur_Whip": 7,
+        "EPalWazaID::DragonWave": 15,
+        "EPalWazaID::SeedMine": 22,
+        "EPalWazaID::DragonBreath": 30,
+        "EPalWazaID::RootAttack": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 90,
+        "MAG": 85,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 2,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

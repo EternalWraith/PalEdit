@@ -1,0 +1,39 @@
+{
+    "CodeName": "FoxMage_Dark",
+    "Type": [
+        "Fire",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkPulse": 1,
+        "EPalWazaID::DarkCanon": 7,
+        "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::FlareTornado": 22,
+        "EPalWazaID::GhostFlame": 30,
+        "EPalWazaID::FlameWall": 40,
+        "EPalWazaID::Apocalypse": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 50,
+        "MAG": 110,
+        "DEF": 85
+    },
+    "Suitabilities": {
+        "EmitFlame": 2,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 3,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

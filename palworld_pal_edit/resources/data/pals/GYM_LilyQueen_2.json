@@ -1,0 +1,44 @@
+{
+    "CodeName": "GYM_LilyQueen_2",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_LilyQueen_LilyHealing": 1,
+        "EPalWazaID::SeedMine": 2,
+        "EPalWazaID::RaidCutter": 3,
+        "EPalWazaID::RootAttack": 4,
+        "EPalWazaID::RootLance": 5,
+        "EPalWazaID::HydroPump": 6,
+        "EPalWazaID::LineGeyser": 7,
+        "EPalWazaID::WallSplash": 8,
+        "EPalWazaID::AcidRain": 9,
+        "EPalWazaID::WindEdge": 10,
+        "EPalWazaID::WaterBall": 11,
+        "EPalWazaID::BubbleShot": 12
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 3,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 2,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 3,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "Anubis",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::StoneShotgun": 1,
+        "EPalWazaID::PowerBall": 7,
+        "EPalWazaID::SandTornado": 15,
+        "EPalWazaID::Unique_Anubis_LowRoundKick": 22,
+        "EPalWazaID::Unique_Anubis_Tackle": 30,
+        "EPalWazaID::Unique_Anubis_GroundPunch": 40,
+        "EPalWazaID::RockLance": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 130,
+        "MAG": 130,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 4,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

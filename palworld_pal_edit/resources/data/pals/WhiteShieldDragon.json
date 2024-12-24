@@ -1,0 +1,39 @@
+{
+    "CodeName": "WhiteShieldDragon",
+    "Type": [
+        "Dragon",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::BlizzardLance": 15,
+        "EPalWazaID::DragonBreath": 22,
+        "EPalWazaID::BlastCanon": 30,
+        "EPalWazaID::ChargeCanon": 40,
+        "EPalWazaID::Unique_WhiteShieldDragon_ShieldTackle": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 115
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 3,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

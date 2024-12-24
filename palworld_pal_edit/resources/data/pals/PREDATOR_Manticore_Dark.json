@@ -1,0 +1,51 @@
+{
+    "CodeName": "PREDATOR_Manticore_Dark",
+    "Type": [
+        "Fire",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkWave": 1,
+        "EPalWazaID::FlareArrow": 7,
+        "EPalWazaID::Flamethrower": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::Inferno": 30,
+        "EPalWazaID::Unique_Manticore_InfernoStrike": 35,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::GhostFlame": 1,
+        "EPalWazaID::ShadowBall": 2,
+        "EPalWazaID::DarkArrow": 3,
+        "EPalWazaID::Apocalypse": 4,
+        "EPalWazaID::Inferno": 5,
+        "EPalWazaID::FlameWall": 6,
+        "EPalWazaID::PredatorBeam": 7,
+        "EPalWazaID::PredatorWave": 8,
+        "EPalWazaID::PredatorLockon": 9,
+        "EPalWazaID::Unique_Manticore_InfernoStrike": 10
+    },
+    "Scaling": {
+        "HP": 126,
+        "PHY": 100,
+        "MAG": 115,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "MushroomDragon",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PoisonShot": 1,
+        "EPalWazaID::SeedMachinegun": 7,
+        "EPalWazaID::GrassTornado": 15,
+        "EPalWazaID::SeedMine": 22,
+        "EPalWazaID::RootAttack": 30,
+        "EPalWazaID::RootLance": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 100,
+        "MAG": 80,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 2,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 2,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

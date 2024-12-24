@@ -11,7 +11,7 @@
             "struct_type": "Guid",
             "struct_id": "00000000-0000-0000-0000-000000000000",
             "id": null,
-            "value": "4d9276b5-4a81-43b2-b3d1-189eeade2ea6",
+            "value": "e8c81adb-4d94-a8a5-e57a-b7a0121bb7e3",
             "type": "StructProperty"
         },
         "DebugName": {
@@ -33,14 +33,14 @@
                         "value": {
                             "CharacterID": {
                                 "id": null,
-                                "value": "WizardOwl",
+                                "value": "Sheepball",
                                 "type": "NameProperty"
                             },
                             "Gender": {
                                 "id": null,
                                 "value": {
                                     "type": "EPalGenderType",
-                                    "value": "EPalGenderType::Male"
+                                    "value": "EPalGenderType::Female"
                                 },
                                 "type": "EnumProperty"
                             },
@@ -48,26 +48,14 @@
                                 "id": null,
                                 "value": {
                                     "type": "None",
-                                    "value": 23
+                                    "value": 3
                                 },
                                 "type": "ByteProperty"
                             },
                             "Exp": {
                                 "id": null,
-                                "value": 21157,
+                                "value": 87,
                                 "type": "Int64Property"
-                            },
-                            "EquipWaza": {
-                                "array_type": "EnumProperty",
-                                "id": null,
-                                "value": {
-                                    "values": [
-                                        "EPalWazaID::DarkBall",
-                                        "EPalWazaID::DarkWave",
-                                        "EPalWazaID::SandTornado"
-                                    ]
-                                },
-                                "type": "ArrayProperty"
                             },
                             "MasteredWaza": {
                                 "array_type": "EnumProperty",
@@ -80,10 +68,7 @@
                                         "EPalWazaID::AcidRain",
                                         "EPalWazaID::DragonBreath",
                                         "EPalWazaID::FlareArrow",
-                                        "EPalWazaID::AirCanon",
-                                        "EPalWazaID::DarkBall",
-                                        "EPalWazaID::DarkWave",
-                                        "EPalWazaID::SandTornado"
+                                        "EPalWazaID::Unique_SheepBall_Roll"
                                     ]
                                 },
                                 "type": "ArrayProperty"
@@ -95,7 +80,7 @@
                                 "value": {
                                     "Value": {
                                         "id": null,
-                                        "value": 1545000,
+                                        "value": 630000,
                                         "type": "Int64Property"
                                     }
                                 },
@@ -105,7 +90,7 @@
                                 "id": null,
                                 "value": {
                                     "type": "None",
-                                    "value": 52
+                                    "value": 33
                                 },
                                 "type": "ByteProperty"
                             },
@@ -113,7 +98,7 @@
                                 "id": null,
                                 "value": {
                                     "type": "None",
-                                    "value": 5
+                                    "value": 79
                                 },
                                 "type": "ByteProperty"
                             },
@@ -121,13 +106,13 @@
                                 "id": null,
                                 "value": {
                                     "type": "None",
-                                    "value": 48
+                                    "value": 71
                                 },
                                 "type": "ByteProperty"
                             },
                             "FullStomach": {
                                 "id": null,
-                                "value": 113.04215240478516,
+                                "value": 150.0,
                                 "type": "FloatProperty"
                             },
                             "PassiveSkillList": {
@@ -135,7 +120,10 @@
                                 "id": null,
                                 "value": {
                                     "values": [
-                                        "TrainerLogging_up1"
+                                        "ElementBoost_Fire_1_PAL",
+                                        "PAL_FullStomach_Down_1",
+                                        "CraftSpeed_up1",
+                                        "CraftSpeed_down2"
                                     ]
                                 },
                                 "type": "ArrayProperty"
@@ -144,14 +132,14 @@
                                 "struct_type": "DateTime",
                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                 "id": null,
-                                "value": 638414349714560000,
+                                "value": 638414401221090000,
                                 "type": "StructProperty"
                             },
                             "OwnerPlayerUId": {
                                 "struct_type": "Guid",
                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                 "id": null,
-                                "value": "00000000-0000-0000-0000-000000000001",
+                                "value": "ca591878-0000-0000-0000-000000000000",
                                 "type": "StructProperty"
                             },
                             "OldOwnerPlayerUIds": {
@@ -161,7 +149,7 @@
                                     "prop_name": "OldOwnerPlayerUIds",
                                     "prop_type": "StructProperty",
                                     "values": [
-                                        "00000000-0000-0000-0000-000000000001"
+                                        "ca591878-0000-0000-0000-000000000000"
                                     ],
                                     "type_name": "Guid",
                                     "id": "00000000-0000-0000-0000-000000000000"
@@ -182,7 +170,7 @@
                                                 "struct_type": "Guid",
                                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                                 "id": null,
-                                                "value": "69ca6b34-4b7a-9920-b216-d799139a5ead",
+                                                "value": "98eb0a5f-49ab-a71e-ae2f-1bb626df8ff1",
                                                 "type": "StructProperty"
                                             }
                                         },
@@ -190,7 +178,7 @@
                                     },
                                     "SlotIndex": {
                                         "id": null,
-                                        "value": 38,
+                                        "value": 3,
                                         "type": "IntProperty"
                                     }
                                 },
@@ -359,11 +347,16 @@
                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                 "id": null,
                                 "value": {
-                                    "x": -13673.597877427943,
-                                    "y": 230273.02943119034,
-                                    "z": 26201.47933987372
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 7088.492007293258
                                 },
                                 "type": "StructProperty"
+                            },
+                            "IsRarePal": {
+                                "value": false,
+                                "id": null,
+                                "type": "BoolProperty"
                             }
                         },
                         "type": "StructProperty"

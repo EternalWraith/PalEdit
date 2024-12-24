@@ -1,0 +1,49 @@
+{
+    "CodeName": "PREDATOR_Werewolf_Ice",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::IceBlade": 22,
+        "EPalWazaID::Unique_Werewolf_Ice_SnowScratch": 15,
+        "EPalWazaID::IciclePierce": 30,
+        "EPalWazaID::IcicleLine": 40,
+        "EPalWazaID::IcicleThrow": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::Unique_Werewolf_Ice_SnowScratch": 1,
+        "EPalWazaID::IcicleThrow": 2,
+        "EPalWazaID::IceBlade": 3,
+        "EPalWazaID::IciclePierce": 4,
+        "EPalWazaID::BlizzardLance": 5,
+        "EPalWazaID::PredatorBeam": 6,
+        "EPalWazaID::PredatorWave": 7,
+        "EPalWazaID::PredatorLockon": 8,
+        "EPalWazaID::IcicleLine": 9,
+        "EPalWazaID::DiamondFall": 10
+    },
+    "Scaling": {
+        "HP": 96,
+        "PHY": 130,
+        "MAG": 100,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 3,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

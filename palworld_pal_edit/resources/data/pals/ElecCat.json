@@ -1,0 +1,39 @@
+{
+    "CodeName": "ElecCat",
+    "Type": [
+        "Electricity",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::SpreadPulse": 1,
+        "EPalWazaID::MudShot": 7,
+        "EPalWazaID::ElecWave": 15,
+        "EPalWazaID::ThunderBall": 22,
+        "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::LineThunder": 40,
+        "EPalWazaID::Thunderbolt": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 60,
+        "PHY": 60,
+        "MAG": 75,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 1,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

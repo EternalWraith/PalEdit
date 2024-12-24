@@ -1,0 +1,40 @@
+{
+    "CodeName": "GYM_ThunderDragonMan_2",
+    "Type": [
+        "Dragon",
+        "Electricity"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": 1,
+        "EPalWazaID::RangeThunder": 2,
+        "EPalWazaID::Commet": 3,
+        "EPalWazaID::BeamSlicer": 4,
+        "EPalWazaID::BlastCanon": 5,
+        "EPalWazaID::RootLance": 6,
+        "EPalWazaID::SolarBeam": 7,
+        "EPalWazaID::WindEdge": 8
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 130,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 3,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}
