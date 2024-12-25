@@ -244,5 +244,30 @@
 
     "EternalFlame" : {
         "Rating": "Good"
-    }
+    },
+
+  "CraftSpeed_up3": {
+    "Rating": "Good"
+  },
+  "Deffence_up3": {
+    "Rating": "Good"
+  },
+  "DarkMechaDragon": {
+    "Rating": "Good"
+  },
+  "PAL_ALLAttack_up3": {
+    "Rating": "Good"
+  },
+  "PAL_FullStomach_Down_3": {
+    "Rating": "Good"
+  },
+  "PAL_Sanity_Down_3": {
+    "Rating": "Good"
+  },
+  "Stamina_Up_3": {
+    "Rating": "Good"
+  },
+  "Vampire": {
+    "Rating": "Good"
+  }
 }

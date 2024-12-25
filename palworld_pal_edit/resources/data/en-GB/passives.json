@@ -322,5 +322,38 @@
     "Alien": {
         "Name": "Otherworldly Cells",
         "Description": "Attack +10%; -15% damage received from Fire and Lightning damage"
-    }
+    },
+    "CraftSpeed_up3": {
+    "Name": "Remarkable Craftsmanship",
+    "Description": "Work Speed +75% (ToSelf)"
+  },
+  "Deffence_up3": {
+    "Name": "Diamond Body",
+    "Description": "Defense +30% (ToSelf)"
+  },
+  "DarkMechaDragon": {
+    "Name": "Invader",
+    "Description": "30% increase in Dark attack damage, 30% increase in Dragon attack damage"
+  },
+  "PAL_ALLAttack_up3": {
+    "Name": "Demon God",
+    "Description": "Attack +30%, Defense +5% (ToSelf)"
+  },
+  "PAL_FullStomach_Down_3": {
+    "Name": "Mastery of Fasting",
+    "Description": "Hunger decreases +20%"
+  },
+  "PAL_Sanity_Down_3": {
+    "Name": "Heart of the Immovable King",
+    "Description": "SAN drops +20.0% slower."
+  },
+  "Stamina_Up_3": {
+    "Name": "Eternal Engine",
+    "Description": "Max stamina +75% *This effect is only valid for rideable pals."
+  },
+  "Vampire": {
+    "Name": "Vampiric",
+    "Description": "Absorbs a portion of the damage dealt to restore HP. Does not sleep at night and continues to work."
+  }
+
 }
