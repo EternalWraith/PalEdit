@@ -1,0 +1,48 @@
+{
+    "CodeName": "RAID_NightLady",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkCanon": 1,
+        "EPalWazaID::DarkPulse": 7,
+        "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::Apocalypse": 40,
+        "EPalWazaID::Unique_NightLady_WarpBeam_Straight": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::GhostFlame": 1,
+        "EPalWazaID::DarkPulse": 2,
+        "EPalWazaID::ShadowBall": 3,
+        "EPalWazaID::DarkLaser": 4,
+        "EPalWazaID::DarkCanon": 5,
+        "EPalWazaID::DarkArrow": 6,
+        "EPalWazaID::Apocalypse": 7,
+        "EPalWazaID::Unique_NightLady_WarpBeam_Straight": 8
+    },
+    "Scaling": {
+        "HP": 120,
+        "PHY": 100,
+        "MAG": 140,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

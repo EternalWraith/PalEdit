@@ -1,0 +1,39 @@
+{
+    "CodeName": "Horus_Water",
+    "Type": [
+        "Water",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::BubbleShot": 7,
+        "EPalWazaID::AcidRain": 15,
+        "EPalWazaID::LineGeyser": 22,
+        "EPalWazaID::WallSplash": 30,
+        "EPalWazaID::Unique_Horus_Water_AquaStorm": 40,
+        "EPalWazaID::HydroPump": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 4,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

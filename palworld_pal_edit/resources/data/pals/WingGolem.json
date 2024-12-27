@@ -1,0 +1,39 @@
+{
+    "CodeName": "WingGolem",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::StoneShotgun": 7,
+        "EPalWazaID::ThrowRock": 15,
+        "EPalWazaID::Tremor": 22,
+        "EPalWazaID::RockLance": 30,
+        "EPalWazaID::Unique_WingGolem_RoundCutter": 40,
+        "EPalWazaID::SandTwister": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 135
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 3,
+        "Deforest": 0,
+        "Mining": 4,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 4,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

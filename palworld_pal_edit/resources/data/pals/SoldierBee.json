@@ -1,0 +1,40 @@
+{
+    "CodeName": "SoldierBee",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::WindCutter": 7,
+        "EPalWazaID::Unique_SoldierBee_NeedleLance": 11,
+        "EPalWazaID::SelfDestruct_Bee": 15,
+        "EPalWazaID::PoisonShot": 22,
+        "EPalWazaID::AcidRain": 30,
+        "EPalWazaID::GrassTornado": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 80,
+        "PHY": 100,
+        "MAG": 90,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 1,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 1,
+        "Deforest": 1,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 1,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

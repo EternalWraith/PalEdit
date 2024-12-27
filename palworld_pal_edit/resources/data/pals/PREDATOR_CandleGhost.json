@@ -1,0 +1,47 @@
+{
+    "CodeName": "PREDATOR_CandleGhost",
+    "Type": [
+        "Dark",
+        "Fire"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::DarkBall": 7,
+        "EPalWazaID::FireSeed": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::FlameFunnel": 40,
+        "EPalWazaID::Eruption": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::PredatorBeam": 1,
+        "EPalWazaID::PredatorWave": 7,
+        "EPalWazaID::PredatorLockon": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::FlameFunnel": 40,
+        "EPalWazaID::Eruption": 50
+    },
+    "Scaling": {
+        "HP": 126,
+        "PHY": 100,
+        "MAG": 125,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 2,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

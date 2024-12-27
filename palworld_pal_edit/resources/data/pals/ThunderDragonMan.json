@@ -1,0 +1,40 @@
+{
+    "CodeName": "ThunderDragonMan",
+    "Type": [
+        "Dragon",
+        "Electricity"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_ThunderDragonMan_ThunderSwordAttack": 1,
+        "EPalWazaID::LightningStrike": 7,
+        "EPalWazaID::SpreadPulse": 15,
+        "EPalWazaID::DragonBreath": 22,
+        "EPalWazaID::LineThunder": 30,
+        "EPalWazaID::ThreeThunder": 40,
+        "EPalWazaID::Thunderbolt": 50,
+        "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": 55
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 130,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 4,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

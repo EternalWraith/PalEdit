@@ -1,0 +1,48 @@
+{
+    "CodeName": "PREDATOR_VolcanicMonster_Ice",
+    "Type": [
+        "Ice",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::StoneShotgun": 7,
+        "EPalWazaID::BlizzardLance": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack": 30,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::RockLance": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::BlizzardLance": 1,
+        "EPalWazaID::IcicleThrow": 2,
+        "EPalWazaID::FrostBreath": 3,
+        "EPalWazaID::IceAge": 4,
+        "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack": 5,
+        "EPalWazaID::PredatorBeam": 6,
+        "EPalWazaID::PredatorWave": 7,
+        "EPalWazaID::PredatorLockon": 8
+    },
+    "Scaling": {
+        "HP": 132,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 130
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 3,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "RaijinDaughter_Water",
+    "Type": [
+        "Dark",
+        "Electricity"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::DarkWave": 7,
+        "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::AcidRain": 22,
+        "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::Apocalypse": 40,
+        "EPalWazaID::ThunderRain": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 110,
+        "MAG": 80,
+        "DEF": 75
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 1,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 1,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

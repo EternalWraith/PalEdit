@@ -1,0 +1,39 @@
+{
+    "CodeName": "Bastet",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::DarkBall": 7,
+        "EPalWazaID::DarkWave": 15,
+        "EPalWazaID::SandTornado": 22,
+        "EPalWazaID::GhostFlame": 30,
+        "EPalWazaID::ShadowBall": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 70,
+        "MAG": 60,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

@@ -1,0 +1,49 @@
+{
+    "CodeName": "PREDATOR_PurpleSpider",
+    "Type": [
+        "None",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PoisonFog": 1,
+        "EPalWazaID::PoisonShot": 7,
+        "EPalWazaID::DarkPulse": 15,
+        "EPalWazaID::DarkArrow": 22,
+        "EPalWazaID::Unique_PurpleSpider_SpiderRaid": 30,
+        "EPalWazaID::BubbleShower": 40,
+        "EPalWazaID::Apocalypse": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::PoisonShot": 1,
+        "EPalWazaID::GhostFlame": 2,
+        "EPalWazaID::ShadowBall": 3,
+        "EPalWazaID::Apocalypse": 4,
+        "EPalWazaID::PredatorBeam": 5,
+        "EPalWazaID::PredatorWave": 6,
+        "EPalWazaID::PredatorLockon": 7,
+        "EPalWazaID::Unique_PurpleSpider_SpiderRaid": 8,
+        "EPalWazaID::BubbleShower": 9
+    },
+    "Scaling": {
+        "HP": 132,
+        "PHY": 100,
+        "MAG": 100,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 2,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 2,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

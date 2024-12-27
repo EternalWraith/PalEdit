@@ -1,0 +1,50 @@
+{
+    "CodeName": "PREDATOR_LazyDragon",
+    "Type": [
+        "Dragon",
+        "Water"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::WaterGun": 7,
+        "EPalWazaID::DragonWave": 15,
+        "EPalWazaID::BubbleShot": 22,
+        "EPalWazaID::DragonBreath": 30,
+        "EPalWazaID::WaterBall": 40,
+        "EPalWazaID::DragonMeteor": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::Commet": 2,
+        "EPalWazaID::ChargeCanon": 3,
+        "EPalWazaID::LineGeyser": 4,
+        "EPalWazaID::DragonBreath": 5,
+        "EPalWazaID::WaterBall": 6,
+        "EPalWazaID::DragonMeteor": 7,
+        "EPalWazaID::PredatorBeam": 8,
+        "EPalWazaID::PredatorWave": 9,
+        "EPalWazaID::PredatorLockon": 10
+    },
+    "Scaling": {
+        "HP": 132,
+        "PHY": 110,
+        "MAG": 100,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 2,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

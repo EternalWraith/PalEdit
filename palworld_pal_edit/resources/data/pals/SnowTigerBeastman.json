@@ -1,0 +1,40 @@
+{
+    "CodeName": "SnowTigerBeastman",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::ThrowRock": 1,
+        "EPalWazaID::BlizzardLance": 7,
+        "EPalWazaID::FrostBreath": 15,
+        "EPalWazaID::Unique_SnowTigerBeastman_TrampleSlash": 22,
+        "EPalWazaID::Tremor": 30,
+        "EPalWazaID::RockBeat": 40,
+        "EPalWazaID::DiamondFall": 50,
+        "EPalWazaID::Unique_SnowTigerBeastman_SnowImpact": 55
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 140,
+        "PHY": 100,
+        "MAG": 130,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 3,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 4,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

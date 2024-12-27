@@ -1,0 +1,39 @@
+{
+    "CodeName": "FireKirin",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::FireBlast": 7,
+        "EPalWazaID::FireSeed": 15,
+        "EPalWazaID::FlareArrow": 22,
+        "EPalWazaID::Unique_FireKirin_Tackle": 30,
+        "EPalWazaID::Inferno": 40,
+        "EPalWazaID::FireBall": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 110,
+        "MAG": 95,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 2,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 1,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

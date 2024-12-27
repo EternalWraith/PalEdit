@@ -1,0 +1,44 @@
+{
+    "CodeName": "GYM_BlackGriffon_2_Avatar",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_BlackGriffon_TackleLaser": 1,
+        "EPalWazaID::Unique_BlackGriffon_TackleLaser2": 2,
+        "EPalWazaID::DarkLaser": 3,
+        "EPalWazaID::Apocalypse": 4,
+        "EPalWazaID::IciclePierce": 5,
+        "EPalWazaID::DoubleIcicleThrow": 6,
+        "EPalWazaID::IcicleLine": 7,
+        "EPalWazaID::BeamSlicer": 8,
+        "EPalWazaID::ShokeiLaser": 9,
+        "EPalWazaID::SandTwister": 10,
+        "EPalWazaID::WallSplash": 11,
+        "EPalWazaID::FlameFunnel": 12
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 130,
+        "MAG": 120,
+        "DEF": 140
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

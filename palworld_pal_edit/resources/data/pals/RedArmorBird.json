@@ -1,0 +1,40 @@
+{
+    "CodeName": "RedArmorBird",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::FlareArrow": 15,
+        "EPalWazaID::SandTornado": 22,
+        "EPalWazaID::Unique_RedArmorBird_TriplePeck": 26,
+        "EPalWazaID::FlareTornado": 30,
+        "EPalWazaID::Flamethrower": 40,
+        "EPalWazaID::FireBall": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 95,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

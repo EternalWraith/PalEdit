@@ -1,0 +1,41 @@
+{
+    "CodeName": "BlackCentaur",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkWave": 1,
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::GhostFlame": 15,
+        "EPalWazaID::ShadowBall": 22,
+        "EPalWazaID::RockLance": 30,
+        "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes": 40,
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::Apocalypse": 55,
+        "EPalWazaID::RockBeat": 60
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 130,
+        "PHY": 100,
+        "MAG": 145,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 2,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

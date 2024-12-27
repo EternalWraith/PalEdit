@@ -1,0 +1,39 @@
+{
+    "CodeName": "MoonQueen",
+    "Type": [
+        "Dark",
+        "Normal"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkCanon": 1,
+        "EPalWazaID::DarkArrow": 7,
+        "EPalWazaID::AirBlade": 15,
+        "EPalWazaID::HolyBlast": 22,
+        "EPalWazaID::Unique_MoonQueen_MoonBlade": 30,
+        "EPalWazaID::StarMine": 40,
+        "EPalWazaID::Unique_MoonQueen_MoonBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 130,
+        "PHY": 100,
+        "MAG": 115,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 4,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 3,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

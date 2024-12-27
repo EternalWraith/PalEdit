@@ -1,0 +1,39 @@
+{
+    "CodeName": "SakuraSaurus_Water",
+    "Type": [
+        "Leaf",
+        "Water"
+    ],
+    "Moveset": {
+        "EPalWazaID::WaterGun": 1,
+        "EPalWazaID::BubbleShot": 7,
+        "EPalWazaID::Unique_SakuraSaurus_SideTackle": 15,
+        "EPalWazaID::SeedMine": 22,
+        "EPalWazaID::RootAttack": 30,
+        "EPalWazaID::WaterBall": 40,
+        "EPalWazaID::HydroPump": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 80,
+        "MAG": 95,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 3,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

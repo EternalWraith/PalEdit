@@ -1,0 +1,39 @@
+{
+    "CodeName": "CuteButterfly",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::WindCutter": 7,
+        "EPalWazaID::PoisonFog": 15,
+        "EPalWazaID::SandTornado": 22,
+        "EPalWazaID::SeedMine": 30,
+        "EPalWazaID::GrassTornado": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 100,
+        "MAG": 80,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 2,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 1,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

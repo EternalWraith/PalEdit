@@ -1,0 +1,39 @@
+{
+    "CodeName": "Boar",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_Boar_Tackle": 1,
+        "EPalWazaID::MudShot": 7,
+        "EPalWazaID::PowerShot": 15,
+        "EPalWazaID::StoneShotgun": 22,
+        "EPalWazaID::PowerBall": 30,
+        "EPalWazaID::RockLance": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 80,
+        "PHY": 100,
+        "MAG": 70,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 1,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

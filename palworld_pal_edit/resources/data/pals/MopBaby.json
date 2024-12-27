@@ -1,0 +1,39 @@
+{
+    "CodeName": "MopBaby",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::IceMissile": 7,
+        "EPalWazaID::IceBlade": 15,
+        "EPalWazaID::PowerBall": 22,
+        "EPalWazaID::BlizzardLance": 30,
+        "EPalWazaID::FrostBreath": 40,
+        "EPalWazaID::IcicleThrow": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 60,
+        "PHY": 100,
+        "MAG": 60,
+        "DEF": 60
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 1,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

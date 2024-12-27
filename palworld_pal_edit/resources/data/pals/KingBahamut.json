@@ -1,0 +1,40 @@
+{
+    "CodeName": "KingBahamut",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::FireBlast": 7,
+        "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::Flamethrower": 22,
+        "EPalWazaID::Inferno": 30,
+        "EPalWazaID::Unique_KingBahamut_ArmSmash": 35,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::RockLance": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 150,
+        "MAG": 125,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 4,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

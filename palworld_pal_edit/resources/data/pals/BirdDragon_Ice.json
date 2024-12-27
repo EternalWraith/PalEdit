@@ -1,0 +1,40 @@
+{
+    "CodeName": "BirdDragon_Ice",
+    "Type": [
+        "Ice",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::IceMissile": 7,
+        "EPalWazaID::IceBlade": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::Unique_BirdDragon_Ice_IceBreath": 26,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 100,
+        "MAG": 120,
+        "DEF": 95
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 2,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

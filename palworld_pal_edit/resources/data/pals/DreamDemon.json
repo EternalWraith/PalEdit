@@ -1,0 +1,39 @@
+{
+    "CodeName": "DreamDemon",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkBall": 1,
+        "EPalWazaID::PoisonShot": 7,
+        "EPalWazaID::DarkWave": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::GhostFlame": 30,
+        "EPalWazaID::ShadowBall": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 100,
+        "MAG": 75,
+        "DEF": 60
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

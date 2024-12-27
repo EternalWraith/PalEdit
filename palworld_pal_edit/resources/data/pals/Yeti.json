@@ -1,0 +1,40 @@
+{
+    "CodeName": "Yeti",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::WindCutter": 7,
+        "EPalWazaID::IceBlade": 15,
+        "EPalWazaID::BlizzardLance": 22,
+        "EPalWazaID::FrostBreath": 30,
+        "EPalWazaID::Unique_Yeti_SnowBall": 35,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 140,
+        "PHY": 100,
+        "MAG": 80,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 3,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 2,
+        "Transport": 4,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

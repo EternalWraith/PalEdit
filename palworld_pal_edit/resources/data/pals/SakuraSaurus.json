@@ -1,0 +1,39 @@
+{
+    "CodeName": "SakuraSaurus",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::WindCutter": 1,
+        "EPalWazaID::MudShot": 7,
+        "EPalWazaID::Unique_SakuraSaurus_SideTackle": 15,
+        "EPalWazaID::SeedMine": 22,
+        "EPalWazaID::GrassTornado": 30,
+        "EPalWazaID::RootAttack": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 80,
+        "MAG": 90,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 3,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

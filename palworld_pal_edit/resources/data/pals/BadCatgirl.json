@@ -1,0 +1,39 @@
+{
+    "CodeName": "BadCatgirl",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PoisonFog": 1,
+        "EPalWazaID::PoisonShot": 7,
+        "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::DarkWave": 22,
+        "EPalWazaID::BubbleShower": 30,
+        "EPalWazaID::ShadowBall": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 100,
+        "MAG": 100,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 3,
+        "Collection": 2,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

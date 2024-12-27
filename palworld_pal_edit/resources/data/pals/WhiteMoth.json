@@ -1,0 +1,39 @@
+{
+    "CodeName": "WhiteMoth",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::BlizzardLance": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::GhostFlame": 30,
+        "EPalWazaID::WaterBall": 40,
+        "EPalWazaID::IcicleThrow": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 90,
+        "MAG": 90,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 2,
+        "Cool": 2,
+        "Transport": 0,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

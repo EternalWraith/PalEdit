@@ -1,0 +1,40 @@
+{
+    "CodeName": "WeaselDragon",
+    "Type": [
+        "Ice",
+        "Dragon"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::DragonCanon": 7,
+        "EPalWazaID::Unique_WeaselDragon_FlyingTackle": 11,
+        "EPalWazaID::DragonWave": 15,
+        "EPalWazaID::IceBlade": 22,
+        "EPalWazaID::DragonBreath": 30,
+        "EPalWazaID::FrostBreath": 40,
+        "EPalWazaID::DragonMeteor": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 100,
+        "MAG": 80,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 1,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

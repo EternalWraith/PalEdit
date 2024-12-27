@@ -1,0 +1,41 @@
+{
+    "CodeName": "IceHorse",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::IceMissile": 7,
+        "EPalWazaID::IceBlade": 15,
+        "EPalWazaID::BlizzardLance": 22,
+        "EPalWazaID::Unique_IceHorse_IceBladeAttack": 30,
+        "EPalWazaID::FrostBreath": 40,
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::HolyBlast": 55,
+        "EPalWazaID::DoubleIcicleThrow": 60
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 140,
+        "PHY": 100,
+        "MAG": 140,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 4,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

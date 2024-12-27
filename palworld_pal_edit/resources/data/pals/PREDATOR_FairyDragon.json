@@ -1,0 +1,49 @@
+{
+    "CodeName": "PREDATOR_FairyDragon",
+    "Type": [
+        "Dragon",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::DragonWave": 7,
+        "EPalWazaID::FlareArrow": 15,
+        "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
+        "EPalWazaID::DragonBreath": 30,
+        "EPalWazaID::HyperBeam": 40,
+        "EPalWazaID::DragonMeteor": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::DragonMeteor": 1,
+        "EPalWazaID::ThreeCommet": 2,
+        "EPalWazaID::BeamSlicer": 3,
+        "EPalWazaID::Unique_FairyDragon_FairyTornado": 4,
+        "EPalWazaID::BlastCanon": 6,
+        "EPalWazaID::DragonBreath": 7,
+        "EPalWazaID::PredatorBeam": 8,
+        "EPalWazaID::PredatorWave": 9,
+        "EPalWazaID::PredatorLockon": 10
+    },
+    "Scaling": {
+        "HP": 132,
+        "PHY": 80,
+        "MAG": 80,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

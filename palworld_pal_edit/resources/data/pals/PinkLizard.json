@@ -1,0 +1,39 @@
+{
+    "CodeName": "PinkLizard",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::PoisonShot": 7,
+        "EPalWazaID::DarkWave": 15,
+        "EPalWazaID::AcidRain": 22,
+        "EPalWazaID::PowerBall": 30,
+        "EPalWazaID::SelfDestruct": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 70,
+        "MAG": 70,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 1,
+        "OilExtraction": 0,
+        "ProductMedicine": 2,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

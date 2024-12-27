@@ -1,0 +1,49 @@
+{
+    "CodeName": "PREDATOR_Horus_Water",
+    "Type": [
+        "Water",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::BubbleShot": 7,
+        "EPalWazaID::AcidRain": 15,
+        "EPalWazaID::LineGeyser": 22,
+        "EPalWazaID::WallSplash": 30,
+        "EPalWazaID::Unique_Horus_Water_AquaStorm": 40,
+        "EPalWazaID::HydroPump": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::AcidRain": 2,
+        "EPalWazaID::LineGeyser": 3,
+        "EPalWazaID::WaterBall": 4,
+        "EPalWazaID::Unique_Horus_Water_AquaStorm": 5,
+        "EPalWazaID::WallSplash": 6,
+        "EPalWazaID::PredatorBeam": 7,
+        "EPalWazaID::PredatorWave": 8,
+        "EPalWazaID::PredatorLockon": 9
+    },
+    "Scaling": {
+        "HP": 120,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 4,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

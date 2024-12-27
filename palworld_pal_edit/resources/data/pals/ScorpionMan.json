@@ -1,0 +1,39 @@
+{
+    "CodeName": "ScorpionMan",
+    "Type": [
+        "Dark",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::PoisonShot": 1,
+        "EPalWazaID::DarkCanon": 7,
+        "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::SandTornado": 22,
+        "EPalWazaID::Unique_ScorpionMan_Uppercut": 30,
+        "EPalWazaID::RockLance": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 3,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 1,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

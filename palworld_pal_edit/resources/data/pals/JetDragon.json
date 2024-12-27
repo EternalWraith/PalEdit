@@ -1,0 +1,41 @@
+{
+    "CodeName": "JetDragon",
+    "Type": [
+        "Dragon",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireSeed": 1,
+        "EPalWazaID::DragonWave": 7,
+        "EPalWazaID::FlareTornado": 15,
+        "EPalWazaID::DragonBreath": 22,
+        "EPalWazaID::Unique_JetDragon_JumpBeam": 30,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::BeamSlicer": 55,
+        "EPalWazaID::CommetRain": 60
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 100,
+        "MAG": 140,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 3,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 3,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

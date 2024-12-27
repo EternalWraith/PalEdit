@@ -1,0 +1,39 @@
+{
+    "CodeName": "LavaGirl",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::FlareArrow": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::FlareTornado": 30,
+        "EPalWazaID::Inferno": 40,
+        "EPalWazaID::FireBall": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 60,
+        "PHY": 100,
+        "MAG": 70,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 1,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

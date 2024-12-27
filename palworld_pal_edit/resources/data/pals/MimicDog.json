@@ -1,0 +1,39 @@
+{
+    "CodeName": "MimicDog",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::DarkCanon": 7,
+        "EPalWazaID::GhostFlame": 15,
+        "EPalWazaID::PowerBall": 22,
+        "EPalWazaID::AirBlade": 30,
+        "EPalWazaID::HolyBlast": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 60,
+        "PHY": 100,
+        "MAG": 60,
+        "DEF": 130
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

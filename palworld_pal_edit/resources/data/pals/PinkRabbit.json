@@ -1,0 +1,39 @@
+{
+    "CodeName": "PinkRabbit",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::IceMissile": 15,
+        "EPalWazaID::IcicleThrow": 22,
+        "EPalWazaID::PowerBall": 30,
+        "EPalWazaID::BlizzardLance": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 75,
+        "PHY": 100,
+        "MAG": 65,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

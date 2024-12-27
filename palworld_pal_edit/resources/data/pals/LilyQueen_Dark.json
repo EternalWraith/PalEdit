@@ -1,0 +1,39 @@
+{
+    "CodeName": "LilyQueen_Dark",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkBall": 1,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::DarkWave": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 115
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 3,
+        "Collection": 2,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 3,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "Alpaca",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::Unique_Alpaca_Tackle": 7,
+        "EPalWazaID::MudShot": 15,
+        "EPalWazaID::PowerShot": 22,
+        "EPalWazaID::ElecWave": 30,
+        "EPalWazaID::PowerBall": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 90,
+        "MAG": 75,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "KingBahamut_Dragon",
+    "Type": [
+        "Dragon",
+        "Fire"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonWave": 1,
+        "EPalWazaID::Flamethrower": 7,
+        "EPalWazaID::FlameWall": 15,
+        "EPalWazaID::Commet": 22,
+        "EPalWazaID::BeamSlicer": 30,
+        "EPalWazaID::Unique_KingBahamut_ArmSmash": 40,
+        "EPalWazaID::Unique_KingBahamut_AirCrash": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 150,
+        "MAG": 130,
+        "DEF": 125
+    },
+    "Suitabilities": {
+        "EmitFlame": 4,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 4,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,50 @@
+{
+    "CodeName": "PREDATOR_WhiteTiger_Ground",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::StoneShotgun": 7,
+        "EPalWazaID::ThrowRock": 15,
+        "EPalWazaID::SandTornado": 22,
+        "EPalWazaID::Unique_WhiteTiger_Ground_IronScratch": 30,
+        "EPalWazaID::Tremor": 35,
+        "EPalWazaID::RockLance": 40,
+        "EPalWazaID::RockBeat": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::StoneShotgun": 1,
+        "EPalWazaID::RockLance": 2,
+        "EPalWazaID::Tremor": 3,
+        "EPalWazaID::SandTwister": 4,
+        "EPalWazaID::AirBlade": 5,
+        "EPalWazaID::Unique_WhiteTiger_Ground_IronScratch": 6,
+        "EPalWazaID::PredatorBeam": 7,
+        "EPalWazaID::PredatorWave": 8,
+        "EPalWazaID::PredatorLockon": 9
+    },
+    "Scaling": {
+        "HP": 120,
+        "PHY": 140,
+        "MAG": 100,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

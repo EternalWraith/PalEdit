@@ -1,0 +1,39 @@
+{
+    "CodeName": "HerculesBeetle_Ground",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::SeedMachinegun": 7,
+        "EPalWazaID::Unique_HerculesBeetle_BeetleTackle": 15,
+        "EPalWazaID::ThrowRock": 22,
+        "EPalWazaID::WindEdge": 30,
+        "EPalWazaID::Tremor": 40,
+        "EPalWazaID::RockBeat": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

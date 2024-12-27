@@ -1,0 +1,50 @@
+{
+    "CodeName": "PREDATOR_MushroomDragon",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PoisonShot": 1,
+        "EPalWazaID::SeedMachinegun": 7,
+        "EPalWazaID::GrassTornado": 15,
+        "EPalWazaID::SeedMine": 22,
+        "EPalWazaID::RootAttack": 30,
+        "EPalWazaID::RootLance": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::PoisonShot": 1,
+        "EPalWazaID::WindEdge": 2,
+        "EPalWazaID::RaidCutter": 3,
+        "EPalWazaID::SeedMine": 4,
+        "EPalWazaID::RootAttack": 5,
+        "EPalWazaID::RootLance": 6,
+        "EPalWazaID::BubbleShower": 7,
+        "EPalWazaID::PredatorBeam": 8,
+        "EPalWazaID::PredatorWave": 9,
+        "EPalWazaID::PredatorLockon": 10
+    },
+    "Scaling": {
+        "HP": 132,
+        "PHY": 100,
+        "MAG": 80,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 2,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 2,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

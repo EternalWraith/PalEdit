@@ -1,0 +1,39 @@
+{
+    "CodeName": "SmallArmadillo",
+    "Type": [
+        "Earth",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::MudShot": 7,
+        "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::PowerBall": 22,
+        "EPalWazaID::SandTornado": 30,
+        "EPalWazaID::Tremor": 40,
+        "EPalWazaID::RockLance": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 75,
+        "PHY": 100,
+        "MAG": 70,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 1,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

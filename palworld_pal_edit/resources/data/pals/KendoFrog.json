@@ -1,0 +1,39 @@
+{
+    "CodeName": "KendoFrog",
+    "Type": [
+        "Water",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::WaterGun": 1,
+        "EPalWazaID::BubbleShot": 7,
+        "EPalWazaID::AcidRain": 15,
+        "EPalWazaID::WaterBall": 22,
+        "EPalWazaID::LineGeyser": 30,
+        "EPalWazaID::WallSplash": 40,
+        "EPalWazaID::HydroPump": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 80,
+        "PHY": 100,
+        "MAG": 100,
+        "DEF": 85
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 1,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 1,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

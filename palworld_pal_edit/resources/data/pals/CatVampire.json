@@ -1,0 +1,39 @@
+{
+    "CodeName": "CatVampire",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PoisonShot": 1,
+        "EPalWazaID::DarkBall": 7,
+        "EPalWazaID::DarkWave": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::Inferno": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 3,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

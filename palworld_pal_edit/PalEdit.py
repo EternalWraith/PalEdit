@@ -122,13 +122,11 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.10"
+    version = "0.11"
     ftsize = 18
     font = "Microsoft YaHei"
-    badskill = "#DE3C3A"
-    okayskill = "#DFE8E7"
-    goodskill = "#FEDE00"
-    levelcap = 55
+    skill_col = ["#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8"]
+    levelcap = 60
 
 
 class PalEdit():
@@ -533,8 +531,10 @@ class PalEdit():
             else:
                 self.learntMoves.insert(tk.constants.END, an)
 
-        self.ptype.config(text=pal.GetPrimary(), bg=PalInfo.PalElements[pal.GetPrimary()])
-        self.stype.config(text=pal.GetSecondary(), bg=PalInfo.PalElements[pal.GetSecondary()])
+        
+        
+        self.ptype.config(text=self.i18n[f'{pal.GetPrimary().lower()}_lbl'], bg=PalInfo.PalElements[pal.GetPrimary()])
+        self.stype.config(text=self.i18n[f'{pal.GetSecondary().lower()}_lbl'], bg=PalInfo.PalElements[pal.GetSecondary()])
 
         # ⚔🏹
         # talent_hp_var.set(pal.GetTalentHP())
@@ -551,6 +551,7 @@ class PalEdit():
         self.updateAttacks()
 
         if not pal.IsHuman():
+            
             pt = pal.GetType()
             for i in suitabilities:
                 self.suits[f"{i}_label"].config(text=pt._suits[i])
@@ -561,6 +562,7 @@ class PalEdit():
             self.satkstatval.config(text=calc["MAG"])
             self.defstatval.config(text=calc["DEF"])
         else:
+            
             for i in suitabilities:
                 self.suits[f"{i}_label"].config(text="-")
 
@@ -568,6 +570,19 @@ class PalEdit():
             self.matkstatval.config(text="n/a")
             self.satkstatval.config(text="n/a")
             self.defstatval.config(text="n/a")
+
+        if pal.IsHuman() or pal.IsTower():
+            self.alphabox.config(state=tk.DISABLED)
+            self.luckybox.config(state=tk.DISABLED)
+
+            self.luckyvar.set(0)
+            self.alphavar.set(0)
+
+            pal.SetLucky(False)
+            pal.SetBoss(False)
+        else:
+            self.alphabox.config(state=tk.NORMAL)
+            self.luckybox.config(state=tk.NORMAL)
 
         # rank
         self.ranksvar.set(pal.GetRank() - 1)
@@ -1004,7 +1019,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def setskillcolours(self):
         for snum in range(0, 4):
             rating = PalInfo.PassiveRating[self.skills[snum].get()]
-            col = PalEditConfig.goodskill if rating == "Good" else PalEditConfig.okayskill if rating == "Okay" else PalEditConfig.badskill
+            col = PalEditConfig.skill_col[int(rating)+1]
 
             self.skilldrops[snum].config(highlightbackground=col, bg=PalEdit.mean_color(col, "ffffff"),
                                          activebackground=PalEdit.mean_color(col, "ffffff"))
@@ -1114,7 +1129,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if i == -1:
             print("Player Pal Storage is full!")
             return
-        pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
+        print(playerguid)
+        pal.InitializationPal(newguid, '00000000-0000-0000-0000-000000000000', groupguid, slotguid)
         pal.SetSoltIndex(i)
         self.palguidmanager.AddGroupSaveData(groupguid, newguid)
         self.palguidmanager.SetContainerSave(slotguid, i, newguid)
@@ -1221,6 +1237,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.gui.title(f"PalEdit v{PalEditConfig.version}")
 
     def add_lang_menu(self, langmenu, lang):
+        if lang in ["pals", "attacks"]: return
         with open(f"{PalInfo.module_dir}/resources/data/{lang}/ui.json", "r", encoding="utf-8") as f:
             content = json.load(f)
             l = content["language"]
@@ -1504,12 +1521,12 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.attackdrops[2].pack(fill=tk.constants.X)
         self.attackdrops[2].config(font=(PalEditConfig.font, PalEditConfig.ftsize), width=12, direction="right")
 
-        self.attackdrops[0].config(highlightbackground=PalInfo.PalElements["Electric"],
-                                   bg=PalEdit.mean_color(PalInfo.PalElements["Electric"], "ffffff"),
-                                   activebackground=PalEdit.mean_color(PalInfo.PalElements["Electric"], "ffffff"))
-        self.attackdrops[1].config(highlightbackground=PalInfo.PalElements["Electric"],
-                                   bg=PalEdit.mean_color(PalInfo.PalElements["Electric"], "ffffff"),
-                                   activebackground=PalEdit.mean_color(PalInfo.PalElements["Electric"], "ffffff"))
+        self.attackdrops[0].config(highlightbackground=PalInfo.PalElements["Electricity"],
+                                   bg=PalEdit.mean_color(PalInfo.PalElements["Electricity"], "ffffff"),
+                                   activebackground=PalEdit.mean_color(PalInfo.PalElements["Electricity"], "ffffff"))
+        self.attackdrops[1].config(highlightbackground=PalInfo.PalElements["Electricity"],
+                                   bg=PalEdit.mean_color(PalInfo.PalElements["Electricity"], "ffffff"),
+                                   activebackground=PalEdit.mean_color(PalInfo.PalElements["Electricity"], "ffffff"))
         self.attackdrops[2].config(highlightbackground=PalInfo.PalElements["Dark"],
                                    bg=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"),
                                    activebackground=PalEdit.mean_color(PalInfo.PalElements["Dark"], "ffffff"))
@@ -1562,9 +1579,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         typeframe = tk.Frame(resourceview)
         typeframe.pack(expand=True, fill=tk.constants.X)
-        self.ptype = tk.Label(typeframe, text=self.i18n['electric_lbl'],
+        self.ptype = tk.Label(typeframe, text=self.i18n['electricity_lbl'],
                               font=(PalEditConfig.font, PalEditConfig.ftsize),
-                              bg=PalInfo.PalElements["Electric"], width=6)
+                              bg=PalInfo.PalElements["Electricity"], width=6)
         self.i18n_el['electric_lbl'] = self.ptype
         self.ptype.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
         self.stype = tk.Label(typeframe, text=self.i18n['dark_lbl'], font=(PalEditConfig.font, PalEditConfig.ftsize),
@@ -1576,16 +1593,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         formframe.pack(expand=True, fill=tk.constants.X)
         self.luckyvar = tk.IntVar()
         self.alphavar = tk.IntVar()
-        luckybox = tk.Checkbutton(formframe, text=self.i18n['lucky_lbl'], variable=self.luckyvar, onvalue='1',
+        self.luckybox = tk.Checkbutton(formframe, text=self.i18n['lucky_lbl'], variable=self.luckyvar, onvalue='1',
                                   offvalue='0',
                                   command=self.togglelucky)
-        self.i18n_el['lucky_lbl'] = luckybox
-        luckybox.pack(side=tk.constants.LEFT, expand=True)
-        alphabox = tk.Checkbutton(formframe, text=self.i18n['alpha_lbl'], variable=self.alphavar, onvalue='1',
+        self.i18n_el['lucky_lbl'] = self.luckybox
+        self.luckybox.pack(side=tk.constants.LEFT, expand=True)
+        self.alphabox = tk.Checkbutton(formframe, text=self.i18n['alpha_lbl'], variable=self.alphavar, onvalue='1',
                                   offvalue='0',
                                   command=self.togglealpha)
-        self.i18n_el['alpha_lbl'] = alphabox
-        alphabox.pack(side=tk.constants.RIGHT, expand=True)
+        self.i18n_el['alpha_lbl'] = self.alphabox
+        self.alphabox.pack(side=tk.constants.RIGHT, expand=True)
 
         button = Button(resourceview, text=self.i18n['btn_clone_pal'], command=self.clonepal)
         button.config(font=(PalEditConfig.font, 12))
@@ -1707,9 +1724,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.speciesvar = tk.StringVar()
         self.speciesvar_name = tk.StringVar()
         self.speciesvar_name.set("PalEdit")
-        self.palname = tk.OptionMenu(editview, self.speciesvar_name, *species, command=self.changespeciestype)
-        self.palname.config(font=(PalEditConfig.font, PalEditConfig.ftsize), padx=0, pady=0, borderwidth=1, width=5,
-                            direction='right')
+        self.palname = ttk.Combobox(editview, textvariable=self.speciesvar_name, values=species)
+        #self.palname = tk.OptionMenu(editview, self.speciesvar_name, *species, command=self.changespeciestype)
+        self.palname.bind("<<ComboboxSelected>>", self.changespeciestype)
+        self.palname.config(font=(PalEditConfig.font, PalEditConfig.ftsize),
+                            #padx=0,
+                            #pady=0,
+                            #borderwidth=1,
+                            width=5,
+                            #direction='right'
+                            )
         self.palname.pack(expand=True, fill=tk.constants.X)
 
         genderframe = tk.Frame(editview, pady=0)
@@ -1897,18 +1921,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilldrops[3].pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.BOTH)
         self.skilldrops[3].config(font=(PalEditConfig.font, PalEditConfig.ftsize), width=6, direction="right")
 
-        self.skilldrops[0].config(highlightbackground=PalEditConfig.goodskill,
-                                  bg=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"))
-        self.skilldrops[1].config(highlightbackground=PalEditConfig.goodskill,
-                                  bg=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"))
-        self.skilldrops[2].config(highlightbackground=PalEditConfig.goodskill,
-                                  bg=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"))
-        self.skilldrops[3].config(highlightbackground=PalEditConfig.goodskill,
-                                  bg=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"))
+        self.skilldrops[0].config(highlightbackground=PalEditConfig.skill_col[2],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
+        self.skilldrops[1].config(highlightbackground=PalEditConfig.skill_col[2],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
+        self.skilldrops[2].config(highlightbackground=PalEditConfig.skill_col[2],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
+        self.skilldrops[3].config(highlightbackground=PalEditConfig.skill_col[2],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
 
         self.skilldrops[0].bind("<Enter>", lambda evt, num=0: self.changetext(num))
         self.skilldrops[1].bind("<Enter>", lambda evt, num=1: self.changetext(num))
@@ -2111,7 +2135,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el["health_soul_lbl"] = hpsoultag
         self.hpsoulval = tk.Label(hpsoul, width=6, text="+30%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
         self.hpsoulval.pack(side=tk.constants.RIGHT)
-        hpsoulbar = tk.Scale(hpsoul, showvalue=False, variable=self.hpsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        hpsoulbar = tk.Scale(hpsoul, showvalue=False, variable=self.hpsoulvar, from_=0, to=20, orient=HORIZONTAL)
         hpsoulbar.pack(side=tk.constants.RIGHT)
 
         atsoul = tk.Frame(soulview)
@@ -2121,7 +2145,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el["attack_soul_lbl"] = atsoultag
         self.atsoulval = tk.Label(atsoul, width=6, text="+15%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
         self.atsoulval.pack(side=tk.constants.RIGHT)
-        atsoulbar = tk.Scale(atsoul, showvalue=False, variable=self.atsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        atsoulbar = tk.Scale(atsoul, showvalue=False, variable=self.atsoulvar, from_=0, to=20, orient=HORIZONTAL)
         atsoulbar.pack(side=tk.constants.RIGHT)
 
         dfsoul = tk.Frame(soulview)
@@ -2131,7 +2155,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el["defence_soul_lbl"] = dfsoultag
         self.dfsoulval = tk.Label(dfsoul, width=6, text="+21%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
         self.dfsoulval.pack(side=tk.constants.RIGHT)
-        dfsoulbar = tk.Scale(dfsoul, showvalue=False, variable=self.dfsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        dfsoulbar = tk.Scale(dfsoul, showvalue=False, variable=self.dfsoulvar, from_=0, to=20, orient=HORIZONTAL)
         dfsoulbar.pack(side=tk.constants.RIGHT)
 
         wssoul = tk.Frame(soulview)
@@ -2141,7 +2165,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el["working_soul_lbl"] = wssoultag
         self.wssoulval = tk.Label(wssoul, width=6, text="+0%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
         self.wssoulval.pack(side=tk.constants.RIGHT)
-        wssoulbar = tk.Scale(wssoul, showvalue=False, variable=self.wssoulvar, from_=0, to=10, orient=HORIZONTAL)
+        wssoulbar = tk.Scale(wssoul, showvalue=False, variable=self.wssoulvar, from_=0, to=20, orient=HORIZONTAL)
         wssoulbar.pack(side=tk.constants.RIGHT)
         
         # DEBUG

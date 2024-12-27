@@ -1,0 +1,45 @@
+{
+    "CodeName": "GYM_MoonQueen_2",
+    "Type": [
+        "Dark",
+        "Normal"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_MoonQueen_MoonBeam": 1,
+        "EPalWazaID::Unique_MoonQueen_IceMoonBlade": 2,
+        "EPalWazaID::StarMine": 3,
+        "EPalWazaID::AirBlade": 4,
+        "EPalWazaID::HolyBlast": 5,
+        "EPalWazaID::IciclePierce": 6,
+        "EPalWazaID::ShadowBall": 7,
+        "EPalWazaID::IceAge": 8,
+        "EPalWazaID::DoubleIcicleThrow": 9,
+        "EPalWazaID::DiamondFall": 10,
+        "EPalWazaID::ThreeCommet": 11,
+        "EPalWazaID::BlastCanon": 12,
+        "EPalWazaID::DarkCanon": 13
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 130,
+        "PHY": 100,
+        "MAG": 115,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

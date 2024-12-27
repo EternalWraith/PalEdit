@@ -1,0 +1,40 @@
+{
+    "CodeName": "Yeti_Grass",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::WindCutter": 1,
+        "EPalWazaID::WaterGun": 7,
+        "EPalWazaID::SeedMine": 15,
+        "EPalWazaID::GrassTornado": 22,
+        "EPalWazaID::RootAttack": 30,
+        "EPalWazaID::Unique_Yeti_Grass_GrassBall": 35,
+        "EPalWazaID::WaterBall": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 140,
+        "PHY": 100,
+        "MAG": 80,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 1,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 3,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 4,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

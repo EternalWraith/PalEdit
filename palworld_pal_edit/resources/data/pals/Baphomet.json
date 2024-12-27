@@ -1,0 +1,39 @@
+{
+    "CodeName": "Baphomet",
+    "Type": [
+        "Fire",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::FlareArrow": 15,
+        "EPalWazaID::Unique_Baphomet_SwallowKite": 22,
+        "EPalWazaID::DarkWave": 30,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::Inferno": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 95,
+        "PHY": 150,
+        "MAG": 100,
+        "DEF": 85
+    },
+    "Suitabilities": {
+        "EmitFlame": 1,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 1,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

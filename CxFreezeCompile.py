@@ -11,8 +11,8 @@ build_options = {
 base = "Win32GUI" if sys.platform == "win32" else None
 
 setup(
-    name = "PalEdit v0.10",
-    version = "0.10",
+    name = "PalEdit v0.11",
+    version = "0.11",
     description = "A simple tool for editing PalWorld saves",
     options={"build_exe": build_options},
     executables=[Executable("PalEdit.py", base=base, icon="palworld_pal_edit/resources/MossandaIcon.ico")],

@@ -1,0 +1,51 @@
+{
+    "CodeName": "PREDATOR_BirdDragon",
+    "Type": [
+        "Fire",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::FireBlast": 7,
+        "EPalWazaID::FireSeed": 15,
+        "EPalWazaID::Flamethrower": 22,
+        "EPalWazaID::Unique_BirdDragon_FireBreath": 26,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::Unique_BirdDragon_FireBreath": 2,
+        "EPalWazaID::FlareArrow": 3,
+        "EPalWazaID::Inferno": 4,
+        "EPalWazaID::FlareTornado": 5,
+        "EPalWazaID::FireBall": 6,
+        "EPalWazaID::FlameWall": 7,
+        "EPalWazaID::PredatorBeam": 8,
+        "EPalWazaID::PredatorWave": 9,
+        "EPalWazaID::PredatorLockon": 10
+    },
+    "Scaling": {
+        "HP": 108,
+        "PHY": 100,
+        "MAG": 115,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 1,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,48 @@
+{
+    "CodeName": "PREDATOR_PinkLizard",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::PoisonShot": 7,
+        "EPalWazaID::DarkWave": 15,
+        "EPalWazaID::AcidRain": 22,
+        "EPalWazaID::PowerBall": 30,
+        "EPalWazaID::SelfDestruct": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::BubbleShower": 2,
+        "EPalWazaID::AirBlade": 3,
+        "EPalWazaID::RootAttack": 4,
+        "EPalWazaID::PowerBall": 5,
+        "EPalWazaID::PredatorBeam": 6,
+        "EPalWazaID::PredatorWave": 7,
+        "EPalWazaID::PredatorLockon": 8
+    },
+    "Scaling": {
+        "HP": 144,
+        "PHY": 70,
+        "MAG": 70,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 1,
+        "OilExtraction": 0,
+        "ProductMedicine": 2,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "GhostRabbit",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkBall": 1,
+        "EPalWazaID::DarkPulse": 7,
+        "EPalWazaID::DarkCanon": 15,
+        "EPalWazaID::DarkArrow": 22,
+        "EPalWazaID::GhostFlame": 30,
+        "EPalWazaID::ShadowBall": 40,
+        "EPalWazaID::DarkLegion": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 100,
+        "MAG": 95,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 3,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

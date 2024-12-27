@@ -1,0 +1,39 @@
+{
+    "CodeName": "NightLady",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkCanon": 1,
+        "EPalWazaID::DarkPulse": 7,
+        "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::Apocalypse": 40,
+        "EPalWazaID::Unique_NightLady_WarpBeam_Straight": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 100,
+        "MAG": 150,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 4,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,40 @@
+{
+    "CodeName": "Manticore",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::FlareArrow": 15,
+        "EPalWazaID::Flamethrower": 22,
+        "EPalWazaID::Inferno": 30,
+        "EPalWazaID::Unique_Manticore_InfernoStrike": 35,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

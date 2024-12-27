@@ -1,0 +1,39 @@
+{
+    "CodeName": "IceFox",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::IceMissile": 7,
+        "EPalWazaID::IceBlade": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::BlizzardLance": 30,
+        "EPalWazaID::FrostBreath": 40,
+        "EPalWazaID::IcicleThrow": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 100,
+        "MAG": 95,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 2,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "WhiteDeer",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::PowerBall": 7,
+        "EPalWazaID::AirBlade": 15,
+        "EPalWazaID::Commet": 22,
+        "EPalWazaID::HolyBlast": 30,
+        "EPalWazaID::HyperBeam": 40,
+        "EPalWazaID::Unique_WhiteDeer_HolyPillar": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 100,
+        "MAG": 110,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 1,
+        "Deforest": 4,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

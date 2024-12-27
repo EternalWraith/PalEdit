@@ -1,0 +1,39 @@
+{
+    "CodeName": "BerryGoat",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::WindCutter": 1,
+        "EPalWazaID::AirCanon": 7,
+        "EPalWazaID::MudShot": 15,
+        "EPalWazaID::PowerShot": 22,
+        "EPalWazaID::GrassTornado": 30,
+        "EPalWazaID::RootAttack": 40,
+        "EPalWazaID::SolarBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 70,
+        "MAG": 70,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 2,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

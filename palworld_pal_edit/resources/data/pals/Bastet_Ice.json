@@ -1,0 +1,39 @@
+{
+    "CodeName": "Bastet_Ice",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::AirCanon": 7,
+        "EPalWazaID::MudShot": 15,
+        "EPalWazaID::IceBlade": 22,
+        "EPalWazaID::BlizzardLance": 30,
+        "EPalWazaID::FrostBreath": 40,
+        "EPalWazaID::IcicleThrow": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 70,
+        "MAG": 65,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 1,
+        "Transport": 0,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

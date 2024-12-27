@@ -1,0 +1,41 @@
+{
+    "CodeName": "GYM_Horus_2",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_Horus_PerfectStorm": 1,
+        "EPalWazaID::FlareArrow": 2,
+        "EPalWazaID::FireBall": 3,
+        "EPalWazaID::FlameWall": 4,
+        "EPalWazaID::Eruption": 5,
+        "EPalWazaID::TriSpark": 6,
+        "EPalWazaID::ThunderRain": 7,
+        "EPalWazaID::ThunderStorm": 8,
+        "EPalWazaID::Railbolt": 9
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -1,0 +1,39 @@
+{
+    "CodeName": "GuardianDog",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::PowerBall": 22,
+        "EPalWazaID::AirBlade": 30,
+        "EPalWazaID::HolyBlast": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 85,
+        "PHY": 80,
+        "MAG": 85,
+        "DEF": 85
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 2,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

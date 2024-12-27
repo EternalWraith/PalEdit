@@ -1,0 +1,38 @@
+{
+    "CodeName": "Werewolf_Ice",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::IceBlade": 22,
+        "EPalWazaID::Unique_Werewolf_Ice_SnowScratch": 15,
+        "EPalWazaID::IciclePierce": 30,
+        "EPalWazaID::IcicleLine": 40,
+        "EPalWazaID::IcicleThrow": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 80,
+        "PHY": 130,
+        "MAG": 105,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 3,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

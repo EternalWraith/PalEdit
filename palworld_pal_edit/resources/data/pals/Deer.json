@@ -1,0 +1,39 @@
+{
+    "CodeName": "Deer",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::Unique_Deer_PushupHorn": 7,
+        "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::ThrowRock": 22,
+        "EPalWazaID::PowerBall": 30,
+        "EPalWazaID::RockLance": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 95,
+        "PHY": 70,
+        "MAG": 80,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

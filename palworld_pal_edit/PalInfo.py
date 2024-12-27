@@ -154,10 +154,11 @@ class PalObject:
 
     def GetImage(self):
         if self._img == None:
-            n = self.GetCodeName() if not self._human else "Human"
+            n = self.GetCodeName() if not self._human else "CommonHuman"
             # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
             try:
-                self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/{n}.png')
+                print(f"T_{n}_icon_normal.png")
+                self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/T_{n}_icon_normal.png')
             except:
                 self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/#ERROR.png')
         return self._img
@@ -195,6 +196,7 @@ class PalEntity:
         # print(f"Debug: typename1 - {typename}")
 
         self.isBoss = False
+        ogtypename = typename
         if typename[:5].lower() == "boss_":
             typename = typename[5:]  # if first 5 characters match boss_ then cut the first 5 characters off
             # typename = typename.replace("BOSS_", "") # this causes bugs
@@ -204,13 +206,18 @@ class PalEntity:
 
         # print(f"Debug: typename2 - '{typename}'")
         if typename.lower() == "sheepball":
-            typename = "Sheepball"
+            print(typename)
+            typename = "SheepBall"
 
             # Strangely, Boss and Lucky Lamballs have camelcasing
             # Regular ones... don't
         # print(f"Debug: typename3 - '{typename}'")
 
         self._type = PalSpecies[typename]
+        if self.IsHuman() and ogtypename[:5].lower() == "boss_":
+            if ogtypename in PalSpecies:
+                self._type = PalSpecies[ogtypename]
+                self.isBoss = False
         logger.debug(f"Created Entity of type {typename}: {self._type} - Lucky: {self.isLucky} Boss: {self.isBoss}")
 
         if "Gender" in self._obj:
@@ -356,10 +363,12 @@ class PalEntity:
         return self._type
 
     def SetType(self, value):
-        self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) else "") + value
+        self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) and not self.IsHuman() else "") + value
         self._type = PalSpecies[value]
         self.CleanseAttacks()
 
+        if self.IsHuman(): return
+        
         ss = copy.deepcopy(EmptySuitObject)
         for i in ss["value"]["values"]:
             t = i["WorkSuitability"]["value"]["value"].split("::")[1]
@@ -921,30 +930,40 @@ def LoadPals(lang="en-GB"):
     if lang is not None and not os.path.exists(f"%s/resources/data/{lang}/pals.json" % (module_dir)):
         lang = "en-GB"
     
-    with open("%s/resources/data/pals.json" % (module_dir), "r",
-              encoding="utf8") as datafile:
-        with open(f"%s/resources/data/{lang}/pals.json" % (module_dir), "r",
-                  encoding="utf8") as palfile:
-            PalSpecies = {}
-            PalLearnSet = {}
+    #with open("%s/resources/data/pals.json" % (module_dir), "r",
+              #encoding="utf8") as datafile:
 
-            d = json.loads(datafile.read())
-            l = json.loads(palfile.read())
-            
-            for i in d["values"]:
-                h = "Human" in i
-                t = "Tower" in i
-                p = i["Type"][0]
-                s = "None"
-                if len(i["Type"]) == 2:
-                    s = i["Type"][1]
-                PalSpecies[i["CodeName"]] = PalObject(l[i["CodeName"]], i["CodeName"], p, s, h, t,
-                                                      i["Scaling"] if "Scaling" in i else None,
-                                                      i["Suitabilities"] if "Suitabilities" in i else {})
-                if t:
-                    PalSpecies[i["CodeName"]]._suits = PalSpecies[i["CodeName"].replace("GYM_", "")]._suits
-                    PalSpecies[i["CodeName"]]._scaling = PalSpecies[i["CodeName"].replace("GYM_", "")]._scaling
-                PalLearnSet[i["CodeName"]] = i["Moveset"] if not t else PalLearnSet[i["CodeName"].replace("GYM_", "")]
+        
+    with open(f"%s/resources/data/{lang}/pals.json" % (module_dir), "r",
+              encoding="utf8") as palfile:
+
+        d = {"values": []}
+
+        for path, folders, files in os.walk("%s/resources/data/pals" % (module_dir)):
+            for filename in files:
+                with open(f"%s/resources/data/pals/{filename}" % (module_dir), "r") as pf:
+                    d["values"].append(json.loads(pf.read()))
+                    
+        PalSpecies = {}
+        PalLearnSet = {}
+
+        #d = json.loads(datafile.read())
+        l = json.loads(palfile.read())
+        
+        for i in d["values"]:
+            h = i["Human"] if "Human" in i else False
+            t = "Tower" in i
+            p = i["Type"][0]
+            s = "None"
+            if len(i["Type"]) == 2:
+                s = i["Type"][1]
+            PalSpecies[i["CodeName"]] = PalObject(l[i["CodeName"]] if i["CodeName"] in l else i["CodeName"], i["CodeName"], p, s, h, t,
+                                                  i["Scaling"] if "Scaling" in i else None,
+                                                  i["Suitabilities"] if "Suitabilities" in i else {})
+            if t:
+                PalSpecies[i["CodeName"]]._suits = PalSpecies[i["CodeName"].replace("GYM_", "")]._suits
+                PalSpecies[i["CodeName"]]._scaling = PalSpecies[i["CodeName"].replace("GYM_", "")]._scaling
+            PalLearnSet[i["CodeName"]] = i["Moveset"] if not t else PalLearnSet[i["CodeName"].replace("GYM_", "")]
 
 
 LoadPals()
@@ -1002,33 +1021,43 @@ def LoadAttacks(lang="en-GB"):
     if lang is not None and not os.path.exists(f"%s/resources/data/{lang}/attacks.json" % (module_dir)):
         lang = "en-GB"
 
-    with open("%s/resources/data/attacks.json" % (module_dir), "r",
-              encoding="utf8") as datafile:
-        with open(f"%s/resources/data/{lang}/attacks.json" % (module_dir), "r",
-                  encoding="utf8") as attackfile:
-            PalAttacks = {}
-            AttackPower = {}
-            AttackTypes = {}
-            AttackCats = {}
-            SkillExclusivity = {}
+    #with open("%s/resources/data/attacks.json" % (module_dir), "r",
+              #encoding="utf8") as datafile:
+        
+    with open(f"%s/resources/data/{lang}/attacks.json" % (module_dir), "r",
+              encoding="utf8") as attackfile:
+        PalAttacks = {}
+        AttackPower = {}
+        AttackTypes = {}
+        AttackCats = {}
+        SkillExclusivity = {}
 
-            d = json.loads(datafile.read())
-            l = json.loads(attackfile.read())
+        d = {}
 
-            #debugOutput = d["values"]
+        for path, folders, files in os.walk("%s/resources/data/attacks" % (module_dir)):
+            for filename in files:
+                with open(f"%s/resources/data/attacks/{filename}" % (module_dir), "r") as pf:
+                    r = json.loads(pf.read())
+                    d[r["CodeName"]] = r
 
-            for i in d:
-                code = i
-                PalAttacks[code] = l[code]
-                AttackPower[code] = d[i]["Power"]
-                AttackTypes[code] = d[i]["Type"]
-                AttackCats[code] = d[i]["Category"]
-                if "Exclusive" in d[i]:
-                    SkillExclusivity[code] = d[i]["Exclusive"]
-                else:
-                    SkillExclusivity[code] = None
+        #d = json.loads(datafile.read())
+        l = json.loads(attackfile.read())
 
-            PalAttacks = dict(sorted(PalAttacks.items()))
+        #debugOutput = d["values"]
+        
+
+        for i in d:
+            code = i
+            PalAttacks[code] = l[code] if code in l else code
+            AttackPower[code] = d[i]["Power"]
+            AttackTypes[code] = d[i]["Type"]
+            AttackCats[code] = d[i]["Category"]
+            if "Exclusive" in d[i]:
+                SkillExclusivity[code] = d[i]["Exclusive"]
+            else:
+                SkillExclusivity[code] = None
+
+        PalAttacks = dict(sorted(PalAttacks.items()))
 
 LoadAttacks()
 
@@ -1051,7 +1080,9 @@ if __name__ == "__main__":
     #from PIL import ImageTk, Image
     #Image.open(f'../assets/Bellanoir.png').resize((240, 240)).save(f"resources/pals/NightLady.png")
     #Image.open(f'../assets/Bellanoir Libero.png').resize((240, 240)).save(f"resources/pals/NightLady_Dark.png")
-    
+
+    for i in PalSpecies:
+        print (i)    
     pass
 
 
