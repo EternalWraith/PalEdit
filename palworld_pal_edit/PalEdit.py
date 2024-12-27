@@ -551,6 +551,7 @@ class PalEdit():
         self.updateAttacks()
 
         if not pal.IsHuman():
+            
             pt = pal.GetType()
             for i in suitabilities:
                 self.suits[f"{i}_label"].config(text=pt._suits[i])
@@ -561,6 +562,7 @@ class PalEdit():
             self.satkstatval.config(text=calc["MAG"])
             self.defstatval.config(text=calc["DEF"])
         else:
+            
             for i in suitabilities:
                 self.suits[f"{i}_label"].config(text="-")
 
@@ -568,6 +570,19 @@ class PalEdit():
             self.matkstatval.config(text="n/a")
             self.satkstatval.config(text="n/a")
             self.defstatval.config(text="n/a")
+
+        if pal.IsHuman() or pal.IsTower():
+            self.alphabox.config(state=tk.DISABLED)
+            self.luckybox.config(state=tk.DISABLED)
+
+            self.luckyvar.set(0)
+            self.alphavar.set(0)
+
+            pal.SetLucky(False)
+            pal.SetBoss(False)
+        else:
+            self.alphabox.config(state=tk.NORMAL)
+            self.luckybox.config(state=tk.NORMAL)
 
         # rank
         self.ranksvar.set(pal.GetRank() - 1)
@@ -1114,7 +1129,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if i == -1:
             print("Player Pal Storage is full!")
             return
-        pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
+        print(playerguid)
+        pal.InitializationPal(newguid, '00000000-0000-0000-0000-000000000000', groupguid, slotguid)
         pal.SetSoltIndex(i)
         self.palguidmanager.AddGroupSaveData(groupguid, newguid)
         self.palguidmanager.SetContainerSave(slotguid, i, newguid)
@@ -1577,16 +1593,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         formframe.pack(expand=True, fill=tk.constants.X)
         self.luckyvar = tk.IntVar()
         self.alphavar = tk.IntVar()
-        luckybox = tk.Checkbutton(formframe, text=self.i18n['lucky_lbl'], variable=self.luckyvar, onvalue='1',
+        self.luckybox = tk.Checkbutton(formframe, text=self.i18n['lucky_lbl'], variable=self.luckyvar, onvalue='1',
                                   offvalue='0',
                                   command=self.togglelucky)
-        self.i18n_el['lucky_lbl'] = luckybox
-        luckybox.pack(side=tk.constants.LEFT, expand=True)
-        alphabox = tk.Checkbutton(formframe, text=self.i18n['alpha_lbl'], variable=self.alphavar, onvalue='1',
+        self.i18n_el['lucky_lbl'] = self.luckybox
+        self.luckybox.pack(side=tk.constants.LEFT, expand=True)
+        self.alphabox = tk.Checkbutton(formframe, text=self.i18n['alpha_lbl'], variable=self.alphavar, onvalue='1',
                                   offvalue='0',
                                   command=self.togglealpha)
-        self.i18n_el['alpha_lbl'] = alphabox
-        alphabox.pack(side=tk.constants.RIGHT, expand=True)
+        self.i18n_el['alpha_lbl'] = self.alphabox
+        self.alphabox.pack(side=tk.constants.RIGHT, expand=True)
 
         button = Button(resourceview, text=self.i18n['btn_clone_pal'], command=self.clonepal)
         button.config(font=(PalEditConfig.font, 12))

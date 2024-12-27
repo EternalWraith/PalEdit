@@ -196,6 +196,7 @@ class PalEntity:
         # print(f"Debug: typename1 - {typename}")
 
         self.isBoss = False
+        ogtypename = typename
         if typename[:5].lower() == "boss_":
             typename = typename[5:]  # if first 5 characters match boss_ then cut the first 5 characters off
             # typename = typename.replace("BOSS_", "") # this causes bugs
@@ -213,6 +214,10 @@ class PalEntity:
         # print(f"Debug: typename3 - '{typename}'")
 
         self._type = PalSpecies[typename]
+        if self.IsHuman() and ogtypename[:5].lower() == "boss_":
+            if ogtypename in PalSpecies:
+                self._type = PalSpecies[ogtypename]
+                self.isBoss = False
         logger.debug(f"Created Entity of type {typename}: {self._type} - Lucky: {self.isLucky} Boss: {self.isBoss}")
 
         if "Gender" in self._obj:
@@ -358,10 +363,12 @@ class PalEntity:
         return self._type
 
     def SetType(self, value):
-        self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) else "") + value
+        self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) and not self.IsHuman() else "") + value
         self._type = PalSpecies[value]
         self.CleanseAttacks()
 
+        if self.IsHuman(): return
+        
         ss = copy.deepcopy(EmptySuitObject)
         for i in ss["value"]["values"]:
             t = i["WorkSuitability"]["value"]["value"].split("::")[1]
@@ -1074,9 +1081,8 @@ if __name__ == "__main__":
     #Image.open(f'../assets/Bellanoir.png').resize((240, 240)).save(f"resources/pals/NightLady.png")
     #Image.open(f'../assets/Bellanoir Libero.png').resize((240, 240)).save(f"resources/pals/NightLady_Dark.png")
 
-    for i in PalSpecies.keys():
-        print(i)
-    
+    for i in PalSpecies:
+        print (i)    
     pass
 
 
