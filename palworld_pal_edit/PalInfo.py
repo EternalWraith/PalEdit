@@ -706,7 +706,7 @@ class PalEntity:
         return self._learntMoves
 
     def InitializationPal(self, newguid, player, group, slot):
-        self._data['key']['PlayerUId']['value'] = player
+        self._data['key']['PlayerUId']['value'] = "00000000-0000-0000-0000-000000000000"
         self._obj["OwnerPlayerUId"]['value'] = player
         self._obj["OldOwnerPlayerUIds"]['value']['values'] = [player]
         self.SetPalInstanceGuid(newguid)

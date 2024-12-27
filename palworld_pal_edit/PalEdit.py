@@ -1130,7 +1130,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             print("Player Pal Storage is full!")
             return
         print(playerguid)
-        pal.InitializationPal(newguid, '00000000-0000-0000-0000-000000000000', groupguid, slotguid)
+        pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
         pal.SetSoltIndex(i)
         self.palguidmanager.AddGroupSaveData(groupguid, newguid)
         self.palguidmanager.SetContainerSave(slotguid, i, newguid)
