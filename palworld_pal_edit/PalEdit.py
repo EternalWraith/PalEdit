@@ -122,13 +122,11 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.10"
+    version = "0.11"
     ftsize = 18
     font = "Microsoft YaHei"
-    badskill = "#DE3C3A"
-    okayskill = "#DFE8E7"
-    goodskill = "#FEDE00"
-    levelcap = 55
+    skill_col = ["#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8"]
+    levelcap = 60
 
 
 class PalEdit():
@@ -1006,7 +1004,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def setskillcolours(self):
         for snum in range(0, 4):
             rating = PalInfo.PassiveRating[self.skills[snum].get()]
-            col = PalEditConfig.goodskill if rating == "Good" else PalEditConfig.okayskill if rating == "Okay" else PalEditConfig.badskill
+            col = PalEditConfig.skill_col[int(rating)+1]
 
             self.skilldrops[snum].config(highlightbackground=col, bg=PalEdit.mean_color(col, "ffffff"),
                                          activebackground=PalEdit.mean_color(col, "ffffff"))
@@ -1907,18 +1905,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilldrops[3].pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.BOTH)
         self.skilldrops[3].config(font=(PalEditConfig.font, PalEditConfig.ftsize), width=6, direction="right")
 
-        self.skilldrops[0].config(highlightbackground=PalEditConfig.goodskill,
-                                  bg=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"))
-        self.skilldrops[1].config(highlightbackground=PalEditConfig.goodskill,
-                                  bg=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"))
-        self.skilldrops[2].config(highlightbackground=PalEditConfig.goodskill,
-                                  bg=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"))
-        self.skilldrops[3].config(highlightbackground=PalEditConfig.goodskill,
-                                  bg=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.goodskill, "ffffff"))
+        self.skilldrops[0].config(highlightbackground=PalEditConfig.skill_col[2],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
+        self.skilldrops[1].config(highlightbackground=PalEditConfig.skill_col[2],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
+        self.skilldrops[2].config(highlightbackground=PalEditConfig.skill_col[2],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
+        self.skilldrops[3].config(highlightbackground=PalEditConfig.skill_col[2],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
 
         self.skilldrops[0].bind("<Enter>", lambda evt, num=0: self.changetext(num))
         self.skilldrops[1].bind("<Enter>", lambda evt, num=1: self.changetext(num))
@@ -2121,7 +2119,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el["health_soul_lbl"] = hpsoultag
         self.hpsoulval = tk.Label(hpsoul, width=6, text="+30%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
         self.hpsoulval.pack(side=tk.constants.RIGHT)
-        hpsoulbar = tk.Scale(hpsoul, showvalue=False, variable=self.hpsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        hpsoulbar = tk.Scale(hpsoul, showvalue=False, variable=self.hpsoulvar, from_=0, to=20, orient=HORIZONTAL)
         hpsoulbar.pack(side=tk.constants.RIGHT)
 
         atsoul = tk.Frame(soulview)
@@ -2131,7 +2129,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el["attack_soul_lbl"] = atsoultag
         self.atsoulval = tk.Label(atsoul, width=6, text="+15%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
         self.atsoulval.pack(side=tk.constants.RIGHT)
-        atsoulbar = tk.Scale(atsoul, showvalue=False, variable=self.atsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        atsoulbar = tk.Scale(atsoul, showvalue=False, variable=self.atsoulvar, from_=0, to=20, orient=HORIZONTAL)
         atsoulbar.pack(side=tk.constants.RIGHT)
 
         dfsoul = tk.Frame(soulview)
@@ -2141,7 +2139,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el["defence_soul_lbl"] = dfsoultag
         self.dfsoulval = tk.Label(dfsoul, width=6, text="+21%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
         self.dfsoulval.pack(side=tk.constants.RIGHT)
-        dfsoulbar = tk.Scale(dfsoul, showvalue=False, variable=self.dfsoulvar, from_=0, to=10, orient=HORIZONTAL)
+        dfsoulbar = tk.Scale(dfsoul, showvalue=False, variable=self.dfsoulvar, from_=0, to=20, orient=HORIZONTAL)
         dfsoulbar.pack(side=tk.constants.RIGHT)
 
         wssoul = tk.Frame(soulview)
@@ -2151,7 +2149,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.i18n_el["working_soul_lbl"] = wssoultag
         self.wssoulval = tk.Label(wssoul, width=6, text="+0%", font=(PalEditConfig.font, PalEditConfig.ftsize-4))
         self.wssoulval.pack(side=tk.constants.RIGHT)
-        wssoulbar = tk.Scale(wssoul, showvalue=False, variable=self.wssoulvar, from_=0, to=10, orient=HORIZONTAL)
+        wssoulbar = tk.Scale(wssoul, showvalue=False, variable=self.wssoulvar, from_=0, to=20, orient=HORIZONTAL)
         wssoulbar.pack(side=tk.constants.RIGHT)
         
         # DEBUG

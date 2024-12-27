@@ -1,248 +1,272 @@
 {
     "UNKNOWN": {
-        "Rating": "Bad"
+        "Rating": "-1"
     },
     "NONE": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Normal_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Dark_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Dragon_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Ice_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Fire_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Leaf_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Earth_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Thunder_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementResist_Aqua_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Normal_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Dark_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Dragon_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Ice_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Fire_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Leaf_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Earth_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Thunder_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Aqua_1_PAL": {
-        "Rating": "Okay"
+        "Rating": "1"
     },
     "ElementBoost_Normal_2_PAL": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "ElementBoost_Dark_2_PAL": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "ElementBoost_Dragon_2_PAL": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "ElementBoost_Ice_2_PAL": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "ElementBoost_Fire_2_PAL": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "ElementBoost_Leaf_2_PAL": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "ElementBoost_Earth_2_PAL": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "ElementBoost_Thunder_2_PAL": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "ElementBoost_Aqua_2_PAL": {
-        "Rating": "Good"
-    },
-    "PAL_ALLAttack_up1": {
-        "Rating": "Okay"
-    },
-    "PAL_ALLAttack_up2": {
-        "Rating": "Good"
-    },
-    "PAL_ALLAttack_down1": {
-        "Rating": "Okay"
-    },
-    "PAL_ALLAttack_down2": {
-        "Rating": "Bad"
-    },
-    "Deffence_up1": {
-        "Rating": "Okay"
-    },
-    "Deffence_up2": {
-        "Rating": "Good"
-    },
-    "Deffence_down1": {
-        "Rating": "Okay"
-    },
-    "Deffence_down2": {
-        "Rating": "Bad"
-    },
-    "TrainerMining_up1": {
-        "Rating": "Good"
-    },
-    "TrainerLogging_up1": {
-        "Rating": "Good"
-    },
-    "TrainerATK_UP_1": {
-        "Rating": "Good"
-    },
-    "TrainerWorkSpeed_UP_1": {
-        "Rating": "Good"
-    },
-    "TrainerDEF_UP_1": {
-        "Rating": "Good"
-    },
-    "PAL_Sanity_Down_1": {
-        "Rating": "Okay"
-    },
-    "PAL_Sanity_Down_2": {
-        "Rating": "Good"
-    },
-    "PAL_Sanity_Up_1": {
-        "Rating": "Okay"
-    },
-    "PAL_Sanity_Up_2": {
-        "Rating": "Bad"
-    },
-    "PAL_FullStomach_Down_1": {
-        "Rating": "Okay"
-    },
-    "PAL_FullStomach_Down_2": {
-        "Rating": "Good"
-    },
-    "PAL_FullStomach_Up_1": {
-        "Rating": "Okay"
-    },
-    "PAL_FullStomach_Up_2": {
-        "Rating": "Bad"
-    },
-    "CraftSpeed_up1": {
-        "Rating": "Okay"
-    },
-    "CraftSpeed_up2": {
-        "Rating": "Good"
-    },
-    "CraftSpeed_down1": {
-        "Rating": "Okay"
-    },
-    "CraftSpeed_down2": {
-        "Rating": "Bad"
-    },
-    "MoveSpeed_up_1": {
-        "Rating": "Okay"
-    },
-    "MoveSpeed_up_2": {
-        "Rating": "Okay"
-    },
-    "MoveSpeed_up_3": {
-        "Rating": "Good"
-    },
-    "PAL_CorporateSlave": {
-        "Rating": "Good"
-    },
-    "PAL_rude": {
-        "Rating": "Okay"
-    },
-    "Noukin": {
-        "Rating": "Good"
-    },
-    "PAL_oraora": {
-        "Rating": "Okay"
-    },
-    "PAL_conceited": {
-        "Rating": "Okay"
-    },
-    "PAL_masochist": {
-        "Rating": "Okay"
-    },
-    "PAL_sadist": {
-        "Rating": "Okay"
-    },
-    "Rare": {
-        "Rating": "Good"
-    },
-    "Legend": {
-        "Rating": "Good"
+        "Rating": "3"
     },
     "Witch": {
-        "Rating": "Good"
+        "Rating": "4"
+    },
+    "PAL_ALLAttack_up1": {
+        "Rating": "1"
+    },
+    "PAL_ALLAttack_up2": {
+        "Rating": "3"
+    },
+    "PAL_ALLAttack_up3": {
+        "Rating": "4"
+    },
+    "PAL_ALLAttack_down1": {
+        "Rating": "-1"
+    },
+    "PAL_ALLAttack_down2": {
+        "Rating": "-3"
+    },
+    "Deffence_up1": {
+        "Rating": "1"
+    },
+    "Deffence_up2": {
+        "Rating": "3"
+    },
+    "Deffence_up3": {
+        "Rating": "4"
+    },
+    "Deffence_down1": {
+        "Rating": "-1"
+    },
+    "Deffence_down2": {
+        "Rating": "-3"
+    },
+    "TrainerMining_up1": {
+        "Rating": "3"
+    },
+    "TrainerLogging_up1": {
+        "Rating": "3"
+    },
+    "TrainerATK_UP_1": {
+        "Rating": "3"
+    },
+    "TrainerWorkSpeed_UP_1": {
+        "Rating": "3"
+    },
+    "TrainerDEF_UP_1": {
+        "Rating": "3"
+    },
+    "PAL_Sanity_Down_1": {
+        "Rating": "1"
+    },
+    "PAL_Sanity_Down_2": {
+        "Rating": "3"
+    },
+    "PAL_Sanity_Down_3": {
+        "Rating": "4"
+    },
+    "PAL_Sanity_Up_1": {
+        "Rating": "-1"
+    },
+    "PAL_Sanity_Up_2": {
+        "Rating": "-2"
+    },
+    "PAL_FullStomach_Down_1": {
+        "Rating": "1"
+    },
+    "PAL_FullStomach_Down_2": {
+        "Rating": "3"
+    },
+    "PAL_FullStomach_Down_3": {
+        "Rating": "4"
+    },
+    "PAL_FullStomach_Up_1": {
+        "Rating": "-1"
+    },
+    "PAL_FullStomach_Up_2": {
+        "Rating": "-2"
+    },
+    "CraftSpeed_up1": {
+        "Rating": "1"
+    },
+    "CraftSpeed_up2": {
+        "Rating": "3"
+    },
+    "CraftSpeed_up3": {
+        "Rating": "4"
+    },
+    "CraftSpeed_down1": {
+        "Rating": "-1"
+    },
+    "CraftSpeed_down2": {
+        "Rating": "-3"
+    },
+    "MoveSpeed_up_1": {
+        "Rating": "1"
+    },
+    "MoveSpeed_up_2": {
+        "Rating": "3"
+    },
+    "MoveSpeed_up_3": {
+        "Rating": "4"
+    },
+    "PAL_CorporateSlave": {
+        "Rating": "1"
+    },
+    "PAL_rude": {
+        "Rating": "1"
+    },
+    "Noukin": {
+        "Rating": "2"
+    },
+    "PAL_oraora": {
+        "Rating": "1"
+    },
+    "PAL_conceited": {
+        "Rating": "1"
+    },
+    "PAL_SpiritualInst": {
+        "Rating": "-1"
+    },
+    "PAL_masochist": {
+        "Rating": "1"
+    },
+    "PAL_sadist": {
+        "Rating": "1"
+    },
+    "Rare": {
+        "Rating": "4"
+    },
+    "Legend": {
+        "Rating": "4"
     },
     "Stamina_Up_1": {
-        "Rating": "Good"
-    },
-    "SalePrice_Up_1": {
-        "Rating": "Good"
-    },
-    "CoolTimeReduction_Up_1": {
-        "Rating": "Good"
-    },
-
-    "SalePrice_Up_2": {
-        "Rating": "Good"
-    },
-    "CoolTimeReduction_Up_2": {
-        "Rating": "Good"
+        "Rating": "1"
     },
     "Stamina_Up_2": {
-        "Rating": "Good"
+        "Rating": "3"
     },
-    "Nocturnal": {
-        "Rating": "Good"
-    },
-    "SalePrice_Down_1": {
-        "Rating": "Bad"
-    },
-    "Test_PalEgg_HatchingSpeed_Up": {
-        "Rating": "Good"
-    },
-    "CoolTimeReduction_Down_1": {
-        "Rating": "Bad"
+    "Stamina_Up_3": {
+        "Rating": "4"
     },
     "Stamina_Down_1": {
-        "Rating": "Bad"
+        "Rating": "-1"
+    },
+    "SalePrice_Up_1": {
+        "Rating": "1"
+    },
+    "SalePrice_Up_2": {
+        "Rating": "3"
+    },
+    "SalePrice_Down_1": {
+        "Rating": "-1"
+    },
+    "CoolTimeReduction_Up_1": {
+        "Rating": "3"
+    },
+    "CoolTimeReduction_Up_2": {
+        "Rating": "1"
+    },
+    "CoolTimeReduction_Down_1": {
+        "Rating": "-1"
     },
     "NonKilling": {
-        "Rating": "Bad"
+        "Rating": "-1"
     },
-
+    "Nocturnal": {
+        "Rating": "1"
+    },
+    "Vampire": {
+        "Rating": "4"
+    },
     "Alien" : {
-        "Rating": "Okay"
+        "Rating": "1"
     },
-
     "EternalFlame" : {
-        "Rating": "Good"
+        "Rating": "4"
+    },
+    "Invader": {
+        "Rating": "4"
+    },
+    "Test_PalEgg_HatchingSpeed_Up": {
+        "Rating": "3"
     }
 }

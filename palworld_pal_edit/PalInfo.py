@@ -154,7 +154,7 @@ class PalObject:
 
     def GetImage(self):
         if self._img == None:
-            n = self.GetCodeName() if not self._human else "Human"
+            n = self.GetCodeName() if not self._human else "CommonHuman"
             # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
             try:
                 print(f"T_{n}_icon_normal.png")
@@ -205,7 +205,8 @@ class PalEntity:
 
         # print(f"Debug: typename2 - '{typename}'")
         if typename.lower() == "sheepball":
-            typename = "Sheepball"
+            print(typename)
+            typename = "SheepBall"
 
             # Strangely, Boss and Lucky Lamballs have camelcasing
             # Regular ones... don't
@@ -1072,6 +1073,9 @@ if __name__ == "__main__":
     #from PIL import ImageTk, Image
     #Image.open(f'../assets/Bellanoir.png').resize((240, 240)).save(f"resources/pals/NightLady.png")
     #Image.open(f'../assets/Bellanoir Libero.png').resize((240, 240)).save(f"resources/pals/NightLady_Dark.png")
+
+    for i in PalSpecies.keys():
+        print(i)
     
     pass
 
