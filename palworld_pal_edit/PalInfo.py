@@ -682,7 +682,7 @@ class PalEntity:
         return self.GetName() if self._nickname == "" else self._nickname
 
     def GetFullName(self):
-        return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (" ♖" if self.isTower else "") + (
+        return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (
             " ✨" if self.isLucky else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
 
     def SetLucky(self, v=True):
@@ -707,7 +707,13 @@ class PalEntity:
 
     def InitializationPal(self, newguid, player, group, slot):
         self._data['key']['PlayerUId']['value'] = "00000000-0000-0000-0000-000000000000"
-        self._obj["OwnerPlayerUId"]['value'] = player
+        self._obj["OwnerPlayerUId"] = {
+                "struct_type": "Guid",
+                "struct_id": "00000000-0000-0000-0000-000000000000",
+                "id": None,
+                "value": player,
+                "type": "StructProperty"
+        }
         self._obj["OldOwnerPlayerUIds"]['value']['values'] = [player]
         self.SetPalInstanceGuid(newguid)
         self.SetSlotGuid(slot)
