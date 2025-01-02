@@ -125,7 +125,7 @@ class PalEditConfig:
     version = "0.11.1"
     ftsize = 18
     font = "Microsoft YaHei"
-    skill_col = ["#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8"]
+    skill_col = ["#DE3C3A", "#DE3C3A", "#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8"]
     levelcap = 60
 
 
@@ -693,6 +693,7 @@ class PalEdit():
         self.containers = {}
         nullmoves = []
 
+        self.unknown = []
         erroredpals = []
         for i in paldata:
             try:
@@ -1019,7 +1020,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
     def setskillcolours(self):
         for snum in range(0, 4):
             rating = PalInfo.PassiveRating[self.skills[snum].get()]
-            col = PalEditConfig.skill_col[int(rating)+1]
+            col = PalEditConfig.skill_col[int(rating)+3]
 
             self.skilldrops[snum].config(highlightbackground=col, bg=PalEdit.mean_color(col, "ffffff"),
                                          activebackground=PalEdit.mean_color(col, "ffffff"))
@@ -1101,7 +1102,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
 
-        
+        owneruid = "00000000-0000-0000-0000-000000000000"
+ 
 
         with open("temp.json", "wb") as f:
             f.write(json.dumps(pal._data, indent=4, cls=UUIDEncoder).encode('utf-8'))
@@ -1109,7 +1111,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         f = open("temp.json", "r", encoding="utf8")
         spawnpaldata = json.loads(f.read())
         f.close()
-        
+
         playerguid = self.players[self.current.get()].GetPlayerGuid()
         playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
         if not os.path.exists(playersav):
@@ -1130,7 +1132,11 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             print("Player Pal Storage is full!")
             return
         print(playerguid)
-        pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
+
+        if pal.GetOwner() != owneruid:
+            owneruid = playerguid
+        
+        pal.InitializationPal(newguid, playerguid, groupguid, slotguid, owneruid)
         pal.SetSoltIndex(i)
         self.palguidmanager.AddGroupSaveData(groupguid, newguid)
         self.palguidmanager.SetContainerSave(slotguid, i, newguid)
@@ -1139,6 +1145,37 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.loaddata(self.data)
 
         os.remove("temp.json")
+
+    def deletepal(self):
+        if not self.isPalSelected() or self.palguidmanager is None:
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+
+        s = pal.GetSlotIndex()
+
+        playerguid = self.players[self.current.get()].GetPlayerGuid()
+        playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
+        if not os.path.exists(playersav):
+            print("Cannot Load Player Save!")
+            return
+        player = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+        palworld_pal_edit.SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
+
+        slotguid = str(player.GetPalStorageGuid())
+        palguid = pal.GetPalInstanceGuid()
+
+        groupguid = self.palguidmanager.GetGroupGuid(playerguid)
+        if any(guid == None for guid in [slotguid, groupguid]):
+            return
+
+        self.palguidmanager.RemovePal(slotguid, s, "0")
+        self.palguidmanager.RemoveGroupSaveData(groupguid, palguid)
+        self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].remove(pal._data)
+        
+        self.loaddata(self.data)
+
+        
         
     def doconvertjson(self, file, compress=False):
         SaveConverter.convert_sav_to_json(file, file.replace(".sav", ".sav.json"), True, compress)
@@ -1215,8 +1252,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         pal = self.FilteredPals()[i]
 
         m = self.learntMoves.curselection()
+
         if len(m) > 0:
-            m = self.learntMoves.get(int(m[0]))
+            m = self.learntMoves.get(int(m[0])).replace("⚔","").replace("🏹","")
             pal.StripAttack(PalInfo.find(m))
             self.refresh(i)
 
@@ -1608,6 +1646,11 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         button.config(font=(PalEditConfig.font, 12))
         button.pack(expand=True, fill=BOTH)
         self.i18n_el['btn_clone_pal'] = button
+
+        button = Button(resourceview, text=self.i18n['btn_delete_pal'], command=self.deletepal)
+        button.config(font=(PalEditConfig.font, 12))
+        button.pack(expand=True, fill=BOTH)
+        self.i18n_el['btn_delete_pal'] = button
         
 
         deckview = tk.Frame(dataview, width=320, relief="sunken", borderwidth=2, pady=0)
@@ -1921,18 +1964,19 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilldrops[3].pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.BOTH)
         self.skilldrops[3].config(font=(PalEditConfig.font, PalEditConfig.ftsize), width=6, direction="right")
 
-        self.skilldrops[0].config(highlightbackground=PalEditConfig.skill_col[2],
-                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
-        self.skilldrops[1].config(highlightbackground=PalEditConfig.skill_col[2],
-                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
-        self.skilldrops[2].config(highlightbackground=PalEditConfig.skill_col[2],
-                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
-        self.skilldrops[3].config(highlightbackground=PalEditConfig.skill_col[2],
-                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"),
-                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[2], "ffffff"))
+        gr = 4
+        self.skilldrops[0].config(highlightbackground=PalEditConfig.skill_col[gr],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"))
+        self.skilldrops[1].config(highlightbackground=PalEditConfig.skill_col[gr],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"))
+        self.skilldrops[2].config(highlightbackground=PalEditConfig.skill_col[gr],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"))
+        self.skilldrops[3].config(highlightbackground=PalEditConfig.skill_col[gr],
+                                  bg=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"),
+                                  activebackground=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"))
 
         self.skilldrops[0].bind("<Enter>", lambda evt, num=0: self.changetext(num))
         self.skilldrops[1].bind("<Enter>", lambda evt, num=1: self.changetext(num))
@@ -2209,6 +2253,16 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         #button.pack(side=LEFT, expand=True, fill=BOTH)
         self.i18n_el['btn_dump_pal'] = button
 
+        warning = tk.Frame(atkskill, relief="groove", borderwidth=2)
+        warning.pack(fill=tk.constants.BOTH)
+
+        warnhdr = tk.Label(warning, width=10, text="WARNING!", bg="darkgrey", font=(PalEditConfig.font, PalEditConfig.ftsize+2))
+        warnhdr.pack(fill=tk.constants.BOTH)
+
+        warnstr = "Players who have not logged in for a while can break your save. If you cannot get them to join to upgrade their save data then remove them using Prune or remove their player data from the 'Players' folder while on the title screen then load the save."
+
+        warnlabel = tk.Label(warning, wrap=300, width=10, text=warnstr, bg="darkgrey", font=(PalEditConfig.font, PalEditConfig.ftsize-6))
+        warnlabel.pack(fill=tk.constants.BOTH)
         
 
         # root.resizable(width=False, height=True)

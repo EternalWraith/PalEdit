@@ -4,14 +4,14 @@
             "struct_type": "Guid",
             "struct_id": "00000000-0000-0000-0000-000000000000",
             "id": null,
-            "value": "00000000-0000-0000-0000-000000000001",
+            "value": "00000000-0000-0000-0000-000000000000",
             "type": "StructProperty"
         },
         "InstanceId": {
             "struct_type": "Guid",
             "struct_id": "00000000-0000-0000-0000-000000000000",
             "id": null,
-            "value": "6b415b44-452a-b6e7-c4fc-ab8a23547e7e",
+            "value": "383b3d61-453e-403a-9828-ce818ec91dbe",
             "type": "StructProperty"
         },
         "DebugName": {
@@ -33,20 +33,20 @@
                         "value": {
                             "CharacterID": {
                                 "id": null,
-                                "value": "BOSS_Male_DesertPeople",
+                                "value": "BOSS_Ninja",
                                 "type": "NameProperty"
                             },
                             "Level": {
                                 "id": null,
                                 "value": {
                                     "type": "None",
-                                    "value": 36
+                                    "value": 28
                                 },
                                 "type": "ByteProperty"
                             },
                             "Exp": {
                                 "id": null,
-                                "value": 206194,
+                                "value": 46272,
                                 "type": "Int64Property"
                             },
                             "EquipWaza": {
@@ -76,7 +76,7 @@
                                 "value": {
                                     "Value": {
                                         "id": null,
-                                        "value": 1839000,
+                                        "value": 2409000,
                                         "type": "Int64Property"
                                     }
                                 },
@@ -86,7 +86,7 @@
                                 "id": null,
                                 "value": {
                                     "type": "None",
-                                    "value": 96
+                                    "value": 88
                                 },
                                 "type": "ByteProperty"
                             },
@@ -102,22 +102,32 @@
                                 "id": null,
                                 "value": {
                                     "type": "None",
-                                    "value": 59
+                                    "value": 97
                                 },
                                 "type": "ByteProperty"
+                            },
+                            "PassiveSkillList": {
+                                "array_type": "NameProperty",
+                                "id": null,
+                                "value": {
+                                    "values": [
+                                        "PAL_Sanity_Up_2"
+                                    ]
+                                },
+                                "type": "ArrayProperty"
                             },
                             "OwnedTime": {
                                 "struct_type": "DateTime",
                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                 "id": null,
-                                "value": 638705317240230000,
+                                "value": 638709247137510000,
                                 "type": "StructProperty"
                             },
                             "OwnerPlayerUId": {
                                 "struct_type": "Guid",
                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                 "id": null,
-                                "value": "00000000-0000-0000-0000-000000000001",
+                                "value": "0f86d090-0000-0000-0000-000000000000",
                                 "type": "StructProperty"
                             },
                             "OldOwnerPlayerUIds": {
@@ -127,7 +137,7 @@
                                     "prop_name": "OldOwnerPlayerUIds",
                                     "prop_type": "StructProperty",
                                     "values": [
-                                        "00000000-0000-0000-0000-000000000001"
+                                        "0f86d090-0000-0000-0000-000000000000"
                                     ],
                                     "type_name": "Guid",
                                     "id": "00000000-0000-0000-0000-000000000000"
@@ -148,7 +158,7 @@
                                                 "struct_type": "Guid",
                                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                                 "id": null,
-                                                "value": "04292cd4-4fc4-4c39-d36a-118bb41b1c0d",
+                                                "value": "3c6523cd-4b57-f4c5-ca37-33999218febe",
                                                 "type": "StructProperty"
                                             }
                                         },
@@ -156,7 +166,7 @@
                                     },
                                     "SlotIndex": {
                                         "id": null,
-                                        "value": 27,
+                                        "value": 1,
                                         "type": "IntProperty"
                                     }
                                 },
@@ -325,9 +335,9 @@
                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                 "id": null,
                                 "value": {
-                                    "x": -62616.34972912388,
-                                    "y": 402420.0642573488,
-                                    "z": -999999.0
+                                    "x": -130061.80231977624,
+                                    "y": 228725.38261903182,
+                                    "z": -1000000000.0
                                 },
                                 "type": "StructProperty"
                             },
@@ -335,7 +345,7 @@
                                 "struct_type": "Guid",
                                 "struct_id": "00000000-0000-0000-0000-000000000000",
                                 "id": null,
-                                "value": "00000000-0000-0000-0000-000000000001",
+                                "value": "0f86d090-0000-0000-0000-000000000000",
                                 "type": "StructProperty"
                             },
                             "IsRarePal": {
@@ -353,7 +363,7 @@
                     0,
                     0
                 ],
-                "group_id": "410dbcbd-4d88-d130-c170-92b74f241f10"
+                "group_id": "afcf146e-445f-2ecc-daa2-ff8d6dcb77b8"
             },
             "type": "ArrayProperty",
             "custom_type": ".worldSaveData.CharacterSaveParameterMap.Value.RawData"

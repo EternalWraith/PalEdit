@@ -37,6 +37,7 @@
   "btn_add_pal": "Add Pal",
   "btn_dump_pal": "Dump Pal",
   "btn_clone_pal": "Clone Pal",
+  "btn_delete_pal": "Delete Pal",
   "preset_lbl": "Presets:",
   "preset_title1": "Utility:",
   "preset_base": "Base",
