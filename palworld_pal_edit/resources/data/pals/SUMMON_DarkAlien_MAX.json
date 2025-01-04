@@ -1,0 +1,43 @@
+{
+    "CodeName": "SUMMON_DarkAlien_MAX",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::PoisonShot": 7,
+        "EPalWazaID::DarkPulse": 15,
+        "EPalWazaID::DarkArrow": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::Unique_DarkAlien_JumpScractch": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::Unique_DarkAlien_JumpScractch": 1,
+        "EPalWazaID::ShadowBall": 2,
+        "EPalWazaID::DarkCanon": 3
+    },
+    "Scaling": {
+        "HP": 90,
+        "PHY": 100,
+        "MAG": 125,
+        "DEF": 85
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

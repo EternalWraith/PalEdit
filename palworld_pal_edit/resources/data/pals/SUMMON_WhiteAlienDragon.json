@@ -1,0 +1,43 @@
+{
+    "CodeName": "SUMMON_WhiteAlienDragon",
+    "Type": [
+        "Dragon",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonCanon": 1,
+        "EPalWazaID::DragonWave": 7,
+        "EPalWazaID::AirBlade": 15,
+        "EPalWazaID::DragonBreath": 22,
+        "EPalWazaID::IcicleLine": 30,
+        "EPalWazaID::Commet": 40,
+        "EPalWazaID::BeamSlicer": 50
+    },
+    "RaidMoveset": {
+        "EPalWazaID::DragonBreath": 1,
+        "EPalWazaID::Commet": 2,
+        "EPalWazaID::DragonCanon": 3
+    },
+    "Scaling": {
+        "HP": 110,
+        "PHY": 100,
+        "MAG": 120,
+        "DEF": 130
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

@@ -169,6 +169,7 @@ class PalObject:
     def GetImage(self):
         if self._img == None:
             n = self.GetCodeName() if not self._human else "CommonHuman"
+            n = "PlantSlime" if "PlantSlime" in self.GetCodeName() else n
             # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
             try:
                 print(f"T_{n}_icon_normal.png")

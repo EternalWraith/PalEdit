@@ -122,7 +122,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.11.1"
+    version = "0.11.2"
     ftsize = 18
     font = "Microsoft YaHei"
     skill_col = ["#DE3C3A", "#DE3C3A", "#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8"]
@@ -165,7 +165,8 @@ class PalEdit():
         self.attackops = []
         for e in PalInfo.PalAttacks:
             self.attackops.append(PalInfo.PalAttacks[e])
-        self.attackops.remove("None")
+        if "None" in self.attackops:
+            self.attackops.remove("None")
         self.attackops.sort()
         self.attackops.insert(0, "None")
 
@@ -179,9 +180,10 @@ class PalEdit():
         species = [PalInfo.PalSpecies[e].GetName() for e in PalInfo.PalSpecies]
         species.sort()
         try:
-            for idx, n in enumerate(species):
-                self.palname['menu'].entryconfigure(idx, label=n,
-                                                    command=tk._setit(self.speciesvar_name, n, self.changespeciestype))
+            self.palname.config(values=species)
+            #for idx, n in enumerate(species):
+                #self.palname['menu'].entryconfigure(idx, label=n,
+                                                    #command=tk._setit(self.speciesvar_name, n, self.changespeciestype))
             if self.speciesvar.get() in PalInfo.PalSpecies:
                 self.speciesvar_name.set(PalInfo.PalSpecies[self.speciesvar.get()].GetName())
             else:
@@ -198,6 +200,7 @@ class PalEdit():
 
         available_ops = pal.GetAvailableSkills()
         available_ops.insert(0, "None")
+        print(available_ops)
 
         def atk_upd(menu, atk_id, label, codename):
             menu['menu'].add_command(label=label, command=tk._setit(self.attacks[atk_id], codename,
@@ -210,8 +213,10 @@ class PalEdit():
                 atk_upd(menu, atk_id, PalInfo.PalAttacks[codename], codename)
 
         op = [PalInfo.PalPassives[e] for e in PalInfo.PalPassives]
-        op.remove("None")
-        op.remove("Unknown")
+        if "None" in op:
+            op.remove("None")
+        if "Unknown" in op:
+            op.remove("Unknown")
         op.sort()
         op.insert(0, "None")
 
@@ -335,14 +340,14 @@ class PalEdit():
 
         match preset:
             case "base":
-                self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up2"])
-                self.skills_name[1].set(PalInfo.PalPassives["PAL_Sanity_Down_2"])
-                self.skills_name[2].set(PalInfo.PalPassives["Rare"])
-                self.skills_name[3].set(PalInfo.PalPassives["PAL_FullStomach_Down_2"])
+                self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up3"])
+                self.skills_name[1].set(PalInfo.PalPassives["PAL_Sanity_Down_3"])
+                self.skills_name[2].set(PalInfo.PalPassives["CraftSpeed_up2"])
+                self.skills_name[3].set(PalInfo.PalPassives["PAL_FullStomach_Down_3"])
             case "workspeed":
-                self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up2"])
-                self.skills_name[1].set(PalInfo.PalPassives["CraftSpeed_up1"])
-                self.skills_name[2].set(PalInfo.PalPassives["Rare"])
+                self.skills_name[0].set(PalInfo.PalPassives["CraftSpeed_up3"])
+                self.skills_name[1].set(PalInfo.PalPassives["CraftSpeed_up2"])
+                self.skills_name[2].set(PalInfo.PalPassives["CraftSpeed_up1"])
                 self.skills_name[3].set(PalInfo.PalPassives["PAL_CorporateSlave"])
             case "movement":
                 self.skills_name[0].set(PalInfo.PalPassives["MoveSpeed_up_3"])
@@ -350,24 +355,24 @@ class PalEdit():
                 self.skills_name[2].set(PalInfo.PalPassives["MoveSpeed_up_2"])
                 self.skills_name[3].set(PalInfo.PalPassives["MoveSpeed_up_1"])
             case "tank":
-                self.skills_name[0].set(PalInfo.PalPassives["Deffence_up2"])
+                self.skills_name[0].set(PalInfo.PalPassives["Deffence_up3"])
                 self.skills_name[1].set(PalInfo.PalPassives["Legend"])
-                self.skills_name[2].set(PalInfo.PalPassives["PAL_masochist"])
-                self.skills_name[3].set(PalInfo.PalPassives["Deffence_up1"])
+                self.skills_name[2].set(PalInfo.PalPassives["Deffence_up2"])
+                self.skills_name[3].set(PalInfo.PalPassives["PAL_masochist"])
             case "dmg_max":
-                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[0].set(PalInfo.PalPassives["PAL_ALLAttack_up3"])
                 self.skills_name[1].set(PalInfo.PalPassives["Legend"])
                 self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
-                self.skills_name[3].set(PalInfo.PalPassives["Rare"])
+                self.skills_name[3].set(PalInfo.PalPassives["Noukin"])
             case "dmg_balanced":
-                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[0].set(PalInfo.PalPassives["PAL_ALLAttack_up3"])
                 self.skills_name[1].set(PalInfo.PalPassives["Legend"])
                 self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
                 self.skills_name[3].set(PalInfo.PalPassives["Deffence_up2"])
             case "dmg_mount":
-                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[0].set(PalInfo.PalPassives["Stamina_Up_3"])
                 self.skills_name[1].set(PalInfo.PalPassives["Legend"])
-                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
+                self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up3"])
                 self.skills_name[3].set(PalInfo.PalPassives["MoveSpeed_up_3"])
             case "dmg_element":
                 primary = pal.GetPrimary().lower()
@@ -375,26 +380,26 @@ class PalEdit():
                 if primary == "none":
                     messagebox.showerror("Preset: Dmg: Element", "This pal has no elements! Preset skipped")
                     return
-                self.skills_name[0].set(PalInfo.PalPassives["Noukin"])
+                self.skills_name[0].set(PalInfo.PalPassives["PAL_ALLAttack_up3"])
                 self.skills_name[1].set(PalInfo.PalPassives["Legend"])
                 self.skills_name[2].set(PalInfo.PalPassives["PAL_ALLAttack_up2"])
                 match primary:
-                    case "neutral":
+                    case "normal":
                         self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Normal_2_PAL"])
                     case "dark":
-                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Dark_2_PAL"])
+                        self.skills_name[3].set(PalInfo.PalPassives["Witch"])
                     case "dragon":
-                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Dragon_2_PAL"])
+                        self.skills_name[3].set(PalInfo.PalPassives["Invader"])
                     case "ice":
-                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Ice_2_PAL"])
+                        self.skills_name[3].set(PalInfo.PalPassives["Witch"])
                     case "fire":
-                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Fire_2_PAL"])
-                    case "grass":
+                        self.skills_name[3].set(PalInfo.PalPassives["EternalFlame"])
+                    case "leaf":
                         self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Leaf_2_PAL"])
-                    case "ground":
+                    case "earth":
                         self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Earth_2_PAL"])
-                    case "electric":
-                        self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Thunder_2_PAL"])
+                    case "electricity":
+                        self.skills_name[3].set(PalInfo.PalPassives["EternalFlame"])
                     case "water":
                         self.skills_name[3].set(PalInfo.PalPassives["ElementBoost_Aqua_2_PAL"])
                     case _:
@@ -642,8 +647,12 @@ class PalEdit():
                 data = f.read()
                 raw_gvas, _ = decompress_sav_to_gvas(data)
             self.skilllabel.config(text=self.i18n['msg_loading'])
-            gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALEDIT_PALWORLD_CUSTOM_PROPERTIES)
-            self.loaddata(gvas_file)
+            
+            try:
+                gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALEDIT_PALWORLD_CUSTOM_PROPERTIES)
+                self.loaddata(gvas_file)
+            except Exception as e:
+                self.logerror(str(e))           
             # self.doconvertjson(file, (not self.debug))
         else:
             messagebox.showerror(self.i18n['select_file'], self.i18n['msg_select_save_file'])
@@ -785,6 +794,8 @@ class PalEdit():
     def updateDisplay(self):
         self.listdisplay.delete(0, tk.constants.END)
         currentguid = self.players[self.current.get()].GetPlayerGuid()
+
+        self.playerguid.config(text=currentguid)
         
         print("Filter", self.FilteredPals())
         pals = self.FilteredPals()
@@ -799,6 +810,10 @@ class PalEdit():
 
         self.refresh()
 
+    def logerror(self, msg):
+        logger.WriteLog(msg)
+        messagebox.showinfo("Error", "There was an error! Your save may have issues or the tool is unable to process it. Upload your log.txt file to the support channel in our discord and ask for help.")
+
     def savefile(self):
         self.skilllabel.config(text=self.i18n['msg_saving_big'])
         self.gui.update()
@@ -811,30 +826,32 @@ class PalEdit():
         # print(file, self.filename)
         if file:
             logger.info(f"Opening file {file}")
-
-            if 'gvas_file' in self.data:
-                gvas_file = self.data['gvas_file']
-                if (
-                        "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
-                        or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
-                ):
-                    save_type = 0x32
+            try:
+                if 'gvas_file' in self.data:
+                    gvas_file = self.data['gvas_file']
+                    if (
+                            "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
+                            or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
+                    ):
+                        save_type = 0x32
+                    else:
+                        save_type = 0x31
+                    sav_file = compress_gvas_to_sav(
+                        gvas_file.write(PALEDIT_PALWORLD_CUSTOM_PROPERTIES), save_type
+                    )
+                    self.skilllabel.config(text=self.i18n['msg_writing'])
+                    with open(file, "wb") as f:
+                        f.write(sav_file)
+                    self.data = None
+                    self.current.set("")
+                    self.palbox = {}
+                    self.players = {}
+                    self.listdisplay.delete(0, tk.constants.END)
                 else:
-                    save_type = 0x31
-                sav_file = compress_gvas_to_sav(
-                    gvas_file.write(PALEDIT_PALWORLD_CUSTOM_PROPERTIES), save_type
-                )
-                self.skilllabel.config(text=self.i18n['msg_writing'])
-                with open(file, "wb") as f:
-                    f.write(sav_file)
-                self.data = None
-                self.current.set("")
-                self.palbox = {}
-                self.players = {}
-                self.listdisplay.delete(0, tk.constants.END)
-            else:
-                self.savejson(file)
-                self.doconvertsave(file)
+                    self.savejson(file)
+                    self.doconvertsave(file)
+            except Exception as e:
+                self.logerror(str(e))
 
             self.changetext(-1)
             self.jump()
@@ -1520,6 +1537,10 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.playerdrop.pack(side=tk.constants.RIGHT, fill=tk.constants.X)
         self.playerdrop.bind("<<ComboboxSelected>>", self.changeplayer)
 
+        self.playerguid = tk.Label(scrollview, text="-")
+        self.playerguid.config(font=(PalEditConfig.font, 7))
+        self.playerguid.pack()
+
         scrollbar = tk.Scrollbar(scrollview)
         scrollbar.pack(side=tk.constants.LEFT, fill=tk.constants.Y)
         self.listdisplay = tk.Listbox(scrollview, width=30, yscrollcommand=scrollbar.set, exportselection=0)
@@ -1964,7 +1985,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilldrops[3].pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.BOTH)
         self.skilldrops[3].config(font=(PalEditConfig.font, PalEditConfig.ftsize), width=6, direction="right")
 
-        gr = 4
+        gr = 0
         self.skilldrops[0].config(highlightbackground=PalEditConfig.skill_col[gr],
                                   bg=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"),
                                   activebackground=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"))
@@ -1977,6 +1998,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilldrops[3].config(highlightbackground=PalEditConfig.skill_col[gr],
                                   bg=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"),
                                   activebackground=PalEdit.mean_color(PalEditConfig.skill_col[gr], "ffffff"))
+        self.setskillcolours()
 
         self.skilldrops[0].bind("<Enter>", lambda evt, num=0: self.changetext(num))
         self.skilldrops[1].bind("<Enter>", lambda evt, num=1: self.changetext(num))
