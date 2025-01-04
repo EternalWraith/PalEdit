@@ -19,6 +19,20 @@ try:
 except:
     from EmptyObjectHandler import *
 
+suitnames = ["EmitFlame",
+        "Watering",
+        "Seeding",
+        "GenerateElectricity",
+        "Handcraft",
+        "Collection",
+        "Deforest",
+        "Mining",
+        "OilExtraction",
+        "ProductMedicine",
+        "Cool",
+        "Transport",
+        "MonsterFarm"]
+
 xpthresholds = [
     0,
     25,
@@ -121,8 +135,8 @@ xpthresholds = [
     2147483647,
     2147483647
 ]
-if len(xpthresholds) < 55:
-    print("Something is wrong with the thresholds")
+if len(xpthresholds) < 60:
+    raise Exception("Something is wrong with the thresholds")
 
 
 class PalGender(Enum):
@@ -155,6 +169,7 @@ class PalObject:
     def GetImage(self):
         if self._img == None:
             n = self.GetCodeName() if not self._human else "CommonHuman"
+            n = "PlantSlime" if "PlantSlime" in self.GetCodeName() else n
             # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
             try:
                 print(f"T_{n}_icon_normal.png")
@@ -291,6 +306,19 @@ class PalEntity:
         if not "Hp" in self._obj:
             self._obj["Hp"] = copy.deepcopy(EmptyHpObject)
         self.UpdateMaxHP()
+
+        if "GotWorkSuitabilityAddRankList" not in self._obj:
+            self._obj["GotWorkSuitabilityAddRankList"] = copy.deepcopy(EmptyGotWorkObject)
+        self.AddSuits = self._obj["GotWorkSuitabilityAddRankList"]
+        for i in suitnames:
+            if i not in self.AddSuits:
+                t = copy.deepcopy(EmptyWorkObject)
+                t["WorkSuitability"]["value"]["value"] = f"EPalWorkSuitability::{i}"
+                self.AddSuits["value"]["values"].append(t)
+                
+                
+        
+        
 
     def IsHuman(self):
         return self._type._human
@@ -656,6 +684,8 @@ class PalEntity:
 
     def StripAttack(self, name):
         name = name.replace("⚔","").replace("🏹","")
+        print(name)
+        print(self._learntMoves)
         strip = False
         if not name in self._equipMoves:
             if not name in PalLearnSet[self.GetCodeName()]:
@@ -705,8 +735,8 @@ class PalEntity:
     def GetLearntMoves(self):
         return self._learntMoves
 
-    def InitializationPal(self, newguid, player, group, slot):
-        self._data['key']['PlayerUId']['value'] = "00000000-0000-0000-0000-000000000000"
+    def InitializationPal(self, newguid, player, group, slot, owneruid):
+        self._data['key']['PlayerUId']['value'] = owneruid
         self._obj["OwnerPlayerUId"] = {
                 "struct_type": "Guid",
                 "struct_id": "00000000-0000-0000-0000-000000000000",
@@ -742,6 +772,9 @@ class PalEntity:
 
     def SetPalInstanceGuid(self, v: str):
         self._data['key']['InstanceId']['value'] = v
+
+    def GetOwner(self):
+        return self._data['key']['PlayerUId']['value']
 
 
 class PalGuid:
@@ -798,6 +831,18 @@ class PalGuid:
                 e['value']['Slots']['value']['values'][v+1]['RawData']['value']['instance_id'] = PalGuid
                 print(e['value']['Slots']['value']['values'][v+1])
 
+    def RemovePal(self, SoltGuid: str, SlotIndex: int, PalGuid: str):
+        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
+            return
+
+        for e in self._CharacterContainerSaveData:
+            if (e['key']['ID']['value'] == SoltGuid):
+                for p in e['value']['Slots']['value']['values']:
+                    if p['SlotIndex']['value'] == SlotIndex:
+                        e['value']['Slots']['value']['values'].remove(p)
+                        break
+        
+
     def AddGroupSaveData(self, GroupGuid: str, PalGuid: str):
         if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
             return
@@ -808,6 +853,15 @@ class PalGuid:
                         return
                 tmp = {"guid": "00000000-0000-0000-0000-000000000001", "instance_id": PalGuid}
                 e['value']['RawData']['value']['individual_character_handle_ids'].append(tmp)
+
+    def RemoveGroupSaveData(self, GroupGuid: str, PalGuid: str):
+        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
+            return
+        for e in self._GroupSaveDataMap:
+            if (e['key'] == GroupGuid):
+                for ee in e['value']['RawData']['value']['individual_character_handle_ids']:
+                    if (ee['instance_id'] == PalGuid):
+                        e['value']['RawData']['value']['individual_character_handle_ids'].remove(ee)
 
     def GetSoltMaxCount(self, SoltGuid: str):
         if SoltGuid == "00000000-0000-0000-0000-000000000000":
@@ -1087,8 +1141,8 @@ if __name__ == "__main__":
     #Image.open(f'../assets/Bellanoir.png').resize((240, 240)).save(f"resources/pals/NightLady.png")
     #Image.open(f'../assets/Bellanoir Libero.png').resize((240, 240)).save(f"resources/pals/NightLady_Dark.png")
 
-    for i in PalSpecies:
-        print (i)    
+    #for i in PalSpecies:
+        #print (i)    
     pass
 
 

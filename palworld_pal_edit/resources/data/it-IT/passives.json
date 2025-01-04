@@ -1,0 +1,362 @@
+{
+    "UNKNOWN": {
+        "Name": "Sconosciuto",
+        "Description": "non esiste o non ancora presente nel nostro database"
+    },
+    "NONE": {
+        "Name": "Nessuno",
+        "Description": "Il Pal non ha abilità in questo slot"
+    },
+    "ElementResist_Normal_1_PAL": {
+        "Name": "Anomal0",
+        "Description": "Riduzione del danno non elementale: 10%"
+    },
+    "ElementResist_Dark_1_PAL": {
+        "Name": "Tipo cupo",
+        "Description": "Riduzione del danno di attributo oscurità: 10%"
+    },
+    "ElementResist_Dragon_1_PAL": {
+        "Name": "Ammazzadraghi",
+        "Description": "Riduzione del danno di attributo drago: 10%"
+    },
+    "ElementResist_Ice_1_PAL": {
+        "Name": "Antighiaccio",
+        "Description": "Riduzione del danno di attributo ghiaccio: 10%"
+    },
+    "ElementResist_Fire_1_PAL": {
+        "Name": "Termofilo",
+        "Description": "Riduzione del danno di attributo fuoco: 10%"
+    },
+    "ElementResist_Leaf_1_PAL": {
+        "Name": "Antivegetazione",
+        "Description": "Riduzione del danno di attributo erba: 10%"
+    },
+    "ElementResist_Earth_1_PAL": {
+        "Name": "Antisismico",
+        "Description": "Riduzione del danno di attributo terra: 10%"
+    },
+    "ElementResist_Thunder_1_PAL": {
+        "Name": "Isolante",
+        "Description": "Riduzione del danno di attributo elettricità: 10%"
+    },
+    "ElementResist_Aqua_1_PAL": {
+        "Name": "Idrorepellente",
+        "Description": "Riduzione del danno di attributo acqua: 10%"
+    },
+    "ElementBoost_Normal_1_PAL": {
+        "Name": "Intuizione del nulla",
+        "Description": "Incremento del danno non elementale: 10%"
+    },
+    "ElementBoost_Dark_1_PAL": {
+        "Name": "Coltre oscura",
+        "Description": "Incremento del danno di attributo oscurità: 10%"
+    },
+    "ElementBoost_Dragon_1_PAL": {
+        "Name": "Stirpe draconica",
+        "Description": "Incremento del danno di attributo drago: 10%"
+    },
+    "ElementBoost_Ice_1_PAL": {
+        "Name": "Sangue freddo",
+        "Description": "Incremento del danno di attributo ghiaccio: 10%"
+    },
+    "ElementBoost_Fire_1_PAL": {
+        "Name": "Giocare col fuoco",
+        "Description": "Incremento del danno di attributo fuoco: 10%"
+    },
+    "ElementBoost_Leaf_1_PAL": {
+        "Name": "Fragranza naturale",
+        "Description": "Incremento del danno di attributo erba: 10%"
+    },
+    "ElementBoost_Earth_1_PAL": {
+        "Name": "Potere della terra",
+        "Description": "Incremento del danno di attributo terra: 10%"
+    },
+    "ElementBoost_Thunder_1_PAL": {
+        "Name": "Condensatore",
+        "Description": "Incremento del danno di attributo elettricità: 10%"
+    },
+    "ElementBoost_Aqua_1_PAL": {
+        "Name": "Giocare con l'acqua",
+        "Description": "Incremento del danno di attributo acqua: 10%"
+    },
+    "ElementBoost_Normal_2_PAL": {
+        "Name": "Supremazia sacra",
+        "Description": "Incremento del danno non elementale: 20%; abilità distintiva di Paladius"
+    },
+    "ElementBoost_Dark_2_PAL": {
+        "Name": "Dominio sull'oltretomba",
+        "Description": "Incremento del danno di attributo oscurità: 20%; abilità distintiva di Necromus"
+    },
+    "ElementBoost_Dragon_2_PAL": {
+        "Name": "Drago divino",
+        "Description": "Incremento del danno di attributo drago: 20%; abilità distintiva di Jetragon"
+    },
+    "ElementBoost_Ice_2_PAL": {
+        "Name": "Supremazia glaciale",
+        "Description": "Incremento del danno di attributo ghiaccio: 20%; abilità distintiva di Frostallion"
+    },
+    "ElementBoost_Fire_2_PAL": {
+        "Name": "Supremazia ardente",
+        "Description": "Incremento del danno di attributo fuoco: 20%; abilità distintiva di Blazamut"
+    },
+    "ElementBoost_Leaf_2_PAL": {
+        "Name": "Dominio sulla natura",
+        "Description": "Incremento del danno di attributo erba: 20%; abilità distintiva di Lyleen"
+    },
+    "ElementBoost_Earth_2_PAL": {
+        "Name": "Supremazia terrestre",
+        "Description": "Incremento del danno di attributo terra: 20%; abilità distintiva di Anubis"
+    },
+    "ElementBoost_Thunder_2_PAL": {
+        "Name": "Supremazia fulminante",
+        "Description": "Incremento del danno di attributo elettricità: 20%; abilità distintiva di Orserk"
+    },
+    "ElementBoost_Aqua_2_PAL": {
+        "Name": "Supremazia marina",
+        "Description": "Incremento del danno di attributo acqua: 20%; abilità distintiva di Jormuntide"
+    },
+    "Witch": {
+        "Name": "Strega",
+        "Description": "Incremento del danno di attributo oscurità: 30%. Incremento del danno di attributo ghiaccio: 30%. Abilità distintiva di Bellanoir"
+    },
+    "PAL_ALLAttack_up1": {
+        "Name": "Animo prode",
+        "Description": "Attacco +10%"
+    },
+    "PAL_ALLAttack_up2": {
+        "Name": "Animo feroce",
+        "Description": "Attacco +20%"
+    },
+    "PAL_ALLAttack_up3": {
+        "Name": "Divinità feroce",
+        "Description": "Attacco +30%, Difesa +5%"
+    },
+    "PAL_ALLAttack_down1": {
+        "Name": "Codardia",
+        "Description": "Attacco -10%"
+    },
+    "PAL_ALLAttack_down2": {
+        "Name": "Piedi di piombo",
+        "Description": "Attacco -20%"
+    },
+    "Deffence_up1": {
+        "Name": "Pelle dura",
+        "Description": "Difesa +10%"
+    },
+    "Deffence_up2": {
+        "Name": "Corpo robusto",
+        "Description": "Difesa +20%"
+    },
+    "Deffence_up3": {
+        "Name": "Corpo di diamante",
+        "Description": "Difesa +30%"
+    },
+    "Deffence_down1": {
+        "Name": "Debolezza",
+        "Description": "Difesa -10%"
+    },
+    "Deffence_down2": {
+        "Name": "Ossa fragili",
+        "Description": "Difesa -20%"
+    },
+    "TrainerMining_up1": {
+        "Name": "Meastria nell'estrazione",
+        "Description": "Incremento efficienza nell'estrazione del giocatore: 25%"
+    },
+    "TrainerLogging_up1": {
+        "Name": "Maestria nella falegnameria",
+        "Description": "Incremento efficienza nel tagliare la legna del giocatore: 25%"
+    },
+    "TrainerATK_UP_1": {
+        "Name": "Maestria negli asalti",
+        "Description": "Incremento attacco del giocatore: 10%"
+    },
+    "TrainerWorkSpeed_UP_1": {
+        "Name": "Gran motivatore",
+        "Description": "Incremento velocità delle attività del giocatore: 25%"
+    },
+    "TrainerDEF_UP_1": {
+        "Name": "Padronanza della difesa",
+        "Description": "Incremento difesa del giocatore: 10%"
+    },
+    "PAL_Sanity_Down_1": {
+        "Name": "Atteggiamento positivo",
+        "Description": "Resistenza al calo dei punti SAN +10%"
+    },
+    "PAL_Sanity_Down_2": {
+        "Name": "Stacanovismo",
+        "Description": "Resistenza al calo dei punti SAN +15%"
+    },
+    "PAL_Sanity_Down_3": {
+        "Name": "Spirito innamovibile",
+        "Description": "Resistenza al calo dei punti SAN +20%"
+    },
+    "PAL_Sanity_Up_1": {
+        "Name": "Irrequietezza",
+        "Description": "Calo dei punti SAN +10%"
+    },
+    "PAL_Sanity_Up_2": {
+        "Name": "Nichilismo",
+        "Description": "Calo dei punti SAN +15%"
+    },
+    "PAL_FullStomach_Down_1": {
+        "Name": "Dainty Eater",
+        "Description": "Hunger drops 10% slower"
+    },
+    "PAL_FullStomach_Down_2": {
+        "Name": "Sempre a dieta",
+        "Description": "Resistenza al calo della sazietà +15%"
+    },
+    "PAL_FullStomach_Down_3": {
+        "Name": "Digiuno totale",
+        "Description": "Resistenza al calo della sazietà +20%"
+    },
+    "PAL_FullStomach_Up_1": {
+        "Name": "Fame vorace",
+        "Description": "Calo della sazietà +10%"
+    },
+    "PAL_FullStomach_Up_2": {
+        "Name": "Pozzo senza fondo",
+        "Description": "Calod ella sazietà +15%"
+    },
+    "CraftSpeed_up1": {
+        "Name": "Diligenza",
+        "Description": "Velocità delle attività +20%"
+    },
+    "CraftSpeed_up2": {
+        "Name": "Spirito artigiano",
+        "Description": "Velocità delle attività +50%"
+    },
+    "CraftSpeed_up3": {
+        "Name": "Tecnica sopraffina",
+        "Description": "Velocità delle attività +75%"
+    },
+    "CraftSpeed_down1": {
+        "Name": "Goffagine",
+        "Description": "Velocità delle attività -10%"
+    },
+    "CraftSpeed_down2": {
+        "Name": "Svogliatezza",
+        "Description": "Velocità delle attività -30%"
+    },
+    "MoveSpeed_up_1": {
+        "Name": "Rapidità",
+        "Description": "Incremento della velocità di movimento: 10%"
+    },
+    "MoveSpeed_up_2": {
+        "Name": "Velocista",
+        "Description": "Incremento della velocità di movimento: 20%"
+    },
+    "MoveSpeed_up_3": {
+        "Name": "Velocità divina",
+        "Description": "Incremento della velocità di movimento: 30%"
+    },
+    "PAL_CorporateSlave": {
+        "Name": "Crumiro",
+        "Description": "Velocità delle attività +30%, Attacco -30%"
+    },
+    "PAL_rude": {
+        "Name": "Brutalità",
+        "Description": "Attacco +15%, Velocità delle attività -10%"
+    },
+    "Noukin": {
+        "Name": "Tutto muscoli",
+        "Description": "Attacco +30%, Velocità delle attività -50%"
+    },
+    "PAL_oraora": {
+        "Name": "Arroganza",
+        "Description": "Attacco +10%, Difesa -20%"
+    },
+    "PAL_conceited": {
+        "Name": "Vanità",
+        "Description": "Velocità delle attività +10%, Difesa -10%"
+    },
+    "PAL_SpiritualInst": {
+        "Name": "Instabile",
+        "Description": "Velocità delle attività -10%, Difesa -10%"
+    },
+    "PAL_masochist": {
+        "Name": "Masochismo",
+        "Description": "Difesa +15%, Attacco -15%"
+    },
+    "PAL_sadist": {
+        "Name": "Sadismo",
+        "Description": "Attacco +15%, Difesa -15%"
+    },
+    "Rare": {
+        "Name": "Fortunato",
+        "Description": "Attacco +15%, Velocità delle attività +15%"
+    },
+    "Legend": {
+        "Name": "Leggenda",
+        "Description": "Incremento dell'attacco: 20%, Incremento della difesa +20%, Incremento della velocità di movimento: 15%"
+    },
+    "Stamina_Up_1": {
+        "Name": "Resistenza infinita",
+        "Description": "Resistenza massima: +50% (Solo per i Pal che puoi cavalcare)"
+    },
+    "Stamina_Up_2": {
+        "Name": "Energia della gioventù",
+        "Description": "Resistenza massima: +25% (Solo per i Pal che puoi cavalcare)"
+    },
+    "Stamina_Up_3": {
+        "Name": "Moto perpetuo",
+        "Description": "Resistenza massima: +75% (Solo per i Pal che puoi cavalcare)"
+    },
+    "Stamina_Down_1": {
+        "Name": "Recluso",
+        "Description": "Resistenza massima: -25% (Solo per i Pal che puoi cavalcare)"
+    },
+    "SalePrice_Up_1": {
+        "Name": "Nobile",
+        "Description": "Miglioramento delle vendite: +5%"
+    },
+    "SalePrice_Up_2": {
+        "Name": "Pelliccia curata",
+        "Description": "Miglioramento delle vendite: +3%"
+    },
+    "SalePrice_Down_1": {
+        "Name": "Malandato",
+        "Description": "Peggioramento delle vendite: -10%"
+    },
+    "CoolTimeReduction_Up_1": {
+        "Name": "Stato di quiete",
+        "Description": "Riduzione del tempo di recupero delle abilità attive: 30%, Attacco: +10%."
+    },
+    "CoolTimeReduction_Up_2": {
+        "Name": "Impazienza",
+        "Description": "Riduzione del tempo di recupero delle abilità attive: 15%"
+    },
+    "CoolTimeReduction_Down_1": {
+        "Name": "Nessuna voglia",
+        "Description": "Estensione del tempo di recupero delle abilità attive: -15%"
+    },
+    "NonKilling": {
+        "Name": "Pietà",
+        "Description": "Per i pacifisti. La salute del bersaglio non può scendere sotto 1."
+    },
+    "Nocturnal": {
+        "Name": "Notturno",
+        "Description": "La notte prosegue le attività senza bisogno di dormire."
+    },
+    "Vampire": {
+        "Name": "Vampiro",
+        "Description": "Succhia via i danni subito, ripristinando Salute. La notte prosegue le attività senza bisogno di dormire."
+    },
+    "Alien": {
+        "Name": "Cellule sconosciute",
+        "Description": "Attacco: +10%. Resistenza al danno di attributo fuoco: 15%. Resistenza al danno di attributo elettricità: 15%."
+    },
+    "EternalFlame": {
+        "Name": "Calamità delle fiamme",
+        "Description": "Incremento del danno di attributo fuoco: 30%. Incremento del danno di attributo elettricità: 30%."
+    },
+    "Invader": {
+        "Name": "Invasore",
+        "Description": "Incremento del danno di attributo oscurità: 30%. Incremento del danno di attributo drago: 30%."
+    },
+    "Test_PalEgg_HatchingSpeed_Up": {
+        "Name": "Filantropo",
+        "Description": "Quando assegnato al ranch per Pal, aumenta di 100% la velocità di generazione delle uova."
+    }
+}

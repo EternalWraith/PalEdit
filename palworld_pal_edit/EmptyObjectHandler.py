@@ -277,3 +277,35 @@ EmptySoulObject = {
     "value": {"value": 0, "type":"None"},
     "type": "ByteProperty"
 }
+
+EmptyGotWorkObject = {
+    "array_type": "StructProperty",
+    "id": None,
+    "value": {
+        "prop_name": "GotWorkSuitabilityAddRankList",
+        "prop_type": "StructProperty",
+        "values": [
+            
+        ],
+        "type_name": "PalWorkSuitabilityInfo",
+        "id": "00000000-0000-0000-0000-000000000000"
+    },
+    "type": "ArrayProperty"
+}
+
+EmptyWorkObject = {
+    "WorkSuitability": {
+        "id": None,
+        "value": {
+            "type": "EPalWorkSuitability",
+            "value": None
+        },
+        "type": "EnumProperty"
+    },
+    "Rank": {
+        "id": None,
+        "value": 0,
+        "type": "IntProperty"
+    }
+}
+    

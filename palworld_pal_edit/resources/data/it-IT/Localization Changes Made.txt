@@ -1,0 +1,45 @@
+Changes made
+
+File: passives.json
+
+- Conceited description changed from defense -20% to defense -10% (probably a typo)
+
+- Sadist description changed from defense +15% to defense -15% (probably a typo)
+
+- Mentally unstable translated as "Instabile" (literally unstable) as in game it shows "it_Text" (The unstable passive has a different name in italian, Irrequietezza, literally restlessness)
+
+
+File: ui.json
+
+- Since I don't know what these do:
+Preset changes attributes
+Preset changes rank
+Preset changes level 
+I've translated them as "I preset cambiano attributi/rango/livello" which is literally "The preset modifies the attributes/rank/level". I don't know if that is right
+
+
+File: pals.json
+
+- Weaponsdealer and Questman are just "it_Text" in the localized datatables, so I've translated them. The translation are quite literal but I don't know if they'll change in future updates.
+
+- Male_Trader01 shady pal merchant in italian is localized as Villager (Abitante del villaggio) for some reason, I don't know if it's right (found him once but don't remember it's in game name).
+
+- Doctor is also localized as Villager, I don't know whether that's right or not.
+
+File: attack.json
+
+- I haven't found Seigetsu blade II in the game files, so I translated it like Seigetsu Blade with II after (like the two Divine Disasters).
+
+- The following moves have been translated by me since it's just "it_Text in he game files":
+Intimidate
+Triple cannon
+Tidal wave
+Throw
+Scratch
+Work attack
+Snow storm
+Dark tornado
+Water balloon
+Grasstyphoon
+Seed shotgun
+The translations are literal.
