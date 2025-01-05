@@ -117,7 +117,7 @@
     },
     "Witch": {
         "Name": "Siren of the Void",
-        "Description": "+30% damage dealth with Dark attacks. +30% damage dealt with Ice attacks. Bellanoir's signature ability."
+        "Description": "+30% damage dealt with Dark attacks. +30% damage dealt with Ice attacks. Bellanoir's signature ability."
     },
     "PAL_ALLAttack_up1": {
         "Name": "Brave",
@@ -129,7 +129,7 @@
     },
     "PAL_ALLAttack_up3": {
         "Name": "Demon God",
-        "Description": "+30% to Attack stat, +5% to Defense stat."
+        "Description": "+30% to Attack stat, +5% to Defence stat."
     },
     "PAL_ALLAttack_down1": {
         "Name": "Coward",
@@ -173,7 +173,7 @@
     },
     "TrainerWorkSpeed_UP_1": {
         "Name": "Motivational Leader",
-        "Description": "+25% to Player move speed."
+        "Description": "+25% to Player movement speed."
     },
     "TrainerDEF_UP_1": {
         "Name": "Stronghold Strategist",
@@ -201,23 +201,23 @@
     },
     "PAL_FullStomach_Down_1": {
         "Name": "Dainty Eater",
-        "Description": "Hunger decreases 10.0% slower."
+        "Description": "Hunger decreases 10% slower."
     },
     "PAL_FullStomach_Down_2": {
         "Name": "Diet Lover",
-        "Description": "Hunger decreases 15.0% slower."
+        "Description": "Hunger decreases 15% slower."
     },
     "PAL_FullStomach_Down_3": {
         "Name": "Mastery of Fasting",
-        "Description": "Hunger decreases 20.0% slower."
+        "Description": "Hunger decreases 20% slower."
     },
     "PAL_FullStomach_Up_1": {
         "Name": "Glutton",
-        "Description": "Hunger decreases 10.0% faster."
+        "Description": "Hunger decreases 10% faster."
     },
     "PAL_FullStomach_Up_2": {
         "Name": "Bottomless Stomach",
-        "Description": "Hunger decreases 15.0% faster."
+        "Description": "Hunger decreases 15% faster."
     },
     "CraftSpeed_up1": {
         "Name": "Serious",
@@ -269,11 +269,11 @@
     },
     "PAL_conceited": {
         "Name": "Conceited",
-        "Description": "+10% work speed, -20% defense."
+        "Description": "+10% work speed, -20% defence."
     },
     "PAL_SpiritualInst": {
         "Name": "Mentally unstable",
-        "Description": "-10% work speed, -10% defense."
+        "Description": "-10% work speed, -10% defence."
     },
     "PAL_masochist": {
         "Name": "Masochist",
@@ -313,11 +313,11 @@
     },
     "SalePrice_Up_2": {
         "Name": "Fine Furs",
-        "Description": "Sale price 3% when selling to Vendors."
+        "Description": "+3% Sell price when selling to Vendors."
     },
     "SalePrice_Down_1": {
         "Name": "Shabby",
-        "Description": "Sale price -10% when selling to Vendors."
+        "Description": "-10% Sell price when selling to Vendors."
     },
     "CoolTimeReduction_Up_1": {
         "Name": "Serenity",
@@ -329,7 +329,7 @@
     },
     "CoolTimeReduction_Down_1": {
         "Name": "Easygoing",
-        "Description": "Active Skill Cooldown extension -15%."
+        "Description": "Active Skill Cooldown increased by 15%."
     },
     "NonKilling": {
         "Name": "Mercy hit",
