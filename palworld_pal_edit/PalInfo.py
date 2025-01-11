@@ -311,14 +311,22 @@ class PalEntity:
             self._obj["GotWorkSuitabilityAddRankList"] = copy.deepcopy(EmptyGotWorkObject)
         self.AddSuits = self._obj["GotWorkSuitabilityAddRankList"]
         for i in suitnames:
-            if i not in self.AddSuits:
+            if f"EPalWorkSuitability::{i}" not in [x["WorkSuitability"]["value"]["value"] for x in self.AddSuits["value"]["values"]]:
                 t = copy.deepcopy(EmptyWorkObject)
                 t["WorkSuitability"]["value"]["value"] = f"EPalWorkSuitability::{i}"
                 self.AddSuits["value"]["values"].append(t)
                 
                 
-        
-        
+    def GetSuit(self, suit):
+        for i in self.AddSuits["value"]["values"]:
+            if i["WorkSuitability"]["value"]["value"] == f"EPalWorkSuitability::{suit}":
+                return i["Rank"]["value"]
+        return 0
+
+    def SetSuit(self, suit, value):
+        for i in self.AddSuits["value"]["values"]:
+            if i["WorkSuitability"]["value"]["value"] == f"EPalWorkSuitability::{suit}":
+                i["Rank"]["value"] = value
 
     def IsHuman(self):
         return self._type._human

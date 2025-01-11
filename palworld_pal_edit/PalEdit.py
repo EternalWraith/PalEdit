@@ -122,7 +122,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.11.2"
+    version = "0.11.4"
     ftsize = 18
     font = "Microsoft YaHei"
     skill_col = ["#DE3C3A", "#DE3C3A", "#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8"]
@@ -558,8 +558,16 @@ class PalEdit():
         if not pal.IsHuman():
             
             pt = pal.GetType()
+
+
             for i in suitabilities:
-                self.suits[f"{i}_label"].config(text=pt._suits[i])
+                pp = pal.GetSuit(i)
+                sp = pt._suits[i]
+                tp = pp + sp
+                self.suits[f"{i}_var"].set(tp)
+                c = "#55FF55" if tp > sp else "#D3D3D3"
+                self.suits[f"{i}_label"].config(state=(tk.NORMAL if sp > 0 else tk.DISABLED), from_=sp, bg=c)
+                #self.suits[f"{i}_label"].config(text=tp, bg=c)
 
             calc = pal.CalculateIngameStats()
             self.hthstatval.config(text=calc["HP"])
@@ -569,7 +577,8 @@ class PalEdit():
         else:
             
             for i in suitabilities:
-                self.suits[f"{i}_label"].config(text="-")
+                self.suits[f"{i}_var"].set(0)
+                self.suits[f"{i}_label"].config(state=tk.DISABLED, bg="#D3D3D3")
 
             self.hthstatval.config(text="n/a")
             self.matkstatval.config(text="n/a")
@@ -612,6 +621,27 @@ class PalEdit():
         self.updateSkillsName()
         self.setskillcolours()
         self.is_onselect = False
+
+    def setsuits(self):
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+
+        pt = pal.GetType()
+
+        for i in suitabilities:
+
+            pp = self.suits[f"{i}_var"].get() #pal.GetSuit(suit)
+            sp = pt._suits[i]
+            pp = pp - sp
+            tp = pp + sp
+            c = "#55FF55" if tp > sp else "#D3D3D3"
+            self.suits[f"{i}_label"].config(bg=c)
+
+            pal.SetSuit(i, pp)
+
+            
 
     def changetext(self, num):
         if num == -1:
@@ -1062,6 +1092,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         print(self.palguidmanager)
         if not self.isPalSelected() or self.palguidmanager is None:
             return
+
+        
+        
         playerguid = self.players[self.current.get()].GetPlayerGuid()
         playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
         if not os.path.exists(playersav):
@@ -1090,7 +1123,12 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             if i == -1:
                 print("Player Pal Storage is full!")
                 return
-            pal.InitializationPal(newguid, playerguid, groupguid, slotguid)
+
+            owneruid = "00000000-0000-0000-0000-000000000000"
+            if pal.GetOwner() != owneruid:
+                owneruid = playerguid
+            
+            pal.InitializationPal(newguid, playerguid, groupguid, slotguid, owneruid)
             pal.SetSoltIndex(i)
             self.palguidmanager.AddGroupSaveData(groupguid, newguid)
             self.palguidmanager.SetContainerSave(slotguid, i, newguid)
@@ -2030,11 +2068,17 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             self.suits[i] = tk.Label(throwawaybox, image=self.suiticons[i][1], bg="lightgrey", relief="groove", borderwidth=1)
             self.suits[i].pack()
 
-            s = f"{i}_label"
-            self.suits[s] = tk.Label(throwawaybox, text="0", bg="lightgrey", relief="groove", borderwidth=1, font=(PalEditConfig.font, PalEditConfig.ftsize))
-            self.suits[s].pack(fill=tk.constants.X, expand=True)
-        
+            v = f"{i}_var"
+            self.suits[v] = tk.IntVar()
+            #self.suits[v].trace(
 
+            s = f"{i}_label"
+            self.suits[s] = tk.Spinbox(throwawaybox, width=1, text="0",
+                                       from_=0, to=5, bg="lightgrey", relief="groove",
+                                       borderwidth=1, textvariable=self.suits[v],
+                                       font=(PalEditConfig.font, PalEditConfig.ftsize),
+                                       command=self.setsuits)
+            self.suits[s].pack(fill=tk.constants.X, expand=True)
         
         # PRESETS
         framePresets = tk.Frame(infoview, relief="raised", borderwidth=2)
