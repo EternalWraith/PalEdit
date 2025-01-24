@@ -2,7 +2,7 @@
     "CodeName": "GrassMammoth_Ice",
     "Type": [
         "Ice",
-        "None"
+        "Earth"
     ],
     "Moveset": {
         "EPalWazaID::ThrowRock": 1,
