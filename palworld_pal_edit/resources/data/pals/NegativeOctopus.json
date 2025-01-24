@@ -22,7 +22,7 @@
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 0,
+        "Watering": 2,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
