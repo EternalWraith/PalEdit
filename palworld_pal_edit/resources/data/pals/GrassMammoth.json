@@ -2,7 +2,7 @@
     "CodeName": "GrassMammoth",
     "Type": [
         "Leaf",
-        "None"
+        "Earth"
     ],
     "Moveset": {
         "EPalWazaID::MudShot": 1,
