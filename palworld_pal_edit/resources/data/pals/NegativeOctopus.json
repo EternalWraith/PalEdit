@@ -2,7 +2,7 @@
     "CodeName": "NegativeOctopus",
     "Type": [
         "Dark",
-        "None"
+        "Water"
     ],
     "Moveset": {
         "EPalWazaID::AquaJet": 1,
@@ -22,7 +22,7 @@
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 2,
+        "Watering": 1,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,

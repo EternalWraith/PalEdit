@@ -2,7 +2,7 @@
     "CodeName": "LazyCatfish",
     "Type": [
         "Earth",
-        "None"
+        "Water"
     ],
     "Moveset": {
         "EPalWazaID::MudShot": 1,

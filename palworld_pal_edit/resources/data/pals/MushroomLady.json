@@ -1,0 +1,31 @@
+{
+    "CodeName": "MushroomLady",
+    "Type": [
+        "Normal",
+        "Leaf"
+    ],
+    "Moveset": {},
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 100,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 4,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 3,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 3,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

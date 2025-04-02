@@ -14,7 +14,7 @@
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 1,
+        "Watering": 4,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -23,7 +23,7 @@
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 1,
+        "Cool": 2,
         "Transport": 0,
         "MonsterFarm": 0
     },

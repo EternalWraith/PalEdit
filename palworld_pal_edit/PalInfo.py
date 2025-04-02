@@ -197,8 +197,8 @@ class PalEntity:
         self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
 
         self.owner = ""
-        if "SlotID" in self._obj:
-            self.owner = self._obj["SlotID"]['value']["ContainerId"]['value']['ID']['value']
+        if "SlotId" in self._obj:
+            self.owner = self._obj["SlotId"]['value']["ContainerId"]['value']['ID']['value']
 
         if "IsPlayer" in self._obj:
             raise Exception("This is a player character")
@@ -289,7 +289,7 @@ class PalEntity:
 
         self.isTower = self._type.IsTower()
 
-        self._storedLocation = self._obj['SlotID']
+        self._storedLocation = self._obj['SlotId']
         self.storageId = self._storedLocation["value"]["ContainerId"]["value"]["ID"]["value"]
         self.storageSlot = self._storedLocation["value"]["SlotIndex"]["value"]
 
@@ -359,14 +359,15 @@ class PalEntity:
                 avail_skills.append(skill_codename)
 
         avail_skills.sort(key=lambda e: PalAttacks[e])
-        avail_skills.remove("None")
+        if "EPalWazaID::None" in avail_skills:
+            avail_skills.remove("EPalWazaID::None")
         return avail_skills
 
     def CleanseAttacks(self):
         i = 0
         while i < len(self._learntMoves):
             remove = False
-            if self._learntMoves[i] in ["None", "EPalWazaID::None"]:
+            if self._learntMoves[i] in ["None", "EPalWazaID::None"] or "MAX" in self._learntMoves[i]:
                 remove = True
             else:
                 # Check skill has Exclusivity
@@ -764,16 +765,16 @@ class PalEntity:
         self._data['value']['RawData']['value']['group_id'] = v
 
     def GetSlotGuid(self):
-        return self._obj['SlotID']['value']['ContainerId']['value']['ID']['value']
+        return self._obj['SlotId']['value']['ContainerId']['value']['ID']['value']
 
     def SetSlotGuid(self, v: str):
-        self._obj['SlotID']['value']['ContainerId']['value']['ID']['value'] = v
+        self._obj['SlotId']['value']['ContainerId']['value']['ID']['value'] = v
 
     def GetSlotIndex(self):
-        return self._obj['SlotID']['value']['SlotIndex']['value']
+        return self._obj['SlotId']['value']['SlotIndex']['value']
 
     def SetSoltIndex(self, v: int):
-        self._obj['SlotID']['value']['SlotIndex']['value'] = v
+        self._obj['SlotId']['value']['SlotIndex']['value'] = v
 
     def GetPalInstanceGuid(self):
         return self._data['key']['InstanceId']['value']

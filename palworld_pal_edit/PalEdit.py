@@ -122,7 +122,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.11.6"
+    version = "0.11.7"
     ftsize = 18
     font = "Microsoft YaHei"
     skill_col = ["#DE3C3A", "#DE3C3A", "#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8"]
@@ -200,12 +200,11 @@ class PalEdit():
 
         available_ops = pal.GetAvailableSkills()
         available_ops.insert(0, "None")
-        print(available_ops)
+        #print(available_ops)
 
         def atk_upd(menu, atk_id, label, codename):
             menu['menu'].add_command(label=label, command=tk._setit(self.attacks[atk_id], codename,
                                                                     lambda evt: self.changeattack(atk_id)))
-
         for atk_id, menu in enumerate(self.attackdrops):
             while menu['menu'].index("end") is not None:
                 menu['menu'].delete(0)
