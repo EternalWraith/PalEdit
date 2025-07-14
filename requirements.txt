@@ -2,8 +2,8 @@ altgraph==0.17.4
 packaging==23.2
 pefile==2023.2.7
 pillow==10.2.0
-pyinstaller==6.3.0
-pyinstaller-hooks-contrib==2024.0
-pywin32-ctypes==0.2.2
-palworld_save_tools
-pyperclip
+pyinstaller==6.12.0                 # Newest and most stable one currently
+pyinstaller-hooks-contrib==2025.2   # this one would match latest pyinstaller version
+pywin32-ctypes==0.2.2 
+palworld_save_tools==1.4.0          # Specifying the most stable one
+pyperclip==1.8.2                    # ive specified the most stable version
