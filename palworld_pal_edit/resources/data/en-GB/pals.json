@@ -504,6 +504,7 @@
     "GYM_ElecPanda_2": "Zoe & Grizzbolt 🏰",
     "GYM_MoonQueen_2": "Saya & Selyne 🏰",
     "GYM_SnowTigerBeastman_2": "Bjorn & Bastigor 🏰",
+	"GYM_ElecPanda_Otomo": "Zoe & Grizzbolt (ALLY)",
 
     "RAID_NightLady": "Bellanoir 🏅",
     "RAID_NightLady_Dark": "Bellanoir Libero 🏅",
@@ -511,6 +512,24 @@
     "RAID_KingBahamut_Dragon": "Blazamut Ryu 🏅",
     "RAID_KingBahamut_Dragon_2": "Blazamut Ryu 🏆",
     "RAID_DarkMechaDragon": "Xenolord 🏅",
-    "RAID_DarkMechaDragon_2": "Xenolord 🏆"
+    "RAID_DarkMechaDragon_2": "Xenolord 🏆",
+	"RAID_YakushimaBoss001_Green": "(DO NOT USE) Moon Lord Chest Eye",
+	"RAID_YakushimaBoss002": "(DO NOT USE) Moon Lord Head",
+	"RAID_YakushimaBoss002_Hand_Left": "(DO NOT USE) Moon Lord Left Arm",
+	"RAID_YakushimaBoss002_Hand_Right": "(DO NOT USE) Moon Lord Right Arm",
+	
+	"YakushimaMonster001": "Slime (Green)",
+	"YakushimaMonster001_Blue": "Slime (Blue)",
+	"YakushimaMonster001_Red": "Slime (Red)",
+	"YakushimaMonster001_Purple": "Slime (Purple)",
+	"YakushimaMonster001_Pink": "Slime (Illuminant)",
+	"YakushimaMonster001_Rainbow": "Slime (Rainbow)",
+	
+	"YakushimaMonster002": "Enchanted Sword",
+	"YakushimaMonster003": "Cave Bat",
+	"YakushimaMonster003_Purple": "Cave Bat (Illuminant)",
+	"YakushimaBoss001": "Eye of Cthulhu",
+	"YakushimaBoss001_Small": "Demon Eye"
+	
 
 }
