@@ -120,23 +120,11 @@ xpthresholds = [
     1322053095,
     1586464981,
     1903759260,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
-    2147483647,
     2147483647
 ]
-if len(xpthresholds) < 60:
-    raise Exception("Something is wrong with the thresholds")
+while len(xpthresholds) < 65:
+    xpthresholds.append(xpthresholds[-1])
+
 
 
 class PalGender(Enum):
@@ -168,14 +156,31 @@ class PalObject:
 
     def GetImage(self):
         if self._img == None:
-            n = self.GetCodeName() if not self._human else "CommonHuman"
-            n = "PlantSlime" if "PlantSlime" in self.GetCodeName() else n
-            # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
-            try:
-                print(f"T_{n}_icon_normal.png")
-                self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/T_{n}_icon_normal.png')
-            except:
-                self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/#ERROR.png')
+            n = self.GetCodeName()
+            print(n)
+            if self._human:
+                n = n.split("_")
+                n.pop(0)
+                while len(n) > 0:
+                    nn = "_".join(n)
+                    try:
+                        self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/humans/T_BOSS_NPC_{nn}.png')
+                        break
+                    except:
+                        n.pop(len(n)-1)
+                        
+                if self._img == None:
+                    self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/T_CommonHuman_icon_normal.png')
+            else:
+                
+                n = "PlantSlime" if "PlantSlime" in self.GetCodeName() else n
+                n = n.replace("RAID_", "").replace("_2","")
+                # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
+                try:
+                    print(f"T_{n}_icon_normal.png")
+                    self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/T_{n}_icon_normal.png')
+                except:
+                    self._img = tkinter.PhotoImage(file=f'{module_dir}/resources/pals/#ERROR.png')
         return self._img
 
     def GetPrimary(self):

@@ -4,10 +4,18 @@
         "Ice",
         "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::BlizzardLance": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::IceWall": 30,
+        "EPalWazaID::IciclePierce": 40,
+        "EPalWazaID::DiamondFall": 50
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
+        "HP": 110,
         "PHY": 100,
         "MAG": 100,
         "DEF": 100
@@ -18,12 +26,12 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 2,
+        "Collection": 1,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 4,
+        "Cool": 2,
         "Transport": 0,
         "MonsterFarm": 0
     },

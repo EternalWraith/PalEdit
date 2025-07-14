@@ -1,0 +1,39 @@
+{
+    "CodeName": "Quest_Farmer03_SheepBall",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_SheepBall_Roll": 1,
+        "EPalWazaID::AirCanon": 7,
+        "EPalWazaID::PowerShot": 15,
+        "EPalWazaID::SelfDestruct": 22,
+        "EPalWazaID::ThunderBall": 30,
+        "EPalWazaID::PowerBall": 40,
+        "EPalWazaID::HyperBeam": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 70,
+        "MAG": 70,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 1
+    },
+    "Human": false
+}

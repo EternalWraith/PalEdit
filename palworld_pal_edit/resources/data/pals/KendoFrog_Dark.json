@@ -4,13 +4,21 @@
         "Water",
         "Dark"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::PoisonShot": 1,
+        "EPalWazaID::GravityShot": 7,
+        "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::AcidRain": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::HydroSlicer": 40,
+        "EPalWazaID::DarkLaser": 50
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 80,
+        "HP": 85,
         "PHY": 100,
-        "MAG": 100,
-        "DEF": 85
+        "MAG": 110,
+        "DEF": 90
     },
     "Suitabilities": {
         "EmitFlame": 0,

@@ -268,5 +268,38 @@
     },
     "Test_PalEgg_HatchingSpeed_Up": {
         "Rating": "3"
+    },
+    "Nushi": {
+        "Rating": "4"
+    },
+    "SwimSpeed_up_1": {
+        "Rating": "1"
+    },
+    "SwimSpeed_up_2": {
+        "Rating": "3"
+    },
+    "SwimSpeed_up_3": {
+        "Rating": "4"
+    },
+    "GYM_NAME_Meadow": {
+        "Rating": "3"
+    },
+    "GYM_NAME_Forest": {
+        "Rating": "3"
+    },
+    "GYM_NAME_Desert": {
+        "Rating": "3"
+    },
+    "GYM_NAME_Volcano": {
+        "Rating": "3"
+    },
+    "GYM_NAME_Snow": {
+        "Rating": "3"
+    },
+    "GYM_NAME_Sakurajima": {
+        "Rating": "3"
+    },
+    "GYM_NAME_Viking": {
+        "Rating": "3"
     }
 }

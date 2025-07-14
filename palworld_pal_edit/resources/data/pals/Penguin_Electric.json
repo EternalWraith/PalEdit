@@ -1,0 +1,39 @@
+{
+    "CodeName": "Penguin_Electric",
+    "Type": [
+        "Water",
+        "Electricity"
+    ],
+    "Moveset": {
+        "EPalWazaID::ThunderSpear": 1,
+        "EPalWazaID::ThunderBall": 7,
+        "EPalWazaID::BubbleShot": 15,
+        "EPalWazaID::LineGeyser": 22,
+        "EPalWazaID::WaterBall": 30,
+        "EPalWazaID::TriSpark": 40,
+        "EPalWazaID::LightningStrike": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 100,
+        "MAG": 80,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 1,
+        "Seeding": 0,
+        "GenerateElectricity": 2,
+        "Handcraft": 1,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

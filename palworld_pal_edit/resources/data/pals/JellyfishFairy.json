@@ -4,27 +4,35 @@
         "Water",
         "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::WaterGun": 7,
+        "EPalWazaID::BubbleShot": 15,
+        "EPalWazaID::WaterBall": 22,
+        "EPalWazaID::WallSplash": 30,
+        "EPalWazaID::HydroSlicer": 40,
+        "EPalWazaID::RipTide": 50
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
+        "HP": 75,
         "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "MAG": 90,
+        "DEF": 70
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 3,
+        "Watering": 2,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
+        "Handcraft": 1,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 2,
+        "Transport": 1,
         "MonsterFarm": 0
     },
     "Human": false

@@ -1,0 +1,39 @@
+{
+    "CodeName": "TentacleTurtle_Ground",
+    "Type": [
+        "Water",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::BubbleShot": 7,
+        "EPalWazaID::Unique_TentacleTurtle_HydroSpin": 15,
+        "EPalWazaID::WaterBall": 22,
+        "EPalWazaID::Tremor": 30,
+        "EPalWazaID::RockLance": 40,
+        "EPalWazaID::RockBeat": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 85,
+        "PHY": 100,
+        "MAG": 85,
+        "DEF": 125
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 2,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 1,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

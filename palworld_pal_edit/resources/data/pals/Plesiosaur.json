@@ -4,18 +4,26 @@
         "Leaf",
         "Earth"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::SeedMine": 7,
+        "EPalWazaID::GrassTornado": 15,
+        "EPalWazaID::RootAttack": 22,
+        "EPalWazaID::Unique_Plesiosaur_LongBreath": 30,
+        "EPalWazaID::SolarBeam": 40,
+        "EPalWazaID::RockBeat": 50
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
+        "HP": 130,
         "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "MAG": 95,
+        "DEF": 120
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 1,
+        "Seeding": 4,
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 4,

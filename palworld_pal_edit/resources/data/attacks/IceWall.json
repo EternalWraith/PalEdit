@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::IceWall",
     "Type": "Ice",
-    "Power": 1,
+    "Power": 100,
     "Category": "Shot"
 }

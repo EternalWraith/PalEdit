@@ -1,0 +1,43 @@
+{
+    "CodeName": "GYM_ElecPanda_Otomo",
+    "Type": [
+        "Electricity",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::SpreadPulse": 1,
+        "EPalWazaID::ElecWave": 3,
+        "EPalWazaID::ThunderBall": 7,
+        "EPalWazaID::ThunderFunnel": 10,
+        "EPalWazaID::LockonLaser": 12,
+        "EPalWazaID::Unique_ElecPanda_ElecScratch": 15,
+        "EPalWazaID::LineThunder": 22,
+        "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::LightningStrike": 40,
+        "EPalWazaID::Thunderbolt": 50,
+        "EPalWazaID::Unique_ElecPanda_GatlingAttack": 55
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 120,
+        "MAG": 105,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 3,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 2,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

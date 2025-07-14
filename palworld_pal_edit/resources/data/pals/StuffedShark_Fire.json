@@ -1,0 +1,39 @@
+{
+    "CodeName": "StuffedShark_Fire",
+    "Type": [
+        "Water",
+        "Fire"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::Flamethrower": 15,
+        "EPalWazaID::LineGeyser": 22,
+        "EPalWazaID::Unique_StuffedShark_HiddenWeapon": 30,
+        "EPalWazaID::FlameFunnel": 40,
+        "EPalWazaID::FireBall": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 75,
+        "PHY": 100,
+        "MAG": 90,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 2,
+        "Watering": 2,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 1,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

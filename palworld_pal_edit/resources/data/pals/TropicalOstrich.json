@@ -4,13 +4,21 @@
         "Leaf",
         "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::SeedMachinegun": 1,
+        "EPalWazaID::SeedMine": 7,
+        "EPalWazaID::GrassTornado": 15,
+        "EPalWazaID::WindEdge": 22,
+        "EPalWazaID::Unique_TropicalOstrich_DashKick": 30,
+        "EPalWazaID::ReflectiveShuriken": 40,
+        "EPalWazaID::CrossWind": 50
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
+        "HP": 105,
         "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "MAG": 110,
+        "DEF": 115
     },
     "Suitabilities": {
         "EmitFlame": 0,
@@ -18,9 +26,9 @@
         "Seeding": 2,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 3,
+        "Collection": 2,
         "Deforest": 0,
-        "Mining": 4,
+        "Mining": 3,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,

@@ -7,15 +7,14 @@
     "Moveset": {
         "EPalWazaID::Unique_BlackGriffon_TackleLaser": 1,
         "EPalWazaID::DarkLegion": 2,
-        "EPalWazaID::GhostFlame": 3,
+        "EPalWazaID::DarkPulse": 3,
         "EPalWazaID::ShadowBall": 4,
         "EPalWazaID::IcicleThrow": 5,
         "EPalWazaID::BlizzardLance": 6,
         "EPalWazaID::DarkLaser": 7,
         "EPalWazaID::FrostBreath": 8,
-        "EPalWazaID::HyperBeam": 9,
-        "EPalWazaID::IceMissile": 10,
-        "EPalWazaID::IceBlade": 11
+        "EPalWazaID::IceMissile": 9,
+        "EPalWazaID::IceBlade": 10
     },
     "RaidMoveset": {},
     "Scaling": {

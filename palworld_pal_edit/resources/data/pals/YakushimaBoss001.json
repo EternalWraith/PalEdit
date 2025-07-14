@@ -1,0 +1,34 @@
+{
+    "CodeName": "YakushimaBoss001",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_Yakushima_EyeTossin": 1,
+        "EPalWazaID::Unique_Yakushima_SummonServant": 2
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 95
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 4,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

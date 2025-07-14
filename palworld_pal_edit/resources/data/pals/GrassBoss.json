@@ -1,0 +1,10 @@
+{
+    "CodeName": "GrassBoss",
+    "Type": [
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::267": 1
+    },
+    "Human": true
+}

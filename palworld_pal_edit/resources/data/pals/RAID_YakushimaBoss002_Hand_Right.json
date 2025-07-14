@@ -1,0 +1,35 @@
+{
+    "CodeName": "RAID_YakushimaBoss002_Hand_Right",
+    "Type": [
+        "None",
+        "None"
+    ],
+    "Moveset": [],
+    "RaidMoveset": {
+        "EPalWazaID::260": 1,
+        "EPalWazaID::259": 2,
+        "EPalWazaID::261": 3
+    },
+    "Scaling": {
+        "HP": 100,
+        "PHY": 100,
+        "MAG": 130,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

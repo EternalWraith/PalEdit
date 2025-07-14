@@ -4,13 +4,21 @@
         "Dark",
         "Water"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::WaterGun": 1,
+        "EPalWazaID::DarkBall": 7,
+        "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::Unique_GhostAnglerfish_SweepBait": 30,
+        "EPalWazaID::DarkLaser": 40,
+        "EPalWazaID::RipTide": 50
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
+        "HP": 90,
         "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "MAG": 125,
+        "DEF": 105
     },
     "Suitabilities": {
         "EmitFlame": 0,

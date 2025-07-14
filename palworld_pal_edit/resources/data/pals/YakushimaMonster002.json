@@ -1,0 +1,33 @@
+{
+    "CodeName": "YakushimaMonster002",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_YakushimaMonster002_SwordCharge": 1
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 95,
+        "PHY": 100,
+        "MAG": 105,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 1,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

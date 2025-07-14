@@ -1,0 +1,36 @@
+{
+    "CodeName": "RAID_YakushimaBoss001_Green",
+    "Type": [
+        "None",
+        "None"
+    ],
+    "Moveset": [],
+    "RaidMoveset": {
+        "EPalWazaID::255": 1,
+        "EPalWazaID::256": 2,
+        "EPalWazaID::257": 3,
+        "EPalWazaID::258": 4
+    },
+    "Scaling": {
+        "HP": 135,
+        "PHY": 100,
+        "MAG": 130,
+        "DEF": 115
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

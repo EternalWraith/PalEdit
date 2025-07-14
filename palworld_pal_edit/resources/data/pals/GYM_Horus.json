@@ -13,9 +13,7 @@
         "EPalWazaID::Inferno": 6,
         "EPalWazaID::FireBall": 7,
         "EPalWazaID::LightningStrike": 8,
-        "EPalWazaID::Thunderbolt": 9,
-        "EPalWazaID::FireSeed": 10,
-        "EPalWazaID::FireBlast": 11
+        "EPalWazaID::FireSeed": 9
     },
     "RaidMoveset": {},
     "Scaling": {

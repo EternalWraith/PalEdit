@@ -327,6 +327,10 @@
         "Name": "Impatient",
         "Description": "Active skill cooldown reduction 15%."
     },
+    "CoolTimeReduction_Up_3": {
+        "Name": "Tempest Fury",
+        "Description": "Active skill cooldown reduction 15%."
+    },
     "CoolTimeReduction_Down_1": {
         "Name": "Easygoing",
         "Description": "Active Skill Cooldown extension -15%."
@@ -358,5 +362,49 @@
     "Test_PalEgg_HatchingSpeed_Up": {
         "Name": "Philantropist",
         "Description": "When assigned to a Breeding Farm, breeding speed is increased by 100%."
+    },
+    "Nushi": {
+        "Name": "Lunker",
+        "Description": "+20% increase to Water attack damage, +20% increase to Ice attack damage, +20%% increase to defense."
+    },
+    "SwimSpeed_up_1": {
+        "Name": "Sleek Stroke",
+        "Description": "30%+ increase movement speed on water."
+    },
+    "SwimSpeed_up_2": {
+        "Name": "Ace Swimmer",
+        "Description": "40%+ increase movement speed on water."
+    },
+    "SwimSpeed_up_3": {
+        "Name": "King of the Waves",
+        "Description": "50%+ increase movement speed on water."
+    },
+    "GYM_NAME_Meadow": {
+        "Name": "Rayne Syndicate Officer",
+        "Description": "Attack +20%, Movement speed increases +10%."
+    },
+    "GYM_NAME_Forest": {
+        "Name": "Free Pal Alliance Founder",
+        "Description": "Attack +20%, Movement speed increases +10%."
+    },
+    "GYM_NAME_Desert": {
+        "Name": "PIDF Officer",
+        "Description": "Attack +20%, Movement speed increases +10%."
+    },
+    "GYM_NAME_Volcano": {
+        "Name": "Brothers of the Eternal Pyre Soul Leader",
+        "Description": "Attack +20%, Movement speed increases +10%."
+    },
+    "GYM_NAME_Snow": {
+        "Name": "PAL Genetic Research Unit Commander",
+        "Description": "Attack +20%, Movement speed increases +10%."
+    },
+    "GYM_NAME_Sakurajima": {
+        "Name": "Leader of the Moonflowers",
+        "Description": "Attack +20%, Movement speed increases +10%."
+    },
+    "GYM_NAME_Viking": {
+        "Name": "Jarl of Feybreak ",
+        "Description": "Attack +20%, Movement speed increases +10%."
     }
 }

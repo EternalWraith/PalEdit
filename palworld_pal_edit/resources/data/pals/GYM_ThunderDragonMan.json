@@ -11,9 +11,8 @@
         "EPalWazaID::DragonBreath": 4,
         "EPalWazaID::LineThunder": 5,
         "EPalWazaID::DragonCanon": 6,
-        "EPalWazaID::Thunderbolt": 7,
-        "EPalWazaID::AcidRain": 8,
-        "EPalWazaID::DragonMeteor": 9
+        "EPalWazaID::AcidRain": 7,
+        "EPalWazaID::DragonMeteor": 8
     },
     "RaidMoveset": {},
     "Scaling": {

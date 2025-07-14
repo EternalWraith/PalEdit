@@ -1,0 +1,39 @@
+{
+    "CodeName": "GhostAnglerfish_Fire",
+    "Type": [
+        "Fire",
+        "Water"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::FlareArrow": 7,
+        "EPalWazaID::BubbleShot": 15,
+        "EPalWazaID::FlameWall": 22,
+        "EPalWazaID::Unique_GhostAnglerfish_Fire_SweepBait_Fire": 30,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::RipTide": 50
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 100,
+        "MAG": 130,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 4,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false
+}

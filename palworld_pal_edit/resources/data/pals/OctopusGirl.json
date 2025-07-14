@@ -5,14 +5,20 @@
         "Dark"
     ],
     "Moveset": {
-        "EPalWazaID::Unique_OctopursGirl_InkJet": 1
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::DarkWave": 7,
+        "EPalWazaID::Unique_OctopursGirl_InkJet": 15,
+        "EPalWazaID::LineGeyser": 22,
+        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::DiversionLaser": 40,
+        "EPalWazaID::HydroSlicer": 50
     },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
+        "HP": 70,
         "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "MAG": 85,
+        "DEF": 70
     },
     "Suitabilities": {
         "EmitFlame": 0,
