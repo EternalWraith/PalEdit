@@ -142,21 +142,41 @@
     "DarkMutant": "Dark Mutant",
     "NightLady": "贝菈诺娃",
     "NightLady_Dark": "贝菈露洁",
+
     "GYM_ThunderDragonMan": "阿克塞尔 & 波鲁杰克斯",
     "GYM_LilyQueen": "莉莉 & 百合女王",
     "GYM_Horus": "马库斯 & 荷鲁斯",
     "GYM_BlackGriffon": "维克托 & 异构格里芬",
     "GYM_ElecPanda": "佐伊 & 暴电熊",
+
     "Male_DarkTrader01": "黑市商人",
+    "Male_DarkTrader02": "勋章商人",
+
     "FireCult_FlameThrower": "永炎同心会 殉教者",
     "FireCult_Rifle": "永炎同心会 Rifleman",
-    "Male_Soldier01": "Burly Merc",
-    "Female_Soldier01": "Expedition Survivor",
+
+    "Male_Soldier01": "壮硕的雇佣兵",
+    "Male_Soldier02": "新手帕鲁训练师",
+    "Male_Soldier03": "残忍的帕鲁训练师",
+    "Male_Soldier04": "精力充沛的帕鲁训练师",
+    "Female_Soldier01": "探险幸存者",
+    "Female_Soldier02": "崭露头角的帕鲁训练师",
+    "Female_Soldier03": "经验丰富的帕鲁训练师",
+    "Female_Soldier04": "大师级帕鲁训练师",
+
     "Believer_CrossBow": "帕鲁保护团体 支持者 十字弓",
     "Believer_Bat": "帕鲁保护团体 支持者 棒",
+    "Believer_Fat_GatlingGun": "帕鲁保护团体 粉碎者",
+
     "Male_Scientist01_LaserRifle": "基因研究部队 执行小队",
+    "Scientist_FlameThrower": "基因研究部队 执行小队 火焰喷射器",
+
     "PalDealer": "帕鲁商人",
+    "RandomEventShop": "流浪帕鲁商人",
+    "Male_Trader01": "可疑的帕鲁商人",
+
     "Police_Handgun": "自卫队 守卫",
+
     "Hunter_Bat": "盗猎集团 新手 棒",
     "Hunter_FlameThrower": "盗猎集团 善后组",
     "Hunter_Fat_GatlingGun": "盗猎集团 粉碎者",
@@ -165,25 +185,79 @@
     "Hunter_Rifle": "盗猎集团 射手",
     "Hunter_Shotgun": "盗猎集团 猎人",
     "Hunter_Handgun": "盗猎集团 新手",
+    "Hunter_GrenadeLauncher": "盗猎集团 老手",
+    "Hunter_MissileLauncher": "盗猎集团 拦截者",
+
     "SalesPerson": "流浪商人",
     "SalesPerson_Desert": "流浪商人 红 沙漠",
     "SalesPerson_Desert2": "流浪商人 绿 沙漠",
     "SalesPerson_Volcano": "流浪商人 红 火山",
     "SalesPerson_Volcano2": "流浪商人 绿 火山",
+    "SalesPerson_Wander": "旅行商人",
     "Female_DesertPeople02": "村民 沙漠 女",
     "Female_People02": "村民 女 2",
     "Female_People03": "村民 女 3",
     "Male_DesertPeople01": "村民 男 1",
     "Male_People02": "村民 男 2",
     "Male_People03": "村民 男 3",
+    "Male_Police_old": "转生者",
     "MobuCitizen": "岛民",
     "MobuCitizen_Male": "岛民 男",
     "Guard_Rifle": "卫兵",
     "Guard_Shotgun": "自卫队 巡逻员",
     "PalDealer_Desert": "帕鲁商人 沙漠",
     "PalDealer_Volcano": "帕鲁商人 火山",
+
     "Police_Rifle": "自卫队 步枪士兵",
     "Police_Shotgun": "自卫队 精英",
+
+    "Male_Ninja01": "月花忍者 下忍",
+    "Male_NinjaElite01": "月花忍者 上忍",
+
+    "FireCult_FlameThrower_Invader": "入侵者- 永炎同心会 殉教者",
+    "FireCult_Rifle_Invader": "入侵者- 永炎同心会 Rifleman",
+
+    "Believer_CrossBow_Invader": "入侵者- 帕鲁保护团体 支持者 十字弓",
+    "Believer_Bat_Invader": "入侵者- 帕鲁保护团体 支持者 棒",
+
+    "Male_Scientist01_LaserRifle_Invader": "入侵者- 基因研究部队 执行小队",
+    "Scientist_FlameThrower_Invader": "入侵者- 基因研究部队 执行小队 火焰喷射器",
+
+    "Hunter_Bat_Invader": "入侵者- 盗猎集团 新手 棒",
+    "Hunter_Handgun_Invader": "入侵者- 盗猎集团 新手",
+    "Hunter_Rifle_Invader": "入侵者- 盗猎集团 射手",
+    "Hunter_Shotgun_Invader": "入侵者- 盗猎集团 猎人",
+    "Hunter_Grenade_Invader": "入侵者- 盗猎集团 投弹手",
+    "Hunter_Fat_GatlingGun_Invader": "入侵者- 盗猎集团 粉碎者",
+    "Hunter_FlameThrower_Invader": "入侵者- 盗猎集团 善后组",
+    "Hunter_RocketLauncher_Invader": "入侵者- 盗猎集团 精英",
+
+    "Hunter_Rifle_Oilrig": "油井- 盗猎集团 射手",
+    "Hunter_Shotgun_Oilrig": "油井- 盗猎集团 猎人",
+    "Hunter_Grenade_Oilrig": "油井- 盗猎集团 投弹手",
+    "Hunter_Fat_GatlingGun_Oilrig": "油井- 盗猎集团 粉碎者",
+    "Hunter_FlameThrower_Oilrig": "油井- 盗猎集团 善后组",
+    "Hunter_GrenadeLauncher_Oilrig": "油井- 盗猎集团 老手",
+    "Hunter_RocketLauncher_Oilrig": "油井- 盗猎集团 精英",
+    "Hunter_MissileLauncher_Oilrig": "油井- 盗猎集团 拦截者",
+
+    "Hunter_Fat_GatlingGun_Tower": "塔- 盗猎集团 粉碎者",
+    "Believer_CrossBow_Tower": "塔- 帕鲁保护团体 支持者 十字弓",
+    "Police_Rifle_Tower": "塔- 自卫队 步枪士兵",
+    "Police_Shotgun_Tower": "塔- 自卫队 精英",
+    "Ninja01_Tower": "塔- 月花忍者 下忍",
+    "NinjaElite01_Tower": "塔- 月花忍者 上忍",
+
+    "GYM_BlackGriffon_2_Avatar": "维克托 & 异构格里芬 化身",
+
+    "GYM_MoonQueen_2_Servant": "塞琳娜 仆从",
+
+    "GYM_ThunderDragonMan_2": "阿克塞尔 & 波鲁杰克斯 (困难模式)",
+    "GYM_LilyQueen_2": "莉莉 & 百合女王 (困难模式)",
+    "GYM_Horus_2": "马库斯 & 荷鲁斯 (困难模式)",
+    "GYM_BlackGriffon_2": "维克托 & 异构格里芬 (困难模式)",
+    "GYM_ElecPanda_2": "佐伊 & 暴电熊 (困难模式)",
+    "GYM_MoonQueen_2": "纱夜 & 辉月伊 (困难模式)",
 
     "Gorilla_Ground": "石掌猿",
     "WeaselDragon_Fire": "桃旋鼬",
@@ -195,8 +269,10 @@
     "KingBahamut_Dragon": "殁殃",
     "HadesBird_Electric": "雷鸣鸟",
     "DarkScorpion_Ground": "金铠蝎",
+
     "MoonQueen": "辉月伊",
     "GYM_MoonQueen": "纱夜 & 辉月伊",
+
     "KendoFrog": "武道蛙",
     "LeafPrincess": "春彩娘",
     "MushroomDragon": "菇咚",
@@ -211,7 +287,10 @@
     "MimicDog": "旺财",
     "DarkAlien": "杰诺贝达",
     "WhiteAlienDragon": "杰诺路达",
-    "Male_NinjaElite01": "Moonflower Jonin",
-    "Male_Ninja01": "Moonflower Genin"
 
+    "RAID_NightLady": "贝菈诺娃 (突袭)",
+    "RAID_NightLady_Dark": "贝菈露洁 (突袭)",
+    "RAID_NightLady_Dark_2": "贝菈露洁 (超突袭)",
+    "RAID_KingBahamut_Dragon": "殁殃 (突袭)",
+    "RAID_KingBahamut_Dragon_2": "殁殃 (超突袭)"
 }
