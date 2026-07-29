@@ -1,11 +1,34 @@
 #!/usr/bin/env python3
 
 import argparse
-import json
+import contextlib
+import gc
+import sys
+import time
 import os
 
+from loguru import logger
+
+
+@contextlib.contextmanager
+def _gc_paused():
+    """Pause the cyclic GC for a hot build-up phase.
+
+    The parser/writer produce tree-shaped dicts and lists with no reference
+    cycles, so generational sweeps during the build are pure overhead.
+    We re-enable and force a single collection on exit.
+    """
+    was_enabled = gc.isenabled()
+    if was_enabled:
+        gc.disable()
+    try:
+        yield
+    finally:
+        if was_enabled:
+            gc.enable()
+            gc.collect()
 from palworld_save_tools.gvas import GvasFile
-from palworld_save_tools.json_tools import CustomEncoder
+from palworld_save_tools import json_tools
 from palworld_save_tools.palsav import compress_gvas_to_sav, decompress_sav_to_gvas
 from palworld_save_tools.paltypes import (
     DISABLED_PROPERTIES,
@@ -61,17 +84,45 @@ def main():
     )
 
     parser.add_argument("--minify-json", action="store_true", help="Minify JSON output")
+    parser.add_argument("--raw", action="store_true", help="Output raw GVAS file")
+    parser.add_argument("--debug", action="store_true", help="Enable debug logging")
+    parser.add_argument(
+        "--debug-log", action="store_true", help="Enable debug logging to file"
+    )
     args = parser.parse_args()
 
+    if args.debug:
+        logger.remove()
+        logger.add(
+            sys.stdout,
+            colorize=True,
+            level="DEBUG",
+            format="{time:YYYY-MM-DD HH:mm:ss} | <level>{level: <8}</level> | <cyan>{name}</cyan>:<blue>{function}</blue>:{line} 🡆 {message}",
+        )
+    else:
+        logger.remove()
+        logger.add(
+            sys.stdout, format="<level>{level}</level> 🡆 {message}", level="INFO"
+        )
+
+    if args.debug_log:
+        logger.add(
+            "palworld-save-tools-debug.log",
+            rotation="10 MB",
+            retention="5 days",
+            level="DEBUG",
+            format="{time:YYYY-MM-DD HH:mm:ss} | {level: <8} | {name}:{function}:{line} 🡆 {message}",
+        )
+
     if args.to_json and args.from_json:
-        print("Cannot specify both --to-json and --from-json")
+        logger.error("Cannot specify both --to-json and --from-json")
         exit(1)
 
     if not os.path.exists(args.filename):
-        print(f"{args.filename} does not exist")
+        logger.error(f"{args.filename} does not exist")
         exit(1)
     if not os.path.isfile(args.filename):
-        print(f"{args.filename} is not a file")
+        logger.error(f"{args.filename} is not a file")
         exit(1)
 
     if args.to_json or args.filename.endswith(".sav"):
@@ -86,6 +137,7 @@ def main():
             minify=args.minify_json,
             allow_nan=(not args.convert_nan_to_null),
             custom_properties_keys=args.custom_properties,
+            raw=args.raw,
         )
 
     if args.from_json or args.filename.endswith(".json"):
@@ -93,7 +145,9 @@ def main():
             output_path = args.filename.replace(".json", "")
         else:
             output_path = args.output
-        convert_json_to_sav(args.filename, output_path, force=args.force, zlib=(args.library == "zlib"))
+        convert_json_to_sav(
+            args.filename, output_path, force=args.force, zlib=(args.library == "zlib")
+        )
 
 
 def convert_sav_to_json(
@@ -103,18 +157,27 @@ def convert_sav_to_json(
     minify=False,
     allow_nan=True,
     custom_properties_keys=["all"],
+    raw=False,
 ):
-    print(f"Converting {filename} to JSON, saving to {output_path}")
+    start_time = time.perf_counter()
+    logger.info(f"Converting {filename} to JSON, saving to {output_path}")
     if os.path.exists(output_path):
-        print(f"{output_path} already exists, this will overwrite the file")
+        logger.debug(f"{output_path} already exists, this will overwrite the file")
         if not force:
             if not confirm_prompt("Are you sure you want to continue?"):
                 exit(1)
-    print(f"Decompressing sav file")
+    logger.info("Decompressing sav file")
     with open(filename, "rb") as f:
         data = f.read()
         raw_gvas, _ = decompress_sav_to_gvas(data)
-    print(f"Loading GVAS file")
+    if raw:
+        output_dir = os.path.dirname(output_path)
+        output_file = f"{os.path.basename(output_path)}.bin"
+        output_file_path = f"{output_dir}\\{output_file}" if raw else None
+        logger.info(f"Writing raw GVAS file to {output_file_path}")
+        with open(output_file_path, "wb") as f:
+            f.write(raw_gvas)
+    logger.info("Loading GVAS file")
     custom_properties = {}
     if len(custom_properties_keys) > 0 and custom_properties_keys[0] == "all":
         custom_properties = PALWORLD_CUSTOM_PROPERTIES
@@ -122,29 +185,36 @@ def convert_sav_to_json(
         for prop in PALWORLD_CUSTOM_PROPERTIES:
             if prop in custom_properties_keys:
                 custom_properties[prop] = PALWORLD_CUSTOM_PROPERTIES[prop]
-    gvas_file = GvasFile.read(
-        raw_gvas, PALWORLD_TYPE_HINTS, custom_properties, allow_nan=allow_nan
-    )
-    print(f"Writing JSON to {output_path}")
-    with open(output_path, "w", encoding="utf8") as f:
-        indent = None if minify else "\t"
-        json.dump(
-            gvas_file.dump(), f, indent=indent, cls=CustomEncoder, allow_nan=allow_nan
+    with _gc_paused():
+        gvas_file = GvasFile.read(
+            raw_gvas, PALWORLD_TYPE_HINTS, custom_properties, allow_nan=allow_nan
         )
+    gvas_parse_time = time.perf_counter()
+    logger.info(f"GVAS file loaded in {gvas_parse_time - start_time:.2f} seconds")
+    logger.info(f"Writing JSON to {output_path}")
+    write_start_time = time.perf_counter()
+    with _gc_paused():
+        json_tools.dump(
+            gvas_file.dump(), output_path, minify=minify, allow_nan=allow_nan
+        )
+    write_end_time = time.perf_counter()
+    logger.info(f"JSON written in {write_end_time - write_start_time:.2f} seconds")
+    end_time = time.perf_counter()
+    logger.info(f"Conversion took {end_time - start_time:.2f} seconds")
 
 
 def convert_json_to_sav(filename, output_path, force=False, zlib=False):
-    print(f"Converting {filename} to SAV, saving to {output_path}")
+    logger.info(f"Converting {filename} to SAV, saving to {output_path}")
     if os.path.exists(output_path):
-        print(f"{output_path} already exists, this will overwrite the file")
+        logger.debug(f"{output_path} already exists, this will overwrite the file")
         if not force:
             if not confirm_prompt("Are you sure you want to continue?"):
                 exit(1)
-    print(f"Loading JSON from {filename}")
-    with open(filename, "r", encoding="utf8") as f:
-        data = json.load(f)
-    gvas_file = GvasFile.load(data)
-    print(f"Compressing SAV file")
+    logger.info(f"Loading JSON from {filename}")
+    with _gc_paused():
+        data = json_tools.load(filename)
+        gvas_file = GvasFile.load(data)
+    logger.info("Compressing SAV file")
     if (
         "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
         or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
@@ -152,11 +222,12 @@ def convert_json_to_sav(filename, output_path, force=False, zlib=False):
         save_type = 0x32
     else:
         save_type = 0x31
-    if zlib: save_type = 0x32 # Use double zlib compression
-    sav_file = compress_gvas_to_sav(
-        gvas_file.write(PALWORLD_CUSTOM_PROPERTIES), save_type, zlib=zlib
-    )
-    print(f"Writing SAV file to {output_path}")
+    if zlib:
+        save_type = 0x32  # Use double zlib compression
+    with _gc_paused():
+        written = gvas_file.write(PALWORLD_CUSTOM_PROPERTIES)
+    sav_file = compress_gvas_to_sav(written, save_type)
+    logger.info(f"Writing SAV file to {output_path}")
     with open(output_path, "wb") as f:
         f.write(sav_file)
 

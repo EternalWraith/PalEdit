@@ -200,6 +200,10 @@ class PalEntity:
 
         self._data = data
         self._obj = data['value']['RawData']['value']['object']['SaveParameter']['value']
+        data['value']['RawData']['value']["unknown_bytes"] = ""
+        data['value']['RawData']['value']["trailing_bytes"] = ""
+        if ('CustomVersionData' in data['value']):
+            data['value']['CustomVersionData']['value']["values"] = ""
 
         self.owner = ""
         if "SlotId" in self._obj:
@@ -564,6 +568,7 @@ class PalEntity:
 
 
     def UpdateMaxHP(self):
+        self._obj['Hp']['value']['Value']['value'] = self.CalculateIngameStats()["HP"]
         return #this seems to be handled by the game itself now; impressive
         
         if self.IsTower() or self.IsHuman():
@@ -614,7 +619,7 @@ class PalEntity:
                 1 + factors['hp_iv'] * 0.3 / 100) * (1 + factors['hp_rank'] * 3 / 100) * (
                               1 + (factors['rank'] - 1) * 5 / 100))) * 1000
         self._obj['MaxHP']['value']['Value']['value'] = new_hp
-        self._obj['HP']['value']['Value']['value'] = new_hp
+        self._obj['Hp']['value']['Value']['value'] = new_hp
         print("%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
 
     def GetAttackMelee(self):

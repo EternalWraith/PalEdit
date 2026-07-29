@@ -1,6 +1,12 @@
 from typing import Any, Sequence
 
-from palworld_save_tools.archive import *
+from loguru import logger
+from palworld_save_tools.archive import (
+    FArchiveReader,
+    FArchiveWriter,
+    coerce_bytes,
+    without_custom_type,
+)
 
 
 def decode(
@@ -17,7 +23,7 @@ def decode(
 def decode_bytes(
     parent_reader: FArchiveReader, m_bytes: Sequence[int]
 ) -> dict[str, Any]:
-    reader = parent_reader.internal_copy(bytes(m_bytes), debug=False)
+    reader = parent_reader.internal_copy(coerce_bytes(m_bytes), debug=False)
     data: dict[str, Any] = {}
     data["instance_id"] = reader.guid()
     data["concrete_model_instance_id"] = reader.guid()
@@ -33,13 +39,18 @@ def decode_bytes(
     data["owner_instance_id"] = reader.guid()
     data["build_player_uid"] = reader.guid()
     data["interact_restrict_type"] = reader.byte()
+    data["deterioration_damage"] = reader.float()
     data["stage_instance_id_belong_to"] = {
         "id": reader.guid(),
-        "valid": reader.u32() > 0,
+        "valid": reader.u32(),
     }
-    data["created_at"] = reader.i64()
+
     if not reader.eof():
-        data["unknown_data"] = [int(b) for b in reader.read_to_end()]
+        unknown_bytes = reader.read_to_end()
+        logger.debug(
+            f"Unknown data found in map model instance, length {len(unknown_bytes)}. Data: {' '.join(f'{b:02X}' for b in unknown_bytes)}"
+        )
+        data["unknown_bytes"] = unknown_bytes
     return data
 
 
@@ -48,9 +59,9 @@ def encode(
 ) -> int:
     if property_type != "ArrayProperty":
         raise Exception(f"Expected ArrayProperty, got {property_type}")
-    del properties["custom_type"]
     encoded_bytes = encode_bytes(properties["value"])
-    properties["value"] = {"values": [b for b in encoded_bytes]}
+    properties = without_custom_type(properties)
+    properties["value"] = {"values": encoded_bytes}
     return writer.property_inner(property_type, properties)
 
 
@@ -73,13 +84,12 @@ def encode_bytes(p: dict[str, Any]) -> bytes:
     writer.guid(p["build_player_uid"])
 
     writer.byte(p["interact_restrict_type"])
-
+    writer.float(p["deterioration_damage"])
     writer.guid(p["stage_instance_id_belong_to"]["id"])
-    writer.u32(1 if p["stage_instance_id_belong_to"]["valid"] else 0)
+    writer.u32(int(p["stage_instance_id_belong_to"]["valid"]))
 
-    writer.i64(p["created_at"])
-    if "unknown_data" in p:
-        writer.write(bytes(p["unknown_data"]))
+    if "unknown_bytes" in p:
+        writer.write(coerce_bytes(p["unknown_bytes"]))
 
     encoded_bytes = writer.bytes()
     return encoded_bytes

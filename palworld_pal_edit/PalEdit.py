@@ -1413,7 +1413,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if self.editindex < 0:
             return
 
-
+        if (self.editindex > len(self.FilteredPals())):
+            self.editindex = 0
         pal = self.FilteredPals()[self.editindex]
         l = pal.GetLevel()
 
@@ -2170,6 +2171,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
 
         with open("temp.json", "wb") as f:
+            print(f"Data {pal._data}")
             f.write(json.dumps(pal._data, indent=4, cls=UUIDEncoder).encode('utf-8'))
 
         f = open("temp.json", "r", encoding="utf8")
@@ -2506,19 +2508,24 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 v = self.hpsoulvar.get()
                 self.hpsoulval.config(text=f"+{v*3}%")
                 pal.SetRankHP(v)
+                self.updatestats()
             case "AT":
                 v = self.atsoulvar.get()
                 self.atsoulval.config(text=f"+{v*3}%")
                 pal.SetRankAttack(v)
+                self.updatestats()
             case "DF":
                 v = self.dfsoulvar.get()
                 self.dfsoulval.config(text=f"+{v*3}%")
                 pal.SetRankDefence(v)
+                self.updatestats()
             case "WS":
                 v = self.wssoulvar.get()
                 self.wssoulval.config(text=f"+{v*3}%")
                 pal.SetRankWorkSpeed(v)
+                self.updatestats()
             case _:
+                self.updatestats()
                 return
 
     def __init__(self):
@@ -2973,6 +2980,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
             clamp(var)
             var.dirty = True
+            self.updatestats()
 
         def clamp(var):
             if var.get() > 100:

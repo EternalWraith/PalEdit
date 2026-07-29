@@ -1,5 +1,6 @@
 from typing import Any, Sequence
 
+from loguru import logger
 from palworld_save_tools.archive import *
 
 
@@ -19,15 +20,18 @@ def decode_bytes(
 ) -> Optional[dict[str, Any]]:
     if len(c_bytes) == 0:
         return None
-    reader = parent_reader.internal_copy(bytes(c_bytes), debug=False)
+    reader = parent_reader.internal_copy(coerce_bytes(c_bytes), debug=False)
     data = {
         "player_uid": reader.guid(),
         "instance_id": reader.guid(),
         "permission_tribe_id": reader.byte(),
     }
     if not reader.eof():
-        data["unknown_data"] = [int(b) for b in reader.read_to_end()]
-        # raise Exception("Warning: EOF not reached")
+        unknown_bytes = reader.read_to_end()
+        logger.debug(
+            f"Unknown data in character container: {' '.join(f'{b:02x}' for b in unknown_bytes)}"
+        )
+        data["unknown_bytes"] = unknown_bytes
     return data
 
 
@@ -36,9 +40,9 @@ def encode(
 ) -> int:
     if property_type != "ArrayProperty":
         raise Exception(f"Expected ArrayProperty, got {property_type}")
-    del properties["custom_type"]
     encoded_bytes = encode_bytes(properties["value"])
-    properties["value"] = {"values": [b for b in encoded_bytes]}
+    properties = without_custom_type(properties)
+    properties["value"] = {"values": encoded_bytes}
     return writer.property_inner(property_type, properties)
 
 
@@ -49,7 +53,7 @@ def encode_bytes(p: dict[str, Any]) -> bytes:
     writer.guid(p["player_uid"])
     writer.guid(p["instance_id"])
     writer.byte(p["permission_tribe_id"])
-    if "unknown_data" in p:
-        writer.write(bytes(p["unknown_data"]))
+    if "unknown_bytes" in p:
+        writer.write(coerce_bytes(p["unknown_bytes"]))
     encoded_bytes = writer.bytes()
     return encoded_bytes

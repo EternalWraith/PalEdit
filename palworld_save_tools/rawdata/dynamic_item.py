@@ -1,6 +1,12 @@
-from typing import Any, Sequence
+from typing import Any, Optional, Sequence
 
-from palworld_save_tools.archive import *
+from loguru import logger
+from palworld_save_tools.archive import (
+    FArchiveReader,
+    FArchiveWriter,
+    coerce_bytes,
+    without_custom_type,
+)
 
 
 def decode(
@@ -19,15 +25,15 @@ def decode_bytes(
 ) -> Optional[dict[str, Any]]:
     if len(c_bytes) == 0:
         return None
-    buf = bytes(c_bytes)
+    buf = coerce_bytes(c_bytes)
     reader = parent_reader.internal_copy(buf, debug=False)
     data: dict[str, Any] = {}
+    data["type"] = "unknown"
     data["id"] = {
         "created_world_id": reader.guid(),
         "local_id_in_created_world": reader.guid(),
         "static_id": reader.fstring(),
     }
-    data["type"] = "unknown"
     egg_data = try_read_egg(reader)
     if isinstance(egg_data, dict):
         data |= egg_data
@@ -46,16 +52,18 @@ def decode_bytes(
             temp_data["durability"] = reader.float()
             temp_data["remaining_bullets"] = reader.i32()
             temp_data["passive_skill_list"] = reader.tarray(lambda r: r.fstring())
+            if (reader.size - reader.data.tell()) > 4:
+                temp_data["unknown_str"] = reader.fstring()
             temp_data["trailing_bytes"] = reader.byte_list(4)
             if not reader.eof():
                 raise Exception("Warning: EOF not reached")
             data |= temp_data
         except Exception as e:
-            print(
-                f"Warning: Failed to parse weapon data, continuing as raw data {buf!r}: {e}"
+            logger.debug(
+                f"Failed to parse weapon data, continuing as raw data {buf!r}: {e}"
             )
             reader.data.seek(cur_pos)
-            data["trailer"] = [int(b) for b in reader.read_to_end()]
+            data["trailer"] = reader.read_to_end()
     return data
 
 
@@ -82,9 +90,9 @@ def encode(
 ) -> int:
     if property_type != "ArrayProperty":
         raise Exception(f"Expected ArrayProperty, got {property_type}")
-    del properties["custom_type"]
     encoded_bytes = encode_bytes(properties["value"])
-    properties["value"] = {"values": [b for b in encoded_bytes]}
+    properties = without_custom_type(properties)
+    properties["value"] = {"values": encoded_bytes}
     return writer.property_inner(property_type, properties)
 
 
@@ -96,21 +104,23 @@ def encode_bytes(p: dict[str, Any]) -> bytes:
     writer.guid(p["id"]["local_id_in_created_world"])
     writer.fstring(p["id"]["static_id"])
     if p["type"] == "unknown":
-        writer.write(bytes(p["trailer"]))
+        writer.write(coerce_bytes(p["trailer"]))
     elif p["type"] == "egg":
-        writer.write(bytes(p["leading_bytes"]))
+        writer.write(coerce_bytes(p["leading_bytes"]))
         writer.fstring(p["character_id"])
         writer.properties(p["object"])
-        writer.write(bytes(p["trailing_bytes"]))
+        writer.write(coerce_bytes(p["trailing_bytes"]))
     elif p["type"] == "armor":
-        writer.write(bytes(p["leading_bytes"]))
+        writer.write(coerce_bytes(p["leading_bytes"]))
         writer.float(p["durability"])
-        writer.write(bytes(p["trailing_bytes"]))
+        writer.write(coerce_bytes(p["trailing_bytes"]))
     elif p["type"] == "weapon":
-        writer.write(bytes(p["leading_bytes"]))
+        writer.write(coerce_bytes(p["leading_bytes"]))
         writer.float(p["durability"])
         writer.i32(p["remaining_bullets"])
         writer.tarray(lambda w, d: (w.fstring(d), None)[1], p["passive_skill_list"])
-        writer.write(bytes(p["trailing_bytes"]))
+        if "unknown_str" in p:
+            writer.fstring(p["unknown_str"])
+        writer.write(coerce_bytes(p["trailing_bytes"]))
     encoded_bytes = writer.bytes()
     return encoded_bytes

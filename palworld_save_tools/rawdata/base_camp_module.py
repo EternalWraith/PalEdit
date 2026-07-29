@@ -1,6 +1,14 @@
 from typing import Any, Sequence
 
-from palworld_save_tools.archive import *
+from loguru import logger
+
+from palworld_save_tools.archive import (
+    FArchiveReader,
+    FArchiveWriter,
+    coerce_bytes,
+    encoded_raw_data,
+    without_custom_type,
+)
 from palworld_save_tools.rawdata.common import (
     pal_item_and_num_read,
     pal_item_and_slot_writer,
@@ -58,14 +66,14 @@ def module_passive_effect_reader(reader: FArchiveReader) -> dict[str, Any]:
         raise Exception(f"Unknown passive effect type {data['type']}")
     elif data["type"] == 2:
         data["work_hard_type"] = reader.byte()
-        data["unknown_trailer"] = [b for b in reader.read(12)]
+        data["unknown_trailer"] = reader.read(12)
     return data
 
 
 def decode_bytes(
     parent_reader: FArchiveReader, b_bytes: Sequence[int], module_type: str
 ) -> dict[str, Any]:
-    reader = parent_reader.internal_copy(bytes(b_bytes), debug=False)
+    reader = parent_reader.internal_copy(coerce_bytes(b_bytes), debug=False)
     data: dict[str, Any] = {}
     if module_type in NO_OP_TYPES:
         pass
@@ -76,8 +84,8 @@ def decode_bytes(
             )
             data["trailing_bytes"] = reader.byte_list(4)
         except Exception as e:
-            print(
-                f"Warning: Failed to decode transport item director, please report this: {e} ({bytes(b_bytes)!r})"
+            logger.debug(
+                f"Failed to decode transport item director, please report this: {e} ({bytes(b_bytes)!r})"
             )
             return {"values": b_bytes}
     elif module_type == "EPalBaseCampModuleType::PassiveEffect":
@@ -85,18 +93,18 @@ def decode_bytes(
             data["passive_effects"] = reader.tarray(module_passive_effect_reader)
         except Exception as e:
             reader.data.seek(0)
-            print(
-                f"Warning: Failed to decode passive effect, please report this: {e} ({bytes(b_bytes)!r})"
+            logger.debug(
+                f"Failed to decode passive effect, please report this: {e} ({bytes(b_bytes)!r})"
             )
             return {"values": b_bytes}
     else:
-        print(
-            f"Warning: Unknown base camp module type {module_type}, falling back to raw bytes"
+        logger.debug(
+            f"Unknown base camp module type {module_type}, falling back to raw bytes"
         )
         return {"values": b_bytes}
 
     if not reader.eof():
-        print(f"Warning: EOF not reached for {module_type}, falling back to raw bytes")
+        logger.debug(f"EOF not reached for {module_type}, falling back to raw bytes")
         return {"values": b_bytes}
 
     return data
@@ -107,16 +115,22 @@ def encode(
 ) -> int:
     if property_type != "MapProperty":
         raise Exception(f"Expected MapProperty, got {property_type}")
-    del properties["custom_type"]
 
-    module_map = properties["value"]
-    for module in module_map:
-        module_type = module["key"]
-        if "values" not in module["value"]["RawData"]["value"]:
-            module["value"]["RawData"]["value"]["values"] = encode_bytes(
-                module["value"]["RawData"]["value"], module_type
-            )
+    module_map = [
+        {
+            **module,
+            "value": {
+                **module["value"],
+                "RawData": encoded_raw_data(
+                    module["value"]["RawData"], encode_bytes, module["key"]
+                ),
+            },
+        }
+        for module in properties["value"]
+    ]
 
+    properties = without_custom_type(properties)
+    properties["value"] = module_map
     return writer.property_inner(property_type, properties)
 
 
@@ -131,14 +145,14 @@ def module_passive_effect_writer(writer: FArchiveWriter, p: dict[str, Any]) -> N
     writer.byte(p["type"])
     if p["type"] == 2:
         writer.byte(p["work_hard_type"])
-        writer.write(bytes(p["unknown_trailer"]))
+        writer.write(coerce_bytes(p["unknown_trailer"]))
 
 
 def encode_bytes(p: dict[str, Any], module_type: str) -> bytes:
     writer = FArchiveWriter()
 
     if "values" in p:
-        writer.write(bytes(p["values"]))
+        writer.write(coerce_bytes(p["values"]))
         return writer.bytes()
 
     if module_type in NO_OP_TYPES:
@@ -147,7 +161,7 @@ def encode_bytes(p: dict[str, Any], module_type: str) -> bytes:
         writer.tarray(
             transport_item_character_info_writer, p["transport_item_character_infos"]
         )
-        writer.write(bytes(p["trailing_bytes"]))
+        writer.write(coerce_bytes(p["trailing_bytes"]))
     elif module_type == "EPalBaseCampModuleType::PassiveEffect":
         writer.tarray(module_passive_effect_writer, p["passive_effects"])
 

@@ -1,6 +1,11 @@
-from typing import Any, Sequence
+from typing import Any
 
-from palworld_save_tools.archive import *
+from palworld_save_tools.archive import (
+    FArchiveReader,
+    FArchiveWriter,
+    encoded_raw_data,
+    without_custom_type,
+)
 from palworld_save_tools.rawdata import (
     build_process,
     connector,
@@ -67,62 +72,72 @@ def encode(
 ) -> int:
     if property_type != "ArrayProperty":
         raise Exception(f"Expected ArrayProperty, got {property_type}")
-    del properties["custom_type"]
 
+    map_objects = []
     for map_object in properties["value"]["values"]:
-        # Encode Model
-        if "values" not in map_object["Model"]["value"]["RawData"]["value"]:
-            map_object["Model"]["value"]["RawData"]["value"] = {
-                "values": map_model.encode_bytes(
-                    map_object["Model"]["value"]["RawData"]["value"]
-                )
-            }
-        # Encode Model.Connector
-        if (
-            "values"
-            not in map_object["Model"]["value"]["Connector"]["value"]["RawData"][
-                "value"
-            ]
-        ):
-            map_object["Model"]["value"]["Connector"]["value"]["RawData"]["value"] = {
-                "values": connector.encode_bytes(
-                    map_object["Model"]["value"]["Connector"]["value"]["RawData"][
-                        "value"
-                    ],
-                )
-            }
-        # Encode Model.BuildProcess
-        if (
-            "values"
-            not in map_object["Model"]["value"]["BuildProcess"]["value"]["RawData"][
-                "value"
-            ]
-        ):
-            map_object["Model"]["value"]["BuildProcess"]["value"]["RawData"][
-                "value"
-            ] = {
-                "values": build_process.encode_bytes(
-                    map_object["Model"]["value"]["BuildProcess"]["value"]["RawData"][
-                        "value"
-                    ],
-                )
-            }
-        # Encode ConcreteModel
-        if "values" not in map_object["ConcreteModel"]["value"]["RawData"]["value"]:
-            map_object["ConcreteModel"]["value"]["RawData"]["value"] = {
-                "values": map_concrete_model.encode_bytes(
-                    map_object["ConcreteModel"]["value"]["RawData"]["value"],
-                )
-            }
-        # Encode ConcreteModel.ModuleMap
-        for module in map_object["ConcreteModel"]["value"]["ModuleMap"]["value"]:
-            if "values" not in module["value"]["RawData"]["value"]:
-                module_type = module["key"]
-                module["value"]["RawData"]["value"] = {
-                    "values": map_concrete_model_module.encode_bytes(
-                        module["value"]["RawData"]["value"],
-                        module_type,
-                    )
-                }
+        model = map_object["Model"]["value"]
+        connector_prop = model["Connector"]
+        build_process_prop = model["BuildProcess"]
+        encoded_model = {
+            **model,
+            "RawData": encoded_raw_data(model["RawData"], map_model.encode_bytes),
+            "Connector": {
+                **connector_prop,
+                "value": {
+                    **connector_prop["value"],
+                    "RawData": encoded_raw_data(
+                        connector_prop["value"]["RawData"], connector.encode_bytes
+                    ),
+                },
+            },
+            "BuildProcess": {
+                **build_process_prop,
+                "value": {
+                    **build_process_prop["value"],
+                    "RawData": encoded_raw_data(
+                        build_process_prop["value"]["RawData"],
+                        build_process.encode_bytes,
+                    ),
+                },
+            },
+        }
 
+        concrete_model = map_object["ConcreteModel"]["value"]
+        encoded_concrete_model = {
+            **concrete_model,
+            "RawData": encoded_raw_data(
+                concrete_model["RawData"], map_concrete_model.encode_bytes
+            ),
+            "ModuleMap": {
+                **concrete_model["ModuleMap"],
+                "value": [
+                    {
+                        **module,
+                        "value": {
+                            **module["value"],
+                            "RawData": encoded_raw_data(
+                                module["value"]["RawData"],
+                                map_concrete_model_module.encode_bytes,
+                                module["key"],
+                            ),
+                        },
+                    }
+                    for module in concrete_model["ModuleMap"]["value"]
+                ],
+            },
+        }
+
+        map_objects.append(
+            {
+                **map_object,
+                "Model": {**map_object["Model"], "value": encoded_model},
+                "ConcreteModel": {
+                    **map_object["ConcreteModel"],
+                    "value": encoded_concrete_model,
+                },
+            }
+        )
+
+    properties = without_custom_type(properties)
+    properties["value"] = {**properties["value"], "values": map_objects}
     return writer.property_inner(property_type, properties)

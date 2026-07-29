@@ -19,7 +19,7 @@ def decode_bytes(
 ) -> Optional[dict[str, Any]]:
     if len(c_bytes) == 0:
         return None
-    reader = parent_reader.internal_copy(bytes(c_bytes), debug=False)
+    reader = parent_reader.internal_copy(coerce_bytes(c_bytes), debug=False)
     data = {}
     data["permission"] = {
         "type_a": reader.tarray(lambda r: r.byte()),
@@ -27,7 +27,7 @@ def decode_bytes(
         "item_static_ids": reader.tarray(lambda r: r.fstring()),
     }
     if not reader.eof():
-        data["trailing_unparsed_data"] = [b for b in reader.read_to_end()]
+        data["trailing_unparsed_data"] = reader.read_to_end()
     return data
 
 
@@ -36,9 +36,9 @@ def encode(
 ) -> int:
     if property_type != "ArrayProperty":
         raise Exception(f"Expected ArrayProperty, got {property_type}")
-    del properties["custom_type"]
     encoded_bytes = encode_bytes(properties["value"])
-    properties["value"] = {"values": [b for b in encoded_bytes]}
+    properties = without_custom_type(properties)
+    properties["value"] = {"values": encoded_bytes}
     return writer.property_inner(property_type, properties)
 
 
@@ -52,6 +52,6 @@ def encode_bytes(p: dict[str, Any]) -> bytes:
         lambda w, d: (w.fstring(d), None)[1], p["permission"]["item_static_ids"]
     )
     if "trailing_unparsed_data" in p:
-        writer.write(bytes(p["trailing_unparsed_data"]))
+        writer.write(coerce_bytes(p["trailing_unparsed_data"]))
     encoded_bytes = writer.bytes()
     return encoded_bytes
