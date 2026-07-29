@@ -8,8 +8,8 @@ build_options = {
     "zip_includes": ["palworld_pal_edit/resources/", "pals/"],
 }
 
-base = "Win32GUI" if sys.platform == "win32" else None
-base = "gui"
+#base = "Win32GUI" if sys.platform == "win32" else None
+base = "console"
 
 setup(
     name = "PalEdit v0.13",

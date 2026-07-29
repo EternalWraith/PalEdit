@@ -275,16 +275,16 @@ class PalEdit():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
-        print(f"Get Info: {pal.GetNickname()}")
-        print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
-        print(f"  - Rank: {pal.GetRank()}")
-        print(f"  - Skill 1:  {self.skills[0].get()}")
-        print(f"  - Skill 2:  {self.skills[1].get()}")
-        print(f"  - Skill 3:  {self.skills[2].get()}")
-        print(f"  - Skill 4:  {self.skills[3].get()}")
-        print(f"  - HP IV:  {pal.GetTalentHP()}")
-        print(f"  - Melee IV:  {pal.GetAttackMelee()}")
-        print(f"  - Range IV:  {pal.GetAttackRanged()}")
+        #print(f"Get Info: {pal.GetNickname()}")
+        #print(f"  - Level: {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
+        #print(f"  - Rank: {pal.GetRank()}")
+        #print(f"  - Skill 1:  {self.skills[0].get()}")
+        #print(f"  - Skill 2:  {self.skills[1].get()}")
+        #print(f"  - Skill 3:  {self.skills[2].get()}")
+        #print(f"  - Skill 4:  {self.skills[3].get()}")
+        #print(f"  - HP IV:  {pal.GetTalentHP()}")
+        #print(f"  - Melee IV:  {pal.GetAttackMelee()}")
+        #print(f"  - Range IV:  {pal.GetAttackRanged()}")
 
     def getSelectedPalData(self):
         if not self.isPalSelected():
@@ -2540,6 +2540,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         t = datetime.today().strftime('%H:%M:%S')
         d = datetime.today().strftime('%d/%m/%Y')
+        logger.info(f"Hello there! Why are you seeing a console? Don't worry, its just a temporary thing. Currently, our save tools aren't allowing us to have an executable without a console otherwise it refuses to load data for us. We suspect the issue to be with a module called Loguru and are working to remove it for the next update. Thank you for your understanding and patience.")
         logger.info(f"App opened at {t} on {d}")
 
         self.i18n = {}
