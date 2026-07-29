@@ -523,20 +523,10 @@ class FArchiveReader:
         _id = self.optional_guid()
         self.u32()
         count = self.u32()
-        struct_type = None
-        if set_type == "StructProperty":
-            struct_type = self.get_type_or(f"{path}.StructProperty", "StructProperty")
-            value = [
-                self.struct_value(struct_type, f"{path}.StructProperty")
-                for _ in range(count)
-            ]
-        else:
-            value = [self.properties_until_end() for _ in range(count)]
         return {
             "set_type": set_type,
             "id": _id,
-            "struct_type": struct_type,
-            "value": value,
+            "value": [self.properties_until_end() for _ in range(count)],
         }
 
     _PROPERTY_DISPATCH: dict[str, Callable] = {
@@ -575,21 +565,22 @@ class FArchiveReader:
         return value
 
     def prop_value(self, type_name: str, struct_type_name: str, path: str):
-        match type_name:
-            case "StructProperty":
-                return self.struct_value(struct_type_name, path)
-            case "EnumProperty" | "NameProperty" | "StrProperty":
-                return self.fstring()
-            case "IntProperty":
-                return self.i32()
-            case "Int64Property":
-                return self.i64()
-            case "BoolProperty":
-                return self.bool()
-            case "UInt32Property":
-                return self.u32()
-            case _:
-                raise Exception(f"Unknown property value type: {type_name} ({path})")
+        if type_name == "StructProperty":
+            return self.struct_value(struct_type_name, path)
+        elif type_name == "EnumProperty":
+            return self.fstring()
+        elif type_name == "NameProperty":
+            return self.fstring()
+        elif type_name == "IntProperty":
+            return self.i32()
+        elif type_name == "BoolProperty":
+            return self.bool()
+        elif type_name == "UInt32Property":
+            return self.u32()
+        elif type_name == "StrProperty":
+            return self.fstring()
+        else:
+            raise Exception(f"Unknown property value type: {type_name} ({path})")
 
     def struct(self, path: str) -> dict[str, Any]:
         struct_type = self.fstring()
@@ -1026,12 +1017,8 @@ class FArchiveWriter:
         start = self.data.tell()
         self.u32(0)
         self.u32(len(property["value"]))
-        struct_type = property.get("struct_type", None)
         for element in property["value"]:
-            if property["set_type"] == "StructProperty" and struct_type is not None:
-                self.struct_value(struct_type, element)
-            else:
-                self.properties(element)
+            self.properties(element)
         return self.data.tell() - start
 
     _PROPERTY_DISPATCH: dict[str, Callable] = {
@@ -1099,21 +1086,22 @@ class FArchiveWriter:
             return self.properties(value)
 
     def prop_value(self, type_name: str, struct_type_name: str, value):
-        match type_name:
-            case "StructProperty":
-                self.struct_value(struct_type_name, value)
-            case "EnumProperty" | "NameProperty" | "StrProperty":
-                self.fstring(value)
-            case "IntProperty":
-                self.i32(value)
-            case "Int64Property":
-                self.i64(value)
-            case "BoolProperty":
-                self.bool(value)
-            case "UInt32Property":
-                self.u32(value)
-            case _:
-                raise Exception(f"Unknown property value type: {type_name}")
+        if type_name == "StructProperty":
+            self.struct_value(struct_type_name, value)
+        elif type_name == "EnumProperty":
+            self.fstring(value)
+        elif type_name == "NameProperty":
+            self.fstring(value)
+        elif type_name == "IntProperty":
+            self.i32(value)
+        elif type_name == "BoolProperty":
+            self.bool(value)
+        elif type_name == "UInt32Property":
+            self.u32(value)
+        elif type_name == "StrProperty":
+            self.fstring(value)
+        else:
+            raise Exception(f"Unknown property value type: {type_name}")
 
     def array_property(self, array_type: str, value: dict[str, Any]):
         if array_type == "StructProperty":

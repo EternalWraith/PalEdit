@@ -90,7 +90,12 @@ def encode(
 ) -> int:
     if property_type != "ArrayProperty":
         raise Exception(f"Expected ArrayProperty, got {property_type}")
-    encoded_bytes = encode_bytes(properties["value"])
+    prop_value = properties.get("value")
+    if isinstance(prop_value, dict):
+        encoded_bytes = encode_bytes(prop_value)
+    else:
+        # If value is not a dict, it might be None or raw bytes; return as-is
+        encoded_bytes = encode_bytes(None)
     properties = without_custom_type(properties)
     properties["value"] = {"values": encoded_bytes}
     return writer.property_inner(property_type, properties)
@@ -99,28 +104,38 @@ def encode(
 def encode_bytes(p: dict[str, Any]) -> bytes:
     if p is None:
         return bytes()
+    if not isinstance(p, dict):
+        logger.warning(f"encode_bytes received non-dict: {type(p)}, returning empty bytes")
+        return bytes()
+
     writer = FArchiveWriter()
-    writer.guid(p["id"]["created_world_id"])
-    writer.guid(p["id"]["local_id_in_created_world"])
-    writer.fstring(p["id"]["static_id"])
-    if p["type"] == "unknown":
-        writer.write(coerce_bytes(p["trailer"]))
-    elif p["type"] == "egg":
-        writer.write(coerce_bytes(p["leading_bytes"]))
-        writer.fstring(p["character_id"])
-        writer.properties(p["object"])
-        writer.write(coerce_bytes(p["trailing_bytes"]))
-    elif p["type"] == "armor":
-        writer.write(coerce_bytes(p["leading_bytes"]))
-        writer.float(p["durability"])
-        writer.write(coerce_bytes(p["trailing_bytes"]))
-    elif p["type"] == "weapon":
-        writer.write(coerce_bytes(p["leading_bytes"]))
-        writer.float(p["durability"])
-        writer.i32(p["remaining_bullets"])
-        writer.tarray(lambda w, d: (w.fstring(d), None)[1], p["passive_skill_list"])
+    writer.guid(p.get("id", {}).get("created_world_id"))
+    writer.guid(p.get("id", {}).get("local_id_in_created_world"))
+    writer.fstring(p.get("id", {}).get("static_id", ""))
+
+    item_type = p.get("type", "unknown")
+    if item_type == "unknown":
+        writer.write(coerce_bytes(p.get("trailer", b"")))
+    elif item_type == "egg":
+        writer.write(coerce_bytes(p.get("leading_bytes", b"\x00" * 4)))
+        writer.fstring(p.get("character_id", ""))
+        writer.properties(p.get("object", {}))
+        writer.write(coerce_bytes(p.get("trailing_bytes", b"\x00" * 28)))
+    elif item_type == "armor":
+        writer.write(coerce_bytes(p.get("leading_bytes", b"\x00" * 4)))
+        writer.float(p.get("durability", 100.0))
+        writer.write(coerce_bytes(p.get("trailing_bytes", b"\x00" * 4)))
+    elif item_type == "weapon":
+        writer.write(coerce_bytes(p.get("leading_bytes", b"\x00" * 4)))
+        writer.float(p.get("durability", 100.0))
+        writer.i32(p.get("remaining_bullets", 0))
+        writer.tarray(lambda w, d: (w.fstring(d), None)[1], p.get("passive_skill_list", []))
         if "unknown_str" in p:
             writer.fstring(p["unknown_str"])
-        writer.write(coerce_bytes(p["trailing_bytes"]))
+        writer.write(coerce_bytes(p.get("trailing_bytes", b"\x00" * 4)))
+    else:
+        logger.warning(f"Unknown item type: {item_type}, treating as unknown")
+        writer.write(coerce_bytes(p.get("trailer", b"")))
+
     encoded_bytes = writer.bytes()
     return encoded_bytes
