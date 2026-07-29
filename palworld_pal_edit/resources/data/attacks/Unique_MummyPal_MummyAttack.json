@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_MummyPal_MummyAttack",
+    "Type": "Dark",
+    "Power": 500,
+    "Category": "Melee",
+    "Exclusive": [
+        "MummyPal",
+        "PREDATOR_MummyPal"
+    ]
+}

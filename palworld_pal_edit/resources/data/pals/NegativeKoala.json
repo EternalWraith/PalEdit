@@ -11,7 +11,8 @@
         "EPalWazaID::IceMissile": 22,
         "EPalWazaID::DarkWave": 30,
         "EPalWazaID::ShadowBall": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -33,7 +34,10 @@
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 1,
-        "MonsterFarm": 0
+        "MonsterFarm": 1
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 16,
+    "TowerBoss": false
 }

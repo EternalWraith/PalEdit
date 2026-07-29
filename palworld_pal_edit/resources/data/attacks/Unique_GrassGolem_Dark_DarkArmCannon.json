@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_GrassGolem_Dark_DarkArmCannon",
+    "Type": "Dark",
+    "Power": 700,
+    "Category": "Shot",
+    "Exclusive": [
+        "GrassGolem_Dark"
+    ]
+}

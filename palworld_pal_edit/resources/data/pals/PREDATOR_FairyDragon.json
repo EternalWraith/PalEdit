@@ -6,12 +6,14 @@
     ],
     "Moveset": {
         "EPalWazaID::DragonCanon": 1,
-        "EPalWazaID::DragonWave": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::FlareArrow": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
-        "EPalWazaID::DragonBreath": 30,
-        "EPalWazaID::HyperBeam": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonBreath": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {
         "EPalWazaID::DragonMeteor": 1,
@@ -37,7 +39,7 @@
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 3,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -45,5 +47,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

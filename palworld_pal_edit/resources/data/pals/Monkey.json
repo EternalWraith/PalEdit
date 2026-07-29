@@ -11,12 +11,13 @@
         "EPalWazaID::SeedMine": 22,
         "EPalWazaID::ThrowRock": 30,
         "EPalWazaID::GrassTornado": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::SolarBeam": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 80,
-        "PHY": 100,
+        "PHY": 70,
         "MAG": 70,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 23,
+    "TowerBoss": false
 }

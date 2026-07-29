@@ -11,12 +11,13 @@
         "EPalWazaID::PowerBall": 22,
         "EPalWazaID::AcidRain": 30,
         "EPalWazaID::DiversionLaser": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::HydroPump": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 70,
-        "PHY": 100,
+        "PHY": 60,
         "MAG": 60,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 30,
+    "TowerBoss": false
 }

@@ -5,18 +5,21 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::Unique_GuardianDog_BiteV2": 1,
+        "EPalWazaID::Unique_GuardianDog_Bite": 2,
+        "EPalWazaID::MudShot": 3,
         "EPalWazaID::PowerShot": 7,
         "EPalWazaID::StoneShotgun": 15,
         "EPalWazaID::PowerBall": 22,
         "EPalWazaID::AirBlade": 30,
         "EPalWazaID::HolyBlast": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 85,
-        "PHY": 80,
+        "PHY": 85,
         "MAG": 85,
         "DEF": 85
     },
@@ -35,5 +38,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 127,
+    "TowerBoss": false
 }

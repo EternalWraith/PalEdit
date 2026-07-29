@@ -1,0 +1,45 @@
+{
+    "CodeName": "PREDATOR_MummyPal",
+    "Type": [
+        "Dark",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::GhostFlame": 1,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::SandTornado": 15,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::ShadowBall": 22,
+        "EPalWazaID::SandTwister": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::Unique_MummyPal_MummyAttack": 40,
+        "EPalWazaID::DarkLegion": 50,
+        "EPalWazaID::RockBeat": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 126,
+        "PHY": 120,
+        "MAG": 120,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 5,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 4,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
+}

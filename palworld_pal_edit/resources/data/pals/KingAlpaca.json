@@ -11,12 +11,13 @@
         "EPalWazaID::Unique_KingAlpaca_BodyPress": 22,
         "EPalWazaID::ThreeThunder": 30,
         "EPalWazaID::RockLance": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 120,
-        "PHY": 100,
+        "PHY": 85,
         "MAG": 85,
         "DEF": 90
     },
@@ -26,7 +27,7 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 1,
+        "Collection": 2,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -35,5 +36,10 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 21,
+    "TowerBoss": false
 }

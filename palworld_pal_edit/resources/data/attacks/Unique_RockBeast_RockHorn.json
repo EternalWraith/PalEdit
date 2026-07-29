@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_RockBeast_RockHorn",
+    "Type": "Earth",
+    "Power": 600,
+    "Category": "Shot",
+    "Exclusive": [
+        "RockBeast"
+    ]
+}

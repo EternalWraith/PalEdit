@@ -11,7 +11,8 @@
         "EPalWazaID::GrassTornado": 22,
         "EPalWazaID::BlizzardLance": 30,
         "EPalWazaID::RootAttack": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::SolarBeam": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -23,10 +24,10 @@
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 1,
+        "Seeding": 2,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
-        "Collection": 1,
+        "Handcraft": 2,
+        "Collection": 2,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 60,
+    "TowerBoss": false
 }

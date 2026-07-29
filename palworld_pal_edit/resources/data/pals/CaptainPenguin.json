@@ -11,12 +11,13 @@
         "EPalWazaID::FrostBreath": 22,
         "EPalWazaID::WaterBall": 30,
         "EPalWazaID::IcicleThrow": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::HydroPump": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 95,
-        "PHY": 70,
+        "PHY": 95,
         "MAG": 95,
         "DEF": 95
     },
@@ -28,12 +29,15 @@
         "Handcraft": 2,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 2,
+        "Mining": 3,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 2,
-        "Transport": 2,
+        "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 18,
+    "TowerBoss": false
 }

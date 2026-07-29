@@ -5,13 +5,9 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::DragonCanon": 1,
-        "EPalWazaID::DragonWave": 7,
-        "EPalWazaID::AirBlade": 15,
-        "EPalWazaID::DragonBreath": 22,
-        "EPalWazaID::IcicleLine": 30,
-        "EPalWazaID::Commet": 40,
-        "EPalWazaID::BeamSlicer": 50
+        "EPalWazaID::DragonBreath": 1,
+        "EPalWazaID::Commet": 2,
+        "EPalWazaID::DragonCanon": 3
     },
     "RaidMoveset": {
         "EPalWazaID::DragonBreath": 1,
@@ -20,7 +16,7 @@
     },
     "Scaling": {
         "HP": 110,
-        "PHY": 100,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 130
     },
@@ -39,5 +35,10 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Alien"
+    ],
+    "DeckIndex": 146,
+    "TowerBoss": false
 }

@@ -5,18 +5,21 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::Unique_BlackPuppy_BiteV2": 1,
+        "EPalWazaID::Unique_BlackPuppy_Bite": 2,
+        "EPalWazaID::MudShot": 3,
         "EPalWazaID::DarkPulse": 7,
         "EPalWazaID::DarkCanon": 15,
         "EPalWazaID::DarkWave": 22,
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::Commet": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 85,
-        "PHY": 100,
+        "PHY": 90,
         "MAG": 90,
         "DEF": 85
     },
@@ -35,5 +38,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 149,
+    "TowerBoss": false
 }

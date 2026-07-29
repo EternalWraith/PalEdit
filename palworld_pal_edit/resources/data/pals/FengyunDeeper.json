@@ -11,7 +11,8 @@
         "EPalWazaID::AcidRain": 22,
         "EPalWazaID::WaterBall": 30,
         "EPalWazaID::IcicleThrow": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -27,7 +28,7 @@
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 3,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 83,
+    "TowerBoss": false
 }

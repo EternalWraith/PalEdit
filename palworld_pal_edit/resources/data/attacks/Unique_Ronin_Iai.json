@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_Ronin_Iai",
     "Type": "Fire",
-    "Power": 65,
-    "Category": "Melee"
+    "Power": 160,
+    "Category": "Melee",
+    "Exclusive": [
+        "PREDATOR_Ronin_Dark",
+        "Ronin",
+        "Ronin_Dark"
+    ]
 }

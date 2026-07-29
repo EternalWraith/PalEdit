@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_KingWhale_HomingBubble",
+    "Type": "Water",
+    "Power": 200,
+    "Category": "Shot",
+    "Exclusive": [
+        "KingWhale"
+    ]
+}

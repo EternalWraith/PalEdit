@@ -7,11 +7,14 @@
     "Moveset": {
         "EPalWazaID::PowerShot": 1,
         "EPalWazaID::SeedMachinegun": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::ThrowRock": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::Unique_GrassPanda_MusclePunch": 22,
-        "EPalWazaID::SeedMine": 30,
+        "EPalWazaID::SeedMine": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::RootAttack": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {
         "EPalWazaID::Unique_GrassPanda_MusclePunch": 1,
@@ -26,24 +29,27 @@
     },
     "Scaling": {
         "HP": 120,
-        "PHY": 100,
+        "PHY": 90,
         "MAG": 90,
         "DEF": 90
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 2,
+        "Seeding": 3,
         "GenerateElectricity": 0,
         "Handcraft": 2,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 4,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 4,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

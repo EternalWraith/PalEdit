@@ -4,20 +4,29 @@
         "Dragon",
         "Water"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::WaterGun": 1,
+        "EPalWazaID::AcidRain": 7,
+        "EPalWazaID::Commet": 15,
+        "EPalWazaID::BlastCanon": 22,
+        "EPalWazaID::Unique_BlueSkyDragon_Tossin": 30,
+        "EPalWazaID::Unique_BlueSkyDragon_SweepBreath": 40,
+        "EPalWazaID::Unique_BlueSkyDragon_DrainStorm": 50,
+        "EPalWazaID::CommetRain": 70
+    },
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "HP": 140,
+        "PHY": 135,
+        "MAG": 135,
+        "DEF": 120
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 1,
+        "Watering": 8,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 1,
+        "Collection": 5,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -26,5 +35,9 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "RaidMoveset": {},
+    "InnatePassives": [],
+    "DeckIndex": 192,
+    "TowerBoss": false
 }

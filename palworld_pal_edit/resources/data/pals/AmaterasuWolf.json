@@ -5,23 +5,26 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::Unique_AmaterasuWolf_BiteV2": 1,
+        "EPalWazaID::Unique_AmaterasuWolf_Bite": 2,
+        "EPalWazaID::FireBlast": 3,
         "EPalWazaID::FireSeed": 7,
         "EPalWazaID::GhostFlame": 15,
         "EPalWazaID::Unique_AmaterasuWolf_FireCharge": 22,
         "EPalWazaID::FlareTornado": 30,
         "EPalWazaID::Inferno": 40,
-        "EPalWazaID::FireBall": 50
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 70,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 100
     },
     "Suitabilities": {
-        "EmitFlame": 2,
+        "EmitFlame": 3,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
@@ -35,5 +38,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 111,
+    "TowerBoss": false
 }

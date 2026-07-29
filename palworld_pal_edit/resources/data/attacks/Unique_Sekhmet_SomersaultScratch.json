@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_Sekhmet_SomersaultScratch",
+    "Type": "Earth",
+    "Power": 300,
+    "Category": "Melee",
+    "Exclusive": [
+        "Sekhmet"
+    ]
+}

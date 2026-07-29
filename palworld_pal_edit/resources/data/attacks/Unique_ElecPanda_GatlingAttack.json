@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_ElecPanda_GatlingAttack",
     "Type": "Electricity",
-    "Power": 160,
-    "Category": "Shot"
+    "Power": 550,
+    "Category": "Shot",
+    "Exclusive": [
+        "ElecPanda",
+        "GYM_ElecPanda_2",
+        "GYM_ElecPanda_Otomo"
+    ]
 }

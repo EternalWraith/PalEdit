@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_DarkMechaDragon_ConvergentBeam",
     "Type": "Dark",
-    "Power": 170,
-    "Category": "Shot"
+    "Power": 500,
+    "Category": "Shot",
+    "Exclusive": [
+        "DarkMechaDragon",
+        "RAID_DarkMechaDragon",
+        "RAID_DarkMechaDragon_2"
+    ]
 }

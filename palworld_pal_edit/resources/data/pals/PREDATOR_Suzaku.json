@@ -1,0 +1,45 @@
+{
+    "CodeName": "PREDATOR_Suzaku",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::FireSeed": 15,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::FlareArrow": 22,
+        "EPalWazaID::Flamethrower": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::FlareTornado": 40,
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::HolyBlast": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 144,
+        "PHY": 105,
+        "MAG": 105,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 5,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
+}

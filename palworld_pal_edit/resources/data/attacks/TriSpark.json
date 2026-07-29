@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::TriSpark",
     "Type": "Electricity",
-    "Power": 110,
+    "Power": 250,
     "Category": "Shot"
 }

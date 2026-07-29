@@ -11,12 +11,13 @@
         "EPalWazaID::PowerBall": 22,
         "EPalWazaID::GhostFlame": 30,
         "EPalWazaID::ShadowBall": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 75,
-        "PHY": 70,
+        "PHY": 85,
         "MAG": 85,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 24,
+    "TowerBoss": false
 }

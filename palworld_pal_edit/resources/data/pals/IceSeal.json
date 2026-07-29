@@ -11,18 +11,19 @@
         "EPalWazaID::LineGeyser": 22,
         "EPalWazaID::IceWall": 30,
         "EPalWazaID::IcicleLine": 40,
-        "EPalWazaID::RipTide": 50
+        "EPalWazaID::RipTide": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 95,
-        "PHY": 100,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 105
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 2,
+        "Watering": 3,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -31,9 +32,12 @@
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 3,
+        "Cool": 4,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 72,
+    "TowerBoss": false
 }

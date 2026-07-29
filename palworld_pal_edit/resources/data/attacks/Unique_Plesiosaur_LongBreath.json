@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_Plesiosaur_LongBreath",
     "Type": "Leaf",
-    "Power": 135,
-    "Category": "Shot"
+    "Power": 400,
+    "Category": "Shot",
+    "Exclusive": [
+        "Plesiosaur"
+    ]
 }

@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::SpreadPulse",
     "Type": "Electricity",
-    "Power": 30,
+    "Power": 50,
     "Category": "Shot"
 }

@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_BlackGriffon_TackleLaser2",
     "Type": "Dark",
-    "Power": 170,
-    "Category": "Shot"
+    "Power": 600,
+    "Category": "Shot",
+    "Exclusive": [
+        "BlackGriffon",
+        "GYM_BlackGriffon_2",
+        "GYM_BlackGriffon_2_Avatar"
+    ]
 }

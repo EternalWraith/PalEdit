@@ -1,0 +1,43 @@
+{
+    "CodeName": "OctopusGirl_Neutral",
+    "Type": [
+        "Water",
+        "Normal"
+    ],
+    "Moveset": {
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::Unique_OctopursGirl_InkJet": 15,
+        "EPalWazaID::AirBlade": 22,
+        "EPalWazaID::HydroSlicer": 30,
+        "EPalWazaID::HydroPump": 40,
+        "EPalWazaID::SeaGush": 50,
+        "EPalWazaID::HolyBlast": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 75,
+        "PHY": 85,
+        "MAG": 85,
+        "DEF": 70
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 2,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 2,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 48,
+    "TowerBoss": false
+}

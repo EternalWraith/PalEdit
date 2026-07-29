@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_GrassPanda_MusclePunch",
     "Type": "Leaf",
-    "Power": 85,
-    "Category": "Melee"
+    "Power": 120,
+    "Category": "Melee",
+    "Exclusive": [
+        "GrassPanda",
+        "PREDATOR_GrassPanda"
+    ]
 }

@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_Horus_PerfectStorm",
     "Type": "Fire",
-    "Power": 145,
-    "Category": "Shot"
+    "Power": 650,
+    "Category": "Shot",
+    "Exclusive": [
+        "GYM_Horus_2",
+        "Horus",
+        "Horus_Oilrig"
+    ]
 }

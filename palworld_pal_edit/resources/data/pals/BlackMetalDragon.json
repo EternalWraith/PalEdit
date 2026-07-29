@@ -12,12 +12,13 @@
         "EPalWazaID::DragonBreath": 30,
         "EPalWazaID::Unique_BlackMetalDragon_FirePunch": 35,
         "EPalWazaID::DarkLaser": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 125,
         "MAG": 125,
         "DEF": 125
     },
@@ -26,15 +27,20 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 3,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 4,
+        "Mining": 7,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up1"
+    ],
+    "DeckIndex": 158,
+    "TowerBoss": false
 }

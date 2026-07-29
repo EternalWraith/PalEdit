@@ -11,18 +11,19 @@
         "EPalWazaID::Unique_IceCrocodile_SpitAttack": 22,
         "EPalWazaID::IceWall": 30,
         "EPalWazaID::DiversionLaser": 40,
-        "EPalWazaID::DiamondFall": 50
+        "EPalWazaID::DiamondFall": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 75,
-        "PHY": 100,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 85
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 1,
+        "Watering": 2,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -31,9 +32,12 @@
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 2,
+        "Cool": 3,
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 86,
+    "TowerBoss": false
 }

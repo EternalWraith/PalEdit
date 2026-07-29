@@ -8,12 +8,12 @@
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 110,
         "MAG": 110,
         "DEF": 70
     },
     "Suitabilities": {
-        "EmitFlame": 2,
+        "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
@@ -27,5 +27,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

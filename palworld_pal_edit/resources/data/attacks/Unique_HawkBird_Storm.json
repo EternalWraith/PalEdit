@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_HawkBird_Storm",
     "Type": "Normal",
-    "Power": 65,
-    "Category": "Melee"
+    "Power": 80,
+    "Category": "Melee",
+    "Exclusive": [
+        "HawkBird",
+        "POLICE_HawkBird"
+    ]
 }

@@ -7,11 +7,14 @@
     "Moveset": {
         "EPalWazaID::DragonCanon": 1,
         "EPalWazaID::WaterGun": 7,
-        "EPalWazaID::DragonWave": 15,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::BubbleShot": 22,
-        "EPalWazaID::DragonBreath": 30,
+        "EPalWazaID::DragonBreath": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::WaterBall": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {
         "EPalWazaID::DragonCanon": 1,
@@ -26,14 +29,14 @@
         "EPalWazaID::PredatorLockon": 10
     },
     "Scaling": {
-        "HP": 132,
-        "PHY": 110,
+        "HP": 144,
+        "PHY": 100,
         "MAG": 100,
         "DEF": 70
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 2,
+        "Watering": 3,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -43,8 +46,13 @@
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 1,
+        "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "PAL_FullStomach_Up_1"
+    ],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

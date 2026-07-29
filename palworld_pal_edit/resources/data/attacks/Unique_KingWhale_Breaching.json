@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_KingWhale_Breaching",
+    "Type": "Water",
+    "Power": 700,
+    "Category": "Melee",
+    "Exclusive": [
+        "KingWhale"
+    ]
+}

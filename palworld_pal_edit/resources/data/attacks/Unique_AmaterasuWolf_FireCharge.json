@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_AmaterasuWolf_FireCharge",
     "Type": "Fire",
-    "Power": 75,
-    "Category": "Melee"
+    "Power": 200,
+    "Category": "Melee",
+    "Exclusive": [
+        "AmaterasuWolf",
+        "PREDATOR_AmaterasuWolf"
+    ]
 }

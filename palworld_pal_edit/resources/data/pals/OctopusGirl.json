@@ -11,12 +11,13 @@
         "EPalWazaID::LineGeyser": 22,
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::DiversionLaser": 40,
-        "EPalWazaID::HydroSlicer": 50
+        "EPalWazaID::HydroSlicer": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 70,
-        "PHY": 100,
+        "PHY": 85,
         "MAG": 85,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 48,
+    "TowerBoss": false
 }

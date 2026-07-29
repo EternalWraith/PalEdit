@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_LegendDeer_RadiantWingRush",
     "Type": "Normal",
-    "Power": 140,
-    "Category": "Melee"
+    "Power": 700,
+    "Category": "Melee",
+    "Exclusive": [
+        "LegendDeer"
+    ]
 }

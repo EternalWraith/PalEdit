@@ -1,0 +1,43 @@
+{
+    "CodeName": "FlowerPrince",
+    "Type": [
+        "Leaf",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkCanon": 1,
+        "EPalWazaID::SeedMine": 7,
+        "EPalWazaID::RootLance": 15,
+        "EPalWazaID::DarkLaser": 22,
+        "EPalWazaID::DarkLegion": 30,
+        "EPalWazaID::WindBurst": 40,
+        "EPalWazaID::Unique_FlowerPrince_PoisonGasTackle": 50,
+        "EPalWazaID::Unique_FlowerPrince_PoisonGasDance": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 125,
+        "PHY": 135,
+        "MAG": 135,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 8,
+        "GenerateElectricity": 0,
+        "Handcraft": 6,
+        "Collection": 5,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 6,
+        "Cool": 0,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 194,
+    "TowerBoss": false
+}

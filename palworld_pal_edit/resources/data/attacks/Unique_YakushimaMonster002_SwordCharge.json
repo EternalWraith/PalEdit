@@ -2,5 +2,8 @@
     "CodeName": "EPalWazaID::Unique_YakushimaMonster002_SwordCharge",
     "Type": "Normal",
     "Power": 80,
-    "Category": "Melee"
+    "Category": "Melee",
+    "Exclusive": [
+        "YakushimaMonster002"
+    ]
 }

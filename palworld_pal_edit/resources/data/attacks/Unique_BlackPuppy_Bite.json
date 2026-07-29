@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_BlackPuppy_Bite",
+    "Type": "Dark",
+    "Power": 50,
+    "Category": "Melee",
+    "Exclusive": [
+        "BlackPuppy",
+        "BlackPuppy_Ice"
+    ]
+}

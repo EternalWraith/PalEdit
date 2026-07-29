@@ -7,12 +7,16 @@
     "Moveset": {
         "EPalWazaID::FireBlast": 1,
         "EPalWazaID::DragonCanon": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::FlareTornado": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::Flamethrower": 22,
-        "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::ThreeThunder": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::Unique_Umihebi_Fire_FireWindingTackle": 35,
         "EPalWazaID::FireBall": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {
         "EPalWazaID::Inferno": 1,
@@ -29,12 +33,12 @@
     },
     "Scaling": {
         "HP": 156,
-        "PHY": 150,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 100
     },
     "Suitabilities": {
-        "EmitFlame": 4,
+        "EmitFlame": 7,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
@@ -48,5 +52,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::ThunderRain",
     "Type": "Electricity",
-    "Power": 135,
+    "Power": 400,
     "Category": "Shot"
 }

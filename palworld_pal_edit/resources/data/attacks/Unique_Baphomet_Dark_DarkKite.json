@@ -1,0 +1,11 @@
+{
+    "CodeName": "EPalWazaID::Unique_Baphomet_Dark_DarkKite",
+    "Type": "Dark",
+    "Power": 400,
+    "Category": "Melee",
+    "Exclusive": [
+        "Baphomet_Dark",
+        "Baphomet_Dark_Oilrig",
+        "PREDATOR_Baphomet_Dark"
+    ]
+}

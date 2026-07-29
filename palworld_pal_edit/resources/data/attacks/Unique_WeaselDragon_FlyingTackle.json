@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_WeaselDragon_FlyingTackle",
     "Type": "Dragon",
-    "Power": 50,
-    "Category": "Melee"
+    "Power": 80,
+    "Category": "Melee",
+    "Exclusive": [
+        "WeaselDragon",
+        "WeaselDragon_Fire"
+    ]
 }

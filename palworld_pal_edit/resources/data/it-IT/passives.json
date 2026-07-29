@@ -5,358 +5,1686 @@
     },
     "NONE": {
         "Name": "Nessuno",
-        "Description": "Il Pal non ha abilità in questo slot"
+        "Description": "Il Pal non ha abilit\u00e0 in questo slot"
     },
     "ElementResist_Normal_1_PAL": {
-        "Name": "Anomal0",
-        "Description": "Riduzione del danno non elementale: 10%"
+        "Name": "Anomalo",
+        "Description": "Riduzione del danno non elementale: 10.0%"
     },
     "ElementResist_Dark_1_PAL": {
         "Name": "Tipo cupo",
-        "Description": "Riduzione del danno di attributo oscurità: 10%"
+        "Description": "Riduzione del danno di attributo oscurit\u00e0: 10.0%"
     },
     "ElementResist_Dragon_1_PAL": {
         "Name": "Ammazzadraghi",
-        "Description": "Riduzione del danno di attributo drago: 10%"
+        "Description": "Riduzione del danno di attributo drago: 10.0%"
     },
     "ElementResist_Ice_1_PAL": {
         "Name": "Antighiaccio",
-        "Description": "Riduzione del danno di attributo ghiaccio: 10%"
+        "Description": "Riduzione del danno di attributo ghiaccio: 10.0%"
     },
     "ElementResist_Fire_1_PAL": {
         "Name": "Termofilo",
-        "Description": "Riduzione del danno di attributo fuoco: 10%"
+        "Description": "Riduzione del danno di attributo fuoco: 10.0%"
     },
     "ElementResist_Leaf_1_PAL": {
         "Name": "Antivegetazione",
-        "Description": "Riduzione del danno di attributo erba: 10%"
+        "Description": "Riduzione del danno di attributo erba: 10.0%"
     },
     "ElementResist_Earth_1_PAL": {
         "Name": "Antisismico",
-        "Description": "Riduzione del danno di attributo terra: 10%"
+        "Description": "Riduzione del danno di attributo terra: 10.0%"
     },
     "ElementResist_Thunder_1_PAL": {
         "Name": "Isolante",
-        "Description": "Riduzione del danno di attributo elettricità: 10%"
+        "Description": "Riduzione del danno di attributo elettricit\u00e0: 10.0%"
     },
     "ElementResist_Aqua_1_PAL": {
         "Name": "Idrorepellente",
-        "Description": "Riduzione del danno di attributo acqua: 10%"
+        "Description": "Riduzione del danno di attributo acqua: 10.0%"
     },
     "ElementBoost_Normal_1_PAL": {
         "Name": "Intuizione del nulla",
-        "Description": "Incremento del danno non elementale: 10%"
+        "Description": "Incremento del danno non elementale: 10.0%"
     },
     "ElementBoost_Dark_1_PAL": {
         "Name": "Coltre oscura",
-        "Description": "Incremento del danno di attributo oscurità: 10%"
+        "Description": "Incremento del danno di attributo oscurit\u00e0: 10.0%"
     },
     "ElementBoost_Dragon_1_PAL": {
         "Name": "Stirpe draconica",
-        "Description": "Incremento del danno di attributo drago: 10%"
+        "Description": "Incremento del danno di attributo drago: 10.0%"
     },
     "ElementBoost_Ice_1_PAL": {
         "Name": "Sangue freddo",
-        "Description": "Incremento del danno di attributo ghiaccio: 10%"
+        "Description": "Incremento del danno di attributo ghiaccio: 10.0%"
     },
     "ElementBoost_Fire_1_PAL": {
         "Name": "Giocare col fuoco",
-        "Description": "Incremento del danno di attributo fuoco: 10%"
+        "Description": "Incremento del danno di attributo fuoco: 10.0%"
     },
     "ElementBoost_Leaf_1_PAL": {
         "Name": "Fragranza naturale",
-        "Description": "Incremento del danno di attributo erba: 10%"
+        "Description": "Incremento del danno di attributo erba: 10.0%"
     },
     "ElementBoost_Earth_1_PAL": {
         "Name": "Potere della terra",
-        "Description": "Incremento del danno di attributo terra: 10%"
+        "Description": "Incremento del danno di attributo terra: 10.0%"
     },
     "ElementBoost_Thunder_1_PAL": {
         "Name": "Condensatore",
-        "Description": "Incremento del danno di attributo elettricità: 10%"
+        "Description": "Incremento del danno di attributo elettricit\u00e0: 10.0%"
     },
     "ElementBoost_Aqua_1_PAL": {
         "Name": "Giocare con l'acqua",
-        "Description": "Incremento del danno di attributo acqua: 10%"
+        "Description": "Incremento del danno di attributo acqua: 10.0%"
     },
     "ElementBoost_Normal_2_PAL": {
         "Name": "Supremazia sacra",
-        "Description": "Incremento del danno non elementale: 20%; abilità distintiva di Paladius"
+        "Description": "Supremazia sacra"
     },
     "ElementBoost_Dark_2_PAL": {
-        "Name": "Dominio sull'oltretomba",
-        "Description": "Incremento del danno di attributo oscurità: 20%; abilità distintiva di Necromus"
+        "Name": "Dominio oltretomba",
+        "Description": "Dominio oltretomba"
     },
     "ElementBoost_Dragon_2_PAL": {
         "Name": "Drago divino",
-        "Description": "Incremento del danno di attributo drago: 20%; abilità distintiva di Jetragon"
+        "Description": "Drago divino"
     },
     "ElementBoost_Ice_2_PAL": {
         "Name": "Supremazia glaciale",
-        "Description": "Incremento del danno di attributo ghiaccio: 20%; abilità distintiva di Frostallion"
+        "Description": "Supremazia glaciale"
     },
     "ElementBoost_Fire_2_PAL": {
         "Name": "Supremazia ardente",
-        "Description": "Incremento del danno di attributo fuoco: 20%; abilità distintiva di Blazamut"
+        "Description": "Supremazia ardente"
     },
     "ElementBoost_Leaf_2_PAL": {
         "Name": "Dominio sulla natura",
-        "Description": "Incremento del danno di attributo erba: 20%; abilità distintiva di Lyleen"
+        "Description": "Dominio sulla natura"
     },
     "ElementBoost_Earth_2_PAL": {
         "Name": "Supremazia terrestre",
-        "Description": "Incremento del danno di attributo terra: 20%; abilità distintiva di Anubis"
+        "Description": "Supremazia terrestre"
     },
     "ElementBoost_Thunder_2_PAL": {
         "Name": "Supremazia fulminante",
-        "Description": "Incremento del danno di attributo elettricità: 20%; abilità distintiva di Orserk"
+        "Description": "Supremazia fulminante"
     },
     "ElementBoost_Aqua_2_PAL": {
         "Name": "Supremazia marina",
-        "Description": "Incremento del danno di attributo acqua: 20%; abilità distintiva di Jormuntide"
+        "Description": "Supremazia marina"
     },
     "Witch": {
         "Name": "Strega",
-        "Description": "Incremento del danno di attributo oscurità: 30%. Incremento del danno di attributo ghiaccio: 30%. Abilità distintiva di Bellanoir"
+        "Description": "Strega"
     },
     "PAL_ALLAttack_up1": {
         "Name": "Animo prode",
-        "Description": "Attacco +10%"
+        "Description": "Animo prode"
     },
     "PAL_ALLAttack_up2": {
         "Name": "Animo feroce",
-        "Description": "Attacco +20%"
+        "Description": "Animo feroce"
     },
     "PAL_ALLAttack_up3": {
-        "Name": "Divinità feroce",
-        "Description": "Attacco +30%, Difesa +5%"
+        "Name": "Divinit\u00e0 feroce",
+        "Description": "Divinit\u00e0 feroce"
     },
     "PAL_ALLAttack_down1": {
         "Name": "Codardia",
-        "Description": "Attacco -10%"
+        "Description": "Codardia"
     },
     "PAL_ALLAttack_down2": {
         "Name": "Piedi di piombo",
-        "Description": "Attacco -20%"
+        "Description": "Piedi di piombo"
     },
     "Deffence_up1": {
         "Name": "Pelle dura",
-        "Description": "Difesa +10%"
+        "Description": "Pelle dura"
     },
     "Deffence_up2": {
         "Name": "Corpo robusto",
-        "Description": "Difesa +20%"
+        "Description": "Difesa +20.0% Immunit\u00e0 al tentennamento"
     },
     "Deffence_up3": {
         "Name": "Corpo di diamante",
-        "Description": "Difesa +30%"
+        "Description": "Difesa +30.0% Immunit\u00e0 al tentennamento Immunit\u00e0 al respingimento"
     },
     "Deffence_down1": {
         "Name": "Debolezza",
-        "Description": "Difesa -10%"
+        "Description": "Debolezza"
     },
     "Deffence_down2": {
         "Name": "Ossa fragili",
-        "Description": "Difesa -20%"
+        "Description": "Ossa fragili"
     },
     "TrainerMining_up1": {
-        "Name": "Meastria nell'estrazione",
-        "Description": "Incremento efficienza nell'estrazione del giocatore: 25%"
+        "Name": "Maestria estrazione",
+        "Description": "Incremento efficienza estrattiva del giocatore: 25.0%"
     },
     "TrainerLogging_up1": {
-        "Name": "Maestria nella falegnameria",
-        "Description": "Incremento efficienza nel tagliare la legna del giocatore: 25%"
+        "Name": "Maestria falegnameria",
+        "Description": "Incremento efficienza nel tagliare la legna del giocatore: 25.0%"
     },
     "TrainerATK_UP_1": {
-        "Name": "Maestria negli asalti",
-        "Description": "Incremento attacco del giocatore: 10%"
+        "Name": "Maestria negli assalti",
+        "Description": "Incremento attacco del giocatore: 10.0%"
     },
     "TrainerWorkSpeed_UP_1": {
         "Name": "Gran motivatore",
-        "Description": "Incremento velocità delle attività del giocatore: 25%"
+        "Description": "Incremento velocit\u00e0 delle attivit\u00e0 del giocatore: 25.0%"
     },
     "TrainerDEF_UP_1": {
         "Name": "Padronanza della difesa",
-        "Description": "Incremento difesa del giocatore: 10%"
+        "Description": "Incremento difesa del giocatore: 10.0%"
     },
     "PAL_Sanity_Down_1": {
         "Name": "Atteggiamento positivo",
-        "Description": "Resistenza al calo dei punti SAN +10%"
+        "Description": "Resistenza al calo dei punti SAN <NumBlue_13>+10.0%</>"
     },
     "PAL_Sanity_Down_2": {
         "Name": "Stacanovismo",
-        "Description": "Resistenza al calo dei punti SAN +15%"
+        "Description": "Resistenza al calo dei punti SAN <NumBlue_13>+15.0%</>"
     },
     "PAL_Sanity_Down_3": {
-        "Name": "Spirito innamovibile",
-        "Description": "Resistenza al calo dei punti SAN +20%"
+        "Name": "Spirito inamovibile",
+        "Description": "Resistenza al calo dei punti SAN <NumBlue_13>+20.0%</>"
     },
     "PAL_Sanity_Up_1": {
         "Name": "Irrequietezza",
-        "Description": "Calo dei punti SAN +10%"
+        "Description": "Calo dei punti SAN <NumRed_13>+10.0%</>"
     },
     "PAL_Sanity_Up_2": {
         "Name": "Nichilismo",
-        "Description": "Calo dei punti SAN +15%"
+        "Description": "Calo dei punti SAN <NumRed_13>+15.0%</>"
     },
     "PAL_FullStomach_Down_1": {
-        "Name": "Dainty Eater",
-        "Description": "Hunger drops 10% slower"
+        "Name": "Frugalit\u00e0",
+        "Description": "Resistenza al calo della saziet\u00e0 <NumBlue_13>+10.0%</>"
     },
     "PAL_FullStomach_Down_2": {
         "Name": "Sempre a dieta",
-        "Description": "Resistenza al calo della sazietà +15%"
+        "Description": "Resistenza al calo della saziet\u00e0 <NumBlue_13>+15.0%</>"
     },
     "PAL_FullStomach_Down_3": {
         "Name": "Digiuno totale",
-        "Description": "Resistenza al calo della sazietà +20%"
+        "Description": "Resistenza al calo della saziet\u00e0 <NumBlue_13>+20.0%</>"
     },
     "PAL_FullStomach_Up_1": {
         "Name": "Fame vorace",
-        "Description": "Calo della sazietà +10%"
+        "Description": "Calo della saziet\u00e0 <NumRed_13>+10.0%</>"
     },
     "PAL_FullStomach_Up_2": {
         "Name": "Pozzo senza fondo",
-        "Description": "Calod ella sazietà +15%"
+        "Description": "Calo della saziet\u00e0 <NumRed_13>+15.0%</>"
     },
     "CraftSpeed_up1": {
         "Name": "Diligenza",
-        "Description": "Velocità delle attività +20%"
+        "Description": "Diligenza"
     },
     "CraftSpeed_up2": {
         "Name": "Spirito artigiano",
-        "Description": "Velocità delle attività +50%"
+        "Description": "Spirito artigiano"
     },
     "CraftSpeed_up3": {
         "Name": "Tecnica sopraffina",
-        "Description": "Velocità delle attività +75%"
+        "Description": "Tecnica sopraffina"
     },
     "CraftSpeed_down1": {
-        "Name": "Goffagine",
-        "Description": "Velocità delle attività -10%"
+        "Name": "Goffaggine",
+        "Description": "Goffaggine"
     },
     "CraftSpeed_down2": {
         "Name": "Svogliatezza",
-        "Description": "Velocità delle attività -30%"
+        "Description": "Svogliatezza"
     },
     "MoveSpeed_up_1": {
-        "Name": "Rapidità",
-        "Description": "Incremento della velocità di movimento: 10%"
+        "Name": "Rapidit\u00e0",
+        "Description": "Incremento della velocit\u00e0 di movimento: 10.0%"
     },
     "MoveSpeed_up_2": {
         "Name": "Velocista",
-        "Description": "Incremento della velocità di movimento: 20%"
+        "Description": "Incremento della velocit\u00e0 di movimento: 20.0%"
     },
     "MoveSpeed_up_3": {
-        "Name": "Velocità divina",
-        "Description": "Incremento della velocità di movimento: 30%"
+        "Name": "Velocit\u00e0 divina",
+        "Description": "Incremento della velocit\u00e0 di movimento: 30.0%"
     },
     "PAL_CorporateSlave": {
         "Name": "Crumiro",
-        "Description": "Velocità delle attività +30%, Attacco -30%"
+        "Description": "Crumiro"
     },
     "PAL_rude": {
-        "Name": "Brutalità",
-        "Description": "Attacco +15%, Velocità delle attività -10%"
+        "Name": "Brutalit\u00e0",
+        "Description": "Brutalit\u00e0"
     },
     "Noukin": {
         "Name": "Tutto muscoli",
-        "Description": "Attacco +30%, Velocità delle attività -50%"
+        "Description": "Tutto muscoli"
     },
     "PAL_oraora": {
         "Name": "Arroganza",
-        "Description": "Attacco +10%, Difesa -20%"
+        "Description": "Arroganza"
     },
     "PAL_conceited": {
-        "Name": "Vanità",
-        "Description": "Velocità delle attività +10%, Difesa -10%"
+        "Name": "Vanit\u00e0",
+        "Description": "Vanit\u00e0"
     },
     "PAL_SpiritualInst": {
-        "Name": "Instabile",
-        "Description": "Velocità delle attività -10%, Difesa -10%"
+        "Name": "it_Text",
+        "Description": "it_Text"
     },
     "PAL_masochist": {
         "Name": "Masochismo",
-        "Description": "Difesa +15%, Attacco -15%"
+        "Description": "Masochismo"
     },
     "PAL_sadist": {
         "Name": "Sadismo",
-        "Description": "Attacco +15%, Difesa -15%"
+        "Description": "Sadismo"
     },
     "Rare": {
         "Name": "Fortunato",
-        "Description": "Attacco +15%, Velocità delle attività +15%"
+        "Description": "Fortunato"
     },
     "Legend": {
         "Name": "Leggenda",
-        "Description": "Incremento dell'attacco: 20%, Incremento della difesa +20%, Incremento della velocità di movimento: 15%"
+        "Description": "Incremento dell'attacco: 20.0% Incremento della difesa: 20.0% Incremento della velocit\u00e0 di movimento: 20.0%"
     },
     "Stamina_Up_1": {
         "Name": "Resistenza infinita",
-        "Description": "Resistenza massima: +50% (Solo per i Pal che puoi cavalcare)"
+        "Description": "Resistenza massima: +50.0% *Solo per i Pal che puoi cavalcare."
     },
     "Stamina_Up_2": {
-        "Name": "Energia della gioventù",
-        "Description": "Resistenza massima: +25% (Solo per i Pal che puoi cavalcare)"
+        "Name": "Energia della giovent\u00f9",
+        "Description": "Resistenza massima: +25.0% *Solo per i Pal che puoi cavalcare."
     },
     "Stamina_Up_3": {
         "Name": "Moto perpetuo",
-        "Description": "Resistenza massima: +75% (Solo per i Pal che puoi cavalcare)"
+        "Description": "Resistenza massima: +75.0% *Solo per i Pal che puoi cavalcare."
     },
     "Stamina_Down_1": {
         "Name": "Recluso",
-        "Description": "Resistenza massima: -25% (Solo per i Pal che puoi cavalcare)"
+        "Description": "Resistenza massima: -25.0% *Solo per i Pal che puoi cavalcare."
     },
     "SalePrice_Up_1": {
         "Name": "Nobile",
-        "Description": "Miglioramento delle vendite: +5%"
+        "Description": "Miglioramento delle vendite: +5.0%"
     },
     "SalePrice_Up_2": {
-        "Name": "Pelliccia curata",
-        "Description": "Miglioramento delle vendite: +3%"
+        "Name": "Ottimo pedigree",
+        "Description": "Miglioramento delle vendite: +3.0%"
     },
     "SalePrice_Down_1": {
         "Name": "Malandato",
-        "Description": "Peggioramento delle vendite: -10%"
+        "Description": "Peggioramento delle vendite: -10.0%"
     },
     "CoolTimeReduction_Up_1": {
         "Name": "Stato di quiete",
-        "Description": "Riduzione del tempo di recupero delle abilità attive: 30%, Attacco: +10%."
+        "Description": "Riduzione del tempo di recupero delle abilit\u00e0 attive: 30.0% Attacco: +10.0%"
     },
     "CoolTimeReduction_Up_2": {
         "Name": "Impazienza",
-        "Description": "Riduzione del tempo di recupero delle abilità attive: 15%"
+        "Description": "Riduzione del tempo di recupero delle abilit\u00e0 attive: 15.0%"
     },
     "CoolTimeReduction_Down_1": {
         "Name": "Nessuna voglia",
-        "Description": "Estensione del tempo di recupero delle abilità attive: -15%"
+        "Description": "Estensione del tempo di recupero delle abilit\u00e0 attive: -15.0%"
     },
     "NonKilling": {
-        "Name": "Pietà",
-        "Description": "Per i pacifisti. La salute del bersaglio non può scendere sotto 1."
+        "Name": "Piet\u00e0",
+        "Description": "Per i pacifisti. La salute del bersaglio non pu\u00f2 scendere sotto 1."
     },
     "Nocturnal": {
-        "Name": "Notturno",
-        "Description": "La notte prosegue le attività senza bisogno di dormire."
+        "Name": "Insonnia",
+        "Description": "La notte prosegue le attivit\u00e0 senza bisogno di dormire."
     },
     "Vampire": {
         "Name": "Vampiro",
-        "Description": "Succhia via i danni subito, ripristinando Salute. La notte prosegue le attività senza bisogno di dormire."
+        "Description": "Succhia via i danni subiti, ripristinando PV. La notte prosegue le attivit\u00e0 senza bisogno di dormire."
     },
     "Alien": {
         "Name": "Cellule sconosciute",
-        "Description": "Attacco: +10%. Resistenza al danno di attributo fuoco: 15%. Resistenza al danno di attributo elettricità: 15%."
+        "Description": "Attacco: +10.0% Resistenza al danno di attributo fuoco: 15.0% Resistenza al danno di attributo elettricit\u00e0: 15.0%"
     },
     "EternalFlame": {
-        "Name": "Calamità delle fiamme",
-        "Description": "Incremento del danno di attributo fuoco: 30%. Incremento del danno di attributo elettricità: 30%."
+        "Name": "Calamit\u00e0 delle fiamme",
+        "Description": "Calamit\u00e0 delle fiamme"
     },
     "Invader": {
         "Name": "Invasore",
-        "Description": "Incremento del danno di attributo oscurità: 30%. Incremento del danno di attributo drago: 30%."
+        "Description": "Invasore"
     },
     "Test_PalEgg_HatchingSpeed_Up": {
         "Name": "Filantropo",
-        "Description": "Quando assegnato al ranch per Pal, aumenta di 100% la velocità di generazione delle uova."
+        "Description": "Quando assegnato al ranch per Pal, aumenta di 100.0% la velocit\u00e0 di generazione delle uova."
+    },
+    "Nushi": {
+        "Name": "Dominatore",
+        "Description": "Incremento del danno di attributo acqua: 20.0% Incremento del danno di attributo ghiaccio: 20.0% Difesa: +20.0%"
+    },
+    "SwimSpeed_up_1": {
+        "Name": "Nuoto aggraziato",
+        "Description": "Incremento della velocit\u00e0 di movimento sull'acqua: 30.0%"
+    },
+    "SwimSpeed_up_2": {
+        "Name": "Gran nuotatore",
+        "Description": "Gran nuotatore"
+    },
+    "SwimSpeed_up_3": {
+        "Name": "Dio delle onde",
+        "Description": "Dio delle onde"
+    },
+    "GYM_NAME_Meadow": {
+        "Name": "Leader del Sindacato di Rayne",
+        "Description": "Incremento dell'attacco: 20.0% Incremento della velocit\u00e0 di movimento: 10.0%"
+    },
+    "GYM_NAME_Forest": {
+        "Name": "Fondatrice dell'Ente per la tutela dei Pal",
+        "Description": "Fondatrice dell'Ente per la tutela dei Pal"
+    },
+    "GYM_NAME_Desert": {
+        "Name": "Leader della Milizia volontaria di Palpagos",
+        "Description": "Leader della Milizia volontaria di Palpagos"
+    },
+    "GYM_NAME_Volcano": {
+        "Name": "Capo spirituale della Congrega del fuoco perenne",
+        "Description": "Capo spirituale della Congrega del fuoco perenne"
+    },
+    "GYM_NAME_Snow": {
+        "Name": "Comandante della Squadra per la ricerca genetica",
+        "Description": "Comandante della Squadra per la ricerca genetica"
+    },
+    "GYM_NAME_Sakurajima": {
+        "Name": "Leader del clan dei fiori di luna",
+        "Description": "Leader del clan dei fiori di luna"
+    },
+    "GYM_NAME_Viking": {
+        "Name": "Capo del popolo della rovina",
+        "Description": "Capo del popolo della rovina"
+    },
+    "Salvation": {
+        "Name": "Salvatore",
+        "Description": "Salvatore"
+    },
+    "AirDash_1": {
+        "Name": "Scatti in aria +1",
+        "Description": "Scatti in aria +1"
+    },
+    "AirDash_2": {
+        "Name": "Scatti in aria +2",
+        "Description": "Scatti in aria +2"
+    },
+    "AirDash_3": {
+        "Name": "Scatti in aria +3",
+        "Description": "Scatti in aria +3"
+    },
+    "AirDash_4": {
+        "Name": "Scatti in aria +4",
+        "Description": "Scatti in aria +4"
+    },
+    "Attack_ACC_up1": {
+        "Name": "Aumento dell'attacco Liv. 1",
+        "Description": "Aumento dell'attacco Liv. 1"
+    },
+    "Attack_ACC_up1_Armor": {
+        "Name": "Aumento dell'attacco (piccolo) Liv. 1",
+        "Description": "Aumento dell'attacco (piccolo) Liv. 1"
+    },
+    "Attack_ACC_up1_Otomo_Only_Equip": {
+        "Name": "Aumento dell'attacco dei Pal Liv. 1",
+        "Description": "Aumento dell'attacco dei Pal Liv. 1"
+    },
+    "Attack_ACC_up2": {
+        "Name": "Aumento dell'attacco Liv. 2",
+        "Description": "Aumento dell'attacco Liv. 2"
+    },
+    "Attack_ACC_up2_Armor": {
+        "Name": "Aumento dell'attacco (piccolo) Liv. 2",
+        "Description": "Aumento dell'attacco (piccolo) Liv. 2"
+    },
+    "Attack_ACC_up2_Otomo_Only_Equip": {
+        "Name": "Aumento dell'attacco dei Pal Liv. 2",
+        "Description": "Aumento dell'attacco dei Pal Liv. 2"
+    },
+    "Attack_ACC_up3": {
+        "Name": "Aumento dell'attacco Liv. 3",
+        "Description": "Aumento dell'attacco Liv. 3"
+    },
+    "Attack_ACC_up3_Armor": {
+        "Name": "Aumento dell'attacco (piccolo) Liv. 3",
+        "Description": "Aumento dell'attacco (piccolo) Liv. 3"
+    },
+    "Attack_ACC_up3_Otomo_Only_Equip": {
+        "Name": "Aumento dell'attacco dei Pal Liv. 3",
+        "Description": "Aumento dell'attacco dei Pal Liv. 3"
+    },
+    "Attack_ACC_up4": {
+        "Name": "Aumento dell'attacco Liv. 4",
+        "Description": "Aumento dell'attacco Liv. 4"
+    },
+    "Attack_ACC_up4_Armor": {
+        "Name": "Aumento dell'attacco (piccolo) Liv. 4",
+        "Description": "Aumento dell'attacco (piccolo) Liv. 4"
+    },
+    "Attack_ACC_up4_Otomo_Only_Equip": {
+        "Name": "Aumento dell'attacco dei Pal Liv. 4",
+        "Description": "Aumento dell'attacco dei Pal Liv. 4"
+    },
+    "AutoHPRegeneRate_Passive": {
+        "Name": "Coach guaritore",
+        "Description": "Coach guaritore"
+    },
+    "AvoidDurationUp_EquipSkill_2": {
+        "Name": "Prolungamento dell'invincibilit\u00e0 in schivata",
+        "Description": "Prolungamento dell'invincibilit\u00e0 in schivata"
+    },
+    "BossDefeatReward_AmaterasuWolf_Dark": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_Anubis": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "BossDefeatReward_BadCatgirl": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_BerryGoat_Dark": {
+        "Name": "Potenziamento danno di attributo erba (medio)",
+        "Description": "Potenziamento danno di attributo erba (medio)"
+    },
+    "BossDefeatReward_BlackMetalDragon": {
+        "Name": "Potenziamento danno di attributo drago (medio)",
+        "Description": "Potenziamento danno di attributo drago (medio)"
+    },
+    "BossDefeatReward_BlackPuppy": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_BlueDragon": {
+        "Name": "Potenziamento danno di attributo acqua (piccolo)",
+        "Description": "Potenziamento danno di attributo acqua (piccolo)"
+    },
+    "BossDefeatReward_BlueThunderHorse": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (medio)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (medio)"
+    },
+    "BossDefeatReward_BlueberryFairy": {
+        "Name": "Potenziamento danno di attributo erba (medio)",
+        "Description": "Potenziamento danno di attributo erba (medio)"
+    },
+    "BossDefeatReward_CactusDoll": {
+        "Name": "Potenziamento danno di attributo erba (piccolo)",
+        "Description": "Potenziamento danno di attributo erba (piccolo)"
+    },
+    "BossDefeatReward_CaptainPenguin": {
+        "Name": "Potenziamento danno di attributo acqua (piccolo)",
+        "Description": "Potenziamento danno di attributo acqua (piccolo)"
+    },
+    "BossDefeatReward_CatMage": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_CatVampire": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_CubeTurtle": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "BossDefeatReward_CubeTurtle_Neutral": {
+        "Name": "Potenziamento danno non elementale (medio)",
+        "Description": "Potenziamento danno non elementale (medio)"
+    },
+    "BossDefeatReward_DarkScorpion": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_DarkScorpion_Ground": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "BossDefeatReward_DomeArmorDragon": {
+        "Name": "Potenziamento danno di attributo terra (grande)",
+        "Description": "Potenziamento danno di attributo terra (grande)"
+    },
+    "BossDefeatReward_ElecLizard": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_ElecPanda": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (medio)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (medio)"
+    },
+    "BossDefeatReward_ElecSnail": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_FairyDragon": {
+        "Name": "Potenziamento danno di attributo drago (piccolo)",
+        "Description": "Potenziamento danno di attributo drago (piccolo)"
+    },
+    "BossDefeatReward_FengyunDeeper": {
+        "Name": "Potenziamento danno non elementale (piccolo)",
+        "Description": "Potenziamento danno non elementale (piccolo)"
+    },
+    "BossDefeatReward_FengyunDeeper_Electric": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (medio)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (medio)"
+    },
+    "BossDefeatReward_FireKirin": {
+        "Name": "Potenziamento danno di attributo fuoco (piccolo)",
+        "Description": "Potenziamento danno di attributo fuoco (piccolo)"
+    },
+    "BossDefeatReward_FlameBuffalo": {
+        "Name": "Potenziamento danno di attributo fuoco (piccolo)",
+        "Description": "Potenziamento danno di attributo fuoco (piccolo)"
+    },
+    "BossDefeatReward_FlowerDinosaur_Electric": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_FlowerDoll": {
+        "Name": "Potenziamento danno di attributo erba (piccolo)",
+        "Description": "Potenziamento danno di attributo erba (piccolo)"
+    },
+    "BossDefeatReward_FoxExorcist": {
+        "Name": "Potenziamento danno di attributo fuoco (medio)",
+        "Description": "Potenziamento danno di attributo fuoco (medio)"
+    },
+    "BossDefeatReward_FoxMage": {
+        "Name": "Potenziamento danno di attributo fuoco (piccolo)",
+        "Description": "Potenziamento danno di attributo fuoco (piccolo)"
+    },
+    "BossDefeatReward_GhostDragon": {
+        "Name": "Potenziamento danno di attributo drago (medio)",
+        "Description": "Potenziamento danno di attributo drago (medio)"
+    },
+    "BossDefeatReward_GhostRabbit": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_GoldenHorse": {
+        "Name": "Potenziamento danno di attributo terra (medio)",
+        "Description": "Potenziamento danno di attributo terra (medio)"
+    },
+    "BossDefeatReward_GrassGolem": {
+        "Name": "Potenziamento danno di attributo erba (medio)",
+        "Description": "Potenziamento danno di attributo erba (medio)"
+    },
+    "BossDefeatReward_GrassGolem_Dark": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (medio)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (medio)"
+    },
+    "BossDefeatReward_GrassMammoth": {
+        "Name": "Potenziamento danno di attributo erba (medio)",
+        "Description": "Potenziamento danno di attributo erba (medio)"
+    },
+    "BossDefeatReward_GrassPanda_Electric": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_GrassRabbitMan": {
+        "Name": "Potenziamento danno di attributo erba (piccolo)",
+        "Description": "Potenziamento danno di attributo erba (piccolo)"
+    },
+    "BossDefeatReward_GrimGirl": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_HawkBird": {
+        "Name": "Potenziamento danno non elementale (piccolo)",
+        "Description": "Potenziamento danno non elementale (piccolo)"
+    },
+    "BossDefeatReward_HerculesBeetle": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "BossDefeatReward_HerculesBeetle_Ground": {
+        "Name": "Potenziamento danno di attributo terra (medio)",
+        "Description": "Potenziamento danno di attributo terra (medio)"
+    },
+    "BossDefeatReward_Horus_Water": {
+        "Name": "Potenziamento danno di attributo acqua (medio)",
+        "Description": "Potenziamento danno di attributo acqua (medio)"
+    },
+    "BossDefeatReward_IceFox": {
+        "Name": "Potenziamento danno di attributo ghiaccio (piccolo)",
+        "Description": "Potenziamento danno di attributo ghiaccio (piccolo)"
+    },
+    "BossDefeatReward_IceHorse": {
+        "Name": "Potenziamento danno di attributo ghiaccio (grande)",
+        "Description": "Potenziamento danno di attributo ghiaccio (grande)"
+    },
+    "BossDefeatReward_IceHorse_Dark": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_IceNarwhal": {
+        "Name": "Potenziamento danno di attributo ghiaccio (grande)",
+        "Description": "Potenziamento danno di attributo ghiaccio (grande)"
+    },
+    "BossDefeatReward_IceNarwhal_Fire": {
+        "Name": "Potenziamento danno di attributo fuoco (grande)",
+        "Description": "Potenziamento danno di attributo fuoco (grande)"
+    },
+    "BossDefeatReward_JetDragon": {
+        "Name": "Potenziamento danno di attributo drago (grande)",
+        "Description": "Potenziamento danno di attributo drago (grande)"
+    },
+    "BossDefeatReward_KabukiMan": {
+        "Name": "Potenziamento danno di attributo fuoco (medio)",
+        "Description": "Potenziamento danno di attributo fuoco (medio)"
+    },
+    "BossDefeatReward_KingAlpaca": {
+        "Name": "Potenziamento danno non elementale (piccolo)",
+        "Description": "Potenziamento danno non elementale (piccolo)"
+    },
+    "BossDefeatReward_KingAlpaca_Ice": {
+        "Name": "Potenziamento danno di attributo ghiaccio (medio)",
+        "Description": "Potenziamento danno di attributo ghiaccio (medio)"
+    },
+    "BossDefeatReward_KingBahamut": {
+        "Name": "Potenziamento danno di attributo fuoco (grande)",
+        "Description": "Potenziamento danno di attributo fuoco (grande)"
+    },
+    "BossDefeatReward_Kirin": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_Kitsunebi_Ice": {
+        "Name": "Potenziamento danno di attributo ghiaccio (grande)",
+        "Description": "Potenziamento danno di attributo ghiaccio (grande)"
+    },
+    "BossDefeatReward_LazyCatfish": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "BossDefeatReward_LazyDragon_Electric": {
+        "Name": "Potenziamento danno di attributo drago (piccolo)",
+        "Description": "Potenziamento danno di attributo drago (piccolo)"
+    },
+    "BossDefeatReward_LilyQueen": {
+        "Name": "Potenziamento danno di attributo erba (grande)",
+        "Description": "Potenziamento danno di attributo erba (grande)"
+    },
+    "BossDefeatReward_LilyQueen_Dark": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_LotusDragon": {
+        "Name": "Potenziamento danno di attributo acqua (medio)",
+        "Description": "Potenziamento danno di attributo acqua (medio)"
+    },
+    "BossDefeatReward_Manticore": {
+        "Name": "Potenziamento danno di attributo fuoco (piccolo)",
+        "Description": "Potenziamento danno di attributo fuoco (piccolo)"
+    },
+    "BossDefeatReward_MoonChild": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (medio)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (medio)"
+    },
+    "BossDefeatReward_MopKing": {
+        "Name": "Potenziamento danno di attributo ghiaccio (piccolo)",
+        "Description": "Potenziamento danno di attributo ghiaccio (piccolo)"
+    },
+    "BossDefeatReward_MushroomLady": {
+        "Name": "Potenziamento danno di attributo erba (piccolo)",
+        "Description": "Potenziamento danno di attributo erba (piccolo)"
+    },
+    "BossDefeatReward_Mutant": {
+        "Name": "Potenziamento danno non elementale (piccolo)",
+        "Description": "Potenziamento danno non elementale (piccolo)"
+    },
+    "BossDefeatReward_MysteryMask": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_NaughtyCat": {
+        "Name": "Potenziamento danno non elementale (piccolo)",
+        "Description": "Potenziamento danno non elementale (piccolo)"
+    },
+    "BossDefeatReward_NightBlueHorse": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_PinkRabbit_Grass": {
+        "Name": "Potenziamento danno di attributo erba (medio)",
+        "Description": "Potenziamento danno di attributo erba (medio)"
+    },
+    "BossDefeatReward_PlantSlime": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "BossDefeatReward_PoseidonOrca": {
+        "Name": "Potenziamento danno di attributo acqua (grande)",
+        "Description": "Potenziamento danno di attributo acqua (grande)"
+    },
+    "BossDefeatReward_PurpleSpider": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_QueenBee": {
+        "Name": "Potenziamento danno di attributo erba (piccolo)",
+        "Description": "Potenziamento danno di attributo erba (piccolo)"
+    },
+    "BossDefeatReward_RaijinDaughter_Water": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_RockBeast": {
+        "Name": "Potenziamento danno di attributo terra (medio)",
+        "Description": "Potenziamento danno di attributo terra (medio)"
+    },
+    "BossDefeatReward_RockBeast_Ice": {
+        "Name": "Potenziamento danno di attributo ghiaccio (medio)",
+        "Description": "Potenziamento danno di attributo ghiaccio (medio)"
+    },
+    "BossDefeatReward_Ronin": {
+        "Name": "Potenziamento danno di attributo fuoco (medio)",
+        "Description": "Potenziamento danno di attributo fuoco (medio)"
+    },
+    "BossDefeatReward_SaintCentaur_1": {
+        "Name": "Potenziamento danno non elementale (grande)",
+        "Description": "Potenziamento danno non elementale (grande)"
+    },
+    "BossDefeatReward_SaintCentaur_2": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_SakuraSaurus": {
+        "Name": "Potenziamento danno di attributo erba (piccolo)",
+        "Description": "Potenziamento danno di attributo erba (piccolo)"
+    },
+    "BossDefeatReward_SakuraSaurus_Water": {
+        "Name": "Potenziamento danno di attributo acqua (piccolo)",
+        "Description": "Potenziamento danno di attributo acqua (piccolo)"
+    },
+    "BossDefeatReward_ScorpionMan_Electric": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_SkyDragon": {
+        "Name": "Potenziamento danno di attributo drago (piccolo)",
+        "Description": "Potenziamento danno di attributo drago (piccolo)"
+    },
+    "BossDefeatReward_Suzaku": {
+        "Name": "Potenziamento danno di attributo fuoco (grande)",
+        "Description": "Potenziamento danno di attributo fuoco (grande)"
+    },
+    "BossDefeatReward_ThunderBird": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_ThunderFluffyBird": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "BossDefeatReward_Umihebi": {
+        "Name": "Potenziamento danno di attributo acqua (medio)",
+        "Description": "Potenziamento danno di attributo acqua (medio)"
+    },
+    "BossDefeatReward_VioletFairy": {
+        "Name": "Potenziamento danno di attributo erba (medio)",
+        "Description": "Potenziamento danno di attributo erba (medio)"
+    },
+    "BossDefeatReward_VolcanicMonster": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "BossDefeatReward_VolcanoDragon": {
+        "Name": "Potenziamento danno di attributo fuoco (piccolo)",
+        "Description": "Potenziamento danno di attributo fuoco (piccolo)"
+    },
+    "BossDefeatReward_VolcanoDragon_Ice": {
+        "Name": "Potenziamento danno di attributo ghiaccio (medio)",
+        "Description": "Potenziamento danno di attributo ghiaccio (medio)"
+    },
+    "BossDefeatReward_WeaselDragon": {
+        "Name": "Potenziamento danno di attributo ghiaccio (piccolo)",
+        "Description": "Potenziamento danno di attributo ghiaccio (piccolo)"
+    },
+    "BossDefeatReward_Werewolf_Ice": {
+        "Name": "Potenziamento danno di attributo ghiaccio (grande)",
+        "Description": "Potenziamento danno di attributo ghiaccio (grande)"
+    },
+    "BossDefeatReward_WhiteDeer": {
+        "Name": "Potenziamento danno non elementale (medio)",
+        "Description": "Potenziamento danno non elementale (medio)"
+    },
+    "BossDefeatReward_WhiteDeer_Dark": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (medio)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (medio)"
+    },
+    "BossDefeatReward_WhiteMoth": {
+        "Name": "Potenziamento danno di attributo ghiaccio (piccolo)",
+        "Description": "Potenziamento danno di attributo ghiaccio (piccolo)"
+    },
+    "BossDefeatReward_WhiteShieldDragon": {
+        "Name": "Potenziamento danno di attributo drago (medio)",
+        "Description": "Potenziamento danno di attributo drago (medio)"
+    },
+    "BossDefeatReward_WhiteTiger_Ground": {
+        "Name": "Potenziamento danno di attributo terra (medio)",
+        "Description": "Potenziamento danno di attributo terra (medio)"
+    },
+    "BossDefeatReward_WingGolem": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "BossDefeatReward_Yeti_Grass": {
+        "Name": "Potenziamento danno di attributo erba (piccolo)",
+        "Description": "Potenziamento danno di attributo erba (piccolo)"
+    },
+    "CaptureLevel_Up_1": {
+        "Name": "Capacit\u00e0 di cattura +1",
+        "Description": "Capacit\u00e0 di cattura +1"
+    },
+    "CaptureLevel_Up_2": {
+        "Name": "Capacit\u00e0 di cattura +2",
+        "Description": "Capacit\u00e0 di cattura +2"
+    },
+    "CaptureLevel_Up_3": {
+        "Name": "Capacit\u00e0 di cattura +3",
+        "Description": "Capacit\u00e0 di cattura +3"
+    },
+    "CaptureLevel_Up_4": {
+        "Name": "Capacit\u00e0 di cattura +4",
+        "Description": "Capacit\u00e0 di cattura +4"
+    },
+    "CaptureLevel_Up_5": {
+        "Name": "Capacit\u00e0 di cattura +5",
+        "Description": "Capacit\u00e0 di cattura +5"
+    },
+    "CaptureLevel_Up_6": {
+        "Name": "Capacit\u00e0 di cattura +6",
+        "Description": "Capacit\u00e0 di cattura +6"
+    },
+    "CollectItem_Berries": {
+        "Name": "Raccolta di bacche",
+        "Description": "Raccolta di bacche"
+    },
+    "CollectItem_Egg": {
+        "Name": "Produzione di uova",
+        "Description": "Produzione di uova"
+    },
+    "CollectItem_Milk": {
+        "Name": "Produzione di latte",
+        "Description": "Produzione di latte"
+    },
+    "CollectItem_Money": {
+        "Name": "Perle ai porci",
+        "Description": "Perle ai porci"
+    },
+    "CollectItem_Sweets": {
+        "Name": "Produzione di dolci",
+        "Description": "Produzione di dolci"
+    },
+    "CollectItem_Wool_Alpaca": {
+        "Name": "Produzione di lana",
+        "Description": "Produzione di lana"
+    },
+    "CollectItem_Wool_SheepBall": {
+        "Name": "Produzione di lana",
+        "Description": "Produzione di lana"
+    },
+    "CollectItem_Wool_WhiteMoth": {
+        "Name": "Produzione di seta",
+        "Description": "Produzione di seta"
+    },
+    "CoolTimeReduction_Up_3": {
+        "Name": "Tempesta e assalto",
+        "Description": "Riduzione del tempo di recupero delle abilit\u00e0 attive: 0.0% Attacco: +0.0%"
+    },
+    "Defense_ACC_up1_Otomo_Only_Equip": {
+        "Name": "Aumento della difesa dei Pal Liv. 1",
+        "Description": "Aumento della difesa dei Pal Liv. 1"
+    },
+    "Defense_ACC_up2_Otomo_Only_Equip": {
+        "Name": "Aumento della difesa dei Pal Liv. 2",
+        "Description": "Aumento della difesa dei Pal Liv. 2"
+    },
+    "Defense_ACC_up3_Otomo_Only_Equip": {
+        "Name": "Aumento della difesa dei Pal Liv. 3",
+        "Description": "Aumento della difesa dei Pal Liv. 3"
+    },
+    "Defense_ACC_up4_Otomo_Only_Equip": {
+        "Name": "Aumento della difesa dei Pal Liv. 4",
+        "Description": "Aumento della difesa dei Pal Liv. 4"
+    },
+    "Deffence_up2_2": {
+        "Name": "Peso massimo",
+        "Description": "Difesa +20.0% Immunit\u00e0 al respingimento"
+    },
+    "Defuser_ExplosiveSpore_EquipSkill": {
+        "Name": "Riduzione del danno da esplosione",
+        "Description": "Riduzione del danno da esplosione"
+    },
+    "ElementBoost_Dark_1_BossDefeat": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (piccolo)"
+    },
+    "ElementBoost_Dark_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 dei Pal Liv. 1",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 dei Pal Liv. 1"
+    },
+    "ElementBoost_Dark_2_BossDefeat": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (medio)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (medio)"
+    },
+    "ElementBoost_Dark_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 dei Pal Liv. 2",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 dei Pal Liv. 2"
+    },
+    "ElementBoost_Dark_3_BossDefeat": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 (grande)",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 (grande)"
+    },
+    "ElementBoost_Dark_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 dei Pal Liv. 3",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 dei Pal Liv. 3"
+    },
+    "ElementBoost_Dark_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo oscurit\u00e0 dei Pal Liv. 4",
+        "Description": "Potenziamento danno di attributo oscurit\u00e0 dei Pal Liv. 4"
+    },
+    "ElementBoost_Dragon_1_BossDefeat": {
+        "Name": "Potenziamento danno di attributo drago (piccolo)",
+        "Description": "Potenziamento danno di attributo drago (piccolo)"
+    },
+    "ElementBoost_Dragon_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo drago dei Pal Liv. 1",
+        "Description": "Potenziamento danno di attributo drago dei Pal Liv. 1"
+    },
+    "ElementBoost_Dragon_2_BossDefeat": {
+        "Name": "Potenziamento danno di attributo drago (medio)",
+        "Description": "Potenziamento danno di attributo drago (medio)"
+    },
+    "ElementBoost_Dragon_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo drago dei Pal Liv. 2",
+        "Description": "Potenziamento danno di attributo drago dei Pal Liv. 2"
+    },
+    "ElementBoost_Dragon_3_BossDefeat": {
+        "Name": "Potenziamento danno di attributo drago (grande)",
+        "Description": "Potenziamento danno di attributo drago (grande)"
+    },
+    "ElementBoost_Dragon_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo drago dei Pal Liv. 3",
+        "Description": "Potenziamento danno di attributo drago dei Pal Liv. 3"
+    },
+    "ElementBoost_Dragon_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo drago dei Pal Liv. 4",
+        "Description": "Potenziamento danno di attributo drago dei Pal Liv. 4"
+    },
+    "ElementBoost_Earth_1_BossDefeat": {
+        "Name": "Potenziamento danno di attributo terra (piccolo)",
+        "Description": "Potenziamento danno di attributo terra (piccolo)"
+    },
+    "ElementBoost_Earth_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo terra dei Pal Liv. 1",
+        "Description": "Potenziamento danno di attributo terra dei Pal Liv. 1"
+    },
+    "ElementBoost_Earth_2_BossDefeat": {
+        "Name": "Potenziamento danno di attributo terra (medio)",
+        "Description": "Potenziamento danno di attributo terra (medio)"
+    },
+    "ElementBoost_Earth_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo terra dei Pal Liv. 2",
+        "Description": "Potenziamento danno di attributo terra dei Pal Liv. 2"
+    },
+    "ElementBoost_Earth_3_BossDefeat": {
+        "Name": "Potenziamento danno di attributo terra (grande)",
+        "Description": "Potenziamento danno di attributo terra (grande)"
+    },
+    "ElementBoost_Earth_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo terra dei Pal Liv. 3",
+        "Description": "Potenziamento danno di attributo terra dei Pal Liv. 3"
+    },
+    "ElementBoost_Earth_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo terra dei Pal Liv. 4",
+        "Description": "Potenziamento danno di attributo terra dei Pal Liv. 4"
+    },
+    "ElementBoost_Electricity_1_BossDefeat": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (piccolo)"
+    },
+    "ElementBoost_Electricity_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 dei Pal Liv. 1",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 dei Pal Liv. 1"
+    },
+    "ElementBoost_Electricity_2_BossDefeat": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (medio)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (medio)"
+    },
+    "ElementBoost_Electricity_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 dei Pal Liv. 2",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 dei Pal Liv. 2"
+    },
+    "ElementBoost_Electricity_3_BossDefeat": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 (grande)",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 (grande)"
+    },
+    "ElementBoost_Electricity_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 dei Pal Liv. 3",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 dei Pal Liv. 3"
+    },
+    "ElementBoost_Electricity_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo elettricit\u00e0 dei Pal Liv. 4",
+        "Description": "Potenziamento danno di attributo elettricit\u00e0 dei Pal Liv. 4"
+    },
+    "ElementBoost_Fire_1_BossDefeat": {
+        "Name": "Potenziamento danno di attributo fuoco (piccolo)",
+        "Description": "Potenziamento danno di attributo fuoco (piccolo)"
+    },
+    "ElementBoost_Fire_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo fuoco dei Pal Liv. 1",
+        "Description": "Potenziamento danno di attributo fuoco dei Pal Liv. 1"
+    },
+    "ElementBoost_Fire_2_BossDefeat": {
+        "Name": "Potenziamento danno di attributo fuoco (medio)",
+        "Description": "Potenziamento danno di attributo fuoco (medio)"
+    },
+    "ElementBoost_Fire_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo fuoco dei Pal Liv. 2",
+        "Description": "Potenziamento danno di attributo fuoco dei Pal Liv. 2"
+    },
+    "ElementBoost_Fire_3_BossDefeat": {
+        "Name": "Potenziamento danno di attributo fuoco (grande)",
+        "Description": "Potenziamento danno di attributo fuoco (grande)"
+    },
+    "ElementBoost_Fire_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo fuoco dei Pal Liv. 3",
+        "Description": "Potenziamento danno di attributo fuoco dei Pal Liv. 3"
+    },
+    "ElementBoost_Fire_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo fuoco dei Pal Liv. 4",
+        "Description": "Potenziamento danno di attributo fuoco dei Pal Liv. 4"
+    },
+    "ElementBoost_Ice_1_BossDefeat": {
+        "Name": "Potenziamento danno di attributo ghiaccio (piccolo)",
+        "Description": "Potenziamento danno di attributo ghiaccio (piccolo)"
+    },
+    "ElementBoost_Ice_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo ghiaccio dei Pal Liv. 1",
+        "Description": "Potenziamento danno di attributo ghiaccio dei Pal Liv. 1"
+    },
+    "ElementBoost_Ice_2_BossDefeat": {
+        "Name": "Potenziamento danno di attributo ghiaccio (medio)",
+        "Description": "Potenziamento danno di attributo ghiaccio (medio)"
+    },
+    "ElementBoost_Ice_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo ghiaccio dei Pal Liv. 2",
+        "Description": "Potenziamento danno di attributo ghiaccio dei Pal Liv. 2"
+    },
+    "ElementBoost_Ice_3_BossDefeat": {
+        "Name": "Potenziamento danno di attributo ghiaccio (grande)",
+        "Description": "Potenziamento danno di attributo ghiaccio (grande)"
+    },
+    "ElementBoost_Ice_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo ghiaccio dei Pal Liv. 3",
+        "Description": "Potenziamento danno di attributo ghiaccio dei Pal Liv. 3"
+    },
+    "ElementBoost_Ice_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo ghiaccio dei Pal Liv. 4",
+        "Description": "Potenziamento danno di attributo ghiaccio dei Pal Liv. 4"
+    },
+    "ElementBoost_Leaf_1_BossDefeat": {
+        "Name": "Potenziamento danno di attributo erba (piccolo)",
+        "Description": "Potenziamento danno di attributo erba (piccolo)"
+    },
+    "ElementBoost_Leaf_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo erba dei Pal Liv. 1",
+        "Description": "Potenziamento danno di attributo erba dei Pal Liv. 1"
+    },
+    "ElementBoost_Leaf_2_BossDefeat": {
+        "Name": "Potenziamento danno di attributo erba (medio)",
+        "Description": "Potenziamento danno di attributo erba (medio)"
+    },
+    "ElementBoost_Leaf_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo erba dei Pal Liv. 2",
+        "Description": "Potenziamento danno di attributo erba dei Pal Liv. 2"
+    },
+    "ElementBoost_Leaf_3_BossDefeat": {
+        "Name": "Potenziamento danno di attributo erba (grande)",
+        "Description": "Potenziamento danno di attributo erba (grande)"
+    },
+    "ElementBoost_Leaf_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo erba dei Pal Liv. 3",
+        "Description": "Potenziamento danno di attributo erba dei Pal Liv. 3"
+    },
+    "ElementBoost_Leaf_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo erba dei Pal Liv. 4",
+        "Description": "Potenziamento danno di attributo erba dei Pal Liv. 4"
+    },
+    "ElementBoost_Normal_1_BossDefeat": {
+        "Name": "Potenziamento danno non elementale (piccolo)",
+        "Description": "Potenziamento danno non elementale (piccolo)"
+    },
+    "ElementBoost_Normal_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno non elementale dei Pal Liv. 1",
+        "Description": "Potenziamento danno non elementale dei Pal Liv. 1"
+    },
+    "ElementBoost_Normal_2_BossDefeat": {
+        "Name": "Potenziamento danno non elementale (medio)",
+        "Description": "Potenziamento danno non elementale (medio)"
+    },
+    "ElementBoost_Normal_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno non elementale dei Pal Liv. 2",
+        "Description": "Potenziamento danno non elementale dei Pal Liv. 2"
+    },
+    "ElementBoost_Normal_3_BossDefeat": {
+        "Name": "Potenziamento danno non elementale (grande)",
+        "Description": "Potenziamento danno non elementale (grande)"
+    },
+    "ElementBoost_Normal_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno non elementale dei Pal Liv. 3",
+        "Description": "Potenziamento danno non elementale dei Pal Liv. 3"
+    },
+    "ElementBoost_Normal_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno non elementale dei Pal Liv. 4",
+        "Description": "Potenziamento danno non elementale dei Pal Liv. 4"
+    },
+    "ElementBoost_Water_1_BossDefeat": {
+        "Name": "Potenziamento danno di attributo acqua (piccolo)",
+        "Description": "Potenziamento danno di attributo acqua (piccolo)"
+    },
+    "ElementBoost_Water_1_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo acqua dei Pal Liv. 1",
+        "Description": "Potenziamento danno di attributo acqua dei Pal Liv. 1"
+    },
+    "ElementBoost_Water_2_BossDefeat": {
+        "Name": "Potenziamento danno di attributo acqua (medio)",
+        "Description": "Potenziamento danno di attributo acqua (medio)"
+    },
+    "ElementBoost_Water_2_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo acqua dei Pal Liv. 2",
+        "Description": "Potenziamento danno di attributo acqua dei Pal Liv. 2"
+    },
+    "ElementBoost_Water_3_BossDefeat": {
+        "Name": "Potenziamento danno di attributo acqua (grande)",
+        "Description": "Potenziamento danno di attributo acqua (grande)"
+    },
+    "ElementBoost_Water_3_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo acqua dei Pal Liv. 3",
+        "Description": "Potenziamento danno di attributo acqua dei Pal Liv. 3"
+    },
+    "ElementBoost_Water_4_Otomo_Only_Equip": {
+        "Name": "Potenziamento danno di attributo acqua dei Pal Liv. 4",
+        "Description": "Potenziamento danno di attributo acqua dei Pal Liv. 4"
+    },
+    "ElementResist_Aqua_1": {
+        "Name": "Resistenza al danno di attributo acqua Liv. 1",
+        "Description": "Resistenza al danno di attributo acqua Liv. 1"
+    },
+    "ElementResist_Aqua_2": {
+        "Name": "Resistenza al danno di attributo acqua Liv. 2",
+        "Description": "Resistenza al danno di attributo acqua Liv. 2"
+    },
+    "ElementResist_Aqua_3": {
+        "Name": "Resistenza al danno di attributo acqua Liv. 3",
+        "Description": "Resistenza al danno di attributo acqua Liv. 3"
+    },
+    "ElementResist_Aqua_4": {
+        "Name": "Resistenza al danno di attributo acqua Liv. 4",
+        "Description": "Resistenza al danno di attributo acqua Liv. 4"
+    },
+    "ElementResist_Dark_1": {
+        "Name": "Resistenza al danno di attributo oscurit\u00e0 Liv. 1",
+        "Description": "Resistenza al danno di attributo oscurit\u00e0 Liv. 1"
+    },
+    "ElementResist_Dark_2": {
+        "Name": "Resistenza al danno di attributo oscurit\u00e0 Liv. 2",
+        "Description": "Resistenza al danno di attributo oscurit\u00e0 Liv. 2"
+    },
+    "ElementResist_Dark_3": {
+        "Name": "Resistenza al danno di attributo oscurit\u00e0 Liv. 3",
+        "Description": "Resistenza al danno di attributo oscurit\u00e0 Liv. 3"
+    },
+    "ElementResist_Dark_4": {
+        "Name": "Resistenza al danno di attributo oscurit\u00e0 Liv. 4",
+        "Description": "Resistenza al danno di attributo oscurit\u00e0 Liv. 4"
+    },
+    "ElementResist_Dragon_1": {
+        "Name": "Resistenza al danno di attributo drago Liv. 1",
+        "Description": "Resistenza al danno di attributo drago Liv. 1"
+    },
+    "ElementResist_Dragon_2": {
+        "Name": "Resistenza al danno di attributo drago Liv. 2",
+        "Description": "Resistenza al danno di attributo drago Liv. 2"
+    },
+    "ElementResist_Dragon_3": {
+        "Name": "Resistenza al danno di attributo drago Liv. 3",
+        "Description": "Resistenza al danno di attributo drago Liv. 3"
+    },
+    "ElementResist_Dragon_4": {
+        "Name": "Resistenza al danno di attributo drago Liv. 4",
+        "Description": "Resistenza al danno di attributo drago Liv. 4"
+    },
+    "ElementResist_Earth_1": {
+        "Name": "Resistenza al danno di attributo terra Liv. 1",
+        "Description": "Resistenza al danno di attributo terra Liv. 1"
+    },
+    "ElementResist_Earth_2": {
+        "Name": "Resistenza al danno di attributo terra Liv. 2",
+        "Description": "Resistenza al danno di attributo terra Liv. 2"
+    },
+    "ElementResist_Earth_3": {
+        "Name": "Resistenza al danno di attributo terra Liv. 3",
+        "Description": "Resistenza al danno di attributo terra Liv. 3"
+    },
+    "ElementResist_Earth_4": {
+        "Name": "Resistenza al danno di attributo terra Liv. 4",
+        "Description": "Resistenza al danno di attributo terra Liv. 4"
+    },
+    "ElementResist_Fire_1": {
+        "Name": "Resistenza al danno di attributo fuoco Liv. 1",
+        "Description": "Resistenza al danno di attributo fuoco Liv. 1"
+    },
+    "ElementResist_Fire_2": {
+        "Name": "Resistenza al danno di attributo fuoco Liv. 2",
+        "Description": "Resistenza al danno di attributo fuoco Liv. 2"
+    },
+    "ElementResist_Fire_3": {
+        "Name": "Resistenza al danno di attributo fuoco Liv. 3",
+        "Description": "Resistenza al danno di attributo fuoco Liv. 3"
+    },
+    "ElementResist_Fire_4": {
+        "Name": "Resistenza al danno di attributo fuoco Liv. 4",
+        "Description": "Resistenza al danno di attributo fuoco Liv. 4"
+    },
+    "ElementResist_Ice_1": {
+        "Name": "Resistenza al danno di attributo ghiaccio Liv. 1",
+        "Description": "Resistenza al danno di attributo ghiaccio Liv. 1"
+    },
+    "ElementResist_Ice_2": {
+        "Name": "Resistenza al danno di attributo ghiaccio Liv. 2",
+        "Description": "Resistenza al danno di attributo ghiaccio Liv. 2"
+    },
+    "ElementResist_Ice_3": {
+        "Name": "Resistenza al danno di attributo ghiaccio Liv. 3",
+        "Description": "Resistenza al danno di attributo ghiaccio Liv. 3"
+    },
+    "ElementResist_Ice_4": {
+        "Name": "Resistenza al danno di attributo ghiaccio Liv. 4",
+        "Description": "Resistenza al danno di attributo ghiaccio Liv. 4"
+    },
+    "ElementResist_Leaf_1": {
+        "Name": "Resistenza al danno di attributo erba Liv. 1",
+        "Description": "Resistenza al danno di attributo erba Liv. 1"
+    },
+    "ElementResist_Leaf_2": {
+        "Name": "Resistenza al danno di attributo erba Liv. 2",
+        "Description": "Resistenza al danno di attributo erba Liv. 2"
+    },
+    "ElementResist_Leaf_3": {
+        "Name": "Resistenza al danno di attributo erba Liv. 3",
+        "Description": "Resistenza al danno di attributo erba Liv. 3"
+    },
+    "ElementResist_Leaf_4": {
+        "Name": "Resistenza al danno di attributo erba Liv. 4",
+        "Description": "Resistenza al danno di attributo erba Liv. 4"
+    },
+    "ElementResist_Normal_1": {
+        "Name": "Resistenza al danno non elementale Liv. 1",
+        "Description": "Resistenza al danno non elementale Liv. 1"
+    },
+    "ElementResist_Normal_2": {
+        "Name": "Resistenza al danno non elementale Liv. 2",
+        "Description": "Resistenza al danno non elementale Liv. 2"
+    },
+    "ElementResist_Normal_3": {
+        "Name": "Resistenza al danno non elementale Liv. 3",
+        "Description": "Resistenza al danno non elementale Liv. 3"
+    },
+    "ElementResist_Normal_4": {
+        "Name": "Resistenza al danno non elementale Liv. 4",
+        "Description": "Resistenza al danno non elementale Liv. 4"
+    },
+    "ElementResist_Thunder_1": {
+        "Name": "Resistenza al danno di attributo elettricit\u00e0 Liv. 1",
+        "Description": "Resistenza al danno di attributo elettricit\u00e0 Liv. 1"
+    },
+    "ElementResist_Thunder_2": {
+        "Name": "Resistenza al danno di attributo elettricit\u00e0 Liv. 2",
+        "Description": "Resistenza al danno di attributo elettricit\u00e0 Liv. 2"
+    },
+    "ElementResist_Thunder_3": {
+        "Name": "Resistenza al danno di attributo elettricit\u00e0 Liv. 3",
+        "Description": "Resistenza al danno di attributo elettricit\u00e0 Liv. 3"
+    },
+    "ElementResist_Thunder_4": {
+        "Name": "Resistenza al danno di attributo elettricit\u00e0 Liv. 4",
+        "Description": "Resistenza al danno di attributo elettricit\u00e0 Liv. 4"
+    },
+    "FriendshipPoint_Increase_EquipSkill": {
+        "Name": "Incremento del grado di fiducia dei Pal in squadra",
+        "Description": "Incremento del grado di fiducia dei Pal in squadra"
+    },
+    "HP_ACC_up1": {
+        "Name": "Aumento dei PV Liv. 1",
+        "Description": "Aumento dei PV Liv. 1"
+    },
+    "HP_ACC_up2": {
+        "Name": "Aumento dei PV Liv. 2",
+        "Description": "Aumento dei PV Liv. 2"
+    },
+    "HP_ACC_up3": {
+        "Name": "Aumento dei PV Liv. 3",
+        "Description": "Aumento dei PV Liv. 3"
+    },
+    "HP_ACC_up4": {
+        "Name": "Aumento dei PV Liv. 4",
+        "Description": "Aumento dei PV Liv. 4"
+    },
+    "Invalid_ToxicGas_EquipSkill": {
+        "Name": "Immunit\u00e0 al gas velenoso",
+        "Description": "Immunit\u00e0 al gas velenoso"
+    },
+    "JumpCount_Increase1": {
+        "Name": "Numero di salti +1",
+        "Description": "Numero di salti +1"
+    },
+    "JumpCount_Increase2": {
+        "Name": "Numero di salti +2",
+        "Description": "Numero di salti +2"
+    },
+    "JumpCount_Increase3": {
+        "Name": "Numero di salti +3",
+        "Description": "Numero di salti +3"
+    },
+    "JumpPower_Increase": {
+        "Name": "Potenziamento salto",
+        "Description": "Potenziamento salto"
+    },
+    "MaxInventoryWeight_up": {
+        "Name": "Aumento capacit\u00e0 trasporto Liv. 1",
+        "Description": "Aumento capacit\u00e0 trasporto Liv. 1"
+    },
+    "MaxInventoryWeight_up2": {
+        "Name": "Aumento capacit\u00e0 trasporto Liv. 2",
+        "Description": "Aumento capacit\u00e0 trasporto Liv. 2"
+    },
+    "MaxInventoryWeight_up3": {
+        "Name": "Aumento capacit\u00e0 trasporto Liv. 3",
+        "Description": "Aumento capacit\u00e0 trasporto Liv. 3"
+    },
+    "MaxInventoryWeight_up_Equip_1": {
+        "Name": "Aumento capacit\u00e0 trasporto Liv. 1",
+        "Description": "Aumento capacit\u00e0 trasporto Liv. 1"
+    },
+    "MaxInventoryWeight_up_Equip_2": {
+        "Name": "Aumento capacit\u00e0 trasporto Liv. 2",
+        "Description": "Aumento capacit\u00e0 trasporto Liv. 2"
+    },
+    "MaxInventoryWeight_up_Equip_3": {
+        "Name": "Aumento capacit\u00e0 trasporto Liv. 3",
+        "Description": "Aumento capacit\u00e0 trasporto Liv. 3"
+    },
+    "MaxInventoryWeight_up_Equip_4": {
+        "Name": "Aumento capacit\u00e0 trasporto Liv. 4",
+        "Description": "Aumento capacit\u00e0 trasporto Liv. 4"
+    },
+    "MiniNushi": {
+        "Name": "Pezzo grosso",
+        "Description": "Pezzo grosso"
+    },
+    "MutationPal_Babysitter": {
+        "Name": "Babysitter",
+        "Description": "Quando \u00e8 nella base, il Pal assegnato al ranch ha i seguenti bonus: Velocit\u00e0 di deposizione delle uova +30.0%, Velocit\u00e0 di schiusa delle uova +30.0%"
+    },
+    "MutationPal_ExplosionResist": {
+        "Name": "Corazzato",
+        "Description": "Danno da esplosione: <Status_Up>Immune</>"
+    },
+    "MutationPal_Immortal": {
+        "Name": "Immortale",
+        "Description": "Risucchio vitale +5.0% Recupero naturale dei PV dei Pal +100.0% Attacco +15.0%"
+    },
+    "MutationPal_Mutant": {
+        "Name": "Mutazione idiosincratica",
+        "Description": "Recupero naturale dei PV di Pal e giocatore +50.0% Difesa +{EffectValue4}% Alterazione di stato |Veleno|: <Status_Up>Immune</> Alterazione di stato |In fiamme|: <Status_Up>Immune</>"
+    },
+    "NightOwl": {
+        "Name": "Nottambulo",
+        "Description": "Sta in piedi tutta la notte, e quindi dorme di giorno."
+    },
+    "OctaviaArmorVampire": {
+        "Name": "Potere del sangue",
+        "Description": "Potere del sangue"
+    },
+    "PalExp_Increase_1_Otomo_Only_Equip": {
+        "Name": "Aumento dell'esperienza dei Pal Liv. 1",
+        "Description": "Aumento dell'esperienza dei Pal Liv. 1"
+    },
+    "PalExp_Increase_2_Otomo_Only_Equip": {
+        "Name": "Aumento dell'esperienza dei Pal Liv. 2",
+        "Description": "Aumento dell'esperienza dei Pal Liv. 2"
+    },
+    "PalExp_Increase_3_Otomo_Only_Equip": {
+        "Name": "Aumento dell'esperienza dei Pal Liv. 3",
+        "Description": "Aumento dell'esperienza dei Pal Liv. 3"
+    },
+    "PlayerSP_DecreaseRate_Passive": {
+        "Name": "Anti-stanchezza",
+        "Description": "Anti-stanchezza"
+    },
+    "ReloadSpeedUp_Passive": {
+        "Name": "Maestro della ricarica",
+        "Description": "Maestro della ricarica"
+    },
+    "RideJumpCount_Increase1": {
+        "Name": "Corpo leggero",
+        "Description": "Numero di salti mentre cavalchi +1"
+    },
+    "RideJumpCount_Increase2": {
+        "Name": "Salti volanti",
+        "Description": "Numero di salti mentre cavalchi +2"
+    },
+    "SelfDeathAddItemDrop_up_1": {
+        "Name": "Condivisione",
+        "Description": "Oggetti lasciati +15.0%"
+    },
+    "SelfDeathAddItemDrop_up_2": {
+        "Name": "Servizio spirituale",
+        "Description": "Oggetti lasciati +50.0%"
+    },
+    "SelfDeathAddItemDrop_up_3": {
+        "Name": "Danza munifica",
+        "Description": "Oggetti lasciati +100.0%"
+    },
+    "SphereModule_Curve": {
+        "Name": "Curva sfera +1",
+        "Description": "Curva sfera +1"
+    },
+    "SphereModule_Curve2": {
+        "Name": "Sfera slider",
+        "Description": "Sfera slider"
+    },
+    "SphereModule_Heavy": {
+        "Name": "Peso sfera +1",
+        "Description": "Peso sfera +1"
+    },
+    "SphereModule_Homing": {
+        "Name": "Sfera a ricerca",
+        "Description": "Sfera a ricerca"
+    },
+    "SphereModule_Sniper": {
+        "Name": "Gittata sfera +1",
+        "Description": "Gittata sfera +1"
+    },
+    "SphereModule_Sniper2": {
+        "Name": "Gittata sfera +2",
+        "Description": "Gittata sfera +2"
+    },
+    "StonDrop_Boost_1": {
+        "Name": "Bonus attivit\u00e0 mineraria Liv. 1",
+        "Description": "Modesto aumento di pietre e minerali ottenuti"
+    },
+    "StonDrop_Boost_2": {
+        "Name": "Bonus attivit\u00e0 mineraria Liv. 2",
+        "Description": "Aumento di pietre e minerali ottenuti"
+    },
+    "StonDrop_Boost_3": {
+        "Name": "Bonus attivit\u00e0 mineraria Liv. 3",
+        "Description": "Buon aumento di pietre e minerali ottenuti"
+    },
+    "StonDrop_Boost_4": {
+        "Name": "Bonus attivit\u00e0 mineraria Liv. 4",
+        "Description": "Considerevole aumento di pietre e minerali ottenuti"
+    },
+    "StonDrop_Boost_5": {
+        "Name": "Bonus attivit\u00e0 mineraria Liv. 5",
+        "Description": "Enorme aumento di pietre e minerali ottenuti"
+    },
+    "StonWoodDrop_Boost": {
+        "Name": "Bonus segheria e attivit\u00e0 mineraria",
+        "Description": "Considerevole aumento di legno, pietre e minerali ottenuti"
+    },
+    "TemperatureResist_Cold1": {
+        "Name": "Resistenza al freddo Liv. 1",
+        "Description": "Resistenza al freddo Liv. 1"
+    },
+    "TemperatureResist_Cold2": {
+        "Name": "Resistenza al freddo Liv. 2",
+        "Description": "Resistenza al freddo Liv. 2"
+    },
+    "TemperatureResist_Cold3": {
+        "Name": "Resistenza al freddo Liv. 3",
+        "Description": "Resistenza al freddo Liv. 3"
+    },
+    "TemperatureResist_Heat1": {
+        "Name": "Resistenza al calore Liv. 1",
+        "Description": "Resistenza al calore Liv. 1"
+    },
+    "TemperatureResist_Heat1Cold1": {
+        "Name": "Resistenza al calore Liv. 1 / Resistenza al freddo Liv. 1",
+        "Description": "Resistenza al calore Liv. 1 / Resistenza al freddo Liv. 1"
+    },
+    "TemperatureResist_Heat2": {
+        "Name": "Resistenza al calore Liv. 2",
+        "Description": "Resistenza al calore Liv. 2"
+    },
+    "TemperatureResist_Heat2Cold2": {
+        "Name": "Resistenza al calore Liv. 2 / Resistenza al freddo Liv. 2",
+        "Description": "Resistenza al calore Liv. 2 / Resistenza al freddo Liv. 2"
+    },
+    "TemperatureResist_Heat3": {
+        "Name": "Resistenza al calore Liv. 3",
+        "Description": "Resistenza al calore Liv. 3"
+    },
+    "TemperatureResist_Heat3Cold3": {
+        "Name": "Resistenza al calore Liv. 3 / Resistenza al freddo Liv. 3",
+        "Description": "Resistenza al calore Liv. 3 / Resistenza al freddo Liv. 3"
+    },
+    "WoodDrop_Boost_1": {
+        "Name": "Bonus segheria Liv. 1",
+        "Description": "Modesto aumento del legno ottenuto"
+    },
+    "WoodDrop_Boost_2": {
+        "Name": "Bonus segheria Liv. 2",
+        "Description": "Aumento del legno ottenuto"
+    },
+    "WoodDrop_Boost_3": {
+        "Name": "Bonus segheria Liv. 3",
+        "Description": "Buon aumento del legno ottenuto"
+    },
+    "WoodDrop_Boost_4": {
+        "Name": "Bonus segheria Liv. 4",
+        "Description": "Considerevole aumento del legno ottenuto"
+    },
+    "WoodDrop_Boost_5": {
+        "Name": "Bonus segheria Liv. 5",
+        "Description": "Enorme aumento del legno ottenuto"
+    },
+    "WorkSpeed_ACC_up1": {
+        "Name": "Velocit\u00e0 attivit\u00e0 Liv. 1",
+        "Description": "Velocit\u00e0 attivit\u00e0 Liv. 1"
+    },
+    "WorkSpeed_ACC_up2": {
+        "Name": "Velocit\u00e0 attivit\u00e0 Liv. 2",
+        "Description": "Velocit\u00e0 attivit\u00e0 Liv. 2"
+    },
+    "WorkSpeed_ACC_up3": {
+        "Name": "Velocit\u00e0 attivit\u00e0 Liv. 3",
+        "Description": "Velocit\u00e0 attivit\u00e0 Liv. 3"
+    },
+    "WorkSpeed_ACC_up4": {
+        "Name": "Velocit\u00e0 attivit\u00e0 Liv. 4",
+        "Description": "Velocit\u00e0 attivit\u00e0 Liv. 4"
+    },
+    "WorkSuitabilityAddRank_MonsterFarm_1": {
+        "Name": "Principiante dell'allevamento",
+        "Description": "Allevamento - Attivit\u00e0 possibili - +1"
+    },
+    "WorkSuitabilityAddRank_MonsterFarm_2": {
+        "Name": "Genio dell'allevamento",
+        "Description": "Allevamento - Attivit\u00e0 possibili - +2"
+    },
+    "WorldTree_ATK": {
+        "Name": "Lama sacra a doppio filo",
+        "Description": "Attacco <NumBlue_13>+</>50.0% Difesa -30.0% Puoi avvicinarti a legno e rocce dell'albero del mondo senza distruggerli."
+    },
+    "WorldTree_ATK_DEF": {
+        "Name": "Divinit\u00e0 distruttrice",
+        "Description": "Attacco <NumBlue_13>+</>40.0% Difesa <NumBlue_13>+</>20.0% PV massimi -50.0% Puoi avvicinarti a legno e rocce dell'albero del mondo senza distruggerli."
+    },
+    "WorldTree_CraftSpeed": {
+        "Name": "Mano del diavolo",
+        "Description": "Velocit\u00e0 delle attivit\u00e0 <NumBlue_13>+</>90.0<NumBlue_13>%</> Calo dei punti SAN <NumRed_13>+15.0%</> Puoi avvicinarti a legno e rocce dell'albero del mondo senza distruggerli."
+    },
+    "WorldTree_DEF": {
+        "Name": "Muro vivente del santuario",
+        "Description": "Difesa <NumBlue_13>+</>50.0% Attacco -30.0% Puoi avvicinarti a legno e rocce dell'albero del mondo senza distruggerli."
+    },
+    "WorldTree_FullStomach": {
+        "Name": "Raccolto dell'albero sacro",
+        "Description": "Resistenza al calo della saziet\u00e0 <NumBlue_13>+50.0%</> PV -20.0<NumRed_13>%</> Puoi avvicinarti a legno e rocce dell'albero del mondo senza distruggerli."
+    },
+    "WorldTree_MoveSpeed": {
+        "Name": "Salto dimensionale",
+        "Description": "Incremento della velocit\u00e0 di movimento <NumBlue_13>+</>50.0<NumBlue_13>%</> Resistenza al calo della saziet\u00e0 <NumRed_13>+15.0%</> Puoi avvicinarti a legno e rocce dell'albero del mondo senza distruggerli."
+    },
+    "WorldTree_Sanity": {
+        "Name": "Savio eremita",
+        "Description": "Resistenza al calo dei punti SAN <NumBlue_13>+50.0%</> Velocit\u00e0 delle attivit\u00e0 -20.0<NumRed_13>%</> Puoi avvicinarti a legno e rocce dell'albero del mondo senza distruggerli."
+    },
+    "YakushimaDagameBoost_Magic_Equip": {
+        "Name": "Potere sacro - Magia",
+        "Description": "Potere sacro - Magia"
+    },
+    "YakushimaDagameBoost_Melee_Equip": {
+        "Name": "Potere sacro - Mischia",
+        "Description": "Potere sacro - Mischia"
+    },
+    "YakushimaDagameBoost_Ranged_Equip": {
+        "Name": "Potere sacro - A distanza",
+        "Description": "Potere sacro - A distanza"
+    },
+    "YakushimaDagameBoost_Summon_Equip": {
+        "Name": "Potere sacro - Evocazione",
+        "Description": "Potere sacro - Evocazione"
+    },
+    "YakushimaProtection_Equip": {
+        "Name": "Protezione sacra",
+        "Description": "Protezione sacra"
+    },
+    "defense_ACC_up1": {
+        "Name": "Aumento della difesa Liv. 1",
+        "Description": "Aumento della difesa Liv. 1"
+    },
+    "defense_ACC_up2": {
+        "Name": "Aumento della difesa Liv. 2",
+        "Description": "Aumento della difesa Liv. 2"
+    },
+    "defense_ACC_up3": {
+        "Name": "Aumento della difesa Liv. 3",
+        "Description": "Aumento della difesa Liv. 3"
+    },
+    "defense_ACC_up4": {
+        "Name": "Aumento della difesa Liv. 4",
+        "Description": "Aumento della difesa Liv. 4"
     }
 }

@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_NightLady_WarpBeam_Straight",
     "Type": "Dark",
-    "Power": 140,
-    "Category": "Shot"
+    "Power": 600,
+    "Category": "Shot",
+    "Exclusive": [
+        "NightLady",
+        "RAID_NightLady"
+    ]
 }

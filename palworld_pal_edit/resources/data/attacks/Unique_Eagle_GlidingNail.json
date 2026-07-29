@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_Eagle_GlidingNail",
     "Type": "Normal",
-    "Power": 60,
-    "Category": "Melee"
+    "Power": 80,
+    "Category": "Melee",
+    "Exclusive": [
+        "Eagle"
+    ]
 }

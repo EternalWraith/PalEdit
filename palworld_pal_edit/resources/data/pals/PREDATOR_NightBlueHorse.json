@@ -7,11 +7,16 @@
     "Moveset": {
         "EPalWazaID::MudShot": 1,
         "EPalWazaID::DarkBall": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::GhostFlame": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::ShadowBall": 22,
-        "EPalWazaID::Inferno": 30,
+        "EPalWazaID::Inferno": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::Apocalypse": 40,
-        "EPalWazaID::Unique_NightBlueHorse_DeathStep": 50
+        "EPalWazaID::Unique_NightBlueHorse_Tossin": 45,
+        "EPalWazaID::Unique_NightBlueHorse_DeathStep": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {
         "EPalWazaID::DarkArrow": 1,
@@ -36,7 +41,7 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 2,
+        "Collection": 5,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -45,5 +50,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_Boar_Tackle",
-    "Type": "Normal",
-    "Power": 55,
-    "Category": "Melee"
+    "Type": "Earth",
+    "Power": 60,
+    "Category": "Melee",
+    "Exclusive": [
+        "Boar"
+    ]
 }

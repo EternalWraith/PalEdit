@@ -1,6 +1,12 @@
 {
     "CodeName": "EPalWazaID::Unique_Baphomet_SwallowKite",
     "Type": "Fire",
-    "Power": 70,
-    "Category": "Melee"
+    "Power": 200,
+    "Category": "Melee",
+    "Exclusive": [
+        "Baphomet",
+        "Baphomet_Dark",
+        "Baphomet_Dark_Oilrig",
+        "PREDATOR_Baphomet_Dark"
+    ]
 }

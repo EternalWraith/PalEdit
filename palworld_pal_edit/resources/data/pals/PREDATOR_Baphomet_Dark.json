@@ -7,11 +7,15 @@
     "Moveset": {
         "EPalWazaID::FireBlast": 1,
         "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::FlareArrow": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::Unique_Baphomet_SwallowKite": 22,
-        "EPalWazaID::DarkWave": 30,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::Unique_Baphomet_Dark_DarkKite": 35,
         "EPalWazaID::FireBall": 40,
-        "EPalWazaID::Inferno": 50
+        "EPalWazaID::Inferno": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {
         "EPalWazaID::PredatorBeam": 1,
@@ -24,7 +28,7 @@
     },
     "Scaling": {
         "HP": 114,
-        "PHY": 150,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 85
     },
@@ -43,5 +47,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

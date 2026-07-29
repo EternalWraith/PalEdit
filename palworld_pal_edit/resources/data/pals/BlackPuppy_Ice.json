@@ -1,0 +1,44 @@
+{
+    "CodeName": "BlackPuppy_Ice",
+    "Type": [
+        "Dark",
+        "Ice"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_BlackPuppy_BiteV2": 1,
+        "EPalWazaID::Unique_BlackPuppy_Bite": 2,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::FrostBreath": 15,
+        "EPalWazaID::IciclePierce": 22,
+        "EPalWazaID::IcicleLine": 30,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DiamondFall": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 85,
+        "PHY": 90,
+        "MAG": 90,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 2,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 2,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 149,
+    "TowerBoss": false
+}

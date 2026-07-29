@@ -11,12 +11,13 @@
         "EPalWazaID::DarkArrow": 22,
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::Unique_DarkAlien_JumpScractch": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 100,
+        "PHY": 125,
         "MAG": 125,
         "DEF": 85
     },
@@ -35,5 +36,10 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Alien"
+    ],
+    "DeckIndex": 145,
+    "TowerBoss": false
 }

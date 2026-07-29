@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_SakuraSaurus_Water_SplashTackle",
+    "Type": "Water",
+    "Power": 250,
+    "Category": "Melee",
+    "Exclusive": [
+        "SakuraSaurus_Water"
+    ]
+}

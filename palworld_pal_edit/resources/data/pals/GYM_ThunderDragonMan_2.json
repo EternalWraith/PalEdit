@@ -5,19 +5,21 @@
         "Electricity"
     ],
     "Moveset": {
-        "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": 1,
-        "EPalWazaID::RangeThunder": 2,
-        "EPalWazaID::Commet": 3,
-        "EPalWazaID::BeamSlicer": 4,
-        "EPalWazaID::BlastCanon": 5,
-        "EPalWazaID::RootLance": 6,
-        "EPalWazaID::SolarBeam": 7,
-        "EPalWazaID::WindEdge": 8
+        "EPalWazaID::Unique_ThunderDragonMan_GYM_Act": 1,
+        "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": 2,
+        "EPalWazaID::RangeThunder": 3,
+        "EPalWazaID::Railbolt": 4,
+        "EPalWazaID::Commet": 5,
+        "EPalWazaID::BeamSlicer": 6,
+        "EPalWazaID::ChargeCanon": 7,
+        "EPalWazaID::CrossWind": 8,
+        "EPalWazaID::ReflectiveShuriken": 9,
+        "EPalWazaID::WindEdge": 10
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 110
     },
@@ -25,7 +27,7 @@
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 3,
+        "GenerateElectricity": 8,
         "Handcraft": 2,
         "Collection": 0,
         "Deforest": 0,
@@ -36,5 +38,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

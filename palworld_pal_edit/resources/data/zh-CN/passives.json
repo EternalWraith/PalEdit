@@ -1,326 +1,1690 @@
 {
     "UNKNOWN": {
-        "Name": "未知",
-        "Description": " 不存在或不在我们的数据库中"
+        "Name": "\u672a\u77e5",
+        "Description": " \u4e0d\u5b58\u5728\u6216\u4e0d\u5728\u6211\u4eec\u7684\u6570\u636e\u5e93\u4e2d"
     },
     "NONE": {
-        "Name": "空",
-        "Description": "此帕鲁在该槽位没有技能"
+        "Name": "\u7a7a",
+        "Description": "\u6b64\u5e15\u9c81\u5728\u8be5\u69fd\u4f4d\u6ca1\u6709\u6280\u80fd"
     },
     "ElementResist_Normal_1_PAL": {
-        "Name": "一反常态",
-        "Description": "-10%受到的无属性攻击伤害"
+        "Name": "\u4e00\u53cd\u5e38\u6001",
+        "Description": "\u65e0\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementResist_Dark_1_PAL": {
-        "Name": "阳光开朗",
-        "Description": "-10%受到的暗属性攻击伤害"
+        "Name": "\u9633\u5149\u5f00\u6717",
+        "Description": "\u6697\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementResist_Dragon_1_PAL": {
-        "Name": "屠龙之人",
-        "Description": "-10%受到的龙属性攻击伤害"
+        "Name": "\u5c60\u9f99\u8005",
+        "Description": "\u9f99\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementResist_Ice_1_PAL": {
-        "Name": "高温体质",
-        "Description": "-10%受到的冰属性攻击伤害"
+        "Name": "\u9ad8\u6e29\u4f53\u8d28",
+        "Description": "\u51b0\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementResist_Fire_1_PAL": {
-        "Name": "拥抱烈日",
-        "Description": "-10%受到的火属性攻击伤害"
+        "Name": "\u62e5\u62b1\u70c8\u65e5",
+        "Description": "\u706b\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementResist_Leaf_1_PAL": {
-        "Name": "除草效果",
-        "Description": "-10%受到的草属性攻击伤害"
+        "Name": "\u9664\u8349\u6548\u679c",
+        "Description": "\u8349\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementResist_Earth_1_PAL": {
-        "Name": "抗震结构",
-        "Description": "-10%受到的地属性攻击伤害"
+        "Name": "\u6297\u9707\u7ed3\u6784",
+        "Description": "\u5730\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementResist_Thunder_1_PAL": {
-        "Name": "绝缘体",
-        "Description": "-10%受到的电属性攻击伤害"
+        "Name": "\u7edd\u7f18\u4f53",
+        "Description": "\u96f7\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementResist_Aqua_1_PAL": {
-        "Name": "防水性能",
-        "Description": "-10%受到的水属性攻击伤害"
+        "Name": "\u9632\u6c34\u6027\u80fd",
+        "Description": "\u6c34\u5c5e\u6027\u4f24\u5bb3\u51cf\u5c1110.0%"
     },
     "ElementBoost_Normal_1_PAL": {
-        "Name": "禅境",
-        "Description": "+10%造成的无属性攻击伤害"
+        "Name": "\u7985\u5883",
+        "Description": "\u65e0\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Dark_1_PAL": {
-        "Name": "夜幕",
-        "Description": "+10%造成的暗属性攻击伤害"
+        "Name": "\u591c\u5e55",
+        "Description": "\u6697\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Dragon_1_PAL": {
-        "Name": "龙之血脉",
-        "Description": "+10%造成的龙属性攻击伤害"
+        "Name": "\u9f99\u4e4b\u8840\u8109",
+        "Description": "\u9f99\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Ice_1_PAL": {
-        "Name": "冷血",
-        "Description": "+10%造成的冰属性攻击伤害"
+        "Name": "\u51b7\u8840",
+        "Description": "\u51b0\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Fire_1_PAL": {
-        "Name": "喜欢玩火",
-        "Description": "+10%造成的火属性攻击伤害"
+        "Name": "\u559c\u6b22\u73a9\u706b",
+        "Description": "\u706b\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Leaf_1_PAL": {
-        "Name": "草木馨香",
-        "Description": "+10%造成的草属性攻击伤害"
+        "Name": "\u8349\u6728\u99a8\u9999",
+        "Description": "\u8349\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Earth_1_PAL": {
-        "Name": "大地之力",
-        "Description": "+10%造成的地属性攻击伤害"
+        "Name": "\u5927\u5730\u4e4b\u529b",
+        "Description": "\u5730\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Thunder_1_PAL": {
-        "Name": "电容",
-        "Description": "+10%造成的电属性攻击伤害"
+        "Name": "\u7535\u5bb9",
+        "Description": "\u96f7\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Aqua_1_PAL": {
-        "Name": "喜欢戏水",
-        "Description": "+10%造成的水属性攻击伤害"
+        "Name": "\u559c\u6b22\u620f\u6c34",
+        "Description": "\u6c34\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a010.0%"
     },
     "ElementBoost_Normal_2_PAL": {
-        "Name": "圣天",
-        "Description": "+20%造成的无属性攻击伤害; 圣光骑士的专属能力"
+        "Name": "\u5723\u5929",
+        "Description": "\u5723\u5929"
     },
     "ElementBoost_Dark_2_PAL": {
-        "Name": "冥王",
-        "Description": "+20%造成的暗属性攻击伤害; 混沌骑士的专属能力"
+        "Name": "\u51a5\u738b",
+        "Description": "\u51a5\u738b"
     },
     "ElementBoost_Dragon_2_PAL": {
-        "Name": "神龙",
-        "Description": "+20%造成的龙属性攻击伤害; 空涡龙的专属能力"
+        "Name": "\u795e\u9f99",
+        "Description": "\u795e\u9f99"
     },
     "ElementBoost_Ice_2_PAL": {
-        "Name": "冰帝",
-        "Description": "+20%造成的冰属性攻击伤害; 唤冬兽的专属能力"
+        "Name": "\u51b0\u5e1d",
+        "Description": "\u51b0\u5e1d"
     },
     "ElementBoost_Fire_2_PAL": {
-        "Name": "炎帝",
-        "Description": "+20%造成的火属性攻击伤害; 焰煌的专属能力"
+        "Name": "\u708e\u5e1d",
+        "Description": "\u708e\u5e1d"
     },
     "ElementBoost_Leaf_2_PAL": {
-        "Name": "精灵王",
-        "Description": "+20%造成的草属性攻击伤害; 百合女王的专属能力"
+        "Name": "\u7cbe\u7075\u738b",
+        "Description": "\u7cbe\u7075\u738b"
     },
     "ElementBoost_Earth_2_PAL": {
-        "Name": "岩帝",
-        "Description": "+20%造成的地属性攻击伤害; 阿努比斯的专属能力"
+        "Name": "\u5ca9\u5e1d",
+        "Description": "\u5ca9\u5e1d"
     },
     "ElementBoost_Thunder_2_PAL": {
-        "Name": "雷帝",
-        "Description": "+20%造成的电属性攻击伤害; 波鲁杰克斯的专属能力"
+        "Name": "\u96f7\u5e1d",
+        "Description": "\u96f7\u5e1d"
     },
     "ElementBoost_Aqua_2_PAL": {
-        "Name": "海皇",
-        "Description": "+20%造成的水属性攻击伤害; 覆海龙的专属能力"
+        "Name": "\u6d77\u7687",
+        "Description": "\u6d77\u7687"
     },
     "PAL_ALLAttack_up1": {
-        "Name": "勇敢",
-        "Description": "+10%攻击力"
+        "Name": "\u52c7\u6562",
+        "Description": "\u52c7\u6562"
     },
     "PAL_ALLAttack_up2": {
-        "Name": "凶猛",
-        "Description": "+20%攻击力"
+        "Name": "\u51f6\u731b",
+        "Description": "\u51f6\u731b"
     },
     "PAL_ALLAttack_down1": {
-        "Name": "胆小",
-        "Description": "-10%攻击力"
+        "Name": "\u80c6\u5c0f",
+        "Description": "\u80c6\u5c0f"
     },
     "PAL_ALLAttack_down2": {
-        "Name": "消极主义",
-        "Description": "-20%攻击力"
+        "Name": "\u6d88\u6781\u4e3b\u4e49\u8005",
+        "Description": "\u6d88\u6781\u4e3b\u4e49\u8005"
     },
     "Deffence_up1": {
-        "Name": "坚硬皮肤",
-        "Description": "+10%防御力"
+        "Name": "\u575a\u786c\u76ae\u80a4",
+        "Description": "\u575a\u786c\u76ae\u80a4"
     },
     "Deffence_up2": {
-        "Name": "顽强肉体",
-        "Description": "+20%防御力"
+        "Name": "\u987d\u5f3a\u8089\u4f53",
+        "Description": "\u9632\u5fa1\u529b+20.0% \u514d\u75ab\u786c\u76f4"
     },
     "Deffence_down1": {
-        "Name": "弱不禁风",
-        "Description": "-10%防御力"
+        "Name": "\u5f31\u4e0d\u7981\u98ce",
+        "Description": "\u5f31\u4e0d\u7981\u98ce"
     },
     "Deffence_down2": {
-        "Name": "骨质疏松",
-        "Description": "-20%防御力"
+        "Name": "\u9aa8\u8d28\u758f\u677e",
+        "Description": "\u9aa8\u8d28\u758f\u677e"
     },
     "TrainerMining_up1": {
-        "Name": "矿山首领",
-        "Description": "+25%玩家采矿效率"
+        "Name": "\u77ff\u5c71\u9996\u9886",
+        "Description": "\u73a9\u5bb6\u7684\u6316\u6398\u901f\u5ea6\u63d0\u534725.0%"
     },
     "TrainerLogging_up1": {
-        "Name": "采伐领袖",
-        "Description": "+25%玩家伐木效率"
+        "Name": "\u91c7\u4f10\u9886\u8896",
+        "Description": "\u73a9\u5bb6\u7684\u91c7\u4f10\u901f\u5ea6\u63d0\u534725.0%"
     },
     "TrainerATK_UP_1": {
-        "Name": "突袭指挥官",
-        "Description": "+10%玩家攻击力"
+        "Name": "\u7a81\u88ad\u6307\u6325\u5b98",
+        "Description": "\u73a9\u5bb6\u7684\u653b\u51fb\u63d0\u534710.0%"
     },
     "TrainerWorkSpeed_UP_1": {
-        "Name": "啦啦队",
-        "Description": "+25%玩家工作速度"
+        "Name": "\u5566\u5566\u961f",
+        "Description": "\u73a9\u5bb6\u7684\u5de5\u4f5c\u901f\u5ea6\u63d0\u534725.0%"
     },
     "TrainerDEF_UP_1": {
-        "Name": "铁壁军师",
-        "Description": "+10%玩家防御力"
+        "Name": "\u94c1\u58c1\u519b\u5e08",
+        "Description": "\u73a9\u5bb6\u7684\u9632\u5fa1\u63d0\u534710.0%"
     },
     "PAL_Sanity_Down_1": {
-        "Name": "积极思维",
-        "Description": "理智下降速度减缓10%"
+        "Name": "\u79ef\u6781\u601d\u7ef4",
+        "Description": "\u51cf\u5c11SAN\u503c\u4e0b\u964d\u901f\u5ea6<NumBlue_13>+10.0%</>"
     },
     "PAL_Sanity_Down_2": {
-        "Name": "工作狂",
-        "Description": "理智下降速度减缓15%"
+        "Name": "\u5de5\u4f5c\u72c2",
+        "Description": "\u51cf\u5c11SAN\u503c\u4e0b\u964d\u901f\u5ea6<NumBlue_13>+15.0%</>"
     },
     "PAL_Sanity_Up_1": {
-        "Name": "情绪不稳",
-        "Description": "理智下降速度加快10%"
+        "Name": "\u60c5\u7eea\u4e0d\u7a33",
+        "Description": "\u589e\u52a0SAN\u503c\u4e0b\u964d\u901f\u5ea6<NumRed_13>+10.0%</>"
     },
     "PAL_Sanity_Up_2": {
-        "Name": "毁灭欲望",
-        "Description": "理智下降速度加快15%"
+        "Name": "\u6bc1\u706d\u6b32\u671b",
+        "Description": "\u589e\u52a0SAN\u503c\u4e0b\u964d\u901f\u5ea6<NumRed_13>+15.0%</>"
     },
     "PAL_FullStomach_Down_1": {
-        "Name": "小胃",
-        "Description": "饱食下降速度减缓10%"
+        "Name": "\u5c0f\u80c3",
+        "Description": "\u51cf\u5c11\u9971\u8179\u5ea6\u4e0b\u964d\u901f\u5ea6<NumBlue_13>+10.0%</>"
     },
     "PAL_FullStomach_Down_2": {
-        "Name": "节食大师",
-        "Description": "饱食下降速度减缓15%"
+        "Name": "\u8282\u98df\u5927\u5e08",
+        "Description": "\u51cf\u5c11\u9971\u8179\u5ea6\u4e0b\u964d\u901f\u5ea6<NumBlue_13>+15.0%</>"
     },
     "PAL_FullStomach_Up_1": {
-        "Name": "贪吃",
-        "Description": "饱食下降速度加快10%"
+        "Name": "\u8d2a\u5403",
+        "Description": "\u589e\u52a0\u9971\u8179\u5ea6\u4e0b\u964d\u901f\u5ea6<NumRed_13>+10.0%</>"
     },
     "PAL_FullStomach_Up_2": {
-        "Name": "无底之胃",
-        "Description": "饱食下降速度加快15%"
+        "Name": "\u65e0\u5e95\u4e4b\u80c3",
+        "Description": "\u589e\u52a0\u9971\u8179\u5ea6\u4e0b\u964d\u901f\u5ea6<NumRed_13>+15.0%</>"
     },
     "CraftSpeed_up1": {
-        "Name": "认真",
-        "Description": "+20%工作速度"
+        "Name": "\u8ba4\u771f",
+        "Description": "\u8ba4\u771f"
     },
     "CraftSpeed_up2": {
-        "Name": "工匠精神",
-        "Description": "+50%工作速度"
+        "Name": "\u5de5\u5320\u7cbe\u795e",
+        "Description": "\u5de5\u5320\u7cbe\u795e"
     },
     "CraftSpeed_down1": {
-        "Name": "笨手笨脚",
-        "Description": "-10%工作速度"
+        "Name": "\u7b28\u624b\u7b28\u811a",
+        "Description": "\u7b28\u624b\u7b28\u811a"
     },
     "CraftSpeed_down2": {
-        "Name": "偷懒成瘾",
-        "Description": "-30%工作速度"
+        "Name": "\u5077\u61d2\u6210\u763e",
+        "Description": "\u5077\u61d2\u6210\u763e"
     },
     "MoveSpeed_up_1": {
-        "Name": "灵活",
-        "Description": "+10%移动速度"
+        "Name": "\u7075\u6d3b",
+        "Description": "\u79fb\u52a8\u901f\u5ea6\u63d0\u534710.0%"
     },
     "MoveSpeed_up_2": {
-        "Name": "运动健将",
-        "Description": "+20%移动速度"
+        "Name": "\u8fd0\u52a8\u5065\u5c06",
+        "Description": "\u79fb\u52a8\u901f\u5ea6\u63d0\u534720.0%"
     },
     "MoveSpeed_up_3": {
-        "Name": "神速",
-        "Description": "+30%移动速度"
+        "Name": "\u795e\u901f",
+        "Description": "\u79fb\u52a8\u901f\u5ea6\u63d0\u534730.0%"
     },
     "PAL_CorporateSlave": {
-        "Name": "社畜",
-        "Description": "+30%工作速度, -30%攻击力"
+        "Name": "\u793e\u755c",
+        "Description": "\u793e\u755c"
     },
     "PAL_rude": {
-        "Name": "粗暴",
-        "Description": "+15%攻击力, -10%工作速度"
+        "Name": "\u7c97\u66b4",
+        "Description": "\u7c97\u66b4"
     },
     "Noukin": {
-        "Name": "脑筋",
-        "Description": "+30%攻击力, -50%工作速度"
+        "Name": "\u8111\u7b4b",
+        "Description": "\u8111\u7b4b"
     },
     "PAL_oraora": {
-        "Name": "强势",
-        "Description": "+10%攻击力, -10%防御力"
+        "Name": "\u5f3a\u52bf",
+        "Description": "\u5f3a\u52bf"
     },
     "PAL_conceited": {
-        "Name": "自恋狂",
-        "Description": "+10%工作速度, -10%防御力"
+        "Name": "\u81ea\u604b\u72c2",
+        "Description": "\u81ea\u604b\u72c2"
     },
     "PAL_masochist": {
-        "Name": "受虐狂",
-        "Description": "+15%防御力, -15%攻击力"
+        "Name": "\u53d7\u8650\u72c2",
+        "Description": "\u53d7\u8650\u72c2"
     },
     "PAL_sadist": {
-        "Name": "虐待狂",
-        "Description": "+15%攻击力, -15%防御力"
+        "Name": "\u8650\u5f85\u72c2",
+        "Description": "\u8650\u5f85\u72c2"
     },
     "Rare": {
-        "Name": "稀有",
-        "Description": "+15%攻击力, +15%工作速度"
+        "Name": "\u7a00\u6709",
+        "Description": "\u7a00\u6709"
     },
     "Legend": {
-        "Name": "传说",
-        "Description": "+20%攻击力, +20%防御力, +15%移动速度"
+        "Name": "\u4f20\u8bf4",
+        "Description": "\u653b\u51fb+20.0% \u9632\u5fa1+20.0% \u79fb\u52a8\u901f\u5ea6\u63d0\u534720.0%"
     },
     "Witch": {
-        "Name": "魔女",
-        "Description": "+20%造成的冰属性攻击伤害, +20%造成的暗属性攻击伤害; 贝菈露洁的专属能力"
+        "Name": "\u9b54\u5973",
+        "Description": "\u9b54\u5973"
     },
     "NonKilling": {
-        "Name": "怜悯的一击",
-        "Description": "不会使目标的健康值低于 1"
+        "Name": "\u624b\u4e0b\u7559\u60c5",
+        "Description": "\u548c\u5e73\u4e3b\u4e49\u8005\u3002 \u4f7f\u653b\u51fb\u76ee\u6807\u7684\u751f\u547d\u503c\u4e0d\u4f1a\u5c0f\u4e8e1\u3002"
     },
     "Stamina_Up_1": {
-        "Name": "无限精力",
-        "Description": "最大体力+50% ※此效果仅对可骑乘的帕鲁有效。"
+        "Name": "\u65e0\u9650\u7cbe\u529b",
+        "Description": "\u6700\u5927\u8010\u529b+50.0% \u203b\u6b64\u6548\u679c\u4ec5\u5bf9\u53ef\u9a91\u4e58\u7684\u5e15\u9c81\u6709\u6548\u3002"
     },
     "SalePrice_Up_1": {
-        "Name": "高贵",
-        "Description": "改善交易价格+5%"
+        "Name": "\u9ad8\u8d35",
+        "Description": "\u6539\u5584\u4ea4\u6613\u4ef7\u683c+5.0%"
     },
     "CoolTimeReduction_Up_1": {
-        "Name": "沉着冷静",
-        "Description": "主动技能的冷却时间缩短30% 攻击+10%"
+        "Name": "\u6c89\u7740\u51b7\u9759",
+        "Description": "\u4e3b\u52a8\u6280\u80fd\u7684\u51b7\u5374\u65f6\u95f4\u7f29\u77ed30.0% \u653b\u51fb+10.0%"
     },
     "SalePrice_Up_2": {
-        "Name": "贵族",
-        "Description": "改善交易价格+3%"
+        "Name": "\u8d35\u65cf",
+        "Description": "\u6539\u5584\u4ea4\u6613\u4ef7\u683c+3.0%"
     },
     "CoolTimeReduction_Up_2": {
-        "Name": "急性子",
-        "Description": "主动技能的冷却时间缩短15%"
+        "Name": "\u6025\u6027\u5b50",
+        "Description": "\u4e3b\u52a8\u6280\u80fd\u7684\u51b7\u5374\u65f6\u95f4\u7f29\u77ed15.0%"
     },
     "Stamina_Up_2": {
-        "Name": "品学兼优",
-        "Description": "最大体力+25% ※此效果仅对可骑乘的帕鲁有效。"
+        "Name": "\u5065\u5eb7\u5b9d\u5b9d",
+        "Description": "\u6700\u5927\u8010\u529b+25.0% \u203b\u6b64\u6548\u679c\u4ec5\u5bf9\u53ef\u9a91\u4e58\u7684\u5e15\u9c81\u6709\u6548\u3002"
     },
     "Nocturnal": {
-        "Name": "夜行性",
-        "Description": "即使到夜晚也不会睡觉，会一直工作。"
+        "Name": "\u4e0d\u7720",
+        "Description": "\u5373\u4f7f\u5230\u591c\u665a\u4e5f\u4e0d\u4f1a\u7761\u89c9\uff0c\u4f1a\u4e00\u76f4\u5de5\u4f5c\u3002"
     },
     "SalePrice_Down_1": {
-        "Name": "寒酸",
-        "Description": "改善交易价格-10%"
+        "Name": "\u5bd2\u9178",
+        "Description": "\u4ea4\u6613\u4ef7\u683c\u6076\u5316-10.0%"
     },
     "Test_PalEgg_HatchingSpeed_Up": {
-        "Name": "博爱主义者",
-        "Description": "当分配到配种牧场时,产出蛋的速度将加快100%。"
+        "Name": "\u535a\u7231\u4e3b\u4e49\u8005",
+        "Description": "\u5f53\u5206\u914d\u5230\u914d\u79cd\u7267\u573a\u65f6\uff0c\u4ea7\u51fa\u86cb\u7684\u901f\u5ea6\u5c06\u52a0\u5feb100.0%\u3002"
     },
     "Stamina_Down_1": {
-        "Name": "家里蹲",
-        "Description": "最大体力-25% ※此效果仅对可骑乘的帕鲁有效。"
+        "Name": "\u5bb6\u91cc\u8e72",
+        "Description": "\u6700\u5927\u8010\u529b-25.0% \u203b\u6b64\u6548\u679c\u4ec5\u5bf9\u53ef\u9a91\u4e58\u7684\u5e15\u9c81\u6709\u6548\u3002"
     },
     "CoolTimeReduction_Down_1": {
-        "Name": "慢性子",
-        "Description": "主动技能的冷却时间延长-15%"
+        "Name": "\u6162\u6027\u5b50",
+        "Description": "\u4e3b\u52a8\u6280\u80fd\u7684\u51b7\u5374\u65f6\u95f4\u5ef6\u957f-15.0%"
     },
     "EternalFlame": {
-        "Name": "永炎",
-        "Description": "火属性攻击伤害增加30% 雷属性攻击伤害增加30%"
+        "Name": "\u6c38\u708e",
+        "Description": "\u6c38\u708e"
     },
     "Alien": {
-        "Name": "未知生物细胞",
-        "Description": "攻击力+10% 火属性伤害减免15% 雷属性伤害减免15%"
+        "Name": "\u672a\u77e5\u751f\u7269\u7ec6\u80de",
+        "Description": "\u653b\u51fb\u529b+10.0% \u706b\u5c5e\u6027\u4f24\u5bb3\u51cf\u514d15.0% \u96f7\u5c5e\u6027\u4f24\u5bb3\u51cf\u514d15.0%"
+    },
+    "PAL_ALLAttack_up3": {
+        "Name": "\u9b3c\u795e",
+        "Description": "\u9b3c\u795e"
+    },
+    "Deffence_up3": {
+        "Name": "\u91d1\u521a\u4e4b\u8eaf",
+        "Description": "\u9632\u5fa1\u529b+30.0% \u514d\u75ab\u786c\u76f4 \u514d\u75ab\u51fb\u9000"
+    },
+    "PAL_Sanity_Down_3": {
+        "Name": "\u660e\u955c\u6b62\u6c34",
+        "Description": "\u51cf\u5c11SAN\u503c\u4e0b\u964d\u901f\u5ea6<NumBlue_13>+20.0%</>"
+    },
+    "PAL_FullStomach_Down_3": {
+        "Name": "\u6781\u9650\u7edd\u98df",
+        "Description": "\u51cf\u5c11\u9971\u8179\u5ea6\u4e0b\u964d\u901f\u5ea6<NumBlue_13>+20.0%</>"
+    },
+    "CraftSpeed_up3": {
+        "Name": "\u5353\u7edd\u6280\u827a",
+        "Description": "\u5353\u7edd\u6280\u827a"
+    },
+    "PAL_SpiritualInst": {
+        "Name": "\u7cbe\u795e\u4e0d\u7a33\u5b9a",
+        "Description": "\u7cbe\u795e\u4e0d\u7a33\u5b9a"
+    },
+    "Stamina_Up_3": {
+        "Name": "\u6c38\u52a8\u673a",
+        "Description": "\u6700\u5927\u8010\u529b+75.0% \u203b\u6b64\u6548\u679c\u4ec5\u5bf9\u53ef\u9a91\u4e58\u7684\u5e15\u9c81\u6709\u6548\u3002"
+    },
+    "Vampire": {
+        "Name": "\u5438\u8840\u9b3c",
+        "Description": "\u4f1a\u5438\u6536\u9020\u6210\u4f24\u5bb3\u7684\u4e00\u90e8\u5206\u6062\u590d\u81ea\u8eab\u7684HP\u3002 \u5373\u4f7f\u5230\u591c\u665a\u4e5f\u4e0d\u4f1a\u7761\u89c9\uff0c\u53ef\u4ee5\u4e00\u76f4\u5de5\u4f5c\u3002"
+    },
+    "Invader": {
+        "Name": "\u4fb5\u7565\u8005",
+        "Description": "\u4fb5\u7565\u8005"
+    },
+    "Nushi": {
+        "Name": "\u6e56\u4e4b\u4e3b",
+        "Description": "\u6c34\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a020.0% \u51b0\u5c5e\u6027\u653b\u51fb\u4f24\u5bb3\u589e\u52a020.0% \u9632\u5fa1+20.0%"
+    },
+    "SwimSpeed_up_1": {
+        "Name": "\u60a0\u7136\u6cf3\u59ff",
+        "Description": "\u6c34\u4e0a\u79fb\u52a8\u901f\u5ea6\u63d0\u534730.0%"
+    },
+    "SwimSpeed_up_2": {
+        "Name": "\u6e38\u6cf3\u5065\u5c06",
+        "Description": "\u6e38\u6cf3\u5065\u5c06"
+    },
+    "SwimSpeed_up_3": {
+        "Name": "\u7834\u6d6a\u738b\u8005",
+        "Description": "\u7834\u6d6a\u738b\u8005"
+    },
+    "GYM_NAME_Meadow": {
+        "Name": "\u96f7\u6069\u76d7\u730e\u56e2\u7684\u5e72\u90e8",
+        "Description": "\u653b\u51fb+20.0% \u79fb\u52a8\u901f\u5ea6\u63d0\u534710.0%"
+    },
+    "GYM_NAME_Forest": {
+        "Name": "\u5e15\u9c81\u4fdd\u62a4\u56e2\u4f53-\u521b\u59cb\u4eba",
+        "Description": "\u5e15\u9c81\u4fdd\u62a4\u56e2\u4f53-\u521b\u59cb\u4eba"
+    },
+    "GYM_NAME_Desert": {
+        "Name": "\u5e15\u6d1b\u65af\u7fa4\u5c9b\u81ea\u536b\u961f\u5e72\u90e8",
+        "Description": "\u5e15\u6d1b\u65af\u7fa4\u5c9b\u81ea\u536b\u961f\u5e72\u90e8"
+    },
+    "GYM_NAME_Volcano": {
+        "Name": "\u6c38\u708e\u540c\u5fc3\u4f1a-\u7075\u9b42\u9886\u8896",
+        "Description": "\u6c38\u708e\u540c\u5fc3\u4f1a-\u7075\u9b42\u9886\u8896"
+    },
+    "GYM_NAME_Snow": {
+        "Name": "\u5e15\u9c81\u57fa\u56e0\u7814\u7a76\u90e8\u961f-\u961f\u957f",
+        "Description": "\u5e15\u9c81\u57fa\u56e0\u7814\u7a76\u90e8\u961f-\u961f\u957f"
+    },
+    "GYM_NAME_Sakurajima": {
+        "Name": "\u6708\u82b1\u4f17\u7684\u9996\u9886",
+        "Description": "\u6708\u82b1\u4f17\u7684\u9996\u9886"
+    },
+    "GYM_NAME_Viking": {
+        "Name": "\u5929\u5760\u4e4b\u6c11 \u9996\u9886",
+        "Description": "\u5929\u5760\u4e4b\u6c11 \u9996\u9886"
+    },
+    "Salvation": {
+        "Name": "\u6551\u4e16\u4e3b",
+        "Description": "\u6551\u4e16\u4e3b"
+    },
+    "AirDash_1": {
+        "Name": "\u7a7a\u4e2d\u51b2\u523a+1",
+        "Description": "\u7a7a\u4e2d\u51b2\u523a+1"
+    },
+    "AirDash_2": {
+        "Name": "\u7a7a\u4e2d\u51b2\u523a+2",
+        "Description": "\u7a7a\u4e2d\u51b2\u523a+2"
+    },
+    "AirDash_3": {
+        "Name": "\u7a7a\u4e2d\u51b2\u523a+3",
+        "Description": "\u7a7a\u4e2d\u51b2\u523a+3"
+    },
+    "AirDash_4": {
+        "Name": "\u7a7a\u4e2d\u51b2\u523a+4",
+        "Description": "\u7a7a\u4e2d\u51b2\u523a+4"
+    },
+    "Attack_ACC_up1": {
+        "Name": "\u63d0\u5347\u653b\u51fbLv1",
+        "Description": "\u63d0\u5347\u653b\u51fbLv1"
+    },
+    "Attack_ACC_up1_Armor": {
+        "Name": "\u63d0\u5347\u653b\u51fb(\u5c0f) Lv1",
+        "Description": "\u63d0\u5347\u653b\u51fb(\u5c0f) Lv1"
+    },
+    "Attack_ACC_up1_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u653b\u51fb\u529b\u589e\u52a0Lv1",
+        "Description": "\u5e15\u9c81\u653b\u51fb\u529b\u589e\u52a0Lv1"
+    },
+    "Attack_ACC_up2": {
+        "Name": "\u63d0\u5347\u653b\u51fbLv2",
+        "Description": "\u63d0\u5347\u653b\u51fbLv2"
+    },
+    "Attack_ACC_up2_Armor": {
+        "Name": "\u63d0\u5347\u653b\u51fb(\u5c0f) Lv2",
+        "Description": "\u63d0\u5347\u653b\u51fb(\u5c0f) Lv2"
+    },
+    "Attack_ACC_up2_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u653b\u51fb\u529b\u589e\u52a0Lv2",
+        "Description": "\u5e15\u9c81\u653b\u51fb\u529b\u589e\u52a0Lv2"
+    },
+    "Attack_ACC_up3": {
+        "Name": "\u63d0\u5347\u653b\u51fbLv3",
+        "Description": "\u63d0\u5347\u653b\u51fbLv3"
+    },
+    "Attack_ACC_up3_Armor": {
+        "Name": "\u63d0\u5347\u653b\u51fb(\u5c0f) Lv3",
+        "Description": "\u63d0\u5347\u653b\u51fb(\u5c0f) Lv3"
+    },
+    "Attack_ACC_up3_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u653b\u51fb\u529b\u589e\u52a0Lv3",
+        "Description": "\u5e15\u9c81\u653b\u51fb\u529b\u589e\u52a0Lv3"
+    },
+    "Attack_ACC_up4": {
+        "Name": "\u63d0\u5347\u653b\u51fbLv4",
+        "Description": "\u63d0\u5347\u653b\u51fbLv4"
+    },
+    "Attack_ACC_up4_Armor": {
+        "Name": "\u63d0\u5347\u653b\u51fb(\u5c0f) Lv4",
+        "Description": "\u63d0\u5347\u653b\u51fb(\u5c0f) Lv4"
+    },
+    "Attack_ACC_up4_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u653b\u51fb\u529b\u589e\u52a0Lv4",
+        "Description": "\u5e15\u9c81\u653b\u51fb\u529b\u589e\u52a0Lv4"
+    },
+    "AutoHPRegeneRate_Passive": {
+        "Name": "\u7597\u6108\u6559\u7ec3",
+        "Description": "\u7597\u6108\u6559\u7ec3"
+    },
+    "AvoidDurationUp_EquipSkill_2": {
+        "Name": "\u95ea\u907f\u65e0\u654c\u65f6\u95f4\u589e\u52a0",
+        "Description": "\u95ea\u907f\u65e0\u654c\u65f6\u95f4\u589e\u52a0"
+    },
+    "BossDefeatReward_AmaterasuWolf_Dark": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_Anubis": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_BadCatgirl": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_BerryGoat_Dark": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_BlackMetalDragon": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_BlackPuppy": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_BlueDragon": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_BlueThunderHorse": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_BlueberryFairy": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_CactusDoll": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_CaptainPenguin": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_CatMage": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_CatVampire": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_CubeTurtle": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_CubeTurtle_Neutral": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_DarkScorpion": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_DarkScorpion_Ground": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_DomeArmorDragon": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_ElecLizard": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_ElecPanda": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_ElecSnail": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_FairyDragon": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_FengyunDeeper": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_FengyunDeeper_Electric": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_FireKirin": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_FlameBuffalo": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_FlowerDinosaur_Electric": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_FlowerDoll": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_FoxExorcist": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_FoxMage": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_GhostDragon": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_GhostRabbit": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_GoldenHorse": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_GrassGolem": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_GrassGolem_Dark": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_GrassMammoth": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_GrassPanda_Electric": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_GrassRabbitMan": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_GrimGirl": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_HawkBird": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_HerculesBeetle": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_HerculesBeetle_Ground": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_Horus_Water": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_IceFox": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_IceHorse": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_IceHorse_Dark": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_IceNarwhal": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_IceNarwhal_Fire": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_JetDragon": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_KabukiMan": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_KingAlpaca": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_KingAlpaca_Ice": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_KingBahamut": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_Kirin": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_Kitsunebi_Ice": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_LazyCatfish": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_LazyDragon_Electric": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_LilyQueen": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_LilyQueen_Dark": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_LotusDragon": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_Manticore": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_MoonChild": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_MopKing": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_MushroomLady": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_Mutant": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_MysteryMask": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_NaughtyCat": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_NightBlueHorse": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_PinkRabbit_Grass": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_PlantSlime": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_PoseidonOrca": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_PurpleSpider": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_QueenBee": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_RaijinDaughter_Water": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_RockBeast": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_RockBeast_Ice": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_Ronin": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_SaintCentaur_1": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_SaintCentaur_2": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_SakuraSaurus": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_SakuraSaurus_Water": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_ScorpionMan_Electric": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_SkyDragon": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_Suzaku": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_ThunderBird": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_ThunderFluffyBird": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_Umihebi": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_VioletFairy": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_VolcanicMonster": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_VolcanoDragon": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_VolcanoDragon_Ice": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_WeaselDragon": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_Werewolf_Ice": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "BossDefeatReward_WhiteDeer": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_WhiteDeer_Dark": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_WhiteMoth": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_WhiteShieldDragon": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_WhiteTiger_Ground": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "BossDefeatReward_WingGolem": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "BossDefeatReward_Yeti_Grass": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "CaptureLevel_Up_1": {
+        "Name": "\u6355\u83b7\u529b\u5f3a\u5316+1",
+        "Description": "\u6355\u83b7\u529b\u5f3a\u5316+1"
+    },
+    "CaptureLevel_Up_2": {
+        "Name": "\u6355\u83b7\u529b\u5f3a\u5316+2",
+        "Description": "\u6355\u83b7\u529b\u5f3a\u5316+2"
+    },
+    "CaptureLevel_Up_3": {
+        "Name": "\u6355\u83b7\u529b\u5f3a\u5316+3",
+        "Description": "\u6355\u83b7\u529b\u5f3a\u5316+3"
+    },
+    "CaptureLevel_Up_4": {
+        "Name": "\u6355\u83b7\u529b\u5f3a\u5316+4",
+        "Description": "\u6355\u83b7\u529b\u5f3a\u5316+4"
+    },
+    "CaptureLevel_Up_5": {
+        "Name": "\u6355\u83b7\u529b\u5f3a\u5316+5",
+        "Description": "\u6355\u83b7\u529b\u5f3a\u5316+5"
+    },
+    "CaptureLevel_Up_6": {
+        "Name": "\u6355\u83b7\u529b\u5f3a\u5316+6",
+        "Description": "\u6355\u83b7\u529b\u5f3a\u5316+6"
+    },
+    "CollectItem_Berries": {
+        "Name": "\u91c7\u6458\u91ce\u8393",
+        "Description": "\u91c7\u6458\u91ce\u8393"
+    },
+    "CollectItem_Egg": {
+        "Name": "\u4ea7\u86cb",
+        "Description": "\u4ea7\u86cb"
+    },
+    "CollectItem_Milk": {
+        "Name": "\u4ea7\u725b\u5976",
+        "Description": "\u4ea7\u725b\u5976"
+    },
+    "CollectItem_Money": {
+        "Name": "\u62db\u8d22\u732b",
+        "Description": "\u62db\u8d22\u732b"
+    },
+    "CollectItem_Sweets": {
+        "Name": "\u751f\u4ea7\u70b9\u5fc3",
+        "Description": "\u751f\u4ea7\u70b9\u5fc3"
+    },
+    "CollectItem_Wool_Alpaca": {
+        "Name": "\u4ea7\u7f8a\u6bdb",
+        "Description": "\u4ea7\u7f8a\u6bdb"
+    },
+    "CollectItem_Wool_SheepBall": {
+        "Name": "\u4ea7\u7f8a\u6bdb",
+        "Description": "\u4ea7\u7f8a\u6bdb"
+    },
+    "CollectItem_Wool_WhiteMoth": {
+        "Name": "\u4e1d\u7ec7",
+        "Description": "\u4e1d\u7ec7"
+    },
+    "CoolTimeReduction_Up_3": {
+        "Name": "\u75be\u98ce\u6012\u6d9b",
+        "Description": "\u4e3b\u52a8\u6280\u80fd\u7684\u51b7\u5374\u65f6\u95f4\u7f29\u77ed0.0% \u653b\u51fb+0.0%"
+    },
+    "Defense_ACC_up1_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u9632\u5fa1\u529b\u589e\u52a0Lv1",
+        "Description": "\u5e15\u9c81\u9632\u5fa1\u529b\u589e\u52a0Lv1"
+    },
+    "Defense_ACC_up2_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u9632\u5fa1\u529b\u589e\u52a0Lv2",
+        "Description": "\u5e15\u9c81\u9632\u5fa1\u529b\u589e\u52a0Lv2"
+    },
+    "Defense_ACC_up3_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u9632\u5fa1\u529b\u589e\u52a0Lv3",
+        "Description": "\u5e15\u9c81\u9632\u5fa1\u529b\u589e\u52a0Lv3"
+    },
+    "Defense_ACC_up4_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u9632\u5fa1\u529b\u589e\u52a0Lv4",
+        "Description": "\u5e15\u9c81\u9632\u5fa1\u529b\u589e\u52a0Lv4"
+    },
+    "Deffence_up2_2": {
+        "Name": "\u91cd\u91cf\u7ea7",
+        "Description": "\u9632\u5fa1\u529b+20.0% \u514d\u75ab\u51fb\u9000"
+    },
+    "Defuser_ExplosiveSpore_EquipSkill": {
+        "Name": "\u7206\u70b8\u4f24\u5bb3\u65e0\u6548",
+        "Description": "\u7206\u70b8\u4f24\u5bb3\u65e0\u6548"
+    },
+    "ElementBoost_Dark_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Dark_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u6697\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u6697\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Dark_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Dark_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u6697\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u6697\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Dark_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u6697\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Dark_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u6697\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u6697\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Dark_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u6697\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u6697\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementBoost_Dragon_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Dragon_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u9f99\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u9f99\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Dragon_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Dragon_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u9f99\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u9f99\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Dragon_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u9f99\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Dragon_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u9f99\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u9f99\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Dragon_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u9f99\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u9f99\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementBoost_Earth_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Earth_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u5730\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u5730\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Earth_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Earth_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u5730\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u5730\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Earth_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u5730\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Earth_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u5730\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u5730\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Earth_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u5730\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u5730\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementBoost_Electricity_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Electricity_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u96f7\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u96f7\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Electricity_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Electricity_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u96f7\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u96f7\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Electricity_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u96f7\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Electricity_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u96f7\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u96f7\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Electricity_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u96f7\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u96f7\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementBoost_Fire_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Fire_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u706b\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u706b\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Fire_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Fire_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u706b\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u706b\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Fire_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u706b\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Fire_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u706b\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u706b\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Fire_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u706b\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u706b\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementBoost_Ice_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Ice_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u51b0\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u51b0\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Ice_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Ice_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u51b0\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u51b0\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Ice_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u51b0\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Ice_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u51b0\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u51b0\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Ice_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u51b0\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u51b0\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementBoost_Leaf_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Leaf_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u8349\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u8349\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Leaf_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Leaf_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u8349\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u8349\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Leaf_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u8349\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Leaf_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u8349\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u8349\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Leaf_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u8349\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u8349\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementBoost_Normal_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Normal_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u65e0\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u65e0\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Normal_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Normal_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u65e0\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u65e0\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Normal_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u65e0\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Normal_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u65e0\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u65e0\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Normal_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u65e0\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u65e0\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementBoost_Water_1_BossDefeat": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5c0f",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5c0f"
+    },
+    "ElementBoost_Water_1_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u6c34\u5c5e\u6027\u4f24\u5bb3 Lv1",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u6c34\u5c5e\u6027\u4f24\u5bb3 Lv1"
+    },
+    "ElementBoost_Water_2_BossDefeat": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u4e2d",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u4e2d"
+    },
+    "ElementBoost_Water_2_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u6c34\u5c5e\u6027\u4f24\u5bb3 Lv2",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u6c34\u5c5e\u6027\u4f24\u5bb3 Lv2"
+    },
+    "ElementBoost_Water_3_BossDefeat": {
+        "Name": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5927",
+        "Description": "\u589e\u5f3a\u6c34\u5c5e\u6027\u4f24\u5bb3 \u5927"
+    },
+    "ElementBoost_Water_3_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u6c34\u5c5e\u6027\u4f24\u5bb3 Lv3",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u6c34\u5c5e\u6027\u4f24\u5bb3 Lv3"
+    },
+    "ElementBoost_Water_4_Otomo_Only_Equip": {
+        "Name": "\u589e\u5f3a\u5e15\u9c81\u6c34\u5c5e\u6027\u4f24\u5bb3 Lv4",
+        "Description": "\u589e\u5f3a\u5e15\u9c81\u6c34\u5c5e\u6027\u4f24\u5bb3 Lv4"
+    },
+    "ElementResist_Aqua_1": {
+        "Name": "\u51cf\u8f7b\u6c34\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u6c34\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Aqua_2": {
+        "Name": "\u51cf\u8f7b\u6c34\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u6c34\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Aqua_3": {
+        "Name": "\u51cf\u8f7b\u6c34\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u6c34\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Aqua_4": {
+        "Name": "\u51cf\u8f7b\u6c34\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u6c34\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "ElementResist_Dark_1": {
+        "Name": "\u51cf\u8f7b\u6697\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u6697\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Dark_2": {
+        "Name": "\u51cf\u8f7b\u6697\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u6697\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Dark_3": {
+        "Name": "\u51cf\u8f7b\u6697\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u6697\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Dark_4": {
+        "Name": "\u51cf\u8f7b\u6697\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u6697\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "ElementResist_Dragon_1": {
+        "Name": "\u51cf\u8f7b\u9f99\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u9f99\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Dragon_2": {
+        "Name": "\u51cf\u8f7b\u9f99\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u9f99\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Dragon_3": {
+        "Name": "\u51cf\u8f7b\u9f99\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u9f99\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Dragon_4": {
+        "Name": "\u51cf\u8f7b\u9f99\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u9f99\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "ElementResist_Earth_1": {
+        "Name": "\u51cf\u8f7b\u5730\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u5730\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Earth_2": {
+        "Name": "\u51cf\u8f7b\u5730\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u5730\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Earth_3": {
+        "Name": "\u51cf\u8f7b\u5730\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u5730\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Earth_4": {
+        "Name": "\u51cf\u8f7b\u5730\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u5730\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "ElementResist_Fire_1": {
+        "Name": "\u51cf\u8f7b\u706b\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u706b\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Fire_2": {
+        "Name": "\u51cf\u8f7b\u706b\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u706b\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Fire_3": {
+        "Name": "\u51cf\u8f7b\u706b\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u706b\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Fire_4": {
+        "Name": "\u51cf\u8f7b\u706b\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u706b\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "ElementResist_Ice_1": {
+        "Name": "\u51cf\u8f7b\u51b0\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u51b0\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Ice_2": {
+        "Name": "\u51cf\u8f7b\u51b0\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u51b0\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Ice_3": {
+        "Name": "\u51cf\u8f7b\u51b0\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u51b0\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Ice_4": {
+        "Name": "\u51cf\u8f7b\u51b0\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u51b0\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "ElementResist_Leaf_1": {
+        "Name": "\u51cf\u8f7b\u8349\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u8349\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Leaf_2": {
+        "Name": "\u51cf\u8f7b\u8349\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u8349\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Leaf_3": {
+        "Name": "\u51cf\u8f7b\u8349\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u8349\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Leaf_4": {
+        "Name": "\u51cf\u8f7b\u8349\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u8349\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "ElementResist_Normal_1": {
+        "Name": "\u51cf\u8f7b\u65e0\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u65e0\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Normal_2": {
+        "Name": "\u51cf\u8f7b\u65e0\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u65e0\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Normal_3": {
+        "Name": "\u51cf\u8f7b\u65e0\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u65e0\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Normal_4": {
+        "Name": "\u51cf\u8f7b\u65e0\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u65e0\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "ElementResist_Thunder_1": {
+        "Name": "\u51cf\u8f7b\u96f7\u5c5e\u6027\u4f24\u5bb3Lv1",
+        "Description": "\u51cf\u8f7b\u96f7\u5c5e\u6027\u4f24\u5bb3Lv1"
+    },
+    "ElementResist_Thunder_2": {
+        "Name": "\u51cf\u8f7b\u96f7\u5c5e\u6027\u4f24\u5bb3Lv2",
+        "Description": "\u51cf\u8f7b\u96f7\u5c5e\u6027\u4f24\u5bb3Lv2"
+    },
+    "ElementResist_Thunder_3": {
+        "Name": "\u51cf\u8f7b\u96f7\u5c5e\u6027\u4f24\u5bb3Lv3",
+        "Description": "\u51cf\u8f7b\u96f7\u5c5e\u6027\u4f24\u5bb3Lv3"
+    },
+    "ElementResist_Thunder_4": {
+        "Name": "\u51cf\u8f7b\u96f7\u5c5e\u6027\u4f24\u5bb3Lv4",
+        "Description": "\u51cf\u8f7b\u96f7\u5c5e\u6027\u4f24\u5bb3Lv4"
+    },
+    "FriendshipPoint_Increase_EquipSkill": {
+        "Name": "\u961f\u4f0d\u5e15\u9c81\u4fe1\u8d56\u5ea6\u7684\u4e0a\u5347\u91cf\u589e\u52a0",
+        "Description": "\u961f\u4f0d\u5e15\u9c81\u4fe1\u8d56\u5ea6\u7684\u4e0a\u5347\u91cf\u589e\u52a0"
+    },
+    "HP_ACC_up1": {
+        "Name": "\u63d0\u5347\u751f\u547d\u503cLv1",
+        "Description": "\u63d0\u5347\u751f\u547d\u503cLv1"
+    },
+    "HP_ACC_up2": {
+        "Name": "\u63d0\u5347\u751f\u547d\u503cLv2",
+        "Description": "\u63d0\u5347\u751f\u547d\u503cLv2"
+    },
+    "HP_ACC_up3": {
+        "Name": "\u63d0\u5347\u751f\u547d\u503cLv3",
+        "Description": "\u63d0\u5347\u751f\u547d\u503cLv3"
+    },
+    "HP_ACC_up4": {
+        "Name": "\u63d0\u5347\u751f\u547d\u503cLv4",
+        "Description": "\u63d0\u5347\u751f\u547d\u503cLv4"
+    },
+    "Invalid_ToxicGas_EquipSkill": {
+        "Name": "\u8150\u96fe\u4f24\u5bb3\u65e0\u6548",
+        "Description": "\u8150\u96fe\u4f24\u5bb3\u65e0\u6548"
+    },
+    "JumpCount_Increase1": {
+        "Name": "\u8fde\u7eed\u8df3\u8dc3\u6b21\u6570+1",
+        "Description": "\u8fde\u7eed\u8df3\u8dc3\u6b21\u6570+1"
+    },
+    "JumpCount_Increase2": {
+        "Name": "\u8fde\u7eed\u8df3\u8dc3\u6b21\u6570+2",
+        "Description": "\u8fde\u7eed\u8df3\u8dc3\u6b21\u6570+2"
+    },
+    "JumpCount_Increase3": {
+        "Name": "\u8fde\u7eed\u8df3\u8dc3\u6b21\u6570+3",
+        "Description": "\u8fde\u7eed\u8df3\u8dc3\u6b21\u6570+3"
+    },
+    "JumpPower_Increase": {
+        "Name": "\u8df3\u8dc3\u529b\u5f3a\u5316",
+        "Description": "\u8df3\u8dc3\u529b\u5f3a\u5316"
+    },
+    "MaxInventoryWeight_up": {
+        "Name": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv1",
+        "Description": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv1"
+    },
+    "MaxInventoryWeight_up2": {
+        "Name": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv2",
+        "Description": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv2"
+    },
+    "MaxInventoryWeight_up3": {
+        "Name": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv3",
+        "Description": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv3"
+    },
+    "MaxInventoryWeight_up_Equip_1": {
+        "Name": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv1",
+        "Description": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv1"
+    },
+    "MaxInventoryWeight_up_Equip_2": {
+        "Name": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv2",
+        "Description": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv2"
+    },
+    "MaxInventoryWeight_up_Equip_3": {
+        "Name": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv3",
+        "Description": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv3"
+    },
+    "MaxInventoryWeight_up_Equip_4": {
+        "Name": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv4",
+        "Description": "\u63d0\u5347\u8d1f\u91cd\u4e0a\u9650Lv4"
+    },
+    "MiniNushi": {
+        "Name": "\u5927\u730e\u7269",
+        "Description": "\u5927\u730e\u7269"
+    },
+    "MutationPal_Babysitter": {
+        "Name": "\u80b2\u5a74\u5e08",
+        "Description": "\u5728\u636e\u70b9\u5185\u65f6\uff0c\u5206\u6d3e\u5230\u914d\u79cd\u7267\u573a\u7684\u5e15\u9c81\u7684 \u4ea7\u86cb\u901f\u5ea6+30.0%\uff0c\u5b75\u5316\u901f\u5ea6+30.0%"
+    },
+    "MutationPal_ExplosionResist": {
+        "Name": "\u91cd\u88c5\u7532",
+        "Description": "<Status_Up>\u514d\u75ab</>\u7206\u7834\u4f24\u5bb3"
+    },
+    "MutationPal_Immortal": {
+        "Name": "\u4e0d\u6b7b\u4e4b\u8eab",
+        "Description": "\u7a83\u53d6\u751f\u547d+5.0% \u5e15\u9c81\u751f\u547d\u503c\u81ea\u7136\u6062\u590d\u91cf+100.0% \u653b\u51fb\u529b+15.0%"
+    },
+    "MutationPal_Mutant": {
+        "Name": "\u7279\u6b8a\u4f53\u8d28",
+        "Description": "\u5e15\u9c81\u548c\u73a9\u5bb6\u7684\u751f\u547d\u503c\u81ea\u7136\u6062\u590d\u91cf+50.0% \u9632\u5fa1\u529b+{EffectValue4}% <Status_Up>\u514d\u75ab</>\u4e2d\u6bd2\u4f24\u5bb3 <Status_Up>\u514d\u75ab</>\u707c\u70e7\u4f24\u5bb3"
+    },
+    "NightOwl": {
+        "Name": "\u591c\u732b\u5b50",
+        "Description": "\u56e0\u4e3a\u603b\u662f\u71ac\u591c\uff0c\u767d\u5929\u5e38\u5e38\u7761\u5348\u89c9\u3002"
+    },
+    "OctaviaArmorVampire": {
+        "Name": "\u8840\u6db2\u71c3\u6599",
+        "Description": "\u8840\u6db2\u71c3\u6599"
+    },
+    "PalExp_Increase_1_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u7ecf\u9a8c\u83b7\u53d6\u589e\u52a0Lv1",
+        "Description": "\u5e15\u9c81\u7ecf\u9a8c\u83b7\u53d6\u589e\u52a0Lv1"
+    },
+    "PalExp_Increase_2_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u7ecf\u9a8c\u83b7\u53d6\u589e\u52a0Lv2",
+        "Description": "\u5e15\u9c81\u7ecf\u9a8c\u83b7\u53d6\u589e\u52a0Lv2"
+    },
+    "PalExp_Increase_3_Otomo_Only_Equip": {
+        "Name": "\u5e15\u9c81\u7ecf\u9a8c\u83b7\u53d6\u589e\u52a0Lv3",
+        "Description": "\u5e15\u9c81\u7ecf\u9a8c\u83b7\u53d6\u589e\u52a0Lv3"
+    },
+    "PlayerSP_DecreaseRate_Passive": {
+        "Name": "\u9632\u8fc7\u52b3\u5e2e\u624b",
+        "Description": "\u9632\u8fc7\u52b3\u5e2e\u624b"
+    },
+    "ReloadSpeedUp_Passive": {
+        "Name": "\u88c5\u586b\u5927\u5e08",
+        "Description": "\u88c5\u586b\u5927\u5e08"
+    },
+    "RideJumpCount_Increase1": {
+        "Name": "\u8eab\u8f7b\u5982\u71d5",
+        "Description": "\u9a91\u4e58\u671f\u95f4\u8fde\u7eed\u8df3\u8dc3\u6b21\u6570+1"
+    },
+    "RideJumpCount_Increase2": {
+        "Name": "\u51cc\u7a7a\u5fae\u6b65",
+        "Description": "\u9a91\u4e58\u671f\u95f4\u8fde\u7eed\u8df3\u8dc3\u6b21\u6570+2"
+    },
+    "SelfDeathAddItemDrop_up_1": {
+        "Name": "\u5c0f\u5c0f\u5fc3\u610f",
+        "Description": "\u81ea\u8eab\u9053\u5177\u6389\u843d\u91cf+15.0%"
+    },
+    "SelfDeathAddItemDrop_up_2": {
+        "Name": "\u5949\u732e\u7cbe\u795e",
+        "Description": "\u81ea\u8eab\u9053\u5177\u6389\u843d\u91cf+50.0%"
+    },
+    "SelfDeathAddItemDrop_up_3": {
+        "Name": "\u6177\u6168\u5c31\u4e49",
+        "Description": "\u81ea\u8eab\u9053\u5177\u6389\u843d\u91cf+100.0%"
+    },
+    "SphereModule_Curve": {
+        "Name": "\u6295\u63b7\u66f2\u7ebf+1",
+        "Description": "\u6295\u63b7\u66f2\u7ebf+1"
+    },
+    "SphereModule_Curve2": {
+        "Name": "\u6ed1\u7403\u6a21\u5757",
+        "Description": "\u6ed1\u7403\u6a21\u5757"
+    },
+    "SphereModule_Heavy": {
+        "Name": "\u5e15\u9c81\u7403\u91cd\u91cf+1",
+        "Description": "\u5e15\u9c81\u7403\u91cd\u91cf+1"
+    },
+    "SphereModule_Homing": {
+        "Name": "\u8ffd\u8e2a\u6a21\u5757",
+        "Description": "\u8ffd\u8e2a\u6a21\u5757"
+    },
+    "SphereModule_Sniper": {
+        "Name": "\u6295\u63b7\u8ddd\u79bb+1",
+        "Description": "\u6295\u63b7\u8ddd\u79bb+1"
+    },
+    "SphereModule_Sniper2": {
+        "Name": "\u6295\u63b7\u8ddd\u79bb+2",
+        "Description": "\u6295\u63b7\u8ddd\u79bb+2"
+    },
+    "StonDrop_Boost_1": {
+        "Name": "\u63d0\u5347\u91c7\u77ff\u91cfLv1",
+        "Description": "\u77f3\u6750/\u77ff\u77f3\u6389\u843d\u91cf\u7a0d\u5fae\u589e\u52a0"
+    },
+    "StonDrop_Boost_2": {
+        "Name": "\u63d0\u5347\u91c7\u77ff\u91cfLv2",
+        "Description": "\u77f3\u6750/\u77ff\u77f3\u6389\u843d\u91cf\u589e\u52a0"
+    },
+    "StonDrop_Boost_3": {
+        "Name": "\u63d0\u5347\u91c7\u77ff\u91cfLv3",
+        "Description": "\u77f3\u6750/\u77ff\u77f3\u6389\u843d\u91cf\u663e\u8457\u589e\u52a0"
+    },
+    "StonDrop_Boost_4": {
+        "Name": "\u63d0\u5347\u91c7\u77ff\u91cfLv4",
+        "Description": "\u77f3\u6750/\u77ff\u77f3\u6389\u843d\u91cf\u5927\u91cf\u589e\u52a0"
+    },
+    "StonDrop_Boost_5": {
+        "Name": "\u63d0\u5347\u91c7\u77ff\u91cfLv5",
+        "Description": "\u77f3\u6750/\u77ff\u77f3\u6389\u843d\u91cf\u6781\u5927\u91cf\u589e\u52a0"
+    },
+    "StonWoodDrop_Boost": {
+        "Name": "\u6316\u6398/\u91c7\u4f10\u91cf\u589e\u52a0",
+        "Description": "\u6728\u6750/\u77f3\u6750/\u77ff\u77f3\u6389\u843d\u91cf\u5927\u91cf\u589e\u52a0"
+    },
+    "TemperatureResist_Cold1": {
+        "Name": "\u8010\u5bd2Lv1",
+        "Description": "\u8010\u5bd2Lv1"
+    },
+    "TemperatureResist_Cold2": {
+        "Name": "\u8010\u5bd2Lv2",
+        "Description": "\u8010\u5bd2Lv2"
+    },
+    "TemperatureResist_Cold3": {
+        "Name": "\u8010\u5bd2Lv3",
+        "Description": "\u8010\u5bd2Lv3"
+    },
+    "TemperatureResist_Heat1": {
+        "Name": "\u8010\u6691Lv1",
+        "Description": "\u8010\u6691Lv1"
+    },
+    "TemperatureResist_Heat1Cold1": {
+        "Name": "\u8010\u6691Lv1 / \u8010\u5bd2Lv1",
+        "Description": "\u8010\u6691Lv1 / \u8010\u5bd2Lv1"
+    },
+    "TemperatureResist_Heat2": {
+        "Name": "\u8010\u6691Lv2",
+        "Description": "\u8010\u6691Lv2"
+    },
+    "TemperatureResist_Heat2Cold2": {
+        "Name": "\u8010\u6691Lv2 / \u8010\u5bd2Lv2",
+        "Description": "\u8010\u6691Lv2 / \u8010\u5bd2Lv2"
+    },
+    "TemperatureResist_Heat3": {
+        "Name": "\u8010\u6691Lv3",
+        "Description": "\u8010\u6691Lv3"
+    },
+    "TemperatureResist_Heat3Cold3": {
+        "Name": "\u8010\u6691Lv3 / \u8010\u5bd2Lv3",
+        "Description": "\u8010\u6691Lv3 / \u8010\u5bd2Lv3"
+    },
+    "WoodDrop_Boost_1": {
+        "Name": "\u63d0\u5347\u4f10\u6728\u91cfLv1",
+        "Description": "\u6728\u6750\u6389\u843d\u91cf\u7a0d\u5fae\u589e\u52a0"
+    },
+    "WoodDrop_Boost_2": {
+        "Name": "\u63d0\u5347\u4f10\u6728\u91cfLv2",
+        "Description": "\u6728\u6750\u6389\u843d\u91cf\u589e\u52a0"
+    },
+    "WoodDrop_Boost_3": {
+        "Name": "\u63d0\u5347\u4f10\u6728\u91cfLv3",
+        "Description": "\u6728\u6750\u6389\u843d\u91cf\u663e\u8457\u589e\u52a0"
+    },
+    "WoodDrop_Boost_4": {
+        "Name": "\u63d0\u5347\u4f10\u6728\u91cfLv4",
+        "Description": "\u6728\u6750\u6389\u843d\u91cf\u5927\u91cf\u589e\u52a0"
+    },
+    "WoodDrop_Boost_5": {
+        "Name": "\u63d0\u5347\u4f10\u6728\u91cfLv5",
+        "Description": "\u6728\u6750\u6389\u843d\u91cf\u6781\u5927\u91cf\u589e\u52a0"
+    },
+    "WorkSpeed_ACC_up1": {
+        "Name": "\u9ad8\u901f\u5de5\u4f5cLv1",
+        "Description": "\u9ad8\u901f\u5de5\u4f5cLv1"
+    },
+    "WorkSpeed_ACC_up2": {
+        "Name": "\u9ad8\u901f\u5de5\u4f5cLv2",
+        "Description": "\u9ad8\u901f\u5de5\u4f5cLv2"
+    },
+    "WorkSpeed_ACC_up3": {
+        "Name": "\u9ad8\u901f\u5de5\u4f5cLv3",
+        "Description": "\u9ad8\u901f\u5de5\u4f5cLv3"
+    },
+    "WorkSpeed_ACC_up4": {
+        "Name": "\u9ad8\u901f\u5de5\u4f5cLv4",
+        "Description": "\u9ad8\u901f\u5de5\u4f5cLv4"
+    },
+    "WorkSuitabilityAddRank_MonsterFarm_1": {
+        "Name": "\u7267\u573a\u4e4b\u5b50",
+        "Description": "\u7267\u573a\u7684\u5de5\u4f5c\u9002\u5e94\u6027+1"
+    },
+    "WorkSuitabilityAddRank_MonsterFarm_2": {
+        "Name": "\u7267\u573a\u4e4b\u4e3b",
+        "Description": "\u7267\u573a\u7684\u5de5\u4f5c\u9002\u5e94\u6027+2"
+    },
+    "WorldTree_ATK": {
+        "Name": "\u53cc\u5203\u5723\u5251",
+        "Description": "\u653b\u51fb<NumBlue_13>+</>50.0% \u9632\u5fa1-30.0% \u4e16\u754c\u6811\u533a\u57df\u7684\u6811\u6728/\u77ff\u77f3\u4e0d\u4f1a\u56e0\u63a5\u8fd1\u800c\u6d88\u5931"
+    },
+    "WorldTree_ATK_DEF": {
+        "Name": "\u7834\u574f\u795e",
+        "Description": "\u653b\u51fb<NumBlue_13>+</>40.0% \u9632\u5fa1<NumBlue_13>+</>20.0% \u6700\u5927HP-50.0% \u4e16\u754c\u6811\u533a\u57df\u7684\u6811\u6728/\u77ff\u77f3\u4e0d\u4f1a\u56e0\u63a5\u8fd1\u800c\u6d88\u5931"
+    },
+    "WorldTree_CraftSpeed": {
+        "Name": "\u6076\u9b54\u4e4b\u624b",
+        "Description": "\u5de5\u4f5c\u901f\u5ea6<NumBlue_13>+</>90.0<NumBlue_13>%</> SAN\u503c\u4e0b\u964d\u901f\u5ea6\u52a0\u5feb<NumRed_13>+15.0%</> \u4e16\u754c\u6811\u533a\u57df\u7684\u6811\u6728/\u77ff\u77f3\u4e0d\u4f1a\u56e0\u63a5\u8fd1\u800c\u6d88\u5931"
+    },
+    "WorldTree_DEF": {
+        "Name": "\u5b88\u62a4\u5723\u76fe",
+        "Description": "\u9632\u5fa1<NumBlue_13>+</>50.0% \u653b\u51fb-30.0% \u4e16\u754c\u6811\u533a\u57df\u7684\u6811\u6728/\u77ff\u77f3\u4e0d\u4f1a\u56e0\u63a5\u8fd1\u800c\u6d88\u5931"
+    },
+    "WorldTree_FullStomach": {
+        "Name": "\u795e\u6811\u82d7\u5e8a",
+        "Description": "\u51cf\u5c11\u9971\u8179\u5ea6\u4e0b\u964d\u901f\u5ea6<NumBlue_13>+50.0%</> \u751f\u547d\u503c-20.0<NumRed_13>%</> \u4e16\u754c\u6811\u533a\u57df\u7684\u6811\u6728/\u77ff\u77f3\u4e0d\u4f1a\u56e0\u63a5\u8fd1\u800c\u6d88\u5931"
+    },
+    "WorldTree_MoveSpeed": {
+        "Name": "\u6b21\u5143\u8df3\u8dc3",
+        "Description": "\u79fb\u52a8\u901f\u5ea6\u63d0\u5347<NumBlue_13>+</>50.0<NumBlue_13>%</> \u9971\u8179\u5ea6\u4e0b\u964d\u901f\u5ea6\u52a0\u5feb<NumRed_13>+15.0%</> \u4e16\u754c\u6811\u533a\u57df\u7684\u6811\u6728/\u77ff\u77f3\u4e0d\u4f1a\u56e0\u63a5\u8fd1\u800c\u6d88\u5931"
+    },
+    "WorldTree_Sanity": {
+        "Name": "\u4ed9\u4eba",
+        "Description": "\u51cf\u5c11SAN\u503c\u4e0b\u964d\u901f\u5ea6<NumBlue_13>+50.0%</> \u5de5\u4f5c\u901f\u5ea6-20.0<NumRed_13>%</> \u4e16\u754c\u6811\u533a\u57df\u7684\u6811\u6728/\u77ff\u77f3\u4e0d\u4f1a\u56e0\u63a5\u8fd1\u800c\u6d88\u5931"
+    },
+    "YakushimaDagameBoost_Magic_Equip": {
+        "Name": "\u795e\u5723\u4e4b\u529b \u9b54\u6cd5",
+        "Description": "\u795e\u5723\u4e4b\u529b \u9b54\u6cd5"
+    },
+    "YakushimaDagameBoost_Melee_Equip": {
+        "Name": "\u795e\u5723\u4e4b\u529b \u8fd1\u6218",
+        "Description": "\u795e\u5723\u4e4b\u529b \u8fd1\u6218"
+    },
+    "YakushimaDagameBoost_Ranged_Equip": {
+        "Name": "\u795e\u5723\u4e4b\u529b \u8fdc\u7a0b",
+        "Description": "\u795e\u5723\u4e4b\u529b \u8fdc\u7a0b"
+    },
+    "YakushimaDagameBoost_Summon_Equip": {
+        "Name": "\u795e\u5723\u4e4b\u529b \u53ec\u5524",
+        "Description": "\u795e\u5723\u4e4b\u529b \u53ec\u5524"
+    },
+    "YakushimaProtection_Equip": {
+        "Name": "\u795e\u5723\u5b88\u62a4",
+        "Description": "\u795e\u5723\u5b88\u62a4"
+    },
+    "defense_ACC_up1": {
+        "Name": "\u63d0\u5347\u9632\u5fa1Lv1",
+        "Description": "\u63d0\u5347\u9632\u5fa1Lv1"
+    },
+    "defense_ACC_up2": {
+        "Name": "\u63d0\u5347\u9632\u5fa1Lv2",
+        "Description": "\u63d0\u5347\u9632\u5fa1Lv2"
+    },
+    "defense_ACC_up3": {
+        "Name": "\u63d0\u5347\u9632\u5fa1Lv3",
+        "Description": "\u63d0\u5347\u9632\u5fa1Lv3"
+    },
+    "defense_ACC_up4": {
+        "Name": "\u63d0\u5347\u9632\u5fa1Lv4",
+        "Description": "\u63d0\u5347\u9632\u5fa1Lv4"
     }
 }

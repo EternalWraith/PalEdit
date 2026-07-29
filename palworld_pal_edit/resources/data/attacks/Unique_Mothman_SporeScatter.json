@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_Mothman_SporeScatter",
+    "Type": "Leaf",
+    "Power": 800,
+    "Category": "Shot",
+    "Exclusive": [
+        "Mothman"
+    ]
+}

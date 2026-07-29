@@ -1,0 +1,11 @@
+{
+    "CodeName": "EPalWazaID::Unique_BlueSkyDragon_SweepBreath",
+    "Type": "Dragon",
+    "Power": 600,
+    "Category": "Shot",
+    "Exclusive": [
+        "BlueSkyDragon",
+        "GYM_BlueSkyDragon",
+        "GYM_BlueSkyDragon_2"
+    ]
+}

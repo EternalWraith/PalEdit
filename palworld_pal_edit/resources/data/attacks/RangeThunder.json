@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::RangeThunder",
     "Type": "Electricity",
-    "Power": 125,
+    "Power": 500,
     "Category": "Shot"
 }

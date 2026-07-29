@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::Weapon_Use",
     "Type": "Normal",
-    "Power": 0,
-    "Category": "Use Weapon"
+    "Power": 50,
+    "Category": "Shot"
 }

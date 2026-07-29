@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_BlackMetalDragon_FirePunch",
     "Type": "Dragon",
-    "Power": 130,
-    "Category": "Shot"
+    "Power": 450,
+    "Category": "Shot",
+    "Exclusive": [
+        "BlackMetalDragon"
+    ]
 }

@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_KingWhale_AquaTornado",
+    "Type": "Water",
+    "Power": 800,
+    "Category": "Shot",
+    "Exclusive": [
+        "KingWhale"
+    ]
+}

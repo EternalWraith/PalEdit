@@ -25,5 +25,6 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": true
+    "Human": true,
+    "RaidMoveset": {}
 }

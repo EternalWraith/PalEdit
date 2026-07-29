@@ -6,15 +6,14 @@
     ],
     "Moveset": {
         "EPalWazaID::Unique_ElecPanda_GatlingAttack": 1,
-        "EPalWazaID::Unique_ElecPanda_ElecScratch": 2,
-        "EPalWazaID::LineThunder": 3,
+        "EPalWazaID::ThunderRain": 2,
         "EPalWazaID::LightningStrike": 4,
-        "EPalWazaID::Thunderbolt": 5,
         "EPalWazaID::ShokeiLaser": 6,
-        "EPalWazaID::RootAttack": 7,
-        "EPalWazaID::SeedMine": 8,
-        "EPalWazaID::GrassTornado": 9,
-        "EPalWazaID::TriSpark": 10
+        "EPalWazaID::TriSpark": 7,
+        "EPalWazaID::RootAttack": 8,
+        "EPalWazaID::SeedMine": 9,
+        "EPalWazaID::WindEdge": 10,
+        "EPalWazaID::ReflectiveShuriken": 11
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -38,5 +37,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

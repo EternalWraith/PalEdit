@@ -1,0 +1,43 @@
+{
+    "CodeName": "ScorpionMan_Electric",
+    "Type": [
+        "Electricity",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::ElecWave": 7,
+        "EPalWazaID::LineThunder": 15,
+        "EPalWazaID::SandTornado": 22,
+        "EPalWazaID::TriSpark": 30,
+        "EPalWazaID::RangeThunder": 40,
+        "EPalWazaID::Unique_ScorpionMan_Erectric_UpperThunder": 50,
+        "EPalWazaID::ShokeiLaser": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 115,
+        "MAG": 115,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 3,
+        "Handcraft": 0,
+        "Collection": 2,
+        "Deforest": 4,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 2,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 141,
+    "TowerBoss": false
+}

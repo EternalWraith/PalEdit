@@ -12,18 +12,19 @@
         "EPalWazaID::ThreeThunder": 30,
         "EPalWazaID::Unique_Umihebi_WindingTackle": 35,
         "EPalWazaID::HydroPump": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 150,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 100
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 4,
+        "Watering": 7,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -36,5 +37,10 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "ElementBoost_Aqua_2_PAL"
+    ],
+    "DeckIndex": 121,
+    "TowerBoss": false
 }

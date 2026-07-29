@@ -11,12 +11,13 @@
         "EPalWazaID::GhostFlame": 22,
         "EPalWazaID::FlareTornado": 30,
         "EPalWazaID::Inferno": 40,
-        "EPalWazaID::FireBall": 50
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 60,
-        "PHY": 100,
+        "PHY": 70,
         "MAG": 70,
         "DEF": 80
     },
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 1
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 25,
+    "TowerBoss": false
 }

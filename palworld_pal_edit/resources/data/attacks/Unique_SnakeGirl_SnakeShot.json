@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_SnakeGirl_SnakeShot",
+    "Type": "Dark",
+    "Power": 600,
+    "Category": "Shot",
+    "Exclusive": [
+        "PREDATOR_SnakeGirl",
+        "SnakeGirl"
+    ]
+}

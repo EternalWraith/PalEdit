@@ -6,17 +6,19 @@
     ],
     "Moveset": {
         "EPalWazaID::MudShot": 1,
+        "EPalWazaID::Unique_CuteMole_DiggingAttack": 5,
         "EPalWazaID::PowerShot": 7,
         "EPalWazaID::StoneShotgun": 15,
         "EPalWazaID::ThrowRock": 22,
         "EPalWazaID::PowerBall": 30,
         "EPalWazaID::SandTornado": 40,
-        "EPalWazaID::RockLance": 50
+        "EPalWazaID::RockLance": 50,
+        "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 65,
-        "PHY": 100,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 50
     },
@@ -35,5 +37,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 31,
+    "TowerBoss": false
 }

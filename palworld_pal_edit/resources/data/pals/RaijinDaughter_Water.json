@@ -11,12 +11,13 @@
         "EPalWazaID::AcidRain": 22,
         "EPalWazaID::ThreeThunder": 30,
         "EPalWazaID::Apocalypse": 40,
-        "EPalWazaID::ThunderRain": 50
+        "EPalWazaID::ThunderRain": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 70,
-        "PHY": 110,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 75
     },
@@ -32,8 +33,11 @@
         "OilExtraction": 0,
         "ProductMedicine": 1,
         "Cool": 0,
-        "Transport": 1,
+        "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 92,
+    "TowerBoss": false
 }

@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_IceCrocodile_SpitAttack",
     "Type": "Ice",
-    "Power": 95,
-    "Category": "Shot"
+    "Power": 180,
+    "Category": "Shot",
+    "Exclusive": [
+        "IceCrocodile"
+    ]
 }

@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_LanternButler_LanternFlame",
+    "Type": "Dark",
+    "Power": 650,
+    "Category": "Shot",
+    "Exclusive": [
+        "LanternButler"
+    ]
+}

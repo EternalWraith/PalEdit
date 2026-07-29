@@ -11,12 +11,13 @@
         "EPalWazaID::BubbleShot": 22,
         "EPalWazaID::PowerBall": 30,
         "EPalWazaID::WaterBall": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::HydroPump": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 70,
-        "PHY": 100,
+        "PHY": 70,
         "MAG": 70,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 1
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 43,
+    "TowerBoss": false
 }

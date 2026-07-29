@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_HerculesBeetle_BeetleTackle",
     "Type": "Earth",
-    "Power": 75,
-    "Category": "Melee"
+    "Power": 250,
+    "Category": "Melee",
+    "Exclusive": [
+        "HerculesBeetle",
+        "HerculesBeetle_Ground"
+    ]
 }

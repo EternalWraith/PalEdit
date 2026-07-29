@@ -1,0 +1,46 @@
+{
+    "CodeName": "PREDATOR_RedFlowerBird",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::WindCutter": 1,
+        "EPalWazaID::SeedMachinegun": 7,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::GrassTornado": 15,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::WindEdge": 22,
+        "EPalWazaID::ReflectiveShuriken": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::CrossWind": 40,
+        "EPalWazaID::Unique_RedFlowerBird_JumpKick": 50,
+        "EPalWazaID::WindBurst": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 102,
+        "PHY": 85,
+        "MAG": 85,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 5,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 5,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
+}

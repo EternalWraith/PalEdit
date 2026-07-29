@@ -12,29 +12,35 @@
         "EPalWazaID::RootAttack": 30,
         "EPalWazaID::Unique_Yeti_Grass_GrassBall": 35,
         "EPalWazaID::WaterBall": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::SolarBeam": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 140,
-        "PHY": 100,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 110
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 1,
+        "Seeding": 3,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
+        "Handcraft": 3,
         "Collection": 0,
-        "Deforest": 3,
+        "Deforest": 5,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 4,
+        "Transport": 6,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 134,
+    "TowerBoss": false
 }

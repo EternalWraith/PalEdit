@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_Werewolf_Ice_SnowScratch",
     "Type": "Ice",
-    "Power": 55,
-    "Category": "Melee"
+    "Power": 160,
+    "Category": "Melee",
+    "Exclusive": [
+        "PREDATOR_Werewolf_Ice",
+        "Werewolf_Ice"
+    ]
 }

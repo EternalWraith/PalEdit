@@ -11,7 +11,8 @@
         "EPalWazaID::ThrowRock": 22,
         "EPalWazaID::Unique_HerculesBeetle_BeetleTackle": 30,
         "EPalWazaID::RockLance": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::SolarBeam": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -23,17 +24,22 @@
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 1,
+        "Seeding": 3,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 3,
         "Collection": 0,
-        "Deforest": 3,
+        "Deforest": 4,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 5,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up1"
+    ],
+    "DeckIndex": 113,
+    "TowerBoss": false
 }

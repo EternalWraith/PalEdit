@@ -2,29 +2,42 @@
     "CodeName": "LotusDragon",
     "Type": [
         "Leaf",
-        "Earth"
+        "Water"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::BubbleShot": 1,
+        "EPalWazaID::SeedMine": 7,
+        "EPalWazaID::DiversionLaser": 15,
+        "EPalWazaID::RootLance": 22,
+        "EPalWazaID::HydroPump": 30,
+        "EPalWazaID::WindBurst": 40,
+        "EPalWazaID::Unique_LotusDragon_LotusBloom": 50,
+        "EPalWazaID::SeaGush": 70
+    },
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "HP": 130,
+        "PHY": 115,
+        "MAG": 115,
+        "DEF": 120
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 1,
-        "Seeding": 1,
+        "Watering": 5,
+        "Seeding": 7,
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 1,
+        "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "RaidMoveset": {},
+    "InnatePassives": [],
+    "DeckIndex": 175,
+    "TowerBoss": false
 }

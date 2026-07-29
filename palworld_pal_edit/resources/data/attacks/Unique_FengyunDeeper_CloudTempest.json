@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_FengyunDeeper_CloudTempest",
     "Type": "Normal",
-    "Power": 90,
-    "Category": "Melee"
+    "Power": 120,
+    "Category": "Melee",
+    "Exclusive": [
+        "FengyunDeeper"
+    ]
 }

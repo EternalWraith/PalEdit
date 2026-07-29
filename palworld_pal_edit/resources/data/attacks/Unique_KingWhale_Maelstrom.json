@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_KingWhale_Maelstrom",
+    "Type": "Water",
+    "Power": 500,
+    "Category": "Shot",
+    "Exclusive": [
+        "KingWhale"
+    ]
+}

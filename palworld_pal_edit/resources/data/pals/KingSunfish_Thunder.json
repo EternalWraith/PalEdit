@@ -1,0 +1,43 @@
+{
+    "CodeName": "KingSunfish_Thunder",
+    "Type": [
+        "Water",
+        "Electricity"
+    ],
+    "Moveset": {
+        "EPalWazaID::WaterGun": 1,
+        "EPalWazaID::ElecWave": 7,
+        "EPalWazaID::DiversionLaser": 15,
+        "EPalWazaID::TriSpark": 22,
+        "EPalWazaID::ThunderRain": 30,
+        "EPalWazaID::RipTide": 40,
+        "EPalWazaID::ThunderStorm": 50,
+        "EPalWazaID::SeaGush": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 90,
+        "PHY": 95,
+        "MAG": 95,
+        "DEF": 85
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 4,
+        "Seeding": 0,
+        "GenerateElectricity": 6,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 169,
+    "TowerBoss": false
+}

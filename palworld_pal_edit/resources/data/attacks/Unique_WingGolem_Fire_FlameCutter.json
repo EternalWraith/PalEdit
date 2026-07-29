@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_WingGolem_Fire_FlameCutter",
+    "Type": "Fire",
+    "Power": 700,
+    "Category": "Shot",
+    "Exclusive": [
+        "WingGolem_Fire"
+    ]
+}

@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_GrimGirl_BrutalMachete",
     "Type": "Dark",
-    "Power": 130,
-    "Category": "Melee"
+    "Power": 500,
+    "Category": "Melee",
+    "Exclusive": [
+        "GrimGirl",
+        "PREDATOR_GrimGirl"
+    ]
 }

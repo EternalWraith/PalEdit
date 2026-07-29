@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_CaptainPenguin_Black_BodySlide_Electric",
     "Type": "Electricity",
-    "Power": 145,
-    "Category": "Shot"
+    "Power": 400,
+    "Category": "Shot",
+    "Exclusive": [
+        "CaptainPenguin_Black"
+    ]
 }

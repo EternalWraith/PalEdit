@@ -12,12 +12,13 @@
         "EPalWazaID::Unique_WhiteTiger_Ground_IronScratch": 30,
         "EPalWazaID::Tremor": 35,
         "EPalWazaID::RockLance": 40,
-        "EPalWazaID::RockBeat": 50
+        "EPalWazaID::RockBeat": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 140,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 110
     },
@@ -26,15 +27,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 2,
         "Collection": 0,
-        "Deforest": 2,
-        "Mining": 3,
+        "Deforest": 6,
+        "Mining": 5,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 4,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 132,
+    "TowerBoss": false
 }

@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_CuteMole_DiggingAttack",
+    "Type": "Earth",
+    "Power": 60,
+    "Category": "Melee",
+    "Exclusive": [
+        "CuteMole"
+    ]
+}

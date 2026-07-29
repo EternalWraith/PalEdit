@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_Gorilla_GroundPunch",
     "Type": "Normal",
-    "Power": 85,
-    "Category": "Melee"
+    "Power": 120,
+    "Category": "Melee",
+    "Exclusive": [
+        "Gorilla",
+        "Gorilla_Ground",
+        "PREDATOR_Gorilla"
+    ]
 }

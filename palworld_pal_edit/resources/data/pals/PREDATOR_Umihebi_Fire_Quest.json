@@ -1,0 +1,43 @@
+{
+    "CodeName": "PREDATOR_Umihebi_Fire_Quest",
+    "Type": [
+        "Dragon",
+        "Fire"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::DragonCanon": 7,
+        "EPalWazaID::FlareTornado": 15,
+        "EPalWazaID::Flamethrower": 22,
+        "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::ThunderStorm": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 187,
+        "PHY": 130,
+        "MAG": 130,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 7,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
+}

@@ -4,18 +4,27 @@
         "Electricity",
         "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::ElecWave": 1,
+        "EPalWazaID::LineThunder": 7,
+        "EPalWazaID::TriSpark": 15,
+        "EPalWazaID::LightningStrike": 22,
+        "EPalWazaID::Thunderbolt": 30,
+        "EPalWazaID::RangeThunder": 40,
+        "EPalWazaID::Unique_ElecSnail_ShellCharge": 50,
+        "EPalWazaID::Railbolt": 70
+    },
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "HP": 65,
+        "PHY": 70,
+        "MAG": 70,
+        "DEF": 75
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 2,
+        "GenerateElectricity": 4,
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 0,
@@ -26,5 +35,9 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "RaidMoveset": {},
+    "InnatePassives": [],
+    "DeckIndex": 163,
+    "TowerBoss": false
 }

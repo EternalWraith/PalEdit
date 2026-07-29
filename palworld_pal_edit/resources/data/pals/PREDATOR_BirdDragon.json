@@ -7,12 +7,15 @@
     "Moveset": {
         "EPalWazaID::AirCanon": 1,
         "EPalWazaID::FireBlast": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::FireSeed": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::Flamethrower": 22,
         "EPalWazaID::Unique_BirdDragon_FireBreath": 26,
-        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::ShadowBall": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::FireBall": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {
         "EPalWazaID::AirCanon": 1,
@@ -28,12 +31,12 @@
     },
     "Scaling": {
         "HP": 108,
-        "PHY": 100,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 90
     },
     "Suitabilities": {
-        "EmitFlame": 1,
+        "EmitFlame": 2,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
@@ -47,5 +50,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

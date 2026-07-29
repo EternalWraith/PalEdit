@@ -11,12 +11,13 @@
         "EPalWazaID::ThrowRock": 22,
         "EPalWazaID::SandTornado": 30,
         "EPalWazaID::WaterBall": 40,
-        "EPalWazaID::RockLance": 50
+        "EPalWazaID::RockLance": 50,
+        "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 80,
-        "PHY": 80,
+        "PHY": 95,
         "MAG": 95,
         "DEF": 120
     },
@@ -28,12 +29,17 @@
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 3,
+        "Mining": 4,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up1"
+    ],
+    "DeckIndex": 107,
+    "TowerBoss": false
 }

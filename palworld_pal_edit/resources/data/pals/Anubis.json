@@ -11,7 +11,9 @@
         "EPalWazaID::Unique_Anubis_LowRoundKick": 22,
         "EPalWazaID::Unique_Anubis_Tackle": 30,
         "EPalWazaID::Unique_Anubis_GroundPunch": 40,
-        "EPalWazaID::RockLance": 50
+        "EPalWazaID::RockLance": 50,
+        "EPalWazaID::SandTwister": 55,
+        "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -25,15 +27,20 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 4,
+        "Handcraft": 6,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 3,
+        "Mining": 6,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 2,
+        "Transport": 4,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "ElementBoost_Earth_2_PAL"
+    ],
+    "DeckIndex": 139,
+    "TowerBoss": false
 }

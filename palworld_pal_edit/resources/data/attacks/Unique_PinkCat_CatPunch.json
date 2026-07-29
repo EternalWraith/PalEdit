@@ -2,5 +2,9 @@
     "CodeName": "EPalWazaID::Unique_PinkCat_CatPunch",
     "Type": "Normal",
     "Power": 40,
-    "Category": "Melee"
+    "Category": "Melee",
+    "Exclusive": [
+        "PinkCat",
+        "Quest_Farmer03_PinkCat"
+    ]
 }

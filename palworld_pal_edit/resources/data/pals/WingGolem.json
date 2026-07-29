@@ -11,12 +11,13 @@
         "EPalWazaID::Tremor": 22,
         "EPalWazaID::RockLance": 30,
         "EPalWazaID::Unique_WingGolem_RoundCutter": 40,
-        "EPalWazaID::SandTwister": 50
+        "EPalWazaID::SandTwister": 50,
+        "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 100,
+        "PHY": 110,
         "MAG": 110,
         "DEF": 135
     },
@@ -26,14 +27,19 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 3,
+        "Collection": 4,
         "Deforest": 0,
-        "Mining": 4,
+        "Mining": 7,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 4,
+        "Transport": 7,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 159,
+    "TowerBoss": false
 }

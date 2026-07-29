@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_DarkMechaDragon_SetFunnel",
     "Type": "Dragon",
-    "Power": 80,
-    "Category": "Shot"
+    "Power": 400,
+    "Category": "Shot",
+    "Exclusive": [
+        "DarkMechaDragon",
+        "RAID_DarkMechaDragon",
+        "RAID_DarkMechaDragon_2"
+    ]
 }

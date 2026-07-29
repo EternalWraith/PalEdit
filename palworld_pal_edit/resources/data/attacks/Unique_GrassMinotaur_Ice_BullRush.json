@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_GrassMinotaur_Ice_BullRush",
+    "Type": "Ice",
+    "Power": 650,
+    "Category": "Melee",
+    "Exclusive": [
+        "GrassMinotaur_Ice",
+        "PREDATOR_GrassMinotaur_Ice"
+    ]
+}

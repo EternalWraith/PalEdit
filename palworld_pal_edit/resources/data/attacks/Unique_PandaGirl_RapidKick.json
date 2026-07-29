@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_PandaGirl_RapidKick",
+    "Type": "Leaf",
+    "Power": 250,
+    "Category": "Melee",
+    "Exclusive": [
+        "PREDATOR_PandaGirl",
+        "PandaGirl"
+    ]
+}

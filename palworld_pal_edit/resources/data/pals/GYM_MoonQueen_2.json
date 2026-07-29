@@ -7,22 +7,21 @@
     "Moveset": {
         "EPalWazaID::Unique_MoonQueen_MoonBeam": 1,
         "EPalWazaID::Unique_MoonQueen_IceMoonBlade": 2,
-        "EPalWazaID::StarMine": 3,
-        "EPalWazaID::AirBlade": 4,
-        "EPalWazaID::HolyBlast": 5,
-        "EPalWazaID::IciclePierce": 6,
-        "EPalWazaID::ShadowBall": 7,
-        "EPalWazaID::IceAge": 8,
-        "EPalWazaID::DoubleIcicleThrow": 9,
-        "EPalWazaID::DiamondFall": 10,
-        "EPalWazaID::ThreeCommet": 11,
-        "EPalWazaID::BlastCanon": 12,
-        "EPalWazaID::DarkCanon": 13
+        "EPalWazaID::Unique_MoonQueen_GYM_Hard_Act": 3,
+        "EPalWazaID::StarMine": 4,
+        "EPalWazaID::AirBlade": 5,
+        "EPalWazaID::HolyBlast": 6,
+        "EPalWazaID::DarkLegion": 7,
+        "EPalWazaID::ShadowBall": 8,
+        "EPalWazaID::IceWall": 9,
+        "EPalWazaID::IcicleThrow": 10,
+        "EPalWazaID::DiamondFall": 11,
+        "EPalWazaID::ThreeCommet": 12
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 110
     },
@@ -41,5 +40,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

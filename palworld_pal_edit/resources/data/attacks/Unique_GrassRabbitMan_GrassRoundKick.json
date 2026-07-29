@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_GrassRabbitMan_GrassRoundKick",
     "Type": "Leaf",
-    "Power": 90,
-    "Category": "Melee"
+    "Power": 250,
+    "Category": "Melee",
+    "Exclusive": [
+        "GrassRabbitMan"
+    ]
 }

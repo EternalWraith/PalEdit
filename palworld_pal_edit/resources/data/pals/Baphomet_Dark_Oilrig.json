@@ -10,13 +10,15 @@
         "EPalWazaID::FlareArrow": 15,
         "EPalWazaID::Unique_Baphomet_SwallowKite": 22,
         "EPalWazaID::DarkWave": 30,
+        "EPalWazaID::Unique_Baphomet_Dark_DarkKite": 35,
         "EPalWazaID::FireBall": 40,
-        "EPalWazaID::Inferno": 50
+        "EPalWazaID::Inferno": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 95,
-        "PHY": 150,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 85
     },
@@ -35,5 +37,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 91,
+    "TowerBoss": false
 }

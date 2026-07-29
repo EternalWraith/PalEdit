@@ -2,5 +2,8 @@
     "CodeName": "EPalWazaID::Unique_YakushimaMonster001_SlimePress_Rainbow",
     "Type": "Normal",
     "Power": 100,
-    "Category": "Melee"
+    "Category": "Melee",
+    "Exclusive": [
+        "YakushimaMonster001_Rainbow"
+    ]
 }

@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_Yeti_Grass_GrassBall",
     "Type": "Leaf",
-    "Power": 100,
-    "Category": "Melee"
+    "Power": 400,
+    "Category": "Melee",
+    "Exclusive": [
+        "Yeti_Grass"
+    ]
 }

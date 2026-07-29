@@ -9,19 +9,16 @@
         "EPalWazaID::Unique_BlackGriffon_TackleLaser2": 2,
         "EPalWazaID::DarkLaser": 3,
         "EPalWazaID::Apocalypse": 4,
-        "EPalWazaID::IciclePierce": 5,
-        "EPalWazaID::DoubleIcicleThrow": 6,
-        "EPalWazaID::IcicleLine": 7,
-        "EPalWazaID::BeamSlicer": 8,
-        "EPalWazaID::ShokeiLaser": 9,
-        "EPalWazaID::SandTwister": 10,
-        "EPalWazaID::WallSplash": 11,
-        "EPalWazaID::FlameFunnel": 12
+        "EPalWazaID::ShokeiLaser": 5,
+        "EPalWazaID::DiamondFall": 6,
+        "EPalWazaID::IcicleThrow": 7,
+        "EPalWazaID::IcicleLine": 8,
+        "EPalWazaID::IceWall": 9
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 120,
-        "PHY": 130,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 140
     },
@@ -40,5 +37,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

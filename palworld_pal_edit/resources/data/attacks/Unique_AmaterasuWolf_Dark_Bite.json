@@ -1,0 +1,11 @@
+{
+    "CodeName": "EPalWazaID::Unique_AmaterasuWolf_Dark_Bite",
+    "Type": "Dark",
+    "Power": 50,
+    "Category": "Melee",
+    "Exclusive": [
+        "AmaterasuWolf_Dark",
+        "AmaterasuWolf_Dark_Quest_Enemy",
+        "AmaterasuWolf_Dark_Quest_Friend"
+    ]
+}

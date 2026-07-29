@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_FairyDragon_FairyTornado",
     "Type": "Dragon",
-    "Power": 70,
-    "Category": "Shot"
+    "Power": 150,
+    "Category": "Shot",
+    "Exclusive": [
+        "FairyDragon",
+        "FairyDragon_Water",
+        "PREDATOR_FairyDragon"
+    ]
 }

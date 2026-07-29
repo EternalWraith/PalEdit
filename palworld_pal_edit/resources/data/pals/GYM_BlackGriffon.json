@@ -9,17 +9,15 @@
         "EPalWazaID::DarkLegion": 2,
         "EPalWazaID::DarkPulse": 3,
         "EPalWazaID::ShadowBall": 4,
-        "EPalWazaID::IcicleThrow": 5,
-        "EPalWazaID::BlizzardLance": 6,
-        "EPalWazaID::DarkLaser": 7,
-        "EPalWazaID::FrostBreath": 8,
-        "EPalWazaID::IceMissile": 9,
-        "EPalWazaID::IceBlade": 10
+        "EPalWazaID::DarkLaser": 5,
+        "EPalWazaID::BubbleShower": 6,
+        "EPalWazaID::GhostFlame": 7,
+        "EPalWazaID::DarkCanon": 8
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 120,
-        "PHY": 130,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 140
     },
@@ -38,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

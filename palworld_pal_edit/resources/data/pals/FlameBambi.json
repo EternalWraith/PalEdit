@@ -11,12 +11,13 @@
         "EPalWazaID::FlareArrow": 22,
         "EPalWazaID::FlareTornado": 30,
         "EPalWazaID::Inferno": 40,
-        "EPalWazaID::FireBall": 50
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 75,
-        "PHY": 100,
+        "PHY": 70,
         "MAG": 70,
         "DEF": 75
     },
@@ -33,7 +34,10 @@
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
-        "MonsterFarm": 0
+        "MonsterFarm": 1
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 26,
+    "TowerBoss": false
 }

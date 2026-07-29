@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_GhostAnglerfish_SweepBait",
     "Type": "Water",
-    "Power": 95,
-    "Category": "Shot"
+    "Power": 450,
+    "Category": "Shot",
+    "Exclusive": [
+        "GhostAnglerfish"
+    ]
 }

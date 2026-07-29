@@ -6,18 +6,17 @@
     ],
     "Moveset": {
         "EPalWazaID::Unique_ThunderDragonMan_ThunderSwordAttack": 1,
-        "EPalWazaID::LightningStrike": 2,
+        "EPalWazaID::ThreeThunder": 2,
         "EPalWazaID::DragonWave": 3,
-        "EPalWazaID::DragonBreath": 4,
+        "EPalWazaID::Commet": 4,
         "EPalWazaID::LineThunder": 5,
-        "EPalWazaID::DragonCanon": 6,
-        "EPalWazaID::AcidRain": 7,
-        "EPalWazaID::DragonMeteor": 8
+        "EPalWazaID::AcidRain": 6,
+        "EPalWazaID::Unique_ThunderDragonMan_GYM_Act": 7
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 110
     },
@@ -25,7 +24,7 @@
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 3,
+        "GenerateElectricity": 8,
         "Handcraft": 2,
         "Collection": 0,
         "Deforest": 0,
@@ -36,5 +35,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

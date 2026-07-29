@@ -7,11 +7,14 @@
     "Moveset": {
         "EPalWazaID::DarkBall": 1,
         "EPalWazaID::DarkPulse": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::DarkCanon": 15,
-        "EPalWazaID::DarkWave": 22,
-        "EPalWazaID::ShadowBall": 30,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::ShadowBall": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::Unique_GrimGirl_BrutalMachete": 40,
-        "EPalWazaID::DarkLegion": 50
+        "EPalWazaID::DarkLegion": 50,
+        "EPalWazaID::FireBall": 70
     },
     "RaidMoveset": {
         "EPalWazaID::DarkArrow": 1,
@@ -26,7 +29,7 @@
     },
     "Scaling": {
         "HP": 114,
-        "PHY": 100,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 105
     },
@@ -35,15 +38,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 4,
+        "Handcraft": 6,
         "Collection": 0,
-        "Deforest": 1,
+        "Deforest": 3,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 3,
+        "ProductMedicine": 5,
         "Cool": 0,
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

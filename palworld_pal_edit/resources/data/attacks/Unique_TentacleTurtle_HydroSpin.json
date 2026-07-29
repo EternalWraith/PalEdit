@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_TentacleTurtle_HydroSpin",
     "Type": "Water",
-    "Power": 95,
-    "Category": "Shot"
+    "Power": 160,
+    "Category": "Shot",
+    "Exclusive": [
+        "TentacleTurtle",
+        "TentacleTurtle_Ground"
+    ]
 }

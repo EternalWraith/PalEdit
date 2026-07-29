@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_VolcanoDragon_Ice_IcicleSpit",
+    "Type": "Ice",
+    "Power": 600,
+    "Category": "Shot",
+    "Exclusive": [
+        "VolcanoDragon_Ice"
+    ]
+}

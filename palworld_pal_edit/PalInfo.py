@@ -205,7 +205,9 @@ class PalEntity:
         if "SlotId" in self._obj:
             self.owner = self._obj["SlotId"]['value']["ContainerId"]['value']['ID']['value']
 
-        if "IsPlayer" in self._obj:
+        # Palworld 1.0 writes IsPlayer=False on every pal, so key presence
+        # alone no longer identifies a player character
+        if "IsPlayer" in self._obj and self._obj["IsPlayer"].get("value", False):
             raise Exception("This is a player character")
 
         if not "IsRarePal" in self._obj:
@@ -225,13 +227,14 @@ class PalEntity:
                 typename = "LazyCatfish"
 
         # print(f"Debug: typename2 - '{typename}'")
-        if typename.lower() == "sheepball":
-            print(typename)
-            typename = "SheepBall"
-
-            # Strangely, Boss and Lucky Lamballs have camelcasing
-            # Regular ones... don't
-        # print(f"Debug: typename3 - '{typename}'")
+        # Match the species by CharacterID, tolerating a casing difference
+        # between the save and our data. Unreal treats these names
+        # case-insensitively, so e.g. the game's "SheepBall" (Lamball) resolves
+        # to a data key stored as "Sheepball" instead of failing to load. This
+        # replaces the old per-species SheepBall fix-up and covers any pal
+        # whose data casing drifts from the save.
+        if typename not in PalSpecies and typename.lower() in PalSpeciesLower:
+            typename = PalSpeciesLower[typename.lower()]
 
         self._type = PalSpecies[typename]
         if self.IsHuman() and ogtypename[:5].lower() == "boss_":
@@ -255,9 +258,11 @@ class PalEntity:
             self._talent_hp = 0  # we set 0, so if its not changed it should be removed by the game again.
         self._talent_hp = self._obj['Talent_HP']['value']["value"]
 
-        if not "Talent_Melee" in self._obj:
-            self._obj['Talent_Melee'] = copy.deepcopy(EmptyTalentObject)
-        self._melee = self._obj['Talent_Melee']['value']["value"]
+        # Palworld 1.0 uses a single attack IV (Talent_Shot); the separate
+        # melee IV was removed and palworld-save-pal never reads or writes it.
+        # Drop any leftover Talent_Melee on load so re-saving matches 1.0, and
+        # don't write it.
+        self._obj.pop("Talent_Melee", None)
 
         if not "Talent_Shot" in self._obj:
             self._obj['Talent_Shot'] = copy.deepcopy(EmptyTalentObject)
@@ -304,10 +309,16 @@ class PalEntity:
         if not "MasteredWaza" in self._obj:
             self._obj["MasteredWaza"] = copy.deepcopy(EmptyMovesObject)
 
-        self._learntMoves = self._obj["MasteredWaza"]["value"]["values"]
+        # EquipWaza = the equipped moves; MasteredWaza = moves taught BEYOND the
+        # species' natural level-up learnset (fruit skills). The game derives
+        # natural moves from species + level, so they must NOT be written into
+        # MasteredWaza. _learntMoves is a display-only pool rebuilt by
+        # CleanseAttacks; it is never written to the save.
         self._equipMoves = self._obj["EquipWaza"]["value"]["values"]
-
+        self._masteredMoves = self._obj["MasteredWaza"]["value"]["values"]
+        self._learntMoves = []
         self.CleanseAttacks()
+
         if not "Hp" in self._obj:
             self._obj["Hp"] = copy.deepcopy(EmptyHpObject)
         self.UpdateMaxHP()
@@ -315,11 +326,17 @@ class PalEntity:
         if "GotWorkSuitabilityAddRankList" not in self._obj:
             self._obj["GotWorkSuitabilityAddRankList"] = copy.deepcopy(EmptyGotWorkObject)
         self.AddSuits = self._obj["GotWorkSuitabilityAddRankList"]
-        for i in suitnames:
-            if f"EPalWorkSuitability::{i}" not in [x["WorkSuitability"]["value"]["value"] for x in self.AddSuits["value"]["values"]]:
-                t = copy.deepcopy(EmptyWorkObject)
-                t["WorkSuitability"]["value"]["value"] = f"EPalWorkSuitability::{i}"
-                self.AddSuits["value"]["values"].append(t)
+        # The game only records work-suitability bonuses that are non-zero.
+        # A zero-rank entry for every suitability (13 per pal) can interfere
+        # with in-game work assignment, so prune zero-rank entries on load to
+        # match what the game itself writes; SetSuit re-creates an entry only
+        # when a real bonus is set.
+        self.AddSuits["value"]["values"] = [
+            x for x in self.AddSuits["value"]["values"] if x["Rank"]["value"] != 0
+        ]
+        # CraftSpeeds is a pre-1.0 field; 1.0 saves don't have it. Drop it on
+        # load so re-saving matches the current format.
+        self._obj.pop("CraftSpeeds", None)
                 
                 
     def GetSuit(self, suit):
@@ -329,9 +346,20 @@ class PalEntity:
         return 0
 
     def SetSuit(self, suit, value):
-        for i in self.AddSuits["value"]["values"]:
-            if i["WorkSuitability"]["value"]["value"] == f"EPalWorkSuitability::{suit}":
-                i["Rank"]["value"] = value
+        key = f"EPalWorkSuitability::{suit}"
+        entries = self.AddSuits["value"]["values"]
+        for i in entries:
+            if i["WorkSuitability"]["value"]["value"] == key:
+                if value == 0:
+                    entries.remove(i)  # drop the entry rather than store a zero
+                else:
+                    i["Rank"]["value"] = value
+                return
+        if value != 0:
+            t = copy.deepcopy(EmptyWorkObject)
+            t["WorkSuitability"]["value"]["value"] = key
+            t["Rank"]["value"] = value
+            entries.append(t)
 
     def IsHuman(self):
         return self._type._human
@@ -368,38 +396,40 @@ class PalEntity:
             avail_skills.remove("EPalWazaID::None")
         return avail_skills
 
+    def _naturalMoves(self):
+        """Moves the species learns by levelling, up to this pal's level."""
+        learnset = PalLearnSet.get(self._type.GetCodeName(), {})
+        return [m for m in learnset
+                if self._level >= learnset[m] and m in PalAttacks]
+
+    def _validMove(self, m):
+        if m in ("None", "EPalWazaID::None") or "MAX" in m:
+            return False
+        excl = SkillExclusivity.get(m)
+        return excl is None or self._type.GetCodeName() in excl
+
     def CleanseAttacks(self):
-        i = 0
-        while i < len(self._learntMoves):
-            remove = False
-            if self._learntMoves[i] in ["None", "EPalWazaID::None"] or "MAX" in self._learntMoves[i]:
-                remove = True
-            else:
-                # Check skill has Exclusivity
-                if not (SkillExclusivity[self._learntMoves[i]] is None):
-                    if not self._type.GetCodeName() in SkillExclusivity[self._learntMoves[i]]:
-                        remove = True
-                # Check level are available for Skills
-                if self._learntMoves[i] in PalLearnSet[self._type.GetCodeName()]:
-                    if not self._level >= PalLearnSet[self._type.GetCodeName()][self._learntMoves[i]]:
-                        if not self._learntMoves[i] in self._equipMoves:
-                            remove = True
+        """Rebuild the display move-pool and keep the save's move lists valid.
 
-            if remove:
-                if self._learntMoves[i] in self._equipMoves:
-                    self._equipMoves.remove(self._learntMoves[i])
-                self._learntMoves.pop(i)
-            else:
-                i += 1
-
-        for skill_CodeName in PalLearnSet[self._type.GetCodeName()]:
-            if not skill_CodeName in self._learntMoves:
-                if PalLearnSet[self._type.GetCodeName()][skill_CodeName] <= self._level:
-                    self._learntMoves.append(skill_CodeName)
-
-        for i in self._equipMoves:
-            if not i in self._learntMoves:
-                self._learntMoves.append(i)
+        MasteredWaza is pruned to only the *taught extras* (valid moves that
+        are not part of the natural learnset); natural learnset moves are the
+        game's to grant and must not be persisted there. EquipWaza is pruned of
+        invalid moves. _learntMoves is a display-only union and is never saved.
+        """
+        natural = self._naturalMoves()
+        # Prune MasteredWaza against the FULL species learnset (every level),
+        # not just moves already learnable at this level: any learnset move is
+        # the game's to grant and does not belong in MasteredWaza. This also
+        # clears any learnset moves an earlier build may have stored here.
+        full_learnset = set(PalLearnSet.get(self._type.GetCodeName(), {}))
+        self._masteredMoves[:] = [m for m in self._masteredMoves
+                                  if self._validMove(m) and m not in full_learnset]
+        self._equipMoves[:] = [m for m in self._equipMoves if self._validMove(m)]
+        pool = []
+        for m in natural + self._masteredMoves + self._equipMoves:
+            if m not in pool:
+                pool.append(m)
+        self._learntMoves[:] = pool
 
     def GetType(self):
         return self._type
@@ -408,14 +438,10 @@ class PalEntity:
         self._obj['CharacterID']['value'] = ("BOSS_" if (self.isBoss or self.isLucky) and not self.IsHuman() else "") + value
         self._type = PalSpecies[value]
         self.CleanseAttacks()
-
-        if self.IsHuman(): return
-        
-        ss = copy.deepcopy(EmptySuitObject)
-        for i in ss["value"]["values"]:
-            t = i["WorkSuitability"]["value"]["value"].split("::")[1]
-            i["Rank"]["value"] = self._type._suits[t]
-        self._obj["CraftSpeeds"] = ss
+        # NOTE: earlier versions also wrote a "CraftSpeeds" field here with the
+        # new species' work ranks. Palworld 1.0 saves have no such field (the
+        # game derives work suitability from species data + the
+        # GotWorkSuitabilityAddRankList bonuses), so it is no longer written.
 
     def GetObject(self) -> PalObject:
         return self._type
@@ -430,7 +456,7 @@ class PalEntity:
         #self._obj['CraftSpeed']['value'] = self._workspeed = value
 
     def SetAttack(self, mval, rval):
-        self._obj['Talent_Melee']['value']["value"] = self._melee = mval
+        # 1.0 has a single attack IV (Talent_Shot); melee is ignored
         self._obj['Talent_Shot']['value']["value"] = self._ranged = rval
 
     def GetTalentHP(self):
@@ -486,47 +512,54 @@ class PalEntity:
     
         #return self._obj['MaxHP']['value']['Value']['value']
 
-    def CalculateIngameStats(self):
+    def CalculateIngameStats(self, baseline=False):
+        """Computed in-game stats. With baseline=True, use the level-only
+        values (IV 0, souls 0, condensation rank 1) — the 'standard' stats for
+        this species at this level, for comparing against the pal's actual."""
         LEVEL = self.GetLevel()
         SCALING = self.GetObject().GetScaling()
+        talent_hp = 0 if baseline else self.GetTalentHP()
+        talent_at = 0 if baseline else self.GetAttackMelee()
+        talent_rn = 0 if baseline else self.GetAttackRanged()
+        talent_df = 0 if baseline else self.GetDefence()
+        soul_hp = 0 if baseline else self.GetRankHP()
+        soul_at = 0 if baseline else self.GetRankAttack()
+        soul_df = 0 if baseline else self.GetRankDefence()
+        rank = 1 if baseline else self.GetRank()
 
         HP_SCALE = SCALING["HP"]
         if self.isBoss and "HP_BOSS" in SCALING:
             HP_SCALE = SCALING["HP_BOSS"]
-        HP_IV = self.GetTalentHP() * 0.3 / 100
-        HP_SOUL = self.GetRankHP() * 0.03
-        HP_RANK = (self.GetRank() - 1) * 0.05
-        HP_BONUS = 0
+        HP_IV = talent_hp * 0.3 / 100
+        HP_SOUL = soul_hp * 0.03
+        HP_RANK = (rank - 1) * 0.05
 
         HP_STAT = math.floor(500 + 5 * LEVEL + HP_SCALE * 0.5 * LEVEL * (1 + HP_IV))
-        HP_STAT = math.floor(HP_STAT * (1 + HP_BONUS) * (1 + HP_SOUL) * (1 + HP_RANK))
+        HP_STAT = math.floor(HP_STAT * (1 + HP_SOUL) * (1 + HP_RANK))
 
         AT_SCALE = SCALING["PHY"]
-        AT_IV = self.GetAttackMelee() * 0.3 / 100
-        AT_SOUL = self.GetRankAttack() * 0.03
-        AT_RANK = (self.GetRank() - 1) * 0.05
-        AT_BONUS = 0
+        AT_IV = talent_at * 0.3 / 100
+        AT_SOUL = soul_at * 0.03
+        AT_RANK = (rank - 1) * 0.05
 
         AT_STAT = math.floor(100 + AT_SCALE * 0.075 * LEVEL * (1 + AT_IV))
-        AT_STAT = math.floor(AT_STAT * (1 + AT_BONUS) * (1 + AT_SOUL) * (1 + AT_RANK))
+        AT_STAT = math.floor(AT_STAT * (1 + AT_SOUL) * (1 + AT_RANK))
 
         MT_SCALE = SCALING["MAG"]
-        MT_IV = self.GetAttackRanged() * 0.3 / 100
-        MT_SOUL = self.GetRankAttack() * 0.03
-        MT_RANK = (self.GetRank() - 1) * 0.05
-        MT_BONUS = 0
+        MT_IV = talent_rn * 0.3 / 100
+        MT_SOUL = soul_at * 0.03
+        MT_RANK = (rank - 1) * 0.05
 
         MT_STAT = math.floor(100 + MT_SCALE * 0.075 * LEVEL * (1 + MT_IV))
-        MT_STAT = math.floor(MT_STAT * (1 + MT_BONUS) * (1 + MT_SOUL) * (1 + MT_RANK))
+        MT_STAT = math.floor(MT_STAT * (1 + MT_SOUL) * (1 + MT_RANK))
 
         DF_SCALE = SCALING["DEF"]
-        DF_IV = self.GetDefence() * 0.3 / 100
-        DF_SOUL = self.GetRankDefence() * 0.03
-        DF_RANK = (self.GetRank() - 1) * 0.05
-        DF_BONUS = 0
+        DF_IV = talent_df * 0.3 / 100
+        DF_SOUL = soul_df * 0.03
+        DF_RANK = (rank - 1) * 0.05
 
         DF_STAT = math.floor(50 + DF_SCALE * 0.075 * LEVEL * (1 + DF_IV))
-        DF_STAT = math.floor(DF_STAT * (1 + DF_BONUS) * (1 + DF_SOUL) * (1 + DF_RANK))
+        DF_STAT = math.floor(DF_STAT * (1 + DF_SOUL) * (1 + DF_RANK))
         return {"HP": HP_STAT, "PHY": AT_STAT, "MAG": MT_STAT, "DEF": DF_STAT}
 
 
@@ -585,10 +618,13 @@ class PalEntity:
         print("%s MaxHP: %s -> %s" % (self.GetFullName(), old_hp, new_hp))
 
     def GetAttackMelee(self):
-        return self._melee
+        # 1.0 has no melee IV; the attack stat uses Talent_Shot. Mirror it so
+        # CalculateIngameStats stays correct without a Talent_Melee field.
+        return self._ranged
 
     def SetAttackMelee(self, value):
-        self._obj['Talent_Melee']['value']["value"] = self._melee = value
+        # melee IV was removed in 1.0; keep the single attack IV (Talent_Shot)
+        self.SetAttackRanged(value)
 
     def GetAttackRanged(self):
         return self._ranged
@@ -632,6 +668,12 @@ class PalEntity:
             self._skills[slot] = skill
 
     def SetAttackSkill(self, slot, attack):
+        # equipping a move the pal doesn't learn naturally requires it to be
+        # recorded as a taught (mastered) move so the game accepts it
+        if (attack not in ("None", "EPalWazaID::None")
+                and attack not in self._naturalMoves()
+                and attack not in self._masteredMoves):
+            self._masteredMoves.append(attack)
         if slot > len(self._equipMoves) - 1:
             self._equipMoves.append(attack)
         else:
@@ -687,31 +729,30 @@ class PalEntity:
                 f"[ERROR:] Failed to update rank for: '{self.GetName()}'")  # we probably could get rid of this line, since you add rank if missing - same with level
 
     def PurgeAttack(self, slot):
+        # unequip: the move stays known; just clear the equip slot
         if slot >= len(self._equipMoves):
             return
-        p = self._equipMoves.pop(slot)
-        if not p in PalLearnSet[self.GetCodeName()]:
-            self._learntMoves.remove(p)
-        else:
-            if PalLearnSet[self.GetCodeName()][p] > self.GetLevel():
-                self._learntMoves.remove(p)
+        self._equipMoves.pop(slot)
+        self.CleanseAttacks()
 
     def StripAttack(self, name):
-        name = name.replace("⚔","").replace("🏹","")
-        print(name)
-        print(self._learntMoves)
-        strip = False
-        if not name in self._equipMoves:
-            if not name in PalLearnSet[self.GetCodeName()]:
-                strip = True
-            elif PalLearnSet[self.GetCodeName()][name] > self.GetLevel():
-                strip = True
-        if strip:
-            self._learntMoves.remove(name)
+        # forget a move entirely: drop it from equipped and taught lists. A
+        # natural learnset move can't truly be forgotten (the game re-grants
+        # it), so it simply reappears in the display after CleanseAttacks.
+        name = name.replace("⚔", "").replace("🏹", "")
+        if name in self._equipMoves:
+            self._equipMoves.remove(name)
+        if name in self._masteredMoves:
+            self._masteredMoves.remove(name)
+        self.CleanseAttacks()
 
     def FruitAttack(self, name):
-        if not name in self._learntMoves:
-            self._learntMoves.append(name)
+        # teach a move: only non-natural moves need recording in MasteredWaza
+        if name in ("None", "EPalWazaID::None") or not name:
+            return
+        if name not in self._naturalMoves() and name not in self._masteredMoves:
+            self._masteredMoves.append(name)
+        self.CleanseAttacks()
 
     def RemoveSkill(self, slot):
         if slot < len(self._skills):
@@ -724,6 +765,20 @@ class PalEntity:
 
     def GetNickname(self):
         return self.GetName() if self._nickname == "" else self._nickname
+
+    def SetNickname(self, value):
+        """Set (or clear, with "") the pal's custom name.
+
+        Writes both NickName and, in Palworld 1.0, FilteredNickName — the
+        game shows the filtered copy, so they must stay in sync. Creating
+        either key when absent keeps older/world saves working too."""
+        value = value or ""
+        self._nickname = value
+        for key in ("NickName", "FilteredNickName"):
+            if key in self._obj:
+                self._obj[key]['value'] = value
+            elif value != "" or key == "NickName":
+                self._obj[key] = {'id': None, 'value': value, 'type': 'StrProperty'}
 
     def GetFullName(self):
         return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (
@@ -985,18 +1040,38 @@ class PalPlayerEntity:
         return self._data
 
 
+class PalStoragePlayer:
+    """Pseudo-player used when editing GlobalPalStorage.sav (Palworld 1.0
+    Global Palbox), which has no player or container data."""
+
+    def __init__(self, guid="00000000-0000-0000-0000-000000000000"):
+        self._guid = guid
+
+    def GetPlayerGuid(self):
+        return self._guid
+
+    def GetTravelPalInventoryGuid(self):
+        return None
+
+    def GetPalStorageGuid(self):
+        return None
+
+
 with open("%s/resources/data/elements.json" % (module_dir), "r", encoding="utf8") as elementfile:
     PalElements = {}
     for i in json.loads(elementfile.read())["values"]:
         PalElements[i['Name']] = i['Color']
 
 PalSpecies = {}
+# lowercase CodeName -> canonical CodeName, so a save's CharacterID can be
+# matched case-insensitively (Unreal FNames compare without regard to case)
+PalSpeciesLower = {}
 # PalLearnSet: Pal Skills require Level
 PalLearnSet = {}
 
 
 def LoadPals(lang="en-GB"):
-    global PalSpecies, PalLearnSet
+    global PalSpecies, PalLearnSet, PalSpeciesLower
 
     if lang == "":
         lang = "en-GB"
@@ -1034,10 +1109,16 @@ def LoadPals(lang="en-GB"):
             PalSpecies[i["CodeName"]] = PalObject(l[i["CodeName"]] if i["CodeName"] in l else i["CodeName"], i["CodeName"], p, s, h, t,
                                                   i["Scaling"] if "Scaling" in i else None,
                                                   i["Suitabilities"] if "Suitabilities" in i else {})
+            PalSpecies[i["CodeName"]]._innate_passives = i.get("InnatePassives", [])
+            PalSpecies[i["CodeName"]]._deck_index = i.get("DeckIndex", -1)
+            PalSpecies[i["CodeName"]]._tower_boss = i.get("TowerBoss", False)
             if t:
                 PalSpecies[i["CodeName"]]._suits = PalSpecies[i["CodeName"].replace("GYM_", "")]._suits
                 PalSpecies[i["CodeName"]]._scaling = PalSpecies[i["CodeName"].replace("GYM_", "")]._scaling
             PalLearnSet[i["CodeName"]] = i["Moveset"] if not t else PalLearnSet[i["CodeName"].replace("GYM_", "")]
+
+        # index by lowercased CodeName for the case-insensitive lookup below
+        PalSpeciesLower = {code.lower(): code for code in PalSpecies}
 
 
 LoadPals()
@@ -1045,14 +1126,18 @@ LoadPals()
 PalPassives = {}
 PassiveDescriptions = {}
 PassiveRating = {}
+PassiveRollable = {}
+PassiveGroup = {}
 
 
 def LoadPassives(lang="en-GB"):
-    global PalPassives, PassiveDescriptions, PassiveRating
+    global PalPassives, PassiveDescriptions, PassiveRating, PassiveRollable, PassiveGroup
 
     PalPassives = {}
     PassiveDescriptions = {}
     PassiveRating = {}
+    PassiveRollable = {}
+    PassiveGroup = {}
 
     if lang == "":
         lang = "en-GB"
@@ -1067,16 +1152,30 @@ def LoadPassives(lang="en-GB"):
 
             d = json.loads(datafile.read())
             l = json.loads(passivefile.read())
-            
+
             for i in d:
                 code = i
                 PalPassives[code] = l[code]["Name"]
                 PassiveDescriptions[code] = l[code]["Description"]
                 PassiveRating[code] = d[i]["Rating"]
+                # default True so passives without data are never hidden
+                PassiveRollable[code] = d[i].get("Rollable", True)
+                PassiveGroup[code] = d[i].get("Group", "Other")
                 #print(i, l[code]["Name"])
             PalPassives = dict(sorted(PalPassives.items()))
 
 LoadPassives()
+
+
+def GetLegalPassives(species_code):
+    """Passive codes a pal of this species can normally have: any passive
+    that rolls on wild/lucky pals plus the species' innate passives."""
+    innate = []
+    if species_code in PalSpecies:
+        innate = getattr(PalSpecies[species_code], "_innate_passives", [])
+    return [c for c in PalPassives
+            if c not in ("NONE", "UNKNOWN", "None", "Unknown")
+            and (PassiveRollable.get(c, True) or c in innate)]
 
 # PalAttacks CodeName -> Name
 PalAttacks = {}

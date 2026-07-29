@@ -4,5 +4,6 @@
         "None"
     ],
     "Moveset": {},
-    "Human": true
+    "Human": true,
+    "RaidMoveset": {}
 }

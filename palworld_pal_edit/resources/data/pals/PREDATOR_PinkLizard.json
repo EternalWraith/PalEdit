@@ -1,17 +1,19 @@
 {
     "CodeName": "PREDATOR_PinkLizard",
     "Type": [
-        "Normal",
+        "Dark",
         "None"
     ],
     "Moveset": {
         "EPalWazaID::PowerShot": 1,
         "EPalWazaID::PoisonShot": 7,
-        "EPalWazaID::DarkWave": 15,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::AcidRain": 22,
-        "EPalWazaID::PowerBall": 30,
-        "EPalWazaID::SelfDestruct": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::PowerBall": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::BubbleShower": 35,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {
         "EPalWazaID::PowerShot": 1,
@@ -34,15 +36,20 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
+        "Handcraft": 3,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 1,
+        "Mining": 2,
         "OilExtraction": 0,
-        "ProductMedicine": 2,
+        "ProductMedicine": 3,
         "Cool": 0,
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "ElementResist_Normal_1_PAL"
+    ],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

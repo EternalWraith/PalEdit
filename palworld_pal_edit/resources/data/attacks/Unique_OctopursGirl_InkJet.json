@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_OctopursGirl_InkJet",
     "Type": "Water",
-    "Power": 85,
-    "Category": "Shot"
+    "Power": 120,
+    "Category": "Shot",
+    "Exclusive": [
+        "OctopusGirl",
+        "OctopusGirl_Neutral"
+    ]
 }

@@ -1,0 +1,43 @@
+{
+    "CodeName": "Mothman",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirBlade": 1,
+        "EPalWazaID::ReflectiveShuriken": 7,
+        "EPalWazaID::IcicleThrow": 15,
+        "EPalWazaID::CrossWind": 22,
+        "EPalWazaID::WindBurst": 30,
+        "EPalWazaID::HolyBlast": 40,
+        "EPalWazaID::Unique_Mothman_GiantSpore": 50,
+        "EPalWazaID::Unique_Mothman_SporeScatter": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 140,
+        "PHY": 120,
+        "MAG": 120,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 6,
+        "GenerateElectricity": 0,
+        "Handcraft": 6,
+        "Collection": 4,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 8,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 193,
+    "TowerBoss": false
+}

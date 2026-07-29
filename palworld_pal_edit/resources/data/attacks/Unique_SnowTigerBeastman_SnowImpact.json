@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_SnowTigerBeastman_SnowImpact",
     "Type": "Ice",
-    "Power": 190,
-    "Category": "Melee"
+    "Power": 650,
+    "Category": "Melee",
+    "Exclusive": [
+        "GYM_SnowTigerBeastman",
+        "GYM_SnowTigerBeastman_2",
+        "SnowTigerBeastman"
+    ]
 }

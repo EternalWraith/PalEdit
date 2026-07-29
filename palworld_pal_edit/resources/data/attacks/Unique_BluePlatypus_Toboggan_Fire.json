@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_BluePlatypus_Toboggan_Fire",
     "Type": "Fire",
-    "Power": 100,
-    "Category": "Melee"
+    "Power": 115,
+    "Category": "Melee",
+    "Exclusive": [
+        "BluePlatypus"
+    ]
 }

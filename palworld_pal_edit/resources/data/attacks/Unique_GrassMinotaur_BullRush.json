@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_GrassMinotaur_BullRush",
+    "Type": "Leaf",
+    "Power": 650,
+    "Category": "Melee",
+    "Exclusive": [
+        "GrassMinotaur"
+    ]
+}

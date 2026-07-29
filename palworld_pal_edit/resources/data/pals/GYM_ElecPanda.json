@@ -8,9 +8,8 @@
         "EPalWazaID::Unique_ElecPanda_ElecScratch": 1,
         "EPalWazaID::SpreadPulse": 2,
         "EPalWazaID::ElecWave": 3,
-        "EPalWazaID::ThunderBall": 4,
-        "EPalWazaID::ThunderFunnel": 5,
-        "EPalWazaID::LockonLaser": 6
+        "EPalWazaID::ThunderFunnel": 4,
+        "EPalWazaID::LockonLaser": 5
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -34,5 +33,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::Railbolt",
     "Type": "Electricity",
-    "Power": 200,
+    "Power": 600,
     "Category": "Shot"
 }

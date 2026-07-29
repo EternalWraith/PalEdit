@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_AmaterasuWolf_BiteV2",
+    "Type": "Fire",
+    "Power": 40,
+    "Category": "Melee",
+    "Exclusive": [
+        "AmaterasuWolf",
+        "PREDATOR_AmaterasuWolf"
+    ]
+}

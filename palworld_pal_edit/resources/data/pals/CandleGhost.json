@@ -11,12 +11,13 @@
         "EPalWazaID::GhostFlame": 22,
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::FlameFunnel": 40,
-        "EPalWazaID::Eruption": 50
+        "EPalWazaID::Eruption": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 100,
+        "PHY": 125,
         "MAG": 125,
         "DEF": 90
     },
@@ -25,15 +26,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
-        "Collection": 1,
+        "Handcraft": 3,
+        "Collection": 2,
         "Deforest": 0,
-        "Mining": 2,
+        "Mining": 3,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
-        "MonsterFarm": 1
+        "MonsterFarm": 2
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 135,
+    "TowerBoss": false
 }

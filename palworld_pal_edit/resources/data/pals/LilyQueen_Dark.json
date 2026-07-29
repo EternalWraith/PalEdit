@@ -11,13 +11,15 @@
         "EPalWazaID::FrostBreath": 22,
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::IcicleThrow": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::StarMine": 45,
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 110,
-        "PHY": 100,
-        "MAG": 110,
+        "HP": 115,
+        "PHY": 120,
+        "MAG": 120,
         "DEF": 115
     },
     "Suitabilities": {
@@ -25,15 +27,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 3,
-        "Collection": 2,
+        "Handcraft": 5,
+        "Collection": 6,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 3,
+        "ProductMedicine": 7,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 186,
+    "TowerBoss": false
 }

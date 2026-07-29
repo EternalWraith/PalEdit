@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::HydroPump",
     "Type": "Water",
-    "Power": 150,
+    "Power": 450,
     "Category": "Shot"
 }

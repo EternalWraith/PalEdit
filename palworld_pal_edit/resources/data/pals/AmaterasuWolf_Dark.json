@@ -5,23 +5,26 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::DarkCanon": 1,
+        "EPalWazaID::Unique_AmaterasuWolf_Dark_BiteV2": 1,
+        "EPalWazaID::Unique_AmaterasuWolf_Dark_Bite": 2,
+        "EPalWazaID::DarkCanon": 3,
         "EPalWazaID::FireSeed": 7,
         "EPalWazaID::GhostFlame": 15,
         "EPalWazaID::Unique_AmaterasuWolf_Dark_DarkCharge": 22,
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::FlameFunnel": 40,
-        "EPalWazaID::DarkLegion": 50
+        "EPalWazaID::DarkLegion": 50,
+        "EPalWazaID::DragonMeteor": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 70,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 105
     },
     "Suitabilities": {
-        "EmitFlame": 2,
+        "EmitFlame": 4,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
@@ -35,5 +38,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 111,
+    "TowerBoss": false
 }

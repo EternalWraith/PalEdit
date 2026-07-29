@@ -1,14 +1,14 @@
 {
     "CodeName": "RAID_YakushimaBoss002_Head",
     "Type": [
-        "None",
+        "Normal",
         "None"
     ],
-    "Moveset": [],
+    "Moveset": {},
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 100
     },
@@ -27,5 +27,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

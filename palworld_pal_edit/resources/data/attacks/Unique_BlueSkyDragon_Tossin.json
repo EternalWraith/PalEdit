@@ -1,0 +1,11 @@
+{
+    "CodeName": "EPalWazaID::Unique_BlueSkyDragon_Tossin",
+    "Type": "Water",
+    "Power": 500,
+    "Category": "Melee",
+    "Exclusive": [
+        "BlueSkyDragon",
+        "GYM_BlueSkyDragon",
+        "GYM_BlueSkyDragon_2"
+    ]
+}

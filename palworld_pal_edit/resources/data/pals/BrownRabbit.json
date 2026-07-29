@@ -4,28 +4,40 @@
         "Earth",
         "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::StoneShotgun": 7,
+        "EPalWazaID::ThrowRock": 15,
+        "EPalWazaID::SandTornado": 22,
+        "EPalWazaID::Tremor": 30,
+        "EPalWazaID::RockLance": 40,
+        "EPalWazaID::SandTwister": 50,
+        "EPalWazaID::RockBeat": 70
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 110,
-        "DEF": 100
+        "HP": 70,
+        "PHY": 75,
+        "MAG": 75,
+        "DEF": 80
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
-        "Collection": 2,
+        "Handcraft": 3,
+        "Collection": 4,
         "Deforest": 0,
-        "Mining": 1,
+        "Mining": 2,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 165,
+    "TowerBoss": false
 }

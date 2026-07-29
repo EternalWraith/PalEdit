@@ -6,19 +6,20 @@
     ],
     "Moveset": {
         "EPalWazaID::Unique_Horus_PerfectStorm": 1,
-        "EPalWazaID::FlareArrow": 2,
+        "EPalWazaID::FlameFunnel": 2,
         "EPalWazaID::FireBall": 3,
         "EPalWazaID::FlameWall": 4,
         "EPalWazaID::Eruption": 5,
-        "EPalWazaID::TriSpark": 6,
+        "EPalWazaID::Railbolt": 6,
         "EPalWazaID::ThunderRain": 7,
         "EPalWazaID::ThunderStorm": 8,
-        "EPalWazaID::Railbolt": 9
+        "EPalWazaID::RangeThunder": 9,
+        "EPalWazaID::AirBlade": 10
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 110
     },
@@ -37,5 +38,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

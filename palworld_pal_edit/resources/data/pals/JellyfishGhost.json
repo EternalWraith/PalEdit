@@ -11,12 +11,13 @@
         "EPalWazaID::GhostFlame": 22,
         "EPalWazaID::BubbleShower": 30,
         "EPalWazaID::HydroSlicer": 40,
-        "EPalWazaID::DarkLegion": 50
+        "EPalWazaID::DarkLegion": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 100,
+        "PHY": 75,
         "MAG": 75,
         "DEF": 75
     },
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 46,
+    "TowerBoss": false
 }

@@ -11,12 +11,13 @@
         "EPalWazaID::DragonBreath": 22,
         "EPalWazaID::IcicleLine": 30,
         "EPalWazaID::Commet": 40,
-        "EPalWazaID::BeamSlicer": 50
+        "EPalWazaID::BeamSlicer": 50,
+        "EPalWazaID::DragonMeteor": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 110,
-        "PHY": 100,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 130
     },
@@ -28,12 +29,17 @@
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 3,
+        "Mining": 4,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Alien"
+    ],
+    "DeckIndex": 146,
+    "TowerBoss": false
 }

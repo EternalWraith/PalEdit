@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_GrassPanda_Electric_ElectricPunch",
     "Type": "Electricity",
-    "Power": 85,
-    "Category": "Melee"
+    "Power": 180,
+    "Category": "Melee",
+    "Exclusive": [
+        "GrassPanda_Electric",
+        "GrassPanda_Electric_Tower"
+    ]
 }

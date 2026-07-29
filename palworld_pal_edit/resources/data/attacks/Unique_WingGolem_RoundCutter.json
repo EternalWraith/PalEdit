@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_WingGolem_RoundCutter",
     "Type": "Earth",
-    "Power": 145,
-    "Category": "Shot"
+    "Power": 450,
+    "Category": "Shot",
+    "Exclusive": [
+        "WingGolem",
+        "WingGolem_Oilrig"
+    ]
 }

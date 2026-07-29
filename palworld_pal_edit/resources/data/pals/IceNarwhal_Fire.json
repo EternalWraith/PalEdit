@@ -11,17 +11,18 @@
         "EPalWazaID::FlameWall": 22,
         "EPalWazaID::IceWall": 30,
         "EPalWazaID::Eruption": 40,
-        "EPalWazaID::Unique_IceNarwhal_JumpingHorn": 50
+        "EPalWazaID::Unique_IceNarwhal_JumpingHorn": 50,
+        "EPalWazaID::FireBall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 100,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 110
     },
     "Suitabilities": {
-        "EmitFlame": 3,
+        "EmitFlame": 5,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
@@ -31,9 +32,12 @@
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 4,
+        "Cool": 6,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 151,
+    "TowerBoss": false
 }

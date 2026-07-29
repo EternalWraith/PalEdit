@@ -7,20 +7,18 @@
     "Moveset": {
         "EPalWazaID::StarMine": 1,
         "EPalWazaID::PowerBall": 2,
-        "EPalWazaID::Commet": 3,
-        "EPalWazaID::IcicleThrow": 4,
-        "EPalWazaID::Unique_MoonQueen_MoonBeam": 5,
-        "EPalWazaID::Unique_MoonQueen_MoonBlade": 6,
-        "EPalWazaID::HolyBlast": 7,
-        "EPalWazaID::AirBlade": 8,
-        "EPalWazaID::DarkArrow": 9,
-        "EPalWazaID::ShadowBall": 10,
-        "EPalWazaID::DiamondFall": 11
+        "EPalWazaID::Unique_MoonQueen_MoonBeam": 3,
+        "EPalWazaID::Unique_MoonQueen_MoonBlade": 4,
+        "EPalWazaID::HolyBlast": 5,
+        "EPalWazaID::AirBlade": 6,
+        "EPalWazaID::Apocalypse": 7,
+        "EPalWazaID::ShadowBall": 8,
+        "EPalWazaID::Unique_MoonQueen_GYM_Act": 9
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 110
     },
@@ -39,5 +37,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

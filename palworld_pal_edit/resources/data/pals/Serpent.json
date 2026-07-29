@@ -11,18 +11,19 @@
         "EPalWazaID::BubbleShot": 22,
         "EPalWazaID::DragonWave": 30,
         "EPalWazaID::DragonBreath": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::HydroPump": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 70,
+        "PHY": 90,
         "MAG": 90,
         "DEF": 80
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 2,
+        "Watering": 3,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -33,7 +34,10 @@
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
-        "MonsterFarm": 0
+        "MonsterFarm": 2
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 75,
+    "TowerBoss": false
 }

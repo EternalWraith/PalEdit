@@ -5,28 +5,21 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::GhostFlame": 1,
-        "EPalWazaID::DoubleIcicleThrow": 2,
-        "EPalWazaID::DarkArrow": 3,
-        "EPalWazaID::Unique_SnowTigerBeastman_TrampleSlash": 4,
-        "EPalWazaID::BubbleShot": 5,
-        "EPalWazaID::RockBeat": 6,
-        "EPalWazaID::DiamondFall": 7,
-        "EPalWazaID::Unique_SnowTigerBeastman_SnowImpact": 8,
-        "EPalWazaID::Apocalypse": 9,
-        "EPalWazaID::ShadowBall": 10,
-        "EPalWazaID::LineGeyser": 11,
-        "EPalWazaID::WallSplash": 12,
-        "EPalWazaID::HydroPump": 13,
-        "EPalWazaID::DarkLegion": 14,
-        "EPalWazaID::WaterBall": 15,
-        "EPalWazaID::IciclePierce": 16,
-        "EPalWazaID::AcidRain": 17
+        "EPalWazaID::Unique_SnowTigerBeastman_TrampleSlash": 1,
+        "EPalWazaID::Unique_SnowTigerBeastman_SnowImpact": 2,
+        "EPalWazaID::DiamondFall": 3,
+        "EPalWazaID::DoubleIcicleThrow": 4,
+        "EPalWazaID::IceAge": 5,
+        "EPalWazaID::SeaGush": 6,
+        "EPalWazaID::HydroPump": 7,
+        "EPalWazaID::RipTide": 8,
+        "EPalWazaID::RockBeat": 9,
+        "EPalWazaID::GhostFlame": 10
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 140,
-        "PHY": 100,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 120
     },
@@ -41,9 +34,12 @@
         "Mining": 2,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 3,
+        "Cool": 8,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

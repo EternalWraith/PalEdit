@@ -11,12 +11,14 @@
         "EPalWazaID::TriSpark": 22,
         "EPalWazaID::RangeThunder": 30,
         "EPalWazaID::Railbolt": 40,
-        "EPalWazaID::Unique_BlueThunderHorse_FlashDash": 50
+        "EPalWazaID::Unique_BlueThunderHorse_Tossin": 45,
+        "EPalWazaID::Unique_BlueThunderHorse_FlashDash": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 110
     },
@@ -24,9 +26,9 @@
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 4,
+        "GenerateElectricity": 5,
         "Handcraft": 0,
-        "Collection": 1,
+        "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -35,5 +37,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 161,
+    "TowerBoss": false
 }

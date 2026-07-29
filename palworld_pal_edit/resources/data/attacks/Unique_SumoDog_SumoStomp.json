@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_SumoDog_SumoStomp",
+    "Type": "Earth",
+    "Power": 550,
+    "Category": "Melee",
+    "Exclusive": [
+        "SumoDog"
+    ]
+}

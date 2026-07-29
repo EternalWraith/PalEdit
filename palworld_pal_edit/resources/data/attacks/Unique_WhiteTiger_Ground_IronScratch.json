@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_WhiteTiger_Ground_IronScratch",
     "Type": "Earth",
-    "Power": 95,
-    "Category": "Melee"
+    "Power": 300,
+    "Category": "Melee",
+    "Exclusive": [
+        "PREDATOR_WhiteTiger_Ground",
+        "WhiteTiger_Ground"
+    ]
 }

@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_Werewolf_Scratch",
     "Type": "Dark",
-    "Power": 55,
-    "Category": "Melee"
+    "Power": 80,
+    "Category": "Melee",
+    "Exclusive": [
+        "Werewolf"
+    ]
 }

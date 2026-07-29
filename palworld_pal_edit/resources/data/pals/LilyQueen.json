@@ -12,29 +12,35 @@
         "EPalWazaID::GrassTornado": 30,
         "EPalWazaID::RootAttack": 40,
         "EPalWazaID::SolarBeam": 50,
-        "EPalWazaID::Unique_LilyQueen_LilyHealing": 55
+        "EPalWazaID::Unique_LilyQueen_LilyHealing": 55,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 110,
-        "PHY": 100,
-        "MAG": 110,
-        "DEF": 105
+        "HP": 120,
+        "PHY": 120,
+        "MAG": 120,
+        "DEF": 110
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 4,
+        "Seeding": 7,
         "GenerateElectricity": 0,
-        "Handcraft": 3,
-        "Collection": 2,
+        "Handcraft": 5,
+        "Collection": 6,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 3,
+        "ProductMedicine": 5,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "ElementBoost_Leaf_2_PAL"
+    ],
+    "DeckIndex": 186,
+    "TowerBoss": false
 }

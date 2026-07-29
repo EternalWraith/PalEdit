@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_DarkCrow_TelePoke",
     "Type": "Dark",
-    "Power": 55,
-    "Category": "Melee"
+    "Power": 70,
+    "Category": "Melee",
+    "Exclusive": [
+        "DarkCrow"
+    ]
 }

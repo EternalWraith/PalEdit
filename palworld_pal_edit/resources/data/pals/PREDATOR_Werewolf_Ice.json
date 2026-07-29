@@ -6,11 +6,16 @@
     ],
     "Moveset": {
         "EPalWazaID::IceMissile": 1,
-        "EPalWazaID::IceBlade": 22,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::Unique_Werewolf_Ice_SnowScratch": 15,
-        "EPalWazaID::IciclePierce": 30,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::IceWall": 22,
+        "EPalWazaID::IciclePierce": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::IcicleLine": 40,
-        "EPalWazaID::IcicleThrow": 50
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {
         "EPalWazaID::Unique_Werewolf_Ice_SnowScratch": 1,
@@ -26,7 +31,7 @@
     },
     "Scaling": {
         "HP": 96,
-        "PHY": 130,
+        "PHY": 100,
         "MAG": 100,
         "DEF": 80
     },
@@ -35,15 +40,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
+        "Handcraft": 4,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 3,
+        "Cool": 4,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_SoldierBee_NeedleLance",
     "Type": "Leaf",
-    "Power": 55,
-    "Category": "Melee"
+    "Power": 120,
+    "Category": "Melee",
+    "Exclusive": [
+        "SoldierBee"
+    ]
 }

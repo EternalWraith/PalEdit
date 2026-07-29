@@ -12,12 +12,13 @@
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::Unique_BlackGriffon_TackleLaser": 40,
         "EPalWazaID::DarkLaser": 50,
-        "EPalWazaID::Unique_BlackGriffon_TackleLaser2": 55
+        "EPalWazaID::Unique_BlackGriffon_TackleLaser2": 55,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 120,
-        "PHY": 130,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 140
     },
@@ -27,7 +28,7 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 1,
+        "Collection": 2,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -36,5 +37,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 189,
+    "TowerBoss": false
 }

@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_KingWhale_WaveTackle",
+    "Type": "Water",
+    "Power": 400,
+    "Category": "Melee",
+    "Exclusive": [
+        "KingWhale"
+    ]
+}

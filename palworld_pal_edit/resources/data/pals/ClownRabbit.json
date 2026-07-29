@@ -1,31 +1,43 @@
 {
     "CodeName": "ClownRabbit",
     "Type": [
-        "Normal",
+        "Fire",
         "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::FireSeed": 1,
+        "EPalWazaID::Flamethrower": 7,
+        "EPalWazaID::FlameWall": 15,
+        "EPalWazaID::FlameFunnel": 22,
+        "EPalWazaID::Eruption": 30,
+        "EPalWazaID::Inferno": 40,
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::Unique_ClownRabbit_TrickShow": 70
+    },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
+        "PHY": 110,
+        "MAG": 110,
         "DEF": 100
     },
     "Suitabilities": {
-        "EmitFlame": 0,
+        "EmitFlame": 7,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 3,
+        "Handcraft": 5,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 2,
+        "ProductMedicine": 4,
         "Cool": 0,
-        "Transport": 1,
+        "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 176,
+    "TowerBoss": false
 }

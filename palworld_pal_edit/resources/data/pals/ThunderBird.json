@@ -12,12 +12,13 @@
         "EPalWazaID::Unique_ThunderBird_ThunderStorm": 26,
         "EPalWazaID::ThreeThunder": 30,
         "EPalWazaID::SandTornado": 40,
-        "EPalWazaID::Thunderbolt": 50
+        "EPalWazaID::Thunderbolt": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 100,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 80
     },
@@ -25,16 +26,19 @@
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 2,
+        "GenerateElectricity": 4,
         "Handcraft": 0,
-        "Collection": 1,
+        "Collection": 2,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 5,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 96,
+    "TowerBoss": false
 }

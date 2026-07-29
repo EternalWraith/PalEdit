@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_KingBahamut_AirCrash",
     "Type": "Dragon",
-    "Power": 160,
-    "Category": "Melee"
+    "Power": 700,
+    "Category": "Melee",
+    "Exclusive": [
+        "KingBahamut_Dragon",
+        "RAID_KingBahamut_Dragon",
+        "RAID_KingBahamut_Dragon_2"
+    ]
 }

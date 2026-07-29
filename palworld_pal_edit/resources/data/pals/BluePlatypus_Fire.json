@@ -11,18 +11,19 @@
         "EPalWazaID::Flamethrower": 22,
         "EPalWazaID::FlameWall": 30,
         "EPalWazaID::HydroSlicer": 40,
-        "EPalWazaID::Eruption": 50
+        "EPalWazaID::Eruption": 50,
+        "EPalWazaID::FireBall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 60,
-        "PHY": 100,
+        "PHY": 85,
         "MAG": 85,
         "DEF": 60
     },
     "Suitabilities": {
-        "EmitFlame": 1,
-        "Watering": 1,
+        "EmitFlame": 2,
+        "Watering": 2,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 1,
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 5,
+    "TowerBoss": false
 }

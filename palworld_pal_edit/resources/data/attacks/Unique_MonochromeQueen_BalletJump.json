@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_MonochromeQueen_BalletJump",
+    "Type": "Dark",
+    "Power": 500,
+    "Category": "Shot",
+    "Exclusive": [
+        "MonochromeQueen",
+        "PREDATOR_MonochromeQueen"
+    ]
+}

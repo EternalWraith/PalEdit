@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_BlueSkyDragon_DrainStorm",
+    "Type": "Water",
+    "Power": 700,
+    "Category": "Shot",
+    "Exclusive": [
+        "BlueSkyDragon"
+    ]
+}

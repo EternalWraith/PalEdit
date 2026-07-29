@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_ElecPomeranian_BiteV2",
+    "Type": "Electricity",
+    "Power": 40,
+    "Category": "Melee",
+    "Exclusive": [
+        "ElecPomeranian"
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "CodeName": "PREDATOR_VolcanoDragon",
+    "Type": [
+        "Fire",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireSeed": 1,
+        "EPalWazaID::Flamethrower": 7,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::FlameWall": 15,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::Tremor": 22,
+        "EPalWazaID::Eruption": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::RockBeat": 40,
+        "EPalWazaID::Unique_VolcanoDragon_MagmaSpit": 50,
+        "EPalWazaID::Unique_VolcanoDragon_VolcanicLaser": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 132,
+        "PHY": 125,
+        "MAG": 125,
+        "DEF": 115
+    },
+    "Suitabilities": {
+        "EmitFlame": 5,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 5,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
+}

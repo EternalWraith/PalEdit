@@ -12,12 +12,13 @@
         "EPalWazaID::GhostFlame": 30,
         "EPalWazaID::Unique_GhostBeast_Tossin": 35,
         "EPalWazaID::ShadowBall": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 75,
-        "PHY": 50,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 80
     },
@@ -27,14 +28,17 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 2,
+        "Collection": 4,
         "Deforest": 0,
-        "Mining": 1,
+        "Mining": 4,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 117,
+    "TowerBoss": false
 }

@@ -1,0 +1,48 @@
+{
+    "CodeName": "PREDATOR_GrassMammoth_Ice",
+    "Type": [
+        "Ice",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::ThrowRock": 1,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::PowerBall": 15,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::BlizzardLance": 22,
+        "EPalWazaID::Unique_Grassmammoth_Earthquake": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::FrostBreath": 40,
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::DiamondFall": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 180,
+        "PHY": 85,
+        "MAG": 85,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 5,
+        "Mining": 4,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 5,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": -1,
+    "TowerBoss": false
+}

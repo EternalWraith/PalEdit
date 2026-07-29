@@ -1,0 +1,45 @@
+{
+    "CodeName": "DomeArmorDragon",
+    "Type": [
+        "Dragon",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::StoneShotgun": 1,
+        "EPalWazaID::BlastCanon": 7,
+        "EPalWazaID::Tremor": 15,
+        "EPalWazaID::ChargeCanon": 22,
+        "EPalWazaID::SandTwister": 30,
+        "EPalWazaID::RockBeat": 40,
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::Unique_DomeArmorDragon_ExplosiveMissile": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 125,
+        "MAG": 125,
+        "DEF": 140
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 8,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 184,
+    "TowerBoss": false
+}

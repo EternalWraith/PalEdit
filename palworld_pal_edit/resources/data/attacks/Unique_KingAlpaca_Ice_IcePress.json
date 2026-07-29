@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_KingAlpaca_Ice_IcePress",
+    "Type": "Ice",
+    "Power": 400,
+    "Category": "Melee",
+    "Exclusive": [
+        "KingAlpaca_Ice"
+    ]
+}

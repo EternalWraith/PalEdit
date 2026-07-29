@@ -9,20 +9,22 @@
         "EPalWazaID::BubbleShot": 7,
         "EPalWazaID::Unique_SakuraSaurus_SideTackle": 15,
         "EPalWazaID::SeedMine": 22,
+        "EPalWazaID::Unique_SakuraSaurus_Water_SplashTackle": 26,
         "EPalWazaID::RootAttack": 30,
         "EPalWazaID::WaterBall": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::HydroPump": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 120,
-        "PHY": 80,
+        "PHY": 95,
         "MAG": 95,
         "DEF": 100
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 3,
+        "Watering": 5,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -35,5 +37,10 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 108,
+    "TowerBoss": false
 }

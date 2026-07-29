@@ -1,0 +1,43 @@
+{
+    "CodeName": "GhostDragon_Fire",
+    "Type": [
+        "Dragon",
+        "Fire"
+    ],
+    "Moveset": {
+        "EPalWazaID::DragonWave": 1,
+        "EPalWazaID::Flamethrower": 7,
+        "EPalWazaID::BlastCanon": 15,
+        "EPalWazaID::ChargeCanon": 22,
+        "EPalWazaID::Unique_GhostDragon_TailSlash": 30,
+        "EPalWazaID::FireBall": 40,
+        "EPalWazaID::Unique_GhostDragon_PhosphorousBeam": 50,
+        "EPalWazaID::CommetRain": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 115,
+        "PHY": 130,
+        "MAG": 130,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 6,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 6,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 171,
+    "TowerBoss": false
+}

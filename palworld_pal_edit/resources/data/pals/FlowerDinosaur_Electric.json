@@ -10,8 +10,10 @@
         "EPalWazaID::Unique_FlowerDinosaur_Whip": 15,
         "EPalWazaID::DragonBreath": 22,
         "EPalWazaID::ThreeThunder": 30,
+        "EPalWazaID::Unique_FlowerDinosaur_Electric_ThunderWhip": 35,
         "EPalWazaID::LightningStrike": 40,
-        "EPalWazaID::Thunderbolt": 50
+        "EPalWazaID::Thunderbolt": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -24,10 +26,10 @@
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 2,
+        "GenerateElectricity": 3,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 4,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -35,5 +37,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 84,
+    "TowerBoss": false
 }

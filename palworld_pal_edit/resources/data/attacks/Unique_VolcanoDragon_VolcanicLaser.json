@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_VolcanoDragon_VolcanicLaser",
+    "Type": "Fire",
+    "Power": 700,
+    "Category": "Shot",
+    "Exclusive": [
+        "PREDATOR_VolcanoDragon",
+        "VolcanoDragon"
+    ]
+}

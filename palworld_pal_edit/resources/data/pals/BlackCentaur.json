@@ -13,12 +13,13 @@
         "EPalWazaID::Unique_BlackCentaur_TwoSpearRushes": 40,
         "EPalWazaID::DarkLaser": 50,
         "EPalWazaID::Apocalypse": 55,
-        "EPalWazaID::RockBeat": 60
+        "EPalWazaID::RockBeat": 60,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 145,
         "MAG": 145,
         "DEF": 120
     },
@@ -29,13 +30,19 @@
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
-        "Mining": 2,
+        "Deforest": 6,
+        "Mining": 6,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Legend",
+        "ElementBoost_Dark_2_PAL"
+    ],
+    "DeckIndex": 199,
+    "TowerBoss": false
 }

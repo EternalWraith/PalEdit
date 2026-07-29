@@ -11,12 +11,13 @@
         "EPalWazaID::Unique_FengyunDeeper_Electric_ThunderTempest": 22,
         "EPalWazaID::ThunderRain": 30,
         "EPalWazaID::Thunderbolt": 40,
-        "EPalWazaID::ThunderStorm": 50
+        "EPalWazaID::ThunderStorm": 50,
+        "EPalWazaID::Railbolt": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 110,
-        "PHY": 110,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 90
     },
@@ -24,10 +25,10 @@
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 2,
+        "GenerateElectricity": 5,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 4,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 83,
+    "TowerBoss": false
 }

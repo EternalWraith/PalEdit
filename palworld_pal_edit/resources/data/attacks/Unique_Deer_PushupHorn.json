@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_Deer_PushupHorn",
     "Type": "Normal",
-    "Power": 50,
-    "Category": "Melee"
+    "Power": 90,
+    "Category": "Melee",
+    "Exclusive": [
+        "Deer",
+        "Deer_Ground"
+    ]
 }

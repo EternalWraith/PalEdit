@@ -11,12 +11,13 @@
         "EPalWazaID::Unique_Ronin_Iai": 22,
         "EPalWazaID::Flamethrower": 30,
         "EPalWazaID::LightningStrike": 40,
-        "EPalWazaID::Inferno": 50
+        "EPalWazaID::Inferno": 50,
+        "EPalWazaID::FireBall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 80,
-        "PHY": 100,
+        "PHY": 125,
         "MAG": 125,
         "DEF": 80
     },
@@ -25,7 +26,7 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 2,
         "Collection": 1,
         "Deforest": 3,
         "Mining": 0,
@@ -35,5 +36,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 85,
+    "TowerBoss": false
 }

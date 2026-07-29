@@ -7,12 +7,16 @@
     "Moveset": {
         "EPalWazaID::FireSeed": 1,
         "EPalWazaID::DarkPulse": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::DarkCanon": 15,
         "EPalWazaID::Unique_Ronin_Iai": 18,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::DarkArrow": 22,
-        "EPalWazaID::GhostFlame": 30,
+        "EPalWazaID::GhostFlame": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::FlameWall": 40,
-        "EPalWazaID::Apocalypse": 50
+        "EPalWazaID::Apocalypse": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {
         "EPalWazaID::PredatorBeam": 1,
@@ -26,7 +30,7 @@
     },
     "Scaling": {
         "HP": 96,
-        "PHY": 100,
+        "PHY": 125,
         "MAG": 125,
         "DEF": 80
     },
@@ -35,9 +39,9 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 2,
         "Collection": 1,
-        "Deforest": 3,
+        "Deforest": 5,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -45,5 +49,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

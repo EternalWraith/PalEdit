@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_WhiteTiger_IceScratch",
     "Type": "Ice",
-    "Power": 85,
-    "Category": "Melee"
+    "Power": 300,
+    "Category": "Melee",
+    "Exclusive": [
+        "WhiteTiger"
+    ]
 }

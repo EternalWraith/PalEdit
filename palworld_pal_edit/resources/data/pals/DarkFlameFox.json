@@ -4,27 +4,40 @@
         "Dark",
         "Fire"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::GravityShot": 1,
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::FlameWall": 22,
+        "EPalWazaID::Eruption": 30,
+        "EPalWazaID::DarkLaser": 40,
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::DarkLegion": 70
+    },
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "HP": 110,
+        "PHY": 115,
+        "MAG": 115,
+        "DEF": 90
     },
     "Suitabilities": {
-        "EmitFlame": 1,
+        "EmitFlame": 4,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 5,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 1,
+        "ProductMedicine": 3,
         "Cool": 0,
-        "Transport": 1,
+        "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "RaidMoveset": {},
+    "InnatePassives": [],
+    "DeckIndex": 115,
+    "TowerBoss": false
 }

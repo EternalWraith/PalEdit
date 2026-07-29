@@ -7,12 +7,15 @@
     "Moveset": {
         "EPalWazaID::IceMissile": 1,
         "EPalWazaID::WindCutter": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::IceBlade": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::BlizzardLance": 22,
-        "EPalWazaID::FrostBreath": 30,
+        "EPalWazaID::FrostBreath": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::Unique_Yeti_SnowBall": 35,
         "EPalWazaID::IcicleThrow": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {
         "EPalWazaID::IciclePierce": 1,
@@ -27,7 +30,7 @@
     },
     "Scaling": {
         "HP": 168,
-        "PHY": 100,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 100
     },
@@ -36,15 +39,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
+        "Handcraft": 3,
         "Collection": 0,
-        "Deforest": 3,
+        "Deforest": 5,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 2,
-        "Transport": 4,
+        "Cool": 5,
+        "Transport": 6,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

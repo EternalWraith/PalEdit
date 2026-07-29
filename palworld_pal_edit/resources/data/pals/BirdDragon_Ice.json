@@ -12,12 +12,13 @@
         "EPalWazaID::Unique_BirdDragon_Ice_IceBreath": 26,
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::IcicleThrow": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 100,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 95
     },
@@ -36,5 +37,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 64,
+    "TowerBoss": false
 }

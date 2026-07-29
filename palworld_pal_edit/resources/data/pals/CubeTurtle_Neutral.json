@@ -1,0 +1,43 @@
+{
+    "CodeName": "CubeTurtle_Neutral",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::PowerBall": 7,
+        "EPalWazaID::AirBlade": 15,
+        "EPalWazaID::IcicleLine": 22,
+        "EPalWazaID::HyperBeam": 30,
+        "EPalWazaID::DiamondFall": 40,
+        "EPalWazaID::HolyBlast": 50,
+        "EPalWazaID::Unique_PyramidTurtle_Neutral_HolyPress": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 95,
+        "PHY": 100,
+        "MAG": 100,
+        "DEF": 140
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 6,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 142,
+    "TowerBoss": false
+}

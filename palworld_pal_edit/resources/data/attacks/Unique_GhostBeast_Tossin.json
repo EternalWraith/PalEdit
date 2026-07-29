@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_GhostBeast_Tossin",
     "Type": "Dark",
-    "Power": 90,
-    "Category": "Melee"
+    "Power": 300,
+    "Category": "Melee",
+    "Exclusive": [
+        "GhostBeast",
+        "PREDATOR_GhostBeast"
+    ]
 }

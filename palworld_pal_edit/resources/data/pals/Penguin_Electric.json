@@ -11,12 +11,13 @@
         "EPalWazaID::LineGeyser": 22,
         "EPalWazaID::WaterBall": 30,
         "EPalWazaID::TriSpark": 40,
-        "EPalWazaID::LightningStrike": 50
+        "EPalWazaID::LightningStrike": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 70,
-        "PHY": 100,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 17,
+    "TowerBoss": false
 }

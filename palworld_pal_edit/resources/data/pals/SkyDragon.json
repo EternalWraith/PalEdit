@@ -11,7 +11,8 @@
         "EPalWazaID::DragonBreath": 22,
         "EPalWazaID::GrassTornado": 30,
         "EPalWazaID::WaterBall": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -25,15 +26,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
-        "Collection": 2,
+        "Handcraft": 2,
+        "Collection": 3,
         "Deforest": 0,
-        "Mining": 2,
+        "Mining": 4,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 5,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 124,
+    "TowerBoss": false
 }

@@ -11,12 +11,13 @@
         "EPalWazaID::FrostBreath": 22,
         "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack": 30,
         "EPalWazaID::IcicleThrow": 40,
-        "EPalWazaID::RockLance": 50
+        "EPalWazaID::RockLance": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 110,
-        "PHY": 100,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 130
     },
@@ -28,12 +29,17 @@
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 3,
+        "Mining": 5,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 3,
+        "Cool": 5,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 129,
+    "TowerBoss": false
 }

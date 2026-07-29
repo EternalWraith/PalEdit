@@ -12,23 +12,24 @@
         "EPalWazaID::Inferno": 30,
         "EPalWazaID::Unique_Manticore_InfernoStrike": 35,
         "EPalWazaID::FireBall": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 100,
+        "PHY": 110,
         "MAG": 110,
         "DEF": 80
     },
     "Suitabilities": {
-        "EmitFlame": 3,
+        "EmitFlame": 5,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 3,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -36,5 +37,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 112,
+    "TowerBoss": false
 }

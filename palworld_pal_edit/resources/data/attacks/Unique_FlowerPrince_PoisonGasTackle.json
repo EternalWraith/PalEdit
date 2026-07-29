@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_FlowerPrince_PoisonGasTackle",
+    "Type": "Dark",
+    "Power": 700,
+    "Category": "Melee",
+    "Exclusive": [
+        "FlowerPrince"
+    ]
+}

@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_TropicalOstrich_DashKick",
     "Type": "Leaf",
-    "Power": 125,
-    "Category": "Melee"
+    "Power": 300,
+    "Category": "Melee",
+    "Exclusive": [
+        "TropicalOstrich"
+    ]
 }

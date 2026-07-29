@@ -11,7 +11,8 @@
         "EPalWazaID::SeedMachinegun": 22,
         "EPalWazaID::PowerBall": 30,
         "EPalWazaID::RootAttack": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::SolarBeam": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 4,
+    "TowerBoss": false
 }

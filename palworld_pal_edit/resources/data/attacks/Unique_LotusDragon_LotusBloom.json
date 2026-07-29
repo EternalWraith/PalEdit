@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_LotusDragon_LotusBloom",
+    "Type": "Leaf",
+    "Power": 700,
+    "Category": "Melee",
+    "Exclusive": [
+        "LotusDragon"
+    ]
+}

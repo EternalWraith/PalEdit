@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_Deer_Ground_DirtyHorn",
+    "Type": "Earth",
+    "Power": 120,
+    "Category": "Melee",
+    "Exclusive": [
+        "Deer_Ground"
+    ]
+}

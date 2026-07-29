@@ -11,12 +11,13 @@
         "EPalWazaID::SelfDestruct": 22,
         "EPalWazaID::GrassTornado": 30,
         "EPalWazaID::SandTornado": 40,
-        "EPalWazaID::FlareTornado": 50
+        "EPalWazaID::FlareTornado": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 60,
-        "PHY": 70,
+        "PHY": 60,
         "MAG": 60,
         "DEF": 60
     },
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 1
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 3,
+    "TowerBoss": false
 }

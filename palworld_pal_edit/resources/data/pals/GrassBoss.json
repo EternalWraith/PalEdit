@@ -4,7 +4,8 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::267": 1
+        "EPalWazaID::Weapon_Use": 1
     },
-    "Human": true
+    "Human": true,
+    "RaidMoveset": {}
 }

@@ -4,18 +4,27 @@
         "Normal",
         "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::AirCanon": 7,
+        "EPalWazaID::PowerShot": 15,
+        "EPalWazaID::PowerBall": 22,
+        "EPalWazaID::AirBlade": 30,
+        "EPalWazaID::SandTornado": 40,
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::HolyBlast": 70
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "HP": 75,
+        "PHY": 80,
+        "MAG": 80,
+        "DEF": 70
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 2,
+        "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 2,
@@ -24,8 +33,11 @@
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 162,
+    "TowerBoss": false
 }

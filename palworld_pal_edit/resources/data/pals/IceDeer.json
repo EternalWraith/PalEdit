@@ -11,12 +11,13 @@
         "EPalWazaID::Unique_IceDeer_IceHorn": 22,
         "EPalWazaID::BlizzardLance": 30,
         "EPalWazaID::FrostBreath": 40,
-        "EPalWazaID::IcicleThrow": 50
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 80,
+        "PHY": 85,
         "MAG": 85,
         "DEF": 110
     },
@@ -27,13 +28,16 @@
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 3,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 2,
+        "Cool": 3,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 101,
+    "TowerBoss": false
 }

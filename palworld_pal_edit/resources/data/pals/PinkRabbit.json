@@ -11,12 +11,13 @@
         "EPalWazaID::IcicleThrow": 22,
         "EPalWazaID::PowerBall": 30,
         "EPalWazaID::BlizzardLance": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 75,
-        "PHY": 100,
+        "PHY": 65,
         "MAG": 65,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 44,
+    "TowerBoss": false
 }

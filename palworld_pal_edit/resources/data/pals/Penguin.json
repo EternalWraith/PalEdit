@@ -11,12 +11,13 @@
         "EPalWazaID::IceBlade": 22,
         "EPalWazaID::BlizzardLance": 30,
         "EPalWazaID::IcicleThrow": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::HydroPump": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 70,
-        "PHY": 70,
+        "PHY": 75,
         "MAG": 75,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 17,
+    "TowerBoss": false
 }

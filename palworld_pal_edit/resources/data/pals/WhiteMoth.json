@@ -11,7 +11,8 @@
         "EPalWazaID::FrostBreath": 22,
         "EPalWazaID::GhostFlame": 30,
         "EPalWazaID::WaterBall": 40,
-        "EPalWazaID::IcicleThrow": 50
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -30,10 +31,13 @@
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 2,
-        "Cool": 2,
+        "ProductMedicine": 3,
+        "Cool": 3,
         "Transport": 0,
-        "MonsterFarm": 1
+        "MonsterFarm": 3
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 116,
+    "TowerBoss": false
 }

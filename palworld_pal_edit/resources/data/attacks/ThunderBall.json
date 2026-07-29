@@ -1,6 +1,6 @@
 {
     "CodeName": "EPalWazaID::ThunderBall",
     "Type": "Electricity",
-    "Power": 50,
+    "Power": 100,
     "Category": "Shot"
 }

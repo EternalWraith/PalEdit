@@ -1,0 +1,45 @@
+{
+    "CodeName": "GrassGolem_Dark",
+    "Type": [
+        "Earth",
+        "Dark"
+    ],
+    "Moveset": {
+        "EPalWazaID::DarkPulse": 1,
+        "EPalWazaID::DarkCanon": 7,
+        "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::Tremor": 22,
+        "EPalWazaID::DarkLaser": 30,
+        "EPalWazaID::Unique_GrassGolem_RocketPunch": 40,
+        "EPalWazaID::DarkLegion": 50,
+        "EPalWazaID::Unique_GrassGolem_Dark_DarkArmCannon": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 110,
+        "MAG": 110,
+        "DEF": 125
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 3,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 3,
+        "Deforest": 5,
+        "Mining": 6,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 6,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 138,
+    "TowerBoss": false
+}

@@ -1,0 +1,43 @@
+{
+    "CodeName": "GYM_BlueSkyDragon",
+    "Type": [
+        "Dragon",
+        "Water"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_BlueSkyDragon_Tossin": 1,
+        "EPalWazaID::Unique_BlueSkyDragon_SweepBreath": 2,
+        "EPalWazaID::SeaGush": 3,
+        "EPalWazaID::HydroSlicer": 4,
+        "EPalWazaID::WallSplash": 5,
+        "EPalWazaID::DragonMeteor": 7,
+        "EPalWazaID::ChargeCanon": 8,
+        "EPalWazaID::Commet": 9
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 168,
+        "PHY": 135,
+        "MAG": 135,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 8,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 5,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": true
+}

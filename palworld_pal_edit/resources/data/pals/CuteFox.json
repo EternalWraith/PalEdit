@@ -11,7 +11,8 @@
         "EPalWazaID::WindCutter": 22,
         "EPalWazaID::SeedMachinegun": 30,
         "EPalWazaID::PowerBall": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 1
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 6,
+    "TowerBoss": false
 }

@@ -1,6 +1,19 @@
 {
     "CodeName": "EPalWazaID::Unique_Yakushima_MouthTossin",
     "Type": "Dark",
-    "Power": 100,
-    "Category": "Melee"
+    "Power": 300,
+    "Category": "Melee",
+    "Exclusive": [
+        "YakushimaBoss001",
+        "YakushimaBoss001_Small",
+        "YakushimaMonster001",
+        "YakushimaMonster001_Blue",
+        "YakushimaMonster001_Pink",
+        "YakushimaMonster001_Purple",
+        "YakushimaMonster001_Rainbow",
+        "YakushimaMonster001_Red",
+        "YakushimaMonster002",
+        "YakushimaMonster003",
+        "YakushimaMonster003_Purple"
+    ]
 }

@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_SamuraiDog_BiteV2",
+    "Type": "Earth",
+    "Power": 40,
+    "Category": "Melee",
+    "Exclusive": [
+        "SamuraiDog"
+    ]
+}

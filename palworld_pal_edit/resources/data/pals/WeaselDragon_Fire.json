@@ -11,22 +11,23 @@
         "EPalWazaID::Flamethrower": 22,
         "EPalWazaID::Unique_WeaselDragon_FlyingTackle": 30,
         "EPalWazaID::FlameWall": 40,
-        "EPalWazaID::FireBall": 50
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::DragonMeteor": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 100,
+        "PHY": 85,
         "MAG": 85,
         "DEF": 80
     },
     "Suitabilities": {
-        "EmitFlame": 2,
+        "EmitFlame": 4,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 1,
+        "Collection": 3,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 103,
+    "TowerBoss": false
 }

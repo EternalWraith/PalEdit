@@ -12,17 +12,18 @@
         "EPalWazaID::ThreeThunder": 30,
         "EPalWazaID::Unique_Umihebi_Fire_FireWindingTackle": 35,
         "EPalWazaID::FireBall": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 150,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 100
     },
     "Suitabilities": {
-        "EmitFlame": 4,
+        "EmitFlame": 7,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
@@ -36,5 +37,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 121,
+    "TowerBoss": false
 }

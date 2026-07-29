@@ -7,18 +7,17 @@
     "Moveset": {
         "EPalWazaID::Unique_Horus_FlareBird": 1,
         "EPalWazaID::FlareArrow": 2,
-        "EPalWazaID::RockLance": 3,
-        "EPalWazaID::Flamethrower": 4,
-        "EPalWazaID::ThreeThunder": 5,
+        "EPalWazaID::Flamethrower": 3,
+        "EPalWazaID::FlameWall": 4,
+        "EPalWazaID::FlameFunnel": 5,
         "EPalWazaID::Inferno": 6,
-        "EPalWazaID::FireBall": 7,
-        "EPalWazaID::LightningStrike": 8,
-        "EPalWazaID::FireSeed": 9
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::Eruption": 8
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 110
     },
@@ -37,5 +36,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

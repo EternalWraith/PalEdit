@@ -2,5 +2,9 @@
     "CodeName": "EPalWazaID::Unique_YakushimaMonster003_BatCharge",
     "Type": "Normal",
     "Power": 70,
-    "Category": "Melee"
+    "Category": "Melee",
+    "Exclusive": [
+        "YakushimaMonster003",
+        "YakushimaMonster003_Purple"
+    ]
 }

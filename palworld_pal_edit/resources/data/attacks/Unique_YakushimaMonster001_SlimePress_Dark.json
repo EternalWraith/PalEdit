@@ -2,5 +2,8 @@
     "CodeName": "EPalWazaID::Unique_YakushimaMonster001_SlimePress_Dark",
     "Type": "Dark",
     "Power": 50,
-    "Category": "Melee"
+    "Category": "Melee",
+    "Exclusive": [
+        "YakushimaMonster001_Purple"
+    ]
 }

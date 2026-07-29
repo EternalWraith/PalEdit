@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_Manticore_InfernoStrike",
     "Type": "Fire",
-    "Power": 125,
-    "Category": "Melee"
+    "Power": 400,
+    "Category": "Melee",
+    "Exclusive": [
+        "Manticore",
+        "Manticore_Dark",
+        "PREDATOR_Manticore_Dark"
+    ]
 }

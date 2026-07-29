@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_ThunderDog_InazumaShorai",
     "Type": "Electricity",
-    "Power": 65,
-    "Category": "Melee"
+    "Power": 100,
+    "Category": "Melee",
+    "Exclusive": [
+        "POLICE_ThunderDog",
+        "PREDATOR_ThunderDog",
+        "ThunderDog"
+    ]
 }

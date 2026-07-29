@@ -5,23 +5,22 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::Unique_LilyQueen_LilyHealing": 1,
-        "EPalWazaID::SeedMine": 2,
-        "EPalWazaID::RaidCutter": 3,
-        "EPalWazaID::RootAttack": 4,
-        "EPalWazaID::RootLance": 5,
-        "EPalWazaID::HydroPump": 6,
-        "EPalWazaID::LineGeyser": 7,
-        "EPalWazaID::WallSplash": 8,
-        "EPalWazaID::AcidRain": 9,
-        "EPalWazaID::WindEdge": 10,
-        "EPalWazaID::WaterBall": 11,
-        "EPalWazaID::BubbleShot": 12
+        "EPalWazaID::Unique_LilyQueen_LilyHealing_Boss": 1,
+        "EPalWazaID::Unique_LilyQueen_GYM_Act": 2,
+        "EPalWazaID::SolarBeam": 3,
+        "EPalWazaID::RaidCutter": 4,
+        "EPalWazaID::WindBurst": 5,
+        "EPalWazaID::RootLance": 6,
+        "EPalWazaID::CrossWind": 7,
+        "EPalWazaID::DiversionLaser": 8,
+        "EPalWazaID::WallSplash": 9,
+        "EPalWazaID::SeaGush": 11,
+        "EPalWazaID::BubbleShower": 12
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 110,
-        "PHY": 100,
+        "PHY": 110,
         "MAG": 110,
         "DEF": 105
     },
@@ -40,5 +39,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

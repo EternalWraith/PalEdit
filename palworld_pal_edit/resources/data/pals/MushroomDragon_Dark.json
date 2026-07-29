@@ -11,22 +11,23 @@
         "EPalWazaID::SeedMine": 22,
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::RootLance": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 110,
-        "PHY": 100,
+        "PHY": 85,
         "MAG": 85,
         "DEF": 90
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 2,
+        "Seeding": 3,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
-        "Collection": 2,
+        "Handcraft": 3,
+        "Collection": 3,
         "Deforest": 2,
         "Mining": 0,
         "OilExtraction": 0,
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 118,
+    "TowerBoss": false
 }

@@ -5,13 +5,18 @@
         "Dragon"
     ],
     "Moveset": {
-        "EPalWazaID::DragonCanon": 1,
-        "EPalWazaID::DarkPulse": 7,
-        "EPalWazaID::Unique_DarkMechaDragon_SetFunnel": 15,
-        "EPalWazaID::Unique_DarkMechaDragon_BeamSlash": 22,
-        "EPalWazaID::Unique_DarkMechaDragon_ConvergentBeam": 30,
-        "EPalWazaID::Unique_DarkMechaDragon_WarpComet": 40,
-        "EPalWazaID::Unique_DarkMechaDragon_FunnelLaser": 50
+        "EPalWazaID::Unique_DarkMechaDragon_SetFunnel": 1,
+        "EPalWazaID::Unique_DarkMechaDragon_ConvergentBeam": 2,
+        "EPalWazaID::Unique_DarkMechaDragon_BeamSlash": 3,
+        "EPalWazaID::Unique_DarkMechaDragon_WarpComet": 4,
+        "EPalWazaID::BlastCanon": 5,
+        "EPalWazaID::DragonMeteor": 6,
+        "EPalWazaID::BeamSlicer": 7,
+        "EPalWazaID::ThreeCommet": 8,
+        "EPalWazaID::ChargeCanon": 9,
+        "EPalWazaID::DarkLegion": 10,
+        "EPalWazaID::ShadowBall": 11,
+        "EPalWazaID::Unique_DarkMechaDragon_FunnelLaser": 12
     },
     "RaidMoveset": {
         "EPalWazaID::Unique_DarkMechaDragon_SetFunnel": 1,
@@ -29,7 +34,7 @@
     },
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 120
     },
@@ -48,5 +53,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

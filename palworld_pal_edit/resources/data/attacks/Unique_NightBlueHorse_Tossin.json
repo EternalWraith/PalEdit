@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_NightBlueHorse_Tossin",
+    "Type": "Dark",
+    "Power": 450,
+    "Category": "Melee",
+    "Exclusive": [
+        "NightBlueHorse",
+        "PREDATOR_NightBlueHorse"
+    ]
+}

@@ -1,10 +1,14 @@
 {
     "CodeName": "RAID_YakushimaBoss002_Hand_Right",
     "Type": [
-        "None",
+        "Normal",
         "None"
     ],
-    "Moveset": [],
+    "Moveset": {
+        "EPalWazaID::Unique_YakushimaBoss002_PhantasmalEye": 1,
+        "EPalWazaID::Unique_YakushimaBoss002_PhantasmalBolt": 2,
+        "EPalWazaID::Unique_YakushimaBoss002_PhantasmalSphere": 3
+    },
     "RaidMoveset": {
         "EPalWazaID::260": 1,
         "EPalWazaID::259": 2,
@@ -12,7 +16,7 @@
     },
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 100
     },
@@ -31,5 +35,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

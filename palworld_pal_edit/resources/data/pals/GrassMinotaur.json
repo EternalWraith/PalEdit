@@ -4,27 +4,40 @@
         "Leaf",
         "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::GrassTornado": 7,
+        "EPalWazaID::Tremor": 15,
+        "EPalWazaID::Unique_GrassMinotaur_BullRush_Lower": 22,
+        "EPalWazaID::RootLance": 30,
+        "EPalWazaID::CrossWind": 40,
+        "EPalWazaID::WindBurst": 50,
+        "EPalWazaID::Unique_GrassMinotaur_BullRush": 70
+    },
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "HP": 110,
+        "PHY": 105,
+        "MAG": 105,
+        "DEF": 105
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 1,
+        "Seeding": 3,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 1,
-        "Deforest": 1,
-        "Mining": 1,
+        "Collection": 2,
+        "Deforest": 3,
+        "Mining": 2,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 1,
+        "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "RaidMoveset": {},
+    "InnatePassives": [],
+    "DeckIndex": 81,
+    "TowerBoss": false
 }

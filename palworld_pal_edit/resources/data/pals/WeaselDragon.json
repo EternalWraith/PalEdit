@@ -12,12 +12,13 @@
         "EPalWazaID::IceBlade": 22,
         "EPalWazaID::DragonBreath": 30,
         "EPalWazaID::FrostBreath": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 100,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 80
     },
@@ -32,9 +33,12 @@
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 1,
+        "Cool": 2,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 103,
+    "TowerBoss": false
 }

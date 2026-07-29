@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_ThunderBird_Ice_SnowStrom",
+    "Type": "Ice",
+    "Power": 600,
+    "Category": "Melee",
+    "Exclusive": [
+        "ThunderBird_Ice"
+    ]
+}

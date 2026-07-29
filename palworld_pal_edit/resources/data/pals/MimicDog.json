@@ -11,12 +11,13 @@
         "EPalWazaID::PowerBall": 22,
         "EPalWazaID::AirBlade": 30,
         "EPalWazaID::HolyBlast": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 60,
-        "PHY": 100,
+        "PHY": 60,
         "MAG": 60,
         "DEF": 130
     },
@@ -32,8 +33,11 @@
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 1,
+        "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 144,
+    "TowerBoss": false
 }

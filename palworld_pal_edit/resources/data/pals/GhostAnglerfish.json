@@ -4,25 +4,17 @@
         "Dark",
         "Water"
     ],
-    "Moveset": {
-        "EPalWazaID::WaterGun": 1,
-        "EPalWazaID::DarkBall": 7,
-        "EPalWazaID::DarkArrow": 15,
-        "EPalWazaID::GhostFlame": 22,
-        "EPalWazaID::Unique_GhostAnglerfish_SweepBait": 30,
-        "EPalWazaID::DarkLaser": 40,
-        "EPalWazaID::RipTide": 50
-    },
+    "Moveset": {},
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 100,
+        "PHY": 125,
         "MAG": 125,
         "DEF": 105
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 4,
+        "Watering": 5,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -35,5 +27,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 97,
+    "TowerBoss": false
 }

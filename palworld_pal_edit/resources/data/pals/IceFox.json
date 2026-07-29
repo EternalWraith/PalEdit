@@ -11,12 +11,13 @@
         "EPalWazaID::GhostFlame": 22,
         "EPalWazaID::BlizzardLance": 30,
         "EPalWazaID::FrostBreath": 40,
-        "EPalWazaID::IcicleThrow": 50
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 100,
+        "PHY": 95,
         "MAG": 95,
         "DEF": 105
     },
@@ -31,9 +32,12 @@
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 2,
+        "Cool": 4,
         "Transport": 0,
-        "MonsterFarm": 0
+        "MonsterFarm": 3
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 95,
+    "TowerBoss": false
 }

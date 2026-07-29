@@ -11,12 +11,13 @@
         "EPalWazaID::PowerShot": 22,
         "EPalWazaID::ElecWave": 30,
         "EPalWazaID::PowerBall": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 90,
+        "PHY": 75,
         "MAG": 75,
         "DEF": 90
     },
@@ -33,7 +34,10 @@
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
-        "MonsterFarm": 1
+        "MonsterFarm": 2
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 20,
+    "TowerBoss": false
 }

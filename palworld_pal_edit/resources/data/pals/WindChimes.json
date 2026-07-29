@@ -11,7 +11,8 @@
         "EPalWazaID::PowerShot": 22,
         "EPalWazaID::PowerBall": 30,
         "EPalWazaID::SandTornado": 40,
-        "EPalWazaID::RockLance": 50
+        "EPalWazaID::RockLance": 50,
+        "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -35,5 +36,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 38,
+    "TowerBoss": false
 }

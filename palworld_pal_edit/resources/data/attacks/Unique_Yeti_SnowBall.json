@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_Yeti_SnowBall",
     "Type": "Ice",
-    "Power": 100,
-    "Category": "Melee"
+    "Power": 400,
+    "Category": "Melee",
+    "Exclusive": [
+        "PREDATOR_Yeti",
+        "Yeti"
+    ]
 }

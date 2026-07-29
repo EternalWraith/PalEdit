@@ -11,21 +11,22 @@
         "EPalWazaID::Flamethrower": 22,
         "EPalWazaID::FlareTornado": 30,
         "EPalWazaID::Inferno": 40,
-        "EPalWazaID::FireBall": 50
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 80,
-        "PHY": 90,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 50
     },
     "Suitabilities": {
-        "EmitFlame": 1,
+        "EmitFlame": 2,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 2,
         "Collection": 1,
         "Deforest": 0,
         "Mining": 0,
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 73,
+    "TowerBoss": false
 }

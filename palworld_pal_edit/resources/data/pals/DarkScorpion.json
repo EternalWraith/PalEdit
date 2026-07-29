@@ -12,7 +12,8 @@
         "EPalWazaID::ShadowBall": 30,
         "EPalWazaID::Unique_DarkScorpion_Pierce": 35,
         "EPalWazaID::RockLance": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -28,13 +29,16 @@
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
-        "Mining": 3,
+        "Deforest": 3,
+        "Mining": 5,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 99,
+    "TowerBoss": false
 }

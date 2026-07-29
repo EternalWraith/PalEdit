@@ -1,0 +1,43 @@
+{
+    "CodeName": "SwordCutlassfish_Fire",
+    "Type": [
+        "Water",
+        "Fire"
+    ],
+    "Moveset": {
+        "EPalWazaID::AquaJet": 1,
+        "EPalWazaID::FlareArrow": 7,
+        "EPalWazaID::FlareTornado": 15,
+        "EPalWazaID::DiversionLaser": 22,
+        "EPalWazaID::HydroSlicer": 30,
+        "EPalWazaID::HydroPump": 40,
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::SeaGush": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 70,
+        "PHY": 105,
+        "MAG": 105,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 3,
+        "Watering": 2,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 2,
+        "Deforest": 3,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 128,
+    "TowerBoss": false
+}

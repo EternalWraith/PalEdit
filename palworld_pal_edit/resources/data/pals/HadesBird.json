@@ -11,12 +11,13 @@
         "EPalWazaID::FlareTornado": 22,
         "EPalWazaID::GhostFlame": 30,
         "EPalWazaID::ShadowBall": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLaser": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 100,
-        "PHY": 100,
+        "PHY": 125,
         "MAG": 125,
         "DEF": 100
     },
@@ -32,8 +33,11 @@
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 4,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 80,
+    "TowerBoss": false
 }

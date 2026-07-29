@@ -1,0 +1,43 @@
+{
+    "CodeName": "KabukiMan",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::FireBlast": 1,
+        "EPalWazaID::FireSeed": 7,
+        "EPalWazaID::Flamethrower": 15,
+        "EPalWazaID::FlameWall": 22,
+        "EPalWazaID::FlameFunnel": 30,
+        "EPalWazaID::Eruption": 40,
+        "EPalWazaID::Inferno": 50,
+        "EPalWazaID::FireBall": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 120,
+        "MAG": 120,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 8,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 6,
+        "Collection": 5,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 5,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 183,
+    "TowerBoss": false
+}

@@ -5,13 +5,16 @@
         "Fire"
     ],
     "Moveset": {
-        "EPalWazaID::DragonWave": 1,
-        "EPalWazaID::Flamethrower": 7,
-        "EPalWazaID::FlameWall": 15,
-        "EPalWazaID::Commet": 22,
-        "EPalWazaID::BeamSlicer": 30,
-        "EPalWazaID::Unique_KingBahamut_ArmSmash": 40,
-        "EPalWazaID::Unique_KingBahamut_AirCrash": 50
+        "EPalWazaID::Unique_KingBahamut_AirCrash": 1,
+        "EPalWazaID::Unique_KingBahamut_ArmSmash": 2,
+        "EPalWazaID::ThreeCommet": 3,
+        "EPalWazaID::BlastCanon": 5,
+        "EPalWazaID::DragonMeteor": 6,
+        "EPalWazaID::BeamSlicer": 7,
+        "EPalWazaID::Eruption": 8,
+        "EPalWazaID::FireBall": 9,
+        "EPalWazaID::FlameWall": 10,
+        "EPalWazaID::FlameFunnel": 11
     },
     "RaidMoveset": {
         "EPalWazaID::Unique_KingBahamut_AirCrash": 1,
@@ -27,7 +30,7 @@
     },
     "Scaling": {
         "HP": 105,
-        "PHY": 150,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 125
     },
@@ -46,5 +49,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

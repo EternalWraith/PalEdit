@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_ScorpionMan_Uppercut",
     "Type": "Dark",
-    "Power": 110,
-    "Category": "Melee"
+    "Power": 350,
+    "Category": "Melee",
+    "Exclusive": [
+        "PREDATOR_ScorpionMan",
+        "ScorpionMan"
+    ]
 }

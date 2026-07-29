@@ -11,12 +11,13 @@
         "EPalWazaID::PowerBall": 22,
         "EPalWazaID::IceBlade": 30,
         "EPalWazaID::FrostBreath": 40,
-        "EPalWazaID::IcicleThrow": 50
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 70,
-        "PHY": 70,
+        "PHY": 75,
         "MAG": 75,
         "DEF": 80
     },
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 15,
+    "TowerBoss": false
 }

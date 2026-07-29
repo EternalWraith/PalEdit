@@ -12,14 +12,15 @@
         "EPalWazaID::Unique_Horus_FlareBird": 30,
         "EPalWazaID::Inferno": 40,
         "EPalWazaID::FireBall": 50,
-        "EPalWazaID::Unique_Horus_PerfectStorm": 55
+        "EPalWazaID::Unique_Horus_PerfectStorm": 55,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 105,
-        "DEF": 110
+        "HP": 105,
+        "PHY": 110,
+        "MAG": 110,
+        "DEF": 115
     },
     "Suitabilities": {
         "EmitFlame": 3,
@@ -36,5 +37,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 188,
+    "TowerBoss": false
 }

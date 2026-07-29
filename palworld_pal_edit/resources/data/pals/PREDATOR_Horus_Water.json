@@ -7,11 +7,14 @@
     "Moveset": {
         "EPalWazaID::AquaJet": 1,
         "EPalWazaID::BubbleShot": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::AcidRain": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::LineGeyser": 22,
-        "EPalWazaID::WallSplash": 30,
+        "EPalWazaID::WallSplash": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::Unique_Horus_Water_AquaStorm": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {
         "EPalWazaID::AquaJet": 1,
@@ -25,14 +28,14 @@
         "EPalWazaID::PredatorLockon": 9
     },
     "Scaling": {
-        "HP": 120,
-        "PHY": 100,
+        "HP": 132,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 110
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 4,
+        "Watering": 6,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -42,8 +45,11 @@
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 5,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

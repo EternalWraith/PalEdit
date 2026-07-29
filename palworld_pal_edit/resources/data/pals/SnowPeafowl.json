@@ -11,7 +11,8 @@
         "EPalWazaID::FrostBreath": 22,
         "EPalWazaID::IceWall": 30,
         "EPalWazaID::IciclePierce": 40,
-        "EPalWazaID::DiamondFall": 50
+        "EPalWazaID::DiamondFall": 50,
+        "EPalWazaID::IceAge": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -26,14 +27,17 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 1,
+        "Collection": 2,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 2,
+        "Cool": 4,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 114,
+    "TowerBoss": false
 }

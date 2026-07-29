@@ -12,12 +12,13 @@
         "EPalWazaID::LineThunder": 22,
         "EPalWazaID::ThreeThunder": 30,
         "EPalWazaID::LightningStrike": 40,
-        "EPalWazaID::Thunderbolt": 50
+        "EPalWazaID::Thunderbolt": 50,
+        "EPalWazaID::Railbolt": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 80,
-        "PHY": 110,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 105
     },
@@ -25,7 +26,7 @@
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 2,
+        "GenerateElectricity": 3,
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 1,
@@ -36,5 +37,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 54,
+    "TowerBoss": false
 }

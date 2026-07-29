@@ -11,7 +11,8 @@
         "EPalWazaID::BubbleShot": 22,
         "EPalWazaID::IceBlade": 30,
         "EPalWazaID::WaterBall": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::HydroPump": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -25,7 +26,7 @@
         "Watering": 2,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 2,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 55,
+    "TowerBoss": false
 }

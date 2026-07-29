@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_Horus_Water_AquaStorm",
     "Type": "Water",
-    "Power": 135,
-    "Category": "Melee"
+    "Power": 320,
+    "Category": "Melee",
+    "Exclusive": [
+        "Horus_Water",
+        "PREDATOR_Horus_Water"
+    ]
 }

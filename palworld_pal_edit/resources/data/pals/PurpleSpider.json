@@ -11,7 +11,8 @@
         "EPalWazaID::DarkArrow": 22,
         "EPalWazaID::Unique_PurpleSpider_SpiderRaid": 30,
         "EPalWazaID::BubbleShower": 40,
-        "EPalWazaID::Apocalypse": 50
+        "EPalWazaID::Apocalypse": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -25,8 +26,8 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
-        "Collection": 2,
+        "Handcraft": 3,
+        "Collection": 3,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -35,5 +36,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 71,
+    "TowerBoss": false
 }

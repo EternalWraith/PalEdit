@@ -6,303 +6,2103 @@
         "Rating": "1"
     },
     "ElementResist_Normal_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementResist_Dark_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementResist_Dragon_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementResist_Ice_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementResist_Fire_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementResist_Leaf_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementResist_Earth_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementResist_Thunder_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementResist_Aqua_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "ElementBoost_Normal_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Dark_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Dragon_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Ice_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Fire_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Leaf_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Earth_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Thunder_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Aqua_1_PAL": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "ElementBoost_Normal_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "ElementBoost_Dark_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "ElementBoost_Dragon_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "ElementBoost_Ice_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "ElementBoost_Fire_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "ElementBoost_Leaf_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "ElementBoost_Earth_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "ElementBoost_Thunder_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "ElementBoost_Aqua_2_PAL": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "Witch": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "PAL_ALLAttack_up1": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "PAL_ALLAttack_up2": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "PAL_ALLAttack_up3": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "PAL_ALLAttack_down1": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "PAL_ALLAttack_down2": {
-        "Rating": "-3"
+        "Rating": "-3",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "Deffence_up1": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "Deffence_up2": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "Deffence_up3": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "Deffence_down1": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "Deffence_down2": {
-        "Rating": "-3"
+        "Rating": "-3",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "TrainerMining_up1": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Work"
     },
     "TrainerLogging_up1": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Work"
     },
     "TrainerATK_UP_1": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "TrainerWorkSpeed_UP_1": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Work"
     },
     "TrainerDEF_UP_1": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "PAL_Sanity_Down_1": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_Sanity_Down_2": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_Sanity_Down_3": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_Sanity_Up_1": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_Sanity_Up_2": {
-        "Rating": "-2"
+        "Rating": "-2",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_FullStomach_Down_1": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_FullStomach_Down_2": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_FullStomach_Down_3": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_FullStomach_Up_1": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "PAL_FullStomach_Up_2": {
-        "Rating": "-2"
+        "Rating": "-2",
+        "Rollable": true,
+        "Group": "Utility"
     },
     "CraftSpeed_up1": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Work"
     },
     "CraftSpeed_up2": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Work"
     },
     "CraftSpeed_up3": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Work"
     },
     "CraftSpeed_down1": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Work"
     },
     "CraftSpeed_down2": {
-        "Rating": "-3"
+        "Rating": "-3",
+        "Rollable": true,
+        "Group": "Work"
     },
     "MoveSpeed_up_1": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Movement"
     },
     "MoveSpeed_up_2": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Movement"
     },
     "MoveSpeed_up_3": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Movement"
     },
     "PAL_CorporateSlave": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Work"
     },
     "PAL_rude": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "Noukin": {
-        "Rating": "2"
+        "Rating": "2",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "PAL_oraora": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "PAL_conceited": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Work"
     },
     "PAL_SpiritualInst": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Work"
     },
     "PAL_masochist": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Defense"
     },
     "PAL_sadist": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "Rare": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Attack"
     },
     "Legend": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "Stamina_Up_1": {
-        "Rating": "1"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
     },
     "Stamina_Up_2": {
-        "Rating": "3"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "Stamina_Up_3": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Other"
     },
     "Stamina_Down_1": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "SalePrice_Up_1": {
-        "Rating": "1"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
     },
     "SalePrice_Up_2": {
-        "Rating": "3"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "SalePrice_Down_1": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "CoolTimeReduction_Up_1": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
     },
     "CoolTimeReduction_Up_2": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "CoolTimeReduction_Down_1": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "NonKilling": {
-        "Rating": "-1"
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "Nocturnal": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "Vampire": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Other"
     },
-    "Alien" : {
-        "Rating": "1"
+    "Alien": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
     },
-    "EternalFlame" : {
-        "Rating": "4"
+    "EternalFlame": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "Invader": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "Test_PalEgg_HatchingSpeed_Up": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
     },
     "Nushi": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "SwimSpeed_up_1": {
-        "Rating": "1"
+        "Rating": "1",
+        "Rollable": true,
+        "Group": "Other"
     },
     "SwimSpeed_up_2": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
     },
     "SwimSpeed_up_3": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Other"
     },
     "GYM_NAME_Meadow": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "GYM_NAME_Forest": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "GYM_NAME_Desert": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "GYM_NAME_Volcano": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "GYM_NAME_Snow": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "GYM_NAME_Sakurajima": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "GYM_NAME_Viking": {
-        "Rating": "3"
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
     },
     "Salvation": {
-        "Rating": "4"
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "AirDash_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "AirDash_2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "AirDash_3": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "AirDash_4": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "Attack_ACC_up1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up1_Armor": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up2_Armor": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up3_Armor": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up4_Armor": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "Attack_ACC_up4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "AutoHPRegeneRate_Passive": {
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "AvoidDurationUp_EquipSkill_2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "BossDefeatReward_AmaterasuWolf_Dark": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Anubis": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_BadCatgirl": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_BerryGoat_Dark": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_BlackMetalDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_BlackPuppy": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_BlueDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_BlueThunderHorse": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_BlueberryFairy": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_CactusDoll": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_CaptainPenguin": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_CatMage": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_CatVampire": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_CubeTurtle": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_CubeTurtle_Neutral": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_DarkScorpion": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_DarkScorpion_Ground": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_DomeArmorDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_ElecLizard": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_ElecPanda": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_ElecSnail": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FairyDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FengyunDeeper": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FengyunDeeper_Electric": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FireKirin": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FlameBuffalo": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FlowerDinosaur_Electric": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FlowerDoll": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FoxExorcist": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_FoxMage": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GhostDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GhostRabbit": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GoldenHorse": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GrassGolem": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GrassGolem_Dark": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GrassMammoth": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GrassPanda_Electric": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GrassRabbitMan": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_GrimGirl": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_HawkBird": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_HerculesBeetle": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_HerculesBeetle_Ground": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Horus_Water": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_IceFox": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_IceHorse": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_IceHorse_Dark": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_IceNarwhal": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_IceNarwhal_Fire": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_JetDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_KabukiMan": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_KingAlpaca": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_KingAlpaca_Ice": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_KingBahamut": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Kirin": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Kitsunebi_Ice": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_LazyCatfish": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_LazyDragon_Electric": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_LilyQueen": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_LilyQueen_Dark": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_LotusDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Manticore": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_MoonChild": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_MopKing": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_MushroomLady": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Mutant": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_MysteryMask": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_NaughtyCat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_NightBlueHorse": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_PinkRabbit_Grass": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_PlantSlime": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_PoseidonOrca": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_PurpleSpider": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_QueenBee": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_RaijinDaughter_Water": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_RockBeast": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_RockBeast_Ice": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Ronin": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_SaintCentaur_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_SaintCentaur_2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_SakuraSaurus": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_SakuraSaurus_Water": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_ScorpionMan_Electric": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_SkyDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Suzaku": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_ThunderBird": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_ThunderFluffyBird": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Umihebi": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_VioletFairy": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_VolcanicMonster": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_VolcanoDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_VolcanoDragon_Ice": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_WeaselDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Werewolf_Ice": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_WhiteDeer": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_WhiteDeer_Dark": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_WhiteMoth": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_WhiteShieldDragon": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_WhiteTiger_Ground": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_WingGolem": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "BossDefeatReward_Yeti_Grass": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "CaptureLevel_Up_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "CaptureLevel_Up_2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "CaptureLevel_Up_3": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "CaptureLevel_Up_4": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "CaptureLevel_Up_5": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "CaptureLevel_Up_6": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "CollectItem_Berries": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "CollectItem_Egg": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "CollectItem_Milk": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "CollectItem_Money": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "CollectItem_Sweets": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "CollectItem_Wool_Alpaca": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "CollectItem_Wool_SheepBall": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "CollectItem_Wool_WhiteMoth": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "CoolTimeReduction_Up_3": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "Defense_ACC_up1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "Defense_ACC_up2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "Defense_ACC_up3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "Defense_ACC_up4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "Deffence_up2_2": {
+        "Rating": "2",
+        "Rollable": true,
+        "Group": "Defense"
+    },
+    "Defuser_ExplosiveSpore_EquipSkill": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "ElementBoost_Dark_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dark_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dark_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dark_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dark_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dark_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dark_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dragon_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dragon_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dragon_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dragon_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dragon_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dragon_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Dragon_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Earth_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Earth_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Earth_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Earth_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Earth_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Earth_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Earth_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Electricity_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Electricity_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Electricity_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Electricity_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Electricity_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Electricity_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Electricity_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Fire_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Fire_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Fire_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Fire_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Fire_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Fire_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Fire_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Ice_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Ice_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Ice_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Ice_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Ice_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Ice_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Ice_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Leaf_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Leaf_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Leaf_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Leaf_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Leaf_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Leaf_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Leaf_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Normal_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Normal_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Normal_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Normal_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Normal_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Normal_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Normal_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Water_1_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Water_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Water_2_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Water_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Water_3_BossDefeat": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Water_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementBoost_Water_4_Otomo_Only_Equip": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "ElementResist_Aqua_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Aqua_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Aqua_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Aqua_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Dark_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Dark_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Dark_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Dark_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Dragon_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Dragon_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Dragon_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Dragon_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Earth_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Earth_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Earth_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Earth_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Fire_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Fire_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Fire_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Fire_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Ice_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Ice_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Ice_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Ice_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Leaf_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Leaf_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Leaf_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Leaf_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Normal_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Normal_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Normal_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Normal_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Thunder_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Thunder_2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Thunder_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "ElementResist_Thunder_4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "FriendshipPoint_Increase_EquipSkill": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "HP_ACC_up1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "HP_ACC_up2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "HP_ACC_up3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "HP_ACC_up4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "Invalid_ToxicGas_EquipSkill": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "JumpCount_Increase1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Movement"
+    },
+    "JumpCount_Increase2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Movement"
+    },
+    "JumpCount_Increase3": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Movement"
+    },
+    "JumpPower_Increase": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Movement"
+    },
+    "MaxInventoryWeight_up": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "MaxInventoryWeight_up2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "MaxInventoryWeight_up3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "MaxInventoryWeight_up_Equip_1": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "MaxInventoryWeight_up_Equip_2": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "MaxInventoryWeight_up_Equip_3": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "MaxInventoryWeight_up_Equip_4": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "MiniNushi": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "MutationPal_Babysitter": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "MutationPal_ExplosionResist": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "MutationPal_Immortal": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "MutationPal_Mutant": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "NightOwl": {
+        "Rating": "-1",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "OctaviaArmorVampire": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "PalExp_Increase_1_Otomo_Only_Equip": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "PalExp_Increase_2_Otomo_Only_Equip": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "PalExp_Increase_3_Otomo_Only_Equip": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "PlayerSP_DecreaseRate_Passive": {
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "ReloadSpeedUp_Passive": {
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "RideJumpCount_Increase1": {
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "RideJumpCount_Increase2": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "SelfDeathAddItemDrop_up_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "SelfDeathAddItemDrop_up_2": {
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "SelfDeathAddItemDrop_up_3": {
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "SphereModule_Curve": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "SphereModule_Curve2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "SphereModule_Heavy": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "SphereModule_Homing": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "SphereModule_Sniper": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "SphereModule_Sniper2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "StonDrop_Boost_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "StonDrop_Boost_2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "StonDrop_Boost_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "StonDrop_Boost_4": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "StonDrop_Boost_5": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "StonWoodDrop_Boost": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "TemperatureResist_Cold1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "TemperatureResist_Cold2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "TemperatureResist_Cold3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "TemperatureResist_Heat1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "TemperatureResist_Heat1Cold1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "TemperatureResist_Heat2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "TemperatureResist_Heat2Cold2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "TemperatureResist_Heat3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "TemperatureResist_Heat3Cold3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "WoodDrop_Boost_1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "WoodDrop_Boost_2": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "WoodDrop_Boost_3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "WoodDrop_Boost_4": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "WoodDrop_Boost_5": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "WorkSpeed_ACC_up1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "WorkSpeed_ACC_up2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "WorkSpeed_ACC_up3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "WorkSpeed_ACC_up4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "WorkSuitabilityAddRank_MonsterFarm_1": {
+        "Rating": "3",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "WorkSuitabilityAddRank_MonsterFarm_2": {
+        "Rating": "4",
+        "Rollable": true,
+        "Group": "Other"
+    },
+    "WorldTree_ATK": {
+        "Rating": "5",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "WorldTree_ATK_DEF": {
+        "Rating": "5",
+        "Rollable": false,
+        "Group": "Attack"
+    },
+    "WorldTree_CraftSpeed": {
+        "Rating": "5",
+        "Rollable": false,
+        "Group": "Work"
+    },
+    "WorldTree_DEF": {
+        "Rating": "5",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "WorldTree_FullStomach": {
+        "Rating": "5",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "WorldTree_MoveSpeed": {
+        "Rating": "5",
+        "Rollable": false,
+        "Group": "Movement"
+    },
+    "WorldTree_Sanity": {
+        "Rating": "5",
+        "Rollable": false,
+        "Group": "Utility"
+    },
+    "YakushimaDagameBoost_Magic_Equip": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "YakushimaDagameBoost_Melee_Equip": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "YakushimaDagameBoost_Ranged_Equip": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "YakushimaDagameBoost_Summon_Equip": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "YakushimaProtection_Equip": {
+        "Rating": "-1",
+        "Rollable": false,
+        "Group": "Other"
+    },
+    "defense_ACC_up1": {
+        "Rating": "1",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "defense_ACC_up2": {
+        "Rating": "2",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "defense_ACC_up3": {
+        "Rating": "3",
+        "Rollable": false,
+        "Group": "Defense"
+    },
+    "defense_ACC_up4": {
+        "Rating": "4",
+        "Rollable": false,
+        "Group": "Defense"
     }
 }

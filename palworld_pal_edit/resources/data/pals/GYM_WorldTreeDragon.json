@@ -1,0 +1,43 @@
+{
+    "CodeName": "GYM_WorldTreeDragon",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_WorldTreeDragon_PaldiumShot": 1,
+        "EPalWazaID::Unique_WorldTreeDragon_PaldiumCannon": 2,
+        "EPalWazaID::Unique_WorldTreeDragon_PaldiumRain": 3,
+        "EPalWazaID::Unique_WorldTreeDragon_PaldiumExplosion": 4,
+        "EPalWazaID::RockBeat": 5,
+        "EPalWazaID::HolyBlast": 7,
+        "EPalWazaID::DragonMeteor": 8,
+        "EPalWazaID::CommetRain": 9
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 240,
+        "PHY": 200,
+        "MAG": 200,
+        "DEF": 200
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": true
+}

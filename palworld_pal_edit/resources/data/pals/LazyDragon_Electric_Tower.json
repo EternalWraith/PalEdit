@@ -1,0 +1,43 @@
+{
+    "CodeName": "LazyDragon_Electric_Tower",
+    "Type": [
+        "Dragon",
+        "Electricity"
+    ],
+    "Moveset": {
+        "EPalWazaID::SpreadPulse": 1,
+        "EPalWazaID::DragonCanon": 7,
+        "EPalWazaID::ElecWave": 15,
+        "EPalWazaID::LineThunder": 22,
+        "EPalWazaID::DragonBreath": 30,
+        "EPalWazaID::LightningStrike": 40,
+        "EPalWazaID::Thunderbolt": 50,
+        "EPalWazaID::Railbolt": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 120,
+        "PHY": 120,
+        "MAG": 120,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 6,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 4,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 94,
+    "TowerBoss": true
+}

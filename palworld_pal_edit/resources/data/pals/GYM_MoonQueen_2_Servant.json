@@ -5,18 +5,19 @@
         "Normal"
     ],
     "Moveset": {
-        "EPalWazaID::AirBlade": 1,
-        "EPalWazaID::PowerBall": 2,
-        "EPalWazaID::ShadowBall": 3,
-        "EPalWazaID::IcicleThrow": 4,
-        "EPalWazaID::Commet": 5,
-        "EPalWazaID::GhostFlame": 6,
-        "EPalWazaID::DarkArrow": 7
+        "EPalWazaID::PowerBall": 1,
+        "EPalWazaID::AirBlade": 2,
+        "EPalWazaID::HolyBlast": 3,
+        "EPalWazaID::DarkArrow": 4,
+        "EPalWazaID::GhostFlame": 5,
+        "EPalWazaID::ShadowBall": 6,
+        "EPalWazaID::IceWall": 7,
+        "EPalWazaID::Commet": 8
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 110
     },
@@ -35,5 +36,8 @@
         "Transport": 1,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

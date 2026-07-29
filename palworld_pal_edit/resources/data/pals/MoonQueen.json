@@ -8,15 +8,17 @@
         "EPalWazaID::DarkCanon": 1,
         "EPalWazaID::DarkArrow": 7,
         "EPalWazaID::AirBlade": 15,
+        "EPalWazaID::Commet": 18,
         "EPalWazaID::HolyBlast": 22,
         "EPalWazaID::Unique_MoonQueen_MoonBlade": 30,
         "EPalWazaID::StarMine": 40,
-        "EPalWazaID::Unique_MoonQueen_MoonBeam": 50
+        "EPalWazaID::Unique_MoonQueen_MoonBeam": 50,
+        "EPalWazaID::Unique_MoonQueen_IceMoonBlade": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 115,
         "MAG": 115,
         "DEF": 110
     },
@@ -25,15 +27,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 4,
+        "Handcraft": 7,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 3,
+        "ProductMedicine": 6,
         "Cool": 0,
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 190,
+    "TowerBoss": false
 }

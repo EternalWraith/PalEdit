@@ -11,12 +11,13 @@
         "EPalWazaID::ShadowBall": 22,
         "EPalWazaID::Apocalypse": 30,
         "EPalWazaID::Unique_NightLady_FlameNightmare": 40,
-        "EPalWazaID::Unique_NightLady_WarpBeam": 50
+        "EPalWazaID::Unique_NightLady_WarpBeam": 50,
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 120,
-        "PHY": 100,
+        "PHY": 150,
         "MAG": 150,
         "DEF": 100
     },
@@ -25,15 +26,20 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 2,
+        "Handcraft": 6,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 4,
+        "ProductMedicine": 7,
         "Cool": 0,
-        "Transport": 2,
+        "Transport": 4,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Witch"
+    ],
+    "DeckIndex": 195,
+    "TowerBoss": false
 }

@@ -12,29 +12,35 @@
         "EPalWazaID::LineThunder": 30,
         "EPalWazaID::ThreeThunder": 40,
         "EPalWazaID::Thunderbolt": 50,
-        "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": 55
+        "EPalWazaID::Unique_ThunderDragonMan_NumerousSwordAttack": 55,
+        "EPalWazaID::CommetRain": 70
     },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
+        "HP": 120,
+        "PHY": 130,
         "MAG": 130,
-        "DEF": 100
+        "DEF": 115
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 4,
-        "Handcraft": 2,
+        "GenerateElectricity": 8,
+        "Handcraft": 3,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 4,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "ElementBoost_Thunder_2_PAL"
+    ],
+    "DeckIndex": 187,
+    "TowerBoss": false
 }

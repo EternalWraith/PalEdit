@@ -2,15 +2,24 @@
     "CodeName": "SmallYeti",
     "Type": [
         "Ice",
-        "Normal"
+        "None"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::BlizzardLance": 15,
+        "EPalWazaID::FrostBreath": 22,
+        "EPalWazaID::IciclePierce": 30,
+        "EPalWazaID::IcicleLine": 40,
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::DiamondFall": 70
+    },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "HP": 80,
+        "PHY": 75,
+        "MAG": 75,
+        "DEF": 85
     },
     "Suitabilities": {
         "EmitFlame": 0,
@@ -23,9 +32,12 @@
         "Mining": 3,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 4,
-        "Transport": 1,
+        "Cool": 3,
+        "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 133,
+    "TowerBoss": false
 }

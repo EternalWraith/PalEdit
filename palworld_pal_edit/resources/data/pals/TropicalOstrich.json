@@ -11,29 +11,33 @@
         "EPalWazaID::WindEdge": 22,
         "EPalWazaID::Unique_TropicalOstrich_DashKick": 30,
         "EPalWazaID::ReflectiveShuriken": 40,
-        "EPalWazaID::CrossWind": 50
+        "EPalWazaID::CrossWind": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 100,
+        "PHY": 110,
         "MAG": 110,
         "DEF": 115
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 2,
+        "Seeding": 4,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 2,
+        "Collection": 4,
         "Deforest": 0,
-        "Mining": 3,
+        "Mining": 5,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 106,
+    "TowerBoss": false
 }

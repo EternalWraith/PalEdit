@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_RedFlowerBird_JumpKick",
+    "Type": "Leaf",
+    "Power": 550,
+    "Category": "Shot",
+    "Exclusive": [
+        "PREDATOR_RedFlowerBird",
+        "RedFlowerBird"
+    ]
+}

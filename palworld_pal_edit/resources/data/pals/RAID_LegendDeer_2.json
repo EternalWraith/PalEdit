@@ -5,13 +5,13 @@
         "Leaf"
     ],
     "Moveset": {
-        "EPalWazaID::PowerShot": 1,
-        "EPalWazaID::PowerBall": 7,
-        "EPalWazaID::HolyBlast": 15,
-        "EPalWazaID::RadiantBarrage": 22,
-        "EPalWazaID::Unique_LegendDeer_RadiantWingRush": 30,
-        "EPalWazaID::Unique_LegendDeer_WarpPillarBurst": 40,
-        "EPalWazaID::Unique_LegendDeer_RadiantPurge_Otomo": 50
+        "EPalWazaID::RootLance": 1,
+        "EPalWazaID::CrossWind": 2,
+        "EPalWazaID::SolarBeam": 3,
+        "EPalWazaID::SeaGush": 4,
+        "EPalWazaID::WallSplash": 5,
+        "EPalWazaID::RipTide": 6,
+        "EPalWazaID::WindBurst": 7
     },
     "RaidMoveset": {
         "EPalWazaID::RootLance": 1,
@@ -23,7 +23,7 @@
     },
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 120
     },
@@ -42,5 +42,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

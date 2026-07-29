@@ -1,0 +1,43 @@
+{
+    "CodeName": "WhiteMoth_Neutral",
+    "Type": [
+        "Normal",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::AirCanon": 1,
+        "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::PowerBall": 15,
+        "EPalWazaID::AirBlade": 22,
+        "EPalWazaID::IcicleThrow": 30,
+        "EPalWazaID::HyperBeam": 40,
+        "EPalWazaID::DiamondFall": 50,
+        "EPalWazaID::HolyBlast": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 115,
+        "PHY": 90,
+        "MAG": 90,
+        "DEF": 100
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 3,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 4
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 116,
+    "TowerBoss": false
+}

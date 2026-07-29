@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_PurpleSpider_SpiderRaid",
     "Type": "Dark",
-    "Power": 85,
-    "Category": "Melee"
+    "Power": 250,
+    "Category": "Melee",
+    "Exclusive": [
+        "PREDATOR_PurpleSpider",
+        "PurpleSpider"
+    ]
 }

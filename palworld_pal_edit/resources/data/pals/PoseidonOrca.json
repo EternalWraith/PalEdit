@@ -12,18 +12,19 @@
         "EPalWazaID::WallSplash": 30,
         "EPalWazaID::RipTide": 40,
         "EPalWazaID::SeaGush": 50,
-        "EPalWazaID::Unique_PoseidonOrca_TorrentLaser": 60
+        "EPalWazaID::Unique_PoseidonOrca_TorrentLaser": 60,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 100,
+        "PHY": 145,
         "MAG": 145,
         "DEF": 125
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 4,
+        "Watering": 7,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -36,5 +37,11 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Legend",
+        "Nushi"
+    ],
+    "DeckIndex": 201,
+    "TowerBoss": false
 }

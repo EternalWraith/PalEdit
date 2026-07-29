@@ -13,12 +13,13 @@
         "EPalWazaID::Unique_SaintCentaur_OneSpearRushes": 40,
         "EPalWazaID::HyperBeam": 50,
         "EPalWazaID::IceAge": 55,
-        "EPalWazaID::HolyBlast": 60
+        "EPalWazaID::HolyBlast": 60,
+        "EPalWazaID::RadiantBarrage": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 110,
+        "PHY": 120,
         "MAG": 120,
         "DEF": 145
     },
@@ -29,13 +30,19 @@
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
-        "Mining": 2,
+        "Deforest": 6,
+        "Mining": 6,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Legend",
+        "ElementBoost_Normal_2_PAL"
+    ],
+    "DeckIndex": 198,
+    "TowerBoss": false
 }

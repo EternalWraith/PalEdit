@@ -7,11 +7,15 @@
     "Moveset": {
         "EPalWazaID::IceMissile": 1,
         "EPalWazaID::StoneShotgun": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::BlizzardLance": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::FrostBreath": 22,
-        "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack": 30,
+        "EPalWazaID::Unique_VolcanicMonster_Ice_IceAttack": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::IcicleThrow": 40,
-        "EPalWazaID::RockLance": 50
+        "EPalWazaID::RockLance": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {
         "EPalWazaID::BlizzardLance": 1,
@@ -25,7 +29,7 @@
     },
     "Scaling": {
         "HP": 132,
-        "PHY": 100,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 130
     },
@@ -37,12 +41,17 @@
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 3,
+        "Mining": 5,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 3,
+        "Cool": 5,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

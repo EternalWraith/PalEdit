@@ -11,12 +11,13 @@
         "EPalWazaID::RadiantBarrage": 22,
         "EPalWazaID::Unique_LegendDeer_RadiantWingRush": 30,
         "EPalWazaID::Unique_LegendDeer_WarpPillarBurst": 40,
-        "EPalWazaID::Unique_LegendDeer_RadiantPurge_Otomo": 50
+        "EPalWazaID::Unique_LegendDeer_RadiantPurge_Otomo": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 135,
-        "PHY": 100,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 110
     },
@@ -26,8 +27,8 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 3,
-        "Deforest": 4,
+        "Collection": 7,
+        "Deforest": 7,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -35,5 +36,10 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Salvation"
+    ],
+    "DeckIndex": 197,
+    "TowerBoss": false
 }

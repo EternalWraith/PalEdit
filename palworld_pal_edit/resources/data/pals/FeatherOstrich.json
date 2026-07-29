@@ -11,12 +11,13 @@
         "EPalWazaID::ThrowRock": 22,
         "EPalWazaID::Unique_FeatherOstrich_Tossin": 30,
         "EPalWazaID::Tremor": 40,
-        "EPalWazaID::SandTwister": 50
+        "EPalWazaID::SandTwister": 50,
+        "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 95,
-        "PHY": 100,
+        "PHY": 90,
         "MAG": 90,
         "DEF": 80
     },
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 123,
+    "TowerBoss": false
 }

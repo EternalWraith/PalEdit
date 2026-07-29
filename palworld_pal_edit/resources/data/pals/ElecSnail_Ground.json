@@ -1,0 +1,43 @@
+{
+    "CodeName": "ElecSnail_Ground",
+    "Type": [
+        "Electricity",
+        "Earth"
+    ],
+    "Moveset": {
+        "EPalWazaID::ElecWave": 1,
+        "EPalWazaID::ThrowRock": 7,
+        "EPalWazaID::Tremor": 15,
+        "EPalWazaID::TriSpark": 22,
+        "EPalWazaID::RockLance": 30,
+        "EPalWazaID::SandTwister": 40,
+        "EPalWazaID::Unique_ElecSnail_ShellCharge": 50,
+        "EPalWazaID::RockBeat": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 65,
+        "PHY": 70,
+        "MAG": 70,
+        "DEF": 80
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 4,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 163,
+    "TowerBoss": false
+}

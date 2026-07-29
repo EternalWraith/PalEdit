@@ -11,29 +11,35 @@
         "EPalWazaID::RootAttack": 22,
         "EPalWazaID::Unique_Plesiosaur_LongBreath": 30,
         "EPalWazaID::SolarBeam": 40,
-        "EPalWazaID::RockBeat": 50
+        "EPalWazaID::RockBeat": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 130,
-        "PHY": 100,
+        "PHY": 95,
         "MAG": 95,
         "DEF": 120
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 4,
+        "Seeding": 5,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 4,
+        "Collection": 5,
         "Deforest": 0,
-        "Mining": 2,
+        "Mining": 3,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 110,
+    "TowerBoss": false
 }

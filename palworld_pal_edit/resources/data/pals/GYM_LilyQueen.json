@@ -6,17 +6,16 @@
     ],
     "Moveset": {
         "EPalWazaID::PoisonFog": 1,
-        "EPalWazaID::BubbleShot": 2,
+        "EPalWazaID::Unique_LilyQueen_GYM_Act": 2,
         "EPalWazaID::SeedMine": 3,
-        "EPalWazaID::WaterBall": 4,
-        "EPalWazaID::SpecialCutter": 5,
-        "EPalWazaID::GrassTornado": 6,
-        "EPalWazaID::RootAttack": 7
+        "EPalWazaID::SpecialCutter": 4,
+        "EPalWazaID::GrassTornado": 5,
+        "EPalWazaID::SeedMachinegun": 6
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 110,
-        "PHY": 100,
+        "PHY": 110,
         "MAG": 110,
         "DEF": 105
     },
@@ -35,5 +34,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -2,
+    "TowerBoss": true
 }

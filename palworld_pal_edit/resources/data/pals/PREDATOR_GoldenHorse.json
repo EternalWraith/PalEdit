@@ -5,13 +5,19 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::PowerShot": 1,
+        "EPalWazaID::Unique_GoldenHorse_BiteV2": 1,
+        "EPalWazaID::Unique_GoldenHorse_Bite": 2,
+        "EPalWazaID::PowerShot": 3,
         "EPalWazaID::MudShot": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::PowerBall": 22,
-        "EPalWazaID::Tremor": 30,
+        "EPalWazaID::Tremor": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::Unique_GoldenHorse_StoneDash": 40,
-        "EPalWazaID::RockBeat": 50
+        "EPalWazaID::RockBeat": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {
         "EPalWazaID::PowerShot": 1,
@@ -26,7 +32,7 @@
     },
     "Scaling": {
         "HP": 144,
-        "PHY": 100,
+        "PHY": 110,
         "MAG": 110,
         "DEF": 110
     },
@@ -36,7 +42,7 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 2,
+        "Collection": 5,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -45,5 +51,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

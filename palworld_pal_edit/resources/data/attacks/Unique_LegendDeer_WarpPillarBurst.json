@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_LegendDeer_WarpPillarBurst",
     "Type": "Normal",
-    "Power": 200,
-    "Category": "Shot"
+    "Power": 800,
+    "Category": "Shot",
+    "Exclusive": [
+        "LegendDeer"
+    ]
 }

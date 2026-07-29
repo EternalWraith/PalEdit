@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_ThunderDog_Ice_BiteV2",
+    "Type": "Ice",
+    "Power": 40,
+    "Category": "Melee",
+    "Exclusive": [
+        "ThunderDog_Ice"
+    ]
+}

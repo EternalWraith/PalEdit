@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_GhostDragon_PhosphorousBeam",
+    "Type": "Dragon",
+    "Power": 700,
+    "Category": "Shot",
+    "Exclusive": [
+        "GhostDragon",
+        "GhostDragon_Fire"
+    ]
+}

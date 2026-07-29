@@ -6,12 +6,15 @@
     ],
     "Moveset": {
         "EPalWazaID::SpreadPulse": 1,
-        "EPalWazaID::ElecWave": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::DarkArrow": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::ShadowBall": 22,
-        "EPalWazaID::TriSpark": 30,
+        "EPalWazaID::TriSpark": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::ThunderRain": 40,
-        "EPalWazaID::ThunderStorm": 50
+        "EPalWazaID::ThunderStorm": 50,
+        "EPalWazaID::Railbolt": 70
     },
     "RaidMoveset": {
         "EPalWazaID::PredatorBeam": 1,
@@ -24,7 +27,7 @@
     },
     "Scaling": {
         "HP": 126,
-        "PHY": 100,
+        "PHY": 125,
         "MAG": 125,
         "DEF": 100
     },
@@ -43,5 +46,8 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

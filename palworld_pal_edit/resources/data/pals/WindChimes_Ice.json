@@ -11,12 +11,13 @@
         "EPalWazaID::IceBlade": 22,
         "EPalWazaID::BlizzardLance": 30,
         "EPalWazaID::FrostBreath": 40,
-        "EPalWazaID::IcicleThrow": 50
+        "EPalWazaID::IcicleThrow": 50,
+        "EPalWazaID::DiamondFall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 80,
-        "PHY": 70,
+        "PHY": 80,
         "MAG": 80,
         "DEF": 70
     },
@@ -25,15 +26,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
-        "Collection": 1,
+        "Handcraft": 3,
+        "Collection": 2,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 1,
-        "Transport": 2,
+        "Cool": 2,
+        "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 38,
+    "TowerBoss": false
 }

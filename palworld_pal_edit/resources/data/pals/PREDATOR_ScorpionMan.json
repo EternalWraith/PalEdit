@@ -7,11 +7,14 @@
     "Moveset": {
         "EPalWazaID::PoisonShot": 1,
         "EPalWazaID::DarkCanon": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::StoneShotgun": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::SandTornado": 22,
-        "EPalWazaID::Unique_ScorpionMan_Uppercut": 30,
+        "EPalWazaID::Unique_ScorpionMan_Uppercut": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::RockLance": 40,
-        "EPalWazaID::DarkLaser": 50
+        "EPalWazaID::DarkLegion": 70
     },
     "RaidMoveset": {
         "EPalWazaID::PoisonShot": 1,
@@ -26,7 +29,7 @@
     },
     "Scaling": {
         "HP": 108,
-        "PHY": 100,
+        "PHY": 110,
         "MAG": 110,
         "DEF": 90
     },
@@ -36,14 +39,17 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 1,
-        "Deforest": 3,
+        "Collection": 2,
+        "Deforest": 4,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 1,
+        "ProductMedicine": 2,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

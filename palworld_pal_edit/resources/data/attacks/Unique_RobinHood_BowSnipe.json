@@ -1,6 +1,10 @@
 {
     "CodeName": "EPalWazaID::Unique_RobinHood_BowSnipe",
     "Type": "Leaf",
-    "Power": 65,
-    "Category": "Shot"
+    "Power": 120,
+    "Category": "Shot",
+    "Exclusive": [
+        "RobinHood",
+        "RobinHood_Ground"
+    ]
 }

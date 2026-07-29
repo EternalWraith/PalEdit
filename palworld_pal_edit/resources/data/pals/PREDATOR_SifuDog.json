@@ -7,11 +7,14 @@
     "Moveset": {
         "EPalWazaID::AirCanon": 1,
         "EPalWazaID::PowerShot": 7,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::ThrowRock": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::PowerBall": 22,
-        "EPalWazaID::AirBlade": 30,
+        "EPalWazaID::AirBlade": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::Unique_SifuDog_Counter": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {
         "EPalWazaID::PowerShot": 1,
@@ -35,15 +38,18 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 3,
-        "Collection": 2,
-        "Deforest": 2,
+        "Handcraft": 4,
+        "Collection": 3,
+        "Deforest": 3,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 1,
+        "ProductMedicine": 2,
         "Cool": 0,
-        "Transport": 2,
+        "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

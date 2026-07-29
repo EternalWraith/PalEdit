@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_Garm_Bite",
     "Type": "Normal",
-    "Power": 45,
-    "Category": "Melee"
+    "Power": 50,
+    "Category": "Melee",
+    "Exclusive": [
+        "Garm",
+        "PREDATOR_Garm",
+        "PREDATOR_Garm_Quest"
+    ]
 }

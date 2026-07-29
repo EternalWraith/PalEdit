@@ -1,0 +1,43 @@
+{
+    "CodeName": "GhostRabbit_Grass",
+    "Type": [
+        "Leaf",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::WindCutter": 1,
+        "EPalWazaID::SeedMine": 7,
+        "EPalWazaID::GrassTornado": 15,
+        "EPalWazaID::RootLance": 22,
+        "EPalWazaID::ReflectiveShuriken": 30,
+        "EPalWazaID::SolarBeam": 40,
+        "EPalWazaID::CrossWind": 50,
+        "EPalWazaID::WindBurst": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 110,
+        "PHY": 95,
+        "MAG": 95,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 3,
+        "GenerateElectricity": 0,
+        "Handcraft": 4,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 148,
+    "TowerBoss": false
+}

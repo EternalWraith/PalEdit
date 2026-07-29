@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_ClownRabbit_TrickShow",
+    "Type": "Fire",
+    "Power": 700,
+    "Category": "Shot",
+    "Exclusive": [
+        "ClownRabbit"
+    ]
+}

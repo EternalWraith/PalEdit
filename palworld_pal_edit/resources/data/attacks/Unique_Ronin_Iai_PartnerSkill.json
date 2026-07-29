@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_Ronin_Iai_PartnerSkill",
+    "Type": "Fire",
+    "Power": 160,
+    "Category": "Melee",
+    "Exclusive": [
+        "Ronin"
+    ]
+}

@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_PoseidonOrca_TorrentLaser",
     "Type": "Water",
-    "Power": 200,
-    "Category": "Shot"
+    "Power": 700,
+    "Category": "Shot",
+    "Exclusive": [
+        "PoseidonOrca"
+    ]
 }

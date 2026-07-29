@@ -11,12 +11,13 @@
         "EPalWazaID::ThrowRock": 22,
         "EPalWazaID::WindEdge": 30,
         "EPalWazaID::Tremor": 40,
-        "EPalWazaID::RockBeat": 50
+        "EPalWazaID::RockBeat": 50,
+        "EPalWazaID::Railbolt": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 120,
-        "PHY": 100,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 120
     },
@@ -25,15 +26,20 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 2,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 3,
+        "Mining": 5,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 5,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up1"
+    ],
+    "DeckIndex": 113,
+    "TowerBoss": false
 }

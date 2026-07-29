@@ -1,10 +1,15 @@
 {
     "CodeName": "RAID_YakushimaBoss001_Green",
     "Type": [
-        "None",
+        "Normal",
         "None"
     ],
-    "Moveset": [],
+    "Moveset": {
+        "EPalWazaID::Unique_YakushimaBoss001_Green_PhantasmalBolt": 1,
+        "EPalWazaID::Unique_YakushimaBoss001_Green_PhantasmalEye": 2,
+        "EPalWazaID::Unique_YakushimaBoss001_Green_PhantasmalSphere": 3,
+        "EPalWazaID::Unique_YakushimaBoss001_Green_PhantasmalDeathray": 4
+    },
     "RaidMoveset": {
         "EPalWazaID::255": 1,
         "EPalWazaID::256": 2,
@@ -13,7 +18,7 @@
     },
     "Scaling": {
         "HP": 135,
-        "PHY": 100,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 115
     },
@@ -32,5 +37,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

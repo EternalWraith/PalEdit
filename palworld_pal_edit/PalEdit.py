@@ -1,4 +1,4 @@
-import os, webbrowser, json, time, uuid, math, zipfile
+import os, webbrowser, json, time, uuid, math, zipfile, shutil
 
 import pyperclip
 
@@ -20,6 +20,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import messagebox
+from tkinter import simpledialog
 
 from datetime import datetime
 
@@ -122,11 +123,15 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.12.1"
+    version = "0.13.1 (Palworld 1.0)"
     ftsize = 18
     font = "Microsoft YaHei"
-    skill_col = ["#DE3C3A", "#DE3C3A", "#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8"]
-    levelcap = 65
+    # index = rating + 3; Palworld 1.0 adds rating-5 passives (last entry)
+    skill_col = ["#DE3C3A", "#DE3C3A", "#DE3C3A", "#000000", "#DFE8E7", "#DFE8E7", "#FEDE00", "#68FFD8", "#C77DFF"]
+    levelcap = 80
+    # species a freshly-added Global Palbox pal starts as: CubeTurtle
+    # ("Tetroise") — a nod to the Mystic Testudine
+    default_new_species = "CubeTurtle"
 
 
 class PalEdit():
@@ -177,18 +182,14 @@ class PalEdit():
         self.updateSkillMenu()
         self.updateAttackName()
         self.updateSkillsName()
-        species = [PalInfo.PalSpecies[e].GetName() for e in PalInfo.PalSpecies]
-        species.sort()
+        # the species button shows the localized name via speciesvar_name;
+        # refresh it after a language change
         try:
-            self.palname.config(values=species)
-            #for idx, n in enumerate(species):
-                #self.palname['menu'].entryconfigure(idx, label=n,
-                                                    #command=tk._setit(self.speciesvar_name, n, self.changespeciestype))
             if self.speciesvar.get() in PalInfo.PalSpecies:
                 self.speciesvar_name.set(PalInfo.PalSpecies[self.speciesvar.get()].GetName())
             else:
                 self.speciesvar_name.set(self.speciesvar.get())
-        except AttributeError as e:
+        except AttributeError:
             pass
 
     def updateSkillMenu(self):
@@ -441,14 +442,20 @@ class PalEdit():
         self.handleMaxHealthUpdates(pal)
         self.refresh(i)
 
-    def changeskill(self, num):
+    def changeskill(self, num, code=None):
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
 
-        index = list(PalInfo.PalPassives.values()).index(self.skills_name[num].get())
-        self.skills[num].set(list(PalInfo.PalPassives.keys())[index])
+        if code is not None:
+            # exact code from the search picker — avoids ambiguity when two
+            # passives share a localized name
+            self.skills[num].set(code)
+            self.skills_name[num].set(PalInfo.PalPassives.get(code, code))
+        else:
+            index = list(PalInfo.PalPassives.values()).index(self.skills_name[num].get())
+            self.skills[num].set(list(PalInfo.PalPassives.keys())[index])
         if not self.skills[num].get() in ["Unknown", "UNKNOWN"]:
             if self.skills[num].get() in ["None", "NONE"]:
                 pal.RemoveSkill(num)
@@ -456,6 +463,255 @@ class PalEdit():
                 pal.SetSkill(num, self.skills[num].get())
 
         self.refresh(i)
+
+    # attack tiers offered in the picker, widest legal set first
+    ATTACK_TIERS = ("standard", "fruit", "all")
+    ATTACK_TIER_LABELS = {
+        "standard": "Standard (learnset)",
+        "fruit": "Fruit-teachable",
+        "all": "All attacks",
+    }
+
+    def availableAttacks(self, pal, tier=None):
+        """Attack codes offered for this pal at the given tier.
+
+        tier "standard" = the species' natural learnset; "fruit" = anything a
+        skill fruit can legitimately teach it (non-unique moves plus its own
+        unique); "all" = every attack in the game. When tier is None the
+        global legal-only toggle decides (fruit when on, all when off)."""
+        if tier is None:
+            tier = "fruit" if (getattr(self, 'filterlegal', None) is None
+                               or self.filterlegal.get()) else "all"
+        if tier == "all":
+            codes = [c for c in PalInfo.PalAttacks if c not in ("", "None", "EPalWazaID::None")]
+        elif tier == "standard":
+            codes = [c for c in PalInfo.PalLearnSet.get(pal.GetCodeName(), {})
+                     if c in PalInfo.PalAttacks]
+        else:  # fruit-teachable
+            codes = list(pal.GetAvailableSkills())
+        # the picker supplies its own "None" (clear) row; drop empty sentinels
+        codes = [c for c in codes if c not in ("", "None", "EPalWazaID::None")]
+        codes.sort(key=lambda c: PalInfo.PalAttacks[c])
+        return codes
+
+    def availablePassives(self, pal, natural=None):
+        """Passive codes offered for this pal.
+
+        natural True limits to passives the pal can obtain naturally (wild-
+        rollable plus its species innates); False offers every passive. When
+        natural is None the global legal-only toggle decides. Whatever the
+        pal already has equipped is always included."""
+        if natural is None:
+            natural = (getattr(self, 'filterlegal', None) is None
+                       or self.filterlegal.get())
+        if natural:
+            codes = PalInfo.GetLegalPassives(pal.GetCodeName())
+        else:
+            codes = [c for c in PalInfo.PalPassives
+                     if c not in ("NONE", "UNKNOWN", "None", "Unknown")]
+        for c in pal.GetSkills():
+            if c in PalInfo.PalPassives and c not in codes and c.lower() not in ("none", "unknown"):
+                codes.append(c)
+        return codes
+
+    def open_ability_search(self, kind, num=None, anchor=None, on_choose=None,
+                            include_none=True, pal=None):
+        """Searchable picker used by the passive and equipped-attack slots.
+
+        For attacks a small toolbar adds a tier toggle (standard / fruit /
+        all), an element filter and a sort order (name or power).
+
+        The picker is reused beyond the fixed slots:
+          - ``anchor`` is the widget the popup positions itself under
+            (defaults to the slot control for ``num``).
+          - ``on_choose(code)`` overrides what happens when an entry is picked
+            (default: apply it to slot ``num``). This lets the fruit "add a
+            move" box and the preset editor share the same searchable list.
+          - ``include_none`` shows the "None" (clear) row; drop it where
+            clearing makes no sense (adding an extra move).
+          - ``pal`` may be passed directly; when omitted the currently selected
+            pal is used. Passives allow ``pal=None`` to offer every passive
+            (species-agnostic, e.g. building a preset)."""
+        if pal is None:
+            if not self.isPalSelected():
+                return "break"
+            i = int(self.listdisplay.curselection()[0])
+            pal = self.FilteredPals()[i]
+        # attacks always need a species to enumerate; passives can run pal-less
+        if pal is None and kind == "attack":
+            return "break"
+
+        if anchor is None:
+            anchor = self.skilldrops[num] if kind == "passive" else self.attackdrops[num]
+
+        top = tk.Toplevel(self.gui)
+        top.title(self.i18n.get('search_title', "Search..."))
+        top.transient(anchor.winfo_toplevel())
+        x, y = anchor.winfo_rootx(), anchor.winfo_rooty() + anchor.winfo_height()
+        top.geometry(f"360x440+{x}+{y}")
+
+        # --- filter toolbar (per kind) ---
+        default_natural = (pal is not None
+                           and (getattr(self, 'filterlegal', None) is None
+                                or self.filterlegal.get()))
+        default_tier = "fruit" if default_natural else "all"
+        tier_var = tk.StringVar(value=default_tier)
+        element_var = tk.StringVar(value="All")
+        sort_var = tk.StringVar(value="Power")
+        group_var = tk.StringVar(value="All")
+        natural_var = tk.BooleanVar(value=default_natural)
+        if kind == "attack":
+            bar = tk.Frame(top)
+            bar.pack(fill=tk.constants.X, padx=4, pady=(4, 0))
+            tk.OptionMenu(bar, tier_var, *self.ATTACK_TIERS).pack(side=tk.constants.LEFT)
+            elements = ["All"] + [e for e in sorted(set(PalInfo.AttackTypes.values())) if e]
+            tk.OptionMenu(bar, element_var, *elements).pack(side=tk.constants.LEFT)
+            tk.OptionMenu(bar, sort_var, "Power", "Name").pack(side=tk.constants.LEFT)
+        else:
+            bar = tk.Frame(top)
+            bar.pack(fill=tk.constants.X, padx=4, pady=(4, 0))
+            groups = ["All"] + sorted(set(PalInfo.PassiveGroup.values()))
+            tk.OptionMenu(bar, group_var, *groups).pack(side=tk.constants.LEFT)
+            # "Natural only" is meaningful only when we have a specific pal to
+            # be natural *to*; a pal-less preset picker offers every passive.
+            if pal is not None:
+                tk.Checkbutton(bar, text="Natural only", variable=natural_var).pack(side=tk.constants.LEFT)
+
+        query = tk.StringVar()
+        entry = tk.Entry(top, textvariable=query, font=(PalEditConfig.font, PalEditConfig.ftsize))
+        entry.pack(fill=tk.constants.X, padx=4, pady=4)
+
+        # blurb describing the highlighted entry, anchored to the bottom
+        desc = tk.Label(top, text="", wraplength=340, justify="left", anchor="nw",
+                        font=(PalEditConfig.font, max(8, PalEditConfig.ftsize - 8)),
+                        height=3, relief="groove", borderwidth=1)
+        desc.pack(side=tk.constants.BOTTOM, fill=tk.constants.X, padx=4, pady=(0, 4))
+
+        frame = tk.Frame(top)
+        frame.pack(expand=True, fill=tk.constants.BOTH, padx=4, pady=(0, 4))
+        sb = tk.Scrollbar(frame)
+        sb.pack(side=tk.constants.RIGHT, fill=tk.constants.Y)
+        lb = tk.Listbox(frame, yscrollcommand=sb.set, font=(PalEditConfig.font, PalEditConfig.ftsize - 2))
+        lb.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
+        sb.config(command=lb.yview)
+
+        rows = []
+        visible = []
+
+        def _desc_for(code):
+            if code == "None":
+                return "Clear this slot."
+            if kind == "passive":
+                return PalInfo.PassiveDescriptions.get(code, "")
+            return (f"{PalInfo.AttackTypes.get(code, '')} · "
+                    f"power {PalInfo.AttackPower.get(code, '?')} · "
+                    f"{PalInfo.AttackCats.get(code, '')}")
+
+        def show_desc(*_):
+            sel = lb.curselection()
+            desc.config(text=_desc_for(visible[sel[0]]) if sel else "")
+
+        def hover_desc(evt):
+            idx = lb.nearest(evt.y)
+            if 0 <= idx < len(visible):
+                desc.config(text=_desc_for(visible[idx]))
+
+        def rebuild(*_):
+            # recompute the candidate rows from the current toolbar settings
+            rows.clear()
+            if kind == "passive":
+                if pal is None:
+                    # pal-less (preset) mode: every real passive is fair game
+                    codes = [c for c in PalInfo.PalPassives
+                             if c not in ("NONE", "UNKNOWN", "None", "Unknown")]
+                else:
+                    codes = self.availablePassives(pal, natural_var.get())
+                if group_var.get() != "All":
+                    codes = [c for c in codes if PalInfo.PassiveGroup.get(c, "Other") == group_var.get()]
+                # cluster by group, then name, so like effects sit together
+                codes.sort(key=lambda c: (PalInfo.PassiveGroup.get(c, "Other"),
+                                          PalInfo.PalPassives[c].lower()))
+                for c in codes:
+                    grp = PalInfo.PassiveGroup.get(c, "Other")
+                    rows.append((f"[{grp}] {PalInfo.PalPassives[c]}  [{int(PalInfo.PassiveRating.get(c, '0')):+d}]", c))
+            else:
+                codes = self.availableAttacks(pal, tier_var.get())
+                if element_var.get() != "All":
+                    codes = [c for c in codes if PalInfo.AttackTypes.get(c) == element_var.get()]
+                if sort_var.get() == "Power":
+                    codes.sort(key=lambda c: (-PalInfo.AttackPower.get(c, 0), PalInfo.PalAttacks[c]))
+                else:
+                    codes.sort(key=lambda c: PalInfo.PalAttacks[c])
+                for c in codes:
+                    rows.append((f"{PalInfo.PalAttacks[c]}  ({PalInfo.AttackPower.get(c, '?')})  {PalInfo.AttackTypes.get(c, '')}", c))
+            if include_none:
+                rows.insert(0, ("None", "None"))
+            refill()
+
+        def refill(*_):
+            txt = query.get().lower()
+            lb.delete(0, tk.constants.END)
+            visible.clear()
+            for display, code in rows:
+                if txt in display.lower():
+                    visible.append(code)
+                    lb.insert(tk.constants.END, display)
+                    if kind == "passive" and code != "None":
+                        col = PalEditConfig.skill_col[int(PalInfo.PassiveRating.get(code, "0")) + 3]
+                        if col not in ("#DFE8E7", "#000000"):
+                            lb.itemconfig(tk.constants.END, {'fg': PalEdit.mean_color(col, "000000")})
+                    elif kind == "attack" and code != "None":
+                        # tint each move by its element, so the list reads at a
+                        # glance (Fire rows red, Water blue, ...); darkened for
+                        # contrast on the light listbox, matching the passives
+                        elem = PalInfo.AttackTypes.get(code, "")
+                        ecol = PalInfo.PalElements.get(elem)
+                        if ecol and elem not in ("", "None"):
+                            lb.itemconfig(tk.constants.END, {'fg': PalEdit.mean_color(ecol, "000000")})
+            if lb.size() > 0:
+                lb.selection_set(0)
+            show_desc()
+
+        for v in (tier_var, element_var, sort_var, group_var, natural_var):
+            v.trace_add("write", rebuild)
+        lb.bind("<<ListboxSelect>>", show_desc)
+        lb.bind("<Motion>", hover_desc)
+
+        def choose(*_):
+            sel = lb.curselection()
+            if not sel:
+                return
+            code = visible[sel[0]]
+            top.destroy()
+            if on_choose is not None:
+                on_choose(code)
+            elif kind == "passive":
+                self.changeskill(num, code)
+            else:
+                self.attacks[num].set(code)
+                self.changeattack(num)
+
+        def move(delta):
+            if lb.size() == 0:
+                return
+            cur = lb.curselection()
+            idx = max(0, min(lb.size() - 1, (cur[0] if cur else 0) + delta))
+            lb.selection_clear(0, tk.constants.END)
+            lb.selection_set(idx)
+            lb.see(idx)
+            show_desc()
+
+        query.trace_add("write", refill)
+        entry.bind("<Return>", choose)
+        entry.bind("<Down>", lambda e: move(1))
+        entry.bind("<Up>", lambda e: move(-1))
+        lb.bind("<Double-Button-1>", choose)
+        lb.bind("<Return>", choose)
+        top.bind("<Escape>", lambda e: top.destroy())
+        rebuild()
+        entry.focus_set()
+        top.grab_set()
+        return "break"
 
     def changeattack(self, num):
         if not self.isPalSelected():
@@ -506,9 +762,10 @@ class PalEdit():
                               fg=PalInfo.PalGender.MALE.value if g == "Male ♂" else PalInfo.PalGender.FEMALE.value)
 
         self.title.config(text=f"{pal.GetNickname()}")
-        self.level.config(text=f"Lv. {pal.GetLevel() if pal.GetLevel() > 0 else '?'}")
+        self.levelvar.set(str(pal.GetLevel()) if pal.GetLevel() > 0 else "?")
 
-        self.fruitOptions['values'] = [PalInfo.PalAttacks[aval] for aval in pal.GetAvailableSkills()]
+        self._fruit_all = [PalInfo.PalAttacks[aval] for aval in self.availableAttacks(pal)]
+        self.fruitOptions['values'] = self._fruit_all
 
         p = 0
         self.learntMoves.delete(0, tk.constants.END)
@@ -563,10 +820,15 @@ class PalEdit():
                 pp = pal.GetSuit(i)
                 sp = pt._suits[i]
                 tp = pp + sp
+                # Configure the spinbox range BEFORE writing the value. If the
+                # value were set first, a stale minimum left over from the
+                # previously-selected pal could silently clamp it, and a later
+                # arrow-click would then write that wrong value back — the
+                # "flipflop" that corrupted work suitabilities across pals.
+                self.suits[f"{i}_label"].config(
+                    state=(tk.NORMAL if sp > 0 else tk.DISABLED),
+                    from_=sp, to=self.SUIT_HARD_MAX, bg=self._suit_colour(tp, sp))
                 self.suits[f"{i}_var"].set(tp)
-                c = "#55FF55" if tp > sp else "#D3D3D3"
-                self.suits[f"{i}_label"].config(state=(tk.NORMAL if sp > 0 else tk.DISABLED), from_=sp, bg=c)
-                #self.suits[f"{i}_label"].config(text=tp, bg=c)
 
             calc = pal.CalculateIngameStats()
             self.hthstatval.config(text=calc["HP"])
@@ -576,8 +838,8 @@ class PalEdit():
         else:
             
             for i in suitabilities:
+                self.suits[f"{i}_label"].config(state=tk.DISABLED, from_=0, bg="#D3D3D3")
                 self.suits[f"{i}_var"].set(0)
-                self.suits[f"{i}_label"].config(state=tk.DISABLED, bg="#D3D3D3")
 
             self.hthstatval.config(text="n/a")
             self.matkstatval.config(text="n/a")
@@ -622,6 +884,11 @@ class PalEdit():
         self.is_onselect = False
 
     def setsuits(self):
+        # Never write while onselect is refreshing the spinboxes for a newly
+        # selected pal — that path only *displays* values, and writing here
+        # would push one pal's suitabilities onto another.
+        if getattr(self, 'is_onselect', False):
+            return
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
@@ -635,8 +902,7 @@ class PalEdit():
             sp = pt._suits[i]
             pp = pp - sp
             tp = pp + sp
-            c = "#55FF55" if tp > sp else "#D3D3D3"
-            self.suits[f"{i}_label"].config(bg=c)
+            self.suits[f"{i}_label"].config(bg=self._suit_colour(tp, sp))
 
             pal.SetSuit(i, pp)
 
@@ -665,7 +931,9 @@ class PalEdit():
         self.skilllabel.config(text=self.i18n['msg_saving'])
 
         file = askopenfilename(initialdir=os.path.expanduser('~') + "\\AppData\\Local\\Pal\\Saved\\SaveGames",
-                               filetypes=[("Level.sav", "Level.sav")])
+                               filetypes=[("Palworld saves", ("Level.sav", "GlobalPalStorage.sav")),
+                                          ("Level.sav", "Level.sav"),
+                                          ("GlobalPalStorage.sav", "GlobalPalStorage.sav")])
         logger.info(f"Opening file {file}")
 
         if file:
@@ -674,7 +942,7 @@ class PalEdit():
             self.skilllabel.config(text=self.i18n['msg_decompressing'])
             with open(file, "rb") as f:
                 data = f.read()
-                raw_gvas, _ = decompress_sav_to_gvas(data)
+                raw_gvas, self.save_type = decompress_sav_to_gvas(data)
             self.skilllabel.config(text=self.i18n['msg_loading'])
             
             try:
@@ -714,20 +982,58 @@ class PalEdit():
                 'gvas_file': data,
                 'properties': data.properties
             }
-        paldata = self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
-        self.palguidmanager = PalInfo.PalGuid(self.data)
+        props = self.data['properties']
+        if 'SaveParameterArray' in props:
+            # Palworld 1.0 GlobalPalStorage.sav: a flat array of 960 slots,
+            # empty ones marked with CharacterID "None". Wrap each occupied
+            # slot in the Level.sav entry shape so PalEntity edits the same
+            # underlying dicts by reference.
+            self.storage_mode = True
+            self.palguidmanager = None
+            paldata = []
+            for entry in props['SaveParameterArray']['value']['values']:
+                sp = entry['SaveParameter']
+                if sp['value'].get('CharacterID', {}).get('value', 'None') in ('None', ''):
+                    continue
+                paldata.append({
+                    'key': {'InstanceId': entry['InstanceId']['value']['InstanceId']},
+                    'value': {'RawData': {'value': {'object': {'SaveParameter': sp}}}},
+                })
+        else:
+            self.storage_mode = False
+            paldata = props['worldSaveData']['value']['CharacterSaveParameterMap']['value']
+            self.palguidmanager = PalInfo.PalGuid(self.data)
+        # The stale-player warning only concerns world saves (Level.sav +
+        # Players/*.sav). The Global Palbox has no players, so hide it there.
+        self._update_stale_warning()
         self.loadpal(paldata)
+
+    def _update_stale_warning(self):
+        frame = getattr(self, 'warningframe', None)
+        if frame is None:
+            return
+        if getattr(self, 'storage_mode', False):
+            frame.pack_forget()
+        elif not frame.winfo_ismapped():
+            frame.pack(fill=tk.constants.BOTH)
 
     def loadpal(self, paldata):
         logger.Space()
         self.palbox = []
         self.players = {}
-        self.players = self.palguidmanager.GetPlayerslist()
-        print(self.players)
-        for p in self.players:
-            playerguid = self.players[p]
-            playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
-            self.players[p] = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+        if self.palguidmanager is None:
+            self.players = {"Global Palbox": PalInfo.PalStoragePlayer()}
+        else:
+            self.players = self.palguidmanager.GetPlayerslist()
+            print(self.players)
+            for p in list(self.players):
+                playerguid = self.players[p]
+                playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
+                try:
+                    self.players[p] = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+                except Exception:
+                    logger.error(f"Could not load player save {playersav}", exc_info=True)
+                    self.players[p] = PalInfo.PalStoragePlayer(playerguid)
         self.containers = {}
         nullmoves = []
 
@@ -843,6 +1149,31 @@ class PalEdit():
         logger.WriteLog(msg)
         messagebox.showinfo("Error", "There was an error! Your save may have issues or the tool is unable to process it. Upload your log.txt file to the support channel in our discord and ask for help.")
 
+    def backup_save(self, file):
+        """Copy the on-disk save into a PalEdit-backups folder next to it,
+        once per file per editing session, before it is first overwritten.
+
+        Returns True when it is safe to proceed with the write. A failed
+        backup aborts the save rather than risking the only good copy."""
+        if file in self._session_backups or not os.path.exists(file):
+            return True
+        try:
+            backup_dir = os.path.join(os.path.dirname(file), "PalEdit-backups")
+            os.makedirs(backup_dir, exist_ok=True)
+            stamp = datetime.now().strftime("%Y.%m.%d-%H.%M.%S")
+            dest = os.path.join(backup_dir, f"{os.path.basename(file)}.{stamp}.bak")
+            shutil.copy2(file, dest)
+            self._session_backups.add(file)
+            logger.info(f"Session backup created: {dest}")
+            return True
+        except OSError as e:
+            logger.error(f"Session backup failed for {file}", exc_info=True)
+            messagebox.showerror(
+                "Backup failed",
+                "Could not back up the save file, so nothing was written.\n\n"
+                f"{e}\n\nFree up disk space or check permissions and try again.")
+            return False
+
     def savefile(self):
         self.skilllabel.config(text=self.i18n['msg_saving_big'])
         self.gui.update()
@@ -855,16 +1186,26 @@ class PalEdit():
         # print(file, self.filename)
         if file:
             logger.info(f"Opening file {file}")
+            # Preserve the current on-disk save before the first write of this
+            # session; abort the save entirely if the backup cannot be made.
+            if not self.backup_save(file):
+                self.skilllabel.config(text=self.i18n['msg_saving'])
+                return
             try:
                 if 'gvas_file' in self.data:
                     gvas_file = self.data['gvas_file']
-                    if (
-                            "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
-                            or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
-                    ):
-                        save_type = 0x32
-                    else:
-                        save_type = 0x31
+                    # Reuse the compression type the file was loaded with
+                    # (0x31 Oodle for Palworld 1.0 saves, 0x32 zlib for older
+                    # world saves) so the round-trip preserves the format.
+                    save_type = getattr(self, 'save_type', None)
+                    if save_type is None:
+                        if (
+                                "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
+                                or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
+                        ):
+                            save_type = 0x32
+                        else:
+                            save_type = 0x31
                     sav_file = compress_gvas_to_sav(
                         gvas_file.write(PALEDIT_PALWORLD_CUSTOM_PROPERTIES), save_type
                     )
@@ -892,8 +1233,12 @@ class PalEdit():
     def savepson(self, filename):
         f = open(filename, "w", encoding="utf8")
         if 'properties' in self.data:
-            json.dump(self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'],
-                      f)  # , indent=4)
+            if getattr(self, 'storage_mode', False):
+                json.dump(self.data['properties']['SaveParameterArray']['value']['values'],
+                          f, cls=UUIDEncoder)
+            else:
+                json.dump(self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'],
+                          f)  # , indent=4)
         else:
             json.dump(self.data, f)  # , indent=4)
         f.close()
@@ -961,12 +1306,105 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                 return True
             return False
 
-        filtered = filter(GetMyPals, self.palbox)
-        filterlist = list(filtered)
+        if getattr(self, 'storage_mode', False):
+            filterlist = list(self.palbox)
+        else:
+            filtered = filter(GetMyPals, self.palbox)
+            filterlist = list(filtered)
 
+        filterlist = self._apply_pal_filters(filterlist)
         filterlist.sort(key=lambda e: e.GetName())
-        
+
         return filterlist
+
+    # category buckets shared by the pal-list filter and the species browser
+    PAL_CATEGORIES = ("All", "Natural", "Tower Bosses", "Unobtainable", "NPCs")
+    # internal suit key -> friendly label, for the species-browser work filter
+    SUIT_LABELS = {
+        "EmitFlame": "Kindling", "Watering": "Watering", "Seeding": "Planting",
+        "GenerateElectricity": "Generating", "Handcraft": "Handiwork",
+        "Collection": "Gathering", "Deforest": "Lumbering", "Mining": "Mining",
+        "OilExtraction": "Oil", "ProductMedicine": "Medicine", "Cool": "Cooling",
+        "Transport": "Transport", "MonsterFarm": "Ranch",
+    }
+
+    # work-suitability spinbox limits: green up to the normal in-game cap,
+    # red beyond it (mutation/cheat territory), hard-capped at 10
+    SUIT_NORMAL_MAX = 5
+    SUIT_HARD_MAX = 10
+
+    @staticmethod
+    def _suit_colour(total, base):
+        """Grey at/below the species base, green when raised within the
+        normal cap, red in the ridiculous (>5) range."""
+        if total <= base:
+            return "#D3D3D3"
+        if total <= PalEdit.SUIT_NORMAL_MAX:
+            return "#55FF55"
+        return "#FF6B6B"
+
+    # NPC faction/role buckets, matched by codename keyword (first hit wins)
+    NPC_TYPES = ("Merchant", "Believer", "Police", "Hunter", "Scientist",
+                 "Soldier", "Arena", "Boss NPC", "Other")
+
+    @staticmethod
+    def _npc_type(code):
+        cl = code.lower()
+        if "trader" in cl or "merchant" in cl:
+            return "Merchant"
+        if "believer" in cl:
+            return "Believer"
+        if "police" in cl or "guard" in cl:
+            return "Police"
+        if "hunter" in cl:
+            return "Hunter"
+        if any(k in cl for k in ("scientist", "scholar", "doctor")):
+            return "Scientist"
+        if any(k in cl for k in ("soldier", "invader", "mercenary", "ninja",
+                                 "viking", "ranger", "ambassador")):
+            return "Soldier"
+        if "arena" in cl:
+            return "Arena"
+        if "boss" in cl:
+            return "Boss NPC"
+        return "Other"
+
+    @staticmethod
+    def _category_of(obj, code, is_human):
+        """Bucket a species into Natural / Tower Bosses / Unobtainable / NPCs."""
+        if is_human:
+            return "NPCs"
+        if getattr(obj, "_tower_boss", False) or code.startswith("GYM_"):
+            return "Tower Bosses"
+        if any(code.startswith(p) for p in ("RAID_", "SUMMON_", "PREDATOR_")):
+            return "Unobtainable"
+        if getattr(obj, "_deck_index", -1) >= 0:
+            return "Natural"
+        return "Unobtainable"
+
+    def _apply_pal_filters(self, pals):
+        """Filter the pal list by the search box, element, and category
+        controls. Returns all pals unchanged until the filter bar is built."""
+        if getattr(self, 'pal_search', None) is None:
+            return pals
+        text = self.pal_search.get().strip().lower()
+        element = self.pal_element.get()
+        category = self.pal_category.get()
+        if not text and element == "All" and category == "All":
+            return pals
+
+        out = []
+        for p in pals:
+            if text and not any(text in s.lower() for s in
+                                (p.GetName(), p.GetNickname(), p.GetCodeName())):
+                continue
+            if element != "All" and element not in (p.GetPrimary(), p.GetSecondary()):
+                continue
+            if category != "All" and \
+                    self._category_of(p.GetObject(), p.GetCodeName(), p.IsHuman()) != category:
+                continue
+            out.append(p)
+        return out
 
     def updatestats(self):
         if not self.isPalSelected():
@@ -1021,6 +1459,24 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             self.defstatval.config(text=calc["DEF"])
 
 
+    def editnickname(self):
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+
+        current = "" if pal.GetNickname() == pal.GetName() else pal.GetNickname()
+        answer = simpledialog.askstring(
+            "Rename Pal",
+            "Nickname (leave blank to clear and use the species name):",
+            initialvalue=current, parent=self.gui)
+        if answer is None:  # user cancelled
+            return
+        pal.SetNickname(answer.strip())
+        # nickname shows in both the list (GetFullName) and the title label
+        self.updateDisplay()
+        self.refresh(i)
+
     def takelevel(self):
         if not self.isPalSelected():
             return
@@ -1047,6 +1503,279 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.handleMaxHealthUpdates(pal)
         self.refresh(i)
 
+    def setlevelfromentry(self, *_):
+        """Set the level from whatever was typed into the level field, on Enter
+        or focus-out. Non-numbers are ignored and the field snaps back to the
+        pal's real level; valid input is clamped to 1..level cap. The ➖ / ➕
+        buttons keep working and the field follows along."""
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        try:
+            lv = int(self.levelvar.get())
+        except (ValueError, tk.TclError):
+            self.levelvar.set(str(pal.GetLevel()) if pal.GetLevel() > 0 else "?")
+            return
+        lv = max(1, min(PalEditConfig.levelcap, lv))
+        if lv != pal.GetLevel():
+            pal.SetLevel(lv)
+            self.handleMaxHealthUpdates(pal)
+            self.refresh(i)
+        else:
+            self.levelvar.set(str(lv))  # normalise (clamp / stray whitespace)
+
+    # ------------------------------------------------------------------
+    # Custom passive-skill presets (build named sets, stamp onto pals)
+    # ------------------------------------------------------------------
+    def _presets_path(self):
+        return os.path.join(os.path.expanduser("~"), ".paledit_passive_presets.json")
+
+    def load_presets(self):
+        try:
+            with open(self._presets_path(), encoding="utf-8") as f:
+                data = json.load(f)
+                return data if isinstance(data, dict) else {}
+        except Exception:
+            return {}
+
+    def save_presets(self, presets):
+        try:
+            with open(self._presets_path(), "w", encoding="utf-8") as f:
+                json.dump(presets, f, indent=2)
+            return True
+        except Exception:
+            logger.error("Could not save passive presets", exc_info=True)
+            messagebox.showerror("Presets", "Could not save presets to your home folder.")
+            return False
+
+    def apply_preset(self, name=None):
+        if not self.isPalSelected():
+            return
+        name = name or self.presetvar.get()
+        presets = self.load_presets()
+        if name not in presets:
+            return
+        codes = [c for c in presets[name] if c in PalInfo.PalPassives][:4]
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        pal._skills[:] = list(codes)  # PassiveSkillList (reference)
+        self.refresh(i)
+
+    def refresh_preset_list(self):
+        names = sorted(self.load_presets())
+        self.presetdrop['values'] = names
+        if names and self.presetvar.get() not in names:
+            self.presetvar.set(names[0])
+
+    def open_preset_manager(self):
+        presets = self.load_presets()
+        top = tk.Toplevel(self.gui)
+        top.title("Passive Presets")
+        top.transient(self.gui)
+        top.geometry("380x330")
+
+        # passive display names (sorted) for the four pickers
+        names = sorted(n for c, n in PalInfo.PalPassives.items()
+                       if c not in ("NONE", "UNKNOWN", "None", "Unknown"))
+        name_to_code = {}
+        for c, n in PalInfo.PalPassives.items():
+            name_to_code.setdefault(n, c)
+        options = ["(none)"] + names
+
+        tk.Label(top, text="Existing presets:", font=(PalEditConfig.font, PalEditConfig.ftsize - 6)
+                 ).pack(anchor="w", padx=6, pady=(6, 0))
+        listframe = tk.Frame(top)
+        listframe.pack(fill=tk.constants.X, padx=6)
+        plist = tk.Listbox(listframe, height=4, font=(PalEditConfig.font, PalEditConfig.ftsize - 8))
+        plist.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
+        for n in sorted(presets):
+            plist.insert(tk.constants.END, n)
+
+        def delete_selected():
+            sel = plist.curselection()
+            if not sel:
+                return
+            data = self.load_presets()
+            data.pop(plist.get(sel[0]), None)
+            self.save_presets(data)
+            plist.delete(sel[0])
+            self.refresh_preset_list()
+
+        tk.Button(listframe, text="🗑", command=delete_selected,
+                  font=(PalEditConfig.font, PalEditConfig.ftsize - 8)).pack(side=tk.constants.RIGHT)
+
+        tk.Label(top, text="New / update preset:", font=(PalEditConfig.font, PalEditConfig.ftsize - 6)
+                 ).pack(anchor="w", padx=6, pady=(8, 0))
+        nameframe = tk.Frame(top)
+        nameframe.pack(fill=tk.constants.X, padx=6)
+        tk.Label(nameframe, text="Name:", font=(PalEditConfig.font, PalEditConfig.ftsize - 8)).pack(side=tk.constants.LEFT)
+        namevar = tk.StringVar()
+        tk.Entry(nameframe, textvariable=namevar, font=(PalEditConfig.font, PalEditConfig.ftsize - 8)
+                 ).pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
+
+        def pick_slot(code, sv):
+            sv.set("(none)" if code in ("None", "NONE") else PalInfo.PalPassives.get(code, "(none)"))
+            top.grab_set()  # restore the manager's modal grab after the picker closes
+
+        slotvars = [tk.StringVar(value="(none)") for _ in range(4)]
+        for si, sv in enumerate(slotvars):
+            row = tk.Frame(top)
+            row.pack(fill=tk.constants.X, padx=6, pady=1)
+            tk.Label(row, text=f"Slot {si + 1}:", width=6, anchor="w",
+                     font=(PalEditConfig.font, PalEditConfig.ftsize - 8)).pack(side=tk.constants.LEFT)
+            combo = ttk.Combobox(row, textvariable=sv, values=options,
+                                 font=(PalEditConfig.font, PalEditConfig.ftsize - 8))
+            combo.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
+            # clicking a slot opens the searchable, grouped, colour-coded passive
+            # picker (pal-agnostic, so any passive can go into a preset)
+            combo.bind("<Button-1>", lambda e, s=sv, c=combo: self.open_ability_search(
+                "passive", anchor=c, on_choose=lambda code, sv=s: pick_slot(code, sv),
+                pal=None) or "break")
+
+        def load_into_editor(*_):
+            sel = plist.curselection()
+            if not sel:
+                return
+            nm = plist.get(sel[0])
+            namevar.set(nm)
+            codes = self.load_presets().get(nm, [])
+            for si in range(4):
+                code = codes[si] if si < len(codes) else None
+                slotvars[si].set(PalInfo.PalPassives.get(code, "(none)"))
+        plist.bind("<<ListboxSelect>>", load_into_editor)
+
+        def save_preset():
+            nm = namevar.get().strip()
+            if not nm:
+                messagebox.showerror("Presets", "Give the preset a name.")
+                return
+            codes = []
+            for sv in slotvars:
+                n = sv.get()
+                if n and n != "(none)" and n in name_to_code:
+                    codes.append(name_to_code[n])
+            data = self.load_presets()
+            data[nm] = codes
+            if self.save_presets(data):
+                self.refresh_preset_list()
+                top.destroy()
+
+        tk.Button(top, text="Save preset", command=save_preset,
+                  font=(PalEditConfig.font, PalEditConfig.ftsize - 6)).pack(pady=8)
+        top.grab_set()
+        return "break"
+
+    def open_stats_detail(self):
+        """A clear breakdown of a pal's stats and potentials: computed combat
+        stats vs the level standard, IVs (breeding), souls and condensation."""
+        if not self.isPalSelected():
+            return "break"
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        if pal.IsHuman() or pal.IsTower():
+            messagebox.showinfo("Stats", "Stat breakdown is only available for pals.")
+            return "break"
+
+        top = tk.Toplevel(self.gui)
+        top.title(f"Stats — {pal.GetFullName()}")
+        top.transient(self.gui)
+        top.geometry("360x470")
+        f = PalEditConfig.font
+
+        tk.Label(top, text=f"{pal.GetNickname()}   Lv {pal.GetLevel()}   {pal.GetName()}",
+                 font=(f, PalEditConfig.ftsize - 4)).pack(pady=6)
+
+        cur = pal.CalculateIngameStats()
+        base = pal.CalculateIngameStats(baseline=True)
+
+        def section(title):
+            lf = tk.LabelFrame(top, text=title, font=(f, PalEditConfig.ftsize - 9))
+            lf.pack(fill=tk.constants.X, padx=8, pady=3)
+            return lf
+
+        def grid_row(parent, r, cols, widths, bold=False, colours=None):
+            for c, txt in enumerate(cols):
+                fg = (colours or {}).get(c, "black")
+                tk.Label(parent, text=txt, width=widths[c], anchor="w", fg=fg,
+                         font=(f, PalEditConfig.ftsize - 8, "bold" if bold else "normal")
+                         ).grid(row=r, column=c, sticky="w", padx=2)
+
+        cf = section("Combat stats  (current vs level standard)")
+        grid_row(cf, 0, ("Stat", "Current", "Standard", "Δ"), (11, 8, 8, 6), bold=True)
+        # keep the current/Δ labels so edits below can refresh them in place
+        combat_rows = []
+        for r, (label, key) in enumerate((("HP", "HP"), ("Attack", "PHY"), ("Defence", "DEF")), 1):
+            tk.Label(cf, text=label, width=11, anchor="w",
+                     font=(f, PalEditConfig.ftsize - 8)).grid(row=r, column=0, sticky="w", padx=2)
+            cur_lbl = tk.Label(cf, width=8, anchor="w", font=(f, PalEditConfig.ftsize - 8))
+            cur_lbl.grid(row=r, column=1, sticky="w", padx=2)
+            tk.Label(cf, text=str(base[key]), width=8, anchor="w",
+                     font=(f, PalEditConfig.ftsize - 8)).grid(row=r, column=2, sticky="w", padx=2)
+            delta_lbl = tk.Label(cf, width=6, anchor="w", font=(f, PalEditConfig.ftsize - 8))
+            delta_lbl.grid(row=r, column=3, sticky="w", padx=2)
+            combat_rows.append((key, cur_lbl, base[key], delta_lbl))
+
+        def resync_combat():
+            live = pal.CalculateIngameStats()
+            for key, cur_lbl, std, delta_lbl in combat_rows:
+                c = live[key]
+                d = c - std
+                cur_lbl.config(text=str(c))
+                dtxt = f"+{d}" if d > 0 else (str(d) if d < 0 else "—")
+                delta_lbl.config(text=dtxt,
+                                 fg=("#2b8a3e" if d > 0 else ("#c92a2a" if d < 0 else "black")))
+        resync_combat()
+
+        def after_edit():
+            # apply already happened; keep the HP ceiling, the main window and
+            # this popup's computed columns all in step
+            self.handleMaxHealthUpdates(pal)
+            self.refresh(i)
+            resync_combat()
+
+        def edit_row(parent, r, label, getter, setter, lo, hi, width_lbl=13):
+            tk.Label(parent, text=label, width=width_lbl, anchor="w",
+                     font=(f, PalEditConfig.ftsize - 8)).grid(row=r, column=0, sticky="w", padx=2)
+            var = tk.StringVar(value=str(getter()))
+            sb = tk.Spinbox(parent, from_=lo, to=hi, width=6, textvariable=var,
+                            font=(f, PalEditConfig.ftsize - 8))
+            sb.grid(row=r, column=1, sticky="w", padx=2)
+
+            def commit(*_):
+                try:
+                    v = int(float(var.get()))
+                except (ValueError, tk.TclError):
+                    v = getter()
+                v = max(lo, min(hi, v))
+                var.set(str(v))
+                if v != getter():
+                    setter(v)
+                    after_edit()
+            sb.config(command=commit)      # arrow buttons
+            sb.bind("<Return>", commit)    # typed value, committed on Enter
+            sb.bind("<FocusOut>", commit)  # or on leaving the field
+            return sb
+
+        vf = section("IVs / Talents  (0-100, inherited in breeding)")
+        edit_row(vf, 0, "HP", pal.GetTalentHP, pal.SetTalentHP, 0, 100, width_lbl=11)
+        edit_row(vf, 1, "Attack", pal.GetAttackRanged, pal.SetAttackRanged, 0, 100, width_lbl=11)
+        edit_row(vf, 2, "Defence", pal.GetDefence, pal.SetDefence, 0, 100, width_lbl=11)
+
+        sf = section("Souls  (0-20)  &  condensation")
+        edit_row(sf, 0, "Soul HP", pal.GetRankHP, pal.SetRankHP, 0, 20)
+        edit_row(sf, 1, "Soul Attack", pal.GetRankAttack, pal.SetRankAttack, 0, 20)
+        edit_row(sf, 2, "Soul Defence", pal.GetRankDefence, pal.SetRankDefence, 0, 20)
+        edit_row(sf, 3, "Soul Work", pal.GetRankWorkSpeed, pal.SetRankWorkSpeed, 0, 20)
+        # condensation is stored 1..5 internally; show it as the in-game 0..4 stars
+        edit_row(sf, 4, "Condensation ★", lambda: pal.GetRank() - 1,
+                 lambda v: pal.SetRank(v + 1), 0, 4)
+
+        tk.Button(top, text="Close", command=top.destroy,
+                  font=(f, PalEditConfig.ftsize - 6)).pack(pady=6)
+        top.grab_set()
+        return "break"
+
     def changespeciestype(self, evt):
         if not self.isPalSelected():
             return
@@ -1057,11 +1786,130 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             if PalInfo.PalSpecies[item].GetName() == self.speciesvar_name.get():
                 self.speciesvar.set(item)
                 break
+        self._apply_species(pal, self.speciesvar.get())
 
-        pal.SetType(self.speciesvar.get())
+    def _apply_species(self, pal, code):
+        """Change a pal's species and refresh the display around it."""
+        self.speciesvar.set(code)
+        self.speciesvar_name.set(PalInfo.PalSpecies[code].GetName())
+        pal.SetType(code)
         self.handleMaxHealthUpdates(pal)
         self.updateDisplay()
-        self.refresh(self.FilteredPals().index(pal))
+        try:
+            self.refresh(self.FilteredPals().index(pal))
+        except ValueError:
+            self.refresh(0)  # pal filtered out of view after the change
+
+    def open_species_browser(self):
+        """Searchable species picker with element, category and multi work-
+        suitability filters. Applies the chosen species to the selected pal."""
+        if not self.isPalSelected():
+            return "break"
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+
+        top = tk.Toplevel(self.gui)
+        top.title(self.i18n.get('species_browser', "Species Browser"))
+        top.transient(self.gui)
+        top.geometry("440x580")
+
+        query = tk.StringVar()
+        element_var = tk.StringVar(value="All")
+        category_var = tk.StringVar(value="All")
+        suit_vars = {k: tk.BooleanVar(value=False) for k in self.SUIT_LABELS}
+
+        entry = tk.Entry(top, textvariable=query, font=(PalEditConfig.font, PalEditConfig.ftsize - 6))
+        entry.pack(fill=tk.constants.X, padx=4, pady=4)
+
+        bar = tk.Frame(top)
+        bar.pack(fill=tk.constants.X, padx=4)
+        elements = ["All"] + [e for e in PalInfo.PalElements if e != "None"]
+        tk.OptionMenu(bar, element_var, *elements).pack(side=tk.constants.LEFT)
+        tk.OptionMenu(bar, category_var, *self.PAL_CATEGORIES).pack(side=tk.constants.LEFT)
+
+        suitframe = tk.LabelFrame(top, text="Work suitability (base > 0)",
+                                  font=(PalEditConfig.font, PalEditConfig.ftsize - 10))
+        suitframe.pack(fill=tk.constants.X, padx=4, pady=2)
+        for idx, (k, label) in enumerate(self.SUIT_LABELS.items()):
+            tk.Checkbutton(suitframe, text=label, variable=suit_vars[k],
+                           font=(PalEditConfig.font, PalEditConfig.ftsize - 11)
+                           ).grid(row=idx // 4, column=idx % 4, sticky="w")
+
+        npc_vars = {t: tk.BooleanVar(value=False) for t in self.NPC_TYPES}
+        npcframe = tk.LabelFrame(top, text="NPC type (merchants, factions…)",
+                                 font=(PalEditConfig.font, PalEditConfig.ftsize - 10))
+        npcframe.pack(fill=tk.constants.X, padx=4, pady=2)
+        for idx, t in enumerate(self.NPC_TYPES):
+            tk.Checkbutton(npcframe, text=t, variable=npc_vars[t],
+                           font=(PalEditConfig.font, PalEditConfig.ftsize - 11)
+                           ).grid(row=idx // 4, column=idx % 4, sticky="w")
+
+        countlbl = tk.Label(top, text="", font=(PalEditConfig.font, PalEditConfig.ftsize - 10))
+        countlbl.pack(anchor="w", padx=6)
+
+        frame = tk.Frame(top)
+        frame.pack(expand=True, fill=tk.constants.BOTH, padx=4, pady=4)
+        sb = tk.Scrollbar(frame)
+        sb.pack(side=tk.constants.RIGHT, fill=tk.constants.Y)
+        lb = tk.Listbox(frame, yscrollcommand=sb.set,
+                        font=(PalEditConfig.font, PalEditConfig.ftsize - 6))
+        lb.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.BOTH)
+        sb.config(command=lb.yview)
+
+        visible = []
+
+        def rebuild(*_):
+            text = query.get().strip().lower()
+            elem = element_var.get()
+            cat = category_var.get()
+            checked = [k for k, v in suit_vars.items() if v.get()]
+            npc_checked = [t for t, v in npc_vars.items() if v.get()]
+            rows = []
+            for code, obj in PalInfo.PalSpecies.items():
+                name = obj.GetName()
+                if text and text not in name.lower() and text not in code.lower():
+                    continue
+                if elem != "All" and elem not in (obj.GetPrimary(), obj.GetSecondary()):
+                    continue
+                if cat != "All" and self._category_of(obj, code, obj._human) != cat:
+                    continue
+                suits = getattr(obj, "_suits", {}) or {}
+                if any(suits.get(k, 0) <= 0 for k in checked):
+                    continue
+                # NPC-type filter: any checked type restricts to NPCs of those
+                # factions/roles (a non-NPC has no type, so it's excluded)
+                if npc_checked and (not obj._human or self._npc_type(code) not in npc_checked):
+                    continue
+                rows.append((f"{name}  ({code})", code))
+            rows.sort(key=lambda r: r[0].lower())
+            lb.delete(0, tk.constants.END)
+            visible.clear()
+            for disp, code in rows:
+                visible.append(code)
+                lb.insert(tk.constants.END, disp)
+            countlbl.config(text=f"{len(rows)} species")
+            if lb.size() > 0:
+                lb.selection_set(0)
+
+        def choose(*_):
+            sel = lb.curselection()
+            if not sel:
+                return
+            code = visible[sel[0]]
+            top.destroy()
+            self._apply_species(pal, code)
+
+        query.trace_add("write", rebuild)
+        for v in (element_var, category_var, *suit_vars.values(), *npc_vars.values()):
+            v.trace_add("write", rebuild)
+        lb.bind("<Double-Button-1>", choose)
+        lb.bind("<Return>", choose)
+        entry.bind("<Return>", choose)
+        top.bind("<Escape>", lambda e: top.destroy())
+        rebuild()
+        entry.focus_set()
+        top.grab_set()
+        return "break"
 
     def setskillcolours(self):
         for snum in range(0, 4):
@@ -1075,6 +1923,11 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.setskillcolours()
         self.setAttackCols()
 
+        # clear first so refresh selects exactly `num`; otherwise repeated
+        # refreshes (e.g. updateDisplay then a targeted refresh after a species
+        # change) leave several rows selected and curselection()[0] picks the
+        # wrong one
+        self.listdisplay.selection_clear(0, tk.constants.END)
         self.listdisplay.select_set(num)
         self.listdisplay.event_generate("<<ListboxSelect>>")
 
@@ -1150,14 +2003,171 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         else:
             messagebox.showerror("Select a file", self.i18n['msg_select_file'])
 
+    # ------------------------------------------------------------------
+    # Global Palbox (storage_mode) slot management
+    #
+    # GlobalPalStorage.sav is a flat array of 960 slots. Occupied slots share
+    # one ContainerId and carry a sparse SlotIndex; free slots are null
+    # placeholders (CharacterID "None", zero ContainerId/InstanceId). Adding a
+    # pal means claiming a free slot for the palbox container; removing one
+    # returns its slot to the null state. Array length stays fixed at 960.
+    # ------------------------------------------------------------------
+    ZERO_GUID = "00000000-0000-0000-0000-000000000000"
+
+    def _palbox_values(self):
+        return self.data['properties']['SaveParameterArray']['value']['values']
+
+    def _palbox_container_id(self):
+        """ContainerId shared by the pals already in the box, or None if empty."""
+        for e in self._palbox_values():
+            sp = e['SaveParameter']['value']
+            if sp.get('CharacterID', {}).get('value', 'None') not in ('None', ''):
+                return sp['SlotId']['value']['ContainerId']['value']['ID']['value']
+        return None
+
+    def _next_free_slot_index(self, container_id):
+        """Lowest SlotIndex not yet used within the given container."""
+        used = set()
+        for e in self._palbox_values():
+            sp = e['SaveParameter']['value']
+            sid = sp['SlotId']['value']
+            if str(sid['ContainerId']['value']['ID']['value']) == str(container_id):
+                used.add(sid['SlotIndex']['value'])
+        idx = 0
+        while idx in used:
+            idx += 1
+        return idx
+
+    def _find_empty_palbox_entry(self):
+        for e in self._palbox_values():
+            if e['SaveParameter']['value'].get('CharacterID', {}).get('value', 'None') in ('None', ''):
+                return e
+        return None
+
+    def _find_palbox_entry(self, instance_guid):
+        for e in self._palbox_values():
+            if str(e['InstanceId']['value']['InstanceId']['value']) == str(instance_guid):
+                return e
+        return None
+
+    def _find_palbox_pal(self, instance_guid):
+        for p in self.palbox:
+            if str(p.GetPalInstanceGuid()) == str(instance_guid):
+                return p
+        return None
+
+    def _palbox_insert(self, source_sp):
+        """Place a deep copy of source_sp (a SaveParameter value dict) into a
+        free palbox slot as a new, independent pal. Returns the new InstanceId,
+        or None if the box is full."""
+        empty = self._find_empty_palbox_entry()
+        if empty is None:
+            messagebox.showerror("Palbox full", "The Global Palbox has no free slots.")
+            return None
+        container = self._palbox_container_id() or UUID.from_str(str(uuid.uuid4()))
+        idx = self._next_free_slot_index(container)
+        # copy the content first, then stamp a fresh, unique identity onto it
+        empty['SaveParameter']['value'] = copy.deepcopy(source_sp)
+        new_iid = UUID.from_str(str(uuid.uuid4()))
+        empty['InstanceId']['value']['InstanceId']['value'] = new_iid
+        slot = empty['SaveParameter']['value']['SlotId']['value']
+        slot['ContainerId']['value']['ID']['value'] = UUID.from_str(str(container))
+        slot['SlotIndex']['value'] = idx
+        return new_iid
+
+    def clonepal_storage(self):
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        source_iid = pal.GetPalInstanceGuid()
+        new_iid = self._palbox_insert(pal._obj)
+        if new_iid is None:
+            return
+        self.loaddata(self.data)
+        # keep the selection on the pal we cloned FROM, so cloning a
+        # mid-list pal repeatedly doesn't slip back to the top of the box
+        self._select_palbox_instance(source_iid)
+
+    def addpal_storage(self):
+        """Add a brand-new default pal (a turtle) to the Global Palbox."""
+        blank = self._find_empty_palbox_entry()
+        if blank is None:
+            messagebox.showerror("Palbox full", "The Global Palbox has no free slots.")
+            return
+        # a free slot is already a clean level-1 blank; claim it, then give it
+        # a species so loaddata recognises it as an occupied slot
+        new_iid = self._palbox_insert(blank['SaveParameter']['value'])
+        if new_iid is None:
+            return
+        entry = self._find_palbox_entry(new_iid)
+        sp = entry['SaveParameter']['value']
+        sp['CharacterID']['value'] = PalEditConfig.default_new_species
+        sp['Gender']['value']['value'] = "EPalGenderType::Male"
+        self.loaddata(self.data)
+        pal = self._find_palbox_pal(new_iid)
+        if pal is not None:
+            # populate work suitabilities and the natural level-1 moveset
+            pal.SetType(PalEditConfig.default_new_species)
+            pal.SetLevel(1)
+        self.loaddata(self.data)
+        self._select_palbox_instance(new_iid)
+
+    def deletepal_storage(self):
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        if not messagebox.askyesno(
+                "Delete Pal",
+                f"Remove {pal.GetFullName()} from the Global Palbox?\n\n"
+                "This takes effect when you save; a session backup is kept."):
+            return
+        entry = self._find_palbox_entry(pal.GetPalInstanceGuid())
+        if entry is None:
+            return
+        # Restore the slot to a pristine vacant placeholder. Prefer copying an
+        # actual game-produced empty slot; otherwise clear it the way the game
+        # marks a vacancy: CharacterID "None" and SlotIndex -1, with the slot's
+        # ContainerId left untouched (per palworld-save-pal's GPS handling).
+        blank = self._find_empty_palbox_entry()
+        if blank is not None:
+            entry['SaveParameter']['value'] = copy.deepcopy(blank['SaveParameter']['value'])
+        else:
+            sp = entry['SaveParameter']['value']
+            sp['CharacterID']['value'] = "None"
+            sp['SlotId']['value']['SlotIndex']['value'] = -1
+        entry['InstanceId']['value']['InstanceId']['value'] = UUID.from_str(self.ZERO_GUID)
+        self.loaddata(self.data)
+
+    def _select_palbox_instance(self, instance_guid):
+        """Reselect a pal by InstanceId after the list is rebuilt."""
+        self.updateDisplay()
+        pals = self.FilteredPals()
+        for idx, p in enumerate(pals):
+            if str(p.GetPalInstanceGuid()) == str(instance_guid):
+                self.listdisplay.see(idx)
+                self.refresh(idx)
+                return
+
+    def addpal(self):
+        if getattr(self, 'storage_mode', False):
+            self.addpal_storage()
+        else:
+            messagebox.showinfo(
+                "Global Palbox only",
+                "Adding a brand-new pal is currently supported for the Global "
+                "Palbox (GlobalPalStorage.sav). For world saves, use Add Pal "
+                "to import a dumped pal.")
+
     def clonepal(self):
+        if getattr(self, 'storage_mode', False):
+            if self.isPalSelected():
+                self.clonepal_storage()
+            return
         if not self.isPalSelected() or self.palguidmanager is None:
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
 
         owneruid = "00000000-0000-0000-0000-000000000000"
- 
+
 
         with open("temp.json", "wb") as f:
             f.write(json.dumps(pal._data, indent=4, cls=UUIDEncoder).encode('utf-8'))
@@ -1201,6 +2211,10 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         os.remove("temp.json")
 
     def deletepal(self):
+        if getattr(self, 'storage_mode', False):
+            if self.isPalSelected():
+                self.deletepal_storage()
+            return
         if not self.isPalSelected() or self.palguidmanager is None:
             return
         i = int(self.listdisplay.curselection()[0])
@@ -1312,13 +2326,30 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             pal.StripAttack(PalInfo.find(m))
             self.refresh(i)
 
+    def _pick_fruit_move(self, code):
+        """Picker callback for the add-a-move box: stage the chosen move so the
+        ➕ button commits it. Keeps the familiar pick-then-add flow, now backed
+        by the full searchable / element-sorted list instead of a plain drop."""
+        self._fruit_pick_code = code
+        self.fruitPicker.set(PalInfo.PalAttacks.get(code, ""))
+
     def appendMove(self):
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
 
-        pal.FruitAttack(PalInfo.find(self.fruitPicker.get()))
+        text = self.fruitPicker.get()
+        # prefer the exact code staged by the searchable picker; fall back to a
+        # name lookup for anything typed straight into the box
+        code = getattr(self, "_fruit_pick_code", None)
+        if not code or PalInfo.PalAttacks.get(code) != text:
+            code = PalInfo.find(text)
+        if not code:
+            return
+        pal.FruitAttack(code)
+        self._fruit_pick_code = None
+        self.fruitPicker.set("")
         self.refresh(i)
 
     def createWindow(self):
@@ -1370,6 +2401,9 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         toolmenu = tk.Menu(tools, tearoff=0)
         toolmenu.add_command(label="Debug", command=self.toggleDebug)
         toolmenu.add_command(label="Generate GUID", command=self.generateguid)
+        toolmenu.add_checkbutton(label="Legal abilities only", variable=self.filterlegal,
+                                 command=lambda: self.refresh(self.editindex if self.editindex >= 0 else 0)
+                                 if self.isPalSelected() else None)
 
         tools.add_cascade(label="Tools", menu=toolmenu, underline=0)
 
@@ -1511,7 +2545,15 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.debug = "false"
         self.editindex = -1
         self.filename = ""
+        # save paths already backed up this session (one backup per file)
+        self._session_backups = set()
         self.gui = self.createWindow()
+        # limit ability pickers to what each pal can legally have (Tools menu toggle)
+        self.filterlegal = tk.BooleanVar(master=self.gui, value=True)
+        # pal-list filter state (name search / element / category)
+        self.pal_search = tk.StringVar(master=self.gui, value="")
+        self.pal_element = tk.StringVar(master=self.gui, value="All")
+        self.pal_category = tk.StringVar(master=self.gui, value="All")
         self.resetTitle()
         self.palguidmanager: PalGuid = None
         self.is_onselect = False
@@ -1577,6 +2619,26 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.playerguid = tk.Label(scrollview, text="-")
         self.playerguid.config(font=(PalEditConfig.font, 7))
         self.playerguid.pack()
+
+        # --- pal-list filter bar ---
+        def apply_pal_filter(*_):
+            if self.current.get():  # only once a save is loaded
+                self.updateDisplay()
+        filterbar = tk.Frame(scrollview)
+        filterbar.pack(fill=tk.constants.X)
+        searchbox = tk.Entry(filterbar, textvariable=self.pal_search,
+                             font=(PalEditConfig.font, PalEditConfig.ftsize - 8))
+        searchbox.pack(fill=tk.constants.X)
+        searchbox.bind("<KeyRelease>", apply_pal_filter)
+        dropframe = tk.Frame(scrollview)
+        dropframe.pack(fill=tk.constants.X)
+        elements = ["All"] + [e for e in PalInfo.PalElements if e != "None"]
+        elemdrop = tk.OptionMenu(dropframe, self.pal_element, *elements, command=apply_pal_filter)
+        elemdrop.config(font=(PalEditConfig.font, PalEditConfig.ftsize - 10), width=6)
+        elemdrop.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
+        catdrop = tk.OptionMenu(dropframe, self.pal_category, *self.PAL_CATEGORIES, command=apply_pal_filter)
+        catdrop.config(font=(PalEditConfig.font, PalEditConfig.ftsize - 10), width=8)
+        catdrop.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
 
         scrollbar = tk.Scrollbar(scrollview)
         scrollbar.pack(side=tk.constants.LEFT, fill=tk.constants.Y)
@@ -1655,6 +2717,22 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.fruitPicker = StringVar()
         self.fruitOptions = ttk.Combobox(wazaDisplay, textvariable=self.fruitPicker)
         self.fruitOptions.pack(fill=tk.constants.BOTH)
+        self._fruit_all = []
+        self._fruit_pick_code = None
+
+        def filterfruit(evt=None):
+            if evt is not None and evt.keysym in ("Up", "Down", "Return", "Escape"):
+                return
+            txt = self.fruitPicker.get().lower()
+            vals = [v for v in self._fruit_all if txt in v.lower()]
+            self.fruitOptions['values'] = vals if vals else self._fruit_all
+        self.fruitOptions.bind("<KeyRelease>", filterfruit)
+        # clicking the box opens the full searchable picker (tier / element /
+        # sort, colour-coded) just like the equipped-attack slots; the ➕
+        # button still commits the staged move
+        self.fruitOptions.bind("<Button-1>", lambda e: self.open_ability_search(
+            "attack", anchor=self.fruitOptions, on_choose=self._pick_fruit_move,
+            include_none=False) or "break")
         addMove = tk.Button(wazaButtons, text="➕", borderwidth=1, font=(PalEditConfig.font, PalEditConfig.ftsize - 10),
                             command=self.appendMove,
                             bg="darkgrey")
@@ -1705,6 +2783,13 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         button.pack(expand=True, fill=BOTH)
         self.i18n_el['btn_clone_pal'] = button
 
+        # Add a brand-new pal to the Global Palbox (starts as a turtle)
+        addbutton = Button(resourceview, text=self.i18n.get('btn_new_pal', "Add New Pal"),
+                           command=self.addpal)
+        addbutton.config(font=(PalEditConfig.font, 12))
+        addbutton.pack(expand=True, fill=BOTH)
+        self.i18n_el['btn_new_pal'] = addbutton
+
         button = Button(resourceview, text=self.i18n['btn_delete_pal'], command=self.deletepal)
         button.config(font=(PalEditConfig.font, 12))
         button.pack(expand=True, fill=BOTH)
@@ -1716,6 +2801,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         self.title = tk.Label(deckview, text=f"PalEdit", bg="darkgrey", font=(PalEditConfig.font, 24), width=17)
         self.title.pack(expand=True, fill=tk.constants.BOTH)
+        # double-click the name to rename the selected pal
+        self.title.bind("<Double-Button-1>", lambda evt: self.editnickname())
 
         headerframe = tk.Frame(deckview, padx=0, pady=0, bg="darkgrey")
         headerframe.pack(fill=tk.constants.X)
@@ -1723,12 +2810,27 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         headerframe.grid_columnconfigure((0, 2), uniform="equal")
         headerframe.grid_columnconfigure(1, weight=1)
 
-        self.level = tk.Label(headerframe, text=f"v{PalEditConfig.version}", bg="darkgrey",
-                              font=(PalEditConfig.font, 24),
-                              width=17)
-        self.level.bind("<Enter>", lambda evt, num="owner": self.changetext(num))
-        self.level.bind("<Leave>", lambda evt, num=-1: self.changetext(num))
-        self.level.grid(row=0, column=1, sticky="nsew")
+        # "Lv." label + a typeable entry: type a level and press Enter (or click
+        # away) to set it directly; the ➖ / ➕ buttons still work and the field
+        # updates to match
+        lvlframe = tk.Frame(headerframe, bg="darkgrey")
+        lvlframe.grid(row=0, column=1, sticky="nsew")
+        lvlframe.grid_rowconfigure(0, weight=1)
+        lvlframe.grid_columnconfigure(0, weight=1)
+        lvlframe.grid_columnconfigure(3, weight=1)
+        lvllabel = tk.Label(lvlframe, text="Lv.", bg="darkgrey", font=(PalEditConfig.font, 24))
+        lvllabel.grid(row=0, column=1)
+        self.levelvar = tk.StringVar()
+        self.level = tk.Entry(lvlframe, textvariable=self.levelvar, width=4, justify="center",
+                              font=(PalEditConfig.font, 24), relief="flat", bd=0,
+                              highlightthickness=0, bg="darkgrey", disabledbackground="darkgrey")
+        self.level.grid(row=0, column=2)
+        self.level.bind("<Return>", self.setlevelfromentry)
+        self.level.bind("<FocusOut>", self.setlevelfromentry)
+        # keep the owner-on-hover readout that the old level label had
+        for _w in (lvlframe, lvllabel, self.level):
+            _w.bind("<Enter>", lambda evt, num="owner": self.changetext(num))
+            _w.bind("<Leave>", lambda evt, num=-1: self.changetext(num))
 
         minlvlbtn = tk.Button(headerframe, text="➖", borderwidth=1, font=(PalEditConfig.font, PalEditConfig.ftsize - 2),
                               command=self.takelevel,
@@ -1812,6 +2914,12 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                    justify="center")
         self.defstatval.pack(fill=tk.constants.X)
 
+        # detailed stat / potential breakdown popup
+        statdetailbtn = tk.Button(statview, text="📊 Details", borderwidth=1,
+                                  font=(PalEditConfig.font, PalEditConfig.ftsize - 8),
+                                  command=self.open_stats_detail)
+        statdetailbtn.pack(side=tk.constants.BOTTOM, fill=tk.constants.X)
+
         disclaim = tk.Label(deckview, relief="raised", borderwidth=2, bg="darkgrey", text=self.i18n['msg_disclaim'],
                             font=(PalEditConfig.font, PalEditConfig.ftsize // 2))
         self.i18n_el['msg_disclaim'] = disclaim
@@ -1820,22 +2928,21 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         editview = tk.Frame(baseinfoview)
         editview.pack(side=tk.constants.RIGHT, expand=True, fill=tk.constants.BOTH)
 
-        species = [PalInfo.PalSpecies[e].GetName() for e in PalInfo.PalSpecies]
-        species.sort()
         self.speciesvar = tk.StringVar()
         self.speciesvar_name = tk.StringVar()
         self.speciesvar_name.set("PalEdit")
-        self.palname = ttk.Combobox(editview, textvariable=self.speciesvar_name, values=species)
-        #self.palname = tk.OptionMenu(editview, self.speciesvar_name, *species, command=self.changespeciestype)
-        self.palname.bind("<<ComboboxSelected>>", self.changespeciestype)
-        self.palname.config(font=(PalEditConfig.font, PalEditConfig.ftsize),
-                            #padx=0,
-                            #pady=0,
-                            #borderwidth=1,
-                            width=5,
-                            #direction='right'
-                            )
-        self.palname.pack(expand=True, fill=tk.constants.X)
+        speciesframe = tk.Frame(editview)
+        speciesframe.pack(expand=True, fill=tk.constants.X)
+        # Species is chosen through the searchable browser (element, category,
+        # work-suitability and NPC-type filters). The button shows the current
+        # species and, on click, opens the browser (🔍).
+        self.palname = tk.Button(speciesframe, textvariable=self.speciesvar_name,
+                                 command=self.open_species_browser, borderwidth=1,
+                                 font=(PalEditConfig.font, PalEditConfig.ftsize))
+        self.palname.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
+        browselbl = tk.Label(speciesframe, text="🔍",
+                             font=(PalEditConfig.font, PalEditConfig.ftsize - 4))
+        browselbl.pack(side=tk.constants.RIGHT)
 
         genderframe = tk.Frame(editview, pady=0)
         genderframe.pack()
@@ -2042,6 +3149,12 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.skilldrops[2].bind("<Enter>", lambda evt, num=2: self.changetext(num))
         self.skilldrops[3].bind("<Enter>", lambda evt, num=3: self.changetext(num))
         self.skilldrops[0].bind("<Leave>", lambda evt, num=-1: self.changetext(num))
+
+        # open a searchable picker for the passive/attack slots on click
+        for _n, _w in enumerate(self.skilldrops):
+            _w.bind("<Button-1>", lambda evt, n=_n: self.open_ability_search("passive", n))
+        for _n, _w in enumerate(self.attackdrops):
+            _w.bind("<Button-1>", lambda evt, n=_n: self.open_ability_search("attack", n))
         self.skilldrops[1].bind("<Leave>", lambda evt, num=-1: self.changetext(num))
         self.skilldrops[2].bind("<Leave>", lambda evt, num=-1: self.changetext(num))
         self.skilldrops[3].bind("<Leave>", lambda evt, num=-1: self.changetext(num))
@@ -2073,7 +3186,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
             s = f"{i}_label"
             self.suits[s] = tk.Spinbox(throwawaybox, width=1, text="0",
-                                       from_=0, to=5, bg="lightgrey", relief="groove",
+                                       from_=0, to=self.SUIT_HARD_MAX, bg="lightgrey", relief="groove",
                                        borderwidth=1, textvariable=self.suits[v],
                                        font=(PalEditConfig.font, PalEditConfig.ftsize),
                                        command=self.setsuits)
@@ -2090,6 +3203,20 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                                height=1)
         presetTitle.pack(fill=tk.constants.BOTH)
         self.i18n_el['preset_lbl'] = presetTitle
+
+        # custom named passive presets: pick one and stamp it, or manage them
+        customPresetRow = tk.Frame(framePresets)
+        customPresetRow.pack(fill=tk.constants.X)
+        self.presetvar = tk.StringVar()
+        self.presetdrop = ttk.Combobox(customPresetRow, textvariable=self.presetvar,
+                                       state="readonly", width=10,
+                                       font=(PalEditConfig.font, PalEditConfig.ftsize - 8))
+        self.presetdrop.pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
+        tk.Button(customPresetRow, text="Apply", command=self.apply_preset,
+                  font=(PalEditConfig.font, PalEditConfig.ftsize - 8)).pack(side=tk.constants.LEFT)
+        tk.Button(customPresetRow, text="Manage…", command=self.open_preset_manager,
+                  font=(PalEditConfig.font, PalEditConfig.ftsize - 8)).pack(side=tk.constants.LEFT)
+        self.refresh_preset_list()
 
         framePresetsButtons = tk.Frame(framePresets, relief="groove", borderwidth=4)
         framePresetsButtons.pack(fill=tk.constants.BOTH, expand=True)
@@ -2320,6 +3447,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         warning = tk.Frame(atkskill, relief="groove", borderwidth=2)
         warning.pack(fill=tk.constants.BOTH)
+        # kept so loaddata can hide it for Global Palbox saves (no players)
+        self.warningframe = warning
 
         warnhdr = tk.Label(warning, width=10, text="WARNING!", bg="darkgrey", font=(PalEditConfig.font, PalEditConfig.ftsize+2))
         warnhdr.pack(fill=tk.constants.BOTH)

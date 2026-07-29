@@ -13,14 +13,15 @@
         "EPalWazaID::FireBall": 40,
         "EPalWazaID::DragonMeteor": 50,
         "EPalWazaID::BeamSlicer": 55,
-        "EPalWazaID::CommetRain": 60
+        "EPalWazaID::CommetRain": 60,
+        "EPalWazaID::StarMine": 70
     },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 110,
-        "PHY": 100,
+        "HP": 115,
+        "PHY": 140,
         "MAG": 140,
-        "DEF": 110
+        "DEF": 120
     },
     "Suitabilities": {
         "EmitFlame": 0,
@@ -28,7 +29,7 @@
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
-        "Collection": 3,
+        "Collection": 8,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
@@ -37,5 +38,11 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Legend",
+        "ElementBoost_Dragon_2_PAL"
+    ],
+    "DeckIndex": 202,
+    "TowerBoss": false
 }

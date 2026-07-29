@@ -1,0 +1,43 @@
+{
+    "CodeName": "ThunderBird_Ice",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::BlizzardLance": 7,
+        "EPalWazaID::FrostBreath": 15,
+        "EPalWazaID::IciclePierce": 22,
+        "EPalWazaID::IcicleLine": 30,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::DiamondFall": 50,
+        "EPalWazaID::Unique_ThunderBird_Ice_SnowStrom": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 115,
+        "MAG": 115,
+        "DEF": 85
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 2,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 5,
+        "Transport": 5,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 96,
+    "TowerBoss": false
+}

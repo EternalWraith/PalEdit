@@ -4,27 +4,40 @@
         "Dark",
         "Earth"
     ],
-    "Moveset": {},
+    "Moveset": {
+        "EPalWazaID::DarkBall": 1,
+        "EPalWazaID::GhostFlame": 7,
+        "EPalWazaID::SandTornado": 15,
+        "EPalWazaID::ShadowBall": 22,
+        "EPalWazaID::SandTwister": 30,
+        "EPalWazaID::Unique_MummyPal_MummyAttack": 40,
+        "EPalWazaID::DarkLegion": 50,
+        "EPalWazaID::RockBeat": 70
+    },
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
-        "MAG": 100,
-        "DEF": 100
+        "HP": 105,
+        "PHY": 120,
+        "MAG": 120,
+        "DEF": 105
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 5,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 1,
+        "ProductMedicine": 4,
         "Cool": 0,
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "RaidMoveset": {},
+    "InnatePassives": [],
+    "DeckIndex": 120,
+    "TowerBoss": false
 }

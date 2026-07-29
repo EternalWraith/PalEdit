@@ -1,6 +1,11 @@
 {
     "CodeName": "EPalWazaID::Unique_DarkMechaDragon_BeamSlash",
     "Type": "Dragon",
-    "Power": 120,
-    "Category": "Shot"
+    "Power": 450,
+    "Category": "Shot",
+    "Exclusive": [
+        "DarkMechaDragon",
+        "RAID_DarkMechaDragon",
+        "RAID_DarkMechaDragon_2"
+    ]
 }

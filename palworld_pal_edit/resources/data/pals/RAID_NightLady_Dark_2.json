@@ -5,13 +5,15 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::DarkCanon": 1,
-        "EPalWazaID::DarkPulse": 7,
-        "EPalWazaID::DarkArrow": 15,
-        "EPalWazaID::ShadowBall": 22,
-        "EPalWazaID::Apocalypse": 30,
-        "EPalWazaID::Unique_NightLady_FlameNightmare": 40,
-        "EPalWazaID::Unique_NightLady_WarpBeam": 50
+        "EPalWazaID::DarkPulse": 1,
+        "EPalWazaID::ShadowBall": 2,
+        "EPalWazaID::DarkLaser": 3,
+        "EPalWazaID::DarkCanon": 4,
+        "EPalWazaID::DarkLegion": 5,
+        "EPalWazaID::DarkArrow": 6,
+        "EPalWazaID::Apocalypse": 7,
+        "EPalWazaID::Unique_NightLady_FlameNightmare": 8,
+        "EPalWazaID::Unique_NightLady_WarpBeam": 9
     },
     "RaidMoveset": {
         "EPalWazaID::DarkPulse": 1,
@@ -26,7 +28,7 @@
     },
     "Scaling": {
         "HP": 120,
-        "PHY": 100,
+        "PHY": 150,
         "MAG": 150,
         "DEF": 100
     },
@@ -45,5 +47,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

@@ -1,0 +1,44 @@
+{
+    "CodeName": "PREDATOR_SnakeGirl",
+    "Type": [
+        "Dark",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::PoisonFog": 1,
+        "EPalWazaID::PoisonShot": 7,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::GhostFlame": 22,
+        "EPalWazaID::BubbleShower": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::DarkLegion": 50,
+        "EPalWazaID::Unique_SnakeGirl_SnakeShot": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 96,
+        "PHY": 85,
+        "MAG": 85,
+        "DEF": 90
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 6,
+        "Collection": 6,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 5,
+        "Cool": 0,
+        "Transport": 2,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
+}

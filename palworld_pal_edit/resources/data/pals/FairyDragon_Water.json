@@ -11,7 +11,8 @@
         "EPalWazaID::Unique_FairyDragon_FairyTornado": 22,
         "EPalWazaID::AcidRain": 30,
         "EPalWazaID::HydroPump": 40,
-        "EPalWazaID::DragonMeteor": 50
+        "EPalWazaID::DragonMeteor": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
@@ -22,12 +23,12 @@
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 3,
+        "Watering": 4,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 3,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 63,
+    "TowerBoss": false
 }

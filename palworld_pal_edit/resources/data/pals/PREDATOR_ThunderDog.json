@@ -5,14 +5,17 @@
         "None"
     ],
     "Moveset": {
-        "EPalWazaID::MudShot": 1,
-        "EPalWazaID::ElecWave": 7,
+        "EPalWazaID::Unique_ThunderDog_BiteV2": 1,
+        "EPalWazaID::Unique_ThunderDog_Bite": 2,
+        "EPalWazaID::PredatorWave": 10,
         "EPalWazaID::SpreadPulse": 15,
+        "EPalWazaID::PredatorLockon": 20,
         "EPalWazaID::StoneShotgun": 22,
         "EPalWazaID::Unique_ThunderDog_InazumaShorai": 26,
-        "EPalWazaID::ThunderBall": 30,
+        "EPalWazaID::ThunderBall": 29,
+        "EPalWazaID::PredatorBeam": 30,
         "EPalWazaID::LineThunder": 40,
-        "EPalWazaID::Thunderbolt": 50
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {
         "EPalWazaID::Unique_ThunderDog_InazumaShorai": 1,
@@ -34,7 +37,7 @@
         "EmitFlame": 0,
         "Watering": 0,
         "Seeding": 0,
-        "GenerateElectricity": 2,
+        "GenerateElectricity": 4,
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 0,
@@ -45,5 +48,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

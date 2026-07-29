@@ -12,17 +12,18 @@
         "EPalWazaID::Unique_RedArmorBird_TriplePeck": 26,
         "EPalWazaID::FlareTornado": 30,
         "EPalWazaID::Flamethrower": 40,
-        "EPalWazaID::FireBall": 50
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::ThunderStorm": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 95,
-        "PHY": 100,
+        "PHY": 105,
         "MAG": 105,
         "DEF": 120
     },
     "Suitabilities": {
-        "EmitFlame": 3,
+        "EmitFlame": 4,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
@@ -33,8 +34,11 @@
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 5,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 104,
+    "TowerBoss": false
 }

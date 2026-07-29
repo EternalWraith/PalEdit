@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_VolcanoDragon_Ice_IceLaser",
+    "Type": "Ice",
+    "Power": 700,
+    "Category": "Shot",
+    "Exclusive": [
+        "VolcanoDragon_Ice"
+    ]
+}

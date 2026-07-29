@@ -12,12 +12,13 @@
         "EPalWazaID::Tremor": 30,
         "EPalWazaID::RockBeat": 40,
         "EPalWazaID::DiamondFall": 50,
-        "EPalWazaID::Unique_SnowTigerBeastman_SnowImpact": 55
+        "EPalWazaID::Unique_SnowTigerBeastman_SnowImpact": 55,
+        "EPalWazaID::DoubleIcicleThrow": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 140,
-        "PHY": 100,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 120
     },
@@ -28,13 +29,16 @@
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
-        "Deforest": 3,
-        "Mining": 3,
+        "Deforest": 6,
+        "Mining": 5,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 4,
+        "Cool": 8,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 191,
+    "TowerBoss": false
 }

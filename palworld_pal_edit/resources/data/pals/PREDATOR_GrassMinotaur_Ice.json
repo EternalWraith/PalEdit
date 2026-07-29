@@ -1,0 +1,45 @@
+{
+    "CodeName": "PREDATOR_GrassMinotaur_Ice",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::MudShot": 1,
+        "EPalWazaID::FrostBreath": 7,
+        "EPalWazaID::PredatorWave": 10,
+        "EPalWazaID::IceWall": 15,
+        "EPalWazaID::PredatorLockon": 20,
+        "EPalWazaID::IcicleLine": 29,
+        "EPalWazaID::PredatorBeam": 30,
+        "EPalWazaID::IcicleThrow": 40,
+        "EPalWazaID::DiamondFall": 50,
+        "EPalWazaID::Unique_GrassMinotaur_Ice_BullRush": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 144,
+        "PHY": 100,
+        "MAG": 100,
+        "DEF": 105
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 3,
+        "Mining": 3,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 5,
+        "Transport": 3,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
+}

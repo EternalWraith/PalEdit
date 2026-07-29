@@ -13,12 +13,13 @@
         "EPalWazaID::FrostBreath": 40,
         "EPalWazaID::IcicleThrow": 50,
         "EPalWazaID::HolyBlast": 55,
-        "EPalWazaID::DoubleIcicleThrow": 60
+        "EPalWazaID::DoubleIcicleThrow": 60,
+        "EPalWazaID::IceAge": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 140,
-        "PHY": 100,
+        "PHY": 140,
         "MAG": 140,
         "DEF": 120
     },
@@ -33,9 +34,15 @@
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
-        "Cool": 4,
+        "Cool": 7,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Legend",
+        "ElementBoost_Ice_2_PAL"
+    ],
+    "DeckIndex": 200,
+    "TowerBoss": false
 }

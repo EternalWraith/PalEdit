@@ -11,29 +11,35 @@
         "EPalWazaID::Commet": 22,
         "EPalWazaID::BeamSlicer": 30,
         "EPalWazaID::Unique_KingBahamut_ArmSmash": 40,
-        "EPalWazaID::Unique_KingBahamut_AirCrash": 50
+        "EPalWazaID::Unique_KingBahamut_AirCrash": 50,
+        "EPalWazaID::CommetRain": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 150,
+        "PHY": 130,
         "MAG": 130,
         "DEF": 125
     },
     "Suitabilities": {
-        "EmitFlame": 4,
+        "EmitFlame": 6,
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
         "Deforest": 0,
-        "Mining": 4,
+        "Mining": 7,
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "EternalFlame"
+    ],
+    "DeckIndex": 137,
+    "TowerBoss": false
 }

@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_KingWhale_AquaBlade",
+    "Type": "Water",
+    "Power": 300,
+    "Category": "Shot",
+    "Exclusive": [
+        "KingWhale"
+    ]
+}

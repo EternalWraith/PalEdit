@@ -12,29 +12,33 @@
         "EPalWazaID::PoisonShot": 22,
         "EPalWazaID::AcidRain": 30,
         "EPalWazaID::GrassTornado": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::SolarBeam": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 80,
-        "PHY": 100,
+        "PHY": 90,
         "MAG": 90,
         "DEF": 90
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 1,
+        "Seeding": 2,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
-        "Collection": 1,
-        "Deforest": 1,
+        "Handcraft": 2,
+        "Collection": 3,
+        "Deforest": 2,
         "Mining": 0,
         "OilExtraction": 0,
-        "ProductMedicine": 1,
+        "ProductMedicine": 2,
         "Cool": 0,
         "Transport": 2,
-        "MonsterFarm": 1
+        "MonsterFarm": 3
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 67,
+    "TowerBoss": false
 }

@@ -11,12 +11,13 @@
         "EPalWazaID::PowerBall": 22,
         "EPalWazaID::ThreeThunder": 30,
         "EPalWazaID::LineThunder": 40,
-        "EPalWazaID::Thunderbolt": 50
+        "EPalWazaID::Thunderbolt": 50,
+        "EPalWazaID::Railbolt": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 70,
-        "PHY": 70,
+        "PHY": 75,
         "MAG": 75,
         "DEF": 70
     },
@@ -35,5 +36,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 15,
+    "TowerBoss": false
 }

@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_Sekhmet_RollingScratch",
+    "Type": "Earth",
+    "Power": 400,
+    "Category": "Melee",
+    "Exclusive": [
+        "Sekhmet"
+    ]
+}

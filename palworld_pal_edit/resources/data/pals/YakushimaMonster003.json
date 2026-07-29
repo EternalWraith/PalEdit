@@ -10,7 +10,7 @@
     "RaidMoveset": {},
     "Scaling": {
         "HP": 65,
-        "PHY": 100,
+        "PHY": 75,
         "MAG": 75,
         "DEF": 80
     },
@@ -29,5 +29,8 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": -1,
+    "TowerBoss": false
 }

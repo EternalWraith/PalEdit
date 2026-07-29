@@ -11,18 +11,19 @@
         "EPalWazaID::LineGeyser": 22,
         "EPalWazaID::WallSplash": 30,
         "EPalWazaID::Unique_Horus_Water_AquaStorm": 40,
-        "EPalWazaID::HydroPump": 50
+        "EPalWazaID::HydroPump": 50,
+        "EPalWazaID::SeaGush": 70
     },
     "RaidMoveset": {},
     "Scaling": {
-        "HP": 100,
-        "PHY": 100,
+        "HP": 110,
+        "PHY": 110,
         "MAG": 110,
-        "DEF": 110
+        "DEF": 115
     },
     "Suitabilities": {
         "EmitFlame": 0,
-        "Watering": 4,
+        "Watering": 6,
         "Seeding": 0,
         "GenerateElectricity": 0,
         "Handcraft": 0,
@@ -32,8 +33,11 @@
         "OilExtraction": 0,
         "ProductMedicine": 0,
         "Cool": 0,
-        "Transport": 3,
+        "Transport": 5,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 188,
+    "TowerBoss": false
 }

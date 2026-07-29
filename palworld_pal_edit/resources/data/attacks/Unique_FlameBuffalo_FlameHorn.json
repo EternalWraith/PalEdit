@@ -1,6 +1,9 @@
 {
     "CodeName": "EPalWazaID::Unique_FlameBuffalo_FlameHorn",
     "Type": "Fire",
-    "Power": 50,
-    "Category": "Melee"
+    "Power": 80,
+    "Category": "Melee",
+    "Exclusive": [
+        "FlameBuffalo"
+    ]
 }

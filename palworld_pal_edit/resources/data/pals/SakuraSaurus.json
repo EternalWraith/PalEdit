@@ -11,19 +11,20 @@
         "EPalWazaID::SeedMine": 22,
         "EPalWazaID::GrassTornado": 30,
         "EPalWazaID::RootAttack": 40,
-        "EPalWazaID::SolarBeam": 50
+        "EPalWazaID::SolarBeam": 50,
+        "EPalWazaID::WindBurst": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 120,
-        "PHY": 80,
+        "PHY": 90,
         "MAG": 90,
         "DEF": 100
     },
     "Suitabilities": {
         "EmitFlame": 0,
         "Watering": 0,
-        "Seeding": 3,
+        "Seeding": 5,
         "GenerateElectricity": 0,
         "Handcraft": 0,
         "Collection": 0,
@@ -35,5 +36,10 @@
         "Transport": 0,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 108,
+    "TowerBoss": false
 }

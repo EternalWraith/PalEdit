@@ -1,0 +1,43 @@
+{
+    "CodeName": "Kirin_Ice",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::BlizzardLance": 15,
+        "EPalWazaID::IceWall": 22,
+        "EPalWazaID::IcicleThrow": 30,
+        "EPalWazaID::DiamondFall": 40,
+        "EPalWazaID::IceAge": 50,
+        "EPalWazaID::Unique_Kirin_Ice_IceTackle": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 80,
+        "PHY": 105,
+        "MAG": 105,
+        "DEF": 110
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 3,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 6,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 54,
+    "TowerBoss": false
+}

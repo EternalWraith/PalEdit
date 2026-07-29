@@ -1,0 +1,10 @@
+{
+    "CodeName": "EPalWazaID::Unique_GrassGolem_RocketPunch",
+    "Type": "Earth",
+    "Power": 600,
+    "Category": "Shot",
+    "Exclusive": [
+        "GrassGolem",
+        "GrassGolem_Dark"
+    ]
+}

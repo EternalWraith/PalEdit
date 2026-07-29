@@ -11,12 +11,13 @@
         "EPalWazaID::StoneShotgun": 22,
         "EPalWazaID::SeedMachinegun": 30,
         "EPalWazaID::PowerBall": 40,
-        "EPalWazaID::HyperBeam": 50
+        "EPalWazaID::HyperBeam": 50,
+        "EPalWazaID::HolyBlast": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 90,
-        "PHY": 110,
+        "PHY": 95,
         "MAG": 95,
         "DEF": 90
     },
@@ -25,9 +26,9 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 1,
+        "Handcraft": 2,
         "Collection": 0,
-        "Deforest": 2,
+        "Deforest": 3,
         "Mining": 0,
         "OilExtraction": 0,
         "ProductMedicine": 0,
@@ -35,5 +36,10 @@
         "Transport": 3,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [
+        "PAL_rude"
+    ],
+    "DeckIndex": 74,
+    "TowerBoss": false
 }

@@ -1,0 +1,45 @@
+{
+    "CodeName": "WingGolem_Fire",
+    "Type": [
+        "Fire",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::FlareArrow": 1,
+        "EPalWazaID::FlareTornado": 7,
+        "EPalWazaID::FlameWall": 15,
+        "EPalWazaID::FlameFunnel": 22,
+        "EPalWazaID::Eruption": 30,
+        "EPalWazaID::Inferno": 40,
+        "EPalWazaID::FireBall": 50,
+        "EPalWazaID::Unique_WingGolem_Fire_FlameCutter": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 105,
+        "PHY": 115,
+        "MAG": 115,
+        "DEF": 135
+    },
+    "Suitabilities": {
+        "EmitFlame": 5,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 7,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 7,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 159,
+    "TowerBoss": false
+}

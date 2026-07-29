@@ -1,4 +1,5 @@
 __pycache__
+*.pyc
 current.pson
 build
 data.txt
@@ -6,6 +7,14 @@ log.txt
 venv
 dist
 PalEdit.spec
-PalEdit.exe
 compile_local.bat
-palworld_save_tools
+psp_data_cache
+temp.json
+pals/error_*.json
+
+# Claude working notes (not for the public repo)
+CLAUDE.md
+.claude/
+
+# local reference copy of palworld-save-pal (not part of this fork)
+psp-reference/

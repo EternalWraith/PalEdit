@@ -1,0 +1,45 @@
+{
+    "CodeName": "RockBeast_Ice",
+    "Type": [
+        "Ice",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::IceMissile": 1,
+        "EPalWazaID::IceBlade": 7,
+        "EPalWazaID::BlizzardLance": 15,
+        "EPalWazaID::IcicleLine": 22,
+        "EPalWazaID::IcicleThrow": 30,
+        "EPalWazaID::DiamondFall": 40,
+        "EPalWazaID::Unique_RockBeast_Ice_IceHorn": 50,
+        "EPalWazaID::IceAge": 70
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 100,
+        "PHY": 110,
+        "MAG": 110,
+        "DEF": 120
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 5,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 6,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [
+        "Deffence_up2_2"
+    ],
+    "DeckIndex": 131,
+    "TowerBoss": false
+}

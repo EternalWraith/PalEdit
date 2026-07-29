@@ -1,0 +1,12 @@
+# Normalize line endings so Windows checkouts stop flagging phantom changes
+* text=auto
+*.py text
+*.json text
+*.md text
+*.png binary
+*.ico binary
+*.pyd binary
+*.dll binary
+*.zip binary
+*.so binary
+*.dylib binary

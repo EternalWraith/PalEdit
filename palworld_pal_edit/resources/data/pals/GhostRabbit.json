@@ -11,12 +11,13 @@
         "EPalWazaID::DarkArrow": 22,
         "EPalWazaID::GhostFlame": 30,
         "EPalWazaID::ShadowBall": 40,
-        "EPalWazaID::DarkLegion": 50
+        "EPalWazaID::DarkLegion": 50,
+        "EPalWazaID::FireBall": 70
     },
     "RaidMoveset": {},
     "Scaling": {
         "HP": 105,
-        "PHY": 100,
+        "PHY": 95,
         "MAG": 95,
         "DEF": 105
     },
@@ -25,7 +26,7 @@
         "Watering": 0,
         "Seeding": 0,
         "GenerateElectricity": 0,
-        "Handcraft": 3,
+        "Handcraft": 4,
         "Collection": 0,
         "Deforest": 0,
         "Mining": 0,
@@ -35,5 +36,8 @@
         "Transport": 2,
         "MonsterFarm": 0
     },
-    "Human": false
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 148,
+    "TowerBoss": false
 }
