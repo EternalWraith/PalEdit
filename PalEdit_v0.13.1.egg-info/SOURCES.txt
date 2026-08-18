@@ -1,7 +1,0 @@
-CxFreezeCompile.py
-LICENSE
-README.md
-PalEdit_v0.13.1.egg-info/PKG-INFO
-PalEdit_v0.13.1.egg-info/SOURCES.txt
-PalEdit_v0.13.1.egg-info/dependency_links.txt
-PalEdit_v0.13.1.egg-info/top_level.txt
