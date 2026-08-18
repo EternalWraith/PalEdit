@@ -1082,9 +1082,13 @@ class PalEdit():
         logger.info(f"NOTE: Unknown list is a list of pals that could not be loaded")
         logger.warning(f"Unknown list contains {len(self.unknown)} entries")
         for i in range(0, len(self.unknown)):
-            logger.warning("  %s" % str(self.unknown[i]))
-            with open(f"pals/error_{i}.json", "wb") as errorfile:
-                errorfile.write(json.dumps(erroredpals[i], indent=4, cls=UUIDEncoder).encode('utf-8'))
+            try:
+                logger.warning("  %s" % str(self.unknown[i]))
+                with open(f"pals/error_{i}.json", "wb") as errorfile:
+                    errorfile.write(json.dumps(erroredpals[i], indent=4, cls=UUIDEncoder).encode('utf-8'))
+            except:
+                break
+                    
             
 
         logger.Space()

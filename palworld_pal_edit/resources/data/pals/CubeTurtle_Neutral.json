@@ -12,7 +12,7 @@
         "EPalWazaID::HyperBeam": 30,
         "EPalWazaID::DiamondFall": 40,
         "EPalWazaID::HolyBlast": 50,
-        "EPalWazaID::Unique_PyramidTurtle_Neutral_HolyPress": 70
+        "EPalWazaID::Unique_CubeTurtle_Neutral_HolyPress": 70
     },
     "RaidMoveset": {},
     "Scaling": {

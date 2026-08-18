@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_CubeTurtle_Neutral_HolyPress",
+    "Type": "Normal",
+    "Power": 700,
+    "Category": "Melee",
+    "Exclusive": [
+        "CubeTurtle_Neutral"
+    ]
+}

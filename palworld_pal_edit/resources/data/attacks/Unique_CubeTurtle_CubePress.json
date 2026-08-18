@@ -1,0 +1,9 @@
+{
+    "CodeName": "EPalWazaID::Unique_CubeTurtle_CubePress",
+    "Type": "Earth",
+    "Power": 600,
+    "Category": "Melee",
+    "Exclusive": [
+        "CubeTurtle"
+    ]
+}

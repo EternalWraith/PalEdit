@@ -11,7 +11,7 @@
         "EPalWazaID::Tremor": 22,
         "EPalWazaID::RockLance": 30,
         "EPalWazaID::SandTwister": 40,
-        "EPalWazaID::Unique_PyramidTurtle_PyramidPress": 50,
+        "EPalWazaID::Unique_CubeTurtle_CubePress": 50,
         "EPalWazaID::RockBeat": 70
     },
     "RaidMoveset": {},
