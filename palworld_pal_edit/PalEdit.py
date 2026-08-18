@@ -123,7 +123,7 @@ import traceback
 
 
 class PalEditConfig:
-    version = "0.13 (Palworld 1.0)"
+    version = "0.13.1 (Palworld 1.0)"
     ftsize = 18
     font = "Microsoft YaHei"
     # index = rating + 3; Palworld 1.0 adds rating-5 passives (last entry)

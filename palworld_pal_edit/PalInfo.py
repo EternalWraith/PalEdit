@@ -122,7 +122,7 @@ xpthresholds = [
     1903759260,
     2147483647
 ]
-while len(xpthresholds) < 65:
+while len(xpthresholds) < 80:
     xpthresholds.append(xpthresholds[-1])
 
 
@@ -568,14 +568,14 @@ class PalEntity:
 
 
     def UpdateMaxHP(self):
-        self._obj['Hp']['value']['Value']['value'] = self.CalculateIngameStats()["HP"]
+        self._obj['Hp']['value']['Value']['value'] = self.CalculateIngameStats()["HP"] * 1000
         return #this seems to be handled by the game itself now; impressive
         
         if self.IsTower() or self.IsHuman():
             return
         new_hp = self.CalculateIngameStats()["HP"]
         self._obj['MaxHP']['value']['Value']['value'] = new_hp * 1000
-        self._obj['HP']['value']['Value']['value'] = new_hp * 1000
+        self._obj['Hp']['value']['Value']['value'] = new_hp * 1000
 
     def OLD_UpdateMaxHP(self, changes: dict, hp_scaling=None) -> bool:
         # do not manually pass in hp_scaling unless you are 100% sure that the value is correct!
@@ -1170,7 +1170,6 @@ def LoadPassives(lang="en-GB"):
             PalPassives = dict(sorted(PalPassives.items()))
 
 LoadPassives()
-
 
 def GetLegalPassives(species_code):
     """Passive codes a pal of this species can normally have: any passive
