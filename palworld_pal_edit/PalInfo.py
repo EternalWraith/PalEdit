@@ -174,7 +174,7 @@ class PalObject:
             else:
                 
                 n = "PlantSlime" if "PlantSlime" in self.GetCodeName() else n
-                n = n.replace("RAID_", "").replace("_2","")
+                n = n.replace("RAID_", "").replace("_2","").replace("_otomo","")
                 # self._img = ImageTk.PhotoImage(Image.open(module_dir+f'/resources/{n}.png').resize((240,240)))
                 try:
                     print(f"T_{n}_icon_normal.png")
@@ -191,6 +191,9 @@ class PalObject:
 
     def GetScaling(self):
         return self._scaling
+
+    def IsHuman(self):
+        return self._human
 
 
 class PalEntity:
@@ -239,6 +242,11 @@ class PalEntity:
         # whose data casing drifts from the save.
         if typename not in PalSpecies and typename.lower() in PalSpeciesLower:
             typename = PalSpeciesLower[typename.lower()]
+
+        self.isBossRush = False
+        if "_BossRush" in typename:
+            typename = typename.replace("_BossRush", "")
+            self.isBossRush = True
 
         self._type = PalSpecies[typename]
         if self.IsHuman() and ogtypename[:5].lower() == "boss_":
@@ -517,6 +525,8 @@ class PalEntity:
         #return self._obj['MaxHP']['value']['Value']['value']
 
     def CalculateIngameStats(self, baseline=False):
+        if self.GetObject().IsHuman():
+            return {"HP": 1, "PHY": 0, "MAG": 0, "DEF": 0}
         """Computed in-game stats. With baseline=True, use the level-only
         values (IV 0, souls 0, condensation rank 1) — the 'standard' stats for
         this species at this level, for comparing against the pal's actual."""
@@ -531,6 +541,8 @@ class PalEntity:
         soul_df = 0 if baseline else self.GetRankDefence()
         rank = 1 if baseline else self.GetRank()
 
+        if SCALING == None:
+            print(self.GetObject().GetName())
         HP_SCALE = SCALING["HP"]
         if self.isBoss and "HP_BOSS" in SCALING:
             HP_SCALE = SCALING["HP_BOSS"]
@@ -787,7 +799,7 @@ class PalEntity:
 
     def GetFullName(self):
         return self.GetObject().GetName() + (" 💀" if self.isBoss else "") + (
-            " ✨" if self.isLucky else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
+            " ✨" if self.isLucky else "") + (" (Boss Rush)" if self.isBossRush else "") + (f" - '{self._nickname}'" if not self._nickname == "" else "")
 
     def SetLucky(self, v=True):
         self._obj["IsRarePal"]['value'] = self.isLucky = v

@@ -51,6 +51,7 @@ PALWORLD_TYPE_HINTS: dict[str, str] = {
     ".worldSaveData.InvaderSaveData.Key": "Guid",
     ".worldSaveData.InvaderSaveData.Value": "StructProperty",
     ".worldSaveData.OilrigSaveData.OilrigMap.Value": "StructProperty",
+    ".worldSaveData.InvaderDeclarationSaveData.ValidatedStartPointIds.StructProperty": "Guid",
     ".worldSaveData.SupplySaveData.SupplyInfos.Key": "Guid",
     ".worldSaveData.SupplySaveData.SupplyInfos.Value": "StructProperty",
     ".worldSaveData.GuildExtraSaveDataMap.Key": "Guid",

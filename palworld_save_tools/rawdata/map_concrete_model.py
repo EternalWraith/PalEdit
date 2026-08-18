@@ -881,7 +881,7 @@ def decode_bytes(
         case "PalMapObjectCharacterTeamMissionModel":
             data["leading_bytes"] = reader.byte_list(4)
             data["mission_id"] = reader.fstring()
-            data["unknown_bytes"] = reader.byte_list(4)
+            data["assigned_individuals"] = reader.tarray(pal_instance_id_reader)
             data["state"] = reader.byte()
             data["start_time"] = reader.i64()
             data["trailing_bytes"] = reader.byte_list(4)
@@ -1058,9 +1058,7 @@ def decode_bytes(
             | "PalMapObjectDamagedScarecrowModel"
             | "PalMapObjectGlobalPalStorageModel"
         ):
-            # Palworld 1.0 grew some of these models (e.g. lamps gained 8 bytes);
-            # these blobs are opaque trailing data, so consume whatever remains.
-            data["trailing_bytes"] = reader.read_to_end()
+            data["trailing_bytes"] = reader.byte_list(4)
         case _:
             logger.debug(
                 f"Unknown map object concrete model {map_object_concrete_model}, skipping"
@@ -1090,7 +1088,7 @@ def encode_bytes(p: Optional[dict[str, Any]]) -> bytes:
         case "PalMapObjectCharacterTeamMissionModel":
             writer.write(coerce_bytes(p["leading_bytes"]))
             writer.fstring(p["mission_id"])
-            writer.write(coerce_bytes(p["unknown_bytes"]))
+            writer.tarray(pal_instance_id_writer, p["assigned_individuals"])
             writer.byte(p["state"])
             writer.i64(p["start_time"])
             writer.write(coerce_bytes(p["trailing_bytes"]))

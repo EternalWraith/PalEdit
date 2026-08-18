@@ -1,0 +1,43 @@
+{
+    "CodeName": "KingWhale_otomo",
+    "Type": [
+        "Water",
+        "None"
+    ],
+    "Moveset": {
+        "EPalWazaID::Unique_KingWhale_HomingBubble": 1,
+        "EPalWazaID::CreepingBubble": 7,
+        "EPalWazaID::Unique_KingWhale_AquaBlade": 15,
+        "EPalWazaID::Unique_KingWhale_WaveTackle": 22,
+        "EPalWazaID::Unique_KingWhale_Maelstrom": 30,
+        "EPalWazaID::Unique_KingWhale_Breaching": 40,
+        "EPalWazaID::HolyBlast": 50,
+        "EPalWazaID::Unique_KingWhale_AquaTornado": 60
+    },
+    "RaidMoveset": {},
+    "Scaling": {
+        "HP": 200,
+        "PHY": 120,
+        "MAG": 120,
+        "DEF": 200
+    },
+    "Suitabilities": {
+        "EmitFlame": 0,
+        "Watering": 0,
+        "Seeding": 0,
+        "GenerateElectricity": 0,
+        "Handcraft": 0,
+        "Collection": 0,
+        "Deforest": 0,
+        "Mining": 0,
+        "OilExtraction": 0,
+        "ProductMedicine": 0,
+        "Cool": 0,
+        "Transport": 0,
+        "MonsterFarm": 0
+    },
+    "Human": false,
+    "InnatePassives": [],
+    "DeckIndex": 203,
+    "TowerBoss": true
+}

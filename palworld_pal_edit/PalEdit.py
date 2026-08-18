@@ -1143,6 +1143,9 @@ class PalEdit():
             elif p.isLucky:
                 self.listdisplay.itemconfig(tk.constants.END, {'fg': 'blue'})
 
+            if p.isBossRush:
+                self.listdisplay.itemconfig(tk.constants.END, {'bg': 'yellow'})
+
         self.refresh()
 
     def logerror(self, msg):
@@ -1791,6 +1794,11 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
     def _apply_species(self, pal, code):
         """Change a pal's species and refresh the display around it."""
+        if code == "KingWhale_otomo":
+            self.alphavar.set(1)
+            self.togglealpha()
+            #pal.SetBoss(True if self.alphavar.get() == 1 else False)
+            
         self.speciesvar.set(code)
         self.speciesvar_name.set(PalInfo.PalSpecies[code].GetName())
         pal.SetType(code)
@@ -2289,13 +2297,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         elif pal.isLucky:
             self.listdisplay.itemconfig(i, {'fg': 'blue'})
 
+        if pal.isBossRush:
+            self.listdisplay.itemconfig(i, {'bg': 'yellow'})
+
     def togglelucky(self):
         if not self.isPalSelected():
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
-
-        if self.luckyvar.get() == 1 and self.alphavar.get() == 1:
+        if pal.GetCodeName() == "KingWhale_otomo":
+            self.luckyvar.set(0)
+            self.alphavar.set(1)
+        elif self.luckyvar.get() == 1 and self.alphavar.get() == 1:
             self.alphavar.set(0)
 
         pal.SetLucky(True if self.luckyvar.get() == 1 else False)
@@ -2307,8 +2320,10 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
-
-        if self.luckyvar.get() == 1 and self.alphavar.get() == 1:
+        if pal.GetCodeName() == "KingWhale_otomo":
+            self.luckyvar.set(0)
+            self.alphavar.set(1)
+        elif self.luckyvar.get() == 1 and self.alphavar.get() == 1:
             self.luckyvar.set(0)
 
         pal.SetBoss(True if self.alphavar.get() == 1 else False)

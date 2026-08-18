@@ -7,6 +7,7 @@ WORK_BASE_TYPES = set(
     [
         # "EPalWorkableType::Illegal",
         "EPalWorkableType::Progress",
+        "EPalWorkableType::Progress_MultiType",
         # "EPalWorkableType::CollectItem",
         # "EPalWorkableType::TransportItem",
         "EPalWorkableType::TransportItemInBaseCamp",
@@ -25,6 +26,46 @@ WORK_BASE_TYPES = set(
 )
 
 
+def assign_location_reader(reader: FArchiveReader) -> dict[str, Any]:
+    return {
+        "location": reader.vector_dict(),
+        "facing_direction": reader.vector_dict(),
+    }
+
+
+def assign_location_writer(writer: FArchiveWriter, p: dict[str, Any]) -> None:
+    writer.vector_dict(p["location"])
+    writer.vector_dict(p["facing_direction"])
+
+
+def progress_entry_reader(reader: FArchiveReader) -> dict[str, Any]:
+    return {
+        "work_suitability": reader.byte(),  # EPalWorkSuitability
+        "current_progress": reader.float(),
+        "max_progress": reader.float(),
+        "max_storable_progress": reader.float(),
+    }
+
+
+def progress_entry_writer(writer: FArchiveWriter, p: dict[str, Any]) -> None:
+    writer.byte(p["work_suitability"])
+    writer.float(p["current_progress"])
+    writer.float(p["max_progress"])
+    writer.float(p["max_storable_progress"])
+
+
+def suitability_info_entry_reader(reader: FArchiveReader) -> dict[str, Any]:
+    return {
+        "work_suitability": reader.byte(),  # EPalWorkSuitability
+        "required_rank": reader.i32(),
+    }
+
+
+def suitability_info_entry_writer(writer: FArchiveWriter, p: dict[str, Any]) -> None:
+    writer.byte(p["work_suitability"])
+    writer.i32(p["required_rank"])
+
+
 def decode(
     reader: FArchiveReader, type_name: str, size: int, path: str
 ) -> dict[str, Any]:
@@ -38,7 +79,7 @@ def decode(
         for work_assign in work_element["WorkAssignMap"]["value"]:
             work_assign_bytes = work_assign["value"]["RawData"]["value"]["values"]
             work_assign["value"]["RawData"]["value"] = decode_work_assign_bytes(
-                reader, work_assign_bytes
+                reader, work_assign_bytes, work_type
             )
     return value
 
@@ -64,12 +105,7 @@ def decode_bytes(
         data["owner_map_object_model_id"] = reader.guid()
         data["owner_map_object_concrete_model_id"] = reader.guid()
         data["current_state"] = reader.byte()
-        data["assign_locations"] = reader.tarray(
-            lambda r: {
-                "location": r.vector_dict(),
-                "facing_direction": r.vector_dict(),
-            }
-        )
+        data["assign_locations"] = reader.tarray(assign_location_reader)
         data["behaviour_type"] = reader.byte()
         data["assign_define_data_id"] = reader.fstring()
         data["override_work_type"] = reader.byte()
@@ -82,7 +118,7 @@ def decode_bytes(
                 data["leading_bytes"] = reader.byte_list(4)
                 data["defense_combat_type"] = reader.byte()
                 data["trailing_bytes"] = reader.byte_list(4)
-            case "EPalWorkableType::Progress":
+            case "EPalWorkableType::Progress" | "EPalWorkableType::Progress_MultiType":
                 data["required_work_amount"] = reader.float()
                 data["current_work_amount"] = reader.float()
                 data["work_exp"] = reader.i32()
@@ -90,6 +126,12 @@ def decode_bytes(
                 data["auto_work_self_amount_by_sec"] = reader.float()
                 data["progress_time_since_last_tick"] = reader.float()
                 data["tick_process_min_interval"] = reader.float()
+                # UPalWorkProgressMultiType tracks progress per work suitability
+                if work_type == "EPalWorkableType::Progress_MultiType":
+                    data["progress_entries"] = reader.tarray(progress_entry_reader)
+                    data["suitability_info_entries"] = reader.tarray(
+                        suitability_info_entry_reader
+                    )
             case "EPalWorkableType::ReviveCharacter":
                 data["target_individual_id"] = {
                     "player_uid": reader.guid(),
@@ -140,7 +182,7 @@ def decode_bytes(
 
 
 def decode_work_assign_bytes(
-    parent_reader: FArchiveReader, b_bytes: Sequence[int]
+    parent_reader: FArchiveReader, b_bytes: Sequence[int], work_type: str
 ) -> dict[str, Any]:
     reader = parent_reader.internal_copy(coerce_bytes(b_bytes), debug=False)
     data: dict[str, Any] = {}
@@ -155,8 +197,18 @@ def decode_work_assign_bytes(
     data["state"] = reader.byte()
     data["fixed"] = reader.u32()
     data["trailing_bytes"] = reader.byte_list(4)
+    # Works of this type use UPalWorkAssign_WorkProgressMultiType, which records
+    # which of the work's suitabilities the worker was assigned to
+    if work_type == "EPalWorkableType::Progress_MultiType":
+        data["assigned_work_suitability"] = reader.byte()
+        data["assigned_work_type"] = reader.byte()
+        data["assigned_work_action_type"] = reader.byte()
+        data["multi_type_trailing_bytes"] = reader.byte_list(4)
     if not reader.eof():
-        raise Exception("Warning: EOF not reached")
+        raise Exception(
+            f"Warning: EOF not reached for {work_type} work assign, "
+            f"remaining bytes: {reader.read_to_end()!r}"
+        )
 
     return data
 
@@ -175,7 +227,9 @@ def encode(
                 "value": {
                     **work_assign["value"],
                     "RawData": encoded_raw_data(
-                        work_assign["value"]["RawData"], encode_work_assign_bytes
+                        work_assign["value"]["RawData"],
+                        encode_work_assign_bytes,
+                        work_type,
                     ),
                 },
             }
@@ -217,14 +271,7 @@ def encode_bytes(p: dict[str, Any], work_type: str) -> bytes:
         writer.guid(p["owner_map_object_model_id"])
         writer.guid(p["owner_map_object_concrete_model_id"])
         writer.byte(p["current_state"])
-        writer.tarray(
-            lambda w, l: (
-                w.vector_dict(l["location"]),
-                w.vector_dict(l["facing_direction"]),
-                None,
-            )[2],
-            p["assign_locations"],
-        )
+        writer.tarray(assign_location_writer, p["assign_locations"])
         writer.byte(p["behaviour_type"])
         writer.fstring(p["assign_define_data_id"])
         writer.byte(p["override_work_type"])
@@ -237,7 +284,7 @@ def encode_bytes(p: dict[str, Any], work_type: str) -> bytes:
                 writer.write(coerce_bytes(p["leading_bytes"]))
                 writer.byte(p["defense_combat_type"])
                 writer.write(coerce_bytes(p["trailing_bytes"]))
-            case "EPalWorkableType::Progress":
+            case "EPalWorkableType::Progress" | "EPalWorkableType::Progress_MultiType":
                 writer.float(p["required_work_amount"])
                 writer.float(p["current_work_amount"])
                 writer.i32(p["work_exp"])
@@ -245,6 +292,11 @@ def encode_bytes(p: dict[str, Any], work_type: str) -> bytes:
                 writer.float(p["auto_work_self_amount_by_sec"])
                 writer.float(p["progress_time_since_last_tick"])
                 writer.float(p["tick_process_min_interval"])
+                if work_type == "EPalWorkableType::Progress_MultiType":
+                    writer.tarray(progress_entry_writer, p["progress_entries"])
+                    writer.tarray(
+                        suitability_info_entry_writer, p["suitability_info_entries"]
+                    )
             case "EPalWorkableType::ReviveCharacter":
                 writer.guid(p["target_individual_id"]["player_uid"])
                 writer.guid(p["target_individual_id"]["instance_id"])
@@ -282,7 +334,7 @@ def encode_bytes(p: dict[str, Any], work_type: str) -> bytes:
     return encoded_bytes
 
 
-def encode_work_assign_bytes(p: dict[str, Any]) -> bytes:
+def encode_work_assign_bytes(p: dict[str, Any], work_type: str) -> bytes:
     writer = FArchiveWriter()
 
     writer.guid(p["id"])
@@ -293,5 +345,10 @@ def encode_work_assign_bytes(p: dict[str, Any]) -> bytes:
     writer.byte(p["state"])
     writer.u32(int(p["fixed"]))
     writer.write(coerce_bytes(p["trailing_bytes"]))
+    if work_type == "EPalWorkableType::Progress_MultiType":
+        writer.byte(p["assigned_work_suitability"])
+        writer.byte(p["assigned_work_type"])
+        writer.byte(p["assigned_work_action_type"])
+        writer.write(coerce_bytes(p["multi_type_trailing_bytes"]))
     encoded_bytes = writer.bytes()
     return encoded_bytes
