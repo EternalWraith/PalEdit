@@ -125,6 +125,47 @@ xpthresholds = [
 while len(xpthresholds) < 80:
     xpthresholds.append(xpthresholds[-1])
 
+MAX_EXPERIENCE = 2_147_483_647
+
+
+def level_for_experience(experience, level_cap=80):
+    """Return the highest level threshold reached by cumulative XP."""
+    experience = max(0, min(MAX_EXPERIENCE, experience))
+    level_cap = max(1, min(level_cap, len(xpthresholds)))
+    for level in range(level_cap, 0, -1):
+        if experience >= xpthresholds[level - 1]:
+            return level
+    return 1
+
+
+def experience_progress(level, experience, level_cap=80):
+    """Describe cumulative XP progress and consistency for a selected level."""
+    level_cap = max(1, min(level_cap, len(xpthresholds)))
+    level = max(1, min(level, level_cap))
+    experience = max(0, min(MAX_EXPERIENCE, experience))
+    minimum = xpthresholds[level - 1]
+    next_threshold = xpthresholds[level] if level < level_cap else None
+    maximum = next_threshold - 1 if next_threshold is not None else MAX_EXPERIENCE
+    matches_level = minimum <= experience <= maximum
+
+    if next_threshold is None:
+        percent = 100 if experience >= minimum else 0
+        remaining = None
+    else:
+        required = next_threshold - minimum
+        earned = max(0, min(required, experience - minimum))
+        percent = earned * 100 // required
+        remaining = max(0, next_threshold - experience)
+
+    return {
+        "minimum": minimum,
+        "maximum": maximum,
+        "next_threshold": next_threshold,
+        "remaining": remaining,
+        "percent": percent,
+        "matches_level": matches_level,
+    }
+
 
 
 class PalGender(Enum):
@@ -303,7 +344,7 @@ class PalEntity:
 
         if not "Exp" in self._obj:
             self._obj['Exp'] = copy.deepcopy(EmptyExpObject)
-        # We don't store Exp yet
+        self._exp = self._obj['Exp']['value']
 
         self._nickname = ""
         if "NickName" in self._obj:
@@ -703,11 +744,18 @@ class PalEntity:
     def GetLevel(self):
         return self._level
 
+    def GetExp(self):
+        return self._exp
+
+    def SetExp(self, value):
+        value = max(0, min(MAX_EXPERIENCE, value))
+        self._obj['Exp']['value'] = self._exp = value
+
     def SetLevel(self, value):
         # We need this check until we fix adding missing nodes
         if "Level" in self._obj and "Exp" in self._obj:
             self._obj['Level']['value']["value"] = self._level = value
-            self._obj['Exp']['value'] = xpthresholds[value - 1]
+            self.SetExp(xpthresholds[value - 1])
             self.CleanseAttacks()  # self.SetLevelMoves()
         else:
             print(f"[ERROR:] Failed to update level for: '{self.GetName()}'")

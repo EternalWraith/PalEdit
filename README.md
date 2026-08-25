@@ -82,7 +82,7 @@ through the *Pal Genetic Data* terminal in-game.
     ```
 
     (there's one numbered folder per account — see [Backing up your save](#-backing-up-your-save) for how to find it.)
-3. **Edit away.** You'll see every Pal in your Global Palbox. Select one to change its level, stats/IVs, souls, moves, passives, nickname or species, or use **Add New Pal**, **Clone Pal** and **Delete Pal** to manage the box (see [Adding, cloning & deleting Pals](#-adding-cloning--deleting-pals)).
+3. **Edit away.** You'll see every Pal in your Global Palbox. Select one to change its level, cumulative XP, stats/IVs, souls, moves, passives, nickname or species, or use **Add New Pal**, **Clone Pal** and **Delete Pal** to manage the box (see [Adding, cloning & deleting Pals](#-adding-cloning--deleting-pals)). The XP controls show progress toward the next level, flag level/XP mismatches, and can set the current level's minimum or maximum XP or derive the level from XP.
 4. **Save.** Choose **File → Save**. The first save of each session automatically copies your original file into a `PalEdit-backups` folder next to it, just in case.
 5. **Pick your changes up in-game** — see below.
 

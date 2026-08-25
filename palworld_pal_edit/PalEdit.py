@@ -763,6 +763,8 @@ class PalEdit():
 
         self.title.config(text=f"{pal.GetNickname()}")
         self.levelvar.set(str(pal.GetLevel()) if pal.GetLevel() > 0 else "?")
+        self.expvar.set(str(pal.GetExp()))
+        self.updateexperiencedisplay(pal)
 
         self._fruit_all = [PalInfo.PalAttacks[aval] for aval in self.availableAttacks(pal)]
         self.fruitOptions['values'] = self._fruit_all
@@ -1532,6 +1534,79 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             self.refresh(i)
         else:
             self.levelvar.set(str(lv))  # normalise (clamp / stray whitespace)
+
+    def setexpfromentry(self, *_):
+        """Set the selected pal's cumulative XP from the XP field."""
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        try:
+            exp = int(self.expvar.get())
+        except (ValueError, tk.TclError):
+            self.expvar.set(str(pal.GetExp()))
+            self.updateexperiencedisplay(pal)
+            return
+        pal.SetExp(exp)
+        self.expvar.set(str(pal.GetExp()))
+        self.updateexperiencedisplay(pal)
+
+    def updateexperiencedisplay(self, pal):
+        progress = PalInfo.experience_progress(
+            pal.GetLevel(), pal.GetExp(), PalEditConfig.levelcap)
+        self.expprogress['value'] = progress["percent"]
+
+        if not progress["matches_level"]:
+            derived = PalInfo.level_for_experience(
+                pal.GetExp(), PalEditConfig.levelcap)
+            text = f"XP matches Lv. {derived}, not Lv. {pal.GetLevel()}"
+            colour = "#A00000"
+        elif progress["next_threshold"] is None:
+            text = f"Maximum level · {pal.GetExp():,} XP"
+            colour = "#1F6B2A"
+        else:
+            text = (f"{progress['remaining']:,} XP to Lv. {pal.GetLevel() + 1}  "
+                    f"({pal.GetExp():,} / {progress['next_threshold']:,})")
+            colour = "#202020"
+        self.expstatus.config(text=text, fg=colour)
+
+    def setexptolevelminimum(self):
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        progress = PalInfo.experience_progress(
+            pal.GetLevel(), pal.GetExp(), PalEditConfig.levelcap)
+        pal.SetExp(progress["minimum"])
+        self.expvar.set(str(pal.GetExp()))
+        self.updateexperiencedisplay(pal)
+
+    def setexptolevelmaximum(self):
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        progress = PalInfo.experience_progress(
+            pal.GetLevel(), pal.GetExp(), PalEditConfig.levelcap)
+        pal.SetExp(progress["maximum"])
+        self.expvar.set(str(pal.GetExp()))
+        self.updateexperiencedisplay(pal)
+
+    def derivelevelfromexp(self):
+        if not self.isPalSelected():
+            return
+        i = int(self.listdisplay.curselection()[0])
+        pal = self.FilteredPals()[i]
+        experience = pal.GetExp()
+        level = PalInfo.level_for_experience(
+            experience, PalEditConfig.levelcap)
+        if level != pal.GetLevel():
+            pal.SetLevel(level)
+            pal.SetExp(experience)
+            self.handleMaxHealthUpdates(pal)
+            self.refresh(i)
+        else:
+            self.updateexperiencedisplay(pal)
 
     # ------------------------------------------------------------------
     # Custom passive-skill presets (build named sets, stamp onto pals)
@@ -2837,9 +2912,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         headerframe.grid_columnconfigure((0, 2), uniform="equal")
         headerframe.grid_columnconfigure(1, weight=1)
 
-        # "Lv." label + a typeable entry: type a level and press Enter (or click
-        # away) to set it directly; the ➖ / ➕ buttons still work and the field
-        # updates to match
+        # Type a level or cumulative XP and press Enter (or click away) to set
+        # it directly. The ➖ / ➕ buttons still update both fields.
         lvlframe = tk.Frame(headerframe, bg="darkgrey")
         lvlframe.grid(row=0, column=1, sticky="nsew")
         lvlframe.grid_rowconfigure(0, weight=1)
@@ -2854,8 +2928,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.level.grid(row=0, column=2)
         self.level.bind("<Return>", self.setlevelfromentry)
         self.level.bind("<FocusOut>", self.setlevelfromentry)
+
+        explabel = tk.Label(lvlframe, text="XP", bg="darkgrey", font=(PalEditConfig.font, 10))
+        explabel.grid(row=1, column=1, sticky="e")
+        self.expvar = tk.StringVar()
+        self.exp = tk.Entry(lvlframe, textvariable=self.expvar, width=12, justify="center",
+                            font=(PalEditConfig.font, 10), relief="flat", bd=0,
+                            highlightthickness=0, bg="darkgrey", disabledbackground="darkgrey")
+        self.exp.grid(row=1, column=2, sticky="w")
+        self.exp.bind("<Return>", self.setexpfromentry)
+        self.exp.bind("<FocusOut>", self.setexpfromentry)
         # keep the owner-on-hover readout that the old level label had
-        for _w in (lvlframe, lvllabel, self.level):
+        for _w in (lvlframe, lvllabel, self.level, explabel, self.exp):
             _w.bind("<Enter>", lambda evt, num="owner": self.changetext(num))
             _w.bind("<Leave>", lambda evt, num=-1: self.changetext(num))
 
@@ -2868,6 +2952,22 @@ Do you want to use %s's DEFAULT Scaling (%s)?
                               command=self.givelevel,
                               bg="darkgrey")
         addlvlbtn.grid(row=0, column=2, sticky="nsew")
+
+        xpdetailframe = tk.Frame(deckview, bg="darkgrey", padx=5, pady=3)
+        xpdetailframe.pack(fill=tk.constants.X)
+        self.expprogress = ttk.Progressbar(xpdetailframe, maximum=100)
+        self.expprogress.pack(fill=tk.constants.X)
+        self.expstatus = tk.Label(xpdetailframe, text="", bg="darkgrey",
+                                  font=(PalEditConfig.font, 9))
+        self.expstatus.pack(fill=tk.constants.X)
+        xpbuttons = tk.Frame(xpdetailframe, bg="darkgrey")
+        xpbuttons.pack(fill=tk.constants.X)
+        tk.Button(xpbuttons, text="Level minimum", command=self.setexptolevelminimum,
+                  font=(PalEditConfig.font, 8)).pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
+        tk.Button(xpbuttons, text="Level maximum", command=self.setexptolevelmaximum,
+                  font=(PalEditConfig.font, 8)).pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
+        tk.Button(xpbuttons, text="Level from XP", command=self.derivelevelfromexp,
+                  font=(PalEditConfig.font, 8)).pack(side=tk.constants.LEFT, expand=True, fill=tk.constants.X)
 
         baseinfoview = tk.Frame(deckview)
         baseinfoview.pack(fill=tk.constants.BOTH)
