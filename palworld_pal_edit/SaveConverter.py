@@ -65,11 +65,14 @@ def main():
             output_path = args.output
         convert_json_to_sav(args.filename, output_path, args.force)
 
-def convert_sav_to_obj(filename):
+def convert_sav_to_obj(filename, max_input_bytes=None, max_output_size=None):
     print(f"Decompressing sav file")
     with open(filename, "rb") as f:
-        data = f.read()
-        raw_gvas, _ = decompress_sav_to_gvas(data)
+        data = f.read() if max_input_bytes is None else f.read(max_input_bytes + 1)
+        if max_input_bytes is not None and len(data) > max_input_bytes:
+            raise ValueError("The player save file is too large.")
+        raw_gvas, _ = decompress_sav_to_gvas(
+            data, max_output_size=max_output_size)
     print(f"Loading GVAS file")
     gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALWORLD_CUSTOM_PROPERTIES)
     return gvas_file.dump()

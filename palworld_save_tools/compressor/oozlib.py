@@ -123,23 +123,25 @@ class OozLib(Compressor):
 
         return sav_data
 
-    def decompress(self, data: bytes) -> bytes:
+    def decompress(self, data: bytes, max_output_size=None) -> bytes:
         logger.info("Starting decompression process with libooz...")
 
         if not data:
             raise ValueError("SAV data cannot be empty")
 
         format_result = self.check_sav_format(data)
-        if format_result == 0:
-            raise ValueError(
-                "Detected PLZ format (Zlib), this tool only supports PLM format (Oodle)"
-            )
-        elif format_result == -1:
-            raise ValueError("Unknown SAV file format")
+        if format_result != SaveType.PLM:
+            raise ValueError("This decoder requires the Oodle PLM save format")
 
         uncompressed_len, compressed_len, magic, save_type, data_offset = (
             self._parse_sav_header(data)
         )
+        if save_type != SaveType.PLM.value:
+            raise ValueError("Oodle save header has an invalid save type")
+        if len(data) != data_offset + compressed_len:
+            raise ValueError("Oodle save payload length does not match its header")
+        if max_output_size is not None and uncompressed_len > max_output_size:
+            raise ValueError("SAV decompressed output exceeds the configured limit")
 
         logger.debug("File information (Decompress):")
         logger.debug(f"  Magic bytes: {magic.decode('ascii', errors='ignore')}")

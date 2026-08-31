@@ -41,7 +41,20 @@ class Zlib(Compressor):
 
         return sav_data
 
-    def decompress(self, data: bytes) -> bytes:
+    @staticmethod
+    def _decompress_bounded(data: bytes, maximum: int) -> bytes:
+        decoder = zlib.decompressobj()
+        output = decoder.decompress(data, maximum + 1)
+        if len(output) > maximum or decoder.unconsumed_tail:
+            raise ValueError("SAV decompressed output exceeds the configured limit")
+        output += decoder.flush()
+        if len(output) > maximum:
+            raise ValueError("SAV decompressed output exceeds the configured limit")
+        if not decoder.eof or decoder.unused_data:
+            raise ValueError("Invalid or trailing zlib payload")
+        return output
+
+    def decompress(self, data: bytes, max_output_size=None) -> bytes:
         logger.info("Starting decompression process with zlib...")
 
         format_result = self.check_sav_format(data)
@@ -57,6 +70,13 @@ class Zlib(Compressor):
         uncompressed_len, compressed_len, magic, save_type, data_offset = (
             self._parse_sav_header(data)
         )
+        if save_type != SaveType.PLZ.value:
+            raise ValueError("Zlib save header has an invalid save type")
+        if max_output_size is not None and uncompressed_len > max_output_size:
+            raise ValueError("SAV decompressed output exceeds the configured limit")
+        if (max_output_size is not None
+                and compressed_len > max(max_output_size, len(data))):
+            raise ValueError("SAV intermediate output exceeds the configured limit")
 
         logger.debug("File information (Decompress):")
         logger.debug(f"  Magic bytes: {magic.decode('ascii', errors='ignore')}")
@@ -65,13 +85,17 @@ class Zlib(Compressor):
         logger.debug(f"  Uncompressed size: {uncompressed_len:,} bytes")
         logger.debug("Detected PLZ format (Zlib), starting decompression...")
 
-        uncompressed_data = zlib.decompress(data[data_offset:])
+        outer_limit = compressed_len
+        uncompressed_data = self._decompress_bounded(
+            data[data_offset:], outer_limit)
 
         if save_type == SaveType.PLZ.value:
             if compressed_len != len(uncompressed_data):
                 raise Exception(f"incorrect compressed length: {compressed_len}")
 
-            uncompressed_data = zlib.decompress(uncompressed_data)
+            inner_limit = max_output_size if max_output_size is not None else uncompressed_len
+            uncompressed_data = self._decompress_bounded(
+                uncompressed_data, inner_limit)
 
         if uncompressed_len != len(uncompressed_data):
             raise Exception(

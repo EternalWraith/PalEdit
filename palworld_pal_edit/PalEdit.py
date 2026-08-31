@@ -1,4 +1,4 @@
-import os, webbrowser, json, time, uuid, math, zipfile, shutil
+import os, webbrowser, json, time, uuid, math, zipfile, shutil, tempfile, hashlib
 
 import pyperclip
 
@@ -118,6 +118,88 @@ PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.DynamicItemSaveData"] = (skip
 #PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.CharacterContainerSaveData"] = (skip_decode, skip_encode)
 PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.ItemContainerSaveData"] = (skip_decode, skip_encode)
 #PALEDIT_PALWORLD_CUSTOM_PROPERTIES[".worldSaveData.GroupSaveDataMap"] = (skip_decode, skip_encode)
+
+
+MAX_PAL_IMPORT_BYTES = 64 * 1024 * 1024
+MAX_SAVE_FILE_BYTES = 512 * 1024 * 1024
+
+
+def load_pal_import(filename, max_bytes=MAX_PAL_IMPORT_BYTES):
+    """Read a Pal JSON export without allowing an unbounded allocation."""
+    with open(filename, "rb") as source_file:
+        payload = source_file.read(max_bytes + 1)
+    if len(payload) > max_bytes:
+        raise ValueError("The Pal import file is too large.")
+    return json.loads(payload)
+
+
+def read_bounded_file(filename, max_bytes=MAX_SAVE_FILE_BYTES):
+    """Read a save with both pre-read and growing-file size checks."""
+    if os.path.getsize(filename) > max_bytes:
+        raise ValueError("The save file is too large.")
+    with open(filename, "rb") as source_file:
+        payload = source_file.read(max_bytes + 1)
+    if len(payload) > max_bytes:
+        raise ValueError("The save file is too large.")
+    return payload
+
+
+def validate_player_save_identity(player, expected_guid):
+    if str(player.GetPlayerGuid()).lower() != str(expected_guid).lower():
+        raise ValueError("The player save identity does not match its world player GUID.")
+
+
+def serialize_and_validate_save(gvas_file, save_type):
+    """Serialize, recompress, decompress, and reparse before a save can replace disk data."""
+    raw_gvas = gvas_file.write(PALEDIT_PALWORLD_CUSTOM_PROPERTIES)
+    sav_file = compress_gvas_to_sav(raw_gvas, save_type)
+    checked_raw, checked_type = decompress_sav_to_gvas(
+        sav_file, max_output_size=MAX_SAVE_FILE_BYTES)
+    if checked_type != save_type or checked_raw != raw_gvas:
+        raise ValueError("The generated save failed its compression round-trip check.")
+    reparsed = GvasFile.read(
+        checked_raw, PALWORLD_TYPE_HINTS, PALEDIT_PALWORLD_CUSTOM_PROPERTIES)
+    if reparsed.trailer != b"\x00\x00\x00\x00":
+        raise ValueError("The generated save has an invalid GVAS trailer.")
+    if reparsed.write(PALEDIT_PALWORLD_CUSTOM_PROPERTIES) != checked_raw:
+        raise ValueError("The generated save failed its complete reparse check.")
+    return sav_file
+
+
+def file_digest(filename):
+    digest = hashlib.sha256()
+    with open(filename, "rb") as source:
+        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.digest()
+
+
+def atomic_write_save(filename, sav_file, expected_digest=None):
+    """Atomically replace a save after a last-moment generation check."""
+    directory = os.path.dirname(os.path.abspath(filename))
+    prefix = "." + os.path.basename(filename) + ".PalEdit."
+    descriptor, temporary = tempfile.mkstemp(
+        dir=directory, prefix=prefix, suffix=".tmp")
+    try:
+        with os.fdopen(descriptor, "wb") as output:
+            output.write(sav_file)
+            output.flush()
+            os.fsync(output.fileno())
+
+        if (
+                expected_digest is not None
+                and (
+                    not os.path.exists(filename)
+                    or file_digest(filename) != expected_digest
+                )
+        ):
+            raise RuntimeError(
+                "The save changed on disk while PalEdit was writing; nothing was replaced.")
+        os.replace(temporary, filename)
+    finally:
+        if os.path.exists(temporary):
+            os.remove(temporary)
+
 
 import traceback
 
@@ -940,6 +1022,17 @@ class PalEdit():
             return
         self.skilllabel.config(text=PalInfo.PassiveDescriptions[self.skills[num].get()])
 
+    def _clear_loaded_save_state(self):
+        self.filename = ""
+        self.loaded_file_digest = None
+        self.save_type = None
+        self.data = None
+        self.palguidmanager = None
+        self.palbox = []
+        self.players = {}
+        self.current.set("")
+        self.disable_menus()
+
     def loadfile(self):
         self.skilllabel.config(text=self.i18n['msg_saving'])
 
@@ -950,19 +1043,30 @@ class PalEdit():
         logger.info(f"Opening file {file}")
 
         if file:
-            self.filename = file
-            self.gui.title(f"PalEdit v{PalEditConfig.version} - {file}")
-            self.skilllabel.config(text=self.i18n['msg_decompressing'])
-            with open(file, "rb") as f:
-                data = f.read()
-                raw_gvas, self.save_type = decompress_sav_to_gvas(data)
-            self.skilllabel.config(text=self.i18n['msg_loading'])
-            
+            self._clear_loaded_save_state()
+            self.gui.title(f"PalEdit v{PalEditConfig.version}")
             try:
+                self.skilllabel.config(text=self.i18n['msg_decompressing'])
+                data = read_bounded_file(file)
+                candidate_digest = hashlib.sha256(data).digest()
+                raw_gvas, candidate_save_type = decompress_sav_to_gvas(
+                    data, max_output_size=MAX_SAVE_FILE_BYTES)
+                self.skilllabel.config(text=self.i18n['msg_loading'])
                 gvas_file = GvasFile.read(raw_gvas, PALWORLD_TYPE_HINTS, PALEDIT_PALWORLD_CUSTOM_PROPERTIES)
+            except Exception as e:
+                self.logerror(str(e))
+                return
+
+            self.filename = file
+            self.loaded_file_digest = candidate_digest
+            self.save_type = candidate_save_type
+            self.gui.title(f"PalEdit v{PalEditConfig.version} - {file}")
+            try:
                 self.loaddata(gvas_file)
             except Exception as e:
-                self.logerror(str(e))           
+                self._clear_loaded_save_state()
+                self.gui.title(f"PalEdit v{PalEditConfig.version}")
+                self.logerror(str(e))
             # self.doconvertjson(file, (not self.debug))
         else:
             messagebox.showerror(self.i18n['select_file'], self.i18n['msg_select_save_file'])
@@ -1043,7 +1147,13 @@ class PalEdit():
                 playerguid = self.players[p]
                 playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
                 try:
-                    self.players[p] = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
+                    player = PalInfo.PalPlayerEntity(
+                        palworld_pal_edit.SaveConverter.convert_sav_to_obj(
+                            playersav,
+                            max_input_bytes=MAX_SAVE_FILE_BYTES,
+                            max_output_size=MAX_SAVE_FILE_BYTES))
+                    validate_player_save_identity(player, playerguid)
+                    self.players[p] = player
                 except Exception:
                     logger.error(f"Could not load player save {playersav}", exc_info=True)
                     self.players[p] = PalInfo.PalStoragePlayer(playerguid)
@@ -1086,10 +1196,11 @@ class PalEdit():
                     print()
                 # print(f"Debug: Data {i}")
 
-        self.current.set(next(iter(self.players)))
-        logger.info(f"Defaulted selection to {self.current.get()}")
-
-        self.updateDisplay()
+        if self._configure_player_selection():
+            self.updateDisplay()
+        else:
+            self.listdisplay.delete(0, tk.constants.END)
+            self.playerguid.config(text="")
 
         logger.Space()
         logger.info(f"NOTE: Unknown list is a list of pals that could not be loaded")
@@ -1108,8 +1219,6 @@ class PalEdit():
         logger.debug(f"{len(self.players)} players found:")
         for i in self.players:
             logger.debug(f"{i} = {self.players[i]}")
-        self.playerdrop['values'] = list(self.players.keys())
-        self.playerdrop.current(0)
         logger.Space()
 
         if False:  # change to true to enable testing of containers
@@ -1143,8 +1252,24 @@ class PalEdit():
         self.gui.focus_force()
         self.gui.bell()
 
+    def _configure_player_selection(self):
+        names = list(self.players.keys())
+        self.playerdrop['values'] = names
+        if not names:
+            self.current.set("")
+            self.playerdrop.config(state="disabled")
+            return False
+        self.current.set(names[0])
+        self.playerdrop.config(state="readonly")
+        self.playerdrop.current(0)
+        logger.info(f"Defaulted selection to {self.current.get()}")
+        return True
+
     def updateDisplay(self):
         self.listdisplay.delete(0, tk.constants.END)
+        if self.current.get() not in self.players:
+            self.playerguid.config(text="")
+            return
         currentguid = self.players[self.current.get()].GetPlayerGuid()
 
         self.playerguid.config(text=currentguid)
@@ -1167,7 +1292,11 @@ class PalEdit():
 
     def logerror(self, msg):
         logger.WriteLog(msg)
-        messagebox.showinfo("Error", "There was an error! Your save may have issues or the tool is unable to process it. Upload your log.txt file to the support channel in our discord and ask for help.")
+        messagebox.showinfo(
+            "Error",
+            "PalEdit did not write the save.\n\n"
+            f"Details: {msg}\n\n"
+            "If you need help, upload log.txt to the support channel.")
 
     def backup_save(self, file):
         """Copy the on-disk save into a PalEdit-backups folder next to it,
@@ -1206,6 +1335,7 @@ class PalEdit():
         # print(file, self.filename)
         if file:
             logger.info(f"Opening file {file}")
+            expected_digest = self.loaded_file_digest
             # Preserve the current on-disk save before the first write of this
             # session; abort the save entirely if the backup cannot be made.
             if not self.backup_save(file):
@@ -1226,12 +1356,9 @@ class PalEdit():
                             save_type = 0x32
                         else:
                             save_type = 0x31
-                    sav_file = compress_gvas_to_sav(
-                        gvas_file.write(PALEDIT_PALWORLD_CUSTOM_PROPERTIES), save_type
-                    )
+                    sav_file = serialize_and_validate_save(gvas_file, save_type)
                     self.skilllabel.config(text=self.i18n['msg_writing'])
-                    with open(file, "wb") as f:
-                        f.write(sav_file)
+                    atomic_write_save(file, sav_file, expected_digest=expected_digest)
                     self.data = None
                     self.current.set("")
                     self.palbox = {}
@@ -1242,6 +1369,8 @@ class PalEdit():
                     self.doconvertsave(file)
             except Exception as e:
                 self.logerror(str(e))
+                self.skilllabel.config(text=self.i18n['msg_saving'])
+                return
 
             self.changetext(-1)
             self.jump()
@@ -1328,6 +1457,8 @@ Do you want to use %s's DEFAULT Scaling (%s)?
 
         if getattr(self, 'storage_mode', False):
             filterlist = list(self.palbox)
+        elif self.current.get() not in self.players:
+            filterlist = []
         else:
             filtered = filter(GetMyPals, self.palbox)
             filterlist = list(filtered)
@@ -1967,52 +2098,56 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.doconvertjson(file)
 
     def spawnpal(self):
-        print(self.palguidmanager)
-        if not self.isPalSelected() or self.palguidmanager is None:
+        if (
+                self.palguidmanager is None
+                or self.current.get() not in self.players
+        ):
             return
-
-        
-        
-        playerguid = self.players[self.current.get()].GetPlayerGuid()
-        playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
-        if not os.path.exists(playersav):
-            print("Cannot Load Player Save!")
-            return
-        player = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
-        palworld_pal_edit.SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
 
         file = askopenfilename(filetypes=[("json files", "*.json")])
         if file == '':
             messagebox.showerror(self.i18n['select_file'], self.i18n['msg_select_save_file'])
             return
 
-        f = open(file, "r", encoding="utf8")
-        spawnpaldata = json.loads(f.read())
-        f.close()
-
-        slotguid = str(player.GetPalStorageGuid())
+        player = self.players[self.current.get()]
+        playerguid = player.GetPlayerGuid()
+        slotguid = player.GetPalStorageGuid()
         groupguid = self.palguidmanager.GetGroupGuid(playerguid)
-        if any(guid == None for guid in [slotguid, groupguid]):
+        if any(guid is None for guid in [playerguid, slotguid, groupguid]):
+            messagebox.showerror(
+                "Cannot import Pal",
+                "The selected player's Players/*.sav file or guild/container data is missing.")
             return
-        for p in spawnpaldata['Pals']:
-            newguid = str(uuid.uuid4())
-            pal = PalInfo.PalEntity(p)
-            i = self.palguidmanager.GetEmptySlotIndex(slotguid)
-            if i == -1:
-                print("Player Pal Storage is full!")
-                return
 
+        try:
+            spawnpaldata = load_pal_import(file)
+            pals = spawnpaldata['Pals']
+            if not isinstance(pals, list) or not pals:
+                raise ValueError("The file contains no Pals.")
+        except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as e:
+            messagebox.showerror("Cannot import Pal", str(e))
+            return
+
+        owner_uids = []
+        for source in pals:
+            try:
+                source_owner = source['key']['PlayerUId']['value']
+            except (KeyError, TypeError):
+                messagebox.showerror("Cannot import Pal", "The Pal data is incomplete.")
+                return
             owneruid = "00000000-0000-0000-0000-000000000000"
-            if pal.GetOwner() != owneruid:
+            if not self.palguidmanager._same_guid(source_owner, owneruid):
                 owneruid = playerguid
-            
-            pal.InitializationPal(newguid, playerguid, groupguid, slotguid, owneruid)
-            pal.SetSoltIndex(i)
-            self.palguidmanager.AddGroupSaveData(groupguid, newguid)
-            self.palguidmanager.SetContainerSave(slotguid, i, newguid)
-            self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
-            print(f"Add Pal at slot {i} : {slotguid}")
-        self.loaddata(self.data)  # ['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'])
+            owner_uids.append(owneruid)
+        inserted = self.palguidmanager.InsertPals(
+            pals, playerguid, groupguid, slotguid, owner_uids)
+        if inserted is None:
+            messagebox.showerror(
+                "Cannot import Pal",
+                "The batch does not fit or its world references are inconsistent. Nothing was imported.")
+            return
+        self.loaddata(self.data)
+        self._select_palbox_instance(inserted[-1]['key']['InstanceId']['value'])
 
     def dumppals(self):
         if not self.isPalSelected():
@@ -2176,11 +2311,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         if getattr(self, 'storage_mode', False):
             self.addpal_storage()
         else:
-            messagebox.showinfo(
-                "Global Palbox only",
-                "Adding a brand-new pal is currently supported for the Global "
-                "Palbox (GlobalPalStorage.sav). For world saves, use Add Pal "
-                "to import a dumped pal.")
+            self.spawnpal()
 
     def clonepal(self):
         if getattr(self, 'storage_mode', False):
@@ -2191,51 +2322,28 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
-
-        owneruid = "00000000-0000-0000-0000-000000000000"
-
-
-        with open("temp.json", "wb") as f:
-            print(f"Data {pal._data}")
-            f.write(json.dumps(pal._data, indent=4, cls=UUIDEncoder).encode('utf-8'))
-
-        f = open("temp.json", "r", encoding="utf8")
-        spawnpaldata = json.loads(f.read())
-        f.close()
-
-        playerguid = self.players[self.current.get()].GetPlayerGuid()
-        playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
-        if not os.path.exists(playersav):
-            print("Cannot Load Player Save!")
-            return
-        player = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
-        palworld_pal_edit.SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
-
-        slotguid = str(player.GetPalStorageGuid())
+        player = self.players[self.current.get()]
+        playerguid = player.GetPlayerGuid()
+        slotguid = player.GetPalStorageGuid()
         groupguid = self.palguidmanager.GetGroupGuid(playerguid)
-        if any(guid == None for guid in [slotguid, groupguid]):
+        if any(guid is None for guid in [playerguid, slotguid, groupguid]):
+            messagebox.showerror(
+                "Cannot clone Pal",
+                "The selected player's Players/*.sav file or guild/container data is missing.")
             return
 
-        newguid = str(uuid.uuid4())
-        pal = PalInfo.PalEntity(spawnpaldata)
-        i = self.palguidmanager.GetEmptySlotIndex(slotguid)
-        if i == -1:
-            print("Player Pal Storage is full!")
-            return
-        print(playerguid)
-
-        if pal.GetOwner() != owneruid:
+        owneruid = self.ZERO_GUID
+        if not self.palguidmanager._same_guid(pal.GetOwner(), owneruid):
             owneruid = playerguid
-        
-        pal.InitializationPal(newguid, playerguid, groupguid, slotguid, owneruid)
-        pal.SetSoltIndex(i)
-        self.palguidmanager.AddGroupSaveData(groupguid, newguid)
-        self.palguidmanager.SetContainerSave(slotguid, i, newguid)
-        self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].append(pal._data)
-        print(f"Add Pal at slot {i} : {slotguid}")
+        inserted = self.palguidmanager.InsertPal(
+            pal._data, playerguid, groupguid, slotguid, owneruid)
+        if inserted is None:
+            messagebox.showerror(
+                "Cannot clone Pal",
+                "The player Palbox is full or the world references are inconsistent.")
+            return
         self.loaddata(self.data)
-
-        os.remove("temp.json")
+        self._select_palbox_instance(inserted['key']['InstanceId']['value'])
 
     def deletepal(self):
         if getattr(self, 'storage_mode', False):
@@ -2246,28 +2354,18 @@ Do you want to use %s's DEFAULT Scaling (%s)?
             return
         i = int(self.listdisplay.curselection()[0])
         pal = self.FilteredPals()[i]
-
-        s = pal.GetSlotIndex()
-
-        playerguid = self.players[self.current.get()].GetPlayerGuid()
-        playersav = os.path.dirname(self.filename) + f"/Players/{str(playerguid).upper().replace('-', '')}.sav"
-        if not os.path.exists(playersav):
-            print("Cannot Load Player Save!")
+        if not messagebox.askyesno(
+                "Delete Pal",
+                f"Remove {pal.GetFullName()} from this world save?\n\n"
+                "Its character, container, and guild references will be removed together."):
             return
-        player = PalInfo.PalPlayerEntity(palworld_pal_edit.SaveConverter.convert_sav_to_obj(playersav))
-        palworld_pal_edit.SaveConverter.convert_obj_to_sav(player.dump(), playersav + ".bak", True)
-
-        slotguid = str(player.GetPalStorageGuid())
-        palguid = pal.GetPalInstanceGuid()
-
-        groupguid = self.palguidmanager.GetGroupGuid(playerguid)
-        if any(guid == None for guid in [slotguid, groupguid]):
+        acting_player_guid = self.players[self.current.get()].GetPlayerGuid()
+        if not self.palguidmanager.DeletePalEntry(
+                pal._data, acting_player_guid):
+            messagebox.showerror(
+                "Cannot delete Pal",
+                "The Pal's world references are inconsistent, so nothing was removed.")
             return
-
-        self.palguidmanager.RemovePal(slotguid, s, "0")
-        self.palguidmanager.RemoveGroupSaveData(groupguid, palguid)
-        self.data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value'].remove(pal._data)
-        
         self.loaddata(self.data)
 
         
@@ -2596,6 +2694,7 @@ Do you want to use %s's DEFAULT Scaling (%s)?
         self.debug = "false"
         self.editindex = -1
         self.filename = ""
+        self.loaded_file_digest = None
         # save paths already backed up this session (one backup per file)
         self._session_backups = set()
         self.gui = self.createWindow()

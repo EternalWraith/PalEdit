@@ -230,7 +230,10 @@ class PalEntity:
 
         # Palworld 1.0 writes IsPlayer=False on every pal, so key presence
         # alone no longer identifies a player character
-        if "IsPlayer" in self._obj and self._obj["IsPlayer"].get("value", False):
+        if (
+                "IsPlayer" in self._obj
+                and self._obj["IsPlayer"].get("value") is not False
+        ):
             raise Exception("This is a player character")
 
         if not "IsRarePal" in self._obj:
@@ -923,15 +926,17 @@ class PalEntity:
 class PalGuid:
     def __init__(self, data):
         self._data = data
+        self._CharacterSaveParameterMap = \
+            data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']
         self._CharacterContainerSaveData = \
             data['properties']['worldSaveData']['value']['CharacterContainerSaveData']['value']
         self._GroupSaveDataMap = data['properties']['worldSaveData']['value']['GroupSaveDataMap']['value']
 
     def GetPlayerslist(self):
-        players = list(filter(lambda x: 'IsPlayer' in x['value'], [
+        players = list(filter(lambda x: x['value'].get('IsPlayer', {}).get('value') is True, [
             {'uid': x['key']['PlayerUId'],
              'value': x['value']['RawData']['value']['object']['SaveParameter']['value']
-             } for x in self._data['properties']['worldSaveData']['value']['CharacterSaveParameterMap']['value']]))
+             } for x in self._CharacterSaveParameterMap]))
 
         out = {}
         for x in players:
@@ -960,77 +965,452 @@ class PalGuid:
         result_list[12] = 1
         return result_list
 
-    def SetContainerSave(self, SoltGuid: str, SlotIndex: int, PalGuid: str):
-        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
-            return
-        
-        for e in self._CharacterContainerSaveData:
-            if (e['key']['ID']['value'] == SoltGuid):
-                v = len(e['value']['Slots']['value']['values'])-1
+    ZERO_GUID = "00000000-0000-0000-0000-000000000000"
 
-                n = copy.deepcopy(e['value']['Slots']['value']['values'][v])
-                e['value']['Slots']['value']['values'].append(n)
-                e['value']['Slots']['value']['values'][v+1]['SlotIndex']['value'] = SlotIndex
-                e['value']['Slots']['value']['values'][v+1]['RawData']['value']['instance_id'] = PalGuid
-                print(e['value']['Slots']['value']['values'][v+1])
+    @staticmethod
+    def _same_guid(left, right):
+        return str(left).lower() == str(right).lower()
+
+    @staticmethod
+    def _is_unambiguously_non_player(save_parameter):
+        if not isinstance(save_parameter, dict):
+            return False
+        if 'IsPlayer' not in save_parameter:
+            return True
+        marker = save_parameter['IsPlayer']
+        return isinstance(marker, dict) and marker.get('value') is False
+
+    @staticmethod
+    def _validated_group_handles(group):
+        try:
+            handles = group['value']['RawData']['value'][
+                'individual_character_handle_ids']
+        except (KeyError, TypeError):
+            return None
+        if not isinstance(handles, list):
+            return None
+        for handle in handles:
+            if (
+                    not isinstance(handle, dict)
+                    or not ({'guid', 'instance_id'} & handle.keys())
+            ):
+                return None
+        return handles
+
+    def _pal_guid_in_use(self, pal_guid):
+        try:
+            if any(
+                    self._same_guid(
+                        entry['key']['InstanceId']['value'], pal_guid)
+                    for entry in self._CharacterSaveParameterMap
+            ):
+                return True
+            for container in self._CharacterContainerSaveData:
+                for slot in container['value']['Slots']['value']['values']:
+                    if self._same_guid(
+                            slot['RawData']['value']['instance_id'], pal_guid):
+                        return True
+            for group in self._GroupSaveDataMap:
+                handles = self._validated_group_handles(group)
+                if handles is None:
+                    return True
+                if any(self._handle_matches_pal(handle, pal_guid)
+                       for handle in handles):
+                    return True
+        except (KeyError, TypeError):
+            return True
+        return False
+
+    def _find_container(self, slot_guid):
+        matches = [
+            entry for entry in self._CharacterContainerSaveData
+            if self._same_guid(entry['key']['ID']['value'], slot_guid)
+        ]
+        return matches[0] if len(matches) == 1 else None
+
+    def _find_group(self, group_guid):
+        matches = [
+            entry for entry in self._GroupSaveDataMap
+            if self._same_guid(entry['key'], group_guid)
+        ]
+        return matches[0] if len(matches) == 1 else None
+
+    def _slot_template(self, container):
+        slots = container['value']['Slots']['value']['values']
+        if slots:
+            return slots[0]
+        for entry in self._CharacterContainerSaveData:
+            other_slots = entry['value']['Slots']['value']['values']
+            if other_slots:
+                return other_slots[0]
+        return None
+
+    @staticmethod
+    def _container_capacity(container):
+        """Return (capacity, occupied indexes) only for a structurally valid container."""
+        try:
+            slot_num = container['value']['SlotNum']['value']
+            slots = container['value']['Slots']['value']['values']
+            indexes = [slot['SlotIndex']['value'] for slot in slots]
+        except (KeyError, TypeError):
+            return None
+        if (
+                not isinstance(slot_num, int)
+                or slot_num < 0
+                or len(slots) > slot_num
+                or len(set(indexes)) != len(indexes)
+                or any(not isinstance(index, int) or index < 0 or index >= slot_num
+                       for index in indexes)
+        ):
+            return None
+        return slot_num, set(indexes)
+
+    def GetContainerSlot(self, slot_guid, pal_guid):
+        container = self._find_container(slot_guid)
+        if container is None:
+            return None
+        for slot in container['value']['Slots']['value']['values']:
+            instance_id = slot['RawData']['value']['instance_id']
+            if self._same_guid(instance_id, pal_guid):
+                return slot
+        return None
+
+    def SetContainerSave(self, SoltGuid: str, SlotIndex: int, PalGuid: str):
+        if any(self._same_guid(guid, self.ZERO_GUID) for guid in [SoltGuid, PalGuid]):
+            return False
+        container = self._find_container(SoltGuid)
+        if container is None:
+            return False
+        capacity = self._container_capacity(container)
+        if capacity is None:
+            return False
+        slot_num, occupied = capacity
+        slots = container['value']['Slots']['value']['values']
+        if SlotIndex < 0 or SlotIndex >= slot_num:
+            return False
+        if SlotIndex in occupied:
+            return False
+        if self.GetContainerSlot(SoltGuid, PalGuid) is not None:
+            return False
+        template = self._slot_template(container)
+        if template is None:
+            return False
+        slot = copy.deepcopy(template)
+        slot['SlotIndex']['value'] = SlotIndex
+        slot['RawData']['value']['player_uid'] = self.ZERO_GUID
+        slot['RawData']['value']['instance_id'] = PalGuid
+        slots.append(slot)
+        return True
 
     def RemovePal(self, SoltGuid: str, SlotIndex: int, PalGuid: str):
-        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [SoltGuid, PalGuid]):
-            return
-
-        for e in self._CharacterContainerSaveData:
-            if (e['key']['ID']['value'] == SoltGuid):
-                for p in e['value']['Slots']['value']['values']:
-                    if p['SlotIndex']['value'] == SlotIndex:
-                        e['value']['Slots']['value']['values'].remove(p)
-                        break
+        if any(self._same_guid(guid, self.ZERO_GUID) for guid in [SoltGuid, PalGuid]):
+            return False
+        container = self._find_container(SoltGuid)
+        if container is None:
+            return False
+        slots = container['value']['Slots']['value']['values']
+        for index, slot in enumerate(slots):
+            if (
+                    slot['SlotIndex']['value'] == SlotIndex
+                    and self._same_guid(slot['RawData']['value']['instance_id'], PalGuid)
+            ):
+                slots.pop(index)
+                return True
+        return False
         
 
     def AddGroupSaveData(self, GroupGuid: str, PalGuid: str):
-        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
-            return
-        for e in self._GroupSaveDataMap:
-            if (e['key'] == GroupGuid):
-                for ee in e['value']['RawData']['value']['individual_character_handle_ids']:
-                    if (ee['instance_id'] == PalGuid):
-                        return
-                tmp = {"guid": "00000000-0000-0000-0000-000000000001", "instance_id": PalGuid}
-                e['value']['RawData']['value']['individual_character_handle_ids'].append(tmp)
+        if any(self._same_guid(guid, self.ZERO_GUID) for guid in [GroupGuid, PalGuid]):
+            return False
+        group = self._find_group(GroupGuid)
+        handles = self._validated_group_handles(group) if group is not None else None
+        if (
+                handles is None
+                or self.GroupContainsPal(GroupGuid, PalGuid)
+        ):
+            return False
+        handles.append({"guid": self.ZERO_GUID, "instance_id": PalGuid})
+        return True
+
+    def _handle_matches_pal(self, handle, pal_guid):
+        guid = handle.get('guid', self.ZERO_GUID)
+        instance_id = handle.get('instance_id', self.ZERO_GUID)
+        return (
+            self._same_guid(guid, self.ZERO_GUID)
+            and self._same_guid(instance_id, pal_guid)
+        ) or (
+            self._same_guid(instance_id, self.ZERO_GUID)
+            and self._same_guid(guid, pal_guid)
+        )
+
+    def GroupContainsPal(self, GroupGuid: str, PalGuid: str):
+        group = self._find_group(GroupGuid)
+        handles = self._validated_group_handles(group) if group is not None else None
+        if handles is None:
+            return False
+        return any(self._handle_matches_pal(handle, PalGuid) for handle in handles)
 
     def RemoveGroupSaveData(self, GroupGuid: str, PalGuid: str):
-        if any(guid == "00000000-0000-0000-0000-000000000000" for guid in [GroupGuid, PalGuid]):
-            return
-        for e in self._GroupSaveDataMap:
-            if (e['key'] == GroupGuid):
-                for ee in e['value']['RawData']['value']['individual_character_handle_ids']:
-                    if (ee['instance_id'] == PalGuid):
-                        e['value']['RawData']['value']['individual_character_handle_ids'].remove(ee)
+        if any(self._same_guid(guid, self.ZERO_GUID) for guid in [GroupGuid, PalGuid]):
+            return False
+        group = self._find_group(GroupGuid)
+        handles = self._validated_group_handles(group) if group is not None else None
+        if handles is None:
+            return False
+        for index, handle in enumerate(handles):
+            if self._handle_matches_pal(handle, PalGuid):
+                handles.pop(index)
+                return True
+        return False
 
     def GetSoltMaxCount(self, SoltGuid: str):
-        if SoltGuid == "00000000-0000-0000-0000-000000000000":
+        if self._same_guid(SoltGuid, self.ZERO_GUID):
             return 0
-        for e in self._CharacterContainerSaveData:
-            if (e['key']['ID']['value'] == SoltGuid):
-                return len(e['value']['Slots']['value']['values'])
+        container = self._find_container(SoltGuid)
+        if container is not None:
+            return container['value']['SlotNum']['value']
+        return 0
 
     def GetEmptySlotIndex(self, SoltGuid: str):
-        print(SoltGuid)
-        if SoltGuid == "00000000-0000-0000-0000-000000000000":
+        if self._same_guid(SoltGuid, self.ZERO_GUID):
             return -1
-        for e in self._CharacterContainerSaveData:
-            if (e['key']['ID']['value'] == SoltGuid):
-                print("Matched", SoltGuid)
-                oc = []
-                Solt = e['value']['Slots']['value']['values']
-                for i in range(len(Solt)):
-                    oc.append(Solt[i]['SlotIndex']['value'])
-                    #if Solt[i]['RawData']['value']['instance_id'] == "00000000-0000-0000-0000-000000000000":
-                       # return i
-                print(oc)
-                for i in range(0, 960):
-                    if i not in oc:
-                        return i
+        container = self._find_container(SoltGuid)
+        if container is not None:
+            capacity = self._container_capacity(container)
+            if capacity is None:
+                return -1
+            slot_num, occupied = capacity
+            for index in range(slot_num):
+                if index not in occupied:
+                    return index
         return -1
+
+    @staticmethod
+    def _pal_entry_fields(entry):
+        raw_data = entry['value']['RawData']['value']
+        save_parameter = raw_data['object']['SaveParameter']['value']
+        return raw_data, save_parameter
+
+    def InsertPal(self, source, player_guid, group_guid, slot_guid, owner_uid,
+                  new_guid=None):
+        """Insert a copied pal and all world references as one checked operation."""
+        if any(value is None for value in [source, player_guid, group_guid, slot_guid]):
+            return None
+        try:
+            source_player_uid = source['key']['PlayerUId']['value']
+        except (KeyError, TypeError):
+            return None
+        if (
+                not self._same_guid(source_player_uid, self.ZERO_GUID)
+                or not self._same_guid(owner_uid, self.ZERO_GUID)
+        ):
+            return None
+        if self._find_container(slot_guid) is None or self._find_group(group_guid) is None:
+            return None
+        slot_index = self.GetEmptySlotIndex(slot_guid)
+        if slot_index < 0:
+            return None
+        new_guid = str(new_guid or uuid.uuid4())
+        if self._pal_guid_in_use(new_guid):
+            return None
+
+        inserted = copy.deepcopy(source)
+        try:
+            raw_data, save_parameter = self._pal_entry_fields(inserted)
+            if not self._is_unambiguously_non_player(save_parameter):
+                return None
+            inserted['key']['PlayerUId']['value'] = self.ZERO_GUID
+            inserted['key']['InstanceId']['value'] = new_guid
+            save_parameter['OwnerPlayerUId']['value'] = player_guid
+            save_parameter['OldOwnerPlayerUIds']['value']['values'] = [player_guid]
+            raw_data['group_id'] = group_guid
+            slot_id = save_parameter['SlotId']['value']
+            slot_id['ContainerId']['value']['ID']['value'] = slot_guid
+            slot_id['SlotIndex']['value'] = slot_index
+        except (KeyError, TypeError):
+            return None
+
+        container = self._find_container(slot_guid)
+        group = self._find_group(group_guid)
+        slots = container['value']['Slots']['value']['values']
+        handles = group['value']['RawData']['value'][
+            'individual_character_handle_ids']
+        character_count = len(self._CharacterSaveParameterMap)
+        slot_count = len(slots)
+        handle_count = len(handles)
+        try:
+            if not self.SetContainerSave(slot_guid, slot_index, new_guid):
+                raise ValueError("Container insertion failed after preflight.")
+            if not self.AddGroupSaveData(group_guid, new_guid):
+                raise ValueError("Guild insertion failed after preflight.")
+            self._CharacterSaveParameterMap.append(inserted)
+        except Exception:
+            del self._CharacterSaveParameterMap[character_count:]
+            del slots[slot_count:]
+            del handles[handle_count:]
+            return None
+        return inserted
+
+    def InsertPals(self, sources, player_guid, group_guid, slot_guid, owner_uids,
+                   new_guids=None):
+        """Insert a batch only when every source can be placed safely."""
+        sources = list(sources)
+        owner_uids = list(owner_uids)
+        if not sources or len(sources) != len(owner_uids):
+            return None
+        if any(not self._same_guid(owner_uid, self.ZERO_GUID)
+               for owner_uid in owner_uids):
+            return None
+        container = self._find_container(slot_guid)
+        if container is None or self._find_group(group_guid) is None:
+            return None
+        capacity = self._container_capacity(container)
+        if capacity is None:
+            return None
+        slot_num, occupied = capacity
+        if slot_num - len(occupied) < len(sources) or self._slot_template(container) is None:
+            return None
+
+        if new_guids is None:
+            new_guids = [str(uuid.uuid4()) for _ in sources]
+        else:
+            new_guids = [str(value) for value in new_guids]
+        if len(new_guids) != len(sources) or len(set(new_guids)) != len(new_guids):
+            return None
+        if any(self._pal_guid_in_use(value) for value in new_guids):
+            return None
+
+        for source in sources:
+            try:
+                _, save_parameter = self._pal_entry_fields(copy.deepcopy(source))
+                if (
+                        not self._same_guid(
+                            source['key']['PlayerUId']['value'], self.ZERO_GUID)
+                        or not self._is_unambiguously_non_player(save_parameter)
+                ):
+                    return None
+                save_parameter['OwnerPlayerUId']['value']
+                save_parameter['OldOwnerPlayerUIds']['value']['values']
+                save_parameter['SlotId']['value']['ContainerId']['value']['ID']['value']
+                save_parameter['SlotId']['value']['SlotIndex']['value']
+            except (KeyError, TypeError):
+                return None
+
+        slots = container['value']['Slots']['value']['values']
+        group = self._find_group(group_guid)
+        handles = group['value']['RawData']['value'][
+            'individual_character_handle_ids']
+        character_count = len(self._CharacterSaveParameterMap)
+        slot_count = len(slots)
+        handle_count = len(handles)
+        inserted = []
+        try:
+            for source, owner_uid, new_guid in zip(sources, owner_uids, new_guids):
+                entry = self.InsertPal(
+                    source, player_guid, group_guid, slot_guid, owner_uid, new_guid)
+                if entry is None:
+                    raise ValueError("Pal insertion failed after preflight.")
+                inserted.append(entry)
+        except Exception:
+            del self._CharacterSaveParameterMap[character_count:]
+            del slots[slot_count:]
+            del handles[handle_count:]
+            return None
+        return inserted
+
+    def DeletePalEntry(self, entry, acting_player_guid):
+        """Delete a pal only when its character and container references agree."""
+        if entry not in self._CharacterSaveParameterMap or acting_player_guid is None:
+            return False
+        try:
+            raw_data, save_parameter = self._pal_entry_fields(entry)
+            if (
+                    not self._same_guid(
+                        entry['key']['PlayerUId']['value'], self.ZERO_GUID)
+                    or not self._is_unambiguously_non_player(save_parameter)
+                    or not self._same_guid(
+                        save_parameter['OwnerPlayerUId']['value'],
+                        acting_player_guid)
+            ):
+                return False
+            pal_guid = entry['key']['InstanceId']['value']
+            group_guid = raw_data['group_id']
+            slot_id = save_parameter['SlotId']['value']
+            slot_guid = slot_id['ContainerId']['value']['ID']['value']
+            slot_index = slot_id['SlotIndex']['value']
+        except (KeyError, TypeError):
+            return False
+        matching_entries = sum(
+            self._same_guid(
+                candidate['key']['InstanceId']['value'], pal_guid)
+            for candidate in self._CharacterSaveParameterMap
+        )
+        if matching_entries != 1:
+            return False
+        container = self._find_container(slot_guid)
+        if container is None:
+            return False
+        matching_slots = []
+        try:
+            for candidate_container in self._CharacterContainerSaveData:
+                for candidate_slot in candidate_container[
+                        'value']['Slots']['value']['values']:
+                    if self._same_guid(
+                            candidate_slot['RawData']['value']['instance_id'],
+                            pal_guid):
+                        matching_slots.append((candidate_container, candidate_slot))
+        except (KeyError, TypeError):
+            return False
+        if len(matching_slots) != 1:
+            return False
+        matched_container, slot = matching_slots[0]
+        if (
+                matched_container is not container
+                or slot['SlotIndex']['value'] != slot_index
+        ):
+            return False
+        group = self._find_group(group_guid)
+        if group is None:
+            return False
+        matching_handles = []
+        for candidate_group in self._GroupSaveDataMap:
+            handles = self._validated_group_handles(candidate_group)
+            if handles is None:
+                return False
+            for handle in handles:
+                if self._handle_matches_pal(handle, pal_guid):
+                    matching_handles.append(candidate_group['key'])
+        if (
+                len(matching_handles) != 1
+                or not self._same_guid(matching_handles[0], group_guid)
+        ):
+            return False
+
+        slots = container['value']['Slots']['value']['values']
+        handles = group['value']['RawData']['value'][
+            'individual_character_handle_ids']
+        handle = next(
+            candidate for candidate in handles
+            if self._handle_matches_pal(candidate, pal_guid))
+        character_index = self._CharacterSaveParameterMap.index(entry)
+        slot_position = slots.index(slot)
+        handle_position = handles.index(handle)
+        try:
+            if not self.RemovePal(slot_guid, slot_index, pal_guid):
+                raise ValueError("Container removal failed after preflight.")
+            if not self.RemoveGroupSaveData(group_guid, pal_guid):
+                raise ValueError("Guild removal failed after preflight.")
+            self._CharacterSaveParameterMap.remove(entry)
+        except Exception:
+            if not any(candidate is entry
+                       for candidate in self._CharacterSaveParameterMap):
+                self._CharacterSaveParameterMap.insert(character_index, entry)
+            if not any(candidate is slot for candidate in slots):
+                slots.insert(slot_position, slot)
+            if not any(candidate is handle for candidate in handles):
+                handles.insert(handle_position, handle)
+            return False
+        return True
 
     def GetAdminGuid(self):
         for e in self._GroupSaveDataMap:
@@ -1043,11 +1423,13 @@ class PalGuid:
                 return e['key']
 
     def GetGroupGuid(self, playerguid):        
+        matches = []
         for e in self._GroupSaveDataMap:
             if "players" in e['value']['RawData']['value']:
                 for player in e['value']['RawData']['value']['players']:
                     if player['player_uid'] == playerguid:
-                        return e['key']
+                        matches.append(e['key'])
+        return matches[0] if len(matches) == 1 else None
 
     def RemanePlayer(self, PlayerGuid: str, NewName: str):
         for e in self._GroupSaveDataMap:

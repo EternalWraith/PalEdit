@@ -22,7 +22,7 @@
 
 ## ✨ What's new in the 1.0 update
 
-- 🐣 **Palworld 1.0 - GlobalPalBox support** — reads & writes the new save format, loads the **Global Palbox** (`GlobalPalStorage.sav`), refreshed 1.0 species / moves / passives / icons, level cap raised to 80.
+- 🐣 **Palworld 1.0 save support** — reads and writes the **Global Palbox** (`GlobalPalStorage.sav`) and world saves (`Level.sav`), with refreshed 1.0 species, moves, passives and icons, plus a level cap of 80.
 - 🛡️ **Save-safe** — opening a file and saving it back changes *nothing* unless you actually edit something (verified with a field-by-field comparison of every pal). It also tidies up leftover data from earlier versions — including the issue that made unassigned pals idly **"graze"** and produce nothing.
 - 📦 **Global Palbox management** — **add, clone, delete, and rename** pals right in the box.
 - 🔎 **Searchable everything:**
@@ -36,7 +36,7 @@
 - 💾 **Automatic per-session backups** — your save is copied to a `PalEdit-backups` folder before the first write.
 
 > [!TIP]
-> Editing focus so far has been the **Global Palbox**. As with any save editor, keep your own backups too. NPC/merchant editing works inside PalEdit but using them in-game is still experimental.
+> PalEdit supports both the **Global Palbox** and local world Pals. As with any save editor, keep your own backups too. NPC/merchant editing works inside PalEdit but using them in-game is still experimental.
 
 > ⚠️ **Before Opening a new Issue**: Please check the [**🚧 Project roadmap**](#-project-roadmap) section to ensure that your concern or feature request hasn't already been addressed or is planned for a future release. Also check the [Open Issues](https://github.com/EternalWraith/PalEdit/issues).
 
@@ -62,27 +62,28 @@ Download the compiled executable from [Releases Page](https://github.com/TheMyst
 
 ## **🕹️ Usage**
 
-This fork focuses on your **Global Palbox** — the shared Pal storage you reach
-through the *Pal Genetic Data* terminal in-game.
+This fork supports the shared **Global Palbox** and the local Pals stored in a
+world's `Level.sav`.
 
 > [!IMPORTANT]
-> **The Global Palbox (`GlobalPalStorage.sav`) is the only save file tested and
-> working right now.** Editing a world's `Level.sav` isn't enabled yet — the
-> groundwork and the remaining steps are written up in
-> [docs/save-editing-analysis.md](docs/save-editing-analysis.md). Please stick to
-> the Global Palbox for now, and keep a backup.
+> Close Palworld before loading either save. For `Level.sav`, keep the matching
+> `Players` folder beside it. PalEdit uses those player saves to resolve each
+> player's party and Palbox containers. Players whose file is missing remain
+> visible, but their local Pals cannot be cloned or imported safely. PalEdit
+> rejects save files whose compressed or decompressed data exceeds 512 MiB.
 
 ![The PalEdit window editing a Pal in the Global Palbox](docs/images/paledit-window.png)
 
 1. **Download & run.** Grab the latest build from the [Releases page](https://github.com/TheMysticTurtle/PalEdit/releases), extract the zip into a folder anywhere, and run **`PalEdit.exe`**.
-2. **Load your save.** Choose **File → Load Save** and open your **`GlobalPalStorage.sav`**. On Windows it lives at:
+2. **Load your save.** Choose **File → Load Save** and open either your
+   **`GlobalPalStorage.sav`** or a world's **`Level.sav`**. On Windows they live under:
 
     ```
-    %LocalAppData%\Pal\Saved\SaveGames\<your-account-id>\GlobalPalStorage.sav
+    %LocalAppData%\Pal\Saved\SaveGames\<your-account-id>\
     ```
 
     (there's one numbered folder per account — see [Backing up your save](#-backing-up-your-save) for how to find it.)
-3. **Edit away.** You'll see every Pal in your Global Palbox. Select one to change its level, stats/IVs, souls, moves, passives, nickname or species, or use **Add New Pal**, **Clone Pal** and **Delete Pal** to manage the box (see [Adding, cloning & deleting Pals](#-adding-cloning--deleting-pals)).
+3. **Edit away.** In a world save, choose a player to see that player's party and local Palbox. Select a Pal to change its level, stats/IVs, souls, moves, passives, nickname or species. **Clone Pal** and **Delete Pal** update the character, container and guild references together. **Add New Pal** imports a Pal JSON exported from PalEdit into the selected player's Palbox.
 4. **Save.** Choose **File → Save**. The first save of each session automatically copies your original file into a `PalEdit-backups` folder next to it, just in case.
 5. **Pick your changes up in-game** — see below.
 
@@ -138,6 +139,12 @@ Right in the Global Palbox, next to the portrait:
 - **Add New Pal** — drops a fresh Pal into the box (it starts as a default species; change it with the **Species** picker, then edit its level, moves, passives and stats to taste).
 - **Delete Pal** — clears the selected slot after a confirmation.
 
+In `Level.sav`, **Clone Pal** places the copy in the selected player's first free
+Palbox slot. **Delete Pal** removes the selected Pal from its current party,
+Palbox or base container and from its guild handle list. **Add New Pal** opens an
+exported Pal JSON and imports the whole batch only if every Pal fits. A failed
+preflight leaves the world unchanged.
+
 Cloned and newly added Pals arrive through the same in-game flow as above: drag them
 onto an empty slot in a local box, wait out the short reconstruction cooldown, and
 they're ready to go.
@@ -153,8 +160,9 @@ On Windows, the saves can be found here:
 
 - `%LocalAppData%\Pal\Saved\SaveGames\`
 
-You'll find one folder per account (a long numbered name); your **`GlobalPalStorage.sav`**
-is inside it.
+You'll find one folder per account (a long numbered name). The Global Palbox is
+stored there. Each world folder contains `Level.sav` and its matching `Players`
+folder.
 
 If you’ve installed Palworld via Steam, you can also access your save files by following these steps:
 
@@ -231,6 +239,7 @@ If you’ve installed Palworld via Steam, you can also access your save files by
   - [x] Work suitabilities 0–10 with colour feedback
   - [x] Custom named passive presets
   - [x] Save-safety fixes (no-edit open→save is a no-op; tidies leftover data)
+  - [x] Full `Level.sav` support with player filtering and reference-safe import, clone and delete
 
 - **Still pending / help wanted:**
   - [ ] Add update notification if a newer version is found

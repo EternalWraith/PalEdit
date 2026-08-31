@@ -1,8 +1,7 @@
 # Palworld save editing — developer analysis
 
-This note documents how this fork reads and writes Palworld **1.0** save files,
-which files are supported today, and what a full **world save (`Level.sav`)**
-editor would still need. It's aimed at contributors; end-user instructions live
+This note documents how this fork reads and writes Palworld **1.0** save files
+and the integrity rules used for **world save (`Level.sav`)** editing. It's aimed at contributors; end-user instructions live
 in the [README](../README.md).
 
 Reference implementations consulted throughout:
@@ -45,12 +44,12 @@ marks the large, editor-irrelevant world maps as `(skip_decode, skip_encode)`:
   `ItemContainerSaveData`.
 
 It intentionally **decodes** the maps it works with: `CharacterSaveParameterMap`
-(the pals), `CharacterContainerSaveData` (box/slot placement) and — historically
-— `GroupSaveDataMap` (guilds). See §5 for why the last one is now a problem.
+(the pals), `CharacterContainerSaveData` (box/slot placement) and
+`GroupSaveDataMap` (guilds).
 
 ## 3. `GlobalPalStorage.sav` — the Global Palbox (supported)
 
-This is the file the fork targets and the only one verified end-to-end.
+This file remains the simplest editing path and is verified end-to-end.
 
 - Top-level property is a flat `SaveParameterArray` of **960 slots**; each slot
   is `{ SaveParameter, InstanceId }`. An empty slot has `CharacterID == "None"`
@@ -85,60 +84,49 @@ Handled in `PalInfo.PalEntity`. The 1.0-specific points that bit us:
   against species data case-insensitively (Unreal FNames ignore case), so e.g.
   the game's `SheepBall` resolves to a data key stored as `Sheepball`.
 
-## 5. `Level.sav` — world saves (analysis; not yet enabled)
+## 5. `Level.sav` world saves
 
-The world-save code path exists (`loaddata`'s non-storage branch +
-`PalInfo.PalGuid`) and is structurally aligned with 1.0: same
-`worldSaveData.CharacterSaveParameterMap` / `CharacterContainerSaveData` /
-`GroupSaveDataMap`, same player/pal model.
+The vendored `rawdata/group.py` decoder now handles both pre-update and
+post-update guild tails, including markers, chest roles, player roles,
+permissions and trailing bytes. PalEdit therefore keeps
+`CharacterSaveParameterMap`, `CharacterContainerSaveData` and
+`GroupSaveDataMap` decoded while editing.
 
-### The one blocker
+World writes use these rules:
 
-Loading a real 1.0 `Level.sav` fails while **decoding `GroupSaveDataMap`**:
+1. A new or cloned Pal receives a fresh instance GUID and the first free index
+   below the target container's `SlotNum`.
+2. The character-map entry, character-container slot and guild handle are
+   added together. Batch imports preflight every source and available slot.
+3. Deletion proceeds only when the character's `SlotId` agrees with a container
+   slot holding the same instance GUID. It then removes the matching guild
+   handle and character entry.
+4. Missing `Players/<guid>.sav` files disable import and clone for that player.
+   PalEdit does not guess a Palbox container.
+5. Before replacing the file, PalEdit serializes, compresses, decompresses and
+   reparses the generated save. It writes through a same-folder temporary file,
+   verifies that the loaded target has not changed, and atomically replaces it.
+   As with other portable compare-then-replace workflows, an uncooperative
+   writer could still race in the narrow interval between verification and
+   replacement.
+6. PalEdit caps both compressed save input and decompressed GVAS output at
+   512 MiB. The zlib decoder enforces the output cap while expanding data, and
+   the Oodle decoder rejects an oversized declared output length before native
+   allocation. The same limits apply to matching player saves.
 
-```
-palworld_save_tools/rawdata/group.py -> Exception("Warning: EOF not reached")
-```
-
-1.0 appended trailing bytes to each guild entry that the vendored decoder
-doesn't consume (psp handles this in `guild.rs` + `guild_tail.rs`). Everything
-else — compression, all other maps, the per-pal model — already works.
-
-### The minimal fix (proven, not yet merged)
-
-Add `.worldSaveData.GroupSaveDataMap` to the skip-decode set. The guild data is
-then preserved as raw bytes and written back verbatim. With only that change, a
-real 1.0 world fixture loaded **every pal (~2,150) and all 10 players** and
-completed a no-edit save round-trip.
-
-Verified against psp's fixtures:
-`psp-reference/tests/fixtures/saves/v1_relics/` (and `v1_stats`,
-`reference_saves`) — real 1.0 `Level.sav` files with a `Players/` folder.
-
-### Trade-offs to resolve before shipping world support
-
-1. **Guild-dependent writes.** `PalGuid`'s group helpers
-   (`AddGroupSaveData`, …), used by world-mode clone/add to register a new pal
-   in a guild, can't run against raw-bytes groups. Editing *existing* world
-   pals is unaffected; adding/cloning into a world would need those paths
-   guarded (or the full guild parser, below).
-2. **Performance.** GVAS parsing is pure Python; the 2.3 MB test world is fine,
-   but a large real world may be slow.
-
-### Fuller option
-
-Port psp's 1.0 guild parsing (`guild.rs` + `guild_tail.rs`) into a Python
-`rawdata/group.py` decoder. This restores full guild editing (including
-world-mode add/clone) at the cost of a nontrivial binary-format port.
+The implementation is verified against psp's public
+`tests/fixtures/saves/v1_relics/Level.sav`. That fixture contains 2,167
+character entries, 67 character containers, 17 groups and 17 players. A
+clone reparses with all three new references. Deleting that clone restores the
+original uncompressed GVAS bytes exactly.
 
 ## 6. Status summary
 
 | Save file                | Load | Edit existing | Add / clone | Notes |
 |--------------------------|------|---------------|-------------|-------|
 | `GlobalPalStorage.sav`   | ✅   | ✅            | ✅          | Fully supported & round-trip verified |
-| `Level.sav` (world)      | ⛔→✅* | ✅*          | ⚠️          | *with the §5 skip-decode fix; add/clone needs guild handling |
+| `Level.sav` (world)      | ✅   | ✅            | ✅          | Reference-safe import, clone and delete; round-trip verified |
 | `Players/<guid>.sav`     | ✅   | n/a           | n/a         | Loaded for player names in world mode |
 
-The Global Palbox is the tested, recommended path today. World-save support is
-diagnosed and a small change away from loading + editing existing pals; it's
-left off until the trade-offs in §5 are handled.
+Both save paths are supported. Keep the matching `Players` folder beside a
+world save and retain backups of the whole world directory.

@@ -27,7 +27,9 @@ def configure_logging(debug: bool = False):
         )
 
 
-def decompress_sav_to_gvas(data: bytes, debug: bool = False) -> tuple[bytes, int]:
+def decompress_sav_to_gvas(
+        data: bytes, debug: bool = False, max_output_size=None
+) -> tuple[bytes, int]:
     configure_logging(debug)
     format = compressor.check_sav_format(data)
 
@@ -36,9 +38,9 @@ def decompress_sav_to_gvas(data: bytes, debug: bool = False) -> tuple[bytes, int
 
     match format:
         case SaveType.PLZ | SaveType.CNK:
-            return z_lib.decompress(data)
+            return z_lib.decompress(data, max_output_size=max_output_size)
         case SaveType.PLM:
-            return oozlib.decompress(data)
+            return oozlib.decompress(data, max_output_size=max_output_size)
         case _:
             raise Exception("Unknown save format")
 
